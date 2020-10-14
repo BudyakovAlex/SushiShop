@@ -20,5 +20,10 @@
   <ItemGroup>
     <Folder Include="ViewModels\" />
     <Folder Include="IoC\" />
+    <Folder Include="ViewModels\Menu\" />
+    <Folder Include="ViewModels\Profile\" />
+    <Folder Include="ViewModels\Info\" />
+    <Folder Include="ViewModels\Promotions\" />
+    <Folder Include="ViewModels\Cart\" />
   </ItemGroup>
 </Project>

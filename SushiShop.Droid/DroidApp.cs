@@ -6,7 +6,7 @@ using SushiShop.Core;
 
 namespace SushiShop.Droid
 {
-    [Application(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar")]
+    [Application(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class DroidApp : MvxAndroidApplication<Setup, App>
     {
         protected DroidApp(IntPtr javaReference, JniHandleOwnership transfer)

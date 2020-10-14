@@ -70,6 +70,13 @@
     <Compile Include="Setup.cs" />
     <Compile Include="Views\Activities\Abstract\BaseActivity.cs" />
     <Compile Include="Views\Activities\AppStartActivity.cs" />
+    <Compile Include="Views\Activities\MainActivity.cs" />
+    <Compile Include="Views\Controls\NonScrollableViewPager.cs" />
+    <Compile Include="Views\Fragments\Cart\CartFragment.cs" />
+    <Compile Include="Views\Fragments\Info\InfoFragment.cs" />
+    <Compile Include="Views\Fragments\Menu\MenuFragment.cs" />
+    <Compile Include="Views\Fragments\Profile\ProfileFragment.cs" />
+    <Compile Include="Views\Fragments\Promotions\PromotionsFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -133,7 +140,71 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\font\font_family_sf_pro_display_bold.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_main.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_main_tab.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\color\selector_main_tab_tint_color.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_cart.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_info.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_menu.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_profile.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_promotions.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_menu.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_cart.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_info.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_profile.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_promotions.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\font\font_family_sf_pro_display_medium.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\font\font_family_sf_pro_display_regular.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\font\font_family_sf_pro_display_semibold.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -145,6 +216,14 @@
     <Folder Include="Views\Activities\Abstract\" />
     <Folder Include="Resources\layout\" />
     <Folder Include="Resources\font\" />
+    <Folder Include="Views\Controls\" />
+    <Folder Include="Resources\color\" />
+    <Folder Include="Views\Fragments\" />
+    <Folder Include="Views\Fragments\Cart\" />
+    <Folder Include="Views\Fragments\Info\" />
+    <Folder Include="Views\Fragments\Menu\" />
+    <Folder Include="Views\Fragments\Profile\" />
+    <Folder Include="Views\Fragments\Promotions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MvvmCross">
