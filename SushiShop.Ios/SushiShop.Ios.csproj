@@ -78,13 +78,13 @@
         <Version>7.0.1</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.MvvmCross">
-        <Version>1.0.51</Version>
+        <Version>1.0.59</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.Common">
-        <Version>1.0.51</Version>
+        <Version>1.0.59</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.iOS">
-        <Version>1.0.51</Version>
+        <Version>1.0.59</Version>
       </PackageReference>
     </ItemGroup>
     <ItemGroup>
@@ -132,16 +132,28 @@
         </ImageAsset>
         <ImageAsset Include="Assets.xcassets\ic_splash_logo.imageset\Contents.json" />
         <ImageAsset Include="Assets.xcassets\ic_splash_logo.imageset\ic_splash_logo.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_checkmark.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_checkmark.imageset\ic_checkmark.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_back.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_back.imageset\ic_back.pdf" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
         <Folder Include="Views\" />
         <Folder Include="Views\ViewControllers\" />
         <Folder Include="Assets.xcassets\ic_splash_logo.imageset\" />
+        <Folder Include="Views\ViewControllers\Cities\" />
+        <Folder Include="Views\Cells\" />
+        <Folder Include="Assets.xcassets\ic_checkmark.imageset\" />
+        <Folder Include="Sources\" />
+        <Folder Include="Common\" />
+        <Folder Include="Assets.xcassets\ic_back.imageset\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
         <InterfaceDefinition Include="Views\ViewControllers\AppStartViewController.xib" />
+        <InterfaceDefinition Include="Views\ViewControllers\Cities\SelectCityViewController.xib" />
+        <InterfaceDefinition Include="Views\Cells\SelectableItemCell.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Info.plist" />
@@ -155,6 +167,17 @@
         <Compile Include="Views\ViewControllers\AppStartViewController.designer.cs">
           <DependentUpon>AppStartViewController.cs</DependentUpon>
         </Compile>
+        <Compile Include="Views\ViewControllers\Cities\SelectCityViewController.cs" />
+        <Compile Include="Views\ViewControllers\Cities\SelectCityViewController.designer.cs">
+          <DependentUpon>SelectCityViewController.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Cells\SelectableItemCell.cs" />
+        <Compile Include="Views\Cells\SelectableItemCell.designer.cs">
+          <DependentUpon>SelectableItemCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Sources\SelectableTableSource.cs" />
+        <Compile Include="Common\UIHelper.cs" />
+        <Compile Include="Common\ImageNames.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

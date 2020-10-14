@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Regular.otf">
+            <string>SFProDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="48" id="cxk-wN-pdQ" customClass="SelectableItemCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLJ-ng-uTA">
+                        <rect key="frame" x="16" y="11" width="37" height="20.5"/>
+                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                        <color key="textColor" red="0.090196078431372548" green="0.094117647058823528" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="Osq-9M-drO">
+                        <rect key="frame" x="270" y="0.0" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="1Vz-cG-YgF"/>
+                            <constraint firstAttribute="height" constant="50" id="ErR-MO-nPB"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBZ-AQ-Xjg">
+                        <rect key="frame" x="16" y="68" width="304" height="21"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="sT7-rj-HCp"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Osq-9M-drO" secondAttribute="trailing" id="7Nq-4f-xw5"/>
+                    <constraint firstItem="jBZ-AQ-Xjg" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="GQP-7f-ujI"/>
+                    <constraint firstItem="WLJ-ng-uTA" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="KxE-T6-d1c"/>
+                    <constraint firstAttribute="trailing" secondItem="jBZ-AQ-Xjg" secondAttribute="trailing" id="WsZ-Ad-Spd"/>
+                    <constraint firstAttribute="bottom" secondItem="jBZ-AQ-Xjg" secondAttribute="bottom" id="YJS-K4-TEh"/>
+                    <constraint firstItem="Osq-9M-drO" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" id="cnj-gZ-gsB"/>
+                    <constraint firstItem="WLJ-ng-uTA" firstAttribute="centerY" secondItem="YTl-1W-gDM" secondAttribute="centerY" id="eGL-fE-5af"/>
+                    <constraint firstAttribute="bottom" secondItem="Osq-9M-drO" secondAttribute="bottom" id="x2c-zn-PCg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="CheckImageView" destination="Osq-9M-drO" id="nYE-I0-xvc"/>
+                <outlet property="TitleLabel" destination="WLJ-ng-uTA" id="7YP-RT-Y5W"/>
+            </connections>
+            <point key="canvasLocation" x="33.333333333333336" y="24.776785714285712"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_checkmark" width="15" height="13"/>
+    </resources>
+</document>

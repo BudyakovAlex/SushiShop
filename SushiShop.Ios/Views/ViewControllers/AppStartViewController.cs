@@ -5,7 +5,7 @@ using SushiShop.Core.ViewModels;
 namespace SushiShop.Ios.Views.ViewControllers
 {
     [MvxRootPresentation(WrapInNavigationController = false)]
-    public partial class AppStartViewController : ViewControllerBase<AppStartViewModel>
+    public partial class AppStartViewController : BaseViewController<AppStartViewModel>
     {
     }
 }
