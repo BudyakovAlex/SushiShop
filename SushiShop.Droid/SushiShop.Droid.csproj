@@ -165,6 +165,15 @@
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.5.3.2</Version>
     </PackageReference>
+    <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.Android">
+      <Version>1.0.51</Version>
+    </PackageReference>
+    <PackageReference Include="BuildApps.Core.Mobile.Common">
+      <Version>1.0.51</Version>
+    </PackageReference>
+    <PackageReference Include="BuildApps.Core.Mobile.MvvmCross">
+      <Version>1.0.51</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

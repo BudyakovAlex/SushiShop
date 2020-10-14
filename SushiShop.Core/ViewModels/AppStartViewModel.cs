@@ -1,8 +1,8 @@
-﻿using MvvmCross.ViewModels;
+﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 
 namespace SushiShop.Core.ViewModels
 {
-    public class AppStartViewModel : MvxViewModel
+    public class AppStartViewModel : BasePageViewModel
     {
     }
 }

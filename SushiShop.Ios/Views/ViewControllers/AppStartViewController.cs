@@ -1,10 +1,11 @@
-﻿using MvvmCross.Platforms.Ios.Presenters.Attributes;
-using UIKit;
+﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using MvvmCross.Platforms.Ios.Presenters.Attributes;
+using SushiShop.Core.ViewModels;
 
 namespace SushiShop.Ios.Views.ViewControllers
 {
-    [MvxRootPresentation(WrapInNavigationController = true)]
-    public partial class AppStartViewController : UIViewController
+    [MvxRootPresentation(WrapInNavigationController = false)]
+    public partial class AppStartViewController : ViewControllerBase<AppStartViewModel>
     {
     }
 }

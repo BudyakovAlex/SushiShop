@@ -77,6 +77,15 @@
       <PackageReference Include="MvvmCross">
         <Version>7.0.1</Version>
       </PackageReference>
+      <PackageReference Include="BuildApps.Core.Mobile.MvvmCross">
+        <Version>1.0.51</Version>
+      </PackageReference>
+      <PackageReference Include="BuildApps.Core.Mobile.Common">
+        <Version>1.0.51</Version>
+      </PackageReference>
+      <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.iOS">
+        <Version>1.0.51</Version>
+      </PackageReference>
     </ItemGroup>
     <ItemGroup>
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -121,11 +130,14 @@
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
             <Visible>false</Visible>
         </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\ic_splash_logo.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_splash_logo.imageset\ic_splash_logo.pdf" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
         <Folder Include="Views\" />
         <Folder Include="Views\ViewControllers\" />
+        <Folder Include="Assets.xcassets\ic_splash_logo.imageset\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />

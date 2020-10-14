@@ -13,8 +13,12 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MvvmCross" Version="7.0.1" />
+    <PackageReference Include="BuildApps.Core.Mobile.Plugin.Connectivity" Version="1.0.51" />
+    <PackageReference Include="BuildApps.Core.Mobile.MvvmCross" Version="1.0.51" />
+    <PackageReference Include="BuildApps.Core.Mobile.Common" Version="1.0.51" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
+    <Folder Include="IoC\" />
   </ItemGroup>
 </Project>
