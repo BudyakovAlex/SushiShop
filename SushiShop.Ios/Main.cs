@@ -4,7 +4,7 @@ namespace SushiShop.Ios
 {
     public class Application
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             UIApplication.Main(args, null, nameof(AppDelegate));
         }

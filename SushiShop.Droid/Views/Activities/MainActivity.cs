@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using Android.App;
+﻿using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using Google.Android.Material.Tabs;
 using SushiShop.Core.ViewModels;
 using SushiShop.Droid.Views.Activities.Abstract;
+using System.Threading.Tasks;
 
 namespace SushiShop.Droid.Views.Activities
 {

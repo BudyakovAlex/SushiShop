@@ -1,8 +1,8 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Runtime;
 using MvvmCross.Platforms.Android.Views;
 using SushiShop.Core;
+using System;
 
 namespace SushiShop.Droid
 {

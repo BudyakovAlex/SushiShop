@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cart;
@@ -7,6 +6,7 @@ using SushiShop.Core.ViewModels.Info;
 using SushiShop.Core.ViewModels.Menu;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Core.ViewModels.Promotions;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels
 {

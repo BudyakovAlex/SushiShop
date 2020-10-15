@@ -18,10 +18,8 @@
     <PackageReference Include="BuildApps.Core.Mobile.Common" Version="1.0.59" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
     <Folder Include="IoC\" />
     <Folder Include="ViewModels\Abstract\" />
-    <Folder Include="ViewModels\Menu\" />
     <Folder Include="ViewModels\Profile\" />
     <Folder Include="ViewModels\Info\" />
     <Folder Include="ViewModels\Promotions\" />
@@ -30,7 +28,6 @@
     <Folder Include="Resources\" />
     <Folder Include="ViewModels\Cities\" />
     <Folder Include="ViewModels\Cities\Items\" />
-    <Folder Include="Models\" />
     <Folder Include="NavigationParameters\Abstract\" />
   </ItemGroup>
   <ItemGroup>
