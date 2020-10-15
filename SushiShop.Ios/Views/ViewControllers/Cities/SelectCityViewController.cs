@@ -10,17 +10,14 @@ using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Cities
 {
-    [MvxModalPresentation(Animated = true,
-     ModalPresentationStyle = UIModalPresentationStyle.OverFullScreen,
-     WrapInNavigationController = true)]
+    [MvxModalPresentation(
+        WrapInNavigationController = true,
+        Animated = true,
+        ModalPresentationStyle = UIModalPresentationStyle.OverFullScreen)]
     public partial class SelectCityViewController : BaseViewController<SelectCityViewModel>
     {
         private SelectableTableSource source;
         private UIButton backButton;
-
-        public SelectCityViewController() : base("SelectCityViewController", null)
-        {
-        }
 
         protected override void InitStylesAndContent()
         {
