@@ -183,8 +183,8 @@
         <InterfaceDefinition Include="Views\ViewControllers\Cart\CartViewController.xib" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Info.plist" />
         <None Include="Entitlements.plist" />
+        <None Include="Info.plist" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Main.cs" />
@@ -233,6 +233,7 @@
         <Compile Include="Common\Styles\Appearance.cs" />
         <Compile Include="Common\Font.cs" />
         <Compile Include="Common\Styles\TabBarStyles.cs" />
+        <Compile Include="LinkerPleaseInclude.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
