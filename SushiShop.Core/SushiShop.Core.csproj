@@ -29,6 +29,8 @@
     <Folder Include="ViewModels\Cities\" />
     <Folder Include="ViewModels\Cities\Items\" />
     <Folder Include="NavigationParameters\Abstract\" />
+    <Folder Include="Data\" />
+    <Folder Include="Data\Enums\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">

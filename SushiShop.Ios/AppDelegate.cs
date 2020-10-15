@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using MvvmCross.Platforms.Ios.Core;
 using SushiShop.Core;
+using SushiShop.Ios.Common.Styles;
 using UIKit;
 
 namespace SushiShop.Ios
@@ -10,9 +11,11 @@ namespace SushiShop.Ios
     {
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            var result = base.FinishedLaunching(application, launchOptions);
-            UINavigationBar.Appearance.BarTintColor = UIColor.White;
-            return result;
+            base.FinishedLaunching(application, launchOptions);
+
+            Appearance.SetGlobalAppearance();
+
+            return true;
         }
     }
 }
