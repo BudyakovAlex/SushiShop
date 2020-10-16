@@ -16,6 +16,7 @@
     <PackageReference Include="BuildApps.Core.Mobile.Plugin.Connectivity" Version="1.0.59" />
     <PackageReference Include="BuildApps.Core.Mobile.MvvmCross" Version="1.0.59" />
     <PackageReference Include="BuildApps.Core.Mobile.Common" Version="1.0.59" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IoC\" />
@@ -31,6 +32,16 @@
     <Folder Include="NavigationParameters\Abstract\" />
     <Folder Include="Data\" />
     <Folder Include="Data\Enums\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Http\" />
+    <Folder Include="Data\Http\" />
+    <Folder Include="Services\Http\Shop\" />
+    <Folder Include="Data\Models\" />
+    <Folder Include="Data\Dtos\" />
+    <Folder Include="Data\Dtos\Menu\" />
+    <Folder Include="Mappers\" />
+    <Folder Include="Data\Models\Menu\" />
+    <Folder Include="Data\Dtos\Sticker\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">

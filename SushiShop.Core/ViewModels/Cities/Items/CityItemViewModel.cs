@@ -1,5 +1,5 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Simple;
-using SushiShop.Core.Models;
+using SushiShop.Core.Data.Models;
 
 namespace SushiShop.Core.ViewModels.Cities.Items
 {

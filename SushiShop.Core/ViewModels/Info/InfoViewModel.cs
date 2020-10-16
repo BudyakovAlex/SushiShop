@@ -4,6 +4,6 @@ namespace SushiShop.Core.ViewModels.Info
 {
     public class InfoViewModel : BasePageViewModel
     {
-        public string Content { get; }
+        public string? Content { get; }
     }
 }

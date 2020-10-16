@@ -48,17 +48,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Cities
             navigationItem.Title = AppStrings.SelectSity;
         }
 
-        protected override void DoViewWillAppear(bool animated)
-        {
-            base.DoViewWillAppear(animated);
-            if (NavigationController is null)
-            {
-                return;
-            }
-
-            NavigationController.NavigationBar.ShadowImage = new UIImage();
-        }
-
         private void InitTableView()
         {
             source = new SelectableTableSource(SearchResultTableView);

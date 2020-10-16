@@ -1,7 +1,7 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
-using SushiShop.Core.Models;
+using SushiShop.Core.Data.Models;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Menu.Items

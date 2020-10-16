@@ -1,14 +1,15 @@
-﻿namespace SushiShop.Core.Models
+﻿namespace SushiShop.Core.Data.Models
 {
     public class City
     {
-        public City(int id,
-                    string name,
-                    int shopsCount,
-                    double latitude,
-                    double longitude,
-                    string phoneNumber,
-                    string timeZone)
+        public City(
+            int id,
+            string name,
+            int shopsCount,
+            double latitude,
+            double longitude,
+            string phoneNumber,
+            string timeZone)
         {
             Id = id;
             Name = name;

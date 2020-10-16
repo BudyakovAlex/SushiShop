@@ -1,4 +1,4 @@
-﻿namespace SushiShop.Core.Models
+﻿namespace SushiShop.Core.Data.Models
 {
     public class MenuItem
     {
