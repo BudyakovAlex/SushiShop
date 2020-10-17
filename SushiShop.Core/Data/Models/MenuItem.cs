@@ -9,7 +9,6 @@
         }
 
         public string Title { get; }
-
         public string ImageUri { get; }
     }
 }

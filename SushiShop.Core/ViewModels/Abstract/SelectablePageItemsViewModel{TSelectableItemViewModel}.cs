@@ -9,16 +9,15 @@ using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Abstract
 {
-    public abstract class SelectablePageItemsViewModel<TSelectableItemViewModel, TNavigationParameters, Tkey>
-        : BaseItemsPageViewModel<TSelectableItemViewModel, TNavigationParameters, List<TSelectableItemViewModel>>
-        where TSelectableItemViewModel : SelectableItemViewModel<Tkey>
-        where TNavigationParameters : SelectablePageNavigationParameters<Tkey>
+    public abstract class SelectablePageItemsViewModel<TSelectableItemViewModel, TNavigationParameters, TKey>
+        : BaseItemsPageViewModel<TSelectableItemViewModel, TNavigationParameters, List<TSelectableItemViewModel>?>
+        where TSelectableItemViewModel : SelectableItemViewModel<TKey>
+        where TNavigationParameters : SelectablePageNavigationParameters<TKey>
     {
-        private List<Tkey> selectedItemsIds;
+        private readonly List<TKey> selectedItemsIds = new List<TKey>();
 
         public SelectablePageItemsViewModel()
         {
-            selectedItemsIds = new List<Tkey>();
             OriginalSource = new List<TSelectableItemViewModel>();
 
             CloseWithSelectedDataCommand = new SafeAsyncCommand(ExecutionStateWrapper, CloseWithSelectedDataAsync);
@@ -53,7 +52,7 @@ namespace SushiShop.Core.ViewModels.Abstract
 
         public override void Prepare(TNavigationParameters parameter)
         {
-            selectedItemsIds.AddRange(parameter.SelectedItemsIds ?? new List<Tkey>());
+            selectedItemsIds.AddRange(parameter.SelectedItemsIds);
             IsSingleSelection = parameter.IsSingleSelection;
             IsSearchAvailable = parameter.IsSearchAvailable;
         }
@@ -66,7 +65,7 @@ namespace SushiShop.Core.ViewModels.Abstract
             Items.AddRange(OriginalSource);
         }
 
-        protected abstract Task<List<TSelectableItemViewModel>> LoadDataAsync(List<Tkey> selectedItemId);
+        protected abstract Task<List<TSelectableItemViewModel>> LoadDataAsync(List<TKey> selectedItemId);
 
         protected virtual async Task OnItemSelectedAsync(TSelectableItemViewModel item)
         {
