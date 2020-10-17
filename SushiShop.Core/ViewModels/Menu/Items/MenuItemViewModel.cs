@@ -13,11 +13,11 @@ namespace SushiShop.Core.ViewModels.Menu.Items
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
 
             Title = menuItem.Title;
-            ImageUri = menuItem.ImageUri;
+            ImageUrl = menuItem.ImageUri;
         }
 
         public string Title { get; }
-        public string ImageUri { get; }
+        public string ImageUrl { get; }
         public IMvxCommand ShowDetailsCommand { get; }
 
         private Task ShowDetailsAsync()
