@@ -42,6 +42,12 @@
     <Folder Include="Mappers\" />
     <Folder Include="Data\Models\Menu\" />
     <Folder Include="Data\Dtos\Sticker\" />
+    <Folder Include="Data\Dtos\City\" />
+    <Folder Include="Services\Http\Cities\" />
+    <Folder Include="Common\" />
+    <Folder Include="Managers\" />
+    <Folder Include="Managers\Cities\" />
+    <Folder Include="Data\Dtos\Common\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">

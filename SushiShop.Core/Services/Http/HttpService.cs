@@ -1,9 +1,8 @@
-﻿using System;
+﻿using SushiShop.Core.Data.Http;
+using System;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
-using SushiShop.Core.Data.Http;
 
 namespace SushiShop.Core.Services.Http
 {
