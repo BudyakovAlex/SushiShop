@@ -2,7 +2,6 @@
 {
     public enum StickerType
     {
-        Unknown,
         Hit,
         Hot,
         New,

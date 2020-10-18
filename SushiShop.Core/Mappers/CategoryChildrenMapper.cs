@@ -8,7 +8,7 @@ namespace SushiShop.Core.Mappers
     {
         public static CategoryChildren Map(this CategoryChildrenDto dto) =>
             new CategoryChildren(
-                dto.Ids,
-                dto.SubCategories.Select(x => x.Map()).ToArray());
+                dto.Ids!,
+                dto.SubCategories!.Select(x => x.Map()).ToArray());
     }
 }

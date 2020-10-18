@@ -2,17 +2,8 @@
 {
     public class CategoryIconDto
     {
-        public CategoryIconDto(string original, string jpg, string webp)
-        {
-            Original = original;
-            Jpg = jpg;
-            Webp = webp;
-        }
-
-        public string Original { get; }
-
-        public string Jpg { get; }
-
-        public string Webp { get; }
+        public string? Original { get; set; }
+        public string? Jpg { get; set; }
+        public string? Webp { get; set; }
     }
 }

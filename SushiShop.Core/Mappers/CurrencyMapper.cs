@@ -7,7 +7,8 @@ namespace SushiShop.Core.Mappers
     {
         public static Currency Map(this CurrencyDto currencyDto)
         {
-            return new Currency(currencyDto.Code,
+            return new Currency(
+                currencyDto.Code,
                 currencyDto.Symbol,
                 currencyDto.Decimals);
         }

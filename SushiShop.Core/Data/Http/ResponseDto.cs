@@ -2,9 +2,9 @@
 
 namespace SushiShop.Core.Data.Http
 {
-    public class RawResponse
+    public class ResponseDto
     {
-        public RawResponse(bool isSuccessful, string[]? errors)
+        public ResponseDto(bool isSuccessful, string[]? errors)
         {
             IsSuccessful = isSuccessful;
             Errors = errors;
@@ -16,16 +16,15 @@ namespace SushiShop.Core.Data.Http
         public string[]? Errors { get; }
     }
 
-    public class RawResponse<TData> : RawResponse
+    public class ResponseDto<TData> : ResponseDto
         where TData : class
     {
-        public RawResponse(bool isSuccessful, string[]? errors, TData? data)
+        public ResponseDto(bool isSuccessful, string[]? errors, TData? successData)
             : base(isSuccessful, errors)
         {
-            Data = data;
+            SuccessData = successData;
         }
 
-        [JsonProperty("successData")]
-        public TData? Data { get; }
+        public TData? SuccessData { get; }
     }
 }

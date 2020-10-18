@@ -22,9 +22,9 @@ namespace SushiShop.Core.ViewModels.Cities
 
         protected override async Task<List<CityItemViewModel>> LoadDataAsync(List<int> selectedItemId)
         {
-            var cities = await citiesManager.GetCitiesAsync();
-            var viewModels = cities?.Select(city => new CityItemViewModel(city))?.ToList() ?? new List<CityItemViewModel>();
-            return viewModels;
+            var response = await citiesManager.GetCitiesAsync();
+            var items = response.Data.Select(city => new CityItemViewModel(city)).ToList();
+            return items;
         }
     }
 }

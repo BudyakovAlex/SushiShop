@@ -8,7 +8,7 @@ namespace SushiShop.Core.Mappers
     {
         public static Menu Map(this MenuDto dto) =>
             new Menu(
-                dto.Categories.Select(x => x.Map()).ToArray(),
-                dto.Stickers.Map());
+                dto.Categories!.Select(x => x.Map()).ToArray(),
+                dto.Stickers!.Map());
     }
 }

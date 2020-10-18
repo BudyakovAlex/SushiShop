@@ -10,16 +10,16 @@ namespace SushiShop.Core.Mappers
         {
             return new Category(
                 dto.Id,
-                dto.PageTitle,
-                dto.LongTitle,
-                dto.Alias,
-                dto.IntroText,
-                dto.Content,
+                dto.PageTitle!,
+                dto.LongTitle!,
+                dto.Alias!,
+                dto.IntroText!,
+                dto.Content!,
                 DateTimeOffset.FromUnixTimeSeconds(dto.CreatedOn),
                 dto.MenuIndex,
                 dto.ItemsCount,
-                dto.CategotyIcon?.Map(),
-                dto.Childrens?.Map());
+                dto.CategoryIcon?.Map(),
+                dto.Children?.Map());
         }
     }
 }

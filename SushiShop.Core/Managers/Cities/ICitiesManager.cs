@@ -1,10 +1,11 @@
-﻿using SushiShop.Core.Data.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using SushiShop.Core.Data.Http;
+using SushiShop.Core.Data.Models;
 
 namespace SushiShop.Core.Managers.Cities
 {
     public interface ICitiesManager
     {
-        Task<City[]> GetCitiesAsync();
+        Task<Response<City[]>> GetCitiesAsync();
     }
 }

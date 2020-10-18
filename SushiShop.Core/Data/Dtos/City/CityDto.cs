@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Common;
-using SushiShop.Core.Data.Enums;
 
 namespace SushiShop.Core.Data.Dtos.City
 {
@@ -14,7 +13,7 @@ namespace SushiShop.Core.Data.Dtos.City
         public double Longitude { get; set; }
         [JsonProperty("Timezone")]
         public string? TimeZone { get; set; }
-        public PriceGroup PriceGroup { get; set; }
+        public string? PriceGroup { get; set; }
         public string? Phone { get; set; }
         public string? CityGroups { get; set; }
         public CurrencyDto? Currency { get; set; }

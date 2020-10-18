@@ -1,9 +1,10 @@
-﻿using SushiShop.Core.Data.Models;
+﻿using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using SushiShop.Core.Data.Http;
+using SushiShop.Core.Data.Models;
 using SushiShop.Core.Mappers;
 using SushiShop.Core.Services.Http.Cities;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SushiShop.Core.Managers.Cities
 {
@@ -16,11 +17,18 @@ namespace SushiShop.Core.Managers.Cities
             this.citiesService = citiesService;
         }
 
-        public async Task<City[]> GetCitiesAsync()
+        public async Task<Response<City[]>> GetCitiesAsync()
         {
-            var response = await citiesService.GetCitiesAsync();
-            var models = response?.Data?.Select(dto => dto.Map())?.ToArray() ?? Array.Empty<City>();
-            return models;
+            var response = await citiesService.GetCitiesAsync(CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData!.Select(x => x.Map()).ToArray();
+                return new Response<City[]>(isSuccessful: true, data);
+            }
+            else
+            {
+                return new Response<City[]>(isSuccessful: false, new City[0]);
+            }
         }
     }
 }

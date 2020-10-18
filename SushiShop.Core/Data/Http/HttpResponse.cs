@@ -1,47 +1,67 @@
 ﻿using System;
 using System.Net;
-using System.Runtime.CompilerServices;
 
 namespace SushiShop.Core.Data.Http
 {
-    public enum HttpResponseStatus
+    public class HttpResponse<T> : HttpResponse
+        where T : class
     {
-        Success,
-        Error,
-        TimedOut
+        protected HttpResponse(
+            HttpResponseStatus responseStatus,
+            string? rawData,
+            Exception? exception,
+            HttpStatusCode? statusCode,
+            T? data)
+            : base(responseStatus, rawData, exception, statusCode)
+        {
+            Data = data;
+        }
+
+        public T? Data { get; }
+
+        public static HttpResponse<T> Success(T data) =>
+            new HttpResponse<T>(HttpResponseStatus.Success, rawData: null, exception: null, statusCode: null, data);
+
+        public static HttpResponse<T> ParseError(Exception? exception, string? rawData, HttpStatusCode? statusCode) =>
+            new HttpResponse<T>(HttpResponseStatus.ParseError, rawData, exception, statusCode, data: null);
+
+        public static new HttpResponse<T> Error(Exception? exception, HttpStatusCode? statusCode) =>
+            new HttpResponse<T>(HttpResponseStatus.Error, rawData: null, exception, statusCode, null);
+
+        public static new HttpResponse<T> TimedOut() =>
+            new HttpResponse<T>(HttpResponseStatus.TimedOut, rawData: null, exception: null, statusCode: null, data: null);
     }
 
-    public readonly struct HttpResponse
+    public class HttpResponse
     {
-        private HttpResponse(HttpResponseStatus responseStatus, string? data, Exception? exception, HttpStatusCode? statusCode)
+        protected HttpResponse(HttpResponseStatus responseStatus, string? rawData, Exception? exception, HttpStatusCode? statusCode)
         {
             ResponseStatus = responseStatus;
-            Data = data;
+            RawData = rawData;
             Exception = exception;
             StatusCode = statusCode;
         }
 
-        public readonly HttpResponseStatus ResponseStatus { get; }
+        public HttpResponseStatus ResponseStatus { get; }
 
-        public readonly string? Data { get; }
+        public string? RawData { get; }
 
-        public readonly Exception? Exception { get; }
+        public Exception? Exception { get; }
 
-        public readonly HttpStatusCode? StatusCode { get; }
+        public HttpStatusCode? StatusCode { get; }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static HttpResponse Success(string? data, HttpStatusCode statusCode)
-            => new HttpResponse(HttpResponseStatus.Success, data, exception: null, statusCode);
+        public bool IsSuccessful => ResponseStatus == HttpResponseStatus.Success;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static HttpResponse Success(string rawData, HttpStatusCode statusCode)
+            => new HttpResponse(HttpResponseStatus.Success, rawData, exception: null, statusCode);
+
         public static HttpResponse Error(Exception? exception, HttpStatusCode? statusCode)
-            => new HttpResponse(HttpResponseStatus.Error, data: null, exception, statusCode);
+            => new HttpResponse(HttpResponseStatus.Error, rawData: null, exception, statusCode);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static HttpResponse TimedOut() =>
-            new HttpResponse(HttpResponseStatus.TimedOut, data: null, exception: null, statusCode: null);
+            new HttpResponse(HttpResponseStatus.TimedOut, rawData: null, exception: null, statusCode: null);
 
-        public readonly override string ToString() =>
+        public override string ToString() =>
             $"Response status: {ResponseStatus}, status code: {StatusCode}, exception message: {Exception?.Message}";
     }
 }

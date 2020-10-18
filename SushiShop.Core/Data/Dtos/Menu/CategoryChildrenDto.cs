@@ -2,14 +2,7 @@
 {
     public class CategoryChildrenDto
     {
-        public CategoryChildrenDto(int[] ids, CategoryDto[] subCategories)
-        {
-            Ids = ids;
-            SubCategories = subCategories;
-        }
-
-        public int[] Ids { get; }
-
-        public CategoryDto[] SubCategories { get; }
+        public int[]? Ids { get; set; }
+        public CategoryDto[]? SubCategories { get; set; }
     }
 }
