@@ -1,53 +1,21 @@
-﻿namespace SushiShop.Core.Data.Dtos.Menu
+﻿using Newtonsoft.Json;
+
+namespace SushiShop.Core.Data.Dtos.Menu
 {
     public class CategoryDto
     {
-        public CategoryDto(
-            int id,
-            string pageTitle,
-            string longTitle,
-            string alias,
-            string introText,
-            string content,
-            int createdOn,
-            int menuIndex,
-            int itemsCount,
-            CategoryIconDto? categotyIcon,
-            CategoryChildrenDto? childrens)
-        {
-            Id = id;
-            PageTitle = pageTitle;
-            LongTitle = longTitle;
-            Alias = alias;
-            IntroText = introText;
-            Content = content;
-            CreatedOn = createdOn;
-            MenuIndex = menuIndex;
-            ItemsCount = itemsCount;
-            CategotyIcon = categotyIcon;
-            Childrens = childrens;
-        }
-
-        public int Id { get; }
-
-        public string PageTitle { get; }
-
-        public string LongTitle { get; }
-
-        public string Alias { get; }
-
-        public string IntroText { get; }
-
-        public string Content { get; }
-
-        public int CreatedOn { get; }
-
-        public int MenuIndex { get; }
-
-        public int ItemsCount { get; }
-
-        public CategoryIconDto? CategotyIcon { get; }
-
-        public CategoryChildrenDto? Childrens { get; }
+        public int Id { get; set; }
+        public string? PageTitle { get; set; }
+        public string? LongTitle { get; set; }
+        public string? Alias { get; set; }
+        public string? IntroText { get; set; }
+        public string? Content { get; set; }
+        public int CreatedOn { get; set; }
+        public int MenuIndex { get; set; }
+        public int ItemsCount { get; set; }
+        [JsonProperty("categotyIcon")]
+        public CategoryIconDto? CategoryIcon { get; set; }
+        [JsonProperty("childrens")]
+        public CategoryChildrenDto? Children { get; set; }
     }
 }

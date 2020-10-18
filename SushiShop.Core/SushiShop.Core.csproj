@@ -35,7 +35,7 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Http\" />
     <Folder Include="Data\Http\" />
-    <Folder Include="Services\Http\Shop\" />
+    <Folder Include="Services\Http\Menu\" />
     <Folder Include="Data\Models\" />
     <Folder Include="Data\Dtos\" />
     <Folder Include="Data\Dtos\Menu\" />
@@ -49,6 +49,7 @@
     <Folder Include="Managers\Cities\" />
     <Folder Include="Data\Dtos\Common\" />
     <Folder Include="Converters\" />
+    <Folder Include="Managers\Menu\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">

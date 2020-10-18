@@ -1,17 +1,11 @@
-﻿using SushiShop.Core.Data.Dtos.Sticker;
+﻿using System.Collections.Generic;
+using SushiShop.Core.Data.Dtos.Sticker;
 
 namespace SushiShop.Core.Data.Dtos.Menu
 {
     public class MenuDto
     {
-        public MenuDto(CategoryDto[] categories, StickersDto stickers)
-        {
-            Categories = categories;
-            Stickers = stickers;
-        }
-
-        public CategoryDto[] Categories { get; }
-
-        public StickersDto Stickers { get; }
+        public CategoryDto[]? Categories { get; set; }
+        public Dictionary<string, StickerDto>? Stickers { get; set; }
     }
 }

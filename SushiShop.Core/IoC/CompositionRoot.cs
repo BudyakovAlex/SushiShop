@@ -1,7 +1,8 @@
 ﻿using SushiShop.Core.Managers.Cities;
+using SushiShop.Core.Managers.Menu;
 using SushiShop.Core.Services.Http;
 using SushiShop.Core.Services.Http.Cities;
-using SushiShop.Core.Services.Http.Shop;
+using SushiShop.Core.Services.Http.Menu;
 
 namespace SushiShop.Core.IoC
 {
@@ -14,12 +15,13 @@ namespace SushiShop.Core.IoC
         protected override void RegisterManagers()
         {
             Container.RegisterSingleton<ICitiesManager, CitiesManager>();
+            Container.RegisterSingleton<IMenuManager, MenuManager>();
         }
 
         protected override void RegisterServices()
         {
             Container.RegisterSingleton<IHttpService, HttpService>();
-            Container.RegisterSingleton<IShopService, ShopService>();
+            Container.RegisterSingleton<IMenuService, MenuService>();
             Container.RegisterSingleton<ICitiesService, CitiesService>();
         }
     }

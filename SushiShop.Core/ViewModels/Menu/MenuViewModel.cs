@@ -5,6 +5,7 @@ using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Models;
+using SushiShop.Core.Managers.Menu;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Cities;
 using SushiShop.Core.ViewModels.Cities.Items;
@@ -17,10 +18,14 @@ namespace SushiShop.Core.ViewModels.Menu
 {
     public class MenuViewModel : BasePageViewModel
     {
+        private readonly IMenuManager menuManager;
+
         private City? city;
 
-        public MenuViewModel()
+        public MenuViewModel(IMenuManager menuManager)
         {
+            this.menuManager = menuManager;
+
             Items = new MvxObservableCollection<MenuItemViewModel>();
             SimpleItems = new MvxObservableCollection<MenuItemViewModel>();
 
@@ -55,8 +60,11 @@ namespace SushiShop.Core.ViewModels.Menu
             await Task.WhenAll(base.InitializeAsync(), ReloadDataAsync());
         }
 
-        private Task ReloadDataAsync()
+        private async Task ReloadDataAsync()
         {
+            // TODO: 
+            var response = await menuManager.GetMenuAsync(city?.Name);
+
             Items.AddRange(
                new List<MenuItemViewModel>
                {
@@ -76,7 +84,7 @@ namespace SushiShop.Core.ViewModels.Menu
                     new MenuItemViewModel(new MenuItem("Бизнес ланчи", "https://gurmans.dp.ua/giuseppe/7980-large_default/sushi-set-kaliforniya.jpg")),
                 });
 
-            return Task.CompletedTask;
+            //return Task.CompletedTask;
         }
 
         private async Task SelectCityAsync()

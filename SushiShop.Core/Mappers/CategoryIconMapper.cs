@@ -6,6 +6,6 @@ namespace SushiShop.Core.Mappers
     public static class CategoryIconMapper
     {
         public static CategoryIcon Map(this CategoryIconDto dto) =>
-            new CategoryIcon(dto.Original, dto.Jpg, dto.Webp);
+            new CategoryIcon(dto.Original!, dto.Jpg!, dto.Webp!);
     }
 }

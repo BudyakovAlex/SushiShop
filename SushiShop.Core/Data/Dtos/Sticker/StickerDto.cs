@@ -2,14 +2,7 @@
 {
     public class StickerDto
     {
-        public StickerDto(string value, int itemsCount)
-        {
-            Value = value;
-            ItemsCount = itemsCount;
-        }
-
-        public string Value { get; }
-
-        public int ItemsCount { get; }
+        public string? Value { get; set; }
+        public int ItemsCount { get; set; }
     }
 }

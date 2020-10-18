@@ -4,6 +4,9 @@
     {
         Moscow,
         SaintPetersburg,
-        SmallCitySpb
+        SmallCitySpb,
+        SmallCityMsk,
+        Azerbaijan,
+        Belarus
     }
 }
