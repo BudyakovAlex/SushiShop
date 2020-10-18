@@ -6,5 +6,10 @@
         {
             public const string CitiesResource = "cities";
         }
+
+        public static class Menu
+        {
+            public const string DefaultCityName = "Санкт-Петербург";
+        }
     }
 }

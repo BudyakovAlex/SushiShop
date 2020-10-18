@@ -9,5 +9,9 @@
         public const string CartTabIcon = "ic_cart_tab";
         public const string ProfileTabIcon = "ic_profile_tab";
         public const string InfoTabIcon = "ic_info_tab";
+
+        public const string MenuList = "ic_menu_list";
+        public const string MenuTiles = "ic_menu_tiles";
+        public const string ChevronDown = "ic_chevron_down";
     }
 }

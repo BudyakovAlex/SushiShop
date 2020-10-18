@@ -146,6 +146,12 @@
         <ImageAsset Include="Assets.xcassets\ic_cart_tab.imageset\ic_cart.pdf" />
         <ImageAsset Include="Assets.xcassets\ic_profile_tab.imageset\Contents.json" />
         <ImageAsset Include="Assets.xcassets\ic_profile_tab.imageset\ic_profile.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_menu_list.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_menu_list.imageset\ic_menu_list.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_menu_tiles.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_menu_tiles.imageset\ic_menu_tiles.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_chevron_down.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_chevron_down.imageset\ic_chevron_down.pdf" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
@@ -169,6 +175,12 @@
         <Folder Include="Assets.xcassets\ic_cart_tab.imageset\" />
         <Folder Include="Assets.xcassets\ic_profile_tab.imageset\" />
         <Folder Include="Common\Styles\" />
+        <Folder Include="Assets.xcassets\ic_menu_list.imageset\" />
+        <Folder Include="Assets.xcassets\ic_menu_tiles.imageset\" />
+        <Folder Include="TargetBindings\" />
+        <Folder Include="Extensions\" />
+        <Folder Include="Converters\" />
+        <Folder Include="Assets.xcassets\ic_chevron_down.imageset\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -234,6 +246,10 @@
         <Compile Include="Common\Font.cs" />
         <Compile Include="Common\Styles\TabBarStyles.cs" />
         <Compile Include="LinkerPleaseInclude.cs" />
+        <Compile Include="TargetBindings\UIButtonImageTargetBinding.cs" />
+        <Compile Include="Common\BindingConstants.cs" />
+        <Compile Include="Extensions\BindingExtensions.cs" />
+        <Compile Include="Converters\BootToUIImageConverter.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

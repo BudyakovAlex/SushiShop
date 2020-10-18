@@ -3,6 +3,7 @@ using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
+using SushiShop.Core.Common;
 using SushiShop.Core.Data.Models;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Cities;
@@ -47,6 +48,8 @@ namespace SushiShop.Core.ViewModels.Menu
             set => SetProperty(ref isListMenuPresentation, value);
         }
 
+        public string CityName => city?.Name ?? Constants.Menu.DefaultCityName;
+
         public override async Task InitializeAsync()
         {
             await Task.WhenAll(base.InitializeAsync(), ReloadDataAsync());
@@ -86,6 +89,7 @@ namespace SushiShop.Core.ViewModels.Menu
             }
 
             city = result.First().City;
+            await RaisePropertyChanged(nameof(CityName));
         }
 
         private Task SelectBannerItemAsync()
