@@ -49,6 +49,7 @@
     <Folder Include="Managers\Cities\" />
     <Folder Include="Data\Dtos\Common\" />
     <Folder Include="Converters\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">

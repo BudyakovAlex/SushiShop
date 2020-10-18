@@ -181,6 +181,7 @@
         <Folder Include="Extensions\" />
         <Folder Include="Converters\" />
         <Folder Include="Assets.xcassets\ic_chevron_down.imageset\" />
+        <Folder Include="Views\Cells\Menu\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -193,6 +194,8 @@
         <InterfaceDefinition Include="Views\ViewControllers\Menu\MenuViewController.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\Info\InfoViewController.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\Cart\CartViewController.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuItemCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuGroupCell.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Entitlements.plist" />
@@ -250,6 +253,16 @@
         <Compile Include="Common\BindingConstants.cs" />
         <Compile Include="Extensions\BindingExtensions.cs" />
         <Compile Include="Converters\BootToUIImageConverter.cs" />
+        <Compile Include="Sources\SimpleListMenuCollectionViewSource.cs" />
+        <Compile Include="Sources\SimpleListMenuCollectionDelegateFlowLayout.cs" />
+        <Compile Include="Views\Cells\Menu\SimpleMenuItemCell.cs" />
+        <Compile Include="Views\Cells\Menu\SimpleMenuItemCell.designer.cs">
+          <DependentUpon>SimpleMenuItemCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Cells\Menu\SimpleMenuGroupCell.cs" />
+        <Compile Include="Views\Cells\Menu\SimpleMenuGroupCell.designer.cs">
+          <DependentUpon>SimpleMenuGroupCell.cs</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
