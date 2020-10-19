@@ -1,10 +1,9 @@
-﻿using System.Threading.Tasks;
-using CoreLocation;
-using MvvmCross.Platforms.Ios.Presenters.Attributes;
+﻿using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using MvvmCross.Platforms.Ios.Views;
 using SushiShop.Core.ViewModels;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Common.Styles;
+using System.Threading.Tasks;
 using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers
@@ -23,17 +22,6 @@ namespace SushiShop.Ios.Views.ViewControllers
                 isInitialized = true;
                 Initialize();
             }
-        }
-
-        public override void ViewDidAppear(bool animated)
-        {
-            base.ViewDidAppear(animated);
-            var locationManager = new CLLocationManager
-            {
-                AllowsBackgroundLocationUpdates = false
-            };
-
-            locationManager.RequestWhenInUseAuthorization();
         }
 
         private void Initialize()

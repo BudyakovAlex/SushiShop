@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="280" height="190"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rLf-F5-FJA" customClass="MvxStackView">
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rLf-F5-FJA" customClass="MvxStackView">
                         <rect key="frame" x="66" y="-10" width="110" height="200"/>
                     </stackView>
                 </subviews>

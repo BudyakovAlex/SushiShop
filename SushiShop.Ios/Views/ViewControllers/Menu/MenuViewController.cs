@@ -1,4 +1,5 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using CoreLocation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
@@ -9,7 +10,9 @@ using SushiShop.Ios.Common;
 using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Menu;
+using System;
 using UIKit;
+using Xamarin.Essentials;
 
 namespace SushiShop.Ios.Views.ViewControllers.Menu
 {
@@ -26,6 +29,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             base.InitStylesAndContent();
             InitializeCollectionView();
             InitializeSimpleListCollectionView();
+        }
+
+        public bool IsInitialized
+        {
+            set => RequestLocationPermissions(value);
         }
 
         protected override void InitNavigationItem(UINavigationItem navigationItem)
@@ -53,8 +61,28 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             bindingSet.Bind(CollectionView).For(v => v.BindHidden()).To(vm => vm.IsListMenuPresentation);
             bindingSet.Bind(SimpleListCollectionView).For(v => v.BindVisible()).To(vm => vm.IsListMenuPresentation);
             bindingSet.Bind(simpleListCollectionViewSource).For(v => v.ItemsSource).To(vm => vm.SimpleItems);
+            bindingSet.Bind(LoadingIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
+            bindingSet.Bind(this).For(nameof(IsInitialized)).To(vm => vm.IsInitialized);
 
             bindingSet.Apply();
+        }
+
+        private void RequestLocationPermissions(bool isInitialized)
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                if (!isInitialized)
+                {
+                    return;
+                }
+
+                var locationManager = new CLLocationManager
+                {
+                    AllowsBackgroundLocationUpdates = false
+                };
+
+                locationManager.RequestWhenInUseAuthorization();
+            });
         }
 
         private UIView CreateLeftBarButtonItem()

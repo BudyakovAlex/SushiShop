@@ -78,13 +78,13 @@
         <Version>7.0.1</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.MvvmCross">
-        <Version>1.0.59</Version>
+        <Version>1.0.67</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.Common">
-        <Version>1.0.59</Version>
+        <Version>1.0.67</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.iOS">
-        <Version>1.0.59</Version>
+        <Version>1.0.67</Version>
       </PackageReference>
     </ItemGroup>
     <ItemGroup>

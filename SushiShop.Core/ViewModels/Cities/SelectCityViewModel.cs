@@ -24,6 +24,7 @@ namespace SushiShop.Core.ViewModels.Cities
         {
             var response = await citiesManager.GetCitiesAsync();
             var items = response.Data.Select(city => new CityItemViewModel(city)).ToList();
+            items.ForEach(item => item.IsSelected = selectedItemId.Contains(item.City.Id));
             return items;
         }
     }

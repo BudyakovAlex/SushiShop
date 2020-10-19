@@ -16,6 +16,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
 		UIKit.UICollectionView CollectionView { get; set; }
 
 		[Outlet]
+		UIKit.UIActivityIndicatorView LoadingIndicator { get; set; }
+
+		[Outlet]
 		UIKit.UICollectionView SimpleListCollectionView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -28,6 +31,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
 			if (SimpleListCollectionView != null) {
 				SimpleListCollectionView.Dispose ();
 				SimpleListCollectionView = null;
+			}
+
+			if (LoadingIndicator != null) {
+				LoadingIndicator.Dispose ();
+				LoadingIndicator = null;
 			}
 		}
 	}

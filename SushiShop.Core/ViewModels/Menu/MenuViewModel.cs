@@ -10,6 +10,7 @@ using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Cities;
 using SushiShop.Core.ViewModels.Cities.Items;
 using SushiShop.Core.ViewModels.Menu.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -79,7 +80,8 @@ namespace SushiShop.Core.ViewModels.Menu
 
         private async Task SelectCityAsync()
         {
-            var navigationParams = new SelectCityNavigationParameters();
+            var selectedCityIds = city is null ? Array.Empty<int>() : new[] { city.Id };
+            var navigationParams = new SelectCityNavigationParameters(selectedCityIds);
             var result = await NavigationManager.NavigateAsync<SelectCityViewModel, SelectCityNavigationParameters, List<CityItemViewModel>?>(navigationParams);
             if (result is null)
             {
@@ -88,6 +90,7 @@ namespace SushiShop.Core.ViewModels.Menu
 
             city = result.First().City;
             await RaisePropertyChanged(nameof(CityName));
+            await ReloadDataAsync();
         }
     }
 }
