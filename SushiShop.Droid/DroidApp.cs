@@ -3,6 +3,7 @@ using Android.Runtime;
 using MvvmCross.Platforms.Android.Views;
 using SushiShop.Core;
 using System;
+using Acr.UserDialogs;
 
 namespace SushiShop.Droid
 {
@@ -17,6 +18,8 @@ namespace SushiShop.Droid
         public override void OnCreate()
         {
             base.OnCreate();
+            UserDialogs.Init(this);
+
             Xamarin.Essentials.Platform.Init(this);
         }
     }
