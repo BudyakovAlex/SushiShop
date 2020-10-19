@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Menu;

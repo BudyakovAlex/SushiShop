@@ -25,6 +25,2702 @@ namespace SushiShop.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Acr.UserDialogs.Resource.Animation.abc_fade_in = global::SushiShop.Droid.Resource.Animation.abc_fade_in;
+			global::Acr.UserDialogs.Resource.Animation.abc_fade_out = global::SushiShop.Droid.Resource.Animation.abc_fade_out;
+			global::Acr.UserDialogs.Resource.Animation.abc_grow_fade_in_from_bottom = global::SushiShop.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
+			global::Acr.UserDialogs.Resource.Animation.abc_popup_enter = global::SushiShop.Droid.Resource.Animation.abc_popup_enter;
+			global::Acr.UserDialogs.Resource.Animation.abc_popup_exit = global::SushiShop.Droid.Resource.Animation.abc_popup_exit;
+			global::Acr.UserDialogs.Resource.Animation.abc_shrink_fade_out_from_bottom = global::SushiShop.Droid.Resource.Animation.abc_shrink_fade_out_from_bottom;
+			global::Acr.UserDialogs.Resource.Animation.abc_slide_in_bottom = global::SushiShop.Droid.Resource.Animation.abc_slide_in_bottom;
+			global::Acr.UserDialogs.Resource.Animation.abc_slide_in_top = global::SushiShop.Droid.Resource.Animation.abc_slide_in_top;
+			global::Acr.UserDialogs.Resource.Animation.abc_slide_out_bottom = global::SushiShop.Droid.Resource.Animation.abc_slide_out_bottom;
+			global::Acr.UserDialogs.Resource.Animation.abc_slide_out_top = global::SushiShop.Droid.Resource.Animation.abc_slide_out_top;
+			global::Acr.UserDialogs.Resource.Animation.abc_tooltip_enter = global::SushiShop.Droid.Resource.Animation.abc_tooltip_enter;
+			global::Acr.UserDialogs.Resource.Animation.abc_tooltip_exit = global::SushiShop.Droid.Resource.Animation.abc_tooltip_exit;
+			global::Acr.UserDialogs.Resource.Animation.btn_checkbox_to_checked_box_inner_merged_animation = global::SushiShop.Droid.Resource.Animation.btn_checkbox_to_checked_box_inner_merged_animation;
+			global::Acr.UserDialogs.Resource.Animation.btn_checkbox_to_checked_box_outer_merged_animation = global::SushiShop.Droid.Resource.Animation.btn_checkbox_to_checked_box_outer_merged_animation;
+			global::Acr.UserDialogs.Resource.Animation.btn_checkbox_to_checked_icon_null_animation = global::SushiShop.Droid.Resource.Animation.btn_checkbox_to_checked_icon_null_animation;
+			global::Acr.UserDialogs.Resource.Animation.btn_checkbox_to_unchecked_box_inner_merged_animation = global::SushiShop.Droid.Resource.Animation.btn_checkbox_to_unchecked_box_inner_merged_animation;
+			global::Acr.UserDialogs.Resource.Animation.btn_checkbox_to_unchecked_check_path_merged_animation = global::SushiShop.Droid.Resource.Animation.btn_checkbox_to_unchecked_check_path_merged_animation;
+			global::Acr.UserDialogs.Resource.Animation.btn_checkbox_to_unchecked_icon_null_animation = global::SushiShop.Droid.Resource.Animation.btn_checkbox_to_unchecked_icon_null_animation;
+			global::Acr.UserDialogs.Resource.Animation.btn_radio_to_off_mtrl_dot_group_animation = global::SushiShop.Droid.Resource.Animation.btn_radio_to_off_mtrl_dot_group_animation;
+			global::Acr.UserDialogs.Resource.Animation.btn_radio_to_off_mtrl_ring_outer_animation = global::SushiShop.Droid.Resource.Animation.btn_radio_to_off_mtrl_ring_outer_animation;
+			global::Acr.UserDialogs.Resource.Animation.btn_radio_to_off_mtrl_ring_outer_path_animation = global::SushiShop.Droid.Resource.Animation.btn_radio_to_off_mtrl_ring_outer_path_animation;
+			global::Acr.UserDialogs.Resource.Animation.btn_radio_to_on_mtrl_dot_group_animation = global::SushiShop.Droid.Resource.Animation.btn_radio_to_on_mtrl_dot_group_animation;
+			global::Acr.UserDialogs.Resource.Animation.btn_radio_to_on_mtrl_ring_outer_animation = global::SushiShop.Droid.Resource.Animation.btn_radio_to_on_mtrl_ring_outer_animation;
+			global::Acr.UserDialogs.Resource.Animation.btn_radio_to_on_mtrl_ring_outer_path_animation = global::SushiShop.Droid.Resource.Animation.btn_radio_to_on_mtrl_ring_outer_path_animation;
+			global::Acr.UserDialogs.Resource.Animation.design_bottom_sheet_slide_in = global::SushiShop.Droid.Resource.Animation.design_bottom_sheet_slide_in;
+			global::Acr.UserDialogs.Resource.Animation.design_bottom_sheet_slide_out = global::SushiShop.Droid.Resource.Animation.design_bottom_sheet_slide_out;
+			global::Acr.UserDialogs.Resource.Animation.design_snackbar_in = global::SushiShop.Droid.Resource.Animation.design_snackbar_in;
+			global::Acr.UserDialogs.Resource.Animation.design_snackbar_out = global::SushiShop.Droid.Resource.Animation.design_snackbar_out;
+			global::Acr.UserDialogs.Resource.Animator.design_appbar_state_list_animator = global::SushiShop.Droid.Resource.Animator.design_appbar_state_list_animator;
+			global::Acr.UserDialogs.Resource.Animator.design_fab_hide_motion_spec = global::SushiShop.Droid.Resource.Animator.design_fab_hide_motion_spec;
+			global::Acr.UserDialogs.Resource.Animator.design_fab_show_motion_spec = global::SushiShop.Droid.Resource.Animator.design_fab_show_motion_spec;
+			global::Acr.UserDialogs.Resource.Animator.mtrl_btn_state_list_anim = global::SushiShop.Droid.Resource.Animator.mtrl_btn_state_list_anim;
+			global::Acr.UserDialogs.Resource.Animator.mtrl_btn_unelevated_state_list_anim = global::SushiShop.Droid.Resource.Animator.mtrl_btn_unelevated_state_list_anim;
+			global::Acr.UserDialogs.Resource.Animator.mtrl_chip_state_list_anim = global::SushiShop.Droid.Resource.Animator.mtrl_chip_state_list_anim;
+			global::Acr.UserDialogs.Resource.Animator.mtrl_fab_hide_motion_spec = global::SushiShop.Droid.Resource.Animator.mtrl_fab_hide_motion_spec;
+			global::Acr.UserDialogs.Resource.Animator.mtrl_fab_show_motion_spec = global::SushiShop.Droid.Resource.Animator.mtrl_fab_show_motion_spec;
+			global::Acr.UserDialogs.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec = global::SushiShop.Droid.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec;
+			global::Acr.UserDialogs.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec = global::SushiShop.Droid.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec;
+			global::Acr.UserDialogs.Resource.Attribute.actionBarDivider = global::SushiShop.Droid.Resource.Attribute.actionBarDivider;
+			global::Acr.UserDialogs.Resource.Attribute.actionBarItemBackground = global::SushiShop.Droid.Resource.Attribute.actionBarItemBackground;
+			global::Acr.UserDialogs.Resource.Attribute.actionBarPopupTheme = global::SushiShop.Droid.Resource.Attribute.actionBarPopupTheme;
+			global::Acr.UserDialogs.Resource.Attribute.actionBarSize = global::SushiShop.Droid.Resource.Attribute.actionBarSize;
+			global::Acr.UserDialogs.Resource.Attribute.actionBarSplitStyle = global::SushiShop.Droid.Resource.Attribute.actionBarSplitStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionBarStyle = global::SushiShop.Droid.Resource.Attribute.actionBarStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionBarTabBarStyle = global::SushiShop.Droid.Resource.Attribute.actionBarTabBarStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionBarTabStyle = global::SushiShop.Droid.Resource.Attribute.actionBarTabStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionBarTabTextStyle = global::SushiShop.Droid.Resource.Attribute.actionBarTabTextStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionBarTheme = global::SushiShop.Droid.Resource.Attribute.actionBarTheme;
+			global::Acr.UserDialogs.Resource.Attribute.actionBarWidgetTheme = global::SushiShop.Droid.Resource.Attribute.actionBarWidgetTheme;
+			global::Acr.UserDialogs.Resource.Attribute.actionButtonStyle = global::SushiShop.Droid.Resource.Attribute.actionButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionDropDownStyle = global::SushiShop.Droid.Resource.Attribute.actionDropDownStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionLayout = global::SushiShop.Droid.Resource.Attribute.actionLayout;
+			global::Acr.UserDialogs.Resource.Attribute.actionMenuTextAppearance = global::SushiShop.Droid.Resource.Attribute.actionMenuTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.actionMenuTextColor = global::SushiShop.Droid.Resource.Attribute.actionMenuTextColor;
+			global::Acr.UserDialogs.Resource.Attribute.actionModeBackground = global::SushiShop.Droid.Resource.Attribute.actionModeBackground;
+			global::Acr.UserDialogs.Resource.Attribute.actionModeCloseButtonStyle = global::SushiShop.Droid.Resource.Attribute.actionModeCloseButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionModeCloseDrawable = global::SushiShop.Droid.Resource.Attribute.actionModeCloseDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.actionModeCopyDrawable = global::SushiShop.Droid.Resource.Attribute.actionModeCopyDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.actionModeCutDrawable = global::SushiShop.Droid.Resource.Attribute.actionModeCutDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.actionModeFindDrawable = global::SushiShop.Droid.Resource.Attribute.actionModeFindDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.actionModePasteDrawable = global::SushiShop.Droid.Resource.Attribute.actionModePasteDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.actionModePopupWindowStyle = global::SushiShop.Droid.Resource.Attribute.actionModePopupWindowStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionModeSelectAllDrawable = global::SushiShop.Droid.Resource.Attribute.actionModeSelectAllDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.actionModeShareDrawable = global::SushiShop.Droid.Resource.Attribute.actionModeShareDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.actionModeSplitBackground = global::SushiShop.Droid.Resource.Attribute.actionModeSplitBackground;
+			global::Acr.UserDialogs.Resource.Attribute.actionModeStyle = global::SushiShop.Droid.Resource.Attribute.actionModeStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionModeWebSearchDrawable = global::SushiShop.Droid.Resource.Attribute.actionModeWebSearchDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.actionOverflowButtonStyle = global::SushiShop.Droid.Resource.Attribute.actionOverflowButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionOverflowMenuStyle = global::SushiShop.Droid.Resource.Attribute.actionOverflowMenuStyle;
+			global::Acr.UserDialogs.Resource.Attribute.actionProviderClass = global::SushiShop.Droid.Resource.Attribute.actionProviderClass;
+			global::Acr.UserDialogs.Resource.Attribute.actionViewClass = global::SushiShop.Droid.Resource.Attribute.actionViewClass;
+			global::Acr.UserDialogs.Resource.Attribute.activityChooserViewStyle = global::SushiShop.Droid.Resource.Attribute.activityChooserViewStyle;
+			global::Acr.UserDialogs.Resource.Attribute.ahBarColor = global::SushiShop.Droid.Resource.Attribute.ahBarColor;
+			global::Acr.UserDialogs.Resource.Attribute.ahBarLength = global::SushiShop.Droid.Resource.Attribute.ahBarLength;
+			global::Acr.UserDialogs.Resource.Attribute.ahBarWidth = global::SushiShop.Droid.Resource.Attribute.ahBarWidth;
+			global::Acr.UserDialogs.Resource.Attribute.ahCircleColor = global::SushiShop.Droid.Resource.Attribute.ahCircleColor;
+			global::Acr.UserDialogs.Resource.Attribute.ahDelayMillis = global::SushiShop.Droid.Resource.Attribute.ahDelayMillis;
+			global::Acr.UserDialogs.Resource.Attribute.ahRadius = global::SushiShop.Droid.Resource.Attribute.ahRadius;
+			global::Acr.UserDialogs.Resource.Attribute.ahRimColor = global::SushiShop.Droid.Resource.Attribute.ahRimColor;
+			global::Acr.UserDialogs.Resource.Attribute.ahRimWidth = global::SushiShop.Droid.Resource.Attribute.ahRimWidth;
+			global::Acr.UserDialogs.Resource.Attribute.ahSpinSpeed = global::SushiShop.Droid.Resource.Attribute.ahSpinSpeed;
+			global::Acr.UserDialogs.Resource.Attribute.ahText = global::SushiShop.Droid.Resource.Attribute.ahText;
+			global::Acr.UserDialogs.Resource.Attribute.ahTextColor = global::SushiShop.Droid.Resource.Attribute.ahTextColor;
+			global::Acr.UserDialogs.Resource.Attribute.ahTextSize = global::SushiShop.Droid.Resource.Attribute.ahTextSize;
+			global::Acr.UserDialogs.Resource.Attribute.alertDialogButtonGroupStyle = global::SushiShop.Droid.Resource.Attribute.alertDialogButtonGroupStyle;
+			global::Acr.UserDialogs.Resource.Attribute.alertDialogCenterButtons = global::SushiShop.Droid.Resource.Attribute.alertDialogCenterButtons;
+			global::Acr.UserDialogs.Resource.Attribute.alertDialogStyle = global::SushiShop.Droid.Resource.Attribute.alertDialogStyle;
+			global::Acr.UserDialogs.Resource.Attribute.alertDialogTheme = global::SushiShop.Droid.Resource.Attribute.alertDialogTheme;
+			global::Acr.UserDialogs.Resource.Attribute.allowStacking = global::SushiShop.Droid.Resource.Attribute.allowStacking;
+			global::Acr.UserDialogs.Resource.Attribute.alpha = global::SushiShop.Droid.Resource.Attribute.alpha;
+			global::Acr.UserDialogs.Resource.Attribute.alphabeticModifiers = global::SushiShop.Droid.Resource.Attribute.alphabeticModifiers;
+			global::Acr.UserDialogs.Resource.Attribute.arrowHeadLength = global::SushiShop.Droid.Resource.Attribute.arrowHeadLength;
+			global::Acr.UserDialogs.Resource.Attribute.arrowShaftLength = global::SushiShop.Droid.Resource.Attribute.arrowShaftLength;
+			global::Acr.UserDialogs.Resource.Attribute.autoCompleteTextViewStyle = global::SushiShop.Droid.Resource.Attribute.autoCompleteTextViewStyle;
+			global::Acr.UserDialogs.Resource.Attribute.autoSizeMaxTextSize = global::SushiShop.Droid.Resource.Attribute.autoSizeMaxTextSize;
+			global::Acr.UserDialogs.Resource.Attribute.autoSizeMinTextSize = global::SushiShop.Droid.Resource.Attribute.autoSizeMinTextSize;
+			global::Acr.UserDialogs.Resource.Attribute.autoSizePresetSizes = global::SushiShop.Droid.Resource.Attribute.autoSizePresetSizes;
+			global::Acr.UserDialogs.Resource.Attribute.autoSizeStepGranularity = global::SushiShop.Droid.Resource.Attribute.autoSizeStepGranularity;
+			global::Acr.UserDialogs.Resource.Attribute.autoSizeTextType = global::SushiShop.Droid.Resource.Attribute.autoSizeTextType;
+			global::Acr.UserDialogs.Resource.Attribute.background = global::SushiShop.Droid.Resource.Attribute.background;
+			global::Acr.UserDialogs.Resource.Attribute.backgroundSplit = global::SushiShop.Droid.Resource.Attribute.backgroundSplit;
+			global::Acr.UserDialogs.Resource.Attribute.backgroundStacked = global::SushiShop.Droid.Resource.Attribute.backgroundStacked;
+			global::Acr.UserDialogs.Resource.Attribute.backgroundTint = global::SushiShop.Droid.Resource.Attribute.backgroundTint;
+			global::Acr.UserDialogs.Resource.Attribute.backgroundTintMode = global::SushiShop.Droid.Resource.Attribute.backgroundTintMode;
+			global::Acr.UserDialogs.Resource.Attribute.barLength = global::SushiShop.Droid.Resource.Attribute.barLength;
+			global::Acr.UserDialogs.Resource.Attribute.behavior_autoHide = global::SushiShop.Droid.Resource.Attribute.behavior_autoHide;
+			global::Acr.UserDialogs.Resource.Attribute.behavior_fitToContents = global::SushiShop.Droid.Resource.Attribute.behavior_fitToContents;
+			global::Acr.UserDialogs.Resource.Attribute.behavior_hideable = global::SushiShop.Droid.Resource.Attribute.behavior_hideable;
+			global::Acr.UserDialogs.Resource.Attribute.behavior_overlapTop = global::SushiShop.Droid.Resource.Attribute.behavior_overlapTop;
+			global::Acr.UserDialogs.Resource.Attribute.behavior_peekHeight = global::SushiShop.Droid.Resource.Attribute.behavior_peekHeight;
+			global::Acr.UserDialogs.Resource.Attribute.behavior_skipCollapsed = global::SushiShop.Droid.Resource.Attribute.behavior_skipCollapsed;
+			global::Acr.UserDialogs.Resource.Attribute.borderlessButtonStyle = global::SushiShop.Droid.Resource.Attribute.borderlessButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.borderWidth = global::SushiShop.Droid.Resource.Attribute.borderWidth;
+			global::Acr.UserDialogs.Resource.Attribute.bottomAppBarStyle = global::SushiShop.Droid.Resource.Attribute.bottomAppBarStyle;
+			global::Acr.UserDialogs.Resource.Attribute.bottomNavigationStyle = global::SushiShop.Droid.Resource.Attribute.bottomNavigationStyle;
+			global::Acr.UserDialogs.Resource.Attribute.bottomSheetDialogTheme = global::SushiShop.Droid.Resource.Attribute.bottomSheetDialogTheme;
+			global::Acr.UserDialogs.Resource.Attribute.bottomSheetStyle = global::SushiShop.Droid.Resource.Attribute.bottomSheetStyle;
+			global::Acr.UserDialogs.Resource.Attribute.boxBackgroundColor = global::SushiShop.Droid.Resource.Attribute.boxBackgroundColor;
+			global::Acr.UserDialogs.Resource.Attribute.boxBackgroundMode = global::SushiShop.Droid.Resource.Attribute.boxBackgroundMode;
+			global::Acr.UserDialogs.Resource.Attribute.boxCollapsedPaddingTop = global::SushiShop.Droid.Resource.Attribute.boxCollapsedPaddingTop;
+			global::Acr.UserDialogs.Resource.Attribute.boxCornerRadiusBottomEnd = global::SushiShop.Droid.Resource.Attribute.boxCornerRadiusBottomEnd;
+			global::Acr.UserDialogs.Resource.Attribute.boxCornerRadiusBottomStart = global::SushiShop.Droid.Resource.Attribute.boxCornerRadiusBottomStart;
+			global::Acr.UserDialogs.Resource.Attribute.boxCornerRadiusTopEnd = global::SushiShop.Droid.Resource.Attribute.boxCornerRadiusTopEnd;
+			global::Acr.UserDialogs.Resource.Attribute.boxCornerRadiusTopStart = global::SushiShop.Droid.Resource.Attribute.boxCornerRadiusTopStart;
+			global::Acr.UserDialogs.Resource.Attribute.boxStrokeColor = global::SushiShop.Droid.Resource.Attribute.boxStrokeColor;
+			global::Acr.UserDialogs.Resource.Attribute.boxStrokeWidth = global::SushiShop.Droid.Resource.Attribute.boxStrokeWidth;
+			global::Acr.UserDialogs.Resource.Attribute.buttonBarButtonStyle = global::SushiShop.Droid.Resource.Attribute.buttonBarButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.buttonBarNegativeButtonStyle = global::SushiShop.Droid.Resource.Attribute.buttonBarNegativeButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.buttonBarNeutralButtonStyle = global::SushiShop.Droid.Resource.Attribute.buttonBarNeutralButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.buttonBarPositiveButtonStyle = global::SushiShop.Droid.Resource.Attribute.buttonBarPositiveButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.buttonBarStyle = global::SushiShop.Droid.Resource.Attribute.buttonBarStyle;
+			global::Acr.UserDialogs.Resource.Attribute.buttonCompat = global::SushiShop.Droid.Resource.Attribute.buttonCompat;
+			global::Acr.UserDialogs.Resource.Attribute.buttonGravity = global::SushiShop.Droid.Resource.Attribute.buttonGravity;
+			global::Acr.UserDialogs.Resource.Attribute.buttonIconDimen = global::SushiShop.Droid.Resource.Attribute.buttonIconDimen;
+			global::Acr.UserDialogs.Resource.Attribute.buttonPanelSideLayout = global::SushiShop.Droid.Resource.Attribute.buttonPanelSideLayout;
+			global::Acr.UserDialogs.Resource.Attribute.buttonStyle = global::SushiShop.Droid.Resource.Attribute.buttonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.buttonStyleSmall = global::SushiShop.Droid.Resource.Attribute.buttonStyleSmall;
+			global::Acr.UserDialogs.Resource.Attribute.buttonTint = global::SushiShop.Droid.Resource.Attribute.buttonTint;
+			global::Acr.UserDialogs.Resource.Attribute.buttonTintMode = global::SushiShop.Droid.Resource.Attribute.buttonTintMode;
+			global::Acr.UserDialogs.Resource.Attribute.cardBackgroundColor = global::SushiShop.Droid.Resource.Attribute.cardBackgroundColor;
+			global::Acr.UserDialogs.Resource.Attribute.cardCornerRadius = global::SushiShop.Droid.Resource.Attribute.cardCornerRadius;
+			global::Acr.UserDialogs.Resource.Attribute.cardElevation = global::SushiShop.Droid.Resource.Attribute.cardElevation;
+			global::Acr.UserDialogs.Resource.Attribute.cardMaxElevation = global::SushiShop.Droid.Resource.Attribute.cardMaxElevation;
+			global::Acr.UserDialogs.Resource.Attribute.cardPreventCornerOverlap = global::SushiShop.Droid.Resource.Attribute.cardPreventCornerOverlap;
+			global::Acr.UserDialogs.Resource.Attribute.cardUseCompatPadding = global::SushiShop.Droid.Resource.Attribute.cardUseCompatPadding;
+			global::Acr.UserDialogs.Resource.Attribute.cardViewStyle = global::SushiShop.Droid.Resource.Attribute.cardViewStyle;
+			global::Acr.UserDialogs.Resource.Attribute.checkboxStyle = global::SushiShop.Droid.Resource.Attribute.checkboxStyle;
+			global::Acr.UserDialogs.Resource.Attribute.checkedChip = global::SushiShop.Droid.Resource.Attribute.checkedChip;
+			global::Acr.UserDialogs.Resource.Attribute.checkedIcon = global::SushiShop.Droid.Resource.Attribute.checkedIcon;
+			global::Acr.UserDialogs.Resource.Attribute.checkedIconEnabled = global::SushiShop.Droid.Resource.Attribute.checkedIconEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.checkedIconVisible = global::SushiShop.Droid.Resource.Attribute.checkedIconVisible;
+			global::Acr.UserDialogs.Resource.Attribute.checkedTextViewStyle = global::SushiShop.Droid.Resource.Attribute.checkedTextViewStyle;
+			global::Acr.UserDialogs.Resource.Attribute.chipBackgroundColor = global::SushiShop.Droid.Resource.Attribute.chipBackgroundColor;
+			global::Acr.UserDialogs.Resource.Attribute.chipCornerRadius = global::SushiShop.Droid.Resource.Attribute.chipCornerRadius;
+			global::Acr.UserDialogs.Resource.Attribute.chipEndPadding = global::SushiShop.Droid.Resource.Attribute.chipEndPadding;
+			global::Acr.UserDialogs.Resource.Attribute.chipGroupStyle = global::SushiShop.Droid.Resource.Attribute.chipGroupStyle;
+			global::Acr.UserDialogs.Resource.Attribute.chipIcon = global::SushiShop.Droid.Resource.Attribute.chipIcon;
+			global::Acr.UserDialogs.Resource.Attribute.chipIconEnabled = global::SushiShop.Droid.Resource.Attribute.chipIconEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.chipIconSize = global::SushiShop.Droid.Resource.Attribute.chipIconSize;
+			global::Acr.UserDialogs.Resource.Attribute.chipIconTint = global::SushiShop.Droid.Resource.Attribute.chipIconTint;
+			global::Acr.UserDialogs.Resource.Attribute.chipIconVisible = global::SushiShop.Droid.Resource.Attribute.chipIconVisible;
+			global::Acr.UserDialogs.Resource.Attribute.chipMinHeight = global::SushiShop.Droid.Resource.Attribute.chipMinHeight;
+			global::Acr.UserDialogs.Resource.Attribute.chipSpacing = global::SushiShop.Droid.Resource.Attribute.chipSpacing;
+			global::Acr.UserDialogs.Resource.Attribute.chipSpacingHorizontal = global::SushiShop.Droid.Resource.Attribute.chipSpacingHorizontal;
+			global::Acr.UserDialogs.Resource.Attribute.chipSpacingVertical = global::SushiShop.Droid.Resource.Attribute.chipSpacingVertical;
+			global::Acr.UserDialogs.Resource.Attribute.chipStandaloneStyle = global::SushiShop.Droid.Resource.Attribute.chipStandaloneStyle;
+			global::Acr.UserDialogs.Resource.Attribute.chipStartPadding = global::SushiShop.Droid.Resource.Attribute.chipStartPadding;
+			global::Acr.UserDialogs.Resource.Attribute.chipStrokeColor = global::SushiShop.Droid.Resource.Attribute.chipStrokeColor;
+			global::Acr.UserDialogs.Resource.Attribute.chipStrokeWidth = global::SushiShop.Droid.Resource.Attribute.chipStrokeWidth;
+			global::Acr.UserDialogs.Resource.Attribute.chipStyle = global::SushiShop.Droid.Resource.Attribute.chipStyle;
+			global::Acr.UserDialogs.Resource.Attribute.closeIcon = global::SushiShop.Droid.Resource.Attribute.closeIcon;
+			global::Acr.UserDialogs.Resource.Attribute.closeIconEnabled = global::SushiShop.Droid.Resource.Attribute.closeIconEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.closeIconEndPadding = global::SushiShop.Droid.Resource.Attribute.closeIconEndPadding;
+			global::Acr.UserDialogs.Resource.Attribute.closeIconSize = global::SushiShop.Droid.Resource.Attribute.closeIconSize;
+			global::Acr.UserDialogs.Resource.Attribute.closeIconStartPadding = global::SushiShop.Droid.Resource.Attribute.closeIconStartPadding;
+			global::Acr.UserDialogs.Resource.Attribute.closeIconTint = global::SushiShop.Droid.Resource.Attribute.closeIconTint;
+			global::Acr.UserDialogs.Resource.Attribute.closeIconVisible = global::SushiShop.Droid.Resource.Attribute.closeIconVisible;
+			global::Acr.UserDialogs.Resource.Attribute.closeItemLayout = global::SushiShop.Droid.Resource.Attribute.closeItemLayout;
+			global::Acr.UserDialogs.Resource.Attribute.collapseContentDescription = global::SushiShop.Droid.Resource.Attribute.collapseContentDescription;
+			global::Acr.UserDialogs.Resource.Attribute.collapsedTitleGravity = global::SushiShop.Droid.Resource.Attribute.collapsedTitleGravity;
+			global::Acr.UserDialogs.Resource.Attribute.collapsedTitleTextAppearance = global::SushiShop.Droid.Resource.Attribute.collapsedTitleTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.collapseIcon = global::SushiShop.Droid.Resource.Attribute.collapseIcon;
+			global::Acr.UserDialogs.Resource.Attribute.color = global::SushiShop.Droid.Resource.Attribute.color;
+			global::Acr.UserDialogs.Resource.Attribute.colorAccent = global::SushiShop.Droid.Resource.Attribute.colorAccent;
+			global::Acr.UserDialogs.Resource.Attribute.colorBackgroundFloating = global::SushiShop.Droid.Resource.Attribute.colorBackgroundFloating;
+			global::Acr.UserDialogs.Resource.Attribute.colorButtonNormal = global::SushiShop.Droid.Resource.Attribute.colorButtonNormal;
+			global::Acr.UserDialogs.Resource.Attribute.colorControlActivated = global::SushiShop.Droid.Resource.Attribute.colorControlActivated;
+			global::Acr.UserDialogs.Resource.Attribute.colorControlHighlight = global::SushiShop.Droid.Resource.Attribute.colorControlHighlight;
+			global::Acr.UserDialogs.Resource.Attribute.colorControlNormal = global::SushiShop.Droid.Resource.Attribute.colorControlNormal;
+			global::Acr.UserDialogs.Resource.Attribute.colorError = global::SushiShop.Droid.Resource.Attribute.colorError;
+			global::Acr.UserDialogs.Resource.Attribute.colorPrimary = global::SushiShop.Droid.Resource.Attribute.colorPrimary;
+			global::Acr.UserDialogs.Resource.Attribute.colorPrimaryDark = global::SushiShop.Droid.Resource.Attribute.colorPrimaryDark;
+			global::Acr.UserDialogs.Resource.Attribute.colorSecondary = global::SushiShop.Droid.Resource.Attribute.colorSecondary;
+			global::Acr.UserDialogs.Resource.Attribute.colorSwitchThumbNormal = global::SushiShop.Droid.Resource.Attribute.colorSwitchThumbNormal;
+			global::Acr.UserDialogs.Resource.Attribute.commitIcon = global::SushiShop.Droid.Resource.Attribute.commitIcon;
+			global::Acr.UserDialogs.Resource.Attribute.contentDescription = global::SushiShop.Droid.Resource.Attribute.contentDescription;
+			global::Acr.UserDialogs.Resource.Attribute.contentInsetEnd = global::SushiShop.Droid.Resource.Attribute.contentInsetEnd;
+			global::Acr.UserDialogs.Resource.Attribute.contentInsetEndWithActions = global::SushiShop.Droid.Resource.Attribute.contentInsetEndWithActions;
+			global::Acr.UserDialogs.Resource.Attribute.contentInsetLeft = global::SushiShop.Droid.Resource.Attribute.contentInsetLeft;
+			global::Acr.UserDialogs.Resource.Attribute.contentInsetRight = global::SushiShop.Droid.Resource.Attribute.contentInsetRight;
+			global::Acr.UserDialogs.Resource.Attribute.contentInsetStart = global::SushiShop.Droid.Resource.Attribute.contentInsetStart;
+			global::Acr.UserDialogs.Resource.Attribute.contentInsetStartWithNavigation = global::SushiShop.Droid.Resource.Attribute.contentInsetStartWithNavigation;
+			global::Acr.UserDialogs.Resource.Attribute.contentPadding = global::SushiShop.Droid.Resource.Attribute.contentPadding;
+			global::Acr.UserDialogs.Resource.Attribute.contentPaddingBottom = global::SushiShop.Droid.Resource.Attribute.contentPaddingBottom;
+			global::Acr.UserDialogs.Resource.Attribute.contentPaddingLeft = global::SushiShop.Droid.Resource.Attribute.contentPaddingLeft;
+			global::Acr.UserDialogs.Resource.Attribute.contentPaddingRight = global::SushiShop.Droid.Resource.Attribute.contentPaddingRight;
+			global::Acr.UserDialogs.Resource.Attribute.contentPaddingTop = global::SushiShop.Droid.Resource.Attribute.contentPaddingTop;
+			global::Acr.UserDialogs.Resource.Attribute.contentScrim = global::SushiShop.Droid.Resource.Attribute.contentScrim;
+			global::Acr.UserDialogs.Resource.Attribute.controlBackground = global::SushiShop.Droid.Resource.Attribute.controlBackground;
+			global::Acr.UserDialogs.Resource.Attribute.coordinatorLayoutStyle = global::SushiShop.Droid.Resource.Attribute.coordinatorLayoutStyle;
+			global::Acr.UserDialogs.Resource.Attribute.cornerRadius = global::SushiShop.Droid.Resource.Attribute.cornerRadius;
+			global::Acr.UserDialogs.Resource.Attribute.counterEnabled = global::SushiShop.Droid.Resource.Attribute.counterEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.counterMaxLength = global::SushiShop.Droid.Resource.Attribute.counterMaxLength;
+			global::Acr.UserDialogs.Resource.Attribute.counterOverflowTextAppearance = global::SushiShop.Droid.Resource.Attribute.counterOverflowTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.counterTextAppearance = global::SushiShop.Droid.Resource.Attribute.counterTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.customNavigationLayout = global::SushiShop.Droid.Resource.Attribute.customNavigationLayout;
+			global::Acr.UserDialogs.Resource.Attribute.defaultQueryHint = global::SushiShop.Droid.Resource.Attribute.defaultQueryHint;
+			global::Acr.UserDialogs.Resource.Attribute.dialogCornerRadius = global::SushiShop.Droid.Resource.Attribute.dialogCornerRadius;
+			global::Acr.UserDialogs.Resource.Attribute.dialogPreferredPadding = global::SushiShop.Droid.Resource.Attribute.dialogPreferredPadding;
+			global::Acr.UserDialogs.Resource.Attribute.dialogTheme = global::SushiShop.Droid.Resource.Attribute.dialogTheme;
+			global::Acr.UserDialogs.Resource.Attribute.displayOptions = global::SushiShop.Droid.Resource.Attribute.displayOptions;
+			global::Acr.UserDialogs.Resource.Attribute.divider = global::SushiShop.Droid.Resource.Attribute.divider;
+			global::Acr.UserDialogs.Resource.Attribute.dividerHorizontal = global::SushiShop.Droid.Resource.Attribute.dividerHorizontal;
+			global::Acr.UserDialogs.Resource.Attribute.dividerPadding = global::SushiShop.Droid.Resource.Attribute.dividerPadding;
+			global::Acr.UserDialogs.Resource.Attribute.dividerVertical = global::SushiShop.Droid.Resource.Attribute.dividerVertical;
+			global::Acr.UserDialogs.Resource.Attribute.drawableBottomCompat = global::SushiShop.Droid.Resource.Attribute.drawableBottomCompat;
+			global::Acr.UserDialogs.Resource.Attribute.drawableEndCompat = global::SushiShop.Droid.Resource.Attribute.drawableEndCompat;
+			global::Acr.UserDialogs.Resource.Attribute.drawableLeftCompat = global::SushiShop.Droid.Resource.Attribute.drawableLeftCompat;
+			global::Acr.UserDialogs.Resource.Attribute.drawableRightCompat = global::SushiShop.Droid.Resource.Attribute.drawableRightCompat;
+			global::Acr.UserDialogs.Resource.Attribute.drawableSize = global::SushiShop.Droid.Resource.Attribute.drawableSize;
+			global::Acr.UserDialogs.Resource.Attribute.drawableStartCompat = global::SushiShop.Droid.Resource.Attribute.drawableStartCompat;
+			global::Acr.UserDialogs.Resource.Attribute.drawableTint = global::SushiShop.Droid.Resource.Attribute.drawableTint;
+			global::Acr.UserDialogs.Resource.Attribute.drawableTintMode = global::SushiShop.Droid.Resource.Attribute.drawableTintMode;
+			global::Acr.UserDialogs.Resource.Attribute.drawableTopCompat = global::SushiShop.Droid.Resource.Attribute.drawableTopCompat;
+			global::Acr.UserDialogs.Resource.Attribute.drawerArrowStyle = global::SushiShop.Droid.Resource.Attribute.drawerArrowStyle;
+			global::Acr.UserDialogs.Resource.Attribute.dropdownListPreferredItemHeight = global::SushiShop.Droid.Resource.Attribute.dropdownListPreferredItemHeight;
+			global::Acr.UserDialogs.Resource.Attribute.dropDownListViewStyle = global::SushiShop.Droid.Resource.Attribute.dropDownListViewStyle;
+			global::Acr.UserDialogs.Resource.Attribute.editTextBackground = global::SushiShop.Droid.Resource.Attribute.editTextBackground;
+			global::Acr.UserDialogs.Resource.Attribute.editTextColor = global::SushiShop.Droid.Resource.Attribute.editTextColor;
+			global::Acr.UserDialogs.Resource.Attribute.editTextStyle = global::SushiShop.Droid.Resource.Attribute.editTextStyle;
+			global::Acr.UserDialogs.Resource.Attribute.elevation = global::SushiShop.Droid.Resource.Attribute.elevation;
+			global::Acr.UserDialogs.Resource.Attribute.enforceMaterialTheme = global::SushiShop.Droid.Resource.Attribute.enforceMaterialTheme;
+			global::Acr.UserDialogs.Resource.Attribute.enforceTextAppearance = global::SushiShop.Droid.Resource.Attribute.enforceTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.errorEnabled = global::SushiShop.Droid.Resource.Attribute.errorEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.errorTextAppearance = global::SushiShop.Droid.Resource.Attribute.errorTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.expandActivityOverflowButtonDrawable = global::SushiShop.Droid.Resource.Attribute.expandActivityOverflowButtonDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.expanded = global::SushiShop.Droid.Resource.Attribute.expanded;
+			global::Acr.UserDialogs.Resource.Attribute.expandedTitleGravity = global::SushiShop.Droid.Resource.Attribute.expandedTitleGravity;
+			global::Acr.UserDialogs.Resource.Attribute.expandedTitleMargin = global::SushiShop.Droid.Resource.Attribute.expandedTitleMargin;
+			global::Acr.UserDialogs.Resource.Attribute.expandedTitleMarginBottom = global::SushiShop.Droid.Resource.Attribute.expandedTitleMarginBottom;
+			global::Acr.UserDialogs.Resource.Attribute.expandedTitleMarginEnd = global::SushiShop.Droid.Resource.Attribute.expandedTitleMarginEnd;
+			global::Acr.UserDialogs.Resource.Attribute.expandedTitleMarginStart = global::SushiShop.Droid.Resource.Attribute.expandedTitleMarginStart;
+			global::Acr.UserDialogs.Resource.Attribute.expandedTitleMarginTop = global::SushiShop.Droid.Resource.Attribute.expandedTitleMarginTop;
+			global::Acr.UserDialogs.Resource.Attribute.expandedTitleTextAppearance = global::SushiShop.Droid.Resource.Attribute.expandedTitleTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.fabAlignmentMode = global::SushiShop.Droid.Resource.Attribute.fabAlignmentMode;
+			global::Acr.UserDialogs.Resource.Attribute.fabCradleMargin = global::SushiShop.Droid.Resource.Attribute.fabCradleMargin;
+			global::Acr.UserDialogs.Resource.Attribute.fabCradleRoundedCornerRadius = global::SushiShop.Droid.Resource.Attribute.fabCradleRoundedCornerRadius;
+			global::Acr.UserDialogs.Resource.Attribute.fabCradleVerticalOffset = global::SushiShop.Droid.Resource.Attribute.fabCradleVerticalOffset;
+			global::Acr.UserDialogs.Resource.Attribute.fabCustomSize = global::SushiShop.Droid.Resource.Attribute.fabCustomSize;
+			global::Acr.UserDialogs.Resource.Attribute.fabSize = global::SushiShop.Droid.Resource.Attribute.fabSize;
+			global::Acr.UserDialogs.Resource.Attribute.fastScrollEnabled = global::SushiShop.Droid.Resource.Attribute.fastScrollEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.fastScrollHorizontalThumbDrawable = global::SushiShop.Droid.Resource.Attribute.fastScrollHorizontalThumbDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.fastScrollHorizontalTrackDrawable = global::SushiShop.Droid.Resource.Attribute.fastScrollHorizontalTrackDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.fastScrollVerticalThumbDrawable = global::SushiShop.Droid.Resource.Attribute.fastScrollVerticalThumbDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.fastScrollVerticalTrackDrawable = global::SushiShop.Droid.Resource.Attribute.fastScrollVerticalTrackDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.firstBaselineToTopHeight = global::SushiShop.Droid.Resource.Attribute.firstBaselineToTopHeight;
+			global::Acr.UserDialogs.Resource.Attribute.floatingActionButtonStyle = global::SushiShop.Droid.Resource.Attribute.floatingActionButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.font = global::SushiShop.Droid.Resource.Attribute.font;
+			global::Acr.UserDialogs.Resource.Attribute.fontFamily = global::SushiShop.Droid.Resource.Attribute.fontFamily;
+			global::Acr.UserDialogs.Resource.Attribute.fontProviderAuthority = global::SushiShop.Droid.Resource.Attribute.fontProviderAuthority;
+			global::Acr.UserDialogs.Resource.Attribute.fontProviderCerts = global::SushiShop.Droid.Resource.Attribute.fontProviderCerts;
+			global::Acr.UserDialogs.Resource.Attribute.fontProviderFetchStrategy = global::SushiShop.Droid.Resource.Attribute.fontProviderFetchStrategy;
+			global::Acr.UserDialogs.Resource.Attribute.fontProviderFetchTimeout = global::SushiShop.Droid.Resource.Attribute.fontProviderFetchTimeout;
+			global::Acr.UserDialogs.Resource.Attribute.fontProviderPackage = global::SushiShop.Droid.Resource.Attribute.fontProviderPackage;
+			global::Acr.UserDialogs.Resource.Attribute.fontProviderQuery = global::SushiShop.Droid.Resource.Attribute.fontProviderQuery;
+			global::Acr.UserDialogs.Resource.Attribute.fontStyle = global::SushiShop.Droid.Resource.Attribute.fontStyle;
+			global::Acr.UserDialogs.Resource.Attribute.fontVariationSettings = global::SushiShop.Droid.Resource.Attribute.fontVariationSettings;
+			global::Acr.UserDialogs.Resource.Attribute.fontWeight = global::SushiShop.Droid.Resource.Attribute.fontWeight;
+			global::Acr.UserDialogs.Resource.Attribute.foregroundInsidePadding = global::SushiShop.Droid.Resource.Attribute.foregroundInsidePadding;
+			global::Acr.UserDialogs.Resource.Attribute.gapBetweenBars = global::SushiShop.Droid.Resource.Attribute.gapBetweenBars;
+			global::Acr.UserDialogs.Resource.Attribute.goIcon = global::SushiShop.Droid.Resource.Attribute.goIcon;
+			global::Acr.UserDialogs.Resource.Attribute.headerLayout = global::SushiShop.Droid.Resource.Attribute.headerLayout;
+			global::Acr.UserDialogs.Resource.Attribute.height = global::SushiShop.Droid.Resource.Attribute.height;
+			global::Acr.UserDialogs.Resource.Attribute.helperText = global::SushiShop.Droid.Resource.Attribute.helperText;
+			global::Acr.UserDialogs.Resource.Attribute.helperTextEnabled = global::SushiShop.Droid.Resource.Attribute.helperTextEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.helperTextTextAppearance = global::SushiShop.Droid.Resource.Attribute.helperTextTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.hideMotionSpec = global::SushiShop.Droid.Resource.Attribute.hideMotionSpec;
+			global::Acr.UserDialogs.Resource.Attribute.hideOnContentScroll = global::SushiShop.Droid.Resource.Attribute.hideOnContentScroll;
+			global::Acr.UserDialogs.Resource.Attribute.hideOnScroll = global::SushiShop.Droid.Resource.Attribute.hideOnScroll;
+			global::Acr.UserDialogs.Resource.Attribute.hintAnimationEnabled = global::SushiShop.Droid.Resource.Attribute.hintAnimationEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.hintEnabled = global::SushiShop.Droid.Resource.Attribute.hintEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.hintTextAppearance = global::SushiShop.Droid.Resource.Attribute.hintTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.homeAsUpIndicator = global::SushiShop.Droid.Resource.Attribute.homeAsUpIndicator;
+			global::Acr.UserDialogs.Resource.Attribute.homeLayout = global::SushiShop.Droid.Resource.Attribute.homeLayout;
+			global::Acr.UserDialogs.Resource.Attribute.hoveredFocusedTranslationZ = global::SushiShop.Droid.Resource.Attribute.hoveredFocusedTranslationZ;
+			global::Acr.UserDialogs.Resource.Attribute.icon = global::SushiShop.Droid.Resource.Attribute.icon;
+			global::Acr.UserDialogs.Resource.Attribute.iconEndPadding = global::SushiShop.Droid.Resource.Attribute.iconEndPadding;
+			global::Acr.UserDialogs.Resource.Attribute.iconGravity = global::SushiShop.Droid.Resource.Attribute.iconGravity;
+			global::Acr.UserDialogs.Resource.Attribute.iconifiedByDefault = global::SushiShop.Droid.Resource.Attribute.iconifiedByDefault;
+			global::Acr.UserDialogs.Resource.Attribute.iconPadding = global::SushiShop.Droid.Resource.Attribute.iconPadding;
+			global::Acr.UserDialogs.Resource.Attribute.iconSize = global::SushiShop.Droid.Resource.Attribute.iconSize;
+			global::Acr.UserDialogs.Resource.Attribute.iconStartPadding = global::SushiShop.Droid.Resource.Attribute.iconStartPadding;
+			global::Acr.UserDialogs.Resource.Attribute.iconTint = global::SushiShop.Droid.Resource.Attribute.iconTint;
+			global::Acr.UserDialogs.Resource.Attribute.iconTintMode = global::SushiShop.Droid.Resource.Attribute.iconTintMode;
+			global::Acr.UserDialogs.Resource.Attribute.imageButtonStyle = global::SushiShop.Droid.Resource.Attribute.imageButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.indeterminateProgressStyle = global::SushiShop.Droid.Resource.Attribute.indeterminateProgressStyle;
+			global::Acr.UserDialogs.Resource.Attribute.initialActivityCount = global::SushiShop.Droid.Resource.Attribute.initialActivityCount;
+			global::Acr.UserDialogs.Resource.Attribute.insetForeground = global::SushiShop.Droid.Resource.Attribute.insetForeground;
+			global::Acr.UserDialogs.Resource.Attribute.isLightTheme = global::SushiShop.Droid.Resource.Attribute.isLightTheme;
+			global::Acr.UserDialogs.Resource.Attribute.itemBackground = global::SushiShop.Droid.Resource.Attribute.itemBackground;
+			global::Acr.UserDialogs.Resource.Attribute.itemHorizontalPadding = global::SushiShop.Droid.Resource.Attribute.itemHorizontalPadding;
+			global::Acr.UserDialogs.Resource.Attribute.itemHorizontalTranslationEnabled = global::SushiShop.Droid.Resource.Attribute.itemHorizontalTranslationEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.itemIconPadding = global::SushiShop.Droid.Resource.Attribute.itemIconPadding;
+			global::Acr.UserDialogs.Resource.Attribute.itemIconSize = global::SushiShop.Droid.Resource.Attribute.itemIconSize;
+			global::Acr.UserDialogs.Resource.Attribute.itemIconTint = global::SushiShop.Droid.Resource.Attribute.itemIconTint;
+			global::Acr.UserDialogs.Resource.Attribute.itemPadding = global::SushiShop.Droid.Resource.Attribute.itemPadding;
+			global::Acr.UserDialogs.Resource.Attribute.itemSpacing = global::SushiShop.Droid.Resource.Attribute.itemSpacing;
+			global::Acr.UserDialogs.Resource.Attribute.itemTextAppearance = global::SushiShop.Droid.Resource.Attribute.itemTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.itemTextAppearanceActive = global::SushiShop.Droid.Resource.Attribute.itemTextAppearanceActive;
+			global::Acr.UserDialogs.Resource.Attribute.itemTextAppearanceInactive = global::SushiShop.Droid.Resource.Attribute.itemTextAppearanceInactive;
+			global::Acr.UserDialogs.Resource.Attribute.itemTextColor = global::SushiShop.Droid.Resource.Attribute.itemTextColor;
+			global::Acr.UserDialogs.Resource.Attribute.keylines = global::SushiShop.Droid.Resource.Attribute.keylines;
+			global::Acr.UserDialogs.Resource.Attribute.labelVisibilityMode = global::SushiShop.Droid.Resource.Attribute.labelVisibilityMode;
+			global::Acr.UserDialogs.Resource.Attribute.lastBaselineToBottomHeight = global::SushiShop.Droid.Resource.Attribute.lastBaselineToBottomHeight;
+			global::Acr.UserDialogs.Resource.Attribute.layout = global::SushiShop.Droid.Resource.Attribute.layout;
+			global::Acr.UserDialogs.Resource.Attribute.layoutManager = global::SushiShop.Droid.Resource.Attribute.layoutManager;
+			global::Acr.UserDialogs.Resource.Attribute.layout_anchor = global::SushiShop.Droid.Resource.Attribute.layout_anchor;
+			global::Acr.UserDialogs.Resource.Attribute.layout_anchorGravity = global::SushiShop.Droid.Resource.Attribute.layout_anchorGravity;
+			global::Acr.UserDialogs.Resource.Attribute.layout_behavior = global::SushiShop.Droid.Resource.Attribute.layout_behavior;
+			global::Acr.UserDialogs.Resource.Attribute.layout_collapseMode = global::SushiShop.Droid.Resource.Attribute.layout_collapseMode;
+			global::Acr.UserDialogs.Resource.Attribute.layout_collapseParallaxMultiplier = global::SushiShop.Droid.Resource.Attribute.layout_collapseParallaxMultiplier;
+			global::Acr.UserDialogs.Resource.Attribute.layout_dodgeInsetEdges = global::SushiShop.Droid.Resource.Attribute.layout_dodgeInsetEdges;
+			global::Acr.UserDialogs.Resource.Attribute.layout_insetEdge = global::SushiShop.Droid.Resource.Attribute.layout_insetEdge;
+			global::Acr.UserDialogs.Resource.Attribute.layout_keyline = global::SushiShop.Droid.Resource.Attribute.layout_keyline;
+			global::Acr.UserDialogs.Resource.Attribute.layout_scrollFlags = global::SushiShop.Droid.Resource.Attribute.layout_scrollFlags;
+			global::Acr.UserDialogs.Resource.Attribute.layout_scrollInterpolator = global::SushiShop.Droid.Resource.Attribute.layout_scrollInterpolator;
+			global::Acr.UserDialogs.Resource.Attribute.liftOnScroll = global::SushiShop.Droid.Resource.Attribute.liftOnScroll;
+			global::Acr.UserDialogs.Resource.Attribute.lineHeight = global::SushiShop.Droid.Resource.Attribute.lineHeight;
+			global::Acr.UserDialogs.Resource.Attribute.lineSpacing = global::SushiShop.Droid.Resource.Attribute.lineSpacing;
+			global::Acr.UserDialogs.Resource.Attribute.listChoiceBackgroundIndicator = global::SushiShop.Droid.Resource.Attribute.listChoiceBackgroundIndicator;
+			global::Acr.UserDialogs.Resource.Attribute.listChoiceIndicatorMultipleAnimated = global::SushiShop.Droid.Resource.Attribute.listChoiceIndicatorMultipleAnimated;
+			global::Acr.UserDialogs.Resource.Attribute.listChoiceIndicatorSingleAnimated = global::SushiShop.Droid.Resource.Attribute.listChoiceIndicatorSingleAnimated;
+			global::Acr.UserDialogs.Resource.Attribute.listDividerAlertDialog = global::SushiShop.Droid.Resource.Attribute.listDividerAlertDialog;
+			global::Acr.UserDialogs.Resource.Attribute.listItemLayout = global::SushiShop.Droid.Resource.Attribute.listItemLayout;
+			global::Acr.UserDialogs.Resource.Attribute.listLayout = global::SushiShop.Droid.Resource.Attribute.listLayout;
+			global::Acr.UserDialogs.Resource.Attribute.listMenuViewStyle = global::SushiShop.Droid.Resource.Attribute.listMenuViewStyle;
+			global::Acr.UserDialogs.Resource.Attribute.listPopupWindowStyle = global::SushiShop.Droid.Resource.Attribute.listPopupWindowStyle;
+			global::Acr.UserDialogs.Resource.Attribute.listPreferredItemHeight = global::SushiShop.Droid.Resource.Attribute.listPreferredItemHeight;
+			global::Acr.UserDialogs.Resource.Attribute.listPreferredItemHeightLarge = global::SushiShop.Droid.Resource.Attribute.listPreferredItemHeightLarge;
+			global::Acr.UserDialogs.Resource.Attribute.listPreferredItemHeightSmall = global::SushiShop.Droid.Resource.Attribute.listPreferredItemHeightSmall;
+			global::Acr.UserDialogs.Resource.Attribute.listPreferredItemPaddingEnd = global::SushiShop.Droid.Resource.Attribute.listPreferredItemPaddingEnd;
+			global::Acr.UserDialogs.Resource.Attribute.listPreferredItemPaddingLeft = global::SushiShop.Droid.Resource.Attribute.listPreferredItemPaddingLeft;
+			global::Acr.UserDialogs.Resource.Attribute.listPreferredItemPaddingRight = global::SushiShop.Droid.Resource.Attribute.listPreferredItemPaddingRight;
+			global::Acr.UserDialogs.Resource.Attribute.listPreferredItemPaddingStart = global::SushiShop.Droid.Resource.Attribute.listPreferredItemPaddingStart;
+			global::Acr.UserDialogs.Resource.Attribute.logo = global::SushiShop.Droid.Resource.Attribute.logo;
+			global::Acr.UserDialogs.Resource.Attribute.logoDescription = global::SushiShop.Droid.Resource.Attribute.logoDescription;
+			global::Acr.UserDialogs.Resource.Attribute.materialButtonStyle = global::SushiShop.Droid.Resource.Attribute.materialButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.materialCardViewStyle = global::SushiShop.Droid.Resource.Attribute.materialCardViewStyle;
+			global::Acr.UserDialogs.Resource.Attribute.maxActionInlineWidth = global::SushiShop.Droid.Resource.Attribute.maxActionInlineWidth;
+			global::Acr.UserDialogs.Resource.Attribute.maxButtonHeight = global::SushiShop.Droid.Resource.Attribute.maxButtonHeight;
+			global::Acr.UserDialogs.Resource.Attribute.maxImageSize = global::SushiShop.Droid.Resource.Attribute.maxImageSize;
+			global::Acr.UserDialogs.Resource.Attribute.measureWithLargestChild = global::SushiShop.Droid.Resource.Attribute.measureWithLargestChild;
+			global::Acr.UserDialogs.Resource.Attribute.menu = global::SushiShop.Droid.Resource.Attribute.menu;
+			global::Acr.UserDialogs.Resource.Attribute.multiChoiceItemLayout = global::SushiShop.Droid.Resource.Attribute.multiChoiceItemLayout;
+			global::Acr.UserDialogs.Resource.Attribute.navigationContentDescription = global::SushiShop.Droid.Resource.Attribute.navigationContentDescription;
+			global::Acr.UserDialogs.Resource.Attribute.navigationIcon = global::SushiShop.Droid.Resource.Attribute.navigationIcon;
+			global::Acr.UserDialogs.Resource.Attribute.navigationMode = global::SushiShop.Droid.Resource.Attribute.navigationMode;
+			global::Acr.UserDialogs.Resource.Attribute.navigationViewStyle = global::SushiShop.Droid.Resource.Attribute.navigationViewStyle;
+			global::Acr.UserDialogs.Resource.Attribute.numericModifiers = global::SushiShop.Droid.Resource.Attribute.numericModifiers;
+			global::Acr.UserDialogs.Resource.Attribute.overlapAnchor = global::SushiShop.Droid.Resource.Attribute.overlapAnchor;
+			global::Acr.UserDialogs.Resource.Attribute.paddingBottomNoButtons = global::SushiShop.Droid.Resource.Attribute.paddingBottomNoButtons;
+			global::Acr.UserDialogs.Resource.Attribute.paddingEnd = global::SushiShop.Droid.Resource.Attribute.paddingEnd;
+			global::Acr.UserDialogs.Resource.Attribute.paddingStart = global::SushiShop.Droid.Resource.Attribute.paddingStart;
+			global::Acr.UserDialogs.Resource.Attribute.paddingTopNoTitle = global::SushiShop.Droid.Resource.Attribute.paddingTopNoTitle;
+			global::Acr.UserDialogs.Resource.Attribute.panelBackground = global::SushiShop.Droid.Resource.Attribute.panelBackground;
+			global::Acr.UserDialogs.Resource.Attribute.panelMenuListTheme = global::SushiShop.Droid.Resource.Attribute.panelMenuListTheme;
+			global::Acr.UserDialogs.Resource.Attribute.panelMenuListWidth = global::SushiShop.Droid.Resource.Attribute.panelMenuListWidth;
+			global::Acr.UserDialogs.Resource.Attribute.passwordToggleContentDescription = global::SushiShop.Droid.Resource.Attribute.passwordToggleContentDescription;
+			global::Acr.UserDialogs.Resource.Attribute.passwordToggleDrawable = global::SushiShop.Droid.Resource.Attribute.passwordToggleDrawable;
+			global::Acr.UserDialogs.Resource.Attribute.passwordToggleEnabled = global::SushiShop.Droid.Resource.Attribute.passwordToggleEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.passwordToggleTint = global::SushiShop.Droid.Resource.Attribute.passwordToggleTint;
+			global::Acr.UserDialogs.Resource.Attribute.passwordToggleTintMode = global::SushiShop.Droid.Resource.Attribute.passwordToggleTintMode;
+			global::Acr.UserDialogs.Resource.Attribute.popupMenuStyle = global::SushiShop.Droid.Resource.Attribute.popupMenuStyle;
+			global::Acr.UserDialogs.Resource.Attribute.popupTheme = global::SushiShop.Droid.Resource.Attribute.popupTheme;
+			global::Acr.UserDialogs.Resource.Attribute.popupWindowStyle = global::SushiShop.Droid.Resource.Attribute.popupWindowStyle;
+			global::Acr.UserDialogs.Resource.Attribute.preserveIconSpacing = global::SushiShop.Droid.Resource.Attribute.preserveIconSpacing;
+			global::Acr.UserDialogs.Resource.Attribute.pressedTranslationZ = global::SushiShop.Droid.Resource.Attribute.pressedTranslationZ;
+			global::Acr.UserDialogs.Resource.Attribute.progressBarPadding = global::SushiShop.Droid.Resource.Attribute.progressBarPadding;
+			global::Acr.UserDialogs.Resource.Attribute.progressBarStyle = global::SushiShop.Droid.Resource.Attribute.progressBarStyle;
+			global::Acr.UserDialogs.Resource.Attribute.queryBackground = global::SushiShop.Droid.Resource.Attribute.queryBackground;
+			global::Acr.UserDialogs.Resource.Attribute.queryHint = global::SushiShop.Droid.Resource.Attribute.queryHint;
+			global::Acr.UserDialogs.Resource.Attribute.radioButtonStyle = global::SushiShop.Droid.Resource.Attribute.radioButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.ratingBarStyle = global::SushiShop.Droid.Resource.Attribute.ratingBarStyle;
+			global::Acr.UserDialogs.Resource.Attribute.ratingBarStyleIndicator = global::SushiShop.Droid.Resource.Attribute.ratingBarStyleIndicator;
+			global::Acr.UserDialogs.Resource.Attribute.ratingBarStyleSmall = global::SushiShop.Droid.Resource.Attribute.ratingBarStyleSmall;
+			global::Acr.UserDialogs.Resource.Attribute.recyclerViewStyle = global::SushiShop.Droid.Resource.Attribute.recyclerViewStyle;
+			global::Acr.UserDialogs.Resource.Attribute.reverseLayout = global::SushiShop.Droid.Resource.Attribute.reverseLayout;
+			global::Acr.UserDialogs.Resource.Attribute.rippleColor = global::SushiShop.Droid.Resource.Attribute.rippleColor;
+			global::Acr.UserDialogs.Resource.Attribute.scrimAnimationDuration = global::SushiShop.Droid.Resource.Attribute.scrimAnimationDuration;
+			global::Acr.UserDialogs.Resource.Attribute.scrimBackground = global::SushiShop.Droid.Resource.Attribute.scrimBackground;
+			global::Acr.UserDialogs.Resource.Attribute.scrimVisibleHeightTrigger = global::SushiShop.Droid.Resource.Attribute.scrimVisibleHeightTrigger;
+			global::Acr.UserDialogs.Resource.Attribute.searchHintIcon = global::SushiShop.Droid.Resource.Attribute.searchHintIcon;
+			global::Acr.UserDialogs.Resource.Attribute.searchIcon = global::SushiShop.Droid.Resource.Attribute.searchIcon;
+			global::Acr.UserDialogs.Resource.Attribute.searchViewStyle = global::SushiShop.Droid.Resource.Attribute.searchViewStyle;
+			global::Acr.UserDialogs.Resource.Attribute.seekBarStyle = global::SushiShop.Droid.Resource.Attribute.seekBarStyle;
+			global::Acr.UserDialogs.Resource.Attribute.selectableItemBackground = global::SushiShop.Droid.Resource.Attribute.selectableItemBackground;
+			global::Acr.UserDialogs.Resource.Attribute.selectableItemBackgroundBorderless = global::SushiShop.Droid.Resource.Attribute.selectableItemBackgroundBorderless;
+			global::Acr.UserDialogs.Resource.Attribute.showAsAction = global::SushiShop.Droid.Resource.Attribute.showAsAction;
+			global::Acr.UserDialogs.Resource.Attribute.showDividers = global::SushiShop.Droid.Resource.Attribute.showDividers;
+			global::Acr.UserDialogs.Resource.Attribute.showMotionSpec = global::SushiShop.Droid.Resource.Attribute.showMotionSpec;
+			global::Acr.UserDialogs.Resource.Attribute.showText = global::SushiShop.Droid.Resource.Attribute.showText;
+			global::Acr.UserDialogs.Resource.Attribute.showTitle = global::SushiShop.Droid.Resource.Attribute.showTitle;
+			global::Acr.UserDialogs.Resource.Attribute.singleChoiceItemLayout = global::SushiShop.Droid.Resource.Attribute.singleChoiceItemLayout;
+			global::Acr.UserDialogs.Resource.Attribute.singleLine = global::SushiShop.Droid.Resource.Attribute.singleLine;
+			global::Acr.UserDialogs.Resource.Attribute.singleSelection = global::SushiShop.Droid.Resource.Attribute.singleSelection;
+			global::Acr.UserDialogs.Resource.Attribute.snackbarButtonStyle = global::SushiShop.Droid.Resource.Attribute.snackbarButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.snackbarStyle = global::SushiShop.Droid.Resource.Attribute.snackbarStyle;
+			global::Acr.UserDialogs.Resource.Attribute.spanCount = global::SushiShop.Droid.Resource.Attribute.spanCount;
+			global::Acr.UserDialogs.Resource.Attribute.spinBars = global::SushiShop.Droid.Resource.Attribute.spinBars;
+			global::Acr.UserDialogs.Resource.Attribute.spinnerDropDownItemStyle = global::SushiShop.Droid.Resource.Attribute.spinnerDropDownItemStyle;
+			global::Acr.UserDialogs.Resource.Attribute.spinnerStyle = global::SushiShop.Droid.Resource.Attribute.spinnerStyle;
+			global::Acr.UserDialogs.Resource.Attribute.splitTrack = global::SushiShop.Droid.Resource.Attribute.splitTrack;
+			global::Acr.UserDialogs.Resource.Attribute.srcCompat = global::SushiShop.Droid.Resource.Attribute.srcCompat;
+			global::Acr.UserDialogs.Resource.Attribute.stackFromEnd = global::SushiShop.Droid.Resource.Attribute.stackFromEnd;
+			global::Acr.UserDialogs.Resource.Attribute.state_above_anchor = global::SushiShop.Droid.Resource.Attribute.state_above_anchor;
+			global::Acr.UserDialogs.Resource.Attribute.state_collapsed = global::SushiShop.Droid.Resource.Attribute.state_collapsed;
+			global::Acr.UserDialogs.Resource.Attribute.state_collapsible = global::SushiShop.Droid.Resource.Attribute.state_collapsible;
+			global::Acr.UserDialogs.Resource.Attribute.state_liftable = global::SushiShop.Droid.Resource.Attribute.state_liftable;
+			global::Acr.UserDialogs.Resource.Attribute.state_lifted = global::SushiShop.Droid.Resource.Attribute.state_lifted;
+			global::Acr.UserDialogs.Resource.Attribute.statusBarBackground = global::SushiShop.Droid.Resource.Attribute.statusBarBackground;
+			global::Acr.UserDialogs.Resource.Attribute.statusBarScrim = global::SushiShop.Droid.Resource.Attribute.statusBarScrim;
+			global::Acr.UserDialogs.Resource.Attribute.strokeColor = global::SushiShop.Droid.Resource.Attribute.strokeColor;
+			global::Acr.UserDialogs.Resource.Attribute.strokeWidth = global::SushiShop.Droid.Resource.Attribute.strokeWidth;
+			global::Acr.UserDialogs.Resource.Attribute.subMenuArrow = global::SushiShop.Droid.Resource.Attribute.subMenuArrow;
+			global::Acr.UserDialogs.Resource.Attribute.submitBackground = global::SushiShop.Droid.Resource.Attribute.submitBackground;
+			global::Acr.UserDialogs.Resource.Attribute.subtitle = global::SushiShop.Droid.Resource.Attribute.subtitle;
+			global::Acr.UserDialogs.Resource.Attribute.subtitleTextAppearance = global::SushiShop.Droid.Resource.Attribute.subtitleTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.subtitleTextColor = global::SushiShop.Droid.Resource.Attribute.subtitleTextColor;
+			global::Acr.UserDialogs.Resource.Attribute.subtitleTextStyle = global::SushiShop.Droid.Resource.Attribute.subtitleTextStyle;
+			global::Acr.UserDialogs.Resource.Attribute.suggestionRowLayout = global::SushiShop.Droid.Resource.Attribute.suggestionRowLayout;
+			global::Acr.UserDialogs.Resource.Attribute.switchMinWidth = global::SushiShop.Droid.Resource.Attribute.switchMinWidth;
+			global::Acr.UserDialogs.Resource.Attribute.switchPadding = global::SushiShop.Droid.Resource.Attribute.switchPadding;
+			global::Acr.UserDialogs.Resource.Attribute.switchStyle = global::SushiShop.Droid.Resource.Attribute.switchStyle;
+			global::Acr.UserDialogs.Resource.Attribute.switchTextAppearance = global::SushiShop.Droid.Resource.Attribute.switchTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.tabBackground = global::SushiShop.Droid.Resource.Attribute.tabBackground;
+			global::Acr.UserDialogs.Resource.Attribute.tabContentStart = global::SushiShop.Droid.Resource.Attribute.tabContentStart;
+			global::Acr.UserDialogs.Resource.Attribute.tabGravity = global::SushiShop.Droid.Resource.Attribute.tabGravity;
+			global::Acr.UserDialogs.Resource.Attribute.tabIconTint = global::SushiShop.Droid.Resource.Attribute.tabIconTint;
+			global::Acr.UserDialogs.Resource.Attribute.tabIconTintMode = global::SushiShop.Droid.Resource.Attribute.tabIconTintMode;
+			global::Acr.UserDialogs.Resource.Attribute.tabIndicator = global::SushiShop.Droid.Resource.Attribute.tabIndicator;
+			global::Acr.UserDialogs.Resource.Attribute.tabIndicatorAnimationDuration = global::SushiShop.Droid.Resource.Attribute.tabIndicatorAnimationDuration;
+			global::Acr.UserDialogs.Resource.Attribute.tabIndicatorColor = global::SushiShop.Droid.Resource.Attribute.tabIndicatorColor;
+			global::Acr.UserDialogs.Resource.Attribute.tabIndicatorFullWidth = global::SushiShop.Droid.Resource.Attribute.tabIndicatorFullWidth;
+			global::Acr.UserDialogs.Resource.Attribute.tabIndicatorGravity = global::SushiShop.Droid.Resource.Attribute.tabIndicatorGravity;
+			global::Acr.UserDialogs.Resource.Attribute.tabIndicatorHeight = global::SushiShop.Droid.Resource.Attribute.tabIndicatorHeight;
+			global::Acr.UserDialogs.Resource.Attribute.tabInlineLabel = global::SushiShop.Droid.Resource.Attribute.tabInlineLabel;
+			global::Acr.UserDialogs.Resource.Attribute.tabMaxWidth = global::SushiShop.Droid.Resource.Attribute.tabMaxWidth;
+			global::Acr.UserDialogs.Resource.Attribute.tabMinWidth = global::SushiShop.Droid.Resource.Attribute.tabMinWidth;
+			global::Acr.UserDialogs.Resource.Attribute.tabMode = global::SushiShop.Droid.Resource.Attribute.tabMode;
+			global::Acr.UserDialogs.Resource.Attribute.tabPadding = global::SushiShop.Droid.Resource.Attribute.tabPadding;
+			global::Acr.UserDialogs.Resource.Attribute.tabPaddingBottom = global::SushiShop.Droid.Resource.Attribute.tabPaddingBottom;
+			global::Acr.UserDialogs.Resource.Attribute.tabPaddingEnd = global::SushiShop.Droid.Resource.Attribute.tabPaddingEnd;
+			global::Acr.UserDialogs.Resource.Attribute.tabPaddingStart = global::SushiShop.Droid.Resource.Attribute.tabPaddingStart;
+			global::Acr.UserDialogs.Resource.Attribute.tabPaddingTop = global::SushiShop.Droid.Resource.Attribute.tabPaddingTop;
+			global::Acr.UserDialogs.Resource.Attribute.tabRippleColor = global::SushiShop.Droid.Resource.Attribute.tabRippleColor;
+			global::Acr.UserDialogs.Resource.Attribute.tabSelectedTextColor = global::SushiShop.Droid.Resource.Attribute.tabSelectedTextColor;
+			global::Acr.UserDialogs.Resource.Attribute.tabStyle = global::SushiShop.Droid.Resource.Attribute.tabStyle;
+			global::Acr.UserDialogs.Resource.Attribute.tabTextAppearance = global::SushiShop.Droid.Resource.Attribute.tabTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.tabTextColor = global::SushiShop.Droid.Resource.Attribute.tabTextColor;
+			global::Acr.UserDialogs.Resource.Attribute.tabUnboundedRipple = global::SushiShop.Droid.Resource.Attribute.tabUnboundedRipple;
+			global::Acr.UserDialogs.Resource.Attribute.textAllCaps = global::SushiShop.Droid.Resource.Attribute.textAllCaps;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceBody1 = global::SushiShop.Droid.Resource.Attribute.textAppearanceBody1;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceBody2 = global::SushiShop.Droid.Resource.Attribute.textAppearanceBody2;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceButton = global::SushiShop.Droid.Resource.Attribute.textAppearanceButton;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceCaption = global::SushiShop.Droid.Resource.Attribute.textAppearanceCaption;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceHeadline1 = global::SushiShop.Droid.Resource.Attribute.textAppearanceHeadline1;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceHeadline2 = global::SushiShop.Droid.Resource.Attribute.textAppearanceHeadline2;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceHeadline3 = global::SushiShop.Droid.Resource.Attribute.textAppearanceHeadline3;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceHeadline4 = global::SushiShop.Droid.Resource.Attribute.textAppearanceHeadline4;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceHeadline5 = global::SushiShop.Droid.Resource.Attribute.textAppearanceHeadline5;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceHeadline6 = global::SushiShop.Droid.Resource.Attribute.textAppearanceHeadline6;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceLargePopupMenu = global::SushiShop.Droid.Resource.Attribute.textAppearanceLargePopupMenu;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceListItem = global::SushiShop.Droid.Resource.Attribute.textAppearanceListItem;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceListItemSecondary = global::SushiShop.Droid.Resource.Attribute.textAppearanceListItemSecondary;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceListItemSmall = global::SushiShop.Droid.Resource.Attribute.textAppearanceListItemSmall;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceOverline = global::SushiShop.Droid.Resource.Attribute.textAppearanceOverline;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearancePopupMenuHeader = global::SushiShop.Droid.Resource.Attribute.textAppearancePopupMenuHeader;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceSearchResultSubtitle = global::SushiShop.Droid.Resource.Attribute.textAppearanceSearchResultSubtitle;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceSearchResultTitle = global::SushiShop.Droid.Resource.Attribute.textAppearanceSearchResultTitle;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceSmallPopupMenu = global::SushiShop.Droid.Resource.Attribute.textAppearanceSmallPopupMenu;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceSubtitle1 = global::SushiShop.Droid.Resource.Attribute.textAppearanceSubtitle1;
+			global::Acr.UserDialogs.Resource.Attribute.textAppearanceSubtitle2 = global::SushiShop.Droid.Resource.Attribute.textAppearanceSubtitle2;
+			global::Acr.UserDialogs.Resource.Attribute.textColorAlertDialogListItem = global::SushiShop.Droid.Resource.Attribute.textColorAlertDialogListItem;
+			global::Acr.UserDialogs.Resource.Attribute.textColorSearchUrl = global::SushiShop.Droid.Resource.Attribute.textColorSearchUrl;
+			global::Acr.UserDialogs.Resource.Attribute.textEndPadding = global::SushiShop.Droid.Resource.Attribute.textEndPadding;
+			global::Acr.UserDialogs.Resource.Attribute.textInputStyle = global::SushiShop.Droid.Resource.Attribute.textInputStyle;
+			global::Acr.UserDialogs.Resource.Attribute.textLocale = global::SushiShop.Droid.Resource.Attribute.textLocale;
+			global::Acr.UserDialogs.Resource.Attribute.textStartPadding = global::SushiShop.Droid.Resource.Attribute.textStartPadding;
+			global::Acr.UserDialogs.Resource.Attribute.theme = global::SushiShop.Droid.Resource.Attribute.theme;
+			global::Acr.UserDialogs.Resource.Attribute.thickness = global::SushiShop.Droid.Resource.Attribute.thickness;
+			global::Acr.UserDialogs.Resource.Attribute.thumbTextPadding = global::SushiShop.Droid.Resource.Attribute.thumbTextPadding;
+			global::Acr.UserDialogs.Resource.Attribute.thumbTint = global::SushiShop.Droid.Resource.Attribute.thumbTint;
+			global::Acr.UserDialogs.Resource.Attribute.thumbTintMode = global::SushiShop.Droid.Resource.Attribute.thumbTintMode;
+			global::Acr.UserDialogs.Resource.Attribute.tickMark = global::SushiShop.Droid.Resource.Attribute.tickMark;
+			global::Acr.UserDialogs.Resource.Attribute.tickMarkTint = global::SushiShop.Droid.Resource.Attribute.tickMarkTint;
+			global::Acr.UserDialogs.Resource.Attribute.tickMarkTintMode = global::SushiShop.Droid.Resource.Attribute.tickMarkTintMode;
+			global::Acr.UserDialogs.Resource.Attribute.tint = global::SushiShop.Droid.Resource.Attribute.tint;
+			global::Acr.UserDialogs.Resource.Attribute.tintMode = global::SushiShop.Droid.Resource.Attribute.tintMode;
+			global::Acr.UserDialogs.Resource.Attribute.title = global::SushiShop.Droid.Resource.Attribute.title;
+			global::Acr.UserDialogs.Resource.Attribute.titleEnabled = global::SushiShop.Droid.Resource.Attribute.titleEnabled;
+			global::Acr.UserDialogs.Resource.Attribute.titleMargin = global::SushiShop.Droid.Resource.Attribute.titleMargin;
+			global::Acr.UserDialogs.Resource.Attribute.titleMarginBottom = global::SushiShop.Droid.Resource.Attribute.titleMarginBottom;
+			global::Acr.UserDialogs.Resource.Attribute.titleMarginEnd = global::SushiShop.Droid.Resource.Attribute.titleMarginEnd;
+			global::Acr.UserDialogs.Resource.Attribute.titleMargins = global::SushiShop.Droid.Resource.Attribute.titleMargins;
+			global::Acr.UserDialogs.Resource.Attribute.titleMarginStart = global::SushiShop.Droid.Resource.Attribute.titleMarginStart;
+			global::Acr.UserDialogs.Resource.Attribute.titleMarginTop = global::SushiShop.Droid.Resource.Attribute.titleMarginTop;
+			global::Acr.UserDialogs.Resource.Attribute.titleTextAppearance = global::SushiShop.Droid.Resource.Attribute.titleTextAppearance;
+			global::Acr.UserDialogs.Resource.Attribute.titleTextColor = global::SushiShop.Droid.Resource.Attribute.titleTextColor;
+			global::Acr.UserDialogs.Resource.Attribute.titleTextStyle = global::SushiShop.Droid.Resource.Attribute.titleTextStyle;
+			global::Acr.UserDialogs.Resource.Attribute.toolbarId = global::SushiShop.Droid.Resource.Attribute.toolbarId;
+			global::Acr.UserDialogs.Resource.Attribute.toolbarNavigationButtonStyle = global::SushiShop.Droid.Resource.Attribute.toolbarNavigationButtonStyle;
+			global::Acr.UserDialogs.Resource.Attribute.toolbarStyle = global::SushiShop.Droid.Resource.Attribute.toolbarStyle;
+			global::Acr.UserDialogs.Resource.Attribute.tooltipForegroundColor = global::SushiShop.Droid.Resource.Attribute.tooltipForegroundColor;
+			global::Acr.UserDialogs.Resource.Attribute.tooltipFrameBackground = global::SushiShop.Droid.Resource.Attribute.tooltipFrameBackground;
+			global::Acr.UserDialogs.Resource.Attribute.tooltipText = global::SushiShop.Droid.Resource.Attribute.tooltipText;
+			global::Acr.UserDialogs.Resource.Attribute.track = global::SushiShop.Droid.Resource.Attribute.track;
+			global::Acr.UserDialogs.Resource.Attribute.trackTint = global::SushiShop.Droid.Resource.Attribute.trackTint;
+			global::Acr.UserDialogs.Resource.Attribute.trackTintMode = global::SushiShop.Droid.Resource.Attribute.trackTintMode;
+			global::Acr.UserDialogs.Resource.Attribute.ttcIndex = global::SushiShop.Droid.Resource.Attribute.ttcIndex;
+			global::Acr.UserDialogs.Resource.Attribute.useCompatPadding = global::SushiShop.Droid.Resource.Attribute.useCompatPadding;
+			global::Acr.UserDialogs.Resource.Attribute.viewInflaterClass = global::SushiShop.Droid.Resource.Attribute.viewInflaterClass;
+			global::Acr.UserDialogs.Resource.Attribute.voiceIcon = global::SushiShop.Droid.Resource.Attribute.voiceIcon;
+			global::Acr.UserDialogs.Resource.Attribute.windowActionBar = global::SushiShop.Droid.Resource.Attribute.windowActionBar;
+			global::Acr.UserDialogs.Resource.Attribute.windowActionBarOverlay = global::SushiShop.Droid.Resource.Attribute.windowActionBarOverlay;
+			global::Acr.UserDialogs.Resource.Attribute.windowActionModeOverlay = global::SushiShop.Droid.Resource.Attribute.windowActionModeOverlay;
+			global::Acr.UserDialogs.Resource.Attribute.windowFixedHeightMajor = global::SushiShop.Droid.Resource.Attribute.windowFixedHeightMajor;
+			global::Acr.UserDialogs.Resource.Attribute.windowFixedHeightMinor = global::SushiShop.Droid.Resource.Attribute.windowFixedHeightMinor;
+			global::Acr.UserDialogs.Resource.Attribute.windowFixedWidthMajor = global::SushiShop.Droid.Resource.Attribute.windowFixedWidthMajor;
+			global::Acr.UserDialogs.Resource.Attribute.windowFixedWidthMinor = global::SushiShop.Droid.Resource.Attribute.windowFixedWidthMinor;
+			global::Acr.UserDialogs.Resource.Attribute.windowMinWidthMajor = global::SushiShop.Droid.Resource.Attribute.windowMinWidthMajor;
+			global::Acr.UserDialogs.Resource.Attribute.windowMinWidthMinor = global::SushiShop.Droid.Resource.Attribute.windowMinWidthMinor;
+			global::Acr.UserDialogs.Resource.Attribute.windowNoTitle = global::SushiShop.Droid.Resource.Attribute.windowNoTitle;
+			global::Acr.UserDialogs.Resource.Boolean.abc_action_bar_embed_tabs = global::SushiShop.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::Acr.UserDialogs.Resource.Boolean.abc_allow_stacked_button_bar = global::SushiShop.Droid.Resource.Boolean.abc_allow_stacked_button_bar;
+			global::Acr.UserDialogs.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::SushiShop.Droid.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::Acr.UserDialogs.Resource.Boolean.mtrl_btn_textappearance_all_caps = global::SushiShop.Droid.Resource.Boolean.mtrl_btn_textappearance_all_caps;
+			global::Acr.UserDialogs.Resource.Color.abc_background_cache_hint_selector_material_dark = global::SushiShop.Droid.Resource.Color.abc_background_cache_hint_selector_material_dark;
+			global::Acr.UserDialogs.Resource.Color.abc_background_cache_hint_selector_material_light = global::SushiShop.Droid.Resource.Color.abc_background_cache_hint_selector_material_light;
+			global::Acr.UserDialogs.Resource.Color.abc_btn_colored_borderless_text_material = global::SushiShop.Droid.Resource.Color.abc_btn_colored_borderless_text_material;
+			global::Acr.UserDialogs.Resource.Color.abc_btn_colored_text_material = global::SushiShop.Droid.Resource.Color.abc_btn_colored_text_material;
+			global::Acr.UserDialogs.Resource.Color.abc_color_highlight_material = global::SushiShop.Droid.Resource.Color.abc_color_highlight_material;
+			global::Acr.UserDialogs.Resource.Color.abc_hint_foreground_material_dark = global::SushiShop.Droid.Resource.Color.abc_hint_foreground_material_dark;
+			global::Acr.UserDialogs.Resource.Color.abc_hint_foreground_material_light = global::SushiShop.Droid.Resource.Color.abc_hint_foreground_material_light;
+			global::Acr.UserDialogs.Resource.Color.abc_input_method_navigation_guard = global::SushiShop.Droid.Resource.Color.abc_input_method_navigation_guard;
+			global::Acr.UserDialogs.Resource.Color.abc_primary_text_disable_only_material_dark = global::SushiShop.Droid.Resource.Color.abc_primary_text_disable_only_material_dark;
+			global::Acr.UserDialogs.Resource.Color.abc_primary_text_disable_only_material_light = global::SushiShop.Droid.Resource.Color.abc_primary_text_disable_only_material_light;
+			global::Acr.UserDialogs.Resource.Color.abc_primary_text_material_dark = global::SushiShop.Droid.Resource.Color.abc_primary_text_material_dark;
+			global::Acr.UserDialogs.Resource.Color.abc_primary_text_material_light = global::SushiShop.Droid.Resource.Color.abc_primary_text_material_light;
+			global::Acr.UserDialogs.Resource.Color.abc_search_url_text = global::SushiShop.Droid.Resource.Color.abc_search_url_text;
+			global::Acr.UserDialogs.Resource.Color.abc_search_url_text_normal = global::SushiShop.Droid.Resource.Color.abc_search_url_text_normal;
+			global::Acr.UserDialogs.Resource.Color.abc_search_url_text_pressed = global::SushiShop.Droid.Resource.Color.abc_search_url_text_pressed;
+			global::Acr.UserDialogs.Resource.Color.abc_search_url_text_selected = global::SushiShop.Droid.Resource.Color.abc_search_url_text_selected;
+			global::Acr.UserDialogs.Resource.Color.abc_secondary_text_material_dark = global::SushiShop.Droid.Resource.Color.abc_secondary_text_material_dark;
+			global::Acr.UserDialogs.Resource.Color.abc_secondary_text_material_light = global::SushiShop.Droid.Resource.Color.abc_secondary_text_material_light;
+			global::Acr.UserDialogs.Resource.Color.abc_tint_btn_checkable = global::SushiShop.Droid.Resource.Color.abc_tint_btn_checkable;
+			global::Acr.UserDialogs.Resource.Color.abc_tint_default = global::SushiShop.Droid.Resource.Color.abc_tint_default;
+			global::Acr.UserDialogs.Resource.Color.abc_tint_edittext = global::SushiShop.Droid.Resource.Color.abc_tint_edittext;
+			global::Acr.UserDialogs.Resource.Color.abc_tint_seek_thumb = global::SushiShop.Droid.Resource.Color.abc_tint_seek_thumb;
+			global::Acr.UserDialogs.Resource.Color.abc_tint_spinner = global::SushiShop.Droid.Resource.Color.abc_tint_spinner;
+			global::Acr.UserDialogs.Resource.Color.abc_tint_switch_track = global::SushiShop.Droid.Resource.Color.abc_tint_switch_track;
+			global::Acr.UserDialogs.Resource.Color.accent_material_dark = global::SushiShop.Droid.Resource.Color.accent_material_dark;
+			global::Acr.UserDialogs.Resource.Color.accent_material_light = global::SushiShop.Droid.Resource.Color.accent_material_light;
+			global::Acr.UserDialogs.Resource.Color.background_floating_material_dark = global::SushiShop.Droid.Resource.Color.background_floating_material_dark;
+			global::Acr.UserDialogs.Resource.Color.background_floating_material_light = global::SushiShop.Droid.Resource.Color.background_floating_material_light;
+			global::Acr.UserDialogs.Resource.Color.background_material_dark = global::SushiShop.Droid.Resource.Color.background_material_dark;
+			global::Acr.UserDialogs.Resource.Color.background_material_light = global::SushiShop.Droid.Resource.Color.background_material_light;
+			global::Acr.UserDialogs.Resource.Color.bright_foreground_disabled_material_dark = global::SushiShop.Droid.Resource.Color.bright_foreground_disabled_material_dark;
+			global::Acr.UserDialogs.Resource.Color.bright_foreground_disabled_material_light = global::SushiShop.Droid.Resource.Color.bright_foreground_disabled_material_light;
+			global::Acr.UserDialogs.Resource.Color.bright_foreground_inverse_material_dark = global::SushiShop.Droid.Resource.Color.bright_foreground_inverse_material_dark;
+			global::Acr.UserDialogs.Resource.Color.bright_foreground_inverse_material_light = global::SushiShop.Droid.Resource.Color.bright_foreground_inverse_material_light;
+			global::Acr.UserDialogs.Resource.Color.bright_foreground_material_dark = global::SushiShop.Droid.Resource.Color.bright_foreground_material_dark;
+			global::Acr.UserDialogs.Resource.Color.bright_foreground_material_light = global::SushiShop.Droid.Resource.Color.bright_foreground_material_light;
+			global::Acr.UserDialogs.Resource.Color.button_material_dark = global::SushiShop.Droid.Resource.Color.button_material_dark;
+			global::Acr.UserDialogs.Resource.Color.button_material_light = global::SushiShop.Droid.Resource.Color.button_material_light;
+			global::Acr.UserDialogs.Resource.Color.cardview_dark_background = global::SushiShop.Droid.Resource.Color.cardview_dark_background;
+			global::Acr.UserDialogs.Resource.Color.cardview_light_background = global::SushiShop.Droid.Resource.Color.cardview_light_background;
+			global::Acr.UserDialogs.Resource.Color.cardview_shadow_end_color = global::SushiShop.Droid.Resource.Color.cardview_shadow_end_color;
+			global::Acr.UserDialogs.Resource.Color.cardview_shadow_start_color = global::SushiShop.Droid.Resource.Color.cardview_shadow_start_color;
+			global::Acr.UserDialogs.Resource.Color.design_bottom_navigation_shadow_color = global::SushiShop.Droid.Resource.Color.design_bottom_navigation_shadow_color;
+			global::Acr.UserDialogs.Resource.Color.design_default_color_primary = global::SushiShop.Droid.Resource.Color.design_default_color_primary;
+			global::Acr.UserDialogs.Resource.Color.design_default_color_primary_dark = global::SushiShop.Droid.Resource.Color.design_default_color_primary_dark;
+			global::Acr.UserDialogs.Resource.Color.design_error = global::SushiShop.Droid.Resource.Color.design_error;
+			global::Acr.UserDialogs.Resource.Color.design_fab_shadow_end_color = global::SushiShop.Droid.Resource.Color.design_fab_shadow_end_color;
+			global::Acr.UserDialogs.Resource.Color.design_fab_shadow_mid_color = global::SushiShop.Droid.Resource.Color.design_fab_shadow_mid_color;
+			global::Acr.UserDialogs.Resource.Color.design_fab_shadow_start_color = global::SushiShop.Droid.Resource.Color.design_fab_shadow_start_color;
+			global::Acr.UserDialogs.Resource.Color.design_fab_stroke_end_inner_color = global::SushiShop.Droid.Resource.Color.design_fab_stroke_end_inner_color;
+			global::Acr.UserDialogs.Resource.Color.design_fab_stroke_end_outer_color = global::SushiShop.Droid.Resource.Color.design_fab_stroke_end_outer_color;
+			global::Acr.UserDialogs.Resource.Color.design_fab_stroke_top_inner_color = global::SushiShop.Droid.Resource.Color.design_fab_stroke_top_inner_color;
+			global::Acr.UserDialogs.Resource.Color.design_fab_stroke_top_outer_color = global::SushiShop.Droid.Resource.Color.design_fab_stroke_top_outer_color;
+			global::Acr.UserDialogs.Resource.Color.design_snackbar_background_color = global::SushiShop.Droid.Resource.Color.design_snackbar_background_color;
+			global::Acr.UserDialogs.Resource.Color.design_tint_password_toggle = global::SushiShop.Droid.Resource.Color.design_tint_password_toggle;
+			global::Acr.UserDialogs.Resource.Color.dim_foreground_disabled_material_dark = global::SushiShop.Droid.Resource.Color.dim_foreground_disabled_material_dark;
+			global::Acr.UserDialogs.Resource.Color.dim_foreground_disabled_material_light = global::SushiShop.Droid.Resource.Color.dim_foreground_disabled_material_light;
+			global::Acr.UserDialogs.Resource.Color.dim_foreground_material_dark = global::SushiShop.Droid.Resource.Color.dim_foreground_material_dark;
+			global::Acr.UserDialogs.Resource.Color.dim_foreground_material_light = global::SushiShop.Droid.Resource.Color.dim_foreground_material_light;
+			global::Acr.UserDialogs.Resource.Color.error_color_material_dark = global::SushiShop.Droid.Resource.Color.error_color_material_dark;
+			global::Acr.UserDialogs.Resource.Color.error_color_material_light = global::SushiShop.Droid.Resource.Color.error_color_material_light;
+			global::Acr.UserDialogs.Resource.Color.foreground_material_dark = global::SushiShop.Droid.Resource.Color.foreground_material_dark;
+			global::Acr.UserDialogs.Resource.Color.foreground_material_light = global::SushiShop.Droid.Resource.Color.foreground_material_light;
+			global::Acr.UserDialogs.Resource.Color.highlighted_text_material_dark = global::SushiShop.Droid.Resource.Color.highlighted_text_material_dark;
+			global::Acr.UserDialogs.Resource.Color.highlighted_text_material_light = global::SushiShop.Droid.Resource.Color.highlighted_text_material_light;
+			global::Acr.UserDialogs.Resource.Color.material_blue_grey_800 = global::SushiShop.Droid.Resource.Color.material_blue_grey_800;
+			global::Acr.UserDialogs.Resource.Color.material_blue_grey_900 = global::SushiShop.Droid.Resource.Color.material_blue_grey_900;
+			global::Acr.UserDialogs.Resource.Color.material_blue_grey_950 = global::SushiShop.Droid.Resource.Color.material_blue_grey_950;
+			global::Acr.UserDialogs.Resource.Color.material_deep_teal_200 = global::SushiShop.Droid.Resource.Color.material_deep_teal_200;
+			global::Acr.UserDialogs.Resource.Color.material_deep_teal_500 = global::SushiShop.Droid.Resource.Color.material_deep_teal_500;
+			global::Acr.UserDialogs.Resource.Color.material_grey_100 = global::SushiShop.Droid.Resource.Color.material_grey_100;
+			global::Acr.UserDialogs.Resource.Color.material_grey_300 = global::SushiShop.Droid.Resource.Color.material_grey_300;
+			global::Acr.UserDialogs.Resource.Color.material_grey_50 = global::SushiShop.Droid.Resource.Color.material_grey_50;
+			global::Acr.UserDialogs.Resource.Color.material_grey_600 = global::SushiShop.Droid.Resource.Color.material_grey_600;
+			global::Acr.UserDialogs.Resource.Color.material_grey_800 = global::SushiShop.Droid.Resource.Color.material_grey_800;
+			global::Acr.UserDialogs.Resource.Color.material_grey_850 = global::SushiShop.Droid.Resource.Color.material_grey_850;
+			global::Acr.UserDialogs.Resource.Color.material_grey_900 = global::SushiShop.Droid.Resource.Color.material_grey_900;
+			global::Acr.UserDialogs.Resource.Color.mtrl_bottom_nav_colored_item_tint = global::SushiShop.Droid.Resource.Color.mtrl_bottom_nav_colored_item_tint;
+			global::Acr.UserDialogs.Resource.Color.mtrl_bottom_nav_item_tint = global::SushiShop.Droid.Resource.Color.mtrl_bottom_nav_item_tint;
+			global::Acr.UserDialogs.Resource.Color.mtrl_btn_bg_color_disabled = global::SushiShop.Droid.Resource.Color.mtrl_btn_bg_color_disabled;
+			global::Acr.UserDialogs.Resource.Color.mtrl_btn_bg_color_selector = global::SushiShop.Droid.Resource.Color.mtrl_btn_bg_color_selector;
+			global::Acr.UserDialogs.Resource.Color.mtrl_btn_ripple_color = global::SushiShop.Droid.Resource.Color.mtrl_btn_ripple_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_btn_stroke_color_selector = global::SushiShop.Droid.Resource.Color.mtrl_btn_stroke_color_selector;
+			global::Acr.UserDialogs.Resource.Color.mtrl_btn_text_btn_ripple_color = global::SushiShop.Droid.Resource.Color.mtrl_btn_text_btn_ripple_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_btn_text_color_disabled = global::SushiShop.Droid.Resource.Color.mtrl_btn_text_color_disabled;
+			global::Acr.UserDialogs.Resource.Color.mtrl_btn_text_color_selector = global::SushiShop.Droid.Resource.Color.mtrl_btn_text_color_selector;
+			global::Acr.UserDialogs.Resource.Color.mtrl_btn_transparent_bg_color = global::SushiShop.Droid.Resource.Color.mtrl_btn_transparent_bg_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_chip_background_color = global::SushiShop.Droid.Resource.Color.mtrl_chip_background_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_chip_close_icon_tint = global::SushiShop.Droid.Resource.Color.mtrl_chip_close_icon_tint;
+			global::Acr.UserDialogs.Resource.Color.mtrl_chip_ripple_color = global::SushiShop.Droid.Resource.Color.mtrl_chip_ripple_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_chip_text_color = global::SushiShop.Droid.Resource.Color.mtrl_chip_text_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_fab_ripple_color = global::SushiShop.Droid.Resource.Color.mtrl_fab_ripple_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_scrim_color = global::SushiShop.Droid.Resource.Color.mtrl_scrim_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_tabs_colored_ripple_color = global::SushiShop.Droid.Resource.Color.mtrl_tabs_colored_ripple_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_tabs_icon_color_selector = global::SushiShop.Droid.Resource.Color.mtrl_tabs_icon_color_selector;
+			global::Acr.UserDialogs.Resource.Color.mtrl_tabs_icon_color_selector_colored = global::SushiShop.Droid.Resource.Color.mtrl_tabs_icon_color_selector_colored;
+			global::Acr.UserDialogs.Resource.Color.mtrl_tabs_legacy_text_color_selector = global::SushiShop.Droid.Resource.Color.mtrl_tabs_legacy_text_color_selector;
+			global::Acr.UserDialogs.Resource.Color.mtrl_tabs_ripple_color = global::SushiShop.Droid.Resource.Color.mtrl_tabs_ripple_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_textinput_default_box_stroke_color = global::SushiShop.Droid.Resource.Color.mtrl_textinput_default_box_stroke_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_textinput_disabled_color = global::SushiShop.Droid.Resource.Color.mtrl_textinput_disabled_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_textinput_filled_box_default_background_color = global::SushiShop.Droid.Resource.Color.mtrl_textinput_filled_box_default_background_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_textinput_hovered_box_stroke_color = global::SushiShop.Droid.Resource.Color.mtrl_textinput_hovered_box_stroke_color;
+			global::Acr.UserDialogs.Resource.Color.mtrl_text_btn_text_color_selector = global::SushiShop.Droid.Resource.Color.mtrl_text_btn_text_color_selector;
+			global::Acr.UserDialogs.Resource.Color.notification_action_color_filter = global::SushiShop.Droid.Resource.Color.notification_action_color_filter;
+			global::Acr.UserDialogs.Resource.Color.notification_icon_bg_color = global::SushiShop.Droid.Resource.Color.notification_icon_bg_color;
+			global::Acr.UserDialogs.Resource.Color.primary_dark_material_dark = global::SushiShop.Droid.Resource.Color.primary_dark_material_dark;
+			global::Acr.UserDialogs.Resource.Color.primary_dark_material_light = global::SushiShop.Droid.Resource.Color.primary_dark_material_light;
+			global::Acr.UserDialogs.Resource.Color.primary_material_dark = global::SushiShop.Droid.Resource.Color.primary_material_dark;
+			global::Acr.UserDialogs.Resource.Color.primary_material_light = global::SushiShop.Droid.Resource.Color.primary_material_light;
+			global::Acr.UserDialogs.Resource.Color.primary_text_default_material_dark = global::SushiShop.Droid.Resource.Color.primary_text_default_material_dark;
+			global::Acr.UserDialogs.Resource.Color.primary_text_default_material_light = global::SushiShop.Droid.Resource.Color.primary_text_default_material_light;
+			global::Acr.UserDialogs.Resource.Color.primary_text_disabled_material_dark = global::SushiShop.Droid.Resource.Color.primary_text_disabled_material_dark;
+			global::Acr.UserDialogs.Resource.Color.primary_text_disabled_material_light = global::SushiShop.Droid.Resource.Color.primary_text_disabled_material_light;
+			global::Acr.UserDialogs.Resource.Color.ripple_material_dark = global::SushiShop.Droid.Resource.Color.ripple_material_dark;
+			global::Acr.UserDialogs.Resource.Color.ripple_material_light = global::SushiShop.Droid.Resource.Color.ripple_material_light;
+			global::Acr.UserDialogs.Resource.Color.secondary_text_default_material_dark = global::SushiShop.Droid.Resource.Color.secondary_text_default_material_dark;
+			global::Acr.UserDialogs.Resource.Color.secondary_text_default_material_light = global::SushiShop.Droid.Resource.Color.secondary_text_default_material_light;
+			global::Acr.UserDialogs.Resource.Color.secondary_text_disabled_material_dark = global::SushiShop.Droid.Resource.Color.secondary_text_disabled_material_dark;
+			global::Acr.UserDialogs.Resource.Color.secondary_text_disabled_material_light = global::SushiShop.Droid.Resource.Color.secondary_text_disabled_material_light;
+			global::Acr.UserDialogs.Resource.Color.switch_thumb_disabled_material_dark = global::SushiShop.Droid.Resource.Color.switch_thumb_disabled_material_dark;
+			global::Acr.UserDialogs.Resource.Color.switch_thumb_disabled_material_light = global::SushiShop.Droid.Resource.Color.switch_thumb_disabled_material_light;
+			global::Acr.UserDialogs.Resource.Color.switch_thumb_material_dark = global::SushiShop.Droid.Resource.Color.switch_thumb_material_dark;
+			global::Acr.UserDialogs.Resource.Color.switch_thumb_material_light = global::SushiShop.Droid.Resource.Color.switch_thumb_material_light;
+			global::Acr.UserDialogs.Resource.Color.switch_thumb_normal_material_dark = global::SushiShop.Droid.Resource.Color.switch_thumb_normal_material_dark;
+			global::Acr.UserDialogs.Resource.Color.switch_thumb_normal_material_light = global::SushiShop.Droid.Resource.Color.switch_thumb_normal_material_light;
+			global::Acr.UserDialogs.Resource.Color.tooltip_background_dark = global::SushiShop.Droid.Resource.Color.tooltip_background_dark;
+			global::Acr.UserDialogs.Resource.Color.tooltip_background_light = global::SushiShop.Droid.Resource.Color.tooltip_background_light;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_content_inset_material = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_content_inset_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_content_inset_with_nav = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_content_inset_with_nav;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_default_height_material = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_default_height_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_default_padding_end_material = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_default_padding_end_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_default_padding_start_material = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_default_padding_start_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_elevation_material = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_elevation_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_icon_vertical_padding_material = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_icon_vertical_padding_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_overflow_padding_end_material = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_overflow_padding_end_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_overflow_padding_start_material = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_overflow_padding_start_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_stacked_max_height = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_stacked_max_height;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_stacked_tab_max_width = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_stacked_tab_max_width;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_bar_subtitle_top_margin_material = global::SushiShop.Droid.Resource.Dimension.abc_action_bar_subtitle_top_margin_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_button_min_height_material = global::SushiShop.Droid.Resource.Dimension.abc_action_button_min_height_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_button_min_width_material = global::SushiShop.Droid.Resource.Dimension.abc_action_button_min_width_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_action_button_min_width_overflow_material = global::SushiShop.Droid.Resource.Dimension.abc_action_button_min_width_overflow_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_alert_dialog_button_bar_height = global::SushiShop.Droid.Resource.Dimension.abc_alert_dialog_button_bar_height;
+			global::Acr.UserDialogs.Resource.Dimension.abc_alert_dialog_button_dimen = global::SushiShop.Droid.Resource.Dimension.abc_alert_dialog_button_dimen;
+			global::Acr.UserDialogs.Resource.Dimension.abc_button_inset_horizontal_material = global::SushiShop.Droid.Resource.Dimension.abc_button_inset_horizontal_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_button_inset_vertical_material = global::SushiShop.Droid.Resource.Dimension.abc_button_inset_vertical_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_button_padding_horizontal_material = global::SushiShop.Droid.Resource.Dimension.abc_button_padding_horizontal_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_button_padding_vertical_material = global::SushiShop.Droid.Resource.Dimension.abc_button_padding_vertical_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_cascading_menus_min_smallest_width = global::SushiShop.Droid.Resource.Dimension.abc_cascading_menus_min_smallest_width;
+			global::Acr.UserDialogs.Resource.Dimension.abc_config_prefDialogWidth = global::SushiShop.Droid.Resource.Dimension.abc_config_prefDialogWidth;
+			global::Acr.UserDialogs.Resource.Dimension.abc_control_corner_material = global::SushiShop.Droid.Resource.Dimension.abc_control_corner_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_control_inset_material = global::SushiShop.Droid.Resource.Dimension.abc_control_inset_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_control_padding_material = global::SushiShop.Droid.Resource.Dimension.abc_control_padding_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_corner_radius_material = global::SushiShop.Droid.Resource.Dimension.abc_dialog_corner_radius_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_fixed_height_major = global::SushiShop.Droid.Resource.Dimension.abc_dialog_fixed_height_major;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_fixed_height_minor = global::SushiShop.Droid.Resource.Dimension.abc_dialog_fixed_height_minor;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_fixed_width_major = global::SushiShop.Droid.Resource.Dimension.abc_dialog_fixed_width_major;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_fixed_width_minor = global::SushiShop.Droid.Resource.Dimension.abc_dialog_fixed_width_minor;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons = global::SushiShop.Droid.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_list_padding_top_no_title = global::SushiShop.Droid.Resource.Dimension.abc_dialog_list_padding_top_no_title;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_min_width_major = global::SushiShop.Droid.Resource.Dimension.abc_dialog_min_width_major;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_min_width_minor = global::SushiShop.Droid.Resource.Dimension.abc_dialog_min_width_minor;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_padding_material = global::SushiShop.Droid.Resource.Dimension.abc_dialog_padding_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_padding_top_material = global::SushiShop.Droid.Resource.Dimension.abc_dialog_padding_top_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dialog_title_divider_material = global::SushiShop.Droid.Resource.Dimension.abc_dialog_title_divider_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_disabled_alpha_material_dark = global::SushiShop.Droid.Resource.Dimension.abc_disabled_alpha_material_dark;
+			global::Acr.UserDialogs.Resource.Dimension.abc_disabled_alpha_material_light = global::SushiShop.Droid.Resource.Dimension.abc_disabled_alpha_material_light;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dropdownitem_icon_width = global::SushiShop.Droid.Resource.Dimension.abc_dropdownitem_icon_width;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dropdownitem_text_padding_left = global::SushiShop.Droid.Resource.Dimension.abc_dropdownitem_text_padding_left;
+			global::Acr.UserDialogs.Resource.Dimension.abc_dropdownitem_text_padding_right = global::SushiShop.Droid.Resource.Dimension.abc_dropdownitem_text_padding_right;
+			global::Acr.UserDialogs.Resource.Dimension.abc_edit_text_inset_bottom_material = global::SushiShop.Droid.Resource.Dimension.abc_edit_text_inset_bottom_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_edit_text_inset_horizontal_material = global::SushiShop.Droid.Resource.Dimension.abc_edit_text_inset_horizontal_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_edit_text_inset_top_material = global::SushiShop.Droid.Resource.Dimension.abc_edit_text_inset_top_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_floating_window_z = global::SushiShop.Droid.Resource.Dimension.abc_floating_window_z;
+			global::Acr.UserDialogs.Resource.Dimension.abc_list_item_height_large_material = global::SushiShop.Droid.Resource.Dimension.abc_list_item_height_large_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_list_item_height_material = global::SushiShop.Droid.Resource.Dimension.abc_list_item_height_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_list_item_height_small_material = global::SushiShop.Droid.Resource.Dimension.abc_list_item_height_small_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_list_item_padding_horizontal_material = global::SushiShop.Droid.Resource.Dimension.abc_list_item_padding_horizontal_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_panel_menu_list_width = global::SushiShop.Droid.Resource.Dimension.abc_panel_menu_list_width;
+			global::Acr.UserDialogs.Resource.Dimension.abc_progress_bar_height_material = global::SushiShop.Droid.Resource.Dimension.abc_progress_bar_height_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_search_view_preferred_height = global::SushiShop.Droid.Resource.Dimension.abc_search_view_preferred_height;
+			global::Acr.UserDialogs.Resource.Dimension.abc_search_view_preferred_width = global::SushiShop.Droid.Resource.Dimension.abc_search_view_preferred_width;
+			global::Acr.UserDialogs.Resource.Dimension.abc_seekbar_track_background_height_material = global::SushiShop.Droid.Resource.Dimension.abc_seekbar_track_background_height_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_seekbar_track_progress_height_material = global::SushiShop.Droid.Resource.Dimension.abc_seekbar_track_progress_height_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_select_dialog_padding_start_material = global::SushiShop.Droid.Resource.Dimension.abc_select_dialog_padding_start_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_switch_padding = global::SushiShop.Droid.Resource.Dimension.abc_switch_padding;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_body_1_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_body_1_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_body_2_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_body_2_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_button_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_button_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_caption_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_caption_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_display_1_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_display_1_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_display_2_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_display_2_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_display_3_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_display_3_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_display_4_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_display_4_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_headline_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_headline_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_large_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_large_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_medium_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_medium_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_menu_header_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_menu_header_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_menu_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_menu_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_small_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_small_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_subhead_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_subhead_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::SushiShop.Droid.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_title_material = global::SushiShop.Droid.Resource.Dimension.abc_text_size_title_material;
+			global::Acr.UserDialogs.Resource.Dimension.abc_text_size_title_material_toolbar = global::SushiShop.Droid.Resource.Dimension.abc_text_size_title_material_toolbar;
+			global::Acr.UserDialogs.Resource.Dimension.cardview_compat_inset_shadow = global::SushiShop.Droid.Resource.Dimension.cardview_compat_inset_shadow;
+			global::Acr.UserDialogs.Resource.Dimension.cardview_default_elevation = global::SushiShop.Droid.Resource.Dimension.cardview_default_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.cardview_default_radius = global::SushiShop.Droid.Resource.Dimension.cardview_default_radius;
+			global::Acr.UserDialogs.Resource.Dimension.compat_button_inset_horizontal_material = global::SushiShop.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::Acr.UserDialogs.Resource.Dimension.compat_button_inset_vertical_material = global::SushiShop.Droid.Resource.Dimension.compat_button_inset_vertical_material;
+			global::Acr.UserDialogs.Resource.Dimension.compat_button_padding_horizontal_material = global::SushiShop.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::Acr.UserDialogs.Resource.Dimension.compat_button_padding_vertical_material = global::SushiShop.Droid.Resource.Dimension.compat_button_padding_vertical_material;
+			global::Acr.UserDialogs.Resource.Dimension.compat_control_corner_material = global::SushiShop.Droid.Resource.Dimension.compat_control_corner_material;
+			global::Acr.UserDialogs.Resource.Dimension.compat_notification_large_icon_max_height = global::SushiShop.Droid.Resource.Dimension.compat_notification_large_icon_max_height;
+			global::Acr.UserDialogs.Resource.Dimension.compat_notification_large_icon_max_width = global::SushiShop.Droid.Resource.Dimension.compat_notification_large_icon_max_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_appbar_elevation = global::SushiShop.Droid.Resource.Dimension.design_appbar_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_navigation_active_item_max_width = global::SushiShop.Droid.Resource.Dimension.design_bottom_navigation_active_item_max_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_navigation_active_item_min_width = global::SushiShop.Droid.Resource.Dimension.design_bottom_navigation_active_item_min_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_navigation_active_text_size = global::SushiShop.Droid.Resource.Dimension.design_bottom_navigation_active_text_size;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_navigation_elevation = global::SushiShop.Droid.Resource.Dimension.design_bottom_navigation_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_navigation_height = global::SushiShop.Droid.Resource.Dimension.design_bottom_navigation_height;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_navigation_icon_size = global::SushiShop.Droid.Resource.Dimension.design_bottom_navigation_icon_size;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_navigation_item_max_width = global::SushiShop.Droid.Resource.Dimension.design_bottom_navigation_item_max_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_navigation_item_min_width = global::SushiShop.Droid.Resource.Dimension.design_bottom_navigation_item_min_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_navigation_margin = global::SushiShop.Droid.Resource.Dimension.design_bottom_navigation_margin;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_navigation_shadow_height = global::SushiShop.Droid.Resource.Dimension.design_bottom_navigation_shadow_height;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_navigation_text_size = global::SushiShop.Droid.Resource.Dimension.design_bottom_navigation_text_size;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_sheet_modal_elevation = global::SushiShop.Droid.Resource.Dimension.design_bottom_sheet_modal_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.design_bottom_sheet_peek_height_min = global::SushiShop.Droid.Resource.Dimension.design_bottom_sheet_peek_height_min;
+			global::Acr.UserDialogs.Resource.Dimension.design_fab_border_width = global::SushiShop.Droid.Resource.Dimension.design_fab_border_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_fab_elevation = global::SushiShop.Droid.Resource.Dimension.design_fab_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.design_fab_image_size = global::SushiShop.Droid.Resource.Dimension.design_fab_image_size;
+			global::Acr.UserDialogs.Resource.Dimension.design_fab_size_mini = global::SushiShop.Droid.Resource.Dimension.design_fab_size_mini;
+			global::Acr.UserDialogs.Resource.Dimension.design_fab_size_normal = global::SushiShop.Droid.Resource.Dimension.design_fab_size_normal;
+			global::Acr.UserDialogs.Resource.Dimension.design_fab_translation_z_hovered_focused = global::SushiShop.Droid.Resource.Dimension.design_fab_translation_z_hovered_focused;
+			global::Acr.UserDialogs.Resource.Dimension.design_fab_translation_z_pressed = global::SushiShop.Droid.Resource.Dimension.design_fab_translation_z_pressed;
+			global::Acr.UserDialogs.Resource.Dimension.design_navigation_elevation = global::SushiShop.Droid.Resource.Dimension.design_navigation_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.design_navigation_icon_padding = global::SushiShop.Droid.Resource.Dimension.design_navigation_icon_padding;
+			global::Acr.UserDialogs.Resource.Dimension.design_navigation_icon_size = global::SushiShop.Droid.Resource.Dimension.design_navigation_icon_size;
+			global::Acr.UserDialogs.Resource.Dimension.design_navigation_item_horizontal_padding = global::SushiShop.Droid.Resource.Dimension.design_navigation_item_horizontal_padding;
+			global::Acr.UserDialogs.Resource.Dimension.design_navigation_item_icon_padding = global::SushiShop.Droid.Resource.Dimension.design_navigation_item_icon_padding;
+			global::Acr.UserDialogs.Resource.Dimension.design_navigation_max_width = global::SushiShop.Droid.Resource.Dimension.design_navigation_max_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_navigation_padding_bottom = global::SushiShop.Droid.Resource.Dimension.design_navigation_padding_bottom;
+			global::Acr.UserDialogs.Resource.Dimension.design_navigation_separator_vertical_padding = global::SushiShop.Droid.Resource.Dimension.design_navigation_separator_vertical_padding;
+			global::Acr.UserDialogs.Resource.Dimension.design_snackbar_action_inline_max_width = global::SushiShop.Droid.Resource.Dimension.design_snackbar_action_inline_max_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_snackbar_background_corner_radius = global::SushiShop.Droid.Resource.Dimension.design_snackbar_background_corner_radius;
+			global::Acr.UserDialogs.Resource.Dimension.design_snackbar_elevation = global::SushiShop.Droid.Resource.Dimension.design_snackbar_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.design_snackbar_extra_spacing_horizontal = global::SushiShop.Droid.Resource.Dimension.design_snackbar_extra_spacing_horizontal;
+			global::Acr.UserDialogs.Resource.Dimension.design_snackbar_max_width = global::SushiShop.Droid.Resource.Dimension.design_snackbar_max_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_snackbar_min_width = global::SushiShop.Droid.Resource.Dimension.design_snackbar_min_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_snackbar_padding_horizontal = global::SushiShop.Droid.Resource.Dimension.design_snackbar_padding_horizontal;
+			global::Acr.UserDialogs.Resource.Dimension.design_snackbar_padding_vertical = global::SushiShop.Droid.Resource.Dimension.design_snackbar_padding_vertical;
+			global::Acr.UserDialogs.Resource.Dimension.design_snackbar_padding_vertical_2lines = global::SushiShop.Droid.Resource.Dimension.design_snackbar_padding_vertical_2lines;
+			global::Acr.UserDialogs.Resource.Dimension.design_snackbar_text_size = global::SushiShop.Droid.Resource.Dimension.design_snackbar_text_size;
+			global::Acr.UserDialogs.Resource.Dimension.design_tab_max_width = global::SushiShop.Droid.Resource.Dimension.design_tab_max_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_tab_scrollable_min_width = global::SushiShop.Droid.Resource.Dimension.design_tab_scrollable_min_width;
+			global::Acr.UserDialogs.Resource.Dimension.design_tab_text_size = global::SushiShop.Droid.Resource.Dimension.design_tab_text_size;
+			global::Acr.UserDialogs.Resource.Dimension.design_tab_text_size_2line = global::SushiShop.Droid.Resource.Dimension.design_tab_text_size_2line;
+			global::Acr.UserDialogs.Resource.Dimension.design_textinput_caption_translate_y = global::SushiShop.Droid.Resource.Dimension.design_textinput_caption_translate_y;
+			global::Acr.UserDialogs.Resource.Dimension.disabled_alpha_material_dark = global::SushiShop.Droid.Resource.Dimension.disabled_alpha_material_dark;
+			global::Acr.UserDialogs.Resource.Dimension.disabled_alpha_material_light = global::SushiShop.Droid.Resource.Dimension.disabled_alpha_material_light;
+			global::Acr.UserDialogs.Resource.Dimension.fastscroll_default_thickness = global::SushiShop.Droid.Resource.Dimension.fastscroll_default_thickness;
+			global::Acr.UserDialogs.Resource.Dimension.fastscroll_margin = global::SushiShop.Droid.Resource.Dimension.fastscroll_margin;
+			global::Acr.UserDialogs.Resource.Dimension.fastscroll_minimum_range = global::SushiShop.Droid.Resource.Dimension.fastscroll_minimum_range;
+			global::Acr.UserDialogs.Resource.Dimension.highlight_alpha_material_colored = global::SushiShop.Droid.Resource.Dimension.highlight_alpha_material_colored;
+			global::Acr.UserDialogs.Resource.Dimension.highlight_alpha_material_dark = global::SushiShop.Droid.Resource.Dimension.highlight_alpha_material_dark;
+			global::Acr.UserDialogs.Resource.Dimension.highlight_alpha_material_light = global::SushiShop.Droid.Resource.Dimension.highlight_alpha_material_light;
+			global::Acr.UserDialogs.Resource.Dimension.hint_alpha_material_dark = global::SushiShop.Droid.Resource.Dimension.hint_alpha_material_dark;
+			global::Acr.UserDialogs.Resource.Dimension.hint_alpha_material_light = global::SushiShop.Droid.Resource.Dimension.hint_alpha_material_light;
+			global::Acr.UserDialogs.Resource.Dimension.hint_pressed_alpha_material_dark = global::SushiShop.Droid.Resource.Dimension.hint_pressed_alpha_material_dark;
+			global::Acr.UserDialogs.Resource.Dimension.hint_pressed_alpha_material_light = global::SushiShop.Droid.Resource.Dimension.hint_pressed_alpha_material_light;
+			global::Acr.UserDialogs.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::SushiShop.Droid.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
+			global::Acr.UserDialogs.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::SushiShop.Droid.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
+			global::Acr.UserDialogs.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::SushiShop.Droid.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_bottomappbar_fabOffsetEndMode = global::SushiShop.Droid.Resource.Dimension.mtrl_bottomappbar_fabOffsetEndMode;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_bottomappbar_fab_cradle_margin = global::SushiShop.Droid.Resource.Dimension.mtrl_bottomappbar_fab_cradle_margin;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_bottomappbar_fab_cradle_rounded_corner_radius = global::SushiShop.Droid.Resource.Dimension.mtrl_bottomappbar_fab_cradle_rounded_corner_radius;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_bottomappbar_fab_cradle_vertical_offset = global::SushiShop.Droid.Resource.Dimension.mtrl_bottomappbar_fab_cradle_vertical_offset;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_bottomappbar_height = global::SushiShop.Droid.Resource.Dimension.mtrl_bottomappbar_height;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_corner_radius = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_corner_radius;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_dialog_btn_min_width = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_dialog_btn_min_width;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_disabled_elevation = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_disabled_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_disabled_z = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_disabled_z;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_elevation = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_focused_z = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_focused_z;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_hovered_z = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_hovered_z;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_icon_btn_padding_left = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_icon_btn_padding_left;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_icon_padding = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_icon_padding;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_inset = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_inset;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_letter_spacing = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_letter_spacing;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_padding_bottom = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_padding_bottom;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_padding_left = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_padding_left;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_padding_right = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_padding_right;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_padding_top = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_padding_top;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_pressed_z = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_pressed_z;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_stroke_size = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_stroke_size;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_text_btn_icon_padding = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_text_btn_icon_padding;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_text_btn_padding_left = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_text_btn_padding_left;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_text_btn_padding_right = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_text_btn_padding_right;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_text_size = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_text_size;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_btn_z = global::SushiShop.Droid.Resource.Dimension.mtrl_btn_z;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_card_elevation = global::SushiShop.Droid.Resource.Dimension.mtrl_card_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_card_spacing = global::SushiShop.Droid.Resource.Dimension.mtrl_card_spacing;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_chip_pressed_translation_z = global::SushiShop.Droid.Resource.Dimension.mtrl_chip_pressed_translation_z;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_chip_text_size = global::SushiShop.Droid.Resource.Dimension.mtrl_chip_text_size;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_fab_elevation = global::SushiShop.Droid.Resource.Dimension.mtrl_fab_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_fab_translation_z_hovered_focused = global::SushiShop.Droid.Resource.Dimension.mtrl_fab_translation_z_hovered_focused;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_fab_translation_z_pressed = global::SushiShop.Droid.Resource.Dimension.mtrl_fab_translation_z_pressed;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_navigation_elevation = global::SushiShop.Droid.Resource.Dimension.mtrl_navigation_elevation;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_navigation_item_horizontal_padding = global::SushiShop.Droid.Resource.Dimension.mtrl_navigation_item_horizontal_padding;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_navigation_item_icon_padding = global::SushiShop.Droid.Resource.Dimension.mtrl_navigation_item_icon_padding;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_snackbar_background_corner_radius = global::SushiShop.Droid.Resource.Dimension.mtrl_snackbar_background_corner_radius;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_snackbar_margin = global::SushiShop.Droid.Resource.Dimension.mtrl_snackbar_margin;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_textinput_box_bottom_offset = global::SushiShop.Droid.Resource.Dimension.mtrl_textinput_box_bottom_offset;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_textinput_box_corner_radius_medium = global::SushiShop.Droid.Resource.Dimension.mtrl_textinput_box_corner_radius_medium;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_textinput_box_corner_radius_small = global::SushiShop.Droid.Resource.Dimension.mtrl_textinput_box_corner_radius_small;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_textinput_box_label_cutout_padding = global::SushiShop.Droid.Resource.Dimension.mtrl_textinput_box_label_cutout_padding;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_textinput_box_padding_end = global::SushiShop.Droid.Resource.Dimension.mtrl_textinput_box_padding_end;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_textinput_box_stroke_width_default = global::SushiShop.Droid.Resource.Dimension.mtrl_textinput_box_stroke_width_default;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_textinput_box_stroke_width_focused = global::SushiShop.Droid.Resource.Dimension.mtrl_textinput_box_stroke_width_focused;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_textinput_outline_box_expanded_padding = global::SushiShop.Droid.Resource.Dimension.mtrl_textinput_outline_box_expanded_padding;
+			global::Acr.UserDialogs.Resource.Dimension.mtrl_toolbar_default_height = global::SushiShop.Droid.Resource.Dimension.mtrl_toolbar_default_height;
+			global::Acr.UserDialogs.Resource.Dimension.notification_action_icon_size = global::SushiShop.Droid.Resource.Dimension.notification_action_icon_size;
+			global::Acr.UserDialogs.Resource.Dimension.notification_action_text_size = global::SushiShop.Droid.Resource.Dimension.notification_action_text_size;
+			global::Acr.UserDialogs.Resource.Dimension.notification_big_circle_margin = global::SushiShop.Droid.Resource.Dimension.notification_big_circle_margin;
+			global::Acr.UserDialogs.Resource.Dimension.notification_content_margin_start = global::SushiShop.Droid.Resource.Dimension.notification_content_margin_start;
+			global::Acr.UserDialogs.Resource.Dimension.notification_large_icon_height = global::SushiShop.Droid.Resource.Dimension.notification_large_icon_height;
+			global::Acr.UserDialogs.Resource.Dimension.notification_large_icon_width = global::SushiShop.Droid.Resource.Dimension.notification_large_icon_width;
+			global::Acr.UserDialogs.Resource.Dimension.notification_main_column_padding_top = global::SushiShop.Droid.Resource.Dimension.notification_main_column_padding_top;
+			global::Acr.UserDialogs.Resource.Dimension.notification_media_narrow_margin = global::SushiShop.Droid.Resource.Dimension.notification_media_narrow_margin;
+			global::Acr.UserDialogs.Resource.Dimension.notification_right_icon_size = global::SushiShop.Droid.Resource.Dimension.notification_right_icon_size;
+			global::Acr.UserDialogs.Resource.Dimension.notification_right_side_padding_top = global::SushiShop.Droid.Resource.Dimension.notification_right_side_padding_top;
+			global::Acr.UserDialogs.Resource.Dimension.notification_small_icon_background_padding = global::SushiShop.Droid.Resource.Dimension.notification_small_icon_background_padding;
+			global::Acr.UserDialogs.Resource.Dimension.notification_small_icon_size_as_large = global::SushiShop.Droid.Resource.Dimension.notification_small_icon_size_as_large;
+			global::Acr.UserDialogs.Resource.Dimension.notification_subtext_size = global::SushiShop.Droid.Resource.Dimension.notification_subtext_size;
+			global::Acr.UserDialogs.Resource.Dimension.notification_top_pad = global::SushiShop.Droid.Resource.Dimension.notification_top_pad;
+			global::Acr.UserDialogs.Resource.Dimension.notification_top_pad_large_text = global::SushiShop.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::Acr.UserDialogs.Resource.Dimension.tooltip_corner_radius = global::SushiShop.Droid.Resource.Dimension.tooltip_corner_radius;
+			global::Acr.UserDialogs.Resource.Dimension.tooltip_horizontal_padding = global::SushiShop.Droid.Resource.Dimension.tooltip_horizontal_padding;
+			global::Acr.UserDialogs.Resource.Dimension.tooltip_margin = global::SushiShop.Droid.Resource.Dimension.tooltip_margin;
+			global::Acr.UserDialogs.Resource.Dimension.tooltip_precise_anchor_extra_offset = global::SushiShop.Droid.Resource.Dimension.tooltip_precise_anchor_extra_offset;
+			global::Acr.UserDialogs.Resource.Dimension.tooltip_precise_anchor_threshold = global::SushiShop.Droid.Resource.Dimension.tooltip_precise_anchor_threshold;
+			global::Acr.UserDialogs.Resource.Dimension.tooltip_vertical_padding = global::SushiShop.Droid.Resource.Dimension.tooltip_vertical_padding;
+			global::Acr.UserDialogs.Resource.Dimension.tooltip_y_offset_non_touch = global::SushiShop.Droid.Resource.Dimension.tooltip_y_offset_non_touch;
+			global::Acr.UserDialogs.Resource.Dimension.tooltip_y_offset_touch = global::SushiShop.Droid.Resource.Dimension.tooltip_y_offset_touch;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ab_share_pack_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_ab_share_pack_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_action_bar_item_background_material = global::SushiShop.Droid.Resource.Drawable.abc_action_bar_item_background_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_borderless_material = global::SushiShop.Droid.Resource.Drawable.abc_btn_borderless_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_check_material = global::SushiShop.Droid.Resource.Drawable.abc_btn_check_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_check_material_anim = global::SushiShop.Droid.Resource.Drawable.abc_btn_check_material_anim;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_check_to_on_mtrl_000 = global::SushiShop.Droid.Resource.Drawable.abc_btn_check_to_on_mtrl_000;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_check_to_on_mtrl_015 = global::SushiShop.Droid.Resource.Drawable.abc_btn_check_to_on_mtrl_015;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_colored_material = global::SushiShop.Droid.Resource.Drawable.abc_btn_colored_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_default_mtrl_shape = global::SushiShop.Droid.Resource.Drawable.abc_btn_default_mtrl_shape;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_radio_material = global::SushiShop.Droid.Resource.Drawable.abc_btn_radio_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_radio_material_anim = global::SushiShop.Droid.Resource.Drawable.abc_btn_radio_material_anim;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_radio_to_on_mtrl_000 = global::SushiShop.Droid.Resource.Drawable.abc_btn_radio_to_on_mtrl_000;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_radio_to_on_mtrl_015 = global::SushiShop.Droid.Resource.Drawable.abc_btn_radio_to_on_mtrl_015;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001 = global::SushiShop.Droid.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001;
+			global::Acr.UserDialogs.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012 = global::SushiShop.Droid.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012;
+			global::Acr.UserDialogs.Resource.Drawable.abc_cab_background_internal_bg = global::SushiShop.Droid.Resource.Drawable.abc_cab_background_internal_bg;
+			global::Acr.UserDialogs.Resource.Drawable.abc_cab_background_top_material = global::SushiShop.Droid.Resource.Drawable.abc_cab_background_top_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_cab_background_top_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_cab_background_top_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_control_background_material = global::SushiShop.Droid.Resource.Drawable.abc_control_background_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_dialog_material_background = global::SushiShop.Droid.Resource.Drawable.abc_dialog_material_background;
+			global::Acr.UserDialogs.Resource.Drawable.abc_edit_text_material = global::SushiShop.Droid.Resource.Drawable.abc_edit_text_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_ab_back_material = global::SushiShop.Droid.Resource.Drawable.abc_ic_ab_back_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp = global::SushiShop.Droid.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_clear_material = global::SushiShop.Droid.Resource.Drawable.abc_ic_clear_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_go_search_api_material = global::SushiShop.Droid.Resource.Drawable.abc_ic_go_search_api_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha = global::SushiShop.Droid.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_menu_overflow_material = global::SushiShop.Droid.Resource.Drawable.abc_ic_menu_overflow_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha = global::SushiShop.Droid.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_menu_share_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_ic_menu_share_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_search_api_material = global::SushiShop.Droid.Resource.Drawable.abc_ic_search_api_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_star_black_16dp = global::SushiShop.Droid.Resource.Drawable.abc_ic_star_black_16dp;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_star_black_36dp = global::SushiShop.Droid.Resource.Drawable.abc_ic_star_black_36dp;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_star_black_48dp = global::SushiShop.Droid.Resource.Drawable.abc_ic_star_black_48dp;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_star_half_black_16dp = global::SushiShop.Droid.Resource.Drawable.abc_ic_star_half_black_16dp;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_star_half_black_36dp = global::SushiShop.Droid.Resource.Drawable.abc_ic_star_half_black_36dp;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_star_half_black_48dp = global::SushiShop.Droid.Resource.Drawable.abc_ic_star_half_black_48dp;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ic_voice_search_api_material = global::SushiShop.Droid.Resource.Drawable.abc_ic_voice_search_api_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_item_background_holo_dark = global::SushiShop.Droid.Resource.Drawable.abc_item_background_holo_dark;
+			global::Acr.UserDialogs.Resource.Drawable.abc_item_background_holo_light = global::SushiShop.Droid.Resource.Drawable.abc_item_background_holo_light;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_divider_material = global::SushiShop.Droid.Resource.Drawable.abc_list_divider_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_divider_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_list_divider_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_focused_holo = global::SushiShop.Droid.Resource.Drawable.abc_list_focused_holo;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_longpressed_holo = global::SushiShop.Droid.Resource.Drawable.abc_list_longpressed_holo;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_pressed_holo_dark = global::SushiShop.Droid.Resource.Drawable.abc_list_pressed_holo_dark;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_pressed_holo_light = global::SushiShop.Droid.Resource.Drawable.abc_list_pressed_holo_light;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_selector_background_transition_holo_dark = global::SushiShop.Droid.Resource.Drawable.abc_list_selector_background_transition_holo_dark;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_selector_background_transition_holo_light = global::SushiShop.Droid.Resource.Drawable.abc_list_selector_background_transition_holo_light;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_selector_disabled_holo_dark = global::SushiShop.Droid.Resource.Drawable.abc_list_selector_disabled_holo_dark;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_selector_disabled_holo_light = global::SushiShop.Droid.Resource.Drawable.abc_list_selector_disabled_holo_light;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_selector_holo_dark = global::SushiShop.Droid.Resource.Drawable.abc_list_selector_holo_dark;
+			global::Acr.UserDialogs.Resource.Drawable.abc_list_selector_holo_light = global::SushiShop.Droid.Resource.Drawable.abc_list_selector_holo_light;
+			global::Acr.UserDialogs.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult = global::SushiShop.Droid.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult;
+			global::Acr.UserDialogs.Resource.Drawable.abc_popup_background_mtrl_mult = global::SushiShop.Droid.Resource.Drawable.abc_popup_background_mtrl_mult;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ratingbar_indicator_material = global::SushiShop.Droid.Resource.Drawable.abc_ratingbar_indicator_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ratingbar_material = global::SushiShop.Droid.Resource.Drawable.abc_ratingbar_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_ratingbar_small_material = global::SushiShop.Droid.Resource.Drawable.abc_ratingbar_small_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000 = global::SushiShop.Droid.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000;
+			global::Acr.UserDialogs.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005 = global::SushiShop.Droid.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005;
+			global::Acr.UserDialogs.Resource.Drawable.abc_scrubber_primary_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_scrubber_primary_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_scrubber_track_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_scrubber_track_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_seekbar_thumb_material = global::SushiShop.Droid.Resource.Drawable.abc_seekbar_thumb_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_seekbar_tick_mark_material = global::SushiShop.Droid.Resource.Drawable.abc_seekbar_tick_mark_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_seekbar_track_material = global::SushiShop.Droid.Resource.Drawable.abc_seekbar_track_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_spinner_mtrl_am_alpha = global::SushiShop.Droid.Resource.Drawable.abc_spinner_mtrl_am_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_spinner_textfield_background_material = global::SushiShop.Droid.Resource.Drawable.abc_spinner_textfield_background_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_switch_thumb_material = global::SushiShop.Droid.Resource.Drawable.abc_switch_thumb_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_switch_track_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_switch_track_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_tab_indicator_material = global::SushiShop.Droid.Resource.Drawable.abc_tab_indicator_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_tab_indicator_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_tab_indicator_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_textfield_activated_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_textfield_activated_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_textfield_default_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_textfield_default_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::SushiShop.Droid.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
+			global::Acr.UserDialogs.Resource.Drawable.abc_textfield_search_material = global::SushiShop.Droid.Resource.Drawable.abc_textfield_search_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_text_cursor_material = global::SushiShop.Droid.Resource.Drawable.abc_text_cursor_material;
+			global::Acr.UserDialogs.Resource.Drawable.abc_text_select_handle_left_mtrl_dark = global::SushiShop.Droid.Resource.Drawable.abc_text_select_handle_left_mtrl_dark;
+			global::Acr.UserDialogs.Resource.Drawable.abc_text_select_handle_left_mtrl_light = global::SushiShop.Droid.Resource.Drawable.abc_text_select_handle_left_mtrl_light;
+			global::Acr.UserDialogs.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark = global::SushiShop.Droid.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark;
+			global::Acr.UserDialogs.Resource.Drawable.abc_text_select_handle_middle_mtrl_light = global::SushiShop.Droid.Resource.Drawable.abc_text_select_handle_middle_mtrl_light;
+			global::Acr.UserDialogs.Resource.Drawable.abc_text_select_handle_right_mtrl_dark = global::SushiShop.Droid.Resource.Drawable.abc_text_select_handle_right_mtrl_dark;
+			global::Acr.UserDialogs.Resource.Drawable.abc_text_select_handle_right_mtrl_light = global::SushiShop.Droid.Resource.Drawable.abc_text_select_handle_right_mtrl_light;
+			global::Acr.UserDialogs.Resource.Drawable.abc_vector_test = global::SushiShop.Droid.Resource.Drawable.abc_vector_test;
+			global::Acr.UserDialogs.Resource.Drawable.avd_hide_password = global::SushiShop.Droid.Resource.Drawable.avd_hide_password;
+			global::Acr.UserDialogs.Resource.Drawable.avd_show_password = global::SushiShop.Droid.Resource.Drawable.avd_show_password;
+			global::Acr.UserDialogs.Resource.Drawable.btn_checkbox_checked_mtrl = global::SushiShop.Droid.Resource.Drawable.btn_checkbox_checked_mtrl;
+			global::Acr.UserDialogs.Resource.Drawable.btn_checkbox_checked_to_unchecked_mtrl_animation = global::SushiShop.Droid.Resource.Drawable.btn_checkbox_checked_to_unchecked_mtrl_animation;
+			global::Acr.UserDialogs.Resource.Drawable.btn_checkbox_unchecked_mtrl = global::SushiShop.Droid.Resource.Drawable.btn_checkbox_unchecked_mtrl;
+			global::Acr.UserDialogs.Resource.Drawable.btn_checkbox_unchecked_to_checked_mtrl_animation = global::SushiShop.Droid.Resource.Drawable.btn_checkbox_unchecked_to_checked_mtrl_animation;
+			global::Acr.UserDialogs.Resource.Drawable.btn_radio_off_mtrl = global::SushiShop.Droid.Resource.Drawable.btn_radio_off_mtrl;
+			global::Acr.UserDialogs.Resource.Drawable.btn_radio_off_to_on_mtrl_animation = global::SushiShop.Droid.Resource.Drawable.btn_radio_off_to_on_mtrl_animation;
+			global::Acr.UserDialogs.Resource.Drawable.btn_radio_on_mtrl = global::SushiShop.Droid.Resource.Drawable.btn_radio_on_mtrl;
+			global::Acr.UserDialogs.Resource.Drawable.btn_radio_on_to_off_mtrl_animation = global::SushiShop.Droid.Resource.Drawable.btn_radio_on_to_off_mtrl_animation;
+			global::Acr.UserDialogs.Resource.Drawable.design_bottom_navigation_item_background = global::SushiShop.Droid.Resource.Drawable.design_bottom_navigation_item_background;
+			global::Acr.UserDialogs.Resource.Drawable.design_fab_background = global::SushiShop.Droid.Resource.Drawable.design_fab_background;
+			global::Acr.UserDialogs.Resource.Drawable.design_ic_visibility = global::SushiShop.Droid.Resource.Drawable.design_ic_visibility;
+			global::Acr.UserDialogs.Resource.Drawable.design_ic_visibility_off = global::SushiShop.Droid.Resource.Drawable.design_ic_visibility_off;
+			global::Acr.UserDialogs.Resource.Drawable.design_password_eye = global::SushiShop.Droid.Resource.Drawable.design_password_eye;
+			global::Acr.UserDialogs.Resource.Drawable.design_snackbar_background = global::SushiShop.Droid.Resource.Drawable.design_snackbar_background;
+			global::Acr.UserDialogs.Resource.Drawable.ic_errorstatus = global::SushiShop.Droid.Resource.Drawable.ic_errorstatus;
+			global::Acr.UserDialogs.Resource.Drawable.ic_mtrl_chip_checked_black = global::SushiShop.Droid.Resource.Drawable.ic_mtrl_chip_checked_black;
+			global::Acr.UserDialogs.Resource.Drawable.ic_mtrl_chip_checked_circle = global::SushiShop.Droid.Resource.Drawable.ic_mtrl_chip_checked_circle;
+			global::Acr.UserDialogs.Resource.Drawable.ic_mtrl_chip_close_circle = global::SushiShop.Droid.Resource.Drawable.ic_mtrl_chip_close_circle;
+			global::Acr.UserDialogs.Resource.Drawable.ic_successstatus = global::SushiShop.Droid.Resource.Drawable.ic_successstatus;
+			global::Acr.UserDialogs.Resource.Drawable.mtrl_snackbar_background = global::SushiShop.Droid.Resource.Drawable.mtrl_snackbar_background;
+			global::Acr.UserDialogs.Resource.Drawable.mtrl_tabs_default_indicator = global::SushiShop.Droid.Resource.Drawable.mtrl_tabs_default_indicator;
+			global::Acr.UserDialogs.Resource.Drawable.navigation_empty_icon = global::SushiShop.Droid.Resource.Drawable.navigation_empty_icon;
+			global::Acr.UserDialogs.Resource.Drawable.notification_action_background = global::SushiShop.Droid.Resource.Drawable.notification_action_background;
+			global::Acr.UserDialogs.Resource.Drawable.notification_bg = global::SushiShop.Droid.Resource.Drawable.notification_bg;
+			global::Acr.UserDialogs.Resource.Drawable.notification_bg_low = global::SushiShop.Droid.Resource.Drawable.notification_bg_low;
+			global::Acr.UserDialogs.Resource.Drawable.notification_bg_low_normal = global::SushiShop.Droid.Resource.Drawable.notification_bg_low_normal;
+			global::Acr.UserDialogs.Resource.Drawable.notification_bg_low_pressed = global::SushiShop.Droid.Resource.Drawable.notification_bg_low_pressed;
+			global::Acr.UserDialogs.Resource.Drawable.notification_bg_normal = global::SushiShop.Droid.Resource.Drawable.notification_bg_normal;
+			global::Acr.UserDialogs.Resource.Drawable.notification_bg_normal_pressed = global::SushiShop.Droid.Resource.Drawable.notification_bg_normal_pressed;
+			global::Acr.UserDialogs.Resource.Drawable.notification_icon_background = global::SushiShop.Droid.Resource.Drawable.notification_icon_background;
+			global::Acr.UserDialogs.Resource.Drawable.notification_template_icon_bg = global::SushiShop.Droid.Resource.Drawable.notification_template_icon_bg;
+			global::Acr.UserDialogs.Resource.Drawable.notification_template_icon_low_bg = global::SushiShop.Droid.Resource.Drawable.notification_template_icon_low_bg;
+			global::Acr.UserDialogs.Resource.Drawable.notification_tile_bg = global::SushiShop.Droid.Resource.Drawable.notification_tile_bg;
+			global::Acr.UserDialogs.Resource.Drawable.notify_panel_notification_icon_bg = global::SushiShop.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Acr.UserDialogs.Resource.Drawable.roundedbg = global::SushiShop.Droid.Resource.Drawable.roundedbg;
+			global::Acr.UserDialogs.Resource.Drawable.roundedbgdark = global::SushiShop.Droid.Resource.Drawable.roundedbgdark;
+			global::Acr.UserDialogs.Resource.Drawable.tooltip_frame_dark = global::SushiShop.Droid.Resource.Drawable.tooltip_frame_dark;
+			global::Acr.UserDialogs.Resource.Drawable.tooltip_frame_light = global::SushiShop.Droid.Resource.Drawable.tooltip_frame_light;
+			global::Acr.UserDialogs.Resource.Id.accessibility_action_clickable_span = global::SushiShop.Droid.Resource.Id.accessibility_action_clickable_span;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_0 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_0;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_1 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_1;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_10 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_10;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_11 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_11;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_12 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_12;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_13 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_13;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_14 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_14;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_15 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_15;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_16 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_16;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_17 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_17;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_18 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_18;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_19 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_19;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_2 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_2;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_20 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_20;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_21 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_21;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_22 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_22;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_23 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_23;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_24 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_24;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_25 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_25;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_26 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_26;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_27 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_27;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_28 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_28;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_29 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_29;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_3 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_3;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_30 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_30;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_31 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_31;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_4 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_4;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_5 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_5;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_6 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_6;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_7 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_7;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_8 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_8;
+			global::Acr.UserDialogs.Resource.Id.accessibility_custom_action_9 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_9;
+			global::Acr.UserDialogs.Resource.Id.actions = global::SushiShop.Droid.Resource.Id.actions;
+			global::Acr.UserDialogs.Resource.Id.action_bar = global::SushiShop.Droid.Resource.Id.action_bar;
+			global::Acr.UserDialogs.Resource.Id.action_bar_activity_content = global::SushiShop.Droid.Resource.Id.action_bar_activity_content;
+			global::Acr.UserDialogs.Resource.Id.action_bar_container = global::SushiShop.Droid.Resource.Id.action_bar_container;
+			global::Acr.UserDialogs.Resource.Id.action_bar_root = global::SushiShop.Droid.Resource.Id.action_bar_root;
+			global::Acr.UserDialogs.Resource.Id.action_bar_spinner = global::SushiShop.Droid.Resource.Id.action_bar_spinner;
+			global::Acr.UserDialogs.Resource.Id.action_bar_subtitle = global::SushiShop.Droid.Resource.Id.action_bar_subtitle;
+			global::Acr.UserDialogs.Resource.Id.action_bar_title = global::SushiShop.Droid.Resource.Id.action_bar_title;
+			global::Acr.UserDialogs.Resource.Id.action_container = global::SushiShop.Droid.Resource.Id.action_container;
+			global::Acr.UserDialogs.Resource.Id.action_context_bar = global::SushiShop.Droid.Resource.Id.action_context_bar;
+			global::Acr.UserDialogs.Resource.Id.action_divider = global::SushiShop.Droid.Resource.Id.action_divider;
+			global::Acr.UserDialogs.Resource.Id.action_image = global::SushiShop.Droid.Resource.Id.action_image;
+			global::Acr.UserDialogs.Resource.Id.action_menu_divider = global::SushiShop.Droid.Resource.Id.action_menu_divider;
+			global::Acr.UserDialogs.Resource.Id.action_menu_presenter = global::SushiShop.Droid.Resource.Id.action_menu_presenter;
+			global::Acr.UserDialogs.Resource.Id.action_mode_bar = global::SushiShop.Droid.Resource.Id.action_mode_bar;
+			global::Acr.UserDialogs.Resource.Id.action_mode_bar_stub = global::SushiShop.Droid.Resource.Id.action_mode_bar_stub;
+			global::Acr.UserDialogs.Resource.Id.action_mode_close_button = global::SushiShop.Droid.Resource.Id.action_mode_close_button;
+			global::Acr.UserDialogs.Resource.Id.action_text = global::SushiShop.Droid.Resource.Id.action_text;
+			global::Acr.UserDialogs.Resource.Id.activity_chooser_view_content = global::SushiShop.Droid.Resource.Id.activity_chooser_view_content;
+			global::Acr.UserDialogs.Resource.Id.add = global::SushiShop.Droid.Resource.Id.add;
+			global::Acr.UserDialogs.Resource.Id.alertTitle = global::SushiShop.Droid.Resource.Id.alertTitle;
+			global::Acr.UserDialogs.Resource.Id.all = global::SushiShop.Droid.Resource.Id.all;
+			global::Acr.UserDialogs.Resource.Id.ALT = global::SushiShop.Droid.Resource.Id.ALT;
+			global::Acr.UserDialogs.Resource.Id.always = global::SushiShop.Droid.Resource.Id.always;
+			global::Acr.UserDialogs.Resource.Id.async = global::SushiShop.Droid.Resource.Id.async;
+			global::Acr.UserDialogs.Resource.Id.auto = global::SushiShop.Droid.Resource.Id.auto;
+			global::Acr.UserDialogs.Resource.Id.beginning = global::SushiShop.Droid.Resource.Id.beginning;
+			global::Acr.UserDialogs.Resource.Id.blocking = global::SushiShop.Droid.Resource.Id.blocking;
+			global::Acr.UserDialogs.Resource.Id.bottom = global::SushiShop.Droid.Resource.Id.bottom;
+			global::Acr.UserDialogs.Resource.Id.buttonPanel = global::SushiShop.Droid.Resource.Id.buttonPanel;
+			global::Acr.UserDialogs.Resource.Id.center = global::SushiShop.Droid.Resource.Id.center;
+			global::Acr.UserDialogs.Resource.Id.center_horizontal = global::SushiShop.Droid.Resource.Id.center_horizontal;
+			global::Acr.UserDialogs.Resource.Id.center_vertical = global::SushiShop.Droid.Resource.Id.center_vertical;
+			global::Acr.UserDialogs.Resource.Id.checkbox = global::SushiShop.Droid.Resource.Id.checkbox;
+			global::Acr.UserDialogs.Resource.Id.@checked = global::SushiShop.Droid.Resource.Id.@checked;
+			global::Acr.UserDialogs.Resource.Id.chronometer = global::SushiShop.Droid.Resource.Id.chronometer;
+			global::Acr.UserDialogs.Resource.Id.clip_horizontal = global::SushiShop.Droid.Resource.Id.clip_horizontal;
+			global::Acr.UserDialogs.Resource.Id.clip_vertical = global::SushiShop.Droid.Resource.Id.clip_vertical;
+			global::Acr.UserDialogs.Resource.Id.collapseActionView = global::SushiShop.Droid.Resource.Id.collapseActionView;
+			global::Acr.UserDialogs.Resource.Id.container = global::SushiShop.Droid.Resource.Id.container;
+			global::Acr.UserDialogs.Resource.Id.content = global::SushiShop.Droid.Resource.Id.content;
+			global::Acr.UserDialogs.Resource.Id.contentPanel = global::SushiShop.Droid.Resource.Id.contentPanel;
+			global::Acr.UserDialogs.Resource.Id.coordinator = global::SushiShop.Droid.Resource.Id.coordinator;
+			global::Acr.UserDialogs.Resource.Id.CTRL = global::SushiShop.Droid.Resource.Id.CTRL;
+			global::Acr.UserDialogs.Resource.Id.custom = global::SushiShop.Droid.Resource.Id.custom;
+			global::Acr.UserDialogs.Resource.Id.customPanel = global::SushiShop.Droid.Resource.Id.customPanel;
+			global::Acr.UserDialogs.Resource.Id.decor_content_parent = global::SushiShop.Droid.Resource.Id.decor_content_parent;
+			global::Acr.UserDialogs.Resource.Id.default_activity_button = global::SushiShop.Droid.Resource.Id.default_activity_button;
+			global::Acr.UserDialogs.Resource.Id.design_bottom_sheet = global::SushiShop.Droid.Resource.Id.design_bottom_sheet;
+			global::Acr.UserDialogs.Resource.Id.design_menu_item_action_area = global::SushiShop.Droid.Resource.Id.design_menu_item_action_area;
+			global::Acr.UserDialogs.Resource.Id.design_menu_item_action_area_stub = global::SushiShop.Droid.Resource.Id.design_menu_item_action_area_stub;
+			global::Acr.UserDialogs.Resource.Id.design_menu_item_text = global::SushiShop.Droid.Resource.Id.design_menu_item_text;
+			global::Acr.UserDialogs.Resource.Id.design_navigation_view = global::SushiShop.Droid.Resource.Id.design_navigation_view;
+			global::Acr.UserDialogs.Resource.Id.dialog_button = global::SushiShop.Droid.Resource.Id.dialog_button;
+			global::Acr.UserDialogs.Resource.Id.disableHome = global::SushiShop.Droid.Resource.Id.disableHome;
+			global::Acr.UserDialogs.Resource.Id.edit_query = global::SushiShop.Droid.Resource.Id.edit_query;
+			global::Acr.UserDialogs.Resource.Id.end = global::SushiShop.Droid.Resource.Id.end;
+			global::Acr.UserDialogs.Resource.Id.enterAlways = global::SushiShop.Droid.Resource.Id.enterAlways;
+			global::Acr.UserDialogs.Resource.Id.enterAlwaysCollapsed = global::SushiShop.Droid.Resource.Id.enterAlwaysCollapsed;
+			global::Acr.UserDialogs.Resource.Id.exitUntilCollapsed = global::SushiShop.Droid.Resource.Id.exitUntilCollapsed;
+			global::Acr.UserDialogs.Resource.Id.expanded_menu = global::SushiShop.Droid.Resource.Id.expanded_menu;
+			global::Acr.UserDialogs.Resource.Id.expand_activities_button = global::SushiShop.Droid.Resource.Id.expand_activities_button;
+			global::Acr.UserDialogs.Resource.Id.fill = global::SushiShop.Droid.Resource.Id.fill;
+			global::Acr.UserDialogs.Resource.Id.filled = global::SushiShop.Droid.Resource.Id.filled;
+			global::Acr.UserDialogs.Resource.Id.fill_horizontal = global::SushiShop.Droid.Resource.Id.fill_horizontal;
+			global::Acr.UserDialogs.Resource.Id.fill_vertical = global::SushiShop.Droid.Resource.Id.fill_vertical;
+			global::Acr.UserDialogs.Resource.Id.@fixed = global::SushiShop.Droid.Resource.Id.@fixed;
+			global::Acr.UserDialogs.Resource.Id.forever = global::SushiShop.Droid.Resource.Id.forever;
+			global::Acr.UserDialogs.Resource.Id.FUNCTION = global::SushiShop.Droid.Resource.Id.FUNCTION;
+			global::Acr.UserDialogs.Resource.Id.ghost_view = global::SushiShop.Droid.Resource.Id.ghost_view;
+			global::Acr.UserDialogs.Resource.Id.ghost_view_holder = global::SushiShop.Droid.Resource.Id.ghost_view_holder;
+			global::Acr.UserDialogs.Resource.Id.group_divider = global::SushiShop.Droid.Resource.Id.group_divider;
+			global::Acr.UserDialogs.Resource.Id.home = global::SushiShop.Droid.Resource.Id.home;
+			global::Acr.UserDialogs.Resource.Id.homeAsUp = global::SushiShop.Droid.Resource.Id.homeAsUp;
+			global::Acr.UserDialogs.Resource.Id.icon = global::SushiShop.Droid.Resource.Id.icon;
+			global::Acr.UserDialogs.Resource.Id.icon_group = global::SushiShop.Droid.Resource.Id.icon_group;
+			global::Acr.UserDialogs.Resource.Id.ifRoom = global::SushiShop.Droid.Resource.Id.ifRoom;
+			global::Acr.UserDialogs.Resource.Id.image = global::SushiShop.Droid.Resource.Id.image;
+			global::Acr.UserDialogs.Resource.Id.info = global::SushiShop.Droid.Resource.Id.info;
+			global::Acr.UserDialogs.Resource.Id.italic = global::SushiShop.Droid.Resource.Id.italic;
+			global::Acr.UserDialogs.Resource.Id.item_touch_helper_previous_elevation = global::SushiShop.Droid.Resource.Id.item_touch_helper_previous_elevation;
+			global::Acr.UserDialogs.Resource.Id.labeled = global::SushiShop.Droid.Resource.Id.labeled;
+			global::Acr.UserDialogs.Resource.Id.largeLabel = global::SushiShop.Droid.Resource.Id.largeLabel;
+			global::Acr.UserDialogs.Resource.Id.left = global::SushiShop.Droid.Resource.Id.left;
+			global::Acr.UserDialogs.Resource.Id.line1 = global::SushiShop.Droid.Resource.Id.line1;
+			global::Acr.UserDialogs.Resource.Id.line3 = global::SushiShop.Droid.Resource.Id.line3;
+			global::Acr.UserDialogs.Resource.Id.listMode = global::SushiShop.Droid.Resource.Id.listMode;
+			global::Acr.UserDialogs.Resource.Id.list_item = global::SushiShop.Droid.Resource.Id.list_item;
+			global::Acr.UserDialogs.Resource.Id.loadingImage = global::SushiShop.Droid.Resource.Id.loadingImage;
+			global::Acr.UserDialogs.Resource.Id.loadingProgressBar = global::SushiShop.Droid.Resource.Id.loadingProgressBar;
+			global::Acr.UserDialogs.Resource.Id.loadingProgressWheel = global::SushiShop.Droid.Resource.Id.loadingProgressWheel;
+			global::Acr.UserDialogs.Resource.Id.masked = global::SushiShop.Droid.Resource.Id.masked;
+			global::Acr.UserDialogs.Resource.Id.message = global::SushiShop.Droid.Resource.Id.message;
+			global::Acr.UserDialogs.Resource.Id.META = global::SushiShop.Droid.Resource.Id.META;
+			global::Acr.UserDialogs.Resource.Id.middle = global::SushiShop.Droid.Resource.Id.middle;
+			global::Acr.UserDialogs.Resource.Id.mini = global::SushiShop.Droid.Resource.Id.mini;
+			global::Acr.UserDialogs.Resource.Id.mtrl_child_content_container = global::SushiShop.Droid.Resource.Id.mtrl_child_content_container;
+			global::Acr.UserDialogs.Resource.Id.mtrl_internal_children_alpha_tag = global::SushiShop.Droid.Resource.Id.mtrl_internal_children_alpha_tag;
+			global::Acr.UserDialogs.Resource.Id.multiply = global::SushiShop.Droid.Resource.Id.multiply;
+			global::Acr.UserDialogs.Resource.Id.navigation_header_container = global::SushiShop.Droid.Resource.Id.navigation_header_container;
+			global::Acr.UserDialogs.Resource.Id.never = global::SushiShop.Droid.Resource.Id.never;
+			global::Acr.UserDialogs.Resource.Id.none = global::SushiShop.Droid.Resource.Id.none;
+			global::Acr.UserDialogs.Resource.Id.normal = global::SushiShop.Droid.Resource.Id.normal;
+			global::Acr.UserDialogs.Resource.Id.notification_background = global::SushiShop.Droid.Resource.Id.notification_background;
+			global::Acr.UserDialogs.Resource.Id.notification_main_column = global::SushiShop.Droid.Resource.Id.notification_main_column;
+			global::Acr.UserDialogs.Resource.Id.notification_main_column_container = global::SushiShop.Droid.Resource.Id.notification_main_column_container;
+			global::Acr.UserDialogs.Resource.Id.off = global::SushiShop.Droid.Resource.Id.off;
+			global::Acr.UserDialogs.Resource.Id.on = global::SushiShop.Droid.Resource.Id.on;
+			global::Acr.UserDialogs.Resource.Id.outline = global::SushiShop.Droid.Resource.Id.outline;
+			global::Acr.UserDialogs.Resource.Id.parallax = global::SushiShop.Droid.Resource.Id.parallax;
+			global::Acr.UserDialogs.Resource.Id.parentPanel = global::SushiShop.Droid.Resource.Id.parentPanel;
+			global::Acr.UserDialogs.Resource.Id.parent_matrix = global::SushiShop.Droid.Resource.Id.parent_matrix;
+			global::Acr.UserDialogs.Resource.Id.pin = global::SushiShop.Droid.Resource.Id.pin;
+			global::Acr.UserDialogs.Resource.Id.progress_circular = global::SushiShop.Droid.Resource.Id.progress_circular;
+			global::Acr.UserDialogs.Resource.Id.progress_horizontal = global::SushiShop.Droid.Resource.Id.progress_horizontal;
+			global::Acr.UserDialogs.Resource.Id.radio = global::SushiShop.Droid.Resource.Id.radio;
+			global::Acr.UserDialogs.Resource.Id.right = global::SushiShop.Droid.Resource.Id.right;
+			global::Acr.UserDialogs.Resource.Id.right_icon = global::SushiShop.Droid.Resource.Id.right_icon;
+			global::Acr.UserDialogs.Resource.Id.right_side = global::SushiShop.Droid.Resource.Id.right_side;
+			global::Acr.UserDialogs.Resource.Id.save_non_transition_alpha = global::SushiShop.Droid.Resource.Id.save_non_transition_alpha;
+			global::Acr.UserDialogs.Resource.Id.save_overlay_view = global::SushiShop.Droid.Resource.Id.save_overlay_view;
+			global::Acr.UserDialogs.Resource.Id.screen = global::SushiShop.Droid.Resource.Id.screen;
+			global::Acr.UserDialogs.Resource.Id.scroll = global::SushiShop.Droid.Resource.Id.scroll;
+			global::Acr.UserDialogs.Resource.Id.scrollable = global::SushiShop.Droid.Resource.Id.scrollable;
+			global::Acr.UserDialogs.Resource.Id.scrollIndicatorDown = global::SushiShop.Droid.Resource.Id.scrollIndicatorDown;
+			global::Acr.UserDialogs.Resource.Id.scrollIndicatorUp = global::SushiShop.Droid.Resource.Id.scrollIndicatorUp;
+			global::Acr.UserDialogs.Resource.Id.scrollView = global::SushiShop.Droid.Resource.Id.scrollView;
+			global::Acr.UserDialogs.Resource.Id.search_badge = global::SushiShop.Droid.Resource.Id.search_badge;
+			global::Acr.UserDialogs.Resource.Id.search_bar = global::SushiShop.Droid.Resource.Id.search_bar;
+			global::Acr.UserDialogs.Resource.Id.search_button = global::SushiShop.Droid.Resource.Id.search_button;
+			global::Acr.UserDialogs.Resource.Id.search_close_btn = global::SushiShop.Droid.Resource.Id.search_close_btn;
+			global::Acr.UserDialogs.Resource.Id.search_edit_frame = global::SushiShop.Droid.Resource.Id.search_edit_frame;
+			global::Acr.UserDialogs.Resource.Id.search_go_btn = global::SushiShop.Droid.Resource.Id.search_go_btn;
+			global::Acr.UserDialogs.Resource.Id.search_mag_icon = global::SushiShop.Droid.Resource.Id.search_mag_icon;
+			global::Acr.UserDialogs.Resource.Id.search_plate = global::SushiShop.Droid.Resource.Id.search_plate;
+			global::Acr.UserDialogs.Resource.Id.search_src_text = global::SushiShop.Droid.Resource.Id.search_src_text;
+			global::Acr.UserDialogs.Resource.Id.search_voice_btn = global::SushiShop.Droid.Resource.Id.search_voice_btn;
+			global::Acr.UserDialogs.Resource.Id.selected = global::SushiShop.Droid.Resource.Id.selected;
+			global::Acr.UserDialogs.Resource.Id.select_dialog_listview = global::SushiShop.Droid.Resource.Id.select_dialog_listview;
+			global::Acr.UserDialogs.Resource.Id.SHIFT = global::SushiShop.Droid.Resource.Id.SHIFT;
+			global::Acr.UserDialogs.Resource.Id.shortcut = global::SushiShop.Droid.Resource.Id.shortcut;
+			global::Acr.UserDialogs.Resource.Id.showCustom = global::SushiShop.Droid.Resource.Id.showCustom;
+			global::Acr.UserDialogs.Resource.Id.showHome = global::SushiShop.Droid.Resource.Id.showHome;
+			global::Acr.UserDialogs.Resource.Id.showTitle = global::SushiShop.Droid.Resource.Id.showTitle;
+			global::Acr.UserDialogs.Resource.Id.smallLabel = global::SushiShop.Droid.Resource.Id.smallLabel;
+			global::Acr.UserDialogs.Resource.Id.snackbar_action = global::SushiShop.Droid.Resource.Id.snackbar_action;
+			global::Acr.UserDialogs.Resource.Id.snackbar_text = global::SushiShop.Droid.Resource.Id.snackbar_text;
+			global::Acr.UserDialogs.Resource.Id.snap = global::SushiShop.Droid.Resource.Id.snap;
+			global::Acr.UserDialogs.Resource.Id.snapMargins = global::SushiShop.Droid.Resource.Id.snapMargins;
+			global::Acr.UserDialogs.Resource.Id.spacer = global::SushiShop.Droid.Resource.Id.spacer;
+			global::Acr.UserDialogs.Resource.Id.split_action_bar = global::SushiShop.Droid.Resource.Id.split_action_bar;
+			global::Acr.UserDialogs.Resource.Id.src_atop = global::SushiShop.Droid.Resource.Id.src_atop;
+			global::Acr.UserDialogs.Resource.Id.src_in = global::SushiShop.Droid.Resource.Id.src_in;
+			global::Acr.UserDialogs.Resource.Id.src_over = global::SushiShop.Droid.Resource.Id.src_over;
+			global::Acr.UserDialogs.Resource.Id.start = global::SushiShop.Droid.Resource.Id.start;
+			global::Acr.UserDialogs.Resource.Id.stretch = global::SushiShop.Droid.Resource.Id.stretch;
+			global::Acr.UserDialogs.Resource.Id.submenuarrow = global::SushiShop.Droid.Resource.Id.submenuarrow;
+			global::Acr.UserDialogs.Resource.Id.submit_area = global::SushiShop.Droid.Resource.Id.submit_area;
+			global::Acr.UserDialogs.Resource.Id.SYM = global::SushiShop.Droid.Resource.Id.SYM;
+			global::Acr.UserDialogs.Resource.Id.tabMode = global::SushiShop.Droid.Resource.Id.tabMode;
+			global::Acr.UserDialogs.Resource.Id.tag_accessibility_actions = global::SushiShop.Droid.Resource.Id.tag_accessibility_actions;
+			global::Acr.UserDialogs.Resource.Id.tag_accessibility_clickable_spans = global::SushiShop.Droid.Resource.Id.tag_accessibility_clickable_spans;
+			global::Acr.UserDialogs.Resource.Id.tag_accessibility_heading = global::SushiShop.Droid.Resource.Id.tag_accessibility_heading;
+			global::Acr.UserDialogs.Resource.Id.tag_accessibility_pane_title = global::SushiShop.Droid.Resource.Id.tag_accessibility_pane_title;
+			global::Acr.UserDialogs.Resource.Id.tag_screen_reader_focusable = global::SushiShop.Droid.Resource.Id.tag_screen_reader_focusable;
+			global::Acr.UserDialogs.Resource.Id.tag_transition_group = global::SushiShop.Droid.Resource.Id.tag_transition_group;
+			global::Acr.UserDialogs.Resource.Id.tag_unhandled_key_event_manager = global::SushiShop.Droid.Resource.Id.tag_unhandled_key_event_manager;
+			global::Acr.UserDialogs.Resource.Id.tag_unhandled_key_listeners = global::SushiShop.Droid.Resource.Id.tag_unhandled_key_listeners;
+			global::Acr.UserDialogs.Resource.Id.text = global::SushiShop.Droid.Resource.Id.text;
+			global::Acr.UserDialogs.Resource.Id.text2 = global::SushiShop.Droid.Resource.Id.text2;
+			global::Acr.UserDialogs.Resource.Id.textinput_counter = global::SushiShop.Droid.Resource.Id.textinput_counter;
+			global::Acr.UserDialogs.Resource.Id.textinput_error = global::SushiShop.Droid.Resource.Id.textinput_error;
+			global::Acr.UserDialogs.Resource.Id.textinput_helper_text = global::SushiShop.Droid.Resource.Id.textinput_helper_text;
+			global::Acr.UserDialogs.Resource.Id.textSpacerNoButtons = global::SushiShop.Droid.Resource.Id.textSpacerNoButtons;
+			global::Acr.UserDialogs.Resource.Id.textSpacerNoTitle = global::SushiShop.Droid.Resource.Id.textSpacerNoTitle;
+			global::Acr.UserDialogs.Resource.Id.textStart = global::SushiShop.Droid.Resource.Id.textStart;
+			global::Acr.UserDialogs.Resource.Id.textViewStatus = global::SushiShop.Droid.Resource.Id.textViewStatus;
+			global::Acr.UserDialogs.Resource.Id.text_input_password_toggle = global::SushiShop.Droid.Resource.Id.text_input_password_toggle;
+			global::Acr.UserDialogs.Resource.Id.time = global::SushiShop.Droid.Resource.Id.time;
+			global::Acr.UserDialogs.Resource.Id.title = global::SushiShop.Droid.Resource.Id.title;
+			global::Acr.UserDialogs.Resource.Id.titleDividerNoCustom = global::SushiShop.Droid.Resource.Id.titleDividerNoCustom;
+			global::Acr.UserDialogs.Resource.Id.title_template = global::SushiShop.Droid.Resource.Id.title_template;
+			global::Acr.UserDialogs.Resource.Id.top = global::SushiShop.Droid.Resource.Id.top;
+			global::Acr.UserDialogs.Resource.Id.topPanel = global::SushiShop.Droid.Resource.Id.topPanel;
+			global::Acr.UserDialogs.Resource.Id.touch_outside = global::SushiShop.Droid.Resource.Id.touch_outside;
+			global::Acr.UserDialogs.Resource.Id.transition_current_scene = global::SushiShop.Droid.Resource.Id.transition_current_scene;
+			global::Acr.UserDialogs.Resource.Id.transition_layout_save = global::SushiShop.Droid.Resource.Id.transition_layout_save;
+			global::Acr.UserDialogs.Resource.Id.transition_position = global::SushiShop.Droid.Resource.Id.transition_position;
+			global::Acr.UserDialogs.Resource.Id.transition_scene_layoutid_cache = global::SushiShop.Droid.Resource.Id.transition_scene_layoutid_cache;
+			global::Acr.UserDialogs.Resource.Id.transition_transform = global::SushiShop.Droid.Resource.Id.transition_transform;
+			global::Acr.UserDialogs.Resource.Id.@unchecked = global::SushiShop.Droid.Resource.Id.@unchecked;
+			global::Acr.UserDialogs.Resource.Id.uniform = global::SushiShop.Droid.Resource.Id.uniform;
+			global::Acr.UserDialogs.Resource.Id.unlabeled = global::SushiShop.Droid.Resource.Id.unlabeled;
+			global::Acr.UserDialogs.Resource.Id.up = global::SushiShop.Droid.Resource.Id.up;
+			global::Acr.UserDialogs.Resource.Id.useLogo = global::SushiShop.Droid.Resource.Id.useLogo;
+			global::Acr.UserDialogs.Resource.Id.view_offset_helper = global::SushiShop.Droid.Resource.Id.view_offset_helper;
+			global::Acr.UserDialogs.Resource.Id.visible = global::SushiShop.Droid.Resource.Id.visible;
+			global::Acr.UserDialogs.Resource.Id.withText = global::SushiShop.Droid.Resource.Id.withText;
+			global::Acr.UserDialogs.Resource.Id.wrap_content = global::SushiShop.Droid.Resource.Id.wrap_content;
+			global::Acr.UserDialogs.Resource.Integer.abc_config_activityDefaultDur = global::SushiShop.Droid.Resource.Integer.abc_config_activityDefaultDur;
+			global::Acr.UserDialogs.Resource.Integer.abc_config_activityShortDur = global::SushiShop.Droid.Resource.Integer.abc_config_activityShortDur;
+			global::Acr.UserDialogs.Resource.Integer.app_bar_elevation_anim_duration = global::SushiShop.Droid.Resource.Integer.app_bar_elevation_anim_duration;
+			global::Acr.UserDialogs.Resource.Integer.bottom_sheet_slide_duration = global::SushiShop.Droid.Resource.Integer.bottom_sheet_slide_duration;
+			global::Acr.UserDialogs.Resource.Integer.cancel_button_image_alpha = global::SushiShop.Droid.Resource.Integer.cancel_button_image_alpha;
+			global::Acr.UserDialogs.Resource.Integer.config_tooltipAnimTime = global::SushiShop.Droid.Resource.Integer.config_tooltipAnimTime;
+			global::Acr.UserDialogs.Resource.Integer.design_snackbar_text_max_lines = global::SushiShop.Droid.Resource.Integer.design_snackbar_text_max_lines;
+			global::Acr.UserDialogs.Resource.Integer.design_tab_indicator_anim_duration_ms = global::SushiShop.Droid.Resource.Integer.design_tab_indicator_anim_duration_ms;
+			global::Acr.UserDialogs.Resource.Integer.hide_password_duration = global::SushiShop.Droid.Resource.Integer.hide_password_duration;
+			global::Acr.UserDialogs.Resource.Integer.mtrl_btn_anim_delay_ms = global::SushiShop.Droid.Resource.Integer.mtrl_btn_anim_delay_ms;
+			global::Acr.UserDialogs.Resource.Integer.mtrl_btn_anim_duration_ms = global::SushiShop.Droid.Resource.Integer.mtrl_btn_anim_duration_ms;
+			global::Acr.UserDialogs.Resource.Integer.mtrl_chip_anim_duration = global::SushiShop.Droid.Resource.Integer.mtrl_chip_anim_duration;
+			global::Acr.UserDialogs.Resource.Integer.mtrl_tab_indicator_anim_duration_ms = global::SushiShop.Droid.Resource.Integer.mtrl_tab_indicator_anim_duration_ms;
+			global::Acr.UserDialogs.Resource.Integer.show_password_duration = global::SushiShop.Droid.Resource.Integer.show_password_duration;
+			global::Acr.UserDialogs.Resource.Integer.status_bar_notification_info_maxnum = global::SushiShop.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::Acr.UserDialogs.Resource.Interpolator.btn_checkbox_checked_mtrl_animation_interpolator_0 = global::SushiShop.Droid.Resource.Interpolator.btn_checkbox_checked_mtrl_animation_interpolator_0;
+			global::Acr.UserDialogs.Resource.Interpolator.btn_checkbox_checked_mtrl_animation_interpolator_1 = global::SushiShop.Droid.Resource.Interpolator.btn_checkbox_checked_mtrl_animation_interpolator_1;
+			global::Acr.UserDialogs.Resource.Interpolator.btn_checkbox_unchecked_mtrl_animation_interpolator_0 = global::SushiShop.Droid.Resource.Interpolator.btn_checkbox_unchecked_mtrl_animation_interpolator_0;
+			global::Acr.UserDialogs.Resource.Interpolator.btn_checkbox_unchecked_mtrl_animation_interpolator_1 = global::SushiShop.Droid.Resource.Interpolator.btn_checkbox_unchecked_mtrl_animation_interpolator_1;
+			global::Acr.UserDialogs.Resource.Interpolator.btn_radio_to_off_mtrl_animation_interpolator_0 = global::SushiShop.Droid.Resource.Interpolator.btn_radio_to_off_mtrl_animation_interpolator_0;
+			global::Acr.UserDialogs.Resource.Interpolator.btn_radio_to_on_mtrl_animation_interpolator_0 = global::SushiShop.Droid.Resource.Interpolator.btn_radio_to_on_mtrl_animation_interpolator_0;
+			global::Acr.UserDialogs.Resource.Interpolator.fast_out_slow_in = global::SushiShop.Droid.Resource.Interpolator.fast_out_slow_in;
+			global::Acr.UserDialogs.Resource.Interpolator.mtrl_fast_out_linear_in = global::SushiShop.Droid.Resource.Interpolator.mtrl_fast_out_linear_in;
+			global::Acr.UserDialogs.Resource.Interpolator.mtrl_fast_out_slow_in = global::SushiShop.Droid.Resource.Interpolator.mtrl_fast_out_slow_in;
+			global::Acr.UserDialogs.Resource.Interpolator.mtrl_linear = global::SushiShop.Droid.Resource.Interpolator.mtrl_linear;
+			global::Acr.UserDialogs.Resource.Interpolator.mtrl_linear_out_slow_in = global::SushiShop.Droid.Resource.Interpolator.mtrl_linear_out_slow_in;
+			global::Acr.UserDialogs.Resource.Layout.abc_action_bar_title_item = global::SushiShop.Droid.Resource.Layout.abc_action_bar_title_item;
+			global::Acr.UserDialogs.Resource.Layout.abc_action_bar_up_container = global::SushiShop.Droid.Resource.Layout.abc_action_bar_up_container;
+			global::Acr.UserDialogs.Resource.Layout.abc_action_menu_item_layout = global::SushiShop.Droid.Resource.Layout.abc_action_menu_item_layout;
+			global::Acr.UserDialogs.Resource.Layout.abc_action_menu_layout = global::SushiShop.Droid.Resource.Layout.abc_action_menu_layout;
+			global::Acr.UserDialogs.Resource.Layout.abc_action_mode_bar = global::SushiShop.Droid.Resource.Layout.abc_action_mode_bar;
+			global::Acr.UserDialogs.Resource.Layout.abc_action_mode_close_item_material = global::SushiShop.Droid.Resource.Layout.abc_action_mode_close_item_material;
+			global::Acr.UserDialogs.Resource.Layout.abc_activity_chooser_view = global::SushiShop.Droid.Resource.Layout.abc_activity_chooser_view;
+			global::Acr.UserDialogs.Resource.Layout.abc_activity_chooser_view_list_item = global::SushiShop.Droid.Resource.Layout.abc_activity_chooser_view_list_item;
+			global::Acr.UserDialogs.Resource.Layout.abc_alert_dialog_button_bar_material = global::SushiShop.Droid.Resource.Layout.abc_alert_dialog_button_bar_material;
+			global::Acr.UserDialogs.Resource.Layout.abc_alert_dialog_material = global::SushiShop.Droid.Resource.Layout.abc_alert_dialog_material;
+			global::Acr.UserDialogs.Resource.Layout.abc_alert_dialog_title_material = global::SushiShop.Droid.Resource.Layout.abc_alert_dialog_title_material;
+			global::Acr.UserDialogs.Resource.Layout.abc_cascading_menu_item_layout = global::SushiShop.Droid.Resource.Layout.abc_cascading_menu_item_layout;
+			global::Acr.UserDialogs.Resource.Layout.abc_dialog_title_material = global::SushiShop.Droid.Resource.Layout.abc_dialog_title_material;
+			global::Acr.UserDialogs.Resource.Layout.abc_expanded_menu_layout = global::SushiShop.Droid.Resource.Layout.abc_expanded_menu_layout;
+			global::Acr.UserDialogs.Resource.Layout.abc_list_menu_item_checkbox = global::SushiShop.Droid.Resource.Layout.abc_list_menu_item_checkbox;
+			global::Acr.UserDialogs.Resource.Layout.abc_list_menu_item_icon = global::SushiShop.Droid.Resource.Layout.abc_list_menu_item_icon;
+			global::Acr.UserDialogs.Resource.Layout.abc_list_menu_item_layout = global::SushiShop.Droid.Resource.Layout.abc_list_menu_item_layout;
+			global::Acr.UserDialogs.Resource.Layout.abc_list_menu_item_radio = global::SushiShop.Droid.Resource.Layout.abc_list_menu_item_radio;
+			global::Acr.UserDialogs.Resource.Layout.abc_popup_menu_header_item_layout = global::SushiShop.Droid.Resource.Layout.abc_popup_menu_header_item_layout;
+			global::Acr.UserDialogs.Resource.Layout.abc_popup_menu_item_layout = global::SushiShop.Droid.Resource.Layout.abc_popup_menu_item_layout;
+			global::Acr.UserDialogs.Resource.Layout.abc_screen_content_include = global::SushiShop.Droid.Resource.Layout.abc_screen_content_include;
+			global::Acr.UserDialogs.Resource.Layout.abc_screen_simple = global::SushiShop.Droid.Resource.Layout.abc_screen_simple;
+			global::Acr.UserDialogs.Resource.Layout.abc_screen_simple_overlay_action_mode = global::SushiShop.Droid.Resource.Layout.abc_screen_simple_overlay_action_mode;
+			global::Acr.UserDialogs.Resource.Layout.abc_screen_toolbar = global::SushiShop.Droid.Resource.Layout.abc_screen_toolbar;
+			global::Acr.UserDialogs.Resource.Layout.abc_search_dropdown_item_icons_2line = global::SushiShop.Droid.Resource.Layout.abc_search_dropdown_item_icons_2line;
+			global::Acr.UserDialogs.Resource.Layout.abc_search_view = global::SushiShop.Droid.Resource.Layout.abc_search_view;
+			global::Acr.UserDialogs.Resource.Layout.abc_select_dialog_material = global::SushiShop.Droid.Resource.Layout.abc_select_dialog_material;
+			global::Acr.UserDialogs.Resource.Layout.abc_tooltip = global::SushiShop.Droid.Resource.Layout.abc_tooltip;
+			global::Acr.UserDialogs.Resource.Layout.custom_dialog = global::SushiShop.Droid.Resource.Layout.custom_dialog;
+			global::Acr.UserDialogs.Resource.Layout.design_bottom_navigation_item = global::SushiShop.Droid.Resource.Layout.design_bottom_navigation_item;
+			global::Acr.UserDialogs.Resource.Layout.design_bottom_sheet_dialog = global::SushiShop.Droid.Resource.Layout.design_bottom_sheet_dialog;
+			global::Acr.UserDialogs.Resource.Layout.design_layout_snackbar = global::SushiShop.Droid.Resource.Layout.design_layout_snackbar;
+			global::Acr.UserDialogs.Resource.Layout.design_layout_snackbar_include = global::SushiShop.Droid.Resource.Layout.design_layout_snackbar_include;
+			global::Acr.UserDialogs.Resource.Layout.design_layout_tab_icon = global::SushiShop.Droid.Resource.Layout.design_layout_tab_icon;
+			global::Acr.UserDialogs.Resource.Layout.design_layout_tab_text = global::SushiShop.Droid.Resource.Layout.design_layout_tab_text;
+			global::Acr.UserDialogs.Resource.Layout.design_menu_item_action_area = global::SushiShop.Droid.Resource.Layout.design_menu_item_action_area;
+			global::Acr.UserDialogs.Resource.Layout.design_navigation_item = global::SushiShop.Droid.Resource.Layout.design_navigation_item;
+			global::Acr.UserDialogs.Resource.Layout.design_navigation_item_header = global::SushiShop.Droid.Resource.Layout.design_navigation_item_header;
+			global::Acr.UserDialogs.Resource.Layout.design_navigation_item_separator = global::SushiShop.Droid.Resource.Layout.design_navigation_item_separator;
+			global::Acr.UserDialogs.Resource.Layout.design_navigation_item_subheader = global::SushiShop.Droid.Resource.Layout.design_navigation_item_subheader;
+			global::Acr.UserDialogs.Resource.Layout.design_navigation_menu = global::SushiShop.Droid.Resource.Layout.design_navigation_menu;
+			global::Acr.UserDialogs.Resource.Layout.design_navigation_menu_item = global::SushiShop.Droid.Resource.Layout.design_navigation_menu_item;
+			global::Acr.UserDialogs.Resource.Layout.design_text_input_password_icon = global::SushiShop.Droid.Resource.Layout.design_text_input_password_icon;
+			global::Acr.UserDialogs.Resource.Layout.loading = global::SushiShop.Droid.Resource.Layout.loading;
+			global::Acr.UserDialogs.Resource.Layout.loadingimage = global::SushiShop.Droid.Resource.Layout.loadingimage;
+			global::Acr.UserDialogs.Resource.Layout.loadingprogress = global::SushiShop.Droid.Resource.Layout.loadingprogress;
+			global::Acr.UserDialogs.Resource.Layout.mtrl_layout_snackbar = global::SushiShop.Droid.Resource.Layout.mtrl_layout_snackbar;
+			global::Acr.UserDialogs.Resource.Layout.mtrl_layout_snackbar_include = global::SushiShop.Droid.Resource.Layout.mtrl_layout_snackbar_include;
+			global::Acr.UserDialogs.Resource.Layout.notification_action = global::SushiShop.Droid.Resource.Layout.notification_action;
+			global::Acr.UserDialogs.Resource.Layout.notification_action_tombstone = global::SushiShop.Droid.Resource.Layout.notification_action_tombstone;
+			global::Acr.UserDialogs.Resource.Layout.notification_template_custom_big = global::SushiShop.Droid.Resource.Layout.notification_template_custom_big;
+			global::Acr.UserDialogs.Resource.Layout.notification_template_icon_group = global::SushiShop.Droid.Resource.Layout.notification_template_icon_group;
+			global::Acr.UserDialogs.Resource.Layout.notification_template_part_chronometer = global::SushiShop.Droid.Resource.Layout.notification_template_part_chronometer;
+			global::Acr.UserDialogs.Resource.Layout.notification_template_part_time = global::SushiShop.Droid.Resource.Layout.notification_template_part_time;
+			global::Acr.UserDialogs.Resource.Layout.select_dialog_item_material = global::SushiShop.Droid.Resource.Layout.select_dialog_item_material;
+			global::Acr.UserDialogs.Resource.Layout.select_dialog_multichoice_material = global::SushiShop.Droid.Resource.Layout.select_dialog_multichoice_material;
+			global::Acr.UserDialogs.Resource.Layout.select_dialog_singlechoice_material = global::SushiShop.Droid.Resource.Layout.select_dialog_singlechoice_material;
+			global::Acr.UserDialogs.Resource.Layout.support_simple_spinner_dropdown_item = global::SushiShop.Droid.Resource.Layout.support_simple_spinner_dropdown_item;
+			global::Acr.UserDialogs.Resource.String.abc_action_bar_home_description = global::SushiShop.Droid.Resource.String.abc_action_bar_home_description;
+			global::Acr.UserDialogs.Resource.String.abc_action_bar_up_description = global::SushiShop.Droid.Resource.String.abc_action_bar_up_description;
+			global::Acr.UserDialogs.Resource.String.abc_action_menu_overflow_description = global::SushiShop.Droid.Resource.String.abc_action_menu_overflow_description;
+			global::Acr.UserDialogs.Resource.String.abc_action_mode_done = global::SushiShop.Droid.Resource.String.abc_action_mode_done;
+			global::Acr.UserDialogs.Resource.String.abc_activitychooserview_choose_application = global::SushiShop.Droid.Resource.String.abc_activitychooserview_choose_application;
+			global::Acr.UserDialogs.Resource.String.abc_activity_chooser_view_see_all = global::SushiShop.Droid.Resource.String.abc_activity_chooser_view_see_all;
+			global::Acr.UserDialogs.Resource.String.abc_capital_off = global::SushiShop.Droid.Resource.String.abc_capital_off;
+			global::Acr.UserDialogs.Resource.String.abc_capital_on = global::SushiShop.Droid.Resource.String.abc_capital_on;
+			global::Acr.UserDialogs.Resource.String.abc_menu_alt_shortcut_label = global::SushiShop.Droid.Resource.String.abc_menu_alt_shortcut_label;
+			global::Acr.UserDialogs.Resource.String.abc_menu_ctrl_shortcut_label = global::SushiShop.Droid.Resource.String.abc_menu_ctrl_shortcut_label;
+			global::Acr.UserDialogs.Resource.String.abc_menu_delete_shortcut_label = global::SushiShop.Droid.Resource.String.abc_menu_delete_shortcut_label;
+			global::Acr.UserDialogs.Resource.String.abc_menu_enter_shortcut_label = global::SushiShop.Droid.Resource.String.abc_menu_enter_shortcut_label;
+			global::Acr.UserDialogs.Resource.String.abc_menu_function_shortcut_label = global::SushiShop.Droid.Resource.String.abc_menu_function_shortcut_label;
+			global::Acr.UserDialogs.Resource.String.abc_menu_meta_shortcut_label = global::SushiShop.Droid.Resource.String.abc_menu_meta_shortcut_label;
+			global::Acr.UserDialogs.Resource.String.abc_menu_shift_shortcut_label = global::SushiShop.Droid.Resource.String.abc_menu_shift_shortcut_label;
+			global::Acr.UserDialogs.Resource.String.abc_menu_space_shortcut_label = global::SushiShop.Droid.Resource.String.abc_menu_space_shortcut_label;
+			global::Acr.UserDialogs.Resource.String.abc_menu_sym_shortcut_label = global::SushiShop.Droid.Resource.String.abc_menu_sym_shortcut_label;
+			global::Acr.UserDialogs.Resource.String.abc_prepend_shortcut_label = global::SushiShop.Droid.Resource.String.abc_prepend_shortcut_label;
+			global::Acr.UserDialogs.Resource.String.abc_searchview_description_clear = global::SushiShop.Droid.Resource.String.abc_searchview_description_clear;
+			global::Acr.UserDialogs.Resource.String.abc_searchview_description_query = global::SushiShop.Droid.Resource.String.abc_searchview_description_query;
+			global::Acr.UserDialogs.Resource.String.abc_searchview_description_search = global::SushiShop.Droid.Resource.String.abc_searchview_description_search;
+			global::Acr.UserDialogs.Resource.String.abc_searchview_description_submit = global::SushiShop.Droid.Resource.String.abc_searchview_description_submit;
+			global::Acr.UserDialogs.Resource.String.abc_searchview_description_voice = global::SushiShop.Droid.Resource.String.abc_searchview_description_voice;
+			global::Acr.UserDialogs.Resource.String.abc_search_hint = global::SushiShop.Droid.Resource.String.abc_search_hint;
+			global::Acr.UserDialogs.Resource.String.abc_shareactionprovider_share_with = global::SushiShop.Droid.Resource.String.abc_shareactionprovider_share_with;
+			global::Acr.UserDialogs.Resource.String.abc_shareactionprovider_share_with_application = global::SushiShop.Droid.Resource.String.abc_shareactionprovider_share_with_application;
+			global::Acr.UserDialogs.Resource.String.abc_toolbar_collapse_description = global::SushiShop.Droid.Resource.String.abc_toolbar_collapse_description;
+			global::Acr.UserDialogs.Resource.String.appbar_scrolling_view_behavior = global::SushiShop.Droid.Resource.String.appbar_scrolling_view_behavior;
+			global::Acr.UserDialogs.Resource.String.bottom_sheet_behavior = global::SushiShop.Droid.Resource.String.bottom_sheet_behavior;
+			global::Acr.UserDialogs.Resource.String.character_counter_content_description = global::SushiShop.Droid.Resource.String.character_counter_content_description;
+			global::Acr.UserDialogs.Resource.String.character_counter_pattern = global::SushiShop.Droid.Resource.String.character_counter_pattern;
+			global::Acr.UserDialogs.Resource.String.fab_transformation_scrim_behavior = global::SushiShop.Droid.Resource.String.fab_transformation_scrim_behavior;
+			global::Acr.UserDialogs.Resource.String.fab_transformation_sheet_behavior = global::SushiShop.Droid.Resource.String.fab_transformation_sheet_behavior;
+			global::Acr.UserDialogs.Resource.String.hide_bottom_view_on_scroll_behavior = global::SushiShop.Droid.Resource.String.hide_bottom_view_on_scroll_behavior;
+			global::Acr.UserDialogs.Resource.String.library_name = global::SushiShop.Droid.Resource.String.library_name;
+			global::Acr.UserDialogs.Resource.String.mtrl_chip_close_icon_content_description = global::SushiShop.Droid.Resource.String.mtrl_chip_close_icon_content_description;
+			global::Acr.UserDialogs.Resource.String.password_toggle_content_description = global::SushiShop.Droid.Resource.String.password_toggle_content_description;
+			global::Acr.UserDialogs.Resource.String.path_password_eye = global::SushiShop.Droid.Resource.String.path_password_eye;
+			global::Acr.UserDialogs.Resource.String.path_password_eye_mask_strike_through = global::SushiShop.Droid.Resource.String.path_password_eye_mask_strike_through;
+			global::Acr.UserDialogs.Resource.String.path_password_eye_mask_visible = global::SushiShop.Droid.Resource.String.path_password_eye_mask_visible;
+			global::Acr.UserDialogs.Resource.String.path_password_strike_through = global::SushiShop.Droid.Resource.String.path_password_strike_through;
+			global::Acr.UserDialogs.Resource.String.search_menu_title = global::SushiShop.Droid.Resource.String.search_menu_title;
+			global::Acr.UserDialogs.Resource.String.status_bar_notification_info_overflow = global::SushiShop.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::Acr.UserDialogs.Resource.Style.AlertDialog_AppCompat = global::SushiShop.Droid.Resource.Style.AlertDialog_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.AlertDialog_AppCompat_Light = global::SushiShop.Droid.Resource.Style.AlertDialog_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Animation_AppCompat_Dialog = global::SushiShop.Droid.Resource.Style.Animation_AppCompat_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Animation_AppCompat_DropDownUp = global::SushiShop.Droid.Resource.Style.Animation_AppCompat_DropDownUp;
+			global::Acr.UserDialogs.Resource.Style.Animation_AppCompat_Tooltip = global::SushiShop.Droid.Resource.Style.Animation_AppCompat_Tooltip;
+			global::Acr.UserDialogs.Resource.Style.Animation_Design_BottomSheetDialog = global::SushiShop.Droid.Resource.Style.Animation_Design_BottomSheetDialog;
+			global::Acr.UserDialogs.Resource.Style.Base_AlertDialog_AppCompat = global::SushiShop.Droid.Resource.Style.Base_AlertDialog_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_AlertDialog_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Base_AlertDialog_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Base_Animation_AppCompat_Dialog = global::SushiShop.Droid.Resource.Style.Base_Animation_AppCompat_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::SushiShop.Droid.Resource.Style.Base_Animation_AppCompat_DropDownUp;
+			global::Acr.UserDialogs.Resource.Style.Base_Animation_AppCompat_Tooltip = global::SushiShop.Droid.Resource.Style.Base_Animation_AppCompat_Tooltip;
+			global::Acr.UserDialogs.Resource.Style.Base_CardView = global::SushiShop.Droid.Resource.Style.Base_CardView;
+			global::Acr.UserDialogs.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::SushiShop.Droid.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_DialogWindowTitle_AppCompat = global::SushiShop.Droid.Resource.Style.Base_DialogWindowTitle_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Body1 = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Body1;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Body2 = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Body2;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Button = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Button;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Caption = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Caption;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Display1 = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display1;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Display2 = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display2;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Display3 = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display3;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Display4 = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display4;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Headline = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Headline;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Inverse = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Large = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Large;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Medium = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Medium;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Menu = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Menu;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_SearchResult = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Small = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Small;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Subhead = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Subhead;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Title = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Title;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Tooltip = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Tooltip;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::Acr.UserDialogs.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title = global::SushiShop.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::Acr.UserDialogs.Resource.Style.Base_ThemeOverlay_AppCompat = global::SushiShop.Droid.Resource.Style.Base_ThemeOverlay_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar = global::SushiShop.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.Base_ThemeOverlay_AppCompat_Dark = global::SushiShop.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dark;
+			global::Acr.UserDialogs.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar = global::SushiShop.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog = global::SushiShop.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog = global::SushiShop.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_CompactMenu;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_Dialog = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_Light_Dialog = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::SushiShop.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Bridge = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Bridge;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_CompactMenu = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_CompactMenu;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Dialog = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_DialogWhenLarge = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_DialogWhenLarge;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Dialog_FixedSize = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_FixedSize;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Dialog_MinWidth = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_MinWidth;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Light = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Light;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Light_Bridge = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Bridge;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar_Bridge;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Light_DialogWhenLarge = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DialogWhenLarge;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_FixedSize = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_FixedSize;
+			global::Acr.UserDialogs.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_MinWidth = global::SushiShop.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_MinWidth;
+			global::Acr.UserDialogs.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog = global::SushiShop.Droid.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Base_V14_Theme_MaterialComponents = global::SushiShop.Droid.Resource.Style.Base_V14_Theme_MaterialComponents;
+			global::Acr.UserDialogs.Resource.Style.Base_V14_Theme_MaterialComponents_Bridge = global::SushiShop.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Bridge;
+			global::Acr.UserDialogs.Resource.Style.Base_V14_Theme_MaterialComponents_Dialog = global::SushiShop.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_V14_Theme_MaterialComponents_Light = global::SushiShop.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light;
+			global::Acr.UserDialogs.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Bridge = global::SushiShop.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Bridge;
+			global::Acr.UserDialogs.Resource.Style.Base_V14_Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::SushiShop.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_DarkActionBar_Bridge;
+			global::Acr.UserDialogs.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Dialog = global::SushiShop.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::SushiShop.Droid.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_V21_Theme_AppCompat = global::SushiShop.Droid.Resource.Style.Base_V21_Theme_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::SushiShop.Droid.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_V21_Theme_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::SushiShop.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_V22_Theme_AppCompat = global::SushiShop.Droid.Resource.Style.Base_V22_Theme_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_V22_Theme_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Base_V22_Theme_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Base_V23_Theme_AppCompat = global::SushiShop.Droid.Resource.Style.Base_V23_Theme_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_V23_Theme_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Base_V23_Theme_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Base_V26_Theme_AppCompat = global::SushiShop.Droid.Resource.Style.Base_V26_Theme_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_V26_Theme_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Base_V26_Theme_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Base_V26_Widget_AppCompat_Toolbar = global::SushiShop.Droid.Resource.Style.Base_V26_Widget_AppCompat_Toolbar;
+			global::Acr.UserDialogs.Resource.Style.Base_V28_Theme_AppCompat = global::SushiShop.Droid.Resource.Style.Base_V28_Theme_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_V28_Theme_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Base_V28_Theme_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog = global::SushiShop.Droid.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_V7_Theme_AppCompat = global::SushiShop.Droid.Resource.Style.Base_V7_Theme_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::SushiShop.Droid.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_V7_Theme_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog = global::SushiShop.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView = global::SushiShop.Droid.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView;
+			global::Acr.UserDialogs.Resource.Style.Base_V7_Widget_AppCompat_EditText = global::SushiShop.Droid.Resource.Style.Base_V7_Widget_AppCompat_EditText;
+			global::Acr.UserDialogs.Resource.Style.Base_V7_Widget_AppCompat_Toolbar = global::SushiShop.Droid.Resource.Style.Base_V7_Widget_AppCompat_Toolbar;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ActionBar = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ActionButton = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ActionMode = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ActionMode;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ActivityChooserView = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ActivityChooserView;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Button = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Button;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ButtonBar = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Button_Borderless = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Button_Borderless;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Button_Colored = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Button_Colored;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Button_Small = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Button_Small;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_EditText = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_EditText;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ImageButton = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ImageButton;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ListMenuView = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ListMenuView;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ListPopupWindow = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ListPopupWindow;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ListView = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ListView;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ListView_DropDown = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ListView_DropDown;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ListView_Menu = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ListView_Menu;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_PopupMenu = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_PopupMenu;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_PopupWindow = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_PopupWindow;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ProgressBar = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ProgressBar;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_RatingBar = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_RatingBar_Small = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar_Small;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_SearchView = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_SearchView;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_SeekBar = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_SeekBar;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Spinner = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Spinner;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_TextView = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_TextView;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Toolbar = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::SushiShop.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_Design_TabLayout = global::SushiShop.Droid.Resource.Style.Base_Widget_Design_TabLayout;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_MaterialComponents_Chip = global::SushiShop.Droid.Resource.Style.Base_Widget_MaterialComponents_Chip;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_MaterialComponents_TextInputEditText = global::SushiShop.Droid.Resource.Style.Base_Widget_MaterialComponents_TextInputEditText;
+			global::Acr.UserDialogs.Resource.Style.Base_Widget_MaterialComponents_TextInputLayout = global::SushiShop.Droid.Resource.Style.Base_Widget_MaterialComponents_TextInputLayout;
+			global::Acr.UserDialogs.Resource.Style.CardView = global::SushiShop.Droid.Resource.Style.CardView;
+			global::Acr.UserDialogs.Resource.Style.CardView_Dark = global::SushiShop.Droid.Resource.Style.CardView_Dark;
+			global::Acr.UserDialogs.Resource.Style.CardView_Light = global::SushiShop.Droid.Resource.Style.CardView_Light;
+			global::Acr.UserDialogs.Resource.Style.Platform_AppCompat = global::SushiShop.Droid.Resource.Style.Platform_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Platform_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Platform_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Platform_MaterialComponents = global::SushiShop.Droid.Resource.Style.Platform_MaterialComponents;
+			global::Acr.UserDialogs.Resource.Style.Platform_MaterialComponents_Dialog = global::SushiShop.Droid.Resource.Style.Platform_MaterialComponents_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Platform_MaterialComponents_Light = global::SushiShop.Droid.Resource.Style.Platform_MaterialComponents_Light;
+			global::Acr.UserDialogs.Resource.Style.Platform_MaterialComponents_Light_Dialog = global::SushiShop.Droid.Resource.Style.Platform_MaterialComponents_Light_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Platform_ThemeOverlay_AppCompat = global::SushiShop.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::SushiShop.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
+			global::Acr.UserDialogs.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Platform_V21_AppCompat = global::SushiShop.Droid.Resource.Style.Platform_V21_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Platform_V21_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Platform_V21_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Platform_V25_AppCompat = global::SushiShop.Droid.Resource.Style.Platform_V25_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Platform_V25_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Platform_V25_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Platform_Widget_AppCompat_Spinner = global::SushiShop.Droid.Resource.Style.Platform_Widget_AppCompat_Spinner;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat = global::SushiShop.Droid.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Shortcut = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Shortcut;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Title = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Title;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query;
+			global::Acr.UserDialogs.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::SushiShop.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
+			global::Acr.UserDialogs.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::SushiShop.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
+			global::Acr.UserDialogs.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::SushiShop.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Body1 = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Body1;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Body2 = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Body2;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Button = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Button;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Caption = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Caption;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Display1 = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Display1;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Display2 = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Display2;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Display3 = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Display3;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Display4 = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Display4;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Headline = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Headline;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Inverse = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Inverse;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Large = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Large;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Large_Inverse = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Large_Inverse;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Medium = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Medium;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Medium_Inverse = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Medium_Inverse;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Menu = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Menu;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_SearchResult_Title = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_SearchResult_Title;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Small = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Small;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Small_Inverse = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Small_Inverse;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Subhead = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Subhead;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Title = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Title;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Title_Inverse = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Title_Inverse;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Tooltip = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Tooltip;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_Button = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_Switch = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Switch;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::SushiShop.Droid.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Compat_Notification = global::SushiShop.Droid.Resource.Style.TextAppearance_Compat_Notification;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Compat_Notification_Info = global::SushiShop.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::SushiShop.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Compat_Notification_Time = global::SushiShop.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Compat_Notification_Title = global::SushiShop.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Design_CollapsingToolbar_Expanded = global::SushiShop.Droid.Resource.Style.TextAppearance_Design_CollapsingToolbar_Expanded;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Design_Counter = global::SushiShop.Droid.Resource.Style.TextAppearance_Design_Counter;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Design_Counter_Overflow = global::SushiShop.Droid.Resource.Style.TextAppearance_Design_Counter_Overflow;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Design_Error = global::SushiShop.Droid.Resource.Style.TextAppearance_Design_Error;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Design_HelperText = global::SushiShop.Droid.Resource.Style.TextAppearance_Design_HelperText;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Design_Hint = global::SushiShop.Droid.Resource.Style.TextAppearance_Design_Hint;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Design_Snackbar_Message = global::SushiShop.Droid.Resource.Style.TextAppearance_Design_Snackbar_Message;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Design_Tab = global::SushiShop.Droid.Resource.Style.TextAppearance_Design_Tab;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Body1 = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Body1;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Body2 = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Body2;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Button = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Button;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Caption = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Caption;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Chip = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Chip;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Headline1 = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline1;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Headline2 = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline2;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Headline3 = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline3;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Headline4 = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline4;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Headline5 = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline5;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Headline6 = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline6;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Overline = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Overline;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Subtitle1 = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Subtitle1;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Subtitle2 = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Subtitle2;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_MaterialComponents_Tab = global::SushiShop.Droid.Resource.Style.TextAppearance_MaterialComponents_Tab;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::SushiShop.Droid.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::SushiShop.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::Acr.UserDialogs.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::SushiShop.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_AppCompat = global::SushiShop.Droid.Resource.Style.ThemeOverlay_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::SushiShop.Droid.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_AppCompat_Dark = global::SushiShop.Droid.Resource.Style.ThemeOverlay_AppCompat_Dark;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar = global::SushiShop.Droid.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_AppCompat_DayNight = global::SushiShop.Droid.Resource.Style.ThemeOverlay_AppCompat_DayNight;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_AppCompat_DayNight_ActionBar = global::SushiShop.Droid.Resource.Style.ThemeOverlay_AppCompat_DayNight_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_AppCompat_Dialog = global::SushiShop.Droid.Resource.Style.ThemeOverlay_AppCompat_Dialog;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert = global::SushiShop.Droid.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_AppCompat_Light = global::SushiShop.Droid.Resource.Style.ThemeOverlay_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents_ActionBar = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents_Dark = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dark;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents_Dark_ActionBar = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dark_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents_Dialog = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents_Light = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox;
+			global::Acr.UserDialogs.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense = global::SushiShop.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat = global::SushiShop.Droid.Resource.Style.Theme_AppCompat;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_CompactMenu = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_CompactMenu;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_DayNight = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_DayNight;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_DayNight_Dialog = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_DayNight_NoActionBar = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_DayNight_NoActionBar;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_Dialog = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_DialogWhenLarge = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_DialogWhenLarge;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_Dialog_MinWidth = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_Dialog_MinWidth;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_Light = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_Light;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_Light_DarkActionBar = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_Light_DarkActionBar;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_Light_Dialog = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_Light_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_Light_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_Light_NoActionBar = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_Light_NoActionBar;
+			global::Acr.UserDialogs.Resource.Style.Theme_AppCompat_NoActionBar = global::SushiShop.Droid.Resource.Style.Theme_AppCompat_NoActionBar;
+			global::Acr.UserDialogs.Resource.Style.Theme_Design = global::SushiShop.Droid.Resource.Style.Theme_Design;
+			global::Acr.UserDialogs.Resource.Style.Theme_Design_BottomSheetDialog = global::SushiShop.Droid.Resource.Style.Theme_Design_BottomSheetDialog;
+			global::Acr.UserDialogs.Resource.Style.Theme_Design_Light = global::SushiShop.Droid.Resource.Style.Theme_Design_Light;
+			global::Acr.UserDialogs.Resource.Style.Theme_Design_Light_BottomSheetDialog = global::SushiShop.Droid.Resource.Style.Theme_Design_Light_BottomSheetDialog;
+			global::Acr.UserDialogs.Resource.Style.Theme_Design_Light_NoActionBar = global::SushiShop.Droid.Resource.Style.Theme_Design_Light_NoActionBar;
+			global::Acr.UserDialogs.Resource.Style.Theme_Design_NoActionBar = global::SushiShop.Droid.Resource.Style.Theme_Design_NoActionBar;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_BottomSheetDialog = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_BottomSheetDialog;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Bridge = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Bridge;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_CompactMenu = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_CompactMenu;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Dialog = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_DialogWhenLarge = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_DialogWhenLarge;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Dialog_MinWidth = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Dialog_MinWidth;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Light = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Light;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Light_BottomSheetDialog = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Light_BottomSheetDialog;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Light_Bridge = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Light_Bridge;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar_Bridge;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Light_Dialog = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Light_DialogWhenLarge = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Light_DialogWhenLarge;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Light_Dialog_Alert = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog_Alert;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Light_Dialog_MinWidth = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog_MinWidth;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Light_NoActionBar = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Light_NoActionBar;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_Light_NoActionBar_Bridge = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_Light_NoActionBar_Bridge;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_NoActionBar = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_NoActionBar;
+			global::Acr.UserDialogs.Resource.Style.Theme_MaterialComponents_NoActionBar_Bridge = global::SushiShop.Droid.Resource.Style.Theme_MaterialComponents_NoActionBar_Bridge;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ActionBar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ActionBar_Solid;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ActionBar_TabText = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabText;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ActionBar_TabView = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabView;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ActionButton = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ActionButton;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ActionButton_CloseMode = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ActionButton_CloseMode;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ActionButton_Overflow = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ActionButton_Overflow;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ActionMode = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ActionMode;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ActivityChooserView = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ActivityChooserView;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_AutoCompleteTextView = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_AutoCompleteTextView;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Button = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Button;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ButtonBar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ButtonBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Button_Borderless = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Button_Borderless;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Button_Borderless_Colored = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Button_Borderless_Colored;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Button_Colored = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Button_Colored;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Button_Small = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Button_Small;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_CompoundButton_Switch = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_CompoundButton_Switch;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_DrawerArrowToggle = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_DrawerArrowToggle;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_DropDownItem_Spinner = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_DropDownItem_Spinner;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_EditText = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_EditText;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ImageButton = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ImageButton;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionBar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionButton = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ActivityChooserView = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ActivityChooserView;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ListPopupWindow = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ListPopupWindow;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_ListView_DropDown = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_ListView_DropDown;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_PopupMenu = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_PopupMenu;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_SearchView = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_SearchView;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ListMenuView = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ListMenuView;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ListPopupWindow = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ListPopupWindow;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ListView = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ListView;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ListView_DropDown = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ListView_DropDown;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ListView_Menu = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ListView_Menu;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_PopupMenu = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_PopupMenu;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_PopupMenu_Overflow = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_PopupMenu_Overflow;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_PopupWindow = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_PopupWindow;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ProgressBar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ProgressBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_RatingBar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_RatingBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_RatingBar_Indicator = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_RatingBar_Indicator;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_RatingBar_Small = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_RatingBar_Small;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_SearchView = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_SearchView;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_SearchView_ActionBar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_SearchView_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_SeekBar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_SeekBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_SeekBar_Discrete = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_SeekBar_Discrete;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Spinner = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Spinner;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Spinner_DropDown = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Spinner_DropDown;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Spinner_Underlined = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Spinner_Underlined;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_TextView = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_TextView;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_TextView_SpinnerItem = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_TextView_SpinnerItem;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Toolbar = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Toolbar;
+			global::Acr.UserDialogs.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation = global::SushiShop.Droid.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation;
+			global::Acr.UserDialogs.Resource.Style.Widget_Compat_NotificationActionContainer = global::SushiShop.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::Acr.UserDialogs.Resource.Style.Widget_Compat_NotificationActionText = global::SushiShop.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Acr.UserDialogs.Resource.Style.Widget_Design_AppBarLayout = global::SushiShop.Droid.Resource.Style.Widget_Design_AppBarLayout;
+			global::Acr.UserDialogs.Resource.Style.Widget_Design_BottomNavigationView = global::SushiShop.Droid.Resource.Style.Widget_Design_BottomNavigationView;
+			global::Acr.UserDialogs.Resource.Style.Widget_Design_BottomSheet_Modal = global::SushiShop.Droid.Resource.Style.Widget_Design_BottomSheet_Modal;
+			global::Acr.UserDialogs.Resource.Style.Widget_Design_CollapsingToolbar = global::SushiShop.Droid.Resource.Style.Widget_Design_CollapsingToolbar;
+			global::Acr.UserDialogs.Resource.Style.Widget_Design_FloatingActionButton = global::SushiShop.Droid.Resource.Style.Widget_Design_FloatingActionButton;
+			global::Acr.UserDialogs.Resource.Style.Widget_Design_NavigationView = global::SushiShop.Droid.Resource.Style.Widget_Design_NavigationView;
+			global::Acr.UserDialogs.Resource.Style.Widget_Design_ScrimInsetsFrameLayout = global::SushiShop.Droid.Resource.Style.Widget_Design_ScrimInsetsFrameLayout;
+			global::Acr.UserDialogs.Resource.Style.Widget_Design_Snackbar = global::SushiShop.Droid.Resource.Style.Widget_Design_Snackbar;
+			global::Acr.UserDialogs.Resource.Style.Widget_Design_TabLayout = global::SushiShop.Droid.Resource.Style.Widget_Design_TabLayout;
+			global::Acr.UserDialogs.Resource.Style.Widget_Design_TextInputLayout = global::SushiShop.Droid.Resource.Style.Widget_Design_TextInputLayout;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_BottomAppBar = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_BottomAppBar;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_BottomAppBar_Colored = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_BottomAppBar_Colored;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_BottomNavigationView = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_BottomNavigationView;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_BottomNavigationView_Colored = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_BottomNavigationView_Colored;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_BottomSheet_Modal = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_BottomSheet_Modal;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Button = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Button;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Button_Icon = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Button_Icon;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton_Icon = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton_Icon;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Button_TextButton = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog_Icon = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog_Icon;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Button_TextButton_Icon = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton_Icon;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton_Icon = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton_Icon;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_CardView = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_CardView;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_ChipGroup = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_ChipGroup;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Chip_Action = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Chip_Action;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Chip_Choice = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Chip_Choice;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Chip_Entry = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Chip_Entry;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Chip_Filter = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Chip_Filter;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_FloatingActionButton = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_FloatingActionButton;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_NavigationView = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_NavigationView;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Snackbar = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Snackbar;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Snackbar_FullWidth = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Snackbar_FullWidth;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_TabLayout = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_TabLayout;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_TabLayout_Colored = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_TabLayout_Colored;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox_Dense = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox_Dense;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox_Dense = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox_Dense;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox_Dense = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox_Dense;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense;
+			global::Acr.UserDialogs.Resource.Style.Widget_MaterialComponents_Toolbar = global::SushiShop.Droid.Resource.Style.Widget_MaterialComponents_Toolbar;
+			global::Acr.UserDialogs.Resource.Style.Widget_Support_CoordinatorLayout = global::SushiShop.Droid.Resource.Style.Widget_Support_CoordinatorLayout;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar = global::SushiShop.Droid.Resource.Styleable.ActionBar;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBarLayout = global::SushiShop.Droid.Resource.Styleable.ActionBarLayout;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::SushiShop.Droid.Resource.Styleable.ActionBarLayout_android_layout_gravity;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_background = global::SushiShop.Droid.Resource.Styleable.ActionBar_background;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_backgroundSplit = global::SushiShop.Droid.Resource.Styleable.ActionBar_backgroundSplit;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_backgroundStacked = global::SushiShop.Droid.Resource.Styleable.ActionBar_backgroundStacked;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_contentInsetEnd = global::SushiShop.Droid.Resource.Styleable.ActionBar_contentInsetEnd;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_contentInsetEndWithActions = global::SushiShop.Droid.Resource.Styleable.ActionBar_contentInsetEndWithActions;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_contentInsetLeft = global::SushiShop.Droid.Resource.Styleable.ActionBar_contentInsetLeft;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_contentInsetRight = global::SushiShop.Droid.Resource.Styleable.ActionBar_contentInsetRight;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_contentInsetStart = global::SushiShop.Droid.Resource.Styleable.ActionBar_contentInsetStart;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_contentInsetStartWithNavigation = global::SushiShop.Droid.Resource.Styleable.ActionBar_contentInsetStartWithNavigation;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_customNavigationLayout = global::SushiShop.Droid.Resource.Styleable.ActionBar_customNavigationLayout;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_displayOptions = global::SushiShop.Droid.Resource.Styleable.ActionBar_displayOptions;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_divider = global::SushiShop.Droid.Resource.Styleable.ActionBar_divider;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_elevation = global::SushiShop.Droid.Resource.Styleable.ActionBar_elevation;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_height = global::SushiShop.Droid.Resource.Styleable.ActionBar_height;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_hideOnContentScroll = global::SushiShop.Droid.Resource.Styleable.ActionBar_hideOnContentScroll;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_homeAsUpIndicator = global::SushiShop.Droid.Resource.Styleable.ActionBar_homeAsUpIndicator;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_homeLayout = global::SushiShop.Droid.Resource.Styleable.ActionBar_homeLayout;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_icon = global::SushiShop.Droid.Resource.Styleable.ActionBar_icon;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_indeterminateProgressStyle = global::SushiShop.Droid.Resource.Styleable.ActionBar_indeterminateProgressStyle;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_itemPadding = global::SushiShop.Droid.Resource.Styleable.ActionBar_itemPadding;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_logo = global::SushiShop.Droid.Resource.Styleable.ActionBar_logo;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_navigationMode = global::SushiShop.Droid.Resource.Styleable.ActionBar_navigationMode;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_popupTheme = global::SushiShop.Droid.Resource.Styleable.ActionBar_popupTheme;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_progressBarPadding = global::SushiShop.Droid.Resource.Styleable.ActionBar_progressBarPadding;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_progressBarStyle = global::SushiShop.Droid.Resource.Styleable.ActionBar_progressBarStyle;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_subtitle = global::SushiShop.Droid.Resource.Styleable.ActionBar_subtitle;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_subtitleTextStyle = global::SushiShop.Droid.Resource.Styleable.ActionBar_subtitleTextStyle;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_title = global::SushiShop.Droid.Resource.Styleable.ActionBar_title;
+			global::Acr.UserDialogs.Resource.Styleable.ActionBar_titleTextStyle = global::SushiShop.Droid.Resource.Styleable.ActionBar_titleTextStyle;
+			global::Acr.UserDialogs.Resource.Styleable.ActionMenuItemView = global::SushiShop.Droid.Resource.Styleable.ActionMenuItemView;
+			global::Acr.UserDialogs.Resource.Styleable.ActionMenuItemView_android_minWidth = global::SushiShop.Droid.Resource.Styleable.ActionMenuItemView_android_minWidth;
+			global::Acr.UserDialogs.Resource.Styleable.ActionMenuView = global::SushiShop.Droid.Resource.Styleable.ActionMenuView;
+			global::Acr.UserDialogs.Resource.Styleable.ActionMode = global::SushiShop.Droid.Resource.Styleable.ActionMode;
+			global::Acr.UserDialogs.Resource.Styleable.ActionMode_background = global::SushiShop.Droid.Resource.Styleable.ActionMode_background;
+			global::Acr.UserDialogs.Resource.Styleable.ActionMode_backgroundSplit = global::SushiShop.Droid.Resource.Styleable.ActionMode_backgroundSplit;
+			global::Acr.UserDialogs.Resource.Styleable.ActionMode_closeItemLayout = global::SushiShop.Droid.Resource.Styleable.ActionMode_closeItemLayout;
+			global::Acr.UserDialogs.Resource.Styleable.ActionMode_height = global::SushiShop.Droid.Resource.Styleable.ActionMode_height;
+			global::Acr.UserDialogs.Resource.Styleable.ActionMode_subtitleTextStyle = global::SushiShop.Droid.Resource.Styleable.ActionMode_subtitleTextStyle;
+			global::Acr.UserDialogs.Resource.Styleable.ActionMode_titleTextStyle = global::SushiShop.Droid.Resource.Styleable.ActionMode_titleTextStyle;
+			global::Acr.UserDialogs.Resource.Styleable.ActivityChooserView = global::SushiShop.Droid.Resource.Styleable.ActivityChooserView;
+			global::Acr.UserDialogs.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::SushiShop.Droid.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.ActivityChooserView_initialActivityCount = global::SushiShop.Droid.Resource.Styleable.ActivityChooserView_initialActivityCount;
+			global::Acr.UserDialogs.Resource.Styleable.AlertDialog = global::SushiShop.Droid.Resource.Styleable.AlertDialog;
+			global::Acr.UserDialogs.Resource.Styleable.AlertDialog_android_layout = global::SushiShop.Droid.Resource.Styleable.AlertDialog_android_layout;
+			global::Acr.UserDialogs.Resource.Styleable.AlertDialog_buttonIconDimen = global::SushiShop.Droid.Resource.Styleable.AlertDialog_buttonIconDimen;
+			global::Acr.UserDialogs.Resource.Styleable.AlertDialog_buttonPanelSideLayout = global::SushiShop.Droid.Resource.Styleable.AlertDialog_buttonPanelSideLayout;
+			global::Acr.UserDialogs.Resource.Styleable.AlertDialog_listItemLayout = global::SushiShop.Droid.Resource.Styleable.AlertDialog_listItemLayout;
+			global::Acr.UserDialogs.Resource.Styleable.AlertDialog_listLayout = global::SushiShop.Droid.Resource.Styleable.AlertDialog_listLayout;
+			global::Acr.UserDialogs.Resource.Styleable.AlertDialog_multiChoiceItemLayout = global::SushiShop.Droid.Resource.Styleable.AlertDialog_multiChoiceItemLayout;
+			global::Acr.UserDialogs.Resource.Styleable.AlertDialog_showTitle = global::SushiShop.Droid.Resource.Styleable.AlertDialog_showTitle;
+			global::Acr.UserDialogs.Resource.Styleable.AlertDialog_singleChoiceItemLayout = global::SushiShop.Droid.Resource.Styleable.AlertDialog_singleChoiceItemLayout;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableCompat = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableCompat;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableCompat_android_constantSize = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_constantSize;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableCompat_android_dither = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_dither;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableCompat_android_enterFadeDuration = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_enterFadeDuration;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableCompat_android_exitFadeDuration = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_exitFadeDuration;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableCompat_android_variablePadding = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_variablePadding;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableCompat_android_visible = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_visible;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableItem = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableItem;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableItem_android_drawable = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableItem_android_drawable;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableItem_android_id = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableItem_android_id;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableTransition = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableTransition;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableTransition_android_drawable = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_drawable;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableTransition_android_fromId = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_fromId;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableTransition_android_reversible = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_reversible;
+			global::Acr.UserDialogs.Resource.Styleable.AnimatedStateListDrawableTransition_android_toId = global::SushiShop.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_toId;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayout = global::SushiShop.Droid.Resource.Styleable.AppBarLayout;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayoutStates = global::SushiShop.Droid.Resource.Styleable.AppBarLayoutStates;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayoutStates_state_collapsed = global::SushiShop.Droid.Resource.Styleable.AppBarLayoutStates_state_collapsed;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayoutStates_state_collapsible = global::SushiShop.Droid.Resource.Styleable.AppBarLayoutStates_state_collapsible;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayoutStates_state_liftable = global::SushiShop.Droid.Resource.Styleable.AppBarLayoutStates_state_liftable;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayoutStates_state_lifted = global::SushiShop.Droid.Resource.Styleable.AppBarLayoutStates_state_lifted;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayout_android_background = global::SushiShop.Droid.Resource.Styleable.AppBarLayout_android_background;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster = global::SushiShop.Droid.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus = global::SushiShop.Droid.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayout_elevation = global::SushiShop.Droid.Resource.Styleable.AppBarLayout_elevation;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayout_expanded = global::SushiShop.Droid.Resource.Styleable.AppBarLayout_expanded;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayout_Layout = global::SushiShop.Droid.Resource.Styleable.AppBarLayout_Layout;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayout_Layout_layout_scrollFlags = global::SushiShop.Droid.Resource.Styleable.AppBarLayout_Layout_layout_scrollFlags;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayout_Layout_layout_scrollInterpolator = global::SushiShop.Droid.Resource.Styleable.AppBarLayout_Layout_layout_scrollInterpolator;
+			global::Acr.UserDialogs.Resource.Styleable.AppBarLayout_liftOnScroll = global::SushiShop.Droid.Resource.Styleable.AppBarLayout_liftOnScroll;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatImageView = global::SushiShop.Droid.Resource.Styleable.AppCompatImageView;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatImageView_android_src = global::SushiShop.Droid.Resource.Styleable.AppCompatImageView_android_src;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatImageView_srcCompat = global::SushiShop.Droid.Resource.Styleable.AppCompatImageView_srcCompat;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatImageView_tint = global::SushiShop.Droid.Resource.Styleable.AppCompatImageView_tint;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatImageView_tintMode = global::SushiShop.Droid.Resource.Styleable.AppCompatImageView_tintMode;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatSeekBar = global::SushiShop.Droid.Resource.Styleable.AppCompatSeekBar;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatSeekBar_android_thumb = global::SushiShop.Droid.Resource.Styleable.AppCompatSeekBar_android_thumb;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatSeekBar_tickMark = global::SushiShop.Droid.Resource.Styleable.AppCompatSeekBar_tickMark;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatSeekBar_tickMarkTint = global::SushiShop.Droid.Resource.Styleable.AppCompatSeekBar_tickMarkTint;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode = global::SushiShop.Droid.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextHelper = global::SushiShop.Droid.Resource.Styleable.AppCompatTextHelper;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextHelper_android_drawableBottom = global::SushiShop.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableBottom;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextHelper_android_drawableEnd = global::SushiShop.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableEnd;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextHelper_android_drawableLeft = global::SushiShop.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableLeft;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextHelper_android_drawableRight = global::SushiShop.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableRight;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextHelper_android_drawableStart = global::SushiShop.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableStart;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextHelper_android_drawableTop = global::SushiShop.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableTop;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextHelper_android_textAppearance = global::SushiShop.Droid.Resource.Styleable.AppCompatTextHelper_android_textAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_android_textAppearance = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_android_textAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_autoSizePresetSizes = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_autoSizePresetSizes;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_autoSizeTextType = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_autoSizeTextType;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_drawableBottomCompat = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_drawableBottomCompat;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_drawableEndCompat = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_drawableEndCompat;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_drawableLeftCompat = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_drawableLeftCompat;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_drawableRightCompat = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_drawableRightCompat;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_drawableStartCompat = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_drawableStartCompat;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_drawableTint = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_drawableTint;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_drawableTintMode = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_drawableTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_drawableTopCompat = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_drawableTopCompat;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_firstBaselineToTopHeight = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_firstBaselineToTopHeight;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_fontFamily = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_fontFamily;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_fontVariationSettings = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_fontVariationSettings;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_lastBaselineToBottomHeight = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_lastBaselineToBottomHeight;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_lineHeight = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_lineHeight;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_textAllCaps = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_textAllCaps;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTextView_textLocale = global::SushiShop.Droid.Resource.Styleable.AppCompatTextView_textLocale;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionBarDivider = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionBarDivider;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionBarItemBackground = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionBarItemBackground;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionBarPopupTheme = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionBarPopupTheme;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionBarSize = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionBarSize;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionBarSplitStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionBarSplitStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionBarStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionBarStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionBarTabStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionBarTabStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionBarTheme = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionBarTheme;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionButtonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionDropDownStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionDropDownStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionMenuTextColor = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionMenuTextColor;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModeBackground = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModeBackground;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModeCutDrawable = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModeCutDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModeFindDrawable = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModeFindDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModePasteDrawable = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModePasteDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModeShareDrawable = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModeShareDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModeSplitBackground = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModeSplitBackground;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModeStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModeStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_activityChooserViewStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_activityChooserViewStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_alertDialogStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_alertDialogStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_alertDialogTheme = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_alertDialogTheme;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_android_windowIsFloating = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_android_windowIsFloating;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_borderlessButtonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_borderlessButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_buttonBarStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_buttonBarStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_buttonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_buttonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_buttonStyleSmall = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_buttonStyleSmall;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_checkboxStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_checkboxStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_checkedTextViewStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_checkedTextViewStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_colorAccent = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_colorAccent;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_colorBackgroundFloating = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_colorBackgroundFloating;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_colorButtonNormal = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_colorButtonNormal;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_colorControlActivated = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_colorControlActivated;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_colorControlHighlight = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_colorControlHighlight;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_colorControlNormal = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_colorControlNormal;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_colorError = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_colorError;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_colorPrimary = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_colorPrimary;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_colorPrimaryDark = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_colorPrimaryDark;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_controlBackground = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_controlBackground;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_dialogCornerRadius = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_dialogCornerRadius;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_dialogPreferredPadding = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_dialogPreferredPadding;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_dialogTheme = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_dialogTheme;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_dividerHorizontal;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_dividerVertical = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_dividerVertical;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_dropDownListViewStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_dropDownListViewStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_editTextBackground = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_editTextBackground;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_editTextColor = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_editTextColor;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_editTextStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_editTextStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_homeAsUpIndicator = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_homeAsUpIndicator;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_imageButtonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_imageButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listChoiceIndicatorMultipleAnimated = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listChoiceIndicatorMultipleAnimated;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listChoiceIndicatorSingleAnimated = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listChoiceIndicatorSingleAnimated;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listDividerAlertDialog = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listDividerAlertDialog;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listMenuViewStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listMenuViewStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listPopupWindowStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listPopupWindowStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listPreferredItemHeight = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeight;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingEnd = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingEnd;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingStart = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingStart;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_panelBackground = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_panelBackground;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_panelMenuListTheme = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_panelMenuListTheme;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_panelMenuListWidth = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_panelMenuListWidth;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_popupMenuStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_popupMenuStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_popupWindowStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_popupWindowStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_radioButtonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_radioButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_ratingBarStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_searchViewStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_searchViewStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_seekBarStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_seekBarStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_selectableItemBackground = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_selectableItemBackground;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_spinnerStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_spinnerStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_switchStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_switchStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_textAppearanceListItem = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_textAppearanceListItem;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_textColorSearchUrl = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_textColorSearchUrl;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_toolbarStyle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_toolbarStyle;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_tooltipForegroundColor = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_tooltipForegroundColor;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_tooltipFrameBackground = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_tooltipFrameBackground;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_viewInflaterClass = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_viewInflaterClass;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_windowActionBar = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_windowActionBar;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_windowActionBarOverlay = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_windowActionBarOverlay;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_windowActionModeOverlay = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_windowActionModeOverlay;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
+			global::Acr.UserDialogs.Resource.Styleable.AppCompatTheme_windowNoTitle = global::SushiShop.Droid.Resource.Styleable.AppCompatTheme_windowNoTitle;
+			global::Acr.UserDialogs.Resource.Styleable.BottomAppBar = global::SushiShop.Droid.Resource.Styleable.BottomAppBar;
+			global::Acr.UserDialogs.Resource.Styleable.BottomAppBar_backgroundTint = global::SushiShop.Droid.Resource.Styleable.BottomAppBar_backgroundTint;
+			global::Acr.UserDialogs.Resource.Styleable.BottomAppBar_fabAlignmentMode = global::SushiShop.Droid.Resource.Styleable.BottomAppBar_fabAlignmentMode;
+			global::Acr.UserDialogs.Resource.Styleable.BottomAppBar_fabCradleMargin = global::SushiShop.Droid.Resource.Styleable.BottomAppBar_fabCradleMargin;
+			global::Acr.UserDialogs.Resource.Styleable.BottomAppBar_fabCradleRoundedCornerRadius = global::SushiShop.Droid.Resource.Styleable.BottomAppBar_fabCradleRoundedCornerRadius;
+			global::Acr.UserDialogs.Resource.Styleable.BottomAppBar_fabCradleVerticalOffset = global::SushiShop.Droid.Resource.Styleable.BottomAppBar_fabCradleVerticalOffset;
+			global::Acr.UserDialogs.Resource.Styleable.BottomAppBar_hideOnScroll = global::SushiShop.Droid.Resource.Styleable.BottomAppBar_hideOnScroll;
+			global::Acr.UserDialogs.Resource.Styleable.BottomNavigationView = global::SushiShop.Droid.Resource.Styleable.BottomNavigationView;
+			global::Acr.UserDialogs.Resource.Styleable.BottomNavigationView_elevation = global::SushiShop.Droid.Resource.Styleable.BottomNavigationView_elevation;
+			global::Acr.UserDialogs.Resource.Styleable.BottomNavigationView_itemBackground = global::SushiShop.Droid.Resource.Styleable.BottomNavigationView_itemBackground;
+			global::Acr.UserDialogs.Resource.Styleable.BottomNavigationView_itemHorizontalTranslationEnabled = global::SushiShop.Droid.Resource.Styleable.BottomNavigationView_itemHorizontalTranslationEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.BottomNavigationView_itemIconSize = global::SushiShop.Droid.Resource.Styleable.BottomNavigationView_itemIconSize;
+			global::Acr.UserDialogs.Resource.Styleable.BottomNavigationView_itemIconTint = global::SushiShop.Droid.Resource.Styleable.BottomNavigationView_itemIconTint;
+			global::Acr.UserDialogs.Resource.Styleable.BottomNavigationView_itemTextAppearanceActive = global::SushiShop.Droid.Resource.Styleable.BottomNavigationView_itemTextAppearanceActive;
+			global::Acr.UserDialogs.Resource.Styleable.BottomNavigationView_itemTextAppearanceInactive = global::SushiShop.Droid.Resource.Styleable.BottomNavigationView_itemTextAppearanceInactive;
+			global::Acr.UserDialogs.Resource.Styleable.BottomNavigationView_itemTextColor = global::SushiShop.Droid.Resource.Styleable.BottomNavigationView_itemTextColor;
+			global::Acr.UserDialogs.Resource.Styleable.BottomNavigationView_labelVisibilityMode = global::SushiShop.Droid.Resource.Styleable.BottomNavigationView_labelVisibilityMode;
+			global::Acr.UserDialogs.Resource.Styleable.BottomNavigationView_menu = global::SushiShop.Droid.Resource.Styleable.BottomNavigationView_menu;
+			global::Acr.UserDialogs.Resource.Styleable.BottomSheetBehavior_Layout = global::SushiShop.Droid.Resource.Styleable.BottomSheetBehavior_Layout;
+			global::Acr.UserDialogs.Resource.Styleable.BottomSheetBehavior_Layout_behavior_fitToContents = global::SushiShop.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_fitToContents;
+			global::Acr.UserDialogs.Resource.Styleable.BottomSheetBehavior_Layout_behavior_hideable = global::SushiShop.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_hideable;
+			global::Acr.UserDialogs.Resource.Styleable.BottomSheetBehavior_Layout_behavior_peekHeight = global::SushiShop.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_peekHeight;
+			global::Acr.UserDialogs.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed = global::SushiShop.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed;
+			global::Acr.UserDialogs.Resource.Styleable.ButtonBarLayout = global::SushiShop.Droid.Resource.Styleable.ButtonBarLayout;
+			global::Acr.UserDialogs.Resource.Styleable.ButtonBarLayout_allowStacking = global::SushiShop.Droid.Resource.Styleable.ButtonBarLayout_allowStacking;
+			global::Acr.UserDialogs.Resource.Styleable.CardView = global::SushiShop.Droid.Resource.Styleable.CardView;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_android_minHeight = global::SushiShop.Droid.Resource.Styleable.CardView_android_minHeight;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_android_minWidth = global::SushiShop.Droid.Resource.Styleable.CardView_android_minWidth;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_cardBackgroundColor = global::SushiShop.Droid.Resource.Styleable.CardView_cardBackgroundColor;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_cardCornerRadius = global::SushiShop.Droid.Resource.Styleable.CardView_cardCornerRadius;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_cardElevation = global::SushiShop.Droid.Resource.Styleable.CardView_cardElevation;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_cardMaxElevation = global::SushiShop.Droid.Resource.Styleable.CardView_cardMaxElevation;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_cardPreventCornerOverlap = global::SushiShop.Droid.Resource.Styleable.CardView_cardPreventCornerOverlap;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_cardUseCompatPadding = global::SushiShop.Droid.Resource.Styleable.CardView_cardUseCompatPadding;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_contentPadding = global::SushiShop.Droid.Resource.Styleable.CardView_contentPadding;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_contentPaddingBottom = global::SushiShop.Droid.Resource.Styleable.CardView_contentPaddingBottom;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_contentPaddingLeft = global::SushiShop.Droid.Resource.Styleable.CardView_contentPaddingLeft;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_contentPaddingRight = global::SushiShop.Droid.Resource.Styleable.CardView_contentPaddingRight;
+			global::Acr.UserDialogs.Resource.Styleable.CardView_contentPaddingTop = global::SushiShop.Droid.Resource.Styleable.CardView_contentPaddingTop;
+			global::Acr.UserDialogs.Resource.Styleable.Chip = global::SushiShop.Droid.Resource.Styleable.Chip;
+			global::Acr.UserDialogs.Resource.Styleable.ChipGroup = global::SushiShop.Droid.Resource.Styleable.ChipGroup;
+			global::Acr.UserDialogs.Resource.Styleable.ChipGroup_checkedChip = global::SushiShop.Droid.Resource.Styleable.ChipGroup_checkedChip;
+			global::Acr.UserDialogs.Resource.Styleable.ChipGroup_chipSpacing = global::SushiShop.Droid.Resource.Styleable.ChipGroup_chipSpacing;
+			global::Acr.UserDialogs.Resource.Styleable.ChipGroup_chipSpacingHorizontal = global::SushiShop.Droid.Resource.Styleable.ChipGroup_chipSpacingHorizontal;
+			global::Acr.UserDialogs.Resource.Styleable.ChipGroup_chipSpacingVertical = global::SushiShop.Droid.Resource.Styleable.ChipGroup_chipSpacingVertical;
+			global::Acr.UserDialogs.Resource.Styleable.ChipGroup_singleLine = global::SushiShop.Droid.Resource.Styleable.ChipGroup_singleLine;
+			global::Acr.UserDialogs.Resource.Styleable.ChipGroup_singleSelection = global::SushiShop.Droid.Resource.Styleable.ChipGroup_singleSelection;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_android_checkable = global::SushiShop.Droid.Resource.Styleable.Chip_android_checkable;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_android_ellipsize = global::SushiShop.Droid.Resource.Styleable.Chip_android_ellipsize;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_android_maxWidth = global::SushiShop.Droid.Resource.Styleable.Chip_android_maxWidth;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_android_text = global::SushiShop.Droid.Resource.Styleable.Chip_android_text;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_android_textAppearance = global::SushiShop.Droid.Resource.Styleable.Chip_android_textAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_checkedIcon = global::SushiShop.Droid.Resource.Styleable.Chip_checkedIcon;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_checkedIconEnabled = global::SushiShop.Droid.Resource.Styleable.Chip_checkedIconEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_checkedIconVisible = global::SushiShop.Droid.Resource.Styleable.Chip_checkedIconVisible;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipBackgroundColor = global::SushiShop.Droid.Resource.Styleable.Chip_chipBackgroundColor;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipCornerRadius = global::SushiShop.Droid.Resource.Styleable.Chip_chipCornerRadius;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipEndPadding = global::SushiShop.Droid.Resource.Styleable.Chip_chipEndPadding;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipIcon = global::SushiShop.Droid.Resource.Styleable.Chip_chipIcon;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipIconEnabled = global::SushiShop.Droid.Resource.Styleable.Chip_chipIconEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipIconSize = global::SushiShop.Droid.Resource.Styleable.Chip_chipIconSize;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipIconTint = global::SushiShop.Droid.Resource.Styleable.Chip_chipIconTint;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipIconVisible = global::SushiShop.Droid.Resource.Styleable.Chip_chipIconVisible;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipMinHeight = global::SushiShop.Droid.Resource.Styleable.Chip_chipMinHeight;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipStartPadding = global::SushiShop.Droid.Resource.Styleable.Chip_chipStartPadding;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipStrokeColor = global::SushiShop.Droid.Resource.Styleable.Chip_chipStrokeColor;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_chipStrokeWidth = global::SushiShop.Droid.Resource.Styleable.Chip_chipStrokeWidth;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_closeIcon = global::SushiShop.Droid.Resource.Styleable.Chip_closeIcon;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_closeIconEnabled = global::SushiShop.Droid.Resource.Styleable.Chip_closeIconEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_closeIconEndPadding = global::SushiShop.Droid.Resource.Styleable.Chip_closeIconEndPadding;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_closeIconSize = global::SushiShop.Droid.Resource.Styleable.Chip_closeIconSize;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_closeIconStartPadding = global::SushiShop.Droid.Resource.Styleable.Chip_closeIconStartPadding;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_closeIconTint = global::SushiShop.Droid.Resource.Styleable.Chip_closeIconTint;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_closeIconVisible = global::SushiShop.Droid.Resource.Styleable.Chip_closeIconVisible;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_hideMotionSpec = global::SushiShop.Droid.Resource.Styleable.Chip_hideMotionSpec;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_iconEndPadding = global::SushiShop.Droid.Resource.Styleable.Chip_iconEndPadding;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_iconStartPadding = global::SushiShop.Droid.Resource.Styleable.Chip_iconStartPadding;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_rippleColor = global::SushiShop.Droid.Resource.Styleable.Chip_rippleColor;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_showMotionSpec = global::SushiShop.Droid.Resource.Styleable.Chip_showMotionSpec;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_textEndPadding = global::SushiShop.Droid.Resource.Styleable.Chip_textEndPadding;
+			global::Acr.UserDialogs.Resource.Styleable.Chip_textStartPadding = global::SushiShop.Droid.Resource.Styleable.Chip_textStartPadding;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_contentScrim = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_contentScrim;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleGravity = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleGravity;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMargin = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMargin;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginBottom = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginBottom;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginEnd = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginEnd;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginStart = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginStart;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginTop = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginTop;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleTextAppearance = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_Layout = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseMode = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseMode;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_scrimAnimationDuration = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_scrimAnimationDuration;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_scrimVisibleHeightTrigger = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_scrimVisibleHeightTrigger;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_statusBarScrim = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_statusBarScrim;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_title = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_title;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_titleEnabled = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_titleEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.CollapsingToolbarLayout_toolbarId = global::SushiShop.Droid.Resource.Styleable.CollapsingToolbarLayout_toolbarId;
+			global::Acr.UserDialogs.Resource.Styleable.ColorStateListItem = global::SushiShop.Droid.Resource.Styleable.ColorStateListItem;
+			global::Acr.UserDialogs.Resource.Styleable.ColorStateListItem_alpha = global::SushiShop.Droid.Resource.Styleable.ColorStateListItem_alpha;
+			global::Acr.UserDialogs.Resource.Styleable.ColorStateListItem_android_alpha = global::SushiShop.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
+			global::Acr.UserDialogs.Resource.Styleable.ColorStateListItem_android_color = global::SushiShop.Droid.Resource.Styleable.ColorStateListItem_android_color;
+			global::Acr.UserDialogs.Resource.Styleable.CompoundButton = global::SushiShop.Droid.Resource.Styleable.CompoundButton;
+			global::Acr.UserDialogs.Resource.Styleable.CompoundButton_android_button = global::SushiShop.Droid.Resource.Styleable.CompoundButton_android_button;
+			global::Acr.UserDialogs.Resource.Styleable.CompoundButton_buttonCompat = global::SushiShop.Droid.Resource.Styleable.CompoundButton_buttonCompat;
+			global::Acr.UserDialogs.Resource.Styleable.CompoundButton_buttonTint = global::SushiShop.Droid.Resource.Styleable.CompoundButton_buttonTint;
+			global::Acr.UserDialogs.Resource.Styleable.CompoundButton_buttonTintMode = global::SushiShop.Droid.Resource.Styleable.CompoundButton_buttonTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.CoordinatorLayout = global::SushiShop.Droid.Resource.Styleable.CoordinatorLayout;
+			global::Acr.UserDialogs.Resource.Styleable.CoordinatorLayout_keylines = global::SushiShop.Droid.Resource.Styleable.CoordinatorLayout_keylines;
+			global::Acr.UserDialogs.Resource.Styleable.CoordinatorLayout_Layout = global::SushiShop.Droid.Resource.Styleable.CoordinatorLayout_Layout;
+			global::Acr.UserDialogs.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity = global::SushiShop.Droid.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity;
+			global::Acr.UserDialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor = global::SushiShop.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor;
+			global::Acr.UserDialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity = global::SushiShop.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity;
+			global::Acr.UserDialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior = global::SushiShop.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior;
+			global::Acr.UserDialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges = global::SushiShop.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges;
+			global::Acr.UserDialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::SushiShop.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
+			global::Acr.UserDialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::SushiShop.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
+			global::Acr.UserDialogs.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::SushiShop.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground;
+			global::Acr.UserDialogs.Resource.Styleable.DesignTheme = global::SushiShop.Droid.Resource.Styleable.DesignTheme;
+			global::Acr.UserDialogs.Resource.Styleable.DesignTheme_bottomSheetDialogTheme = global::SushiShop.Droid.Resource.Styleable.DesignTheme_bottomSheetDialogTheme;
+			global::Acr.UserDialogs.Resource.Styleable.DesignTheme_bottomSheetStyle = global::SushiShop.Droid.Resource.Styleable.DesignTheme_bottomSheetStyle;
+			global::Acr.UserDialogs.Resource.Styleable.DrawerArrowToggle = global::SushiShop.Droid.Resource.Styleable.DrawerArrowToggle;
+			global::Acr.UserDialogs.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::SushiShop.Droid.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
+			global::Acr.UserDialogs.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::SushiShop.Droid.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
+			global::Acr.UserDialogs.Resource.Styleable.DrawerArrowToggle_barLength = global::SushiShop.Droid.Resource.Styleable.DrawerArrowToggle_barLength;
+			global::Acr.UserDialogs.Resource.Styleable.DrawerArrowToggle_color = global::SushiShop.Droid.Resource.Styleable.DrawerArrowToggle_color;
+			global::Acr.UserDialogs.Resource.Styleable.DrawerArrowToggle_drawableSize = global::SushiShop.Droid.Resource.Styleable.DrawerArrowToggle_drawableSize;
+			global::Acr.UserDialogs.Resource.Styleable.DrawerArrowToggle_gapBetweenBars = global::SushiShop.Droid.Resource.Styleable.DrawerArrowToggle_gapBetweenBars;
+			global::Acr.UserDialogs.Resource.Styleable.DrawerArrowToggle_spinBars = global::SushiShop.Droid.Resource.Styleable.DrawerArrowToggle_spinBars;
+			global::Acr.UserDialogs.Resource.Styleable.DrawerArrowToggle_thickness = global::SushiShop.Droid.Resource.Styleable.DrawerArrowToggle_thickness;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_backgroundTint = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_backgroundTint;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_backgroundTintMode = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_backgroundTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_Behavior_Layout = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_Behavior_Layout;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_borderWidth = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_borderWidth;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_elevation = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_elevation;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_fabCustomSize = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_fabCustomSize;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_fabSize = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_fabSize;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_hideMotionSpec = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_hideMotionSpec;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_hoveredFocusedTranslationZ = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_hoveredFocusedTranslationZ;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_maxImageSize = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_maxImageSize;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_pressedTranslationZ = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_pressedTranslationZ;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_rippleColor = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_rippleColor;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_showMotionSpec = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_showMotionSpec;
+			global::Acr.UserDialogs.Resource.Styleable.FloatingActionButton_useCompatPadding = global::SushiShop.Droid.Resource.Styleable.FloatingActionButton_useCompatPadding;
+			global::Acr.UserDialogs.Resource.Styleable.FlowLayout = global::SushiShop.Droid.Resource.Styleable.FlowLayout;
+			global::Acr.UserDialogs.Resource.Styleable.FlowLayout_itemSpacing = global::SushiShop.Droid.Resource.Styleable.FlowLayout_itemSpacing;
+			global::Acr.UserDialogs.Resource.Styleable.FlowLayout_lineSpacing = global::SushiShop.Droid.Resource.Styleable.FlowLayout_lineSpacing;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamily = global::SushiShop.Droid.Resource.Styleable.FontFamily;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamilyFont = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamilyFont_android_font = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_android_font;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamilyFont_android_fontStyle = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamilyFont_android_fontWeight = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_android_ttcIndex;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamilyFont_font = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_font;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamilyFont_fontStyle = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_fontVariationSettings;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamilyFont_fontWeight = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamilyFont_ttcIndex = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_ttcIndex;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamily_fontProviderAuthority = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamily_fontProviderCerts = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamily_fontProviderPackage = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Acr.UserDialogs.Resource.Styleable.FontFamily_fontProviderQuery = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Acr.UserDialogs.Resource.Styleable.ForegroundLinearLayout = global::SushiShop.Droid.Resource.Styleable.ForegroundLinearLayout;
+			global::Acr.UserDialogs.Resource.Styleable.ForegroundLinearLayout_android_foreground = global::SushiShop.Droid.Resource.Styleable.ForegroundLinearLayout_android_foreground;
+			global::Acr.UserDialogs.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity = global::SushiShop.Droid.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity;
+			global::Acr.UserDialogs.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding = global::SushiShop.Droid.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor = global::SushiShop.Droid.Resource.Styleable.GradientColor;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColorItem = global::SushiShop.Droid.Resource.Styleable.GradientColorItem;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColorItem_android_color = global::SushiShop.Droid.Resource.Styleable.GradientColorItem_android_color;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColorItem_android_offset = global::SushiShop.Droid.Resource.Styleable.GradientColorItem_android_offset;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_centerColor = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_centerColor;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_centerX = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_centerX;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_centerY = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_centerY;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_endColor = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_endColor;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_endX = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_endX;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_endY = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_endY;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_gradientRadius = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_gradientRadius;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_startColor = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_startColor;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_startX = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_startX;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_startY = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_startY;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_tileMode = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_tileMode;
+			global::Acr.UserDialogs.Resource.Styleable.GradientColor_android_type = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_type;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_android_gravity = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_android_gravity;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_android_orientation = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_android_orientation;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_android_weightSum = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_android_weightSum;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_divider = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_divider;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_dividerPadding = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_dividerPadding;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_Layout = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_Layout;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild;
+			global::Acr.UserDialogs.Resource.Styleable.LinearLayoutCompat_showDividers = global::SushiShop.Droid.Resource.Styleable.LinearLayoutCompat_showDividers;
+			global::Acr.UserDialogs.Resource.Styleable.ListPopupWindow = global::SushiShop.Droid.Resource.Styleable.ListPopupWindow;
+			global::Acr.UserDialogs.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::SushiShop.Droid.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
+			global::Acr.UserDialogs.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::SushiShop.Droid.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton = global::SushiShop.Droid.Resource.Styleable.MaterialButton;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_android_insetBottom = global::SushiShop.Droid.Resource.Styleable.MaterialButton_android_insetBottom;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_android_insetLeft = global::SushiShop.Droid.Resource.Styleable.MaterialButton_android_insetLeft;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_android_insetRight = global::SushiShop.Droid.Resource.Styleable.MaterialButton_android_insetRight;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_android_insetTop = global::SushiShop.Droid.Resource.Styleable.MaterialButton_android_insetTop;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_backgroundTint = global::SushiShop.Droid.Resource.Styleable.MaterialButton_backgroundTint;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_backgroundTintMode = global::SushiShop.Droid.Resource.Styleable.MaterialButton_backgroundTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_cornerRadius = global::SushiShop.Droid.Resource.Styleable.MaterialButton_cornerRadius;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_icon = global::SushiShop.Droid.Resource.Styleable.MaterialButton_icon;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_iconGravity = global::SushiShop.Droid.Resource.Styleable.MaterialButton_iconGravity;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_iconPadding = global::SushiShop.Droid.Resource.Styleable.MaterialButton_iconPadding;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_iconSize = global::SushiShop.Droid.Resource.Styleable.MaterialButton_iconSize;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_iconTint = global::SushiShop.Droid.Resource.Styleable.MaterialButton_iconTint;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_iconTintMode = global::SushiShop.Droid.Resource.Styleable.MaterialButton_iconTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_rippleColor = global::SushiShop.Droid.Resource.Styleable.MaterialButton_rippleColor;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_strokeColor = global::SushiShop.Droid.Resource.Styleable.MaterialButton_strokeColor;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialButton_strokeWidth = global::SushiShop.Droid.Resource.Styleable.MaterialButton_strokeWidth;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialCardView = global::SushiShop.Droid.Resource.Styleable.MaterialCardView;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialCardView_strokeColor = global::SushiShop.Droid.Resource.Styleable.MaterialCardView_strokeColor;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialCardView_strokeWidth = global::SushiShop.Droid.Resource.Styleable.MaterialCardView_strokeWidth;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_bottomSheetDialogTheme = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_bottomSheetDialogTheme;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_bottomSheetStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_bottomSheetStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_chipGroupStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_chipGroupStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_chipStandaloneStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_chipStandaloneStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_chipStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_chipStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_colorAccent = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_colorAccent;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_colorBackgroundFloating = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_colorBackgroundFloating;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_colorPrimary = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_colorPrimary;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_colorPrimaryDark = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_colorPrimaryDark;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_colorSecondary = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_colorSecondary;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_editTextStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_editTextStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_floatingActionButtonStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_floatingActionButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_materialButtonStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_materialButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_materialCardViewStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_materialCardViewStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_navigationViewStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_navigationViewStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_scrimBackground = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_scrimBackground;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_snackbarButtonStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_snackbarButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_tabStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_tabStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody1 = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody1;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody2 = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody2;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceButton = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceButton;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceCaption = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceCaption;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline1 = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline1;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline2 = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline2;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline3 = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline3;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline4 = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline4;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline5 = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline5;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline6 = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline6;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceOverline = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceOverline;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle1 = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle1;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle2 = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle2;
+			global::Acr.UserDialogs.Resource.Styleable.MaterialComponentsTheme_textInputStyle = global::SushiShop.Droid.Resource.Styleable.MaterialComponentsTheme_textInputStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MenuGroup = global::SushiShop.Droid.Resource.Styleable.MenuGroup;
+			global::Acr.UserDialogs.Resource.Styleable.MenuGroup_android_checkableBehavior = global::SushiShop.Droid.Resource.Styleable.MenuGroup_android_checkableBehavior;
+			global::Acr.UserDialogs.Resource.Styleable.MenuGroup_android_enabled = global::SushiShop.Droid.Resource.Styleable.MenuGroup_android_enabled;
+			global::Acr.UserDialogs.Resource.Styleable.MenuGroup_android_id = global::SushiShop.Droid.Resource.Styleable.MenuGroup_android_id;
+			global::Acr.UserDialogs.Resource.Styleable.MenuGroup_android_menuCategory = global::SushiShop.Droid.Resource.Styleable.MenuGroup_android_menuCategory;
+			global::Acr.UserDialogs.Resource.Styleable.MenuGroup_android_orderInCategory = global::SushiShop.Droid.Resource.Styleable.MenuGroup_android_orderInCategory;
+			global::Acr.UserDialogs.Resource.Styleable.MenuGroup_android_visible = global::SushiShop.Droid.Resource.Styleable.MenuGroup_android_visible;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem = global::SushiShop.Droid.Resource.Styleable.MenuItem;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_actionLayout = global::SushiShop.Droid.Resource.Styleable.MenuItem_actionLayout;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_actionProviderClass = global::SushiShop.Droid.Resource.Styleable.MenuItem_actionProviderClass;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_actionViewClass = global::SushiShop.Droid.Resource.Styleable.MenuItem_actionViewClass;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_alphabeticModifiers = global::SushiShop.Droid.Resource.Styleable.MenuItem_alphabeticModifiers;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_alphabeticShortcut = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_alphabeticShortcut;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_checkable = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_checkable;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_checked = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_checked;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_enabled = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_enabled;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_icon = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_icon;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_id = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_id;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_menuCategory = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_menuCategory;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_numericShortcut = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_numericShortcut;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_onClick = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_onClick;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_orderInCategory = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_orderInCategory;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_title = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_title;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_titleCondensed = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_titleCondensed;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_android_visible = global::SushiShop.Droid.Resource.Styleable.MenuItem_android_visible;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_contentDescription = global::SushiShop.Droid.Resource.Styleable.MenuItem_contentDescription;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_iconTint = global::SushiShop.Droid.Resource.Styleable.MenuItem_iconTint;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_iconTintMode = global::SushiShop.Droid.Resource.Styleable.MenuItem_iconTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_numericModifiers = global::SushiShop.Droid.Resource.Styleable.MenuItem_numericModifiers;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_showAsAction = global::SushiShop.Droid.Resource.Styleable.MenuItem_showAsAction;
+			global::Acr.UserDialogs.Resource.Styleable.MenuItem_tooltipText = global::SushiShop.Droid.Resource.Styleable.MenuItem_tooltipText;
+			global::Acr.UserDialogs.Resource.Styleable.MenuView = global::SushiShop.Droid.Resource.Styleable.MenuView;
+			global::Acr.UserDialogs.Resource.Styleable.MenuView_android_headerBackground = global::SushiShop.Droid.Resource.Styleable.MenuView_android_headerBackground;
+			global::Acr.UserDialogs.Resource.Styleable.MenuView_android_horizontalDivider = global::SushiShop.Droid.Resource.Styleable.MenuView_android_horizontalDivider;
+			global::Acr.UserDialogs.Resource.Styleable.MenuView_android_itemBackground = global::SushiShop.Droid.Resource.Styleable.MenuView_android_itemBackground;
+			global::Acr.UserDialogs.Resource.Styleable.MenuView_android_itemIconDisabledAlpha = global::SushiShop.Droid.Resource.Styleable.MenuView_android_itemIconDisabledAlpha;
+			global::Acr.UserDialogs.Resource.Styleable.MenuView_android_itemTextAppearance = global::SushiShop.Droid.Resource.Styleable.MenuView_android_itemTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.MenuView_android_verticalDivider = global::SushiShop.Droid.Resource.Styleable.MenuView_android_verticalDivider;
+			global::Acr.UserDialogs.Resource.Styleable.MenuView_android_windowAnimationStyle = global::SushiShop.Droid.Resource.Styleable.MenuView_android_windowAnimationStyle;
+			global::Acr.UserDialogs.Resource.Styleable.MenuView_preserveIconSpacing = global::SushiShop.Droid.Resource.Styleable.MenuView_preserveIconSpacing;
+			global::Acr.UserDialogs.Resource.Styleable.MenuView_subMenuArrow = global::SushiShop.Droid.Resource.Styleable.MenuView_subMenuArrow;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView = global::SushiShop.Droid.Resource.Styleable.NavigationView;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_android_background = global::SushiShop.Droid.Resource.Styleable.NavigationView_android_background;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_android_fitsSystemWindows = global::SushiShop.Droid.Resource.Styleable.NavigationView_android_fitsSystemWindows;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_android_maxWidth = global::SushiShop.Droid.Resource.Styleable.NavigationView_android_maxWidth;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_elevation = global::SushiShop.Droid.Resource.Styleable.NavigationView_elevation;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_headerLayout = global::SushiShop.Droid.Resource.Styleable.NavigationView_headerLayout;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_itemBackground = global::SushiShop.Droid.Resource.Styleable.NavigationView_itemBackground;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_itemHorizontalPadding = global::SushiShop.Droid.Resource.Styleable.NavigationView_itemHorizontalPadding;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_itemIconPadding = global::SushiShop.Droid.Resource.Styleable.NavigationView_itemIconPadding;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_itemIconTint = global::SushiShop.Droid.Resource.Styleable.NavigationView_itemIconTint;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_itemTextAppearance = global::SushiShop.Droid.Resource.Styleable.NavigationView_itemTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_itemTextColor = global::SushiShop.Droid.Resource.Styleable.NavigationView_itemTextColor;
+			global::Acr.UserDialogs.Resource.Styleable.NavigationView_menu = global::SushiShop.Droid.Resource.Styleable.NavigationView_menu;
+			global::Acr.UserDialogs.Resource.Styleable.PopupWindow = global::SushiShop.Droid.Resource.Styleable.PopupWindow;
+			global::Acr.UserDialogs.Resource.Styleable.PopupWindowBackgroundState = global::SushiShop.Droid.Resource.Styleable.PopupWindowBackgroundState;
+			global::Acr.UserDialogs.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::SushiShop.Droid.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
+			global::Acr.UserDialogs.Resource.Styleable.PopupWindow_android_popupAnimationStyle = global::SushiShop.Droid.Resource.Styleable.PopupWindow_android_popupAnimationStyle;
+			global::Acr.UserDialogs.Resource.Styleable.PopupWindow_android_popupBackground = global::SushiShop.Droid.Resource.Styleable.PopupWindow_android_popupBackground;
+			global::Acr.UserDialogs.Resource.Styleable.PopupWindow_overlapAnchor = global::SushiShop.Droid.Resource.Styleable.PopupWindow_overlapAnchor;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel = global::SushiShop.Droid.Resource.Styleable.ProgressWheel;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahBarColor = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahBarColor;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahBarLength = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahBarLength;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahBarWidth = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahBarWidth;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahCircleColor = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahCircleColor;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahDelayMillis = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahDelayMillis;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahRadius = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahRadius;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahRimColor = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahRimColor;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahRimWidth = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahRimWidth;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahSpinSpeed = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahSpinSpeed;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahText = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahText;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahTextColor = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
+			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahTextSize = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
+			global::Acr.UserDialogs.Resource.Styleable.RecycleListView = global::SushiShop.Droid.Resource.Styleable.RecycleListView;
+			global::Acr.UserDialogs.Resource.Styleable.RecycleListView_paddingBottomNoButtons = global::SushiShop.Droid.Resource.Styleable.RecycleListView_paddingBottomNoButtons;
+			global::Acr.UserDialogs.Resource.Styleable.RecycleListView_paddingTopNoTitle = global::SushiShop.Droid.Resource.Styleable.RecycleListView_paddingTopNoTitle;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView = global::SushiShop.Droid.Resource.Styleable.RecyclerView;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_android_clipToPadding = global::SushiShop.Droid.Resource.Styleable.RecyclerView_android_clipToPadding;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_android_descendantFocusability = global::SushiShop.Droid.Resource.Styleable.RecyclerView_android_descendantFocusability;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_android_orientation = global::SushiShop.Droid.Resource.Styleable.RecyclerView_android_orientation;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_fastScrollEnabled = global::SushiShop.Droid.Resource.Styleable.RecyclerView_fastScrollEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_fastScrollHorizontalThumbDrawable = global::SushiShop.Droid.Resource.Styleable.RecyclerView_fastScrollHorizontalThumbDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_fastScrollHorizontalTrackDrawable = global::SushiShop.Droid.Resource.Styleable.RecyclerView_fastScrollHorizontalTrackDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_fastScrollVerticalThumbDrawable = global::SushiShop.Droid.Resource.Styleable.RecyclerView_fastScrollVerticalThumbDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_fastScrollVerticalTrackDrawable = global::SushiShop.Droid.Resource.Styleable.RecyclerView_fastScrollVerticalTrackDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_layoutManager = global::SushiShop.Droid.Resource.Styleable.RecyclerView_layoutManager;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_reverseLayout = global::SushiShop.Droid.Resource.Styleable.RecyclerView_reverseLayout;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_spanCount = global::SushiShop.Droid.Resource.Styleable.RecyclerView_spanCount;
+			global::Acr.UserDialogs.Resource.Styleable.RecyclerView_stackFromEnd = global::SushiShop.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
+			global::Acr.UserDialogs.Resource.Styleable.ScrimInsetsFrameLayout = global::SushiShop.Droid.Resource.Styleable.ScrimInsetsFrameLayout;
+			global::Acr.UserDialogs.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground = global::SushiShop.Droid.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground;
+			global::Acr.UserDialogs.Resource.Styleable.ScrollingViewBehavior_Layout = global::SushiShop.Droid.Resource.Styleable.ScrollingViewBehavior_Layout;
+			global::Acr.UserDialogs.Resource.Styleable.ScrollingViewBehavior_Layout_behavior_overlapTop = global::SushiShop.Droid.Resource.Styleable.ScrollingViewBehavior_Layout_behavior_overlapTop;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView = global::SushiShop.Droid.Resource.Styleable.SearchView;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_android_focusable = global::SushiShop.Droid.Resource.Styleable.SearchView_android_focusable;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_android_imeOptions = global::SushiShop.Droid.Resource.Styleable.SearchView_android_imeOptions;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_android_inputType = global::SushiShop.Droid.Resource.Styleable.SearchView_android_inputType;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_android_maxWidth = global::SushiShop.Droid.Resource.Styleable.SearchView_android_maxWidth;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_closeIcon = global::SushiShop.Droid.Resource.Styleable.SearchView_closeIcon;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_commitIcon = global::SushiShop.Droid.Resource.Styleable.SearchView_commitIcon;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_defaultQueryHint = global::SushiShop.Droid.Resource.Styleable.SearchView_defaultQueryHint;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_goIcon = global::SushiShop.Droid.Resource.Styleable.SearchView_goIcon;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_iconifiedByDefault = global::SushiShop.Droid.Resource.Styleable.SearchView_iconifiedByDefault;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_layout = global::SushiShop.Droid.Resource.Styleable.SearchView_layout;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_queryBackground = global::SushiShop.Droid.Resource.Styleable.SearchView_queryBackground;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_queryHint = global::SushiShop.Droid.Resource.Styleable.SearchView_queryHint;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_searchHintIcon = global::SushiShop.Droid.Resource.Styleable.SearchView_searchHintIcon;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_searchIcon = global::SushiShop.Droid.Resource.Styleable.SearchView_searchIcon;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_submitBackground = global::SushiShop.Droid.Resource.Styleable.SearchView_submitBackground;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_suggestionRowLayout = global::SushiShop.Droid.Resource.Styleable.SearchView_suggestionRowLayout;
+			global::Acr.UserDialogs.Resource.Styleable.SearchView_voiceIcon = global::SushiShop.Droid.Resource.Styleable.SearchView_voiceIcon;
+			global::Acr.UserDialogs.Resource.Styleable.Snackbar = global::SushiShop.Droid.Resource.Styleable.Snackbar;
+			global::Acr.UserDialogs.Resource.Styleable.SnackbarLayout = global::SushiShop.Droid.Resource.Styleable.SnackbarLayout;
+			global::Acr.UserDialogs.Resource.Styleable.SnackbarLayout_android_maxWidth = global::SushiShop.Droid.Resource.Styleable.SnackbarLayout_android_maxWidth;
+			global::Acr.UserDialogs.Resource.Styleable.SnackbarLayout_elevation = global::SushiShop.Droid.Resource.Styleable.SnackbarLayout_elevation;
+			global::Acr.UserDialogs.Resource.Styleable.SnackbarLayout_maxActionInlineWidth = global::SushiShop.Droid.Resource.Styleable.SnackbarLayout_maxActionInlineWidth;
+			global::Acr.UserDialogs.Resource.Styleable.Snackbar_snackbarButtonStyle = global::SushiShop.Droid.Resource.Styleable.Snackbar_snackbarButtonStyle;
+			global::Acr.UserDialogs.Resource.Styleable.Snackbar_snackbarStyle = global::SushiShop.Droid.Resource.Styleable.Snackbar_snackbarStyle;
+			global::Acr.UserDialogs.Resource.Styleable.Spinner = global::SushiShop.Droid.Resource.Styleable.Spinner;
+			global::Acr.UserDialogs.Resource.Styleable.Spinner_android_dropDownWidth = global::SushiShop.Droid.Resource.Styleable.Spinner_android_dropDownWidth;
+			global::Acr.UserDialogs.Resource.Styleable.Spinner_android_entries = global::SushiShop.Droid.Resource.Styleable.Spinner_android_entries;
+			global::Acr.UserDialogs.Resource.Styleable.Spinner_android_popupBackground = global::SushiShop.Droid.Resource.Styleable.Spinner_android_popupBackground;
+			global::Acr.UserDialogs.Resource.Styleable.Spinner_android_prompt = global::SushiShop.Droid.Resource.Styleable.Spinner_android_prompt;
+			global::Acr.UserDialogs.Resource.Styleable.Spinner_popupTheme = global::SushiShop.Droid.Resource.Styleable.Spinner_popupTheme;
+			global::Acr.UserDialogs.Resource.Styleable.StateListDrawable = global::SushiShop.Droid.Resource.Styleable.StateListDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.StateListDrawableItem = global::SushiShop.Droid.Resource.Styleable.StateListDrawableItem;
+			global::Acr.UserDialogs.Resource.Styleable.StateListDrawableItem_android_drawable = global::SushiShop.Droid.Resource.Styleable.StateListDrawableItem_android_drawable;
+			global::Acr.UserDialogs.Resource.Styleable.StateListDrawable_android_constantSize = global::SushiShop.Droid.Resource.Styleable.StateListDrawable_android_constantSize;
+			global::Acr.UserDialogs.Resource.Styleable.StateListDrawable_android_dither = global::SushiShop.Droid.Resource.Styleable.StateListDrawable_android_dither;
+			global::Acr.UserDialogs.Resource.Styleable.StateListDrawable_android_enterFadeDuration = global::SushiShop.Droid.Resource.Styleable.StateListDrawable_android_enterFadeDuration;
+			global::Acr.UserDialogs.Resource.Styleable.StateListDrawable_android_exitFadeDuration = global::SushiShop.Droid.Resource.Styleable.StateListDrawable_android_exitFadeDuration;
+			global::Acr.UserDialogs.Resource.Styleable.StateListDrawable_android_variablePadding = global::SushiShop.Droid.Resource.Styleable.StateListDrawable_android_variablePadding;
+			global::Acr.UserDialogs.Resource.Styleable.StateListDrawable_android_visible = global::SushiShop.Droid.Resource.Styleable.StateListDrawable_android_visible;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat = global::SushiShop.Droid.Resource.Styleable.SwitchCompat;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_android_textOff = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_android_textOff;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_android_textOn = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_android_textOn;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_android_thumb = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_android_thumb;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_showText = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_showText;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_splitTrack = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_splitTrack;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_switchMinWidth = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_switchMinWidth;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_switchPadding = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_switchPadding;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_switchTextAppearance = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_switchTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_thumbTextPadding = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_thumbTextPadding;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_thumbTint = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_thumbTint;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_thumbTintMode = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_thumbTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_track = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_track;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_trackTint = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_trackTint;
+			global::Acr.UserDialogs.Resource.Styleable.SwitchCompat_trackTintMode = global::SushiShop.Droid.Resource.Styleable.SwitchCompat_trackTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.TabItem = global::SushiShop.Droid.Resource.Styleable.TabItem;
+			global::Acr.UserDialogs.Resource.Styleable.TabItem_android_icon = global::SushiShop.Droid.Resource.Styleable.TabItem_android_icon;
+			global::Acr.UserDialogs.Resource.Styleable.TabItem_android_layout = global::SushiShop.Droid.Resource.Styleable.TabItem_android_layout;
+			global::Acr.UserDialogs.Resource.Styleable.TabItem_android_text = global::SushiShop.Droid.Resource.Styleable.TabItem_android_text;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout = global::SushiShop.Droid.Resource.Styleable.TabLayout;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabBackground = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabBackground;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabContentStart = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabContentStart;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabGravity = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabGravity;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabIconTint = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabIconTint;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabIconTintMode = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabIconTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabIndicator = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabIndicator;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabIndicatorAnimationDuration = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabIndicatorAnimationDuration;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabIndicatorColor = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabIndicatorColor;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabIndicatorFullWidth = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabIndicatorFullWidth;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabIndicatorGravity = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabIndicatorGravity;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabIndicatorHeight = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabIndicatorHeight;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabInlineLabel = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabInlineLabel;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabMaxWidth = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabMaxWidth;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabMinWidth = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabMinWidth;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabMode = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabMode;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabPadding = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabPadding;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabPaddingBottom = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabPaddingBottom;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabPaddingEnd = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabPaddingEnd;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabPaddingStart = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabPaddingStart;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabPaddingTop = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabPaddingTop;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabRippleColor = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabRippleColor;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabSelectedTextColor = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabSelectedTextColor;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabTextAppearance = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabTextColor = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabTextColor;
+			global::Acr.UserDialogs.Resource.Styleable.TabLayout_tabUnboundedRipple = global::SushiShop.Droid.Resource.Styleable.TabLayout_tabUnboundedRipple;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance = global::SushiShop.Droid.Resource.Styleable.TextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_fontFamily = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_fontFamily;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_shadowColor = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_shadowColor;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_shadowDx = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_shadowDx;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_shadowDy = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_shadowDy;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_shadowRadius = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_shadowRadius;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_textColor = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_textColor;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_textColorHint = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_textColorHint;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_textColorLink = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_textColorLink;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_textFontWeight = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_textFontWeight;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_textSize = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_textSize;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_textStyle = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_textStyle;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_android_typeface = global::SushiShop.Droid.Resource.Styleable.TextAppearance_android_typeface;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_fontFamily = global::SushiShop.Droid.Resource.Styleable.TextAppearance_fontFamily;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_fontVariationSettings = global::SushiShop.Droid.Resource.Styleable.TextAppearance_fontVariationSettings;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_textAllCaps = global::SushiShop.Droid.Resource.Styleable.TextAppearance_textAllCaps;
+			global::Acr.UserDialogs.Resource.Styleable.TextAppearance_textLocale = global::SushiShop.Droid.Resource.Styleable.TextAppearance_textLocale;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout = global::SushiShop.Droid.Resource.Styleable.TextInputLayout;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_android_hint = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_android_hint;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_android_textColorHint = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_android_textColorHint;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_boxBackgroundColor = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_boxBackgroundColor;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_boxBackgroundMode = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_boxBackgroundMode;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_boxCollapsedPaddingTop = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_boxCollapsedPaddingTop;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomEnd = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomEnd;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomStart = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomStart;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_boxCornerRadiusTopEnd = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusTopEnd;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_boxCornerRadiusTopStart = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusTopStart;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_boxStrokeColor = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_boxStrokeColor;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_boxStrokeWidth = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_boxStrokeWidth;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_counterEnabled = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_counterEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_counterMaxLength = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_counterMaxLength;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_counterOverflowTextAppearance = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_counterOverflowTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_counterTextAppearance = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_counterTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_errorEnabled = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_errorEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_errorTextAppearance = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_errorTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_helperText = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_helperText;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_helperTextEnabled = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_helperTextEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_helperTextTextAppearance = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_helperTextTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_hintAnimationEnabled = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_hintAnimationEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_hintEnabled = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_hintEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_hintTextAppearance = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_hintTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_passwordToggleContentDescription = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_passwordToggleContentDescription;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_passwordToggleDrawable = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_passwordToggleDrawable;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_passwordToggleEnabled = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_passwordToggleEnabled;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_passwordToggleTint = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_passwordToggleTint;
+			global::Acr.UserDialogs.Resource.Styleable.TextInputLayout_passwordToggleTintMode = global::SushiShop.Droid.Resource.Styleable.TextInputLayout_passwordToggleTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.ThemeEnforcement = global::SushiShop.Droid.Resource.Styleable.ThemeEnforcement;
+			global::Acr.UserDialogs.Resource.Styleable.ThemeEnforcement_android_textAppearance = global::SushiShop.Droid.Resource.Styleable.ThemeEnforcement_android_textAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.ThemeEnforcement_enforceMaterialTheme = global::SushiShop.Droid.Resource.Styleable.ThemeEnforcement_enforceMaterialTheme;
+			global::Acr.UserDialogs.Resource.Styleable.ThemeEnforcement_enforceTextAppearance = global::SushiShop.Droid.Resource.Styleable.ThemeEnforcement_enforceTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar = global::SushiShop.Droid.Resource.Styleable.Toolbar;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_android_gravity = global::SushiShop.Droid.Resource.Styleable.Toolbar_android_gravity;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_android_minHeight = global::SushiShop.Droid.Resource.Styleable.Toolbar_android_minHeight;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_buttonGravity = global::SushiShop.Droid.Resource.Styleable.Toolbar_buttonGravity;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_collapseContentDescription = global::SushiShop.Droid.Resource.Styleable.Toolbar_collapseContentDescription;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_collapseIcon = global::SushiShop.Droid.Resource.Styleable.Toolbar_collapseIcon;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_contentInsetEnd = global::SushiShop.Droid.Resource.Styleable.Toolbar_contentInsetEnd;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_contentInsetEndWithActions = global::SushiShop.Droid.Resource.Styleable.Toolbar_contentInsetEndWithActions;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_contentInsetLeft = global::SushiShop.Droid.Resource.Styleable.Toolbar_contentInsetLeft;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_contentInsetRight = global::SushiShop.Droid.Resource.Styleable.Toolbar_contentInsetRight;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_contentInsetStart = global::SushiShop.Droid.Resource.Styleable.Toolbar_contentInsetStart;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_contentInsetStartWithNavigation = global::SushiShop.Droid.Resource.Styleable.Toolbar_contentInsetStartWithNavigation;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_logo = global::SushiShop.Droid.Resource.Styleable.Toolbar_logo;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_logoDescription = global::SushiShop.Droid.Resource.Styleable.Toolbar_logoDescription;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_maxButtonHeight = global::SushiShop.Droid.Resource.Styleable.Toolbar_maxButtonHeight;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_menu = global::SushiShop.Droid.Resource.Styleable.Toolbar_menu;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_navigationContentDescription = global::SushiShop.Droid.Resource.Styleable.Toolbar_navigationContentDescription;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_navigationIcon = global::SushiShop.Droid.Resource.Styleable.Toolbar_navigationIcon;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_popupTheme = global::SushiShop.Droid.Resource.Styleable.Toolbar_popupTheme;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_subtitle = global::SushiShop.Droid.Resource.Styleable.Toolbar_subtitle;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_subtitleTextAppearance = global::SushiShop.Droid.Resource.Styleable.Toolbar_subtitleTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_subtitleTextColor = global::SushiShop.Droid.Resource.Styleable.Toolbar_subtitleTextColor;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_title = global::SushiShop.Droid.Resource.Styleable.Toolbar_title;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_titleMargin = global::SushiShop.Droid.Resource.Styleable.Toolbar_titleMargin;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_titleMarginBottom = global::SushiShop.Droid.Resource.Styleable.Toolbar_titleMarginBottom;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_titleMarginEnd = global::SushiShop.Droid.Resource.Styleable.Toolbar_titleMarginEnd;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_titleMargins = global::SushiShop.Droid.Resource.Styleable.Toolbar_titleMargins;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_titleMarginStart = global::SushiShop.Droid.Resource.Styleable.Toolbar_titleMarginStart;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_titleMarginTop = global::SushiShop.Droid.Resource.Styleable.Toolbar_titleMarginTop;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_titleTextAppearance = global::SushiShop.Droid.Resource.Styleable.Toolbar_titleTextAppearance;
+			global::Acr.UserDialogs.Resource.Styleable.Toolbar_titleTextColor = global::SushiShop.Droid.Resource.Styleable.Toolbar_titleTextColor;
+			global::Acr.UserDialogs.Resource.Styleable.View = global::SushiShop.Droid.Resource.Styleable.View;
+			global::Acr.UserDialogs.Resource.Styleable.ViewBackgroundHelper = global::SushiShop.Droid.Resource.Styleable.ViewBackgroundHelper;
+			global::Acr.UserDialogs.Resource.Styleable.ViewBackgroundHelper_android_background = global::SushiShop.Droid.Resource.Styleable.ViewBackgroundHelper_android_background;
+			global::Acr.UserDialogs.Resource.Styleable.ViewBackgroundHelper_backgroundTint = global::SushiShop.Droid.Resource.Styleable.ViewBackgroundHelper_backgroundTint;
+			global::Acr.UserDialogs.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode = global::SushiShop.Droid.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode;
+			global::Acr.UserDialogs.Resource.Styleable.ViewStubCompat = global::SushiShop.Droid.Resource.Styleable.ViewStubCompat;
+			global::Acr.UserDialogs.Resource.Styleable.ViewStubCompat_android_id = global::SushiShop.Droid.Resource.Styleable.ViewStubCompat_android_id;
+			global::Acr.UserDialogs.Resource.Styleable.ViewStubCompat_android_inflatedId = global::SushiShop.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
+			global::Acr.UserDialogs.Resource.Styleable.ViewStubCompat_android_layout = global::SushiShop.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::Acr.UserDialogs.Resource.Styleable.View_android_focusable = global::SushiShop.Droid.Resource.Styleable.View_android_focusable;
+			global::Acr.UserDialogs.Resource.Styleable.View_android_theme = global::SushiShop.Droid.Resource.Styleable.View_android_theme;
+			global::Acr.UserDialogs.Resource.Styleable.View_paddingEnd = global::SushiShop.Droid.Resource.Styleable.View_paddingEnd;
+			global::Acr.UserDialogs.Resource.Styleable.View_paddingStart = global::SushiShop.Droid.Resource.Styleable.View_paddingStart;
+			global::Acr.UserDialogs.Resource.Styleable.View_theme = global::SushiShop.Droid.Resource.Styleable.View_theme;
+			global::AndroidHUD.Resource.Attribute.ahBarColor = global::SushiShop.Droid.Resource.Attribute.ahBarColor;
+			global::AndroidHUD.Resource.Attribute.ahBarLength = global::SushiShop.Droid.Resource.Attribute.ahBarLength;
+			global::AndroidHUD.Resource.Attribute.ahBarWidth = global::SushiShop.Droid.Resource.Attribute.ahBarWidth;
+			global::AndroidHUD.Resource.Attribute.ahCircleColor = global::SushiShop.Droid.Resource.Attribute.ahCircleColor;
+			global::AndroidHUD.Resource.Attribute.ahDelayMillis = global::SushiShop.Droid.Resource.Attribute.ahDelayMillis;
+			global::AndroidHUD.Resource.Attribute.ahRadius = global::SushiShop.Droid.Resource.Attribute.ahRadius;
+			global::AndroidHUD.Resource.Attribute.ahRimColor = global::SushiShop.Droid.Resource.Attribute.ahRimColor;
+			global::AndroidHUD.Resource.Attribute.ahRimWidth = global::SushiShop.Droid.Resource.Attribute.ahRimWidth;
+			global::AndroidHUD.Resource.Attribute.ahSpinSpeed = global::SushiShop.Droid.Resource.Attribute.ahSpinSpeed;
+			global::AndroidHUD.Resource.Attribute.ahText = global::SushiShop.Droid.Resource.Attribute.ahText;
+			global::AndroidHUD.Resource.Attribute.ahTextColor = global::SushiShop.Droid.Resource.Attribute.ahTextColor;
+			global::AndroidHUD.Resource.Attribute.ahTextSize = global::SushiShop.Droid.Resource.Attribute.ahTextSize;
+			global::AndroidHUD.Resource.Drawable.ic_errorstatus = global::SushiShop.Droid.Resource.Drawable.ic_errorstatus;
+			global::AndroidHUD.Resource.Drawable.ic_successstatus = global::SushiShop.Droid.Resource.Drawable.ic_successstatus;
+			global::AndroidHUD.Resource.Drawable.roundedbg = global::SushiShop.Droid.Resource.Drawable.roundedbg;
+			global::AndroidHUD.Resource.Drawable.roundedbgdark = global::SushiShop.Droid.Resource.Drawable.roundedbgdark;
+			global::AndroidHUD.Resource.Id.loadingImage = global::SushiShop.Droid.Resource.Id.loadingImage;
+			global::AndroidHUD.Resource.Id.loadingProgressBar = global::SushiShop.Droid.Resource.Id.loadingProgressBar;
+			global::AndroidHUD.Resource.Id.loadingProgressWheel = global::SushiShop.Droid.Resource.Id.loadingProgressWheel;
+			global::AndroidHUD.Resource.Id.textViewStatus = global::SushiShop.Droid.Resource.Id.textViewStatus;
+			global::AndroidHUD.Resource.Layout.loading = global::SushiShop.Droid.Resource.Layout.loading;
+			global::AndroidHUD.Resource.Layout.loadingimage = global::SushiShop.Droid.Resource.Layout.loadingimage;
+			global::AndroidHUD.Resource.Layout.loadingprogress = global::SushiShop.Droid.Resource.Layout.loadingprogress;
+			global::AndroidHUD.Resource.String.library_name = global::SushiShop.Droid.Resource.String.library_name;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel = global::SushiShop.Droid.Resource.Styleable.ProgressWheel;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarColor = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahBarColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarLength = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahBarLength;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarWidth = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahBarWidth;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahCircleColor = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahCircleColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahDelayMillis = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahDelayMillis;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRadius = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahRadius;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRimColor = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahRimColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRimWidth = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahRimWidth;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahSpinSpeed = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahSpinSpeed;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahText = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahText;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextColor = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::SushiShop.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
 			global::BuildApps.Core.Mobile.MvvmCross.UIKit.Android.Resource.Animation.abc_fade_in = global::SushiShop.Droid.Resource.Animation.abc_fade_in;
 			global::BuildApps.Core.Mobile.MvvmCross.UIKit.Android.Resource.Animation.abc_fade_out = global::SushiShop.Droid.Resource.Animation.abc_fade_out;
 			global::BuildApps.Core.Mobile.MvvmCross.UIKit.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::SushiShop.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -15073,1093 +17769,1129 @@ namespace SushiShop.Droid
 			public const int adjustable = 2130903081;
 			
 			// aapt resource value: 0x7F03002A
-			public const int alertDialogButtonGroupStyle = 2130903082;
+			public const int ahBarColor = 2130903082;
 			
 			// aapt resource value: 0x7F03002B
-			public const int alertDialogCenterButtons = 2130903083;
+			public const int ahBarLength = 2130903083;
 			
 			// aapt resource value: 0x7F03002C
-			public const int alertDialogStyle = 2130903084;
+			public const int ahBarWidth = 2130903084;
 			
 			// aapt resource value: 0x7F03002D
-			public const int alertDialogTheme = 2130903085;
+			public const int ahCircleColor = 2130903085;
 			
 			// aapt resource value: 0x7F03002E
-			public const int allowDividerAbove = 2130903086;
+			public const int ahDelayMillis = 2130903086;
 			
 			// aapt resource value: 0x7F03002F
-			public const int allowDividerAfterLastItem = 2130903087;
+			public const int ahRadius = 2130903087;
 			
 			// aapt resource value: 0x7F030030
-			public const int allowDividerBelow = 2130903088;
+			public const int ahRimColor = 2130903088;
 			
 			// aapt resource value: 0x7F030031
-			public const int allowStacking = 2130903089;
+			public const int ahRimWidth = 2130903089;
 			
 			// aapt resource value: 0x7F030032
-			public const int alpha = 2130903090;
+			public const int ahSpinSpeed = 2130903090;
 			
 			// aapt resource value: 0x7F030033
-			public const int alphabeticModifiers = 2130903091;
+			public const int ahText = 2130903091;
 			
 			// aapt resource value: 0x7F030034
-			public const int arrowHeadLength = 2130903092;
+			public const int ahTextColor = 2130903092;
 			
 			// aapt resource value: 0x7F030035
-			public const int arrowShaftLength = 2130903093;
+			public const int ahTextSize = 2130903093;
 			
 			// aapt resource value: 0x7F030036
-			public const int autoCompleteTextViewStyle = 2130903094;
+			public const int alertDialogButtonGroupStyle = 2130903094;
 			
 			// aapt resource value: 0x7F030037
-			public const int autoSizeMaxTextSize = 2130903095;
+			public const int alertDialogCenterButtons = 2130903095;
 			
 			// aapt resource value: 0x7F030038
-			public const int autoSizeMinTextSize = 2130903096;
+			public const int alertDialogStyle = 2130903096;
 			
 			// aapt resource value: 0x7F030039
-			public const int autoSizePresetSizes = 2130903097;
+			public const int alertDialogTheme = 2130903097;
 			
 			// aapt resource value: 0x7F03003A
-			public const int autoSizeStepGranularity = 2130903098;
+			public const int allowDividerAbove = 2130903098;
 			
 			// aapt resource value: 0x7F03003B
-			public const int autoSizeTextType = 2130903099;
+			public const int allowDividerAfterLastItem = 2130903099;
 			
 			// aapt resource value: 0x7F03003C
-			public const int background = 2130903100;
+			public const int allowDividerBelow = 2130903100;
 			
 			// aapt resource value: 0x7F03003D
-			public const int backgroundSplit = 2130903101;
+			public const int allowStacking = 2130903101;
 			
 			// aapt resource value: 0x7F03003E
-			public const int backgroundStacked = 2130903102;
+			public const int alpha = 2130903102;
 			
 			// aapt resource value: 0x7F03003F
-			public const int backgroundTint = 2130903103;
+			public const int alphabeticModifiers = 2130903103;
 			
 			// aapt resource value: 0x7F030040
-			public const int backgroundTintMode = 2130903104;
+			public const int arrowHeadLength = 2130903104;
 			
 			// aapt resource value: 0x7F030041
-			public const int barLength = 2130903105;
+			public const int arrowShaftLength = 2130903105;
 			
 			// aapt resource value: 0x7F030042
-			public const int barrierAllowsGoneWidgets = 2130903106;
+			public const int autoCompleteTextViewStyle = 2130903106;
 			
 			// aapt resource value: 0x7F030043
-			public const int barrierDirection = 2130903107;
+			public const int autoSizeMaxTextSize = 2130903107;
 			
 			// aapt resource value: 0x7F030044
-			public const int behavior_autoHide = 2130903108;
+			public const int autoSizeMinTextSize = 2130903108;
 			
 			// aapt resource value: 0x7F030045
-			public const int behavior_fitToContents = 2130903109;
+			public const int autoSizePresetSizes = 2130903109;
 			
 			// aapt resource value: 0x7F030046
-			public const int behavior_hideable = 2130903110;
+			public const int autoSizeStepGranularity = 2130903110;
 			
 			// aapt resource value: 0x7F030047
-			public const int behavior_overlapTop = 2130903111;
+			public const int autoSizeTextType = 2130903111;
 			
 			// aapt resource value: 0x7F030048
-			public const int behavior_peekHeight = 2130903112;
+			public const int background = 2130903112;
 			
 			// aapt resource value: 0x7F030049
-			public const int behavior_skipCollapsed = 2130903113;
-			
-			// aapt resource value: 0x7F03004B
-			public const int borderlessButtonStyle = 2130903115;
+			public const int backgroundSplit = 2130903113;
 			
 			// aapt resource value: 0x7F03004A
-			public const int borderWidth = 2130903114;
+			public const int backgroundStacked = 2130903114;
+			
+			// aapt resource value: 0x7F03004B
+			public const int backgroundTint = 2130903115;
 			
 			// aapt resource value: 0x7F03004C
-			public const int bottomAppBarStyle = 2130903116;
+			public const int backgroundTintMode = 2130903116;
 			
 			// aapt resource value: 0x7F03004D
-			public const int bottomNavigationStyle = 2130903117;
+			public const int barLength = 2130903117;
 			
 			// aapt resource value: 0x7F03004E
-			public const int bottomSheetDialogTheme = 2130903118;
+			public const int barrierAllowsGoneWidgets = 2130903118;
 			
 			// aapt resource value: 0x7F03004F
-			public const int bottomSheetStyle = 2130903119;
+			public const int barrierDirection = 2130903119;
 			
 			// aapt resource value: 0x7F030050
-			public const int boxBackgroundColor = 2130903120;
+			public const int behavior_autoHide = 2130903120;
 			
 			// aapt resource value: 0x7F030051
-			public const int boxBackgroundMode = 2130903121;
+			public const int behavior_fitToContents = 2130903121;
 			
 			// aapt resource value: 0x7F030052
-			public const int boxCollapsedPaddingTop = 2130903122;
+			public const int behavior_hideable = 2130903122;
 			
 			// aapt resource value: 0x7F030053
-			public const int boxCornerRadiusBottomEnd = 2130903123;
+			public const int behavior_overlapTop = 2130903123;
 			
 			// aapt resource value: 0x7F030054
-			public const int boxCornerRadiusBottomStart = 2130903124;
+			public const int behavior_peekHeight = 2130903124;
 			
 			// aapt resource value: 0x7F030055
-			public const int boxCornerRadiusTopEnd = 2130903125;
-			
-			// aapt resource value: 0x7F030056
-			public const int boxCornerRadiusTopStart = 2130903126;
+			public const int behavior_skipCollapsed = 2130903125;
 			
 			// aapt resource value: 0x7F030057
-			public const int boxStrokeColor = 2130903127;
+			public const int borderlessButtonStyle = 2130903127;
+			
+			// aapt resource value: 0x7F030056
+			public const int borderWidth = 2130903126;
 			
 			// aapt resource value: 0x7F030058
-			public const int boxStrokeWidth = 2130903128;
+			public const int bottomAppBarStyle = 2130903128;
 			
 			// aapt resource value: 0x7F030059
-			public const int buttonBarButtonStyle = 2130903129;
+			public const int bottomNavigationStyle = 2130903129;
 			
 			// aapt resource value: 0x7F03005A
-			public const int buttonBarNegativeButtonStyle = 2130903130;
+			public const int bottomSheetDialogTheme = 2130903130;
 			
 			// aapt resource value: 0x7F03005B
-			public const int buttonBarNeutralButtonStyle = 2130903131;
+			public const int bottomSheetStyle = 2130903131;
 			
 			// aapt resource value: 0x7F03005C
-			public const int buttonBarPositiveButtonStyle = 2130903132;
+			public const int boxBackgroundColor = 2130903132;
 			
 			// aapt resource value: 0x7F03005D
-			public const int buttonBarStyle = 2130903133;
+			public const int boxBackgroundMode = 2130903133;
 			
 			// aapt resource value: 0x7F03005E
-			public const int buttonCompat = 2130903134;
+			public const int boxCollapsedPaddingTop = 2130903134;
 			
 			// aapt resource value: 0x7F03005F
-			public const int buttonGravity = 2130903135;
+			public const int boxCornerRadiusBottomEnd = 2130903135;
 			
 			// aapt resource value: 0x7F030060
-			public const int buttonIconDimen = 2130903136;
+			public const int boxCornerRadiusBottomStart = 2130903136;
 			
 			// aapt resource value: 0x7F030061
-			public const int buttonPanelSideLayout = 2130903137;
+			public const int boxCornerRadiusTopEnd = 2130903137;
 			
 			// aapt resource value: 0x7F030062
-			public const int buttonStyle = 2130903138;
+			public const int boxCornerRadiusTopStart = 2130903138;
 			
 			// aapt resource value: 0x7F030063
-			public const int buttonStyleSmall = 2130903139;
+			public const int boxStrokeColor = 2130903139;
 			
 			// aapt resource value: 0x7F030064
-			public const int buttonTint = 2130903140;
+			public const int boxStrokeWidth = 2130903140;
 			
 			// aapt resource value: 0x7F030065
-			public const int buttonTintMode = 2130903141;
+			public const int buttonBarButtonStyle = 2130903141;
 			
 			// aapt resource value: 0x7F030066
-			public const int cardBackgroundColor = 2130903142;
+			public const int buttonBarNegativeButtonStyle = 2130903142;
 			
 			// aapt resource value: 0x7F030067
-			public const int cardCornerRadius = 2130903143;
+			public const int buttonBarNeutralButtonStyle = 2130903143;
 			
 			// aapt resource value: 0x7F030068
-			public const int cardElevation = 2130903144;
+			public const int buttonBarPositiveButtonStyle = 2130903144;
 			
 			// aapt resource value: 0x7F030069
-			public const int cardMaxElevation = 2130903145;
+			public const int buttonBarStyle = 2130903145;
 			
 			// aapt resource value: 0x7F03006A
-			public const int cardPreventCornerOverlap = 2130903146;
+			public const int buttonCompat = 2130903146;
 			
 			// aapt resource value: 0x7F03006B
-			public const int cardUseCompatPadding = 2130903147;
+			public const int buttonGravity = 2130903147;
 			
 			// aapt resource value: 0x7F03006C
-			public const int cardViewStyle = 2130903148;
+			public const int buttonIconDimen = 2130903148;
 			
 			// aapt resource value: 0x7F03006D
-			public const int chainUseRtl = 2130903149;
+			public const int buttonPanelSideLayout = 2130903149;
 			
 			// aapt resource value: 0x7F03006E
-			public const int checkBoxPreferenceStyle = 2130903150;
+			public const int buttonStyle = 2130903150;
 			
 			// aapt resource value: 0x7F03006F
-			public const int checkboxStyle = 2130903151;
+			public const int buttonStyleSmall = 2130903151;
 			
 			// aapt resource value: 0x7F030070
-			public const int checkedChip = 2130903152;
+			public const int buttonTint = 2130903152;
 			
 			// aapt resource value: 0x7F030071
-			public const int checkedIcon = 2130903153;
+			public const int buttonTintMode = 2130903153;
 			
 			// aapt resource value: 0x7F030072
-			public const int checkedIconEnabled = 2130903154;
+			public const int cardBackgroundColor = 2130903154;
 			
 			// aapt resource value: 0x7F030073
-			public const int checkedIconVisible = 2130903155;
+			public const int cardCornerRadius = 2130903155;
 			
 			// aapt resource value: 0x7F030074
-			public const int checkedTextViewStyle = 2130903156;
+			public const int cardElevation = 2130903156;
 			
 			// aapt resource value: 0x7F030075
-			public const int chipBackgroundColor = 2130903157;
+			public const int cardMaxElevation = 2130903157;
 			
 			// aapt resource value: 0x7F030076
-			public const int chipCornerRadius = 2130903158;
+			public const int cardPreventCornerOverlap = 2130903158;
 			
 			// aapt resource value: 0x7F030077
-			public const int chipEndPadding = 2130903159;
+			public const int cardUseCompatPadding = 2130903159;
 			
 			// aapt resource value: 0x7F030078
-			public const int chipGroupStyle = 2130903160;
+			public const int cardViewStyle = 2130903160;
 			
 			// aapt resource value: 0x7F030079
-			public const int chipIcon = 2130903161;
+			public const int chainUseRtl = 2130903161;
 			
 			// aapt resource value: 0x7F03007A
-			public const int chipIconEnabled = 2130903162;
+			public const int checkBoxPreferenceStyle = 2130903162;
 			
 			// aapt resource value: 0x7F03007B
-			public const int chipIconSize = 2130903163;
+			public const int checkboxStyle = 2130903163;
 			
 			// aapt resource value: 0x7F03007C
-			public const int chipIconTint = 2130903164;
+			public const int checkedChip = 2130903164;
 			
 			// aapt resource value: 0x7F03007D
-			public const int chipIconVisible = 2130903165;
+			public const int checkedIcon = 2130903165;
 			
 			// aapt resource value: 0x7F03007E
-			public const int chipMinHeight = 2130903166;
+			public const int checkedIconEnabled = 2130903166;
 			
 			// aapt resource value: 0x7F03007F
-			public const int chipSpacing = 2130903167;
+			public const int checkedIconVisible = 2130903167;
 			
 			// aapt resource value: 0x7F030080
-			public const int chipSpacingHorizontal = 2130903168;
+			public const int checkedTextViewStyle = 2130903168;
 			
 			// aapt resource value: 0x7F030081
-			public const int chipSpacingVertical = 2130903169;
+			public const int chipBackgroundColor = 2130903169;
 			
 			// aapt resource value: 0x7F030082
-			public const int chipStandaloneStyle = 2130903170;
+			public const int chipCornerRadius = 2130903170;
 			
 			// aapt resource value: 0x7F030083
-			public const int chipStartPadding = 2130903171;
+			public const int chipEndPadding = 2130903171;
 			
 			// aapt resource value: 0x7F030084
-			public const int chipStrokeColor = 2130903172;
+			public const int chipGroupStyle = 2130903172;
 			
 			// aapt resource value: 0x7F030085
-			public const int chipStrokeWidth = 2130903173;
+			public const int chipIcon = 2130903173;
 			
 			// aapt resource value: 0x7F030086
-			public const int chipStyle = 2130903174;
+			public const int chipIconEnabled = 2130903174;
 			
 			// aapt resource value: 0x7F030087
-			public const int closeIcon = 2130903175;
+			public const int chipIconSize = 2130903175;
 			
 			// aapt resource value: 0x7F030088
-			public const int closeIconEnabled = 2130903176;
+			public const int chipIconTint = 2130903176;
 			
 			// aapt resource value: 0x7F030089
-			public const int closeIconEndPadding = 2130903177;
+			public const int chipIconVisible = 2130903177;
 			
 			// aapt resource value: 0x7F03008A
-			public const int closeIconSize = 2130903178;
+			public const int chipMinHeight = 2130903178;
 			
 			// aapt resource value: 0x7F03008B
-			public const int closeIconStartPadding = 2130903179;
+			public const int chipSpacing = 2130903179;
 			
 			// aapt resource value: 0x7F03008C
-			public const int closeIconTint = 2130903180;
+			public const int chipSpacingHorizontal = 2130903180;
 			
 			// aapt resource value: 0x7F03008D
-			public const int closeIconVisible = 2130903181;
+			public const int chipSpacingVertical = 2130903181;
 			
 			// aapt resource value: 0x7F03008E
-			public const int closeItemLayout = 2130903182;
+			public const int chipStandaloneStyle = 2130903182;
 			
 			// aapt resource value: 0x7F03008F
-			public const int collapseContentDescription = 2130903183;
-			
-			// aapt resource value: 0x7F030091
-			public const int collapsedTitleGravity = 2130903185;
-			
-			// aapt resource value: 0x7F030092
-			public const int collapsedTitleTextAppearance = 2130903186;
+			public const int chipStartPadding = 2130903183;
 			
 			// aapt resource value: 0x7F030090
-			public const int collapseIcon = 2130903184;
+			public const int chipStrokeColor = 2130903184;
+			
+			// aapt resource value: 0x7F030091
+			public const int chipStrokeWidth = 2130903185;
+			
+			// aapt resource value: 0x7F030092
+			public const int chipStyle = 2130903186;
 			
 			// aapt resource value: 0x7F030093
-			public const int color = 2130903187;
+			public const int closeIcon = 2130903187;
 			
 			// aapt resource value: 0x7F030094
-			public const int colorAccent = 2130903188;
+			public const int closeIconEnabled = 2130903188;
 			
 			// aapt resource value: 0x7F030095
-			public const int colorBackgroundFloating = 2130903189;
+			public const int closeIconEndPadding = 2130903189;
 			
 			// aapt resource value: 0x7F030096
-			public const int colorButtonNormal = 2130903190;
+			public const int closeIconSize = 2130903190;
 			
 			// aapt resource value: 0x7F030097
-			public const int colorControlActivated = 2130903191;
+			public const int closeIconStartPadding = 2130903191;
 			
 			// aapt resource value: 0x7F030098
-			public const int colorControlHighlight = 2130903192;
+			public const int closeIconTint = 2130903192;
 			
 			// aapt resource value: 0x7F030099
-			public const int colorControlNormal = 2130903193;
+			public const int closeIconVisible = 2130903193;
 			
 			// aapt resource value: 0x7F03009A
-			public const int colorError = 2130903194;
+			public const int closeItemLayout = 2130903194;
 			
 			// aapt resource value: 0x7F03009B
-			public const int colorPrimary = 2130903195;
-			
-			// aapt resource value: 0x7F03009C
-			public const int colorPrimaryDark = 2130903196;
+			public const int collapseContentDescription = 2130903195;
 			
 			// aapt resource value: 0x7F03009D
-			public const int colorSecondary = 2130903197;
+			public const int collapsedTitleGravity = 2130903197;
 			
 			// aapt resource value: 0x7F03009E
-			public const int colorSwitchThumbNormal = 2130903198;
+			public const int collapsedTitleTextAppearance = 2130903198;
+			
+			// aapt resource value: 0x7F03009C
+			public const int collapseIcon = 2130903196;
 			
 			// aapt resource value: 0x7F03009F
-			public const int commitIcon = 2130903199;
+			public const int color = 2130903199;
 			
 			// aapt resource value: 0x7F0300A0
-			public const int constraintSet = 2130903200;
+			public const int colorAccent = 2130903200;
 			
 			// aapt resource value: 0x7F0300A1
-			public const int constraint_referenced_ids = 2130903201;
+			public const int colorBackgroundFloating = 2130903201;
 			
 			// aapt resource value: 0x7F0300A2
-			public const int content = 2130903202;
+			public const int colorButtonNormal = 2130903202;
 			
 			// aapt resource value: 0x7F0300A3
-			public const int contentDescription = 2130903203;
+			public const int colorControlActivated = 2130903203;
 			
 			// aapt resource value: 0x7F0300A4
-			public const int contentInsetEnd = 2130903204;
+			public const int colorControlHighlight = 2130903204;
 			
 			// aapt resource value: 0x7F0300A5
-			public const int contentInsetEndWithActions = 2130903205;
+			public const int colorControlNormal = 2130903205;
 			
 			// aapt resource value: 0x7F0300A6
-			public const int contentInsetLeft = 2130903206;
+			public const int colorError = 2130903206;
 			
 			// aapt resource value: 0x7F0300A7
-			public const int contentInsetRight = 2130903207;
+			public const int colorPrimary = 2130903207;
 			
 			// aapt resource value: 0x7F0300A8
-			public const int contentInsetStart = 2130903208;
+			public const int colorPrimaryDark = 2130903208;
 			
 			// aapt resource value: 0x7F0300A9
-			public const int contentInsetStartWithNavigation = 2130903209;
+			public const int colorSecondary = 2130903209;
 			
 			// aapt resource value: 0x7F0300AA
-			public const int contentPadding = 2130903210;
+			public const int colorSwitchThumbNormal = 2130903210;
 			
 			// aapt resource value: 0x7F0300AB
-			public const int contentPaddingBottom = 2130903211;
+			public const int commitIcon = 2130903211;
 			
 			// aapt resource value: 0x7F0300AC
-			public const int contentPaddingLeft = 2130903212;
+			public const int constraintSet = 2130903212;
 			
 			// aapt resource value: 0x7F0300AD
-			public const int contentPaddingRight = 2130903213;
+			public const int constraint_referenced_ids = 2130903213;
 			
 			// aapt resource value: 0x7F0300AE
-			public const int contentPaddingTop = 2130903214;
+			public const int content = 2130903214;
 			
 			// aapt resource value: 0x7F0300AF
-			public const int contentScrim = 2130903215;
+			public const int contentDescription = 2130903215;
 			
 			// aapt resource value: 0x7F0300B0
-			public const int controlBackground = 2130903216;
+			public const int contentInsetEnd = 2130903216;
 			
 			// aapt resource value: 0x7F0300B1
-			public const int coordinatorLayoutStyle = 2130903217;
+			public const int contentInsetEndWithActions = 2130903217;
 			
 			// aapt resource value: 0x7F0300B2
-			public const int cornerRadius = 2130903218;
+			public const int contentInsetLeft = 2130903218;
 			
 			// aapt resource value: 0x7F0300B3
-			public const int counterEnabled = 2130903219;
+			public const int contentInsetRight = 2130903219;
 			
 			// aapt resource value: 0x7F0300B4
-			public const int counterMaxLength = 2130903220;
+			public const int contentInsetStart = 2130903220;
 			
 			// aapt resource value: 0x7F0300B5
-			public const int counterOverflowTextAppearance = 2130903221;
+			public const int contentInsetStartWithNavigation = 2130903221;
 			
 			// aapt resource value: 0x7F0300B6
-			public const int counterTextAppearance = 2130903222;
+			public const int contentPadding = 2130903222;
 			
 			// aapt resource value: 0x7F0300B7
-			public const int customNavigationLayout = 2130903223;
+			public const int contentPaddingBottom = 2130903223;
 			
 			// aapt resource value: 0x7F0300B8
-			public const int defaultQueryHint = 2130903224;
+			public const int contentPaddingLeft = 2130903224;
 			
 			// aapt resource value: 0x7F0300B9
-			public const int defaultValue = 2130903225;
+			public const int contentPaddingRight = 2130903225;
 			
 			// aapt resource value: 0x7F0300BA
-			public const int dependency = 2130903226;
+			public const int contentPaddingTop = 2130903226;
 			
 			// aapt resource value: 0x7F0300BB
-			public const int dialogCornerRadius = 2130903227;
+			public const int contentScrim = 2130903227;
 			
 			// aapt resource value: 0x7F0300BC
-			public const int dialogIcon = 2130903228;
+			public const int controlBackground = 2130903228;
 			
 			// aapt resource value: 0x7F0300BD
-			public const int dialogLayout = 2130903229;
+			public const int coordinatorLayoutStyle = 2130903229;
 			
 			// aapt resource value: 0x7F0300BE
-			public const int dialogMessage = 2130903230;
+			public const int cornerRadius = 2130903230;
 			
 			// aapt resource value: 0x7F0300BF
-			public const int dialogPreferenceStyle = 2130903231;
+			public const int counterEnabled = 2130903231;
 			
 			// aapt resource value: 0x7F0300C0
-			public const int dialogPreferredPadding = 2130903232;
+			public const int counterMaxLength = 2130903232;
 			
 			// aapt resource value: 0x7F0300C1
-			public const int dialogTheme = 2130903233;
+			public const int counterOverflowTextAppearance = 2130903233;
 			
 			// aapt resource value: 0x7F0300C2
-			public const int dialogTitle = 2130903234;
+			public const int counterTextAppearance = 2130903234;
 			
 			// aapt resource value: 0x7F0300C3
-			public const int disableDependentsState = 2130903235;
+			public const int customNavigationLayout = 2130903235;
 			
 			// aapt resource value: 0x7F0300C4
-			public const int displayOptions = 2130903236;
+			public const int defaultQueryHint = 2130903236;
 			
 			// aapt resource value: 0x7F0300C5
-			public const int divider = 2130903237;
+			public const int defaultValue = 2130903237;
 			
 			// aapt resource value: 0x7F0300C6
-			public const int dividerHorizontal = 2130903238;
+			public const int dependency = 2130903238;
 			
 			// aapt resource value: 0x7F0300C7
-			public const int dividerPadding = 2130903239;
+			public const int dialogCornerRadius = 2130903239;
 			
 			// aapt resource value: 0x7F0300C8
-			public const int dividerVertical = 2130903240;
+			public const int dialogIcon = 2130903240;
 			
 			// aapt resource value: 0x7F0300C9
-			public const int drawableBottomCompat = 2130903241;
+			public const int dialogLayout = 2130903241;
 			
 			// aapt resource value: 0x7F0300CA
-			public const int drawableEndCompat = 2130903242;
+			public const int dialogMessage = 2130903242;
 			
 			// aapt resource value: 0x7F0300CB
-			public const int drawableLeftCompat = 2130903243;
+			public const int dialogPreferenceStyle = 2130903243;
 			
 			// aapt resource value: 0x7F0300CC
-			public const int drawableRightCompat = 2130903244;
+			public const int dialogPreferredPadding = 2130903244;
 			
 			// aapt resource value: 0x7F0300CD
-			public const int drawableSize = 2130903245;
+			public const int dialogTheme = 2130903245;
 			
 			// aapt resource value: 0x7F0300CE
-			public const int drawableStartCompat = 2130903246;
+			public const int dialogTitle = 2130903246;
 			
 			// aapt resource value: 0x7F0300CF
-			public const int drawableTint = 2130903247;
+			public const int disableDependentsState = 2130903247;
 			
 			// aapt resource value: 0x7F0300D0
-			public const int drawableTintMode = 2130903248;
+			public const int displayOptions = 2130903248;
 			
 			// aapt resource value: 0x7F0300D1
-			public const int drawableTopCompat = 2130903249;
+			public const int divider = 2130903249;
 			
 			// aapt resource value: 0x7F0300D2
-			public const int drawerArrowStyle = 2130903250;
-			
-			// aapt resource value: 0x7F0300D4
-			public const int dropdownListPreferredItemHeight = 2130903252;
+			public const int dividerHorizontal = 2130903250;
 			
 			// aapt resource value: 0x7F0300D3
-			public const int dropDownListViewStyle = 2130903251;
+			public const int dividerPadding = 2130903251;
+			
+			// aapt resource value: 0x7F0300D4
+			public const int dividerVertical = 2130903252;
 			
 			// aapt resource value: 0x7F0300D5
-			public const int dropdownPreferenceStyle = 2130903253;
+			public const int drawableBottomCompat = 2130903253;
 			
 			// aapt resource value: 0x7F0300D6
-			public const int editTextBackground = 2130903254;
+			public const int drawableEndCompat = 2130903254;
 			
 			// aapt resource value: 0x7F0300D7
-			public const int editTextColor = 2130903255;
+			public const int drawableLeftCompat = 2130903255;
 			
 			// aapt resource value: 0x7F0300D8
-			public const int editTextPreferenceStyle = 2130903256;
+			public const int drawableRightCompat = 2130903256;
 			
 			// aapt resource value: 0x7F0300D9
-			public const int editTextStyle = 2130903257;
+			public const int drawableSize = 2130903257;
 			
 			// aapt resource value: 0x7F0300DA
-			public const int elevation = 2130903258;
+			public const int drawableStartCompat = 2130903258;
 			
 			// aapt resource value: 0x7F0300DB
-			public const int emptyVisibility = 2130903259;
+			public const int drawableTint = 2130903259;
 			
 			// aapt resource value: 0x7F0300DC
-			public const int enableCopying = 2130903260;
+			public const int drawableTintMode = 2130903260;
 			
 			// aapt resource value: 0x7F0300DD
-			public const int enabled = 2130903261;
+			public const int drawableTopCompat = 2130903261;
 			
 			// aapt resource value: 0x7F0300DE
-			public const int enforceMaterialTheme = 2130903262;
-			
-			// aapt resource value: 0x7F0300DF
-			public const int enforceTextAppearance = 2130903263;
+			public const int drawerArrowStyle = 2130903262;
 			
 			// aapt resource value: 0x7F0300E0
-			public const int entries = 2130903264;
+			public const int dropdownListPreferredItemHeight = 2130903264;
+			
+			// aapt resource value: 0x7F0300DF
+			public const int dropDownListViewStyle = 2130903263;
 			
 			// aapt resource value: 0x7F0300E1
-			public const int entryValues = 2130903265;
+			public const int dropdownPreferenceStyle = 2130903265;
 			
 			// aapt resource value: 0x7F0300E2
-			public const int errorEnabled = 2130903266;
+			public const int editTextBackground = 2130903266;
 			
 			// aapt resource value: 0x7F0300E3
-			public const int errorTextAppearance = 2130903267;
+			public const int editTextColor = 2130903267;
 			
 			// aapt resource value: 0x7F0300E4
-			public const int expandActivityOverflowButtonDrawable = 2130903268;
+			public const int editTextPreferenceStyle = 2130903268;
 			
 			// aapt resource value: 0x7F0300E5
-			public const int expanded = 2130903269;
+			public const int editTextStyle = 2130903269;
 			
 			// aapt resource value: 0x7F0300E6
-			public const int expandedTitleGravity = 2130903270;
+			public const int elevation = 2130903270;
 			
 			// aapt resource value: 0x7F0300E7
-			public const int expandedTitleMargin = 2130903271;
+			public const int emptyVisibility = 2130903271;
 			
 			// aapt resource value: 0x7F0300E8
-			public const int expandedTitleMarginBottom = 2130903272;
+			public const int enableCopying = 2130903272;
 			
 			// aapt resource value: 0x7F0300E9
-			public const int expandedTitleMarginEnd = 2130903273;
+			public const int enabled = 2130903273;
 			
 			// aapt resource value: 0x7F0300EA
-			public const int expandedTitleMarginStart = 2130903274;
+			public const int enforceMaterialTheme = 2130903274;
 			
 			// aapt resource value: 0x7F0300EB
-			public const int expandedTitleMarginTop = 2130903275;
+			public const int enforceTextAppearance = 2130903275;
 			
 			// aapt resource value: 0x7F0300EC
-			public const int expandedTitleTextAppearance = 2130903276;
+			public const int entries = 2130903276;
 			
 			// aapt resource value: 0x7F0300ED
-			public const int fabAlignmentMode = 2130903277;
+			public const int entryValues = 2130903277;
 			
 			// aapt resource value: 0x7F0300EE
-			public const int fabCradleMargin = 2130903278;
+			public const int errorEnabled = 2130903278;
 			
 			// aapt resource value: 0x7F0300EF
-			public const int fabCradleRoundedCornerRadius = 2130903279;
+			public const int errorTextAppearance = 2130903279;
 			
 			// aapt resource value: 0x7F0300F0
-			public const int fabCradleVerticalOffset = 2130903280;
+			public const int expandActivityOverflowButtonDrawable = 2130903280;
 			
 			// aapt resource value: 0x7F0300F1
-			public const int fabCustomSize = 2130903281;
+			public const int expanded = 2130903281;
 			
 			// aapt resource value: 0x7F0300F2
-			public const int fabSize = 2130903282;
+			public const int expandedTitleGravity = 2130903282;
 			
 			// aapt resource value: 0x7F0300F3
-			public const int fastScrollEnabled = 2130903283;
+			public const int expandedTitleMargin = 2130903283;
 			
 			// aapt resource value: 0x7F0300F4
-			public const int fastScrollHorizontalThumbDrawable = 2130903284;
+			public const int expandedTitleMarginBottom = 2130903284;
 			
 			// aapt resource value: 0x7F0300F5
-			public const int fastScrollHorizontalTrackDrawable = 2130903285;
+			public const int expandedTitleMarginEnd = 2130903285;
 			
 			// aapt resource value: 0x7F0300F6
-			public const int fastScrollVerticalThumbDrawable = 2130903286;
+			public const int expandedTitleMarginStart = 2130903286;
 			
 			// aapt resource value: 0x7F0300F7
-			public const int fastScrollVerticalTrackDrawable = 2130903287;
+			public const int expandedTitleMarginTop = 2130903287;
 			
 			// aapt resource value: 0x7F0300F8
-			public const int firstBaselineToTopHeight = 2130903288;
+			public const int expandedTitleTextAppearance = 2130903288;
 			
 			// aapt resource value: 0x7F0300F9
-			public const int floatingActionButtonStyle = 2130903289;
+			public const int fabAlignmentMode = 2130903289;
 			
 			// aapt resource value: 0x7F0300FA
-			public const int font = 2130903290;
+			public const int fabCradleMargin = 2130903290;
 			
 			// aapt resource value: 0x7F0300FB
-			public const int fontFamily = 2130903291;
+			public const int fabCradleRoundedCornerRadius = 2130903291;
 			
 			// aapt resource value: 0x7F0300FC
-			public const int fontProviderAuthority = 2130903292;
+			public const int fabCradleVerticalOffset = 2130903292;
 			
 			// aapt resource value: 0x7F0300FD
-			public const int fontProviderCerts = 2130903293;
+			public const int fabCustomSize = 2130903293;
 			
 			// aapt resource value: 0x7F0300FE
-			public const int fontProviderFetchStrategy = 2130903294;
+			public const int fabSize = 2130903294;
 			
 			// aapt resource value: 0x7F0300FF
-			public const int fontProviderFetchTimeout = 2130903295;
+			public const int fastScrollEnabled = 2130903295;
 			
 			// aapt resource value: 0x7F030100
-			public const int fontProviderPackage = 2130903296;
+			public const int fastScrollHorizontalThumbDrawable = 2130903296;
 			
 			// aapt resource value: 0x7F030101
-			public const int fontProviderQuery = 2130903297;
+			public const int fastScrollHorizontalTrackDrawable = 2130903297;
 			
 			// aapt resource value: 0x7F030102
-			public const int fontStyle = 2130903298;
+			public const int fastScrollVerticalThumbDrawable = 2130903298;
 			
 			// aapt resource value: 0x7F030103
-			public const int fontVariationSettings = 2130903299;
+			public const int fastScrollVerticalTrackDrawable = 2130903299;
 			
 			// aapt resource value: 0x7F030104
-			public const int fontWeight = 2130903300;
+			public const int firstBaselineToTopHeight = 2130903300;
 			
 			// aapt resource value: 0x7F030105
-			public const int foregroundInsidePadding = 2130903301;
+			public const int floatingActionButtonStyle = 2130903301;
 			
 			// aapt resource value: 0x7F030106
-			public const int fragment = 2130903302;
+			public const int font = 2130903302;
 			
 			// aapt resource value: 0x7F030107
-			public const int gapBetweenBars = 2130903303;
+			public const int fontFamily = 2130903303;
 			
 			// aapt resource value: 0x7F030108
-			public const int goIcon = 2130903304;
+			public const int fontProviderAuthority = 2130903304;
 			
 			// aapt resource value: 0x7F030109
-			public const int headerLayout = 2130903305;
+			public const int fontProviderCerts = 2130903305;
 			
 			// aapt resource value: 0x7F03010A
-			public const int height = 2130903306;
+			public const int fontProviderFetchStrategy = 2130903306;
 			
 			// aapt resource value: 0x7F03010B
-			public const int helperText = 2130903307;
+			public const int fontProviderFetchTimeout = 2130903307;
 			
 			// aapt resource value: 0x7F03010C
-			public const int helperTextEnabled = 2130903308;
+			public const int fontProviderPackage = 2130903308;
 			
 			// aapt resource value: 0x7F03010D
-			public const int helperTextTextAppearance = 2130903309;
+			public const int fontProviderQuery = 2130903309;
 			
 			// aapt resource value: 0x7F03010E
-			public const int hideMotionSpec = 2130903310;
+			public const int fontStyle = 2130903310;
 			
 			// aapt resource value: 0x7F03010F
-			public const int hideOnContentScroll = 2130903311;
+			public const int fontVariationSettings = 2130903311;
 			
 			// aapt resource value: 0x7F030110
-			public const int hideOnScroll = 2130903312;
+			public const int fontWeight = 2130903312;
 			
 			// aapt resource value: 0x7F030111
-			public const int hintAnimationEnabled = 2130903313;
+			public const int foregroundInsidePadding = 2130903313;
 			
 			// aapt resource value: 0x7F030112
-			public const int hintEnabled = 2130903314;
+			public const int fragment = 2130903314;
 			
 			// aapt resource value: 0x7F030113
-			public const int hintTextAppearance = 2130903315;
+			public const int gapBetweenBars = 2130903315;
 			
 			// aapt resource value: 0x7F030114
-			public const int homeAsUpIndicator = 2130903316;
+			public const int goIcon = 2130903316;
 			
 			// aapt resource value: 0x7F030115
-			public const int homeLayout = 2130903317;
+			public const int headerLayout = 2130903317;
 			
 			// aapt resource value: 0x7F030116
-			public const int hoveredFocusedTranslationZ = 2130903318;
+			public const int height = 2130903318;
 			
 			// aapt resource value: 0x7F030117
-			public const int icon = 2130903319;
+			public const int helperText = 2130903319;
 			
 			// aapt resource value: 0x7F030118
-			public const int iconEndPadding = 2130903320;
+			public const int helperTextEnabled = 2130903320;
 			
 			// aapt resource value: 0x7F030119
-			public const int iconGravity = 2130903321;
-			
-			// aapt resource value: 0x7F030120
-			public const int iconifiedByDefault = 2130903328;
+			public const int helperTextTextAppearance = 2130903321;
 			
 			// aapt resource value: 0x7F03011A
-			public const int iconPadding = 2130903322;
+			public const int hideMotionSpec = 2130903322;
 			
 			// aapt resource value: 0x7F03011B
-			public const int iconSize = 2130903323;
+			public const int hideOnContentScroll = 2130903323;
 			
 			// aapt resource value: 0x7F03011C
-			public const int iconSpaceReserved = 2130903324;
+			public const int hideOnScroll = 2130903324;
 			
 			// aapt resource value: 0x7F03011D
-			public const int iconStartPadding = 2130903325;
+			public const int hintAnimationEnabled = 2130903325;
 			
 			// aapt resource value: 0x7F03011E
-			public const int iconTint = 2130903326;
+			public const int hintEnabled = 2130903326;
 			
 			// aapt resource value: 0x7F03011F
-			public const int iconTintMode = 2130903327;
+			public const int hintTextAppearance = 2130903327;
+			
+			// aapt resource value: 0x7F030120
+			public const int homeAsUpIndicator = 2130903328;
 			
 			// aapt resource value: 0x7F030121
-			public const int imageButtonStyle = 2130903329;
+			public const int homeLayout = 2130903329;
 			
 			// aapt resource value: 0x7F030122
-			public const int indeterminateProgressStyle = 2130903330;
+			public const int hoveredFocusedTranslationZ = 2130903330;
 			
 			// aapt resource value: 0x7F030123
-			public const int initialActivityCount = 2130903331;
+			public const int icon = 2130903331;
 			
 			// aapt resource value: 0x7F030124
-			public const int initialExpandedChildrenCount = 2130903332;
+			public const int iconEndPadding = 2130903332;
 			
 			// aapt resource value: 0x7F030125
-			public const int insetForeground = 2130903333;
-			
-			// aapt resource value: 0x7F030126
-			public const int isLightTheme = 2130903334;
-			
-			// aapt resource value: 0x7F030127
-			public const int isPreferenceVisible = 2130903335;
-			
-			// aapt resource value: 0x7F030128
-			public const int itemBackground = 2130903336;
-			
-			// aapt resource value: 0x7F030129
-			public const int itemHorizontalPadding = 2130903337;
-			
-			// aapt resource value: 0x7F03012A
-			public const int itemHorizontalTranslationEnabled = 2130903338;
-			
-			// aapt resource value: 0x7F03012B
-			public const int itemIconPadding = 2130903339;
+			public const int iconGravity = 2130903333;
 			
 			// aapt resource value: 0x7F03012C
-			public const int itemIconSize = 2130903340;
+			public const int iconifiedByDefault = 2130903340;
+			
+			// aapt resource value: 0x7F030126
+			public const int iconPadding = 2130903334;
+			
+			// aapt resource value: 0x7F030127
+			public const int iconSize = 2130903335;
+			
+			// aapt resource value: 0x7F030128
+			public const int iconSpaceReserved = 2130903336;
+			
+			// aapt resource value: 0x7F030129
+			public const int iconStartPadding = 2130903337;
+			
+			// aapt resource value: 0x7F03012A
+			public const int iconTint = 2130903338;
+			
+			// aapt resource value: 0x7F03012B
+			public const int iconTintMode = 2130903339;
 			
 			// aapt resource value: 0x7F03012D
-			public const int itemIconTint = 2130903341;
+			public const int imageButtonStyle = 2130903341;
 			
 			// aapt resource value: 0x7F03012E
-			public const int itemPadding = 2130903342;
+			public const int indeterminateProgressStyle = 2130903342;
 			
 			// aapt resource value: 0x7F03012F
-			public const int itemSpacing = 2130903343;
+			public const int initialActivityCount = 2130903343;
 			
 			// aapt resource value: 0x7F030130
-			public const int itemTextAppearance = 2130903344;
+			public const int initialExpandedChildrenCount = 2130903344;
 			
 			// aapt resource value: 0x7F030131
-			public const int itemTextAppearanceActive = 2130903345;
+			public const int insetForeground = 2130903345;
 			
 			// aapt resource value: 0x7F030132
-			public const int itemTextAppearanceInactive = 2130903346;
+			public const int isLightTheme = 2130903346;
 			
 			// aapt resource value: 0x7F030133
-			public const int itemTextColor = 2130903347;
+			public const int isPreferenceVisible = 2130903347;
 			
 			// aapt resource value: 0x7F030134
-			public const int key = 2130903348;
+			public const int itemBackground = 2130903348;
 			
 			// aapt resource value: 0x7F030135
-			public const int keylines = 2130903349;
+			public const int itemHorizontalPadding = 2130903349;
 			
 			// aapt resource value: 0x7F030136
-			public const int labelVisibilityMode = 2130903350;
+			public const int itemHorizontalTranslationEnabled = 2130903350;
 			
 			// aapt resource value: 0x7F030137
-			public const int lastBaselineToBottomHeight = 2130903351;
+			public const int itemIconPadding = 2130903351;
 			
 			// aapt resource value: 0x7F030138
-			public const int layout = 2130903352;
+			public const int itemIconSize = 2130903352;
 			
 			// aapt resource value: 0x7F030139
-			public const int layoutManager = 2130903353;
+			public const int itemIconTint = 2130903353;
 			
 			// aapt resource value: 0x7F03013A
-			public const int layout_anchor = 2130903354;
+			public const int itemPadding = 2130903354;
 			
 			// aapt resource value: 0x7F03013B
-			public const int layout_anchorGravity = 2130903355;
+			public const int itemSpacing = 2130903355;
 			
 			// aapt resource value: 0x7F03013C
-			public const int layout_behavior = 2130903356;
+			public const int itemTextAppearance = 2130903356;
 			
 			// aapt resource value: 0x7F03013D
-			public const int layout_collapseMode = 2130903357;
+			public const int itemTextAppearanceActive = 2130903357;
 			
 			// aapt resource value: 0x7F03013E
-			public const int layout_collapseParallaxMultiplier = 2130903358;
+			public const int itemTextAppearanceInactive = 2130903358;
 			
 			// aapt resource value: 0x7F03013F
-			public const int layout_constrainedHeight = 2130903359;
+			public const int itemTextColor = 2130903359;
 			
 			// aapt resource value: 0x7F030140
-			public const int layout_constrainedWidth = 2130903360;
+			public const int key = 2130903360;
 			
 			// aapt resource value: 0x7F030141
-			public const int layout_constraintBaseline_creator = 2130903361;
+			public const int keylines = 2130903361;
 			
 			// aapt resource value: 0x7F030142
-			public const int layout_constraintBaseline_toBaselineOf = 2130903362;
+			public const int labelVisibilityMode = 2130903362;
 			
 			// aapt resource value: 0x7F030143
-			public const int layout_constraintBottom_creator = 2130903363;
+			public const int lastBaselineToBottomHeight = 2130903363;
 			
 			// aapt resource value: 0x7F030144
-			public const int layout_constraintBottom_toBottomOf = 2130903364;
+			public const int layout = 2130903364;
 			
 			// aapt resource value: 0x7F030145
-			public const int layout_constraintBottom_toTopOf = 2130903365;
+			public const int layoutManager = 2130903365;
 			
 			// aapt resource value: 0x7F030146
-			public const int layout_constraintCircle = 2130903366;
+			public const int layout_anchor = 2130903366;
 			
 			// aapt resource value: 0x7F030147
-			public const int layout_constraintCircleAngle = 2130903367;
+			public const int layout_anchorGravity = 2130903367;
 			
 			// aapt resource value: 0x7F030148
-			public const int layout_constraintCircleRadius = 2130903368;
+			public const int layout_behavior = 2130903368;
 			
 			// aapt resource value: 0x7F030149
-			public const int layout_constraintDimensionRatio = 2130903369;
+			public const int layout_collapseMode = 2130903369;
 			
 			// aapt resource value: 0x7F03014A
-			public const int layout_constraintEnd_toEndOf = 2130903370;
+			public const int layout_collapseParallaxMultiplier = 2130903370;
 			
 			// aapt resource value: 0x7F03014B
-			public const int layout_constraintEnd_toStartOf = 2130903371;
+			public const int layout_constrainedHeight = 2130903371;
 			
 			// aapt resource value: 0x7F03014C
-			public const int layout_constraintGuide_begin = 2130903372;
+			public const int layout_constrainedWidth = 2130903372;
 			
 			// aapt resource value: 0x7F03014D
-			public const int layout_constraintGuide_end = 2130903373;
+			public const int layout_constraintBaseline_creator = 2130903373;
 			
 			// aapt resource value: 0x7F03014E
-			public const int layout_constraintGuide_percent = 2130903374;
+			public const int layout_constraintBaseline_toBaselineOf = 2130903374;
 			
 			// aapt resource value: 0x7F03014F
-			public const int layout_constraintHeight_default = 2130903375;
+			public const int layout_constraintBottom_creator = 2130903375;
 			
 			// aapt resource value: 0x7F030150
-			public const int layout_constraintHeight_max = 2130903376;
+			public const int layout_constraintBottom_toBottomOf = 2130903376;
 			
 			// aapt resource value: 0x7F030151
-			public const int layout_constraintHeight_min = 2130903377;
+			public const int layout_constraintBottom_toTopOf = 2130903377;
 			
 			// aapt resource value: 0x7F030152
-			public const int layout_constraintHeight_percent = 2130903378;
+			public const int layout_constraintCircle = 2130903378;
 			
 			// aapt resource value: 0x7F030153
-			public const int layout_constraintHorizontal_bias = 2130903379;
+			public const int layout_constraintCircleAngle = 2130903379;
 			
 			// aapt resource value: 0x7F030154
-			public const int layout_constraintHorizontal_chainStyle = 2130903380;
+			public const int layout_constraintCircleRadius = 2130903380;
 			
 			// aapt resource value: 0x7F030155
-			public const int layout_constraintHorizontal_weight = 2130903381;
+			public const int layout_constraintDimensionRatio = 2130903381;
 			
 			// aapt resource value: 0x7F030156
-			public const int layout_constraintLeft_creator = 2130903382;
+			public const int layout_constraintEnd_toEndOf = 2130903382;
 			
 			// aapt resource value: 0x7F030157
-			public const int layout_constraintLeft_toLeftOf = 2130903383;
+			public const int layout_constraintEnd_toStartOf = 2130903383;
 			
 			// aapt resource value: 0x7F030158
-			public const int layout_constraintLeft_toRightOf = 2130903384;
+			public const int layout_constraintGuide_begin = 2130903384;
 			
 			// aapt resource value: 0x7F030159
-			public const int layout_constraintRight_creator = 2130903385;
+			public const int layout_constraintGuide_end = 2130903385;
 			
 			// aapt resource value: 0x7F03015A
-			public const int layout_constraintRight_toLeftOf = 2130903386;
+			public const int layout_constraintGuide_percent = 2130903386;
 			
 			// aapt resource value: 0x7F03015B
-			public const int layout_constraintRight_toRightOf = 2130903387;
+			public const int layout_constraintHeight_default = 2130903387;
 			
 			// aapt resource value: 0x7F03015C
-			public const int layout_constraintStart_toEndOf = 2130903388;
+			public const int layout_constraintHeight_max = 2130903388;
 			
 			// aapt resource value: 0x7F03015D
-			public const int layout_constraintStart_toStartOf = 2130903389;
+			public const int layout_constraintHeight_min = 2130903389;
 			
 			// aapt resource value: 0x7F03015E
-			public const int layout_constraintTop_creator = 2130903390;
+			public const int layout_constraintHeight_percent = 2130903390;
 			
 			// aapt resource value: 0x7F03015F
-			public const int layout_constraintTop_toBottomOf = 2130903391;
+			public const int layout_constraintHorizontal_bias = 2130903391;
 			
 			// aapt resource value: 0x7F030160
-			public const int layout_constraintTop_toTopOf = 2130903392;
+			public const int layout_constraintHorizontal_chainStyle = 2130903392;
 			
 			// aapt resource value: 0x7F030161
-			public const int layout_constraintVertical_bias = 2130903393;
+			public const int layout_constraintHorizontal_weight = 2130903393;
 			
 			// aapt resource value: 0x7F030162
-			public const int layout_constraintVertical_chainStyle = 2130903394;
+			public const int layout_constraintLeft_creator = 2130903394;
 			
 			// aapt resource value: 0x7F030163
-			public const int layout_constraintVertical_weight = 2130903395;
+			public const int layout_constraintLeft_toLeftOf = 2130903395;
 			
 			// aapt resource value: 0x7F030164
-			public const int layout_constraintWidth_default = 2130903396;
+			public const int layout_constraintLeft_toRightOf = 2130903396;
 			
 			// aapt resource value: 0x7F030165
-			public const int layout_constraintWidth_max = 2130903397;
+			public const int layout_constraintRight_creator = 2130903397;
 			
 			// aapt resource value: 0x7F030166
-			public const int layout_constraintWidth_min = 2130903398;
+			public const int layout_constraintRight_toLeftOf = 2130903398;
 			
 			// aapt resource value: 0x7F030167
-			public const int layout_constraintWidth_percent = 2130903399;
+			public const int layout_constraintRight_toRightOf = 2130903399;
 			
 			// aapt resource value: 0x7F030168
-			public const int layout_dodgeInsetEdges = 2130903400;
+			public const int layout_constraintStart_toEndOf = 2130903400;
 			
 			// aapt resource value: 0x7F030169
-			public const int layout_editor_absoluteX = 2130903401;
+			public const int layout_constraintStart_toStartOf = 2130903401;
 			
 			// aapt resource value: 0x7F03016A
-			public const int layout_editor_absoluteY = 2130903402;
+			public const int layout_constraintTop_creator = 2130903402;
 			
 			// aapt resource value: 0x7F03016B
-			public const int layout_goneMarginBottom = 2130903403;
+			public const int layout_constraintTop_toBottomOf = 2130903403;
 			
 			// aapt resource value: 0x7F03016C
-			public const int layout_goneMarginEnd = 2130903404;
+			public const int layout_constraintTop_toTopOf = 2130903404;
 			
 			// aapt resource value: 0x7F03016D
-			public const int layout_goneMarginLeft = 2130903405;
+			public const int layout_constraintVertical_bias = 2130903405;
 			
 			// aapt resource value: 0x7F03016E
-			public const int layout_goneMarginRight = 2130903406;
+			public const int layout_constraintVertical_chainStyle = 2130903406;
 			
 			// aapt resource value: 0x7F03016F
-			public const int layout_goneMarginStart = 2130903407;
+			public const int layout_constraintVertical_weight = 2130903407;
 			
 			// aapt resource value: 0x7F030170
-			public const int layout_goneMarginTop = 2130903408;
+			public const int layout_constraintWidth_default = 2130903408;
 			
 			// aapt resource value: 0x7F030171
-			public const int layout_insetEdge = 2130903409;
+			public const int layout_constraintWidth_max = 2130903409;
 			
 			// aapt resource value: 0x7F030172
-			public const int layout_keyline = 2130903410;
+			public const int layout_constraintWidth_min = 2130903410;
 			
 			// aapt resource value: 0x7F030173
-			public const int layout_optimizationLevel = 2130903411;
+			public const int layout_constraintWidth_percent = 2130903411;
 			
 			// aapt resource value: 0x7F030174
-			public const int layout_scrollFlags = 2130903412;
+			public const int layout_dodgeInsetEdges = 2130903412;
 			
 			// aapt resource value: 0x7F030175
-			public const int layout_scrollInterpolator = 2130903413;
+			public const int layout_editor_absoluteX = 2130903413;
 			
 			// aapt resource value: 0x7F030176
-			public const int liftOnScroll = 2130903414;
+			public const int layout_editor_absoluteY = 2130903414;
 			
 			// aapt resource value: 0x7F030177
-			public const int lineHeight = 2130903415;
+			public const int layout_goneMarginBottom = 2130903415;
 			
 			// aapt resource value: 0x7F030178
-			public const int lineSpacing = 2130903416;
+			public const int layout_goneMarginEnd = 2130903416;
 			
 			// aapt resource value: 0x7F030179
-			public const int listChoiceBackgroundIndicator = 2130903417;
+			public const int layout_goneMarginLeft = 2130903417;
 			
 			// aapt resource value: 0x7F03017A
-			public const int listChoiceIndicatorMultipleAnimated = 2130903418;
+			public const int layout_goneMarginRight = 2130903418;
 			
 			// aapt resource value: 0x7F03017B
-			public const int listChoiceIndicatorSingleAnimated = 2130903419;
+			public const int layout_goneMarginStart = 2130903419;
 			
 			// aapt resource value: 0x7F03017C
-			public const int listDividerAlertDialog = 2130903420;
+			public const int layout_goneMarginTop = 2130903420;
 			
 			// aapt resource value: 0x7F03017D
-			public const int listItemLayout = 2130903421;
+			public const int layout_insetEdge = 2130903421;
 			
 			// aapt resource value: 0x7F03017E
-			public const int listLayout = 2130903422;
+			public const int layout_keyline = 2130903422;
 			
 			// aapt resource value: 0x7F03017F
-			public const int listMenuViewStyle = 2130903423;
+			public const int layout_optimizationLevel = 2130903423;
 			
 			// aapt resource value: 0x7F030180
-			public const int listPopupWindowStyle = 2130903424;
+			public const int layout_scrollFlags = 2130903424;
 			
 			// aapt resource value: 0x7F030181
-			public const int listPreferredItemHeight = 2130903425;
+			public const int layout_scrollInterpolator = 2130903425;
 			
 			// aapt resource value: 0x7F030182
-			public const int listPreferredItemHeightLarge = 2130903426;
+			public const int liftOnScroll = 2130903426;
 			
 			// aapt resource value: 0x7F030183
-			public const int listPreferredItemHeightSmall = 2130903427;
+			public const int lineHeight = 2130903427;
 			
 			// aapt resource value: 0x7F030184
-			public const int listPreferredItemPaddingEnd = 2130903428;
+			public const int lineSpacing = 2130903428;
 			
 			// aapt resource value: 0x7F030185
-			public const int listPreferredItemPaddingLeft = 2130903429;
+			public const int listChoiceBackgroundIndicator = 2130903429;
 			
 			// aapt resource value: 0x7F030186
-			public const int listPreferredItemPaddingRight = 2130903430;
+			public const int listChoiceIndicatorMultipleAnimated = 2130903430;
 			
 			// aapt resource value: 0x7F030187
-			public const int listPreferredItemPaddingStart = 2130903431;
+			public const int listChoiceIndicatorSingleAnimated = 2130903431;
 			
 			// aapt resource value: 0x7F030188
-			public const int logo = 2130903432;
+			public const int listDividerAlertDialog = 2130903432;
 			
 			// aapt resource value: 0x7F030189
-			public const int logoDescription = 2130903433;
+			public const int listItemLayout = 2130903433;
 			
 			// aapt resource value: 0x7F03018A
-			public const int materialButtonStyle = 2130903434;
+			public const int listLayout = 2130903434;
 			
 			// aapt resource value: 0x7F03018B
-			public const int materialCardViewStyle = 2130903435;
+			public const int listMenuViewStyle = 2130903435;
 			
 			// aapt resource value: 0x7F03018C
-			public const int maxActionInlineWidth = 2130903436;
+			public const int listPopupWindowStyle = 2130903436;
 			
 			// aapt resource value: 0x7F03018D
-			public const int maxButtonHeight = 2130903437;
+			public const int listPreferredItemHeight = 2130903437;
 			
 			// aapt resource value: 0x7F03018E
-			public const int maxHeight = 2130903438;
+			public const int listPreferredItemHeightLarge = 2130903438;
 			
 			// aapt resource value: 0x7F03018F
-			public const int maxImageSize = 2130903439;
+			public const int listPreferredItemHeightSmall = 2130903439;
 			
 			// aapt resource value: 0x7F030190
-			public const int maxWidth = 2130903440;
+			public const int listPreferredItemPaddingEnd = 2130903440;
 			
 			// aapt resource value: 0x7F030191
-			public const int measureWithLargestChild = 2130903441;
+			public const int listPreferredItemPaddingLeft = 2130903441;
 			
 			// aapt resource value: 0x7F030192
-			public const int menu = 2130903442;
+			public const int listPreferredItemPaddingRight = 2130903442;
 			
 			// aapt resource value: 0x7F030193
-			public const int min = 2130903443;
+			public const int listPreferredItemPaddingStart = 2130903443;
 			
 			// aapt resource value: 0x7F030194
-			public const int multiChoiceItemLayout = 2130903444;
+			public const int logo = 2130903444;
+			
+			// aapt resource value: 0x7F030195
+			public const int logoDescription = 2130903445;
+			
+			// aapt resource value: 0x7F030196
+			public const int materialButtonStyle = 2130903446;
+			
+			// aapt resource value: 0x7F030197
+			public const int materialCardViewStyle = 2130903447;
+			
+			// aapt resource value: 0x7F030198
+			public const int maxActionInlineWidth = 2130903448;
+			
+			// aapt resource value: 0x7F030199
+			public const int maxButtonHeight = 2130903449;
+			
+			// aapt resource value: 0x7F03019A
+			public const int maxHeight = 2130903450;
+			
+			// aapt resource value: 0x7F03019B
+			public const int maxImageSize = 2130903451;
+			
+			// aapt resource value: 0x7F03019C
+			public const int maxWidth = 2130903452;
+			
+			// aapt resource value: 0x7F03019D
+			public const int measureWithLargestChild = 2130903453;
+			
+			// aapt resource value: 0x7F03019E
+			public const int menu = 2130903454;
+			
+			// aapt resource value: 0x7F03019F
+			public const int min = 2130903455;
+			
+			// aapt resource value: 0x7F0301A0
+			public const int multiChoiceItemLayout = 2130903456;
 			
 			// aapt resource value: 0x7F030000
 			public const int MvxBind = 2130903040;
@@ -16182,629 +18914,629 @@ namespace SushiShop.Droid
 			// aapt resource value: 0x7F030006
 			public const int MvxTemplateSelector = 2130903046;
 			
-			// aapt resource value: 0x7F030195
-			public const int navigationContentDescription = 2130903445;
-			
-			// aapt resource value: 0x7F030196
-			public const int navigationIcon = 2130903446;
-			
-			// aapt resource value: 0x7F030197
-			public const int navigationMode = 2130903447;
-			
-			// aapt resource value: 0x7F030198
-			public const int navigationViewStyle = 2130903448;
-			
-			// aapt resource value: 0x7F030199
-			public const int negativeButtonText = 2130903449;
-			
-			// aapt resource value: 0x7F03019A
-			public const int numericModifiers = 2130903450;
-			
-			// aapt resource value: 0x7F03019B
-			public const int order = 2130903451;
-			
-			// aapt resource value: 0x7F03019C
-			public const int orderingFromXml = 2130903452;
-			
-			// aapt resource value: 0x7F03019D
-			public const int overlapAnchor = 2130903453;
-			
-			// aapt resource value: 0x7F03019E
-			public const int paddingBottomNoButtons = 2130903454;
-			
-			// aapt resource value: 0x7F03019F
-			public const int paddingEnd = 2130903455;
-			
-			// aapt resource value: 0x7F0301A0
-			public const int paddingStart = 2130903456;
-			
 			// aapt resource value: 0x7F0301A1
-			public const int paddingTopNoTitle = 2130903457;
+			public const int navigationContentDescription = 2130903457;
 			
 			// aapt resource value: 0x7F0301A2
-			public const int panelBackground = 2130903458;
+			public const int navigationIcon = 2130903458;
 			
 			// aapt resource value: 0x7F0301A3
-			public const int panelMenuListTheme = 2130903459;
+			public const int navigationMode = 2130903459;
 			
 			// aapt resource value: 0x7F0301A4
-			public const int panelMenuListWidth = 2130903460;
+			public const int navigationViewStyle = 2130903460;
 			
 			// aapt resource value: 0x7F0301A5
-			public const int passwordToggleContentDescription = 2130903461;
+			public const int negativeButtonText = 2130903461;
 			
 			// aapt resource value: 0x7F0301A6
-			public const int passwordToggleDrawable = 2130903462;
+			public const int numericModifiers = 2130903462;
 			
 			// aapt resource value: 0x7F0301A7
-			public const int passwordToggleEnabled = 2130903463;
+			public const int order = 2130903463;
 			
 			// aapt resource value: 0x7F0301A8
-			public const int passwordToggleTint = 2130903464;
+			public const int orderingFromXml = 2130903464;
 			
 			// aapt resource value: 0x7F0301A9
-			public const int passwordToggleTintMode = 2130903465;
+			public const int overlapAnchor = 2130903465;
 			
 			// aapt resource value: 0x7F0301AA
-			public const int persistent = 2130903466;
+			public const int paddingBottomNoButtons = 2130903466;
 			
 			// aapt resource value: 0x7F0301AB
-			public const int popupMenuStyle = 2130903467;
+			public const int paddingEnd = 2130903467;
 			
 			// aapt resource value: 0x7F0301AC
-			public const int popupTheme = 2130903468;
+			public const int paddingStart = 2130903468;
 			
 			// aapt resource value: 0x7F0301AD
-			public const int popupWindowStyle = 2130903469;
+			public const int paddingTopNoTitle = 2130903469;
 			
 			// aapt resource value: 0x7F0301AE
-			public const int positiveButtonText = 2130903470;
+			public const int panelBackground = 2130903470;
 			
 			// aapt resource value: 0x7F0301AF
-			public const int preferenceCategoryStyle = 2130903471;
+			public const int panelMenuListTheme = 2130903471;
 			
 			// aapt resource value: 0x7F0301B0
-			public const int preferenceCategoryTitleTextAppearance = 2130903472;
+			public const int panelMenuListWidth = 2130903472;
 			
 			// aapt resource value: 0x7F0301B1
-			public const int preferenceFragmentCompatStyle = 2130903473;
+			public const int passwordToggleContentDescription = 2130903473;
 			
 			// aapt resource value: 0x7F0301B2
-			public const int preferenceFragmentListStyle = 2130903474;
+			public const int passwordToggleDrawable = 2130903474;
 			
 			// aapt resource value: 0x7F0301B3
-			public const int preferenceFragmentStyle = 2130903475;
+			public const int passwordToggleEnabled = 2130903475;
 			
 			// aapt resource value: 0x7F0301B4
-			public const int preferenceInformationStyle = 2130903476;
+			public const int passwordToggleTint = 2130903476;
 			
 			// aapt resource value: 0x7F0301B5
-			public const int preferenceScreenStyle = 2130903477;
+			public const int passwordToggleTintMode = 2130903477;
 			
 			// aapt resource value: 0x7F0301B6
-			public const int preferenceStyle = 2130903478;
+			public const int persistent = 2130903478;
 			
 			// aapt resource value: 0x7F0301B7
-			public const int preferenceTheme = 2130903479;
+			public const int popupMenuStyle = 2130903479;
 			
 			// aapt resource value: 0x7F0301B8
-			public const int preserveIconSpacing = 2130903480;
+			public const int popupTheme = 2130903480;
 			
 			// aapt resource value: 0x7F0301B9
-			public const int pressedTranslationZ = 2130903481;
+			public const int popupWindowStyle = 2130903481;
 			
 			// aapt resource value: 0x7F0301BA
-			public const int progressBarPadding = 2130903482;
+			public const int positiveButtonText = 2130903482;
 			
 			// aapt resource value: 0x7F0301BB
-			public const int progressBarStyle = 2130903483;
+			public const int preferenceCategoryStyle = 2130903483;
 			
 			// aapt resource value: 0x7F0301BC
-			public const int queryBackground = 2130903484;
+			public const int preferenceCategoryTitleTextAppearance = 2130903484;
 			
 			// aapt resource value: 0x7F0301BD
-			public const int queryHint = 2130903485;
+			public const int preferenceFragmentCompatStyle = 2130903485;
 			
 			// aapt resource value: 0x7F0301BE
-			public const int radioButtonStyle = 2130903486;
+			public const int preferenceFragmentListStyle = 2130903486;
 			
 			// aapt resource value: 0x7F0301BF
-			public const int ratingBarStyle = 2130903487;
+			public const int preferenceFragmentStyle = 2130903487;
 			
 			// aapt resource value: 0x7F0301C0
-			public const int ratingBarStyleIndicator = 2130903488;
+			public const int preferenceInformationStyle = 2130903488;
 			
 			// aapt resource value: 0x7F0301C1
-			public const int ratingBarStyleSmall = 2130903489;
+			public const int preferenceScreenStyle = 2130903489;
 			
 			// aapt resource value: 0x7F0301C2
-			public const int recyclerViewStyle = 2130903490;
+			public const int preferenceStyle = 2130903490;
 			
 			// aapt resource value: 0x7F0301C3
-			public const int reverseLayout = 2130903491;
+			public const int preferenceTheme = 2130903491;
 			
 			// aapt resource value: 0x7F0301C4
-			public const int rippleColor = 2130903492;
+			public const int preserveIconSpacing = 2130903492;
 			
 			// aapt resource value: 0x7F0301C5
-			public const int scrimAnimationDuration = 2130903493;
+			public const int pressedTranslationZ = 2130903493;
 			
 			// aapt resource value: 0x7F0301C6
-			public const int scrimBackground = 2130903494;
+			public const int progressBarPadding = 2130903494;
 			
 			// aapt resource value: 0x7F0301C7
-			public const int scrimVisibleHeightTrigger = 2130903495;
+			public const int progressBarStyle = 2130903495;
 			
 			// aapt resource value: 0x7F0301C8
-			public const int searchHintIcon = 2130903496;
+			public const int queryBackground = 2130903496;
 			
 			// aapt resource value: 0x7F0301C9
-			public const int searchIcon = 2130903497;
+			public const int queryHint = 2130903497;
 			
 			// aapt resource value: 0x7F0301CA
-			public const int searchViewStyle = 2130903498;
+			public const int radioButtonStyle = 2130903498;
 			
 			// aapt resource value: 0x7F0301CB
-			public const int seekBarIncrement = 2130903499;
+			public const int ratingBarStyle = 2130903499;
 			
 			// aapt resource value: 0x7F0301CC
-			public const int seekBarPreferenceStyle = 2130903500;
+			public const int ratingBarStyleIndicator = 2130903500;
 			
 			// aapt resource value: 0x7F0301CD
-			public const int seekBarStyle = 2130903501;
+			public const int ratingBarStyleSmall = 2130903501;
 			
 			// aapt resource value: 0x7F0301CE
-			public const int selectable = 2130903502;
+			public const int recyclerViewStyle = 2130903502;
 			
 			// aapt resource value: 0x7F0301CF
-			public const int selectableItemBackground = 2130903503;
+			public const int reverseLayout = 2130903503;
 			
 			// aapt resource value: 0x7F0301D0
-			public const int selectableItemBackgroundBorderless = 2130903504;
+			public const int rippleColor = 2130903504;
 			
 			// aapt resource value: 0x7F0301D1
-			public const int shouldDisableView = 2130903505;
+			public const int scrimAnimationDuration = 2130903505;
 			
 			// aapt resource value: 0x7F0301D2
-			public const int showAsAction = 2130903506;
+			public const int scrimBackground = 2130903506;
 			
 			// aapt resource value: 0x7F0301D3
-			public const int showDividers = 2130903507;
+			public const int scrimVisibleHeightTrigger = 2130903507;
 			
 			// aapt resource value: 0x7F0301D4
-			public const int showMotionSpec = 2130903508;
+			public const int searchHintIcon = 2130903508;
 			
 			// aapt resource value: 0x7F0301D5
-			public const int showSeekBarValue = 2130903509;
+			public const int searchIcon = 2130903509;
 			
 			// aapt resource value: 0x7F0301D6
-			public const int showText = 2130903510;
+			public const int searchViewStyle = 2130903510;
 			
 			// aapt resource value: 0x7F0301D7
-			public const int showTitle = 2130903511;
+			public const int seekBarIncrement = 2130903511;
 			
 			// aapt resource value: 0x7F0301D8
-			public const int singleChoiceItemLayout = 2130903512;
+			public const int seekBarPreferenceStyle = 2130903512;
 			
 			// aapt resource value: 0x7F0301D9
-			public const int singleLine = 2130903513;
+			public const int seekBarStyle = 2130903513;
 			
 			// aapt resource value: 0x7F0301DA
-			public const int singleLineTitle = 2130903514;
+			public const int selectable = 2130903514;
 			
 			// aapt resource value: 0x7F0301DB
-			public const int singleSelection = 2130903515;
+			public const int selectableItemBackground = 2130903515;
 			
 			// aapt resource value: 0x7F0301DC
-			public const int snackbarButtonStyle = 2130903516;
+			public const int selectableItemBackgroundBorderless = 2130903516;
 			
 			// aapt resource value: 0x7F0301DD
-			public const int snackbarStyle = 2130903517;
+			public const int shouldDisableView = 2130903517;
 			
 			// aapt resource value: 0x7F0301DE
-			public const int spanCount = 2130903518;
+			public const int showAsAction = 2130903518;
 			
 			// aapt resource value: 0x7F0301DF
-			public const int spinBars = 2130903519;
+			public const int showDividers = 2130903519;
 			
 			// aapt resource value: 0x7F0301E0
-			public const int spinnerDropDownItemStyle = 2130903520;
+			public const int showMotionSpec = 2130903520;
 			
 			// aapt resource value: 0x7F0301E1
-			public const int spinnerStyle = 2130903521;
+			public const int showSeekBarValue = 2130903521;
 			
 			// aapt resource value: 0x7F0301E2
-			public const int splitTrack = 2130903522;
+			public const int showText = 2130903522;
 			
 			// aapt resource value: 0x7F0301E3
-			public const int srcCompat = 2130903523;
+			public const int showTitle = 2130903523;
 			
 			// aapt resource value: 0x7F0301E4
-			public const int stackFromEnd = 2130903524;
+			public const int singleChoiceItemLayout = 2130903524;
 			
 			// aapt resource value: 0x7F0301E5
-			public const int state_above_anchor = 2130903525;
+			public const int singleLine = 2130903525;
 			
 			// aapt resource value: 0x7F0301E6
-			public const int state_collapsed = 2130903526;
+			public const int singleLineTitle = 2130903526;
 			
 			// aapt resource value: 0x7F0301E7
-			public const int state_collapsible = 2130903527;
+			public const int singleSelection = 2130903527;
 			
 			// aapt resource value: 0x7F0301E8
-			public const int state_liftable = 2130903528;
+			public const int snackbarButtonStyle = 2130903528;
 			
 			// aapt resource value: 0x7F0301E9
-			public const int state_lifted = 2130903529;
+			public const int snackbarStyle = 2130903529;
 			
 			// aapt resource value: 0x7F0301EA
-			public const int statusBarBackground = 2130903530;
+			public const int spanCount = 2130903530;
 			
 			// aapt resource value: 0x7F0301EB
-			public const int statusBarScrim = 2130903531;
+			public const int spinBars = 2130903531;
 			
 			// aapt resource value: 0x7F0301EC
-			public const int strokeColor = 2130903532;
+			public const int spinnerDropDownItemStyle = 2130903532;
 			
 			// aapt resource value: 0x7F0301ED
-			public const int strokeWidth = 2130903533;
+			public const int spinnerStyle = 2130903533;
 			
 			// aapt resource value: 0x7F0301EE
-			public const int subMenuArrow = 2130903534;
+			public const int splitTrack = 2130903534;
 			
 			// aapt resource value: 0x7F0301EF
-			public const int submitBackground = 2130903535;
+			public const int srcCompat = 2130903535;
 			
 			// aapt resource value: 0x7F0301F0
-			public const int subtitle = 2130903536;
+			public const int stackFromEnd = 2130903536;
 			
 			// aapt resource value: 0x7F0301F1
-			public const int subtitleTextAppearance = 2130903537;
+			public const int state_above_anchor = 2130903537;
 			
 			// aapt resource value: 0x7F0301F2
-			public const int subtitleTextColor = 2130903538;
+			public const int state_collapsed = 2130903538;
 			
 			// aapt resource value: 0x7F0301F3
-			public const int subtitleTextStyle = 2130903539;
+			public const int state_collapsible = 2130903539;
 			
 			// aapt resource value: 0x7F0301F4
-			public const int suggestionRowLayout = 2130903540;
+			public const int state_liftable = 2130903540;
 			
 			// aapt resource value: 0x7F0301F5
-			public const int summary = 2130903541;
+			public const int state_lifted = 2130903541;
 			
 			// aapt resource value: 0x7F0301F6
-			public const int summaryOff = 2130903542;
+			public const int statusBarBackground = 2130903542;
 			
 			// aapt resource value: 0x7F0301F7
-			public const int summaryOn = 2130903543;
+			public const int statusBarScrim = 2130903543;
 			
 			// aapt resource value: 0x7F0301F8
-			public const int switchMinWidth = 2130903544;
+			public const int strokeColor = 2130903544;
 			
 			// aapt resource value: 0x7F0301F9
-			public const int switchPadding = 2130903545;
+			public const int strokeWidth = 2130903545;
 			
 			// aapt resource value: 0x7F0301FA
-			public const int switchPreferenceCompatStyle = 2130903546;
+			public const int subMenuArrow = 2130903546;
 			
 			// aapt resource value: 0x7F0301FB
-			public const int switchPreferenceStyle = 2130903547;
+			public const int submitBackground = 2130903547;
 			
 			// aapt resource value: 0x7F0301FC
-			public const int switchStyle = 2130903548;
+			public const int subtitle = 2130903548;
 			
 			// aapt resource value: 0x7F0301FD
-			public const int switchTextAppearance = 2130903549;
+			public const int subtitleTextAppearance = 2130903549;
 			
 			// aapt resource value: 0x7F0301FE
-			public const int switchTextOff = 2130903550;
+			public const int subtitleTextColor = 2130903550;
 			
 			// aapt resource value: 0x7F0301FF
-			public const int switchTextOn = 2130903551;
+			public const int subtitleTextStyle = 2130903551;
 			
 			// aapt resource value: 0x7F030200
-			public const int tabBackground = 2130903552;
+			public const int suggestionRowLayout = 2130903552;
 			
 			// aapt resource value: 0x7F030201
-			public const int tabContentStart = 2130903553;
+			public const int summary = 2130903553;
 			
 			// aapt resource value: 0x7F030202
-			public const int tabGravity = 2130903554;
+			public const int summaryOff = 2130903554;
 			
 			// aapt resource value: 0x7F030203
-			public const int tabIconTint = 2130903555;
+			public const int summaryOn = 2130903555;
 			
 			// aapt resource value: 0x7F030204
-			public const int tabIconTintMode = 2130903556;
+			public const int switchMinWidth = 2130903556;
 			
 			// aapt resource value: 0x7F030205
-			public const int tabIndicator = 2130903557;
+			public const int switchPadding = 2130903557;
 			
 			// aapt resource value: 0x7F030206
-			public const int tabIndicatorAnimationDuration = 2130903558;
+			public const int switchPreferenceCompatStyle = 2130903558;
 			
 			// aapt resource value: 0x7F030207
-			public const int tabIndicatorColor = 2130903559;
+			public const int switchPreferenceStyle = 2130903559;
 			
 			// aapt resource value: 0x7F030208
-			public const int tabIndicatorFullWidth = 2130903560;
+			public const int switchStyle = 2130903560;
 			
 			// aapt resource value: 0x7F030209
-			public const int tabIndicatorGravity = 2130903561;
+			public const int switchTextAppearance = 2130903561;
 			
 			// aapt resource value: 0x7F03020A
-			public const int tabIndicatorHeight = 2130903562;
+			public const int switchTextOff = 2130903562;
 			
 			// aapt resource value: 0x7F03020B
-			public const int tabInlineLabel = 2130903563;
+			public const int switchTextOn = 2130903563;
 			
 			// aapt resource value: 0x7F03020C
-			public const int tabMaxWidth = 2130903564;
+			public const int tabBackground = 2130903564;
 			
 			// aapt resource value: 0x7F03020D
-			public const int tabMinWidth = 2130903565;
+			public const int tabContentStart = 2130903565;
 			
 			// aapt resource value: 0x7F03020E
-			public const int tabMode = 2130903566;
+			public const int tabGravity = 2130903566;
 			
 			// aapt resource value: 0x7F03020F
-			public const int tabPadding = 2130903567;
+			public const int tabIconTint = 2130903567;
 			
 			// aapt resource value: 0x7F030210
-			public const int tabPaddingBottom = 2130903568;
+			public const int tabIconTintMode = 2130903568;
 			
 			// aapt resource value: 0x7F030211
-			public const int tabPaddingEnd = 2130903569;
+			public const int tabIndicator = 2130903569;
 			
 			// aapt resource value: 0x7F030212
-			public const int tabPaddingStart = 2130903570;
+			public const int tabIndicatorAnimationDuration = 2130903570;
 			
 			// aapt resource value: 0x7F030213
-			public const int tabPaddingTop = 2130903571;
+			public const int tabIndicatorColor = 2130903571;
 			
 			// aapt resource value: 0x7F030214
-			public const int tabRippleColor = 2130903572;
+			public const int tabIndicatorFullWidth = 2130903572;
 			
 			// aapt resource value: 0x7F030215
-			public const int tabSelectedTextColor = 2130903573;
+			public const int tabIndicatorGravity = 2130903573;
 			
 			// aapt resource value: 0x7F030216
-			public const int tabStyle = 2130903574;
+			public const int tabIndicatorHeight = 2130903574;
 			
 			// aapt resource value: 0x7F030217
-			public const int tabTextAppearance = 2130903575;
+			public const int tabInlineLabel = 2130903575;
 			
 			// aapt resource value: 0x7F030218
-			public const int tabTextColor = 2130903576;
+			public const int tabMaxWidth = 2130903576;
 			
 			// aapt resource value: 0x7F030219
-			public const int tabUnboundedRipple = 2130903577;
+			public const int tabMinWidth = 2130903577;
 			
 			// aapt resource value: 0x7F03021A
-			public const int textAllCaps = 2130903578;
+			public const int tabMode = 2130903578;
 			
 			// aapt resource value: 0x7F03021B
-			public const int textAppearanceBody1 = 2130903579;
+			public const int tabPadding = 2130903579;
 			
 			// aapt resource value: 0x7F03021C
-			public const int textAppearanceBody2 = 2130903580;
+			public const int tabPaddingBottom = 2130903580;
 			
 			// aapt resource value: 0x7F03021D
-			public const int textAppearanceButton = 2130903581;
+			public const int tabPaddingEnd = 2130903581;
 			
 			// aapt resource value: 0x7F03021E
-			public const int textAppearanceCaption = 2130903582;
+			public const int tabPaddingStart = 2130903582;
 			
 			// aapt resource value: 0x7F03021F
-			public const int textAppearanceHeadline1 = 2130903583;
+			public const int tabPaddingTop = 2130903583;
 			
 			// aapt resource value: 0x7F030220
-			public const int textAppearanceHeadline2 = 2130903584;
+			public const int tabRippleColor = 2130903584;
 			
 			// aapt resource value: 0x7F030221
-			public const int textAppearanceHeadline3 = 2130903585;
+			public const int tabSelectedTextColor = 2130903585;
 			
 			// aapt resource value: 0x7F030222
-			public const int textAppearanceHeadline4 = 2130903586;
+			public const int tabStyle = 2130903586;
 			
 			// aapt resource value: 0x7F030223
-			public const int textAppearanceHeadline5 = 2130903587;
+			public const int tabTextAppearance = 2130903587;
 			
 			// aapt resource value: 0x7F030224
-			public const int textAppearanceHeadline6 = 2130903588;
+			public const int tabTextColor = 2130903588;
 			
 			// aapt resource value: 0x7F030225
-			public const int textAppearanceLargePopupMenu = 2130903589;
+			public const int tabUnboundedRipple = 2130903589;
 			
 			// aapt resource value: 0x7F030226
-			public const int textAppearanceListItem = 2130903590;
+			public const int textAllCaps = 2130903590;
 			
 			// aapt resource value: 0x7F030227
-			public const int textAppearanceListItemSecondary = 2130903591;
+			public const int textAppearanceBody1 = 2130903591;
 			
 			// aapt resource value: 0x7F030228
-			public const int textAppearanceListItemSmall = 2130903592;
+			public const int textAppearanceBody2 = 2130903592;
 			
 			// aapt resource value: 0x7F030229
-			public const int textAppearanceOverline = 2130903593;
+			public const int textAppearanceButton = 2130903593;
 			
 			// aapt resource value: 0x7F03022A
-			public const int textAppearancePopupMenuHeader = 2130903594;
+			public const int textAppearanceCaption = 2130903594;
 			
 			// aapt resource value: 0x7F03022B
-			public const int textAppearanceSearchResultSubtitle = 2130903595;
+			public const int textAppearanceHeadline1 = 2130903595;
 			
 			// aapt resource value: 0x7F03022C
-			public const int textAppearanceSearchResultTitle = 2130903596;
+			public const int textAppearanceHeadline2 = 2130903596;
 			
 			// aapt resource value: 0x7F03022D
-			public const int textAppearanceSmallPopupMenu = 2130903597;
+			public const int textAppearanceHeadline3 = 2130903597;
 			
 			// aapt resource value: 0x7F03022E
-			public const int textAppearanceSubtitle1 = 2130903598;
+			public const int textAppearanceHeadline4 = 2130903598;
 			
 			// aapt resource value: 0x7F03022F
-			public const int textAppearanceSubtitle2 = 2130903599;
+			public const int textAppearanceHeadline5 = 2130903599;
 			
 			// aapt resource value: 0x7F030230
-			public const int textColorAlertDialogListItem = 2130903600;
+			public const int textAppearanceHeadline6 = 2130903600;
 			
 			// aapt resource value: 0x7F030231
-			public const int textColorSearchUrl = 2130903601;
+			public const int textAppearanceLargePopupMenu = 2130903601;
 			
 			// aapt resource value: 0x7F030232
-			public const int textEndPadding = 2130903602;
+			public const int textAppearanceListItem = 2130903602;
 			
 			// aapt resource value: 0x7F030233
-			public const int textInputStyle = 2130903603;
+			public const int textAppearanceListItemSecondary = 2130903603;
 			
 			// aapt resource value: 0x7F030234
-			public const int textLocale = 2130903604;
+			public const int textAppearanceListItemSmall = 2130903604;
 			
 			// aapt resource value: 0x7F030235
-			public const int textStartPadding = 2130903605;
+			public const int textAppearanceOverline = 2130903605;
 			
 			// aapt resource value: 0x7F030236
-			public const int theme = 2130903606;
+			public const int textAppearancePopupMenuHeader = 2130903606;
 			
 			// aapt resource value: 0x7F030237
-			public const int thickness = 2130903607;
+			public const int textAppearanceSearchResultSubtitle = 2130903607;
 			
 			// aapt resource value: 0x7F030238
-			public const int thumbTextPadding = 2130903608;
+			public const int textAppearanceSearchResultTitle = 2130903608;
 			
 			// aapt resource value: 0x7F030239
-			public const int thumbTint = 2130903609;
+			public const int textAppearanceSmallPopupMenu = 2130903609;
 			
 			// aapt resource value: 0x7F03023A
-			public const int thumbTintMode = 2130903610;
+			public const int textAppearanceSubtitle1 = 2130903610;
 			
 			// aapt resource value: 0x7F03023B
-			public const int tickMark = 2130903611;
+			public const int textAppearanceSubtitle2 = 2130903611;
 			
 			// aapt resource value: 0x7F03023C
-			public const int tickMarkTint = 2130903612;
+			public const int textColorAlertDialogListItem = 2130903612;
 			
 			// aapt resource value: 0x7F03023D
-			public const int tickMarkTintMode = 2130903613;
+			public const int textColorSearchUrl = 2130903613;
 			
 			// aapt resource value: 0x7F03023E
-			public const int tint = 2130903614;
+			public const int textEndPadding = 2130903614;
 			
 			// aapt resource value: 0x7F03023F
-			public const int tintMode = 2130903615;
+			public const int textInputStyle = 2130903615;
 			
 			// aapt resource value: 0x7F030240
-			public const int title = 2130903616;
+			public const int textLocale = 2130903616;
 			
 			// aapt resource value: 0x7F030241
-			public const int titleEnabled = 2130903617;
+			public const int textStartPadding = 2130903617;
 			
 			// aapt resource value: 0x7F030242
-			public const int titleMargin = 2130903618;
+			public const int theme = 2130903618;
 			
 			// aapt resource value: 0x7F030243
-			public const int titleMarginBottom = 2130903619;
+			public const int thickness = 2130903619;
 			
 			// aapt resource value: 0x7F030244
-			public const int titleMarginEnd = 2130903620;
-			
-			// aapt resource value: 0x7F030247
-			public const int titleMargins = 2130903623;
+			public const int thumbTextPadding = 2130903620;
 			
 			// aapt resource value: 0x7F030245
-			public const int titleMarginStart = 2130903621;
+			public const int thumbTint = 2130903621;
 			
 			// aapt resource value: 0x7F030246
-			public const int titleMarginTop = 2130903622;
+			public const int thumbTintMode = 2130903622;
+			
+			// aapt resource value: 0x7F030247
+			public const int tickMark = 2130903623;
 			
 			// aapt resource value: 0x7F030248
-			public const int titleTextAppearance = 2130903624;
+			public const int tickMarkTint = 2130903624;
 			
 			// aapt resource value: 0x7F030249
-			public const int titleTextColor = 2130903625;
+			public const int tickMarkTintMode = 2130903625;
 			
 			// aapt resource value: 0x7F03024A
-			public const int titleTextStyle = 2130903626;
+			public const int tint = 2130903626;
 			
 			// aapt resource value: 0x7F03024B
-			public const int toolbarId = 2130903627;
+			public const int tintMode = 2130903627;
 			
 			// aapt resource value: 0x7F03024C
-			public const int toolbarNavigationButtonStyle = 2130903628;
+			public const int title = 2130903628;
 			
 			// aapt resource value: 0x7F03024D
-			public const int toolbarStyle = 2130903629;
+			public const int titleEnabled = 2130903629;
 			
 			// aapt resource value: 0x7F03024E
-			public const int tooltipForegroundColor = 2130903630;
+			public const int titleMargin = 2130903630;
 			
 			// aapt resource value: 0x7F03024F
-			public const int tooltipFrameBackground = 2130903631;
+			public const int titleMarginBottom = 2130903631;
 			
 			// aapt resource value: 0x7F030250
-			public const int tooltipText = 2130903632;
-			
-			// aapt resource value: 0x7F030251
-			public const int track = 2130903633;
-			
-			// aapt resource value: 0x7F030252
-			public const int trackTint = 2130903634;
+			public const int titleMarginEnd = 2130903632;
 			
 			// aapt resource value: 0x7F030253
-			public const int trackTintMode = 2130903635;
+			public const int titleMargins = 2130903635;
+			
+			// aapt resource value: 0x7F030251
+			public const int titleMarginStart = 2130903633;
+			
+			// aapt resource value: 0x7F030252
+			public const int titleMarginTop = 2130903634;
 			
 			// aapt resource value: 0x7F030254
-			public const int ttcIndex = 2130903636;
+			public const int titleTextAppearance = 2130903636;
 			
 			// aapt resource value: 0x7F030255
-			public const int updatesContinuously = 2130903637;
+			public const int titleTextColor = 2130903637;
 			
 			// aapt resource value: 0x7F030256
-			public const int useCompatPadding = 2130903638;
+			public const int titleTextStyle = 2130903638;
 			
 			// aapt resource value: 0x7F030257
-			public const int useSimpleSummaryProvider = 2130903639;
+			public const int toolbarId = 2130903639;
 			
 			// aapt resource value: 0x7F030258
-			public const int viewInflaterClass = 2130903640;
+			public const int toolbarNavigationButtonStyle = 2130903640;
 			
 			// aapt resource value: 0x7F030259
-			public const int voiceIcon = 2130903641;
+			public const int toolbarStyle = 2130903641;
 			
 			// aapt resource value: 0x7F03025A
-			public const int widgetLayout = 2130903642;
+			public const int tooltipForegroundColor = 2130903642;
 			
 			// aapt resource value: 0x7F03025B
-			public const int windowActionBar = 2130903643;
+			public const int tooltipFrameBackground = 2130903643;
 			
 			// aapt resource value: 0x7F03025C
-			public const int windowActionBarOverlay = 2130903644;
+			public const int tooltipText = 2130903644;
 			
 			// aapt resource value: 0x7F03025D
-			public const int windowActionModeOverlay = 2130903645;
+			public const int track = 2130903645;
 			
 			// aapt resource value: 0x7F03025E
-			public const int windowFixedHeightMajor = 2130903646;
+			public const int trackTint = 2130903646;
 			
 			// aapt resource value: 0x7F03025F
-			public const int windowFixedHeightMinor = 2130903647;
+			public const int trackTintMode = 2130903647;
 			
 			// aapt resource value: 0x7F030260
-			public const int windowFixedWidthMajor = 2130903648;
+			public const int ttcIndex = 2130903648;
 			
 			// aapt resource value: 0x7F030261
-			public const int windowFixedWidthMinor = 2130903649;
+			public const int updatesContinuously = 2130903649;
 			
 			// aapt resource value: 0x7F030262
-			public const int windowMinWidthMajor = 2130903650;
+			public const int useCompatPadding = 2130903650;
 			
 			// aapt resource value: 0x7F030263
-			public const int windowMinWidthMinor = 2130903651;
+			public const int useSimpleSummaryProvider = 2130903651;
 			
 			// aapt resource value: 0x7F030264
-			public const int windowNoTitle = 2130903652;
+			public const int viewInflaterClass = 2130903652;
+			
+			// aapt resource value: 0x7F030265
+			public const int voiceIcon = 2130903653;
+			
+			// aapt resource value: 0x7F030266
+			public const int widgetLayout = 2130903654;
+			
+			// aapt resource value: 0x7F030267
+			public const int windowActionBar = 2130903655;
+			
+			// aapt resource value: 0x7F030268
+			public const int windowActionBarOverlay = 2130903656;
+			
+			// aapt resource value: 0x7F030269
+			public const int windowActionModeOverlay = 2130903657;
+			
+			// aapt resource value: 0x7F03026A
+			public const int windowFixedHeightMajor = 2130903658;
+			
+			// aapt resource value: 0x7F03026B
+			public const int windowFixedHeightMinor = 2130903659;
+			
+			// aapt resource value: 0x7F03026C
+			public const int windowFixedWidthMajor = 2130903660;
+			
+			// aapt resource value: 0x7F03026D
+			public const int windowFixedWidthMinor = 2130903661;
+			
+			// aapt resource value: 0x7F03026E
+			public const int windowMinWidthMajor = 2130903662;
+			
+			// aapt resource value: 0x7F03026F
+			public const int windowMinWidthMinor = 2130903663;
+			
+			// aapt resource value: 0x7F030270
+			public const int windowNoTitle = 2130903664;
 			
 			static Attribute()
 			{
@@ -18290,79 +21022,91 @@ namespace SushiShop.Droid
 			public const int ic_cart = 2131165293;
 			
 			// aapt resource value: 0x7F07006E
-			public const int ic_info = 2131165294;
+			public const int ic_errorstatus = 2131165294;
 			
 			// aapt resource value: 0x7F07006F
-			public const int ic_menu = 2131165295;
+			public const int ic_info = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int ic_mtrl_chip_checked_black = 2131165296;
+			public const int ic_menu = 2131165296;
 			
 			// aapt resource value: 0x7F070071
-			public const int ic_mtrl_chip_checked_circle = 2131165297;
+			public const int ic_mtrl_chip_checked_black = 2131165297;
 			
 			// aapt resource value: 0x7F070072
-			public const int ic_mtrl_chip_close_circle = 2131165298;
+			public const int ic_mtrl_chip_checked_circle = 2131165298;
 			
 			// aapt resource value: 0x7F070073
-			public const int ic_profile = 2131165299;
+			public const int ic_mtrl_chip_close_circle = 2131165299;
 			
 			// aapt resource value: 0x7F070074
-			public const int ic_promotions = 2131165300;
+			public const int ic_profile = 2131165300;
 			
 			// aapt resource value: 0x7F070075
-			public const int mtrl_snackbar_background = 2131165301;
+			public const int ic_promotions = 2131165301;
 			
 			// aapt resource value: 0x7F070076
-			public const int mtrl_tabs_default_indicator = 2131165302;
+			public const int ic_successstatus = 2131165302;
 			
 			// aapt resource value: 0x7F070077
-			public const int navigation_empty_icon = 2131165303;
+			public const int mtrl_snackbar_background = 2131165303;
 			
 			// aapt resource value: 0x7F070078
-			public const int notification_action_background = 2131165304;
+			public const int mtrl_tabs_default_indicator = 2131165304;
 			
 			// aapt resource value: 0x7F070079
-			public const int notification_bg = 2131165305;
+			public const int navigation_empty_icon = 2131165305;
 			
 			// aapt resource value: 0x7F07007A
-			public const int notification_bg_low = 2131165306;
+			public const int notification_action_background = 2131165306;
 			
 			// aapt resource value: 0x7F07007B
-			public const int notification_bg_low_normal = 2131165307;
+			public const int notification_bg = 2131165307;
 			
 			// aapt resource value: 0x7F07007C
-			public const int notification_bg_low_pressed = 2131165308;
+			public const int notification_bg_low = 2131165308;
 			
 			// aapt resource value: 0x7F07007D
-			public const int notification_bg_normal = 2131165309;
+			public const int notification_bg_low_normal = 2131165309;
 			
 			// aapt resource value: 0x7F07007E
-			public const int notification_bg_normal_pressed = 2131165310;
+			public const int notification_bg_low_pressed = 2131165310;
 			
 			// aapt resource value: 0x7F07007F
-			public const int notification_icon_background = 2131165311;
+			public const int notification_bg_normal = 2131165311;
 			
 			// aapt resource value: 0x7F070080
-			public const int notification_template_icon_bg = 2131165312;
+			public const int notification_bg_normal_pressed = 2131165312;
 			
 			// aapt resource value: 0x7F070081
-			public const int notification_template_icon_low_bg = 2131165313;
+			public const int notification_icon_background = 2131165313;
 			
 			// aapt resource value: 0x7F070082
-			public const int notification_tile_bg = 2131165314;
+			public const int notification_template_icon_bg = 2131165314;
 			
 			// aapt resource value: 0x7F070083
-			public const int notify_panel_notification_icon_bg = 2131165315;
+			public const int notification_template_icon_low_bg = 2131165315;
 			
 			// aapt resource value: 0x7F070084
-			public const int preference_list_divider_material = 2131165316;
+			public const int notification_tile_bg = 2131165316;
 			
 			// aapt resource value: 0x7F070085
-			public const int tooltip_frame_dark = 2131165317;
+			public const int notify_panel_notification_icon_bg = 2131165317;
 			
 			// aapt resource value: 0x7F070086
-			public const int tooltip_frame_light = 2131165318;
+			public const int preference_list_divider_material = 2131165318;
+			
+			// aapt resource value: 0x7F070087
+			public const int roundedbg = 2131165319;
+			
+			// aapt resource value: 0x7F070088
+			public const int roundedbgdark = 2131165320;
+			
+			// aapt resource value: 0x7F070089
+			public const int tooltip_frame_dark = 2131165321;
+			
+			// aapt resource value: 0x7F07008A
+			public const int tooltip_frame_light = 2131165322;
 			
 			static Drawable()
 			{
@@ -18835,34 +21579,43 @@ namespace SushiShop.Droid
 			public const int list_item = 2131296396;
 			
 			// aapt resource value: 0x7F09008D
-			public const int main_tab_layout = 2131296397;
+			public const int loadingImage = 2131296397;
 			
 			// aapt resource value: 0x7F09008E
-			public const int main_view_pager = 2131296398;
+			public const int loadingProgressBar = 2131296398;
 			
 			// aapt resource value: 0x7F09008F
-			public const int masked = 2131296399;
+			public const int loadingProgressWheel = 2131296399;
 			
 			// aapt resource value: 0x7F090090
-			public const int message = 2131296400;
+			public const int main_tab_layout = 2131296400;
+			
+			// aapt resource value: 0x7F090091
+			public const int main_view_pager = 2131296401;
+			
+			// aapt resource value: 0x7F090092
+			public const int masked = 2131296402;
+			
+			// aapt resource value: 0x7F090093
+			public const int message = 2131296403;
 			
 			// aapt resource value: 0x7F090003
 			public const int META = 2131296259;
 			
-			// aapt resource value: 0x7F090091
-			public const int middle = 2131296401;
-			
-			// aapt resource value: 0x7F090092
-			public const int mini = 2131296402;
-			
-			// aapt resource value: 0x7F090093
-			public const int mtrl_child_content_container = 2131296403;
-			
 			// aapt resource value: 0x7F090094
-			public const int mtrl_internal_children_alpha_tag = 2131296404;
+			public const int middle = 2131296404;
 			
 			// aapt resource value: 0x7F090095
-			public const int multiply = 2131296405;
+			public const int mini = 2131296405;
+			
+			// aapt resource value: 0x7F090096
+			public const int mtrl_child_content_container = 2131296406;
+			
+			// aapt resource value: 0x7F090097
+			public const int mtrl_internal_children_alpha_tag = 2131296407;
+			
+			// aapt resource value: 0x7F090098
+			public const int multiply = 2131296408;
 			
 			// aapt resource value: 0x7F090004
 			public const int MvvmCrossTagId = 2131296260;
@@ -18870,344 +21623,347 @@ namespace SushiShop.Droid
 			// aapt resource value: 0x7F090005
 			public const int MvxBindingTagUnique = 2131296261;
 			
-			// aapt resource value: 0x7F090096
-			public const int navigation_header_container = 2131296406;
-			
-			// aapt resource value: 0x7F090097
-			public const int never = 2131296407;
-			
-			// aapt resource value: 0x7F090098
-			public const int none = 2131296408;
-			
 			// aapt resource value: 0x7F090099
-			public const int normal = 2131296409;
+			public const int navigation_header_container = 2131296409;
 			
 			// aapt resource value: 0x7F09009A
-			public const int notification_background = 2131296410;
+			public const int never = 2131296410;
 			
 			// aapt resource value: 0x7F09009B
-			public const int notification_main_column = 2131296411;
+			public const int none = 2131296411;
 			
 			// aapt resource value: 0x7F09009C
-			public const int notification_main_column_container = 2131296412;
+			public const int normal = 2131296412;
 			
 			// aapt resource value: 0x7F09009D
-			public const int off = 2131296413;
+			public const int notification_background = 2131296413;
 			
 			// aapt resource value: 0x7F09009E
-			public const int on = 2131296414;
+			public const int notification_main_column = 2131296414;
 			
 			// aapt resource value: 0x7F09009F
-			public const int outline = 2131296415;
+			public const int notification_main_column_container = 2131296415;
 			
 			// aapt resource value: 0x7F0900A0
-			public const int packed = 2131296416;
+			public const int off = 2131296416;
 			
 			// aapt resource value: 0x7F0900A1
-			public const int parallax = 2131296417;
+			public const int on = 2131296417;
 			
 			// aapt resource value: 0x7F0900A2
-			public const int parent = 2131296418;
+			public const int outline = 2131296418;
 			
 			// aapt resource value: 0x7F0900A3
-			public const int parentPanel = 2131296419;
+			public const int packed = 2131296419;
 			
 			// aapt resource value: 0x7F0900A4
-			public const int parent_matrix = 2131296420;
+			public const int parallax = 2131296420;
 			
 			// aapt resource value: 0x7F0900A5
-			public const int percent = 2131296421;
+			public const int parent = 2131296421;
 			
 			// aapt resource value: 0x7F0900A6
-			public const int pin = 2131296422;
+			public const int parentPanel = 2131296422;
 			
 			// aapt resource value: 0x7F0900A7
-			public const int progress_circular = 2131296423;
+			public const int parent_matrix = 2131296423;
 			
 			// aapt resource value: 0x7F0900A8
-			public const int progress_horizontal = 2131296424;
+			public const int percent = 2131296424;
 			
 			// aapt resource value: 0x7F0900A9
-			public const int radio = 2131296425;
+			public const int pin = 2131296425;
 			
 			// aapt resource value: 0x7F0900AA
-			public const int recycler_view = 2131296426;
+			public const int progress_circular = 2131296426;
 			
 			// aapt resource value: 0x7F0900AB
-			public const int right = 2131296427;
+			public const int progress_horizontal = 2131296427;
 			
 			// aapt resource value: 0x7F0900AC
-			public const int right_icon = 2131296428;
+			public const int radio = 2131296428;
 			
 			// aapt resource value: 0x7F0900AD
-			public const int right_side = 2131296429;
+			public const int recycler_view = 2131296429;
 			
 			// aapt resource value: 0x7F0900AE
-			public const int save_non_transition_alpha = 2131296430;
+			public const int right = 2131296430;
 			
 			// aapt resource value: 0x7F0900AF
-			public const int save_overlay_view = 2131296431;
+			public const int right_icon = 2131296431;
 			
 			// aapt resource value: 0x7F0900B0
-			public const int screen = 2131296432;
+			public const int right_side = 2131296432;
 			
 			// aapt resource value: 0x7F0900B1
-			public const int scroll = 2131296433;
-			
-			// aapt resource value: 0x7F0900B5
-			public const int scrollable = 2131296437;
+			public const int save_non_transition_alpha = 2131296433;
 			
 			// aapt resource value: 0x7F0900B2
-			public const int scrollIndicatorDown = 2131296434;
+			public const int save_overlay_view = 2131296434;
 			
 			// aapt resource value: 0x7F0900B3
-			public const int scrollIndicatorUp = 2131296435;
+			public const int screen = 2131296435;
 			
 			// aapt resource value: 0x7F0900B4
-			public const int scrollView = 2131296436;
-			
-			// aapt resource value: 0x7F0900B6
-			public const int search_badge = 2131296438;
-			
-			// aapt resource value: 0x7F0900B7
-			public const int search_bar = 2131296439;
+			public const int scroll = 2131296436;
 			
 			// aapt resource value: 0x7F0900B8
-			public const int search_button = 2131296440;
+			public const int scrollable = 2131296440;
+			
+			// aapt resource value: 0x7F0900B5
+			public const int scrollIndicatorDown = 2131296437;
+			
+			// aapt resource value: 0x7F0900B6
+			public const int scrollIndicatorUp = 2131296438;
+			
+			// aapt resource value: 0x7F0900B7
+			public const int scrollView = 2131296439;
 			
 			// aapt resource value: 0x7F0900B9
-			public const int search_close_btn = 2131296441;
+			public const int search_badge = 2131296441;
 			
 			// aapt resource value: 0x7F0900BA
-			public const int search_edit_frame = 2131296442;
+			public const int search_bar = 2131296442;
 			
 			// aapt resource value: 0x7F0900BB
-			public const int search_go_btn = 2131296443;
+			public const int search_button = 2131296443;
 			
 			// aapt resource value: 0x7F0900BC
-			public const int search_mag_icon = 2131296444;
+			public const int search_close_btn = 2131296444;
 			
 			// aapt resource value: 0x7F0900BD
-			public const int search_plate = 2131296445;
+			public const int search_edit_frame = 2131296445;
 			
 			// aapt resource value: 0x7F0900BE
-			public const int search_src_text = 2131296446;
+			public const int search_go_btn = 2131296446;
 			
 			// aapt resource value: 0x7F0900BF
-			public const int search_voice_btn = 2131296447;
+			public const int search_mag_icon = 2131296447;
 			
 			// aapt resource value: 0x7F0900C0
-			public const int seekbar = 2131296448;
+			public const int search_plate = 2131296448;
 			
 			// aapt resource value: 0x7F0900C1
-			public const int seekbar_value = 2131296449;
-			
-			// aapt resource value: 0x7F0900C3
-			public const int selected = 2131296451;
+			public const int search_src_text = 2131296449;
 			
 			// aapt resource value: 0x7F0900C2
-			public const int select_dialog_listview = 2131296450;
+			public const int search_voice_btn = 2131296450;
+			
+			// aapt resource value: 0x7F0900C3
+			public const int seekbar = 2131296451;
+			
+			// aapt resource value: 0x7F0900C4
+			public const int seekbar_value = 2131296452;
+			
+			// aapt resource value: 0x7F0900C6
+			public const int selected = 2131296454;
+			
+			// aapt resource value: 0x7F0900C5
+			public const int select_dialog_listview = 2131296453;
 			
 			// aapt resource value: 0x7F090006
 			public const int SHIFT = 2131296262;
 			
-			// aapt resource value: 0x7F0900C4
-			public const int shortcut = 2131296452;
-			
-			// aapt resource value: 0x7F0900C5
-			public const int showCustom = 2131296453;
-			
-			// aapt resource value: 0x7F0900C6
-			public const int showHome = 2131296454;
-			
 			// aapt resource value: 0x7F0900C7
-			public const int showTitle = 2131296455;
+			public const int shortcut = 2131296455;
 			
 			// aapt resource value: 0x7F0900C8
-			public const int smallLabel = 2131296456;
+			public const int showCustom = 2131296456;
 			
 			// aapt resource value: 0x7F0900C9
-			public const int snackbar_action = 2131296457;
+			public const int showHome = 2131296457;
 			
 			// aapt resource value: 0x7F0900CA
-			public const int snackbar_text = 2131296458;
+			public const int showTitle = 2131296458;
 			
 			// aapt resource value: 0x7F0900CB
-			public const int snap = 2131296459;
+			public const int smallLabel = 2131296459;
 			
 			// aapt resource value: 0x7F0900CC
-			public const int snapMargins = 2131296460;
+			public const int snackbar_action = 2131296460;
 			
 			// aapt resource value: 0x7F0900CD
-			public const int spacer = 2131296461;
+			public const int snackbar_text = 2131296461;
 			
 			// aapt resource value: 0x7F0900CE
-			public const int spinner = 2131296462;
+			public const int snap = 2131296462;
 			
 			// aapt resource value: 0x7F0900CF
-			public const int split_action_bar = 2131296463;
+			public const int snapMargins = 2131296463;
 			
 			// aapt resource value: 0x7F0900D0
-			public const int spread = 2131296464;
+			public const int spacer = 2131296464;
 			
 			// aapt resource value: 0x7F0900D1
-			public const int spread_inside = 2131296465;
+			public const int spinner = 2131296465;
 			
 			// aapt resource value: 0x7F0900D2
-			public const int src_atop = 2131296466;
+			public const int split_action_bar = 2131296466;
 			
 			// aapt resource value: 0x7F0900D3
-			public const int src_in = 2131296467;
+			public const int spread = 2131296467;
 			
 			// aapt resource value: 0x7F0900D4
-			public const int src_over = 2131296468;
+			public const int spread_inside = 2131296468;
 			
 			// aapt resource value: 0x7F0900D5
-			public const int standard = 2131296469;
+			public const int src_atop = 2131296469;
 			
 			// aapt resource value: 0x7F0900D6
-			public const int start = 2131296470;
+			public const int src_in = 2131296470;
 			
 			// aapt resource value: 0x7F0900D7
-			public const int stretch = 2131296471;
+			public const int src_over = 2131296471;
 			
 			// aapt resource value: 0x7F0900D8
-			public const int submenuarrow = 2131296472;
+			public const int standard = 2131296472;
 			
 			// aapt resource value: 0x7F0900D9
-			public const int submit_area = 2131296473;
+			public const int start = 2131296473;
 			
 			// aapt resource value: 0x7F0900DA
-			public const int switchWidget = 2131296474;
+			public const int stretch = 2131296474;
+			
+			// aapt resource value: 0x7F0900DB
+			public const int submenuarrow = 2131296475;
+			
+			// aapt resource value: 0x7F0900DC
+			public const int submit_area = 2131296476;
+			
+			// aapt resource value: 0x7F0900DD
+			public const int switchWidget = 2131296477;
 			
 			// aapt resource value: 0x7F090007
 			public const int SYM = 2131296263;
 			
-			// aapt resource value: 0x7F0900DB
-			public const int tabMode = 2131296475;
-			
-			// aapt resource value: 0x7F0900DC
-			public const int tag_accessibility_actions = 2131296476;
-			
-			// aapt resource value: 0x7F0900DD
-			public const int tag_accessibility_clickable_spans = 2131296477;
-			
 			// aapt resource value: 0x7F0900DE
-			public const int tag_accessibility_heading = 2131296478;
+			public const int tabMode = 2131296478;
 			
 			// aapt resource value: 0x7F0900DF
-			public const int tag_accessibility_pane_title = 2131296479;
+			public const int tag_accessibility_actions = 2131296479;
 			
 			// aapt resource value: 0x7F0900E0
-			public const int tag_screen_reader_focusable = 2131296480;
+			public const int tag_accessibility_clickable_spans = 2131296480;
 			
 			// aapt resource value: 0x7F0900E1
-			public const int tag_transition_group = 2131296481;
+			public const int tag_accessibility_heading = 2131296481;
 			
 			// aapt resource value: 0x7F0900E2
-			public const int tag_unhandled_key_event_manager = 2131296482;
+			public const int tag_accessibility_pane_title = 2131296482;
 			
 			// aapt resource value: 0x7F0900E3
-			public const int tag_unhandled_key_listeners = 2131296483;
+			public const int tag_screen_reader_focusable = 2131296483;
 			
 			// aapt resource value: 0x7F0900E4
-			public const int text = 2131296484;
+			public const int tag_transition_group = 2131296484;
 			
 			// aapt resource value: 0x7F0900E5
-			public const int text2 = 2131296485;
-			
-			// aapt resource value: 0x7F0900EB
-			public const int textinput_counter = 2131296491;
-			
-			// aapt resource value: 0x7F0900EC
-			public const int textinput_error = 2131296492;
-			
-			// aapt resource value: 0x7F0900ED
-			public const int textinput_helper_text = 2131296493;
+			public const int tag_unhandled_key_event_manager = 2131296485;
 			
 			// aapt resource value: 0x7F0900E6
-			public const int textSpacerNoButtons = 2131296486;
+			public const int tag_unhandled_key_listeners = 2131296486;
 			
 			// aapt resource value: 0x7F0900E7
-			public const int textSpacerNoTitle = 2131296487;
+			public const int text = 2131296487;
 			
 			// aapt resource value: 0x7F0900E8
-			public const int textStart = 2131296488;
-			
-			// aapt resource value: 0x7F0900E9
-			public const int text_input_password_toggle = 2131296489;
-			
-			// aapt resource value: 0x7F0900EA
-			public const int text_view = 2131296490;
-			
-			// aapt resource value: 0x7F0900EE
-			public const int time = 2131296494;
+			public const int text2 = 2131296488;
 			
 			// aapt resource value: 0x7F0900EF
-			public const int title = 2131296495;
+			public const int textinput_counter = 2131296495;
 			
 			// aapt resource value: 0x7F0900F0
-			public const int titleDividerNoCustom = 2131296496;
+			public const int textinput_error = 2131296496;
 			
 			// aapt resource value: 0x7F0900F1
-			public const int title_template = 2131296497;
+			public const int textinput_helper_text = 2131296497;
+			
+			// aapt resource value: 0x7F0900E9
+			public const int textSpacerNoButtons = 2131296489;
+			
+			// aapt resource value: 0x7F0900EA
+			public const int textSpacerNoTitle = 2131296490;
+			
+			// aapt resource value: 0x7F0900EB
+			public const int textStart = 2131296491;
+			
+			// aapt resource value: 0x7F0900EC
+			public const int textViewStatus = 2131296492;
+			
+			// aapt resource value: 0x7F0900ED
+			public const int text_input_password_toggle = 2131296493;
+			
+			// aapt resource value: 0x7F0900EE
+			public const int text_view = 2131296494;
 			
 			// aapt resource value: 0x7F0900F2
-			public const int top = 2131296498;
+			public const int time = 2131296498;
 			
 			// aapt resource value: 0x7F0900F3
-			public const int topPanel = 2131296499;
+			public const int title = 2131296499;
 			
 			// aapt resource value: 0x7F0900F4
-			public const int touch_outside = 2131296500;
+			public const int titleDividerNoCustom = 2131296500;
 			
 			// aapt resource value: 0x7F0900F5
-			public const int transition_current_scene = 2131296501;
+			public const int title_template = 2131296501;
 			
 			// aapt resource value: 0x7F0900F6
-			public const int transition_layout_save = 2131296502;
+			public const int top = 2131296502;
 			
 			// aapt resource value: 0x7F0900F7
-			public const int transition_position = 2131296503;
+			public const int topPanel = 2131296503;
 			
 			// aapt resource value: 0x7F0900F8
-			public const int transition_scene_layoutid_cache = 2131296504;
+			public const int touch_outside = 2131296504;
 			
 			// aapt resource value: 0x7F0900F9
-			public const int transition_transform = 2131296505;
+			public const int transition_current_scene = 2131296505;
 			
 			// aapt resource value: 0x7F0900FA
-			public const int @unchecked = 2131296506;
+			public const int transition_layout_save = 2131296506;
 			
 			// aapt resource value: 0x7F0900FB
-			public const int uniform = 2131296507;
+			public const int transition_position = 2131296507;
 			
 			// aapt resource value: 0x7F0900FC
-			public const int unlabeled = 2131296508;
+			public const int transition_scene_layoutid_cache = 2131296508;
 			
 			// aapt resource value: 0x7F0900FD
-			public const int up = 2131296509;
+			public const int transition_transform = 2131296509;
 			
 			// aapt resource value: 0x7F0900FE
-			public const int useLogo = 2131296510;
+			public const int @unchecked = 2131296510;
 			
 			// aapt resource value: 0x7F0900FF
-			public const int view_offset_helper = 2131296511;
+			public const int uniform = 2131296511;
 			
 			// aapt resource value: 0x7F090100
-			public const int visible = 2131296512;
+			public const int unlabeled = 2131296512;
 			
 			// aapt resource value: 0x7F090101
-			public const int visible_removing_fragment_view_tag = 2131296513;
+			public const int up = 2131296513;
 			
 			// aapt resource value: 0x7F090102
-			public const int withText = 2131296514;
+			public const int useLogo = 2131296514;
 			
 			// aapt resource value: 0x7F090103
-			public const int wrap = 2131296515;
+			public const int view_offset_helper = 2131296515;
 			
 			// aapt resource value: 0x7F090104
-			public const int wrap_content = 2131296516;
+			public const int visible = 2131296516;
+			
+			// aapt resource value: 0x7F090105
+			public const int visible_removing_fragment_view_tag = 2131296517;
+			
+			// aapt resource value: 0x7F090106
+			public const int withText = 2131296518;
+			
+			// aapt resource value: 0x7F090107
+			public const int wrap = 2131296519;
+			
+			// aapt resource value: 0x7F090108
+			public const int wrap_content = 2131296520;
 			
 			static Id()
 			{
@@ -19489,91 +22245,100 @@ namespace SushiShop.Droid
 			public const int image_frame = 2131492917;
 			
 			// aapt resource value: 0x7F0C0036
-			public const int mtrl_layout_snackbar = 2131492918;
+			public const int loading = 2131492918;
 			
 			// aapt resource value: 0x7F0C0037
-			public const int mtrl_layout_snackbar_include = 2131492919;
+			public const int loadingimage = 2131492919;
 			
 			// aapt resource value: 0x7F0C0038
-			public const int notification_action = 2131492920;
+			public const int loadingprogress = 2131492920;
 			
 			// aapt resource value: 0x7F0C0039
-			public const int notification_action_tombstone = 2131492921;
+			public const int mtrl_layout_snackbar = 2131492921;
 			
 			// aapt resource value: 0x7F0C003A
-			public const int notification_template_custom_big = 2131492922;
+			public const int mtrl_layout_snackbar_include = 2131492922;
 			
 			// aapt resource value: 0x7F0C003B
-			public const int notification_template_icon_group = 2131492923;
+			public const int notification_action = 2131492923;
 			
 			// aapt resource value: 0x7F0C003C
-			public const int notification_template_part_chronometer = 2131492924;
+			public const int notification_action_tombstone = 2131492924;
 			
 			// aapt resource value: 0x7F0C003D
-			public const int notification_template_part_time = 2131492925;
+			public const int notification_template_custom_big = 2131492925;
 			
 			// aapt resource value: 0x7F0C003E
-			public const int preference = 2131492926;
+			public const int notification_template_icon_group = 2131492926;
 			
 			// aapt resource value: 0x7F0C003F
-			public const int preference_category = 2131492927;
+			public const int notification_template_part_chronometer = 2131492927;
 			
 			// aapt resource value: 0x7F0C0040
-			public const int preference_category_material = 2131492928;
+			public const int notification_template_part_time = 2131492928;
 			
 			// aapt resource value: 0x7F0C0041
-			public const int preference_dialog_edittext = 2131492929;
+			public const int preference = 2131492929;
 			
 			// aapt resource value: 0x7F0C0042
-			public const int preference_dropdown = 2131492930;
+			public const int preference_category = 2131492930;
 			
 			// aapt resource value: 0x7F0C0043
-			public const int preference_dropdown_material = 2131492931;
+			public const int preference_category_material = 2131492931;
 			
 			// aapt resource value: 0x7F0C0044
-			public const int preference_information = 2131492932;
+			public const int preference_dialog_edittext = 2131492932;
 			
 			// aapt resource value: 0x7F0C0045
-			public const int preference_information_material = 2131492933;
+			public const int preference_dropdown = 2131492933;
 			
 			// aapt resource value: 0x7F0C0046
-			public const int preference_list_fragment = 2131492934;
+			public const int preference_dropdown_material = 2131492934;
 			
 			// aapt resource value: 0x7F0C0047
-			public const int preference_material = 2131492935;
+			public const int preference_information = 2131492935;
 			
 			// aapt resource value: 0x7F0C0048
-			public const int preference_recyclerview = 2131492936;
+			public const int preference_information_material = 2131492936;
 			
 			// aapt resource value: 0x7F0C0049
-			public const int preference_widget_checkbox = 2131492937;
+			public const int preference_list_fragment = 2131492937;
 			
 			// aapt resource value: 0x7F0C004A
-			public const int preference_widget_seekbar = 2131492938;
+			public const int preference_material = 2131492938;
 			
 			// aapt resource value: 0x7F0C004B
-			public const int preference_widget_seekbar_material = 2131492939;
+			public const int preference_recyclerview = 2131492939;
 			
 			// aapt resource value: 0x7F0C004C
-			public const int preference_widget_switch = 2131492940;
+			public const int preference_widget_checkbox = 2131492940;
 			
 			// aapt resource value: 0x7F0C004D
-			public const int preference_widget_switch_compat = 2131492941;
+			public const int preference_widget_seekbar = 2131492941;
 			
 			// aapt resource value: 0x7F0C004E
-			public const int select_dialog_item_material = 2131492942;
+			public const int preference_widget_seekbar_material = 2131492942;
 			
 			// aapt resource value: 0x7F0C004F
-			public const int select_dialog_multichoice_material = 2131492943;
+			public const int preference_widget_switch = 2131492943;
 			
 			// aapt resource value: 0x7F0C0050
-			public const int select_dialog_singlechoice_material = 2131492944;
+			public const int preference_widget_switch_compat = 2131492944;
 			
 			// aapt resource value: 0x7F0C0051
-			public const int support_simple_spinner_dropdown_item = 2131492945;
+			public const int select_dialog_item_material = 2131492945;
 			
 			// aapt resource value: 0x7F0C0052
-			public const int view_main_tab = 2131492946;
+			public const int select_dialog_multichoice_material = 2131492946;
+			
+			// aapt resource value: 0x7F0C0053
+			public const int select_dialog_singlechoice_material = 2131492947;
+			
+			// aapt resource value: 0x7F0C0054
+			public const int support_simple_spinner_dropdown_item = 2131492948;
+			
+			// aapt resource value: 0x7F0C0055
+			public const int view_main_tab = 2131492949;
 			
 			static Layout()
 			{
@@ -19728,46 +22493,49 @@ namespace SushiShop.Droid
 			public const int hide_bottom_view_on_scroll_behavior = 2131623974;
 			
 			// aapt resource value: 0x7F0E0027
-			public const int mtrl_chip_close_icon_content_description = 2131623975;
+			public const int library_name = 2131623975;
 			
 			// aapt resource value: 0x7F0E0028
-			public const int not_set = 2131623976;
+			public const int mtrl_chip_close_icon_content_description = 2131623976;
 			
 			// aapt resource value: 0x7F0E0029
-			public const int password_toggle_content_description = 2131623977;
+			public const int not_set = 2131623977;
 			
 			// aapt resource value: 0x7F0E002A
-			public const int path_password_eye = 2131623978;
+			public const int password_toggle_content_description = 2131623978;
 			
 			// aapt resource value: 0x7F0E002B
-			public const int path_password_eye_mask_strike_through = 2131623979;
+			public const int path_password_eye = 2131623979;
 			
 			// aapt resource value: 0x7F0E002C
-			public const int path_password_eye_mask_visible = 2131623980;
+			public const int path_password_eye_mask_strike_through = 2131623980;
 			
 			// aapt resource value: 0x7F0E002D
-			public const int path_password_strike_through = 2131623981;
+			public const int path_password_eye_mask_visible = 2131623981;
 			
 			// aapt resource value: 0x7F0E002E
-			public const int preference_copied = 2131623982;
+			public const int path_password_strike_through = 2131623982;
 			
 			// aapt resource value: 0x7F0E002F
-			public const int search_menu_title = 2131623983;
+			public const int preference_copied = 2131623983;
 			
 			// aapt resource value: 0x7F0E0030
-			public const int status_bar_notification_info_overflow = 2131623984;
+			public const int search_menu_title = 2131623984;
 			
 			// aapt resource value: 0x7F0E0031
-			public const int summary_collapsed_preference_list = 2131623985;
+			public const int status_bar_notification_info_overflow = 2131623985;
 			
 			// aapt resource value: 0x7F0E0032
-			public const int v7_preference_off = 2131623986;
+			public const int summary_collapsed_preference_list = 2131623986;
 			
 			// aapt resource value: 0x7F0E0033
-			public const int v7_preference_on = 2131623987;
+			public const int v7_preference_off = 2131623987;
 			
 			// aapt resource value: 0x7F0E0034
-			public const int view_scroll_translation_autohide_behavior = 2131623988;
+			public const int v7_preference_on = 2131623988;
+			
+			// aapt resource value: 0x7F0E0035
+			public const int view_scroll_translation_autohide_behavior = 2131623989;
 			
 			static String()
 			{
@@ -21388,37 +24156,37 @@ namespace SushiShop.Droid
 		public partial class Styleable
 		{
 			
-			// aapt resource value: { 0x7F03003C,0x7F03003D,0x7F03003E,0x7F0300A4,0x7F0300A5,0x7F0300A6,0x7F0300A7,0x7F0300A8,0x7F0300A9,0x7F0300B7,0x7F0300C4,0x7F0300C5,0x7F0300DA,0x7F03010A,0x7F03010F,0x7F030114,0x7F030115,0x7F030117,0x7F030122,0x7F03012E,0x7F030188,0x7F030197,0x7F0301AC,0x7F0301BA,0x7F0301BB,0x7F0301F0,0x7F0301F3,0x7F030240,0x7F03024A }
+			// aapt resource value: { 0x7F030048,0x7F030049,0x7F03004A,0x7F0300B0,0x7F0300B1,0x7F0300B2,0x7F0300B3,0x7F0300B4,0x7F0300B5,0x7F0300C3,0x7F0300D0,0x7F0300D1,0x7F0300E6,0x7F030116,0x7F03011B,0x7F030120,0x7F030121,0x7F030123,0x7F03012E,0x7F03013A,0x7F030194,0x7F0301A3,0x7F0301B8,0x7F0301C6,0x7F0301C7,0x7F0301FC,0x7F0301FF,0x7F03024C,0x7F030256 }
 			public static int[] ActionBar = new int[] {
-					2130903100,
-					2130903101,
-					2130903102,
-					2130903204,
-					2130903205,
-					2130903206,
-					2130903207,
-					2130903208,
-					2130903209,
-					2130903223,
-					2130903236,
-					2130903237,
-					2130903258,
-					2130903306,
-					2130903311,
-					2130903316,
-					2130903317,
-					2130903319,
-					2130903330,
+					2130903112,
+					2130903113,
+					2130903114,
+					2130903216,
+					2130903217,
+					2130903218,
+					2130903219,
+					2130903220,
+					2130903221,
+					2130903235,
+					2130903248,
+					2130903249,
+					2130903270,
+					2130903318,
+					2130903323,
+					2130903328,
+					2130903329,
+					2130903331,
 					2130903342,
-					2130903432,
-					2130903447,
-					2130903468,
-					2130903482,
-					2130903483,
-					2130903536,
-					2130903539,
-					2130903616,
-					2130903626};
+					2130903354,
+					2130903444,
+					2130903459,
+					2130903480,
+					2130903494,
+					2130903495,
+					2130903548,
+					2130903551,
+					2130903628,
+					2130903638};
 			
 			// aapt resource value: { 0x10100B3 }
 			public static int[] ActionBarLayout = new int[] {
@@ -21525,14 +24293,14 @@ namespace SushiShop.Droid
 			public static int[] ActionMenuView = new int[] {
 					-1};
 			
-			// aapt resource value: { 0x7F03003C,0x7F03003D,0x7F03008E,0x7F03010A,0x7F0301F3,0x7F03024A }
+			// aapt resource value: { 0x7F030048,0x7F030049,0x7F03009A,0x7F030116,0x7F0301FF,0x7F030256 }
 			public static int[] ActionMode = new int[] {
-					2130903100,
-					2130903101,
-					2130903182,
-					2130903306,
-					2130903539,
-					2130903626};
+					2130903112,
+					2130903113,
+					2130903194,
+					2130903318,
+					2130903551,
+					2130903638};
 			
 			// aapt resource value: 0
 			public const int ActionMode_background = 0;
@@ -21552,10 +24320,10 @@ namespace SushiShop.Droid
 			// aapt resource value: 5
 			public const int ActionMode_titleTextStyle = 5;
 			
-			// aapt resource value: { 0x7F0300E4,0x7F030123 }
+			// aapt resource value: { 0x7F0300F0,0x7F03012F }
 			public static int[] ActivityChooserView = new int[] {
-					2130903268,
-					2130903331};
+					2130903280,
+					2130903343};
 			
 			// aapt resource value: 0
 			public const int ActivityChooserView_expandActivityOverflowButtonDrawable = 0;
@@ -21563,16 +24331,16 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int ActivityChooserView_initialActivityCount = 1;
 			
-			// aapt resource value: { 0x10100F2,0x7F030060,0x7F030061,0x7F03017D,0x7F03017E,0x7F030194,0x7F0301D7,0x7F0301D8 }
+			// aapt resource value: { 0x10100F2,0x7F03006C,0x7F03006D,0x7F030189,0x7F03018A,0x7F0301A0,0x7F0301E3,0x7F0301E4 }
 			public static int[] AlertDialog = new int[] {
 					16842994,
-					2130903136,
-					2130903137,
-					2130903421,
-					2130903422,
-					2130903444,
-					2130903511,
-					2130903512};
+					2130903148,
+					2130903149,
+					2130903433,
+					2130903434,
+					2130903456,
+					2130903523,
+					2130903524};
 			
 			// aapt resource value: 0
 			public const int AlertDialog_android_layout = 0;
@@ -21655,21 +24423,21 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int AnimatedStateListDrawableTransition_android_toId = 1;
 			
-			// aapt resource value: { 0x10100D4,0x101048F,0x1010540,0x7F0300DA,0x7F0300E5,0x7F030176 }
+			// aapt resource value: { 0x10100D4,0x101048F,0x1010540,0x7F0300E6,0x7F0300F1,0x7F030182 }
 			public static int[] AppBarLayout = new int[] {
 					16842964,
 					16843919,
 					16844096,
-					2130903258,
-					2130903269,
-					2130903414};
+					2130903270,
+					2130903281,
+					2130903426};
 			
-			// aapt resource value: { 0x7F0301E6,0x7F0301E7,0x7F0301E8,0x7F0301E9 }
+			// aapt resource value: { 0x7F0301F2,0x7F0301F3,0x7F0301F4,0x7F0301F5 }
 			public static int[] AppBarLayoutStates = new int[] {
-					2130903526,
-					2130903527,
-					2130903528,
-					2130903529};
+					2130903538,
+					2130903539,
+					2130903540,
+					2130903541};
 			
 			// aapt resource value: 0
 			public const int AppBarLayoutStates_state_collapsed = 0;
@@ -21698,10 +24466,10 @@ namespace SushiShop.Droid
 			// aapt resource value: 4
 			public const int AppBarLayout_expanded = 4;
 			
-			// aapt resource value: { 0x7F030174,0x7F030175 }
+			// aapt resource value: { 0x7F030180,0x7F030181 }
 			public static int[] AppBarLayout_Layout = new int[] {
-					2130903412,
-					2130903413};
+					2130903424,
+					2130903425};
 			
 			// aapt resource value: 0
 			public const int AppBarLayout_Layout_layout_scrollFlags = 0;
@@ -21712,12 +24480,12 @@ namespace SushiShop.Droid
 			// aapt resource value: 5
 			public const int AppBarLayout_liftOnScroll = 5;
 			
-			// aapt resource value: { 0x1010119,0x7F0301E3,0x7F03023E,0x7F03023F }
+			// aapt resource value: { 0x1010119,0x7F0301EF,0x7F03024A,0x7F03024B }
 			public static int[] AppCompatImageView = new int[] {
 					16843033,
-					2130903523,
-					2130903614,
-					2130903615};
+					2130903535,
+					2130903626,
+					2130903627};
 			
 			// aapt resource value: 0
 			public const int AppCompatImageView_android_src = 0;
@@ -21731,12 +24499,12 @@ namespace SushiShop.Droid
 			// aapt resource value: 3
 			public const int AppCompatImageView_tintMode = 3;
 			
-			// aapt resource value: { 0x1010142,0x7F03023B,0x7F03023C,0x7F03023D }
+			// aapt resource value: { 0x1010142,0x7F030247,0x7F030248,0x7F030249 }
 			public static int[] AppCompatSeekBar = new int[] {
 					16843074,
-					2130903611,
-					2130903612,
-					2130903613};
+					2130903623,
+					2130903624,
+					2130903625};
 			
 			// aapt resource value: 0
 			public const int AppCompatSeekBar_android_thumb = 0;
@@ -21781,29 +24549,29 @@ namespace SushiShop.Droid
 			// aapt resource value: 0
 			public const int AppCompatTextHelper_android_textAppearance = 0;
 			
-			// aapt resource value: { 0x1010034,0x7F030037,0x7F030038,0x7F030039,0x7F03003A,0x7F03003B,0x7F0300C9,0x7F0300CA,0x7F0300CB,0x7F0300CC,0x7F0300CE,0x7F0300CF,0x7F0300D0,0x7F0300D1,0x7F0300F8,0x7F0300FB,0x7F030103,0x7F030137,0x7F030177,0x7F03021A,0x7F030234 }
+			// aapt resource value: { 0x1010034,0x7F030043,0x7F030044,0x7F030045,0x7F030046,0x7F030047,0x7F0300D5,0x7F0300D6,0x7F0300D7,0x7F0300D8,0x7F0300DA,0x7F0300DB,0x7F0300DC,0x7F0300DD,0x7F030104,0x7F030107,0x7F03010F,0x7F030143,0x7F030183,0x7F030226,0x7F030240 }
 			public static int[] AppCompatTextView = new int[] {
 					16842804,
-					2130903095,
-					2130903096,
-					2130903097,
-					2130903098,
-					2130903099,
-					2130903241,
-					2130903242,
-					2130903243,
-					2130903244,
-					2130903246,
-					2130903247,
-					2130903248,
-					2130903249,
-					2130903288,
-					2130903291,
-					2130903299,
-					2130903351,
-					2130903415,
-					2130903578,
-					2130903604};
+					2130903107,
+					2130903108,
+					2130903109,
+					2130903110,
+					2130903111,
+					2130903253,
+					2130903254,
+					2130903255,
+					2130903256,
+					2130903258,
+					2130903259,
+					2130903260,
+					2130903261,
+					2130903300,
+					2130903303,
+					2130903311,
+					2130903363,
+					2130903427,
+					2130903590,
+					2130903616};
 			
 			// aapt resource value: 0
 			public const int AppCompatTextView_android_textAppearance = 0;
@@ -21868,7 +24636,7 @@ namespace SushiShop.Droid
 			// aapt resource value: 20
 			public const int AppCompatTextView_textLocale = 20;
 			
-			// aapt resource value: { 0x1010057,0x10100AE,0x7F030007,0x7F030008,0x7F030009,0x7F03000A,0x7F03000B,0x7F03000C,0x7F03000D,0x7F03000E,0x7F03000F,0x7F030010,0x7F030011,0x7F030012,0x7F030013,0x7F030015,0x7F030016,0x7F030017,0x7F030018,0x7F030019,0x7F03001A,0x7F03001B,0x7F03001C,0x7F03001D,0x7F03001E,0x7F03001F,0x7F030020,0x7F030021,0x7F030022,0x7F030023,0x7F030024,0x7F030025,0x7F030028,0x7F03002A,0x7F03002B,0x7F03002C,0x7F03002D,0x7F030036,0x7F03004B,0x7F030059,0x7F03005A,0x7F03005B,0x7F03005C,0x7F03005D,0x7F030062,0x7F030063,0x7F03006F,0x7F030074,0x7F030094,0x7F030095,0x7F030096,0x7F030097,0x7F030098,0x7F030099,0x7F03009A,0x7F03009B,0x7F03009C,0x7F03009E,0x7F0300B0,0x7F0300BB,0x7F0300C0,0x7F0300C1,0x7F0300C6,0x7F0300C8,0x7F0300D3,0x7F0300D4,0x7F0300D6,0x7F0300D7,0x7F0300D9,0x7F030114,0x7F030121,0x7F030179,0x7F03017A,0x7F03017B,0x7F03017C,0x7F03017F,0x7F030180,0x7F030181,0x7F030182,0x7F030183,0x7F030184,0x7F030185,0x7F030186,0x7F030187,0x7F0301A2,0x7F0301A3,0x7F0301A4,0x7F0301AB,0x7F0301AD,0x7F0301BE,0x7F0301BF,0x7F0301C0,0x7F0301C1,0x7F0301CA,0x7F0301CD,0x7F0301CF,0x7F0301D0,0x7F0301E0,0x7F0301E1,0x7F0301FC,0x7F030225,0x7F030226,0x7F030227,0x7F030228,0x7F03022A,0x7F03022B,0x7F03022C,0x7F03022D,0x7F030230,0x7F030231,0x7F03024C,0x7F03024D,0x7F03024E,0x7F03024F,0x7F030258,0x7F03025B,0x7F03025C,0x7F03025D,0x7F03025E,0x7F03025F,0x7F030260,0x7F030261,0x7F030262,0x7F030263,0x7F030264 }
+			// aapt resource value: { 0x1010057,0x10100AE,0x7F030007,0x7F030008,0x7F030009,0x7F03000A,0x7F03000B,0x7F03000C,0x7F03000D,0x7F03000E,0x7F03000F,0x7F030010,0x7F030011,0x7F030012,0x7F030013,0x7F030015,0x7F030016,0x7F030017,0x7F030018,0x7F030019,0x7F03001A,0x7F03001B,0x7F03001C,0x7F03001D,0x7F03001E,0x7F03001F,0x7F030020,0x7F030021,0x7F030022,0x7F030023,0x7F030024,0x7F030025,0x7F030028,0x7F030036,0x7F030037,0x7F030038,0x7F030039,0x7F030042,0x7F030057,0x7F030065,0x7F030066,0x7F030067,0x7F030068,0x7F030069,0x7F03006E,0x7F03006F,0x7F03007B,0x7F030080,0x7F0300A0,0x7F0300A1,0x7F0300A2,0x7F0300A3,0x7F0300A4,0x7F0300A5,0x7F0300A6,0x7F0300A7,0x7F0300A8,0x7F0300AA,0x7F0300BC,0x7F0300C7,0x7F0300CC,0x7F0300CD,0x7F0300D2,0x7F0300D4,0x7F0300DF,0x7F0300E0,0x7F0300E2,0x7F0300E3,0x7F0300E5,0x7F030120,0x7F03012D,0x7F030185,0x7F030186,0x7F030187,0x7F030188,0x7F03018B,0x7F03018C,0x7F03018D,0x7F03018E,0x7F03018F,0x7F030190,0x7F030191,0x7F030192,0x7F030193,0x7F0301AE,0x7F0301AF,0x7F0301B0,0x7F0301B7,0x7F0301B9,0x7F0301CA,0x7F0301CB,0x7F0301CC,0x7F0301CD,0x7F0301D6,0x7F0301D9,0x7F0301DB,0x7F0301DC,0x7F0301EC,0x7F0301ED,0x7F030208,0x7F030231,0x7F030232,0x7F030233,0x7F030234,0x7F030236,0x7F030237,0x7F030238,0x7F030239,0x7F03023C,0x7F03023D,0x7F030258,0x7F030259,0x7F03025A,0x7F03025B,0x7F030264,0x7F030267,0x7F030268,0x7F030269,0x7F03026A,0x7F03026B,0x7F03026C,0x7F03026D,0x7F03026E,0x7F03026F,0x7F030270 }
 			public static int[] AppCompatTheme = new int[] {
 					16842839,
 					16842926,
@@ -21903,98 +24671,98 @@ namespace SushiShop.Droid
 					2130903076,
 					2130903077,
 					2130903080,
-					2130903082,
-					2130903083,
-					2130903084,
-					2130903085,
 					2130903094,
-					2130903115,
-					2130903129,
-					2130903130,
-					2130903131,
-					2130903132,
-					2130903133,
-					2130903138,
-					2130903139,
+					2130903095,
+					2130903096,
+					2130903097,
+					2130903106,
+					2130903127,
+					2130903141,
+					2130903142,
+					2130903143,
+					2130903144,
+					2130903145,
+					2130903150,
 					2130903151,
-					2130903156,
-					2130903188,
-					2130903189,
-					2130903190,
-					2130903191,
-					2130903192,
-					2130903193,
-					2130903194,
-					2130903195,
-					2130903196,
-					2130903198,
-					2130903216,
-					2130903227,
-					2130903232,
-					2130903233,
-					2130903238,
-					2130903240,
-					2130903251,
+					2130903163,
+					2130903168,
+					2130903200,
+					2130903201,
+					2130903202,
+					2130903203,
+					2130903204,
+					2130903205,
+					2130903206,
+					2130903207,
+					2130903208,
+					2130903210,
+					2130903228,
+					2130903239,
+					2130903244,
+					2130903245,
+					2130903250,
 					2130903252,
-					2130903254,
-					2130903255,
-					2130903257,
-					2130903316,
-					2130903329,
-					2130903417,
-					2130903418,
-					2130903419,
-					2130903420,
-					2130903423,
-					2130903424,
-					2130903425,
-					2130903426,
-					2130903427,
-					2130903428,
+					2130903263,
+					2130903264,
+					2130903266,
+					2130903267,
+					2130903269,
+					2130903328,
+					2130903341,
 					2130903429,
 					2130903430,
 					2130903431,
-					2130903458,
-					2130903459,
-					2130903460,
-					2130903467,
-					2130903469,
-					2130903486,
-					2130903487,
-					2130903488,
-					2130903489,
+					2130903432,
+					2130903435,
+					2130903436,
+					2130903437,
+					2130903438,
+					2130903439,
+					2130903440,
+					2130903441,
+					2130903442,
+					2130903443,
+					2130903470,
+					2130903471,
+					2130903472,
+					2130903479,
+					2130903481,
 					2130903498,
+					2130903499,
+					2130903500,
 					2130903501,
-					2130903503,
-					2130903504,
-					2130903520,
-					2130903521,
-					2130903548,
-					2130903589,
-					2130903590,
-					2130903591,
-					2130903592,
-					2130903594,
-					2130903595,
-					2130903596,
-					2130903597,
-					2130903600,
+					2130903510,
+					2130903513,
+					2130903515,
+					2130903516,
+					2130903532,
+					2130903533,
+					2130903560,
 					2130903601,
-					2130903628,
-					2130903629,
-					2130903630,
-					2130903631,
+					2130903602,
+					2130903603,
+					2130903604,
+					2130903606,
+					2130903607,
+					2130903608,
+					2130903609,
+					2130903612,
+					2130903613,
 					2130903640,
+					2130903641,
+					2130903642,
 					2130903643,
-					2130903644,
-					2130903645,
-					2130903646,
-					2130903647,
-					2130903648,
-					2130903649,
-					2130903650,
-					2130903651,
-					2130903652};
+					2130903652,
+					2130903655,
+					2130903656,
+					2130903657,
+					2130903658,
+					2130903659,
+					2130903660,
+					2130903661,
+					2130903662,
+					2130903663,
+					2130903664};
 			
 			// aapt resource value: 2
 			public const int AppCompatTheme_actionBarDivider = 2;
@@ -22371,10 +25139,10 @@ namespace SushiShop.Droid
 			// aapt resource value: 124
 			public const int AppCompatTheme_windowNoTitle = 124;
 			
-			// aapt resource value: { 0x101030E,0x7F0301CF }
+			// aapt resource value: { 0x101030E,0x7F0301DB }
 			public static int[] BackgroundStyle = new int[] {
 					16843534,
-					2130903503};
+					2130903515};
 			
 			// aapt resource value: 0
 			public const int BackgroundStyle_android_selectableItemBackground = 0;
@@ -22382,14 +25150,14 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int BackgroundStyle_selectableItemBackground = 1;
 			
-			// aapt resource value: { 0x7F03003F,0x7F0300ED,0x7F0300EE,0x7F0300EF,0x7F0300F0,0x7F030110 }
+			// aapt resource value: { 0x7F03004B,0x7F0300F9,0x7F0300FA,0x7F0300FB,0x7F0300FC,0x7F03011C }
 			public static int[] BottomAppBar = new int[] {
-					2130903103,
-					2130903277,
-					2130903278,
-					2130903279,
-					2130903280,
-					2130903312};
+					2130903115,
+					2130903289,
+					2130903290,
+					2130903291,
+					2130903292,
+					2130903324};
 			
 			// aapt resource value: 0
 			public const int BottomAppBar_backgroundTint = 0;
@@ -22409,18 +25177,18 @@ namespace SushiShop.Droid
 			// aapt resource value: 5
 			public const int BottomAppBar_hideOnScroll = 5;
 			
-			// aapt resource value: { 0x7F0300DA,0x7F030128,0x7F03012A,0x7F03012C,0x7F03012D,0x7F030131,0x7F030132,0x7F030133,0x7F030136,0x7F030192 }
+			// aapt resource value: { 0x7F0300E6,0x7F030134,0x7F030136,0x7F030138,0x7F030139,0x7F03013D,0x7F03013E,0x7F03013F,0x7F030142,0x7F03019E }
 			public static int[] BottomNavigationView = new int[] {
-					2130903258,
-					2130903336,
-					2130903338,
-					2130903340,
-					2130903341,
-					2130903345,
-					2130903346,
-					2130903347,
+					2130903270,
+					2130903348,
 					2130903350,
-					2130903442};
+					2130903352,
+					2130903353,
+					2130903357,
+					2130903358,
+					2130903359,
+					2130903362,
+					2130903454};
 			
 			// aapt resource value: 0
 			public const int BottomNavigationView_elevation = 0;
@@ -22452,12 +25220,12 @@ namespace SushiShop.Droid
 			// aapt resource value: 9
 			public const int BottomNavigationView_menu = 9;
 			
-			// aapt resource value: { 0x7F030045,0x7F030046,0x7F030048,0x7F030049 }
+			// aapt resource value: { 0x7F030051,0x7F030052,0x7F030054,0x7F030055 }
 			public static int[] BottomSheetBehavior_Layout = new int[] {
-					2130903109,
-					2130903110,
-					2130903112,
-					2130903113};
+					2130903121,
+					2130903122,
+					2130903124,
+					2130903125};
 			
 			// aapt resource value: 0
 			public const int BottomSheetBehavior_Layout_behavior_fitToContents = 0;
@@ -22471,28 +25239,28 @@ namespace SushiShop.Droid
 			// aapt resource value: 3
 			public const int BottomSheetBehavior_Layout_behavior_skipCollapsed = 3;
 			
-			// aapt resource value: { 0x7F030031 }
+			// aapt resource value: { 0x7F03003D }
 			public static int[] ButtonBarLayout = new int[] {
-					2130903089};
+					2130903101};
 			
 			// aapt resource value: 0
 			public const int ButtonBarLayout_allowStacking = 0;
 			
-			// aapt resource value: { 0x101013F,0x1010140,0x7F030066,0x7F030067,0x7F030068,0x7F030069,0x7F03006A,0x7F03006B,0x7F0300AA,0x7F0300AB,0x7F0300AC,0x7F0300AD,0x7F0300AE }
+			// aapt resource value: { 0x101013F,0x1010140,0x7F030072,0x7F030073,0x7F030074,0x7F030075,0x7F030076,0x7F030077,0x7F0300B6,0x7F0300B7,0x7F0300B8,0x7F0300B9,0x7F0300BA }
 			public static int[] CardView = new int[] {
 					16843071,
 					16843072,
-					2130903142,
-					2130903143,
-					2130903144,
-					2130903145,
-					2130903146,
-					2130903147,
-					2130903210,
-					2130903211,
-					2130903212,
-					2130903213,
-					2130903214};
+					2130903154,
+					2130903155,
+					2130903156,
+					2130903157,
+					2130903158,
+					2130903159,
+					2130903222,
+					2130903223,
+					2130903224,
+					2130903225,
+					2130903226};
 			
 			// aapt resource value: 1
 			public const int CardView_android_minHeight = 1;
@@ -22533,14 +25301,14 @@ namespace SushiShop.Droid
 			// aapt resource value: 12
 			public const int CardView_contentPaddingTop = 12;
 			
-			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x7F0300C3,0x7F0301F6,0x7F0301F7 }
+			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x7F0300CF,0x7F030202,0x7F030203 }
 			public static int[] CheckBoxPreference = new int[] {
 					16843247,
 					16843248,
 					16843249,
-					2130903235,
-					2130903542,
-					2130903543};
+					2130903247,
+					2130903554,
+					2130903555};
 			
 			// aapt resource value: 2
 			public const int CheckBoxPreference_android_disableDependentsState = 2;
@@ -22560,51 +25328,51 @@ namespace SushiShop.Droid
 			// aapt resource value: 5
 			public const int CheckBoxPreference_summaryOn = 5;
 			
-			// aapt resource value: { 0x1010034,0x10100AB,0x101011F,0x101014F,0x10101E5,0x7F030071,0x7F030072,0x7F030073,0x7F030075,0x7F030076,0x7F030077,0x7F030079,0x7F03007A,0x7F03007B,0x7F03007C,0x7F03007D,0x7F03007E,0x7F030083,0x7F030084,0x7F030085,0x7F030087,0x7F030088,0x7F030089,0x7F03008A,0x7F03008B,0x7F03008C,0x7F03008D,0x7F03010E,0x7F030118,0x7F03011D,0x7F0301C4,0x7F0301D4,0x7F030232,0x7F030235 }
+			// aapt resource value: { 0x1010034,0x10100AB,0x101011F,0x101014F,0x10101E5,0x7F03007D,0x7F03007E,0x7F03007F,0x7F030081,0x7F030082,0x7F030083,0x7F030085,0x7F030086,0x7F030087,0x7F030088,0x7F030089,0x7F03008A,0x7F03008F,0x7F030090,0x7F030091,0x7F030093,0x7F030094,0x7F030095,0x7F030096,0x7F030097,0x7F030098,0x7F030099,0x7F03011A,0x7F030124,0x7F030129,0x7F0301D0,0x7F0301E0,0x7F03023E,0x7F030241 }
 			public static int[] Chip = new int[] {
 					16842804,
 					16842923,
 					16843039,
 					16843087,
 					16843237,
-					2130903153,
-					2130903154,
-					2130903155,
-					2130903157,
-					2130903158,
-					2130903159,
-					2130903161,
-					2130903162,
-					2130903163,
-					2130903164,
 					2130903165,
 					2130903166,
+					2130903167,
+					2130903169,
+					2130903170,
 					2130903171,
-					2130903172,
 					2130903173,
+					2130903174,
 					2130903175,
 					2130903176,
 					2130903177,
 					2130903178,
+					2130903183,
+					2130903184,
+					2130903185,
+					2130903187,
+					2130903188,
+					2130903189,
+					2130903190,
+					2130903191,
+					2130903192,
+					2130903193,
+					2130903322,
+					2130903332,
+					2130903337,
+					2130903504,
+					2130903520,
+					2130903614,
+					2130903617};
+			
+			// aapt resource value: { 0x7F03007C,0x7F03008B,0x7F03008C,0x7F03008D,0x7F0301E5,0x7F0301E7 }
+			public static int[] ChipGroup = new int[] {
+					2130903164,
 					2130903179,
 					2130903180,
 					2130903181,
-					2130903310,
-					2130903320,
-					2130903325,
-					2130903492,
-					2130903508,
-					2130903602,
-					2130903605};
-			
-			// aapt resource value: { 0x7F030070,0x7F03007F,0x7F030080,0x7F030081,0x7F0301D9,0x7F0301DB }
-			public static int[] ChipGroup = new int[] {
-					2130903152,
-					2130903167,
-					2130903168,
-					2130903169,
-					2130903513,
-					2130903515};
+					2130903525,
+					2130903527};
 			
 			// aapt resource value: 0
 			public const int ChipGroup_checkedChip = 0;
@@ -22726,24 +25494,24 @@ namespace SushiShop.Droid
 			// aapt resource value: 33
 			public const int Chip_textStartPadding = 33;
 			
-			// aapt resource value: { 0x7F030091,0x7F030092,0x7F0300AF,0x7F0300E6,0x7F0300E7,0x7F0300E8,0x7F0300E9,0x7F0300EA,0x7F0300EB,0x7F0300EC,0x7F0301C5,0x7F0301C7,0x7F0301EB,0x7F030240,0x7F030241,0x7F03024B }
+			// aapt resource value: { 0x7F03009D,0x7F03009E,0x7F0300BB,0x7F0300F2,0x7F0300F3,0x7F0300F4,0x7F0300F5,0x7F0300F6,0x7F0300F7,0x7F0300F8,0x7F0301D1,0x7F0301D3,0x7F0301F7,0x7F03024C,0x7F03024D,0x7F030257 }
 			public static int[] CollapsingToolbarLayout = new int[] {
-					2130903185,
-					2130903186,
-					2130903215,
-					2130903270,
-					2130903271,
-					2130903272,
-					2130903273,
-					2130903274,
-					2130903275,
-					2130903276,
-					2130903493,
-					2130903495,
-					2130903531,
-					2130903616,
-					2130903617,
-					2130903627};
+					2130903197,
+					2130903198,
+					2130903227,
+					2130903282,
+					2130903283,
+					2130903284,
+					2130903285,
+					2130903286,
+					2130903287,
+					2130903288,
+					2130903505,
+					2130903507,
+					2130903543,
+					2130903628,
+					2130903629,
+					2130903639};
 			
 			// aapt resource value: 0
 			public const int CollapsingToolbarLayout_collapsedTitleGravity = 0;
@@ -22775,10 +25543,10 @@ namespace SushiShop.Droid
 			// aapt resource value: 9
 			public const int CollapsingToolbarLayout_expandedTitleTextAppearance = 9;
 			
-			// aapt resource value: { 0x7F03013D,0x7F03013E }
+			// aapt resource value: { 0x7F030149,0x7F03014A }
 			public static int[] CollapsingToolbarLayout_Layout = new int[] {
-					2130903357,
-					2130903358};
+					2130903369,
+					2130903370};
 			
 			// aapt resource value: 0
 			public const int CollapsingToolbarLayout_Layout_layout_collapseMode = 0;
@@ -22804,11 +25572,11 @@ namespace SushiShop.Droid
 			// aapt resource value: 15
 			public const int CollapsingToolbarLayout_toolbarId = 15;
 			
-			// aapt resource value: { 0x10101A5,0x101031F,0x7F030032 }
+			// aapt resource value: { 0x10101A5,0x101031F,0x7F03003E }
 			public static int[] ColorStateListItem = new int[] {
 					16843173,
 					16843551,
-					2130903090};
+					2130903102};
 			
 			// aapt resource value: 2
 			public const int ColorStateListItem_alpha = 2;
@@ -22819,12 +25587,12 @@ namespace SushiShop.Droid
 			// aapt resource value: 0
 			public const int ColorStateListItem_android_color = 0;
 			
-			// aapt resource value: { 0x1010107,0x7F03005E,0x7F030064,0x7F030065 }
+			// aapt resource value: { 0x1010107,0x7F03006A,0x7F030070,0x7F030071 }
 			public static int[] CompoundButton = new int[] {
 					16843015,
-					2130903134,
-					2130903140,
-					2130903141};
+					2130903146,
+					2130903152,
+					2130903153};
 			
 			// aapt resource value: 0
 			public const int CompoundButton_android_button = 0;
@@ -22838,30 +25606,18 @@ namespace SushiShop.Droid
 			// aapt resource value: 3
 			public const int CompoundButton_buttonTintMode = 3;
 			
-			// aapt resource value: { 0x10100C4,0x101011F,0x1010120,0x101013F,0x1010140,0x7F030042,0x7F030043,0x7F03006D,0x7F0300A0,0x7F0300A1,0x7F03013F,0x7F030140,0x7F030141,0x7F030142,0x7F030143,0x7F030144,0x7F030145,0x7F030146,0x7F030147,0x7F030148,0x7F030149,0x7F03014A,0x7F03014B,0x7F03014C,0x7F03014D,0x7F03014E,0x7F03014F,0x7F030150,0x7F030151,0x7F030152,0x7F030153,0x7F030154,0x7F030155,0x7F030156,0x7F030157,0x7F030158,0x7F030159,0x7F03015A,0x7F03015B,0x7F03015C,0x7F03015D,0x7F03015E,0x7F03015F,0x7F030160,0x7F030161,0x7F030162,0x7F030163,0x7F030164,0x7F030165,0x7F030166,0x7F030167,0x7F030169,0x7F03016A,0x7F03016B,0x7F03016C,0x7F03016D,0x7F03016E,0x7F03016F,0x7F030170,0x7F030173 }
+			// aapt resource value: { 0x10100C4,0x101011F,0x1010120,0x101013F,0x1010140,0x7F03004E,0x7F03004F,0x7F030079,0x7F0300AC,0x7F0300AD,0x7F03014B,0x7F03014C,0x7F03014D,0x7F03014E,0x7F03014F,0x7F030150,0x7F030151,0x7F030152,0x7F030153,0x7F030154,0x7F030155,0x7F030156,0x7F030157,0x7F030158,0x7F030159,0x7F03015A,0x7F03015B,0x7F03015C,0x7F03015D,0x7F03015E,0x7F03015F,0x7F030160,0x7F030161,0x7F030162,0x7F030163,0x7F030164,0x7F030165,0x7F030166,0x7F030167,0x7F030168,0x7F030169,0x7F03016A,0x7F03016B,0x7F03016C,0x7F03016D,0x7F03016E,0x7F03016F,0x7F030170,0x7F030171,0x7F030172,0x7F030173,0x7F030175,0x7F030176,0x7F030177,0x7F030178,0x7F030179,0x7F03017A,0x7F03017B,0x7F03017C,0x7F03017F }
 			public static int[] ConstraintLayout_Layout = new int[] {
 					16842948,
 					16843039,
 					16843040,
 					16843071,
 					16843072,
-					2130903106,
-					2130903107,
-					2130903149,
-					2130903200,
-					2130903201,
-					2130903359,
-					2130903360,
-					2130903361,
-					2130903362,
-					2130903363,
-					2130903364,
-					2130903365,
-					2130903366,
-					2130903367,
-					2130903368,
-					2130903369,
-					2130903370,
+					2130903118,
+					2130903119,
+					2130903161,
+					2130903212,
+					2130903213,
 					2130903371,
 					2130903372,
 					2130903373,
@@ -22891,6 +25647,7 @@ namespace SushiShop.Droid
 					2130903397,
 					2130903398,
 					2130903399,
+					2130903400,
 					2130903401,
 					2130903402,
 					2130903403,
@@ -22899,7 +25656,18 @@ namespace SushiShop.Droid
 					2130903406,
 					2130903407,
 					2130903408,
-					2130903411};
+					2130903409,
+					2130903410,
+					2130903411,
+					2130903413,
+					2130903414,
+					2130903415,
+					2130903416,
+					2130903417,
+					2130903418,
+					2130903419,
+					2130903420,
+					2130903423};
 			
 			// aapt resource value: 2
 			public const int ConstraintLayout_Layout_android_maxHeight = 2;
@@ -23081,10 +25849,10 @@ namespace SushiShop.Droid
 			// aapt resource value: 59
 			public const int ConstraintLayout_Layout_layout_optimizationLevel = 59;
 			
-			// aapt resource value: { 0x7F0300A2,0x7F0300DB }
+			// aapt resource value: { 0x7F0300AE,0x7F0300E7 }
 			public static int[] ConstraintLayout_placeholder = new int[] {
-					2130903202,
-					2130903259};
+					2130903214,
+					2130903271};
 			
 			// aapt resource value: 0
 			public const int ConstraintLayout_placeholder_content = 0;
@@ -23092,7 +25860,7 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int ConstraintLayout_placeholder_emptyVisibility = 1;
 			
-			// aapt resource value: { 0x10100C4,0x10100D0,0x10100DC,0x10100F4,0x10100F5,0x10100F7,0x10100F8,0x10100F9,0x10100FA,0x101011F,0x1010120,0x101013F,0x1010140,0x101031F,0x1010320,0x1010321,0x1010322,0x1010323,0x1010324,0x1010325,0x1010326,0x1010327,0x1010328,0x10103B5,0x10103B6,0x10103FA,0x1010440,0x7F030042,0x7F030043,0x7F03006D,0x7F0300A1,0x7F03013F,0x7F030140,0x7F030141,0x7F030142,0x7F030143,0x7F030144,0x7F030145,0x7F030146,0x7F030147,0x7F030148,0x7F030149,0x7F03014A,0x7F03014B,0x7F03014C,0x7F03014D,0x7F03014E,0x7F03014F,0x7F030150,0x7F030151,0x7F030152,0x7F030153,0x7F030154,0x7F030155,0x7F030156,0x7F030157,0x7F030158,0x7F030159,0x7F03015A,0x7F03015B,0x7F03015C,0x7F03015D,0x7F03015E,0x7F03015F,0x7F030160,0x7F030161,0x7F030162,0x7F030163,0x7F030164,0x7F030165,0x7F030166,0x7F030167,0x7F030169,0x7F03016A,0x7F03016B,0x7F03016C,0x7F03016D,0x7F03016E,0x7F03016F,0x7F030170 }
+			// aapt resource value: { 0x10100C4,0x10100D0,0x10100DC,0x10100F4,0x10100F5,0x10100F7,0x10100F8,0x10100F9,0x10100FA,0x101011F,0x1010120,0x101013F,0x1010140,0x101031F,0x1010320,0x1010321,0x1010322,0x1010323,0x1010324,0x1010325,0x1010326,0x1010327,0x1010328,0x10103B5,0x10103B6,0x10103FA,0x1010440,0x7F03004E,0x7F03004F,0x7F030079,0x7F0300AD,0x7F03014B,0x7F03014C,0x7F03014D,0x7F03014E,0x7F03014F,0x7F030150,0x7F030151,0x7F030152,0x7F030153,0x7F030154,0x7F030155,0x7F030156,0x7F030157,0x7F030158,0x7F030159,0x7F03015A,0x7F03015B,0x7F03015C,0x7F03015D,0x7F03015E,0x7F03015F,0x7F030160,0x7F030161,0x7F030162,0x7F030163,0x7F030164,0x7F030165,0x7F030166,0x7F030167,0x7F030168,0x7F030169,0x7F03016A,0x7F03016B,0x7F03016C,0x7F03016D,0x7F03016E,0x7F03016F,0x7F030170,0x7F030171,0x7F030172,0x7F030173,0x7F030175,0x7F030176,0x7F030177,0x7F030178,0x7F030179,0x7F03017A,0x7F03017B,0x7F03017C }
 			public static int[] ConstraintSet = new int[] {
 					16842948,
 					16842960,
@@ -23121,22 +25889,10 @@ namespace SushiShop.Droid
 					16843702,
 					16843770,
 					16843840,
-					2130903106,
-					2130903107,
-					2130903149,
-					2130903201,
-					2130903359,
-					2130903360,
-					2130903361,
-					2130903362,
-					2130903363,
-					2130903364,
-					2130903365,
-					2130903366,
-					2130903367,
-					2130903368,
-					2130903369,
-					2130903370,
+					2130903118,
+					2130903119,
+					2130903161,
+					2130903213,
 					2130903371,
 					2130903372,
 					2130903373,
@@ -23166,6 +25922,7 @@ namespace SushiShop.Droid
 					2130903397,
 					2130903398,
 					2130903399,
+					2130903400,
 					2130903401,
 					2130903402,
 					2130903403,
@@ -23173,7 +25930,18 @@ namespace SushiShop.Droid
 					2130903405,
 					2130903406,
 					2130903407,
-					2130903408};
+					2130903408,
+					2130903409,
+					2130903410,
+					2130903411,
+					2130903413,
+					2130903414,
+					2130903415,
+					2130903416,
+					2130903417,
+					2130903418,
+					2130903419,
+					2130903420};
 			
 			// aapt resource value: 13
 			public const int ConstraintSet_android_alpha = 13;
@@ -23415,23 +26183,23 @@ namespace SushiShop.Droid
 			// aapt resource value: 79
 			public const int ConstraintSet_layout_goneMarginTop = 79;
 			
-			// aapt resource value: { 0x7F030135,0x7F0301EA }
+			// aapt resource value: { 0x7F030141,0x7F0301F6 }
 			public static int[] CoordinatorLayout = new int[] {
-					2130903349,
-					2130903530};
+					2130903361,
+					2130903542};
 			
 			// aapt resource value: 0
 			public const int CoordinatorLayout_keylines = 0;
 			
-			// aapt resource value: { 0x10100B3,0x7F03013A,0x7F03013B,0x7F03013C,0x7F030168,0x7F030171,0x7F030172 }
+			// aapt resource value: { 0x10100B3,0x7F030146,0x7F030147,0x7F030148,0x7F030174,0x7F03017D,0x7F03017E }
 			public static int[] CoordinatorLayout_Layout = new int[] {
 					16842931,
-					2130903354,
-					2130903355,
-					2130903356,
-					2130903400,
-					2130903409,
-					2130903410};
+					2130903366,
+					2130903367,
+					2130903368,
+					2130903412,
+					2130903421,
+					2130903422};
 			
 			// aapt resource value: 0
 			public const int CoordinatorLayout_Layout_android_layout_gravity = 0;
@@ -23457,10 +26225,10 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int CoordinatorLayout_statusBarBackground = 1;
 			
-			// aapt resource value: { 0x7F03004E,0x7F03004F }
+			// aapt resource value: { 0x7F03005A,0x7F03005B }
 			public static int[] DesignTheme = new int[] {
-					2130903118,
-					2130903119};
+					2130903130,
+					2130903131};
 			
 			// aapt resource value: 0
 			public const int DesignTheme_bottomSheetDialogTheme = 0;
@@ -23468,7 +26236,7 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int DesignTheme_bottomSheetStyle = 1;
 			
-			// aapt resource value: { 0x10101F2,0x10101F3,0x10101F4,0x10101F5,0x10101F6,0x10101F7,0x7F0300BC,0x7F0300BD,0x7F0300BE,0x7F0300C2,0x7F030199,0x7F0301AE }
+			// aapt resource value: { 0x10101F2,0x10101F3,0x10101F4,0x10101F5,0x10101F6,0x10101F7,0x7F0300C8,0x7F0300C9,0x7F0300CA,0x7F0300CE,0x7F0301A5,0x7F0301BA }
 			public static int[] DialogPreference = new int[] {
 					16843250,
 					16843251,
@@ -23476,12 +26244,12 @@ namespace SushiShop.Droid
 					16843253,
 					16843254,
 					16843255,
-					2130903228,
-					2130903229,
-					2130903230,
-					2130903234,
-					2130903449,
-					2130903470};
+					2130903240,
+					2130903241,
+					2130903242,
+					2130903246,
+					2130903461,
+					2130903482};
 			
 			// aapt resource value: 2
 			public const int DialogPreference_android_dialogIcon = 2;
@@ -23519,16 +26287,16 @@ namespace SushiShop.Droid
 			// aapt resource value: 11
 			public const int DialogPreference_positiveButtonText = 11;
 			
-			// aapt resource value: { 0x7F030034,0x7F030035,0x7F030041,0x7F030093,0x7F0300CD,0x7F030107,0x7F0301DF,0x7F030237 }
+			// aapt resource value: { 0x7F030040,0x7F030041,0x7F03004D,0x7F03009F,0x7F0300D9,0x7F030113,0x7F0301EB,0x7F030243 }
 			public static int[] DrawerArrowToggle = new int[] {
-					2130903092,
-					2130903093,
+					2130903104,
 					2130903105,
-					2130903187,
-					2130903245,
-					2130903303,
-					2130903519,
-					2130903607};
+					2130903117,
+					2130903199,
+					2130903257,
+					2130903315,
+					2130903531,
+					2130903619};
 			
 			// aapt resource value: 0
 			public const int DrawerArrowToggle_arrowHeadLength = 0;
@@ -23554,28 +26322,28 @@ namespace SushiShop.Droid
 			// aapt resource value: 7
 			public const int DrawerArrowToggle_thickness = 7;
 			
-			// aapt resource value: { 0x7F030257 }
+			// aapt resource value: { 0x7F030263 }
 			public static int[] EditTextPreference = new int[] {
-					2130903639};
+					2130903651};
 			
 			// aapt resource value: 0
 			public const int EditTextPreference_useSimpleSummaryProvider = 0;
 			
-			// aapt resource value: { 0x7F03003F,0x7F030040,0x7F03004A,0x7F0300DA,0x7F0300F1,0x7F0300F2,0x7F03010E,0x7F030116,0x7F03018F,0x7F0301B9,0x7F0301C4,0x7F0301D4,0x7F030256 }
+			// aapt resource value: { 0x7F03004B,0x7F03004C,0x7F030056,0x7F0300E6,0x7F0300FD,0x7F0300FE,0x7F03011A,0x7F030122,0x7F03019B,0x7F0301C5,0x7F0301D0,0x7F0301E0,0x7F030262 }
 			public static int[] FloatingActionButton = new int[] {
-					2130903103,
-					2130903104,
-					2130903114,
-					2130903258,
-					2130903281,
-					2130903282,
-					2130903310,
-					2130903318,
-					2130903439,
-					2130903481,
-					2130903492,
-					2130903508,
-					2130903638};
+					2130903115,
+					2130903116,
+					2130903126,
+					2130903270,
+					2130903293,
+					2130903294,
+					2130903322,
+					2130903330,
+					2130903451,
+					2130903493,
+					2130903504,
+					2130903520,
+					2130903650};
 			
 			// aapt resource value: 0
 			public const int FloatingActionButton_backgroundTint = 0;
@@ -23583,9 +26351,9 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int FloatingActionButton_backgroundTintMode = 1;
 			
-			// aapt resource value: { 0x7F030044 }
+			// aapt resource value: { 0x7F030050 }
 			public static int[] FloatingActionButton_Behavior_Layout = new int[] {
-					2130903108};
+					2130903120};
 			
 			// aapt resource value: 0
 			public const int FloatingActionButton_Behavior_Layout_behavior_autoHide = 0;
@@ -23623,10 +26391,10 @@ namespace SushiShop.Droid
 			// aapt resource value: 12
 			public const int FloatingActionButton_useCompatPadding = 12;
 			
-			// aapt resource value: { 0x7F03012F,0x7F030178 }
+			// aapt resource value: { 0x7F03013B,0x7F030184 }
 			public static int[] FlowLayout = new int[] {
-					2130903343,
-					2130903416};
+					2130903355,
+					2130903428};
 			
 			// aapt resource value: 0
 			public const int FlowLayout_itemSpacing = 0;
@@ -23634,27 +26402,27 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int FlowLayout_lineSpacing = 1;
 			
-			// aapt resource value: { 0x7F0300FC,0x7F0300FD,0x7F0300FE,0x7F0300FF,0x7F030100,0x7F030101 }
+			// aapt resource value: { 0x7F030108,0x7F030109,0x7F03010A,0x7F03010B,0x7F03010C,0x7F03010D }
 			public static int[] FontFamily = new int[] {
-					2130903292,
-					2130903293,
-					2130903294,
-					2130903295,
-					2130903296,
-					2130903297};
+					2130903304,
+					2130903305,
+					2130903306,
+					2130903307,
+					2130903308,
+					2130903309};
 			
-			// aapt resource value: { 0x1010532,0x1010533,0x101053F,0x101056F,0x1010570,0x7F0300FA,0x7F030102,0x7F030103,0x7F030104,0x7F030254 }
+			// aapt resource value: { 0x1010532,0x1010533,0x101053F,0x101056F,0x1010570,0x7F030106,0x7F03010E,0x7F03010F,0x7F030110,0x7F030260 }
 			public static int[] FontFamilyFont = new int[] {
 					16844082,
 					16844083,
 					16844095,
 					16844143,
 					16844144,
-					2130903290,
-					2130903298,
-					2130903299,
-					2130903300,
-					2130903636};
+					2130903302,
+					2130903310,
+					2130903311,
+					2130903312,
+					2130903648};
 			
 			// aapt resource value: 0
 			public const int FontFamilyFont_android_font = 0;
@@ -23704,11 +26472,11 @@ namespace SushiShop.Droid
 			// aapt resource value: 5
 			public const int FontFamily_fontProviderQuery = 5;
 			
-			// aapt resource value: { 0x1010109,0x1010200,0x7F030105 }
+			// aapt resource value: { 0x1010109,0x1010200,0x7F030111 }
 			public static int[] ForegroundLinearLayout = new int[] {
 					16843017,
 					16843264,
-					2130903301};
+					2130903313};
 			
 			// aapt resource value: 0
 			public const int ForegroundLinearLayout_android_foreground = 0;
@@ -23814,17 +26582,17 @@ namespace SushiShop.Droid
 			// aapt resource value: 0
 			public const int LinearConstraintLayout_android_orientation = 0;
 			
-			// aapt resource value: { 0x10100AF,0x10100C4,0x1010126,0x1010127,0x1010128,0x7F0300C5,0x7F0300C7,0x7F030191,0x7F0301D3 }
+			// aapt resource value: { 0x10100AF,0x10100C4,0x1010126,0x1010127,0x1010128,0x7F0300D1,0x7F0300D3,0x7F03019D,0x7F0301DF }
 			public static int[] LinearLayoutCompat = new int[] {
 					16842927,
 					16842948,
 					16843046,
 					16843047,
 					16843048,
-					2130903237,
-					2130903239,
-					2130903441,
-					2130903507};
+					2130903249,
+					2130903251,
+					2130903453,
+					2130903519};
 			
 			// aapt resource value: 2
 			public const int LinearLayoutCompat_android_baselineAligned = 2;
@@ -23883,13 +26651,13 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int ListPopupWindow_android_dropDownVerticalOffset = 1;
 			
-			// aapt resource value: { 0x10100B2,0x10101F8,0x7F0300E0,0x7F0300E1,0x7F030257 }
+			// aapt resource value: { 0x10100B2,0x10101F8,0x7F0300EC,0x7F0300ED,0x7F030263 }
 			public static int[] ListPreference = new int[] {
 					16842930,
 					16843256,
-					2130903264,
-					2130903265,
-					2130903639};
+					2130903276,
+					2130903277,
+					2130903651};
 			
 			// aapt resource value: 0
 			public const int ListPreference_android_entries = 0;
@@ -23906,24 +26674,24 @@ namespace SushiShop.Droid
 			// aapt resource value: 4
 			public const int ListPreference_useSimpleSummaryProvider = 4;
 			
-			// aapt resource value: { 0x10101B7,0x10101B8,0x10101B9,0x10101BA,0x7F03003F,0x7F030040,0x7F0300B2,0x7F030117,0x7F030119,0x7F03011A,0x7F03011B,0x7F03011E,0x7F03011F,0x7F0301C4,0x7F0301EC,0x7F0301ED }
+			// aapt resource value: { 0x10101B7,0x10101B8,0x10101B9,0x10101BA,0x7F03004B,0x7F03004C,0x7F0300BE,0x7F030123,0x7F030125,0x7F030126,0x7F030127,0x7F03012A,0x7F03012B,0x7F0301D0,0x7F0301F8,0x7F0301F9 }
 			public static int[] MaterialButton = new int[] {
 					16843191,
 					16843192,
 					16843193,
 					16843194,
-					2130903103,
-					2130903104,
-					2130903218,
-					2130903319,
-					2130903321,
-					2130903322,
-					2130903323,
-					2130903326,
-					2130903327,
-					2130903492,
-					2130903532,
-					2130903533};
+					2130903115,
+					2130903116,
+					2130903230,
+					2130903331,
+					2130903333,
+					2130903334,
+					2130903335,
+					2130903338,
+					2130903339,
+					2130903504,
+					2130903544,
+					2130903545};
 			
 			// aapt resource value: 3
 			public const int MaterialButton_android_insetBottom = 3;
@@ -23973,10 +26741,10 @@ namespace SushiShop.Droid
 			// aapt resource value: 15
 			public const int MaterialButton_strokeWidth = 15;
 			
-			// aapt resource value: { 0x7F0301EC,0x7F0301ED }
+			// aapt resource value: { 0x7F0301F8,0x7F0301F9 }
 			public static int[] MaterialCardView = new int[] {
-					2130903532,
-					2130903533};
+					2130903544,
+					2130903545};
 			
 			// aapt resource value: 0
 			public const int MaterialCardView_strokeColor = 0;
@@ -23984,40 +26752,40 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int MaterialCardView_strokeWidth = 1;
 			
-			// aapt resource value: { 0x7F03004E,0x7F03004F,0x7F030078,0x7F030082,0x7F030086,0x7F030094,0x7F030095,0x7F03009B,0x7F03009C,0x7F03009D,0x7F0300D9,0x7F0300F9,0x7F03018A,0x7F03018B,0x7F030198,0x7F0301C6,0x7F0301DC,0x7F030216,0x7F03021B,0x7F03021C,0x7F03021D,0x7F03021E,0x7F03021F,0x7F030220,0x7F030221,0x7F030222,0x7F030223,0x7F030224,0x7F030229,0x7F03022E,0x7F03022F,0x7F030233 }
+			// aapt resource value: { 0x7F03005A,0x7F03005B,0x7F030084,0x7F03008E,0x7F030092,0x7F0300A0,0x7F0300A1,0x7F0300A7,0x7F0300A8,0x7F0300A9,0x7F0300E5,0x7F030105,0x7F030196,0x7F030197,0x7F0301A4,0x7F0301D2,0x7F0301E8,0x7F030222,0x7F030227,0x7F030228,0x7F030229,0x7F03022A,0x7F03022B,0x7F03022C,0x7F03022D,0x7F03022E,0x7F03022F,0x7F030230,0x7F030235,0x7F03023A,0x7F03023B,0x7F03023F }
 			public static int[] MaterialComponentsTheme = new int[] {
-					2130903118,
-					2130903119,
-					2130903160,
-					2130903170,
-					2130903174,
-					2130903188,
-					2130903189,
-					2130903195,
-					2130903196,
-					2130903197,
-					2130903257,
-					2130903289,
-					2130903434,
-					2130903435,
-					2130903448,
-					2130903494,
-					2130903516,
-					2130903574,
-					2130903579,
-					2130903580,
-					2130903581,
-					2130903582,
-					2130903583,
-					2130903584,
-					2130903585,
+					2130903130,
+					2130903131,
+					2130903172,
+					2130903182,
+					2130903186,
+					2130903200,
+					2130903201,
+					2130903207,
+					2130903208,
+					2130903209,
+					2130903269,
+					2130903301,
+					2130903446,
+					2130903447,
+					2130903460,
+					2130903506,
+					2130903528,
 					2130903586,
-					2130903587,
-					2130903588,
+					2130903591,
+					2130903592,
 					2130903593,
+					2130903594,
+					2130903595,
+					2130903596,
+					2130903597,
 					2130903598,
 					2130903599,
-					2130903603};
+					2130903600,
+					2130903605,
+					2130903610,
+					2130903611,
+					2130903615};
 			
 			// aapt resource value: 0
 			public const int MaterialComponentsTheme_bottomSheetDialogTheme = 0;
@@ -24142,7 +26910,7 @@ namespace SushiShop.Droid
 			// aapt resource value: 2
 			public const int MenuGroup_android_visible = 2;
 			
-			// aapt resource value: { 0x1010002,0x101000E,0x10100D0,0x1010106,0x1010194,0x10101DE,0x10101DF,0x10101E1,0x10101E2,0x10101E3,0x10101E4,0x10101E5,0x101026F,0x7F030014,0x7F030026,0x7F030027,0x7F030033,0x7F0300A3,0x7F03011E,0x7F03011F,0x7F03019A,0x7F0301D2,0x7F030250 }
+			// aapt resource value: { 0x1010002,0x101000E,0x10100D0,0x1010106,0x1010194,0x10101DE,0x10101DF,0x10101E1,0x10101E2,0x10101E3,0x10101E4,0x10101E5,0x101026F,0x7F030014,0x7F030026,0x7F030027,0x7F03003F,0x7F0300AF,0x7F03012A,0x7F03012B,0x7F0301A6,0x7F0301DE,0x7F03025C }
 			public static int[] MenuItem = new int[] {
 					16842754,
 					16842766,
@@ -24160,13 +26928,13 @@ namespace SushiShop.Droid
 					2130903060,
 					2130903078,
 					2130903079,
-					2130903091,
-					2130903203,
-					2130903326,
-					2130903327,
-					2130903450,
-					2130903506,
-					2130903632};
+					2130903103,
+					2130903215,
+					2130903338,
+					2130903339,
+					2130903462,
+					2130903518,
+					2130903644};
 			
 			// aapt resource value: 13
 			public const int MenuItem_actionLayout = 13;
@@ -24237,7 +27005,7 @@ namespace SushiShop.Droid
 			// aapt resource value: 22
 			public const int MenuItem_tooltipText = 22;
 			
-			// aapt resource value: { 0x10100AE,0x101012C,0x101012D,0x101012E,0x101012F,0x1010130,0x1010131,0x7F0301B8,0x7F0301EE }
+			// aapt resource value: { 0x10100AE,0x101012C,0x101012D,0x101012E,0x101012F,0x1010130,0x1010131,0x7F0301C4,0x7F0301FA }
 			public static int[] MenuView = new int[] {
 					16842926,
 					16843052,
@@ -24246,8 +27014,8 @@ namespace SushiShop.Droid
 					16843055,
 					16843056,
 					16843057,
-					2130903480,
-					2130903534};
+					2130903492,
+					2130903546};
 			
 			// aapt resource value: 4
 			public const int MenuView_android_headerBackground = 4;
@@ -24276,12 +27044,12 @@ namespace SushiShop.Droid
 			// aapt resource value: 8
 			public const int MenuView_subMenuArrow = 8;
 			
-			// aapt resource value: { 0x10100B2,0x10101F8,0x7F0300E0,0x7F0300E1 }
+			// aapt resource value: { 0x10100B2,0x10101F8,0x7F0300EC,0x7F0300ED }
 			public static int[] MultiSelectListPreference = new int[] {
 					16842930,
 					16843256,
-					2130903264,
-					2130903265};
+					2130903276,
+					2130903277};
 			
 			// aapt resource value: 0
 			public const int MultiSelectListPreference_android_entries = 0;
@@ -24338,20 +27106,20 @@ namespace SushiShop.Droid
 			// aapt resource value: 0
 			public const int MvxRecyclerView_MvxTemplateSelector = 0;
 			
-			// aapt resource value: { 0x10100D4,0x10100DD,0x101011F,0x7F0300DA,0x7F030109,0x7F030128,0x7F030129,0x7F03012B,0x7F03012D,0x7F030130,0x7F030133,0x7F030192 }
+			// aapt resource value: { 0x10100D4,0x10100DD,0x101011F,0x7F0300E6,0x7F030115,0x7F030134,0x7F030135,0x7F030137,0x7F030139,0x7F03013C,0x7F03013F,0x7F03019E }
 			public static int[] NavigationView = new int[] {
 					16842964,
 					16842973,
 					16843039,
-					2130903258,
-					2130903305,
-					2130903336,
-					2130903337,
-					2130903339,
-					2130903341,
-					2130903344,
-					2130903347,
-					2130903442};
+					2130903270,
+					2130903317,
+					2130903348,
+					2130903349,
+					2130903351,
+					2130903353,
+					2130903356,
+					2130903359,
+					2130903454};
 			
 			// aapt resource value: 0
 			public const int NavigationView_android_background = 0;
@@ -24389,15 +27157,15 @@ namespace SushiShop.Droid
 			// aapt resource value: 11
 			public const int NavigationView_menu = 11;
 			
-			// aapt resource value: { 0x1010176,0x10102C9,0x7F03019D }
+			// aapt resource value: { 0x1010176,0x10102C9,0x7F0301A9 }
 			public static int[] PopupWindow = new int[] {
 					16843126,
 					16843465,
-					2130903453};
+					2130903465};
 			
-			// aapt resource value: { 0x7F0301E5 }
+			// aapt resource value: { 0x7F0301F1 }
 			public static int[] PopupWindowBackgroundState = new int[] {
-					2130903525};
+					2130903537};
 			
 			// aapt resource value: 0
 			public const int PopupWindowBackgroundState_state_above_anchor = 0;
@@ -24411,7 +27179,7 @@ namespace SushiShop.Droid
 			// aapt resource value: 2
 			public const int PopupWindow_overlapAnchor = 2;
 			
-			// aapt resource value: { 0x1010002,0x101000D,0x101000E,0x10100F2,0x10101E1,0x10101E6,0x10101E8,0x10101E9,0x10101EA,0x10101EB,0x10101EC,0x10101ED,0x10101EE,0x10102E3,0x101055C,0x1010561,0x7F03002E,0x7F030030,0x7F0300B9,0x7F0300BA,0x7F0300DC,0x7F0300DD,0x7F030106,0x7F030117,0x7F03011C,0x7F030127,0x7F030134,0x7F030138,0x7F03019B,0x7F0301AA,0x7F0301CE,0x7F0301D1,0x7F0301DA,0x7F0301F5,0x7F030240,0x7F03025A }
+			// aapt resource value: { 0x1010002,0x101000D,0x101000E,0x10100F2,0x10101E1,0x10101E6,0x10101E8,0x10101E9,0x10101EA,0x10101EB,0x10101EC,0x10101ED,0x10101EE,0x10102E3,0x101055C,0x1010561,0x7F03003A,0x7F03003C,0x7F0300C5,0x7F0300C6,0x7F0300E8,0x7F0300E9,0x7F030112,0x7F030123,0x7F030128,0x7F030133,0x7F030140,0x7F030144,0x7F0301A7,0x7F0301B6,0x7F0301DA,0x7F0301DD,0x7F0301E6,0x7F030201,0x7F03024C,0x7F030266 }
 			public static int[] Preference = new int[] {
 					16842754,
 					16842765,
@@ -24429,40 +27197,40 @@ namespace SushiShop.Droid
 					16843491,
 					16844124,
 					16844129,
-					2130903086,
-					2130903088,
-					2130903225,
-					2130903226,
-					2130903260,
-					2130903261,
-					2130903302,
-					2130903319,
-					2130903324,
-					2130903335,
-					2130903348,
-					2130903352,
-					2130903451,
-					2130903466,
-					2130903502,
-					2130903505,
+					2130903098,
+					2130903100,
+					2130903237,
+					2130903238,
+					2130903272,
+					2130903273,
+					2130903314,
+					2130903331,
+					2130903336,
+					2130903347,
+					2130903360,
+					2130903364,
+					2130903463,
+					2130903478,
 					2130903514,
-					2130903541,
-					2130903616,
-					2130903642};
+					2130903517,
+					2130903526,
+					2130903553,
+					2130903628,
+					2130903654};
 			
-			// aapt resource value: { 0x10100F2,0x1010129,0x101012A,0x7F03002F }
+			// aapt resource value: { 0x10100F2,0x1010129,0x101012A,0x7F03003B }
 			public static int[] PreferenceFragment = new int[] {
 					16842994,
 					16843049,
 					16843050,
-					2130903087};
+					2130903099};
 			
-			// aapt resource value: { 0x10100F2,0x1010129,0x101012A,0x7F03002F }
+			// aapt resource value: { 0x10100F2,0x1010129,0x101012A,0x7F03003B }
 			public static int[] PreferenceFragmentCompat = new int[] {
 					16842994,
 					16843049,
 					16843050,
-					2130903087};
+					2130903099};
 			
 			// aapt resource value: 3
 			public const int PreferenceFragmentCompat_allowDividerAfterLastItem = 3;
@@ -24488,11 +27256,11 @@ namespace SushiShop.Droid
 			// aapt resource value: 0
 			public const int PreferenceFragment_android_layout = 0;
 			
-			// aapt resource value: { 0x10101E7,0x7F030124,0x7F03019C }
+			// aapt resource value: { 0x10101E7,0x7F030130,0x7F0301A8 }
 			public static int[] PreferenceGroup = new int[] {
 					16843239,
-					2130903332,
-					2130903452};
+					2130903344,
+					2130903464};
 			
 			// aapt resource value: 0
 			public const int PreferenceGroup_android_orderingFromXml = 0;
@@ -24503,12 +27271,12 @@ namespace SushiShop.Droid
 			// aapt resource value: 2
 			public const int PreferenceGroup_orderingFromXml = 2;
 			
-			// aapt resource value: { 0x101011F,0x1010120,0x7F03018E,0x7F030190 }
+			// aapt resource value: { 0x101011F,0x1010120,0x7F03019A,0x7F03019C }
 			public static int[] PreferenceImageView = new int[] {
 					16843039,
 					16843040,
-					2130903438,
-					2130903440};
+					2130903450,
+					2130903452};
 			
 			// aapt resource value: 1
 			public const int PreferenceImageView_android_maxHeight = 1;
@@ -24522,24 +27290,24 @@ namespace SushiShop.Droid
 			// aapt resource value: 3
 			public const int PreferenceImageView_maxWidth = 3;
 			
-			// aapt resource value: { 0x7F03006E,0x7F0300BF,0x7F0300D5,0x7F0300D8,0x7F0301AF,0x7F0301B0,0x7F0301B1,0x7F0301B2,0x7F0301B3,0x7F0301B4,0x7F0301B5,0x7F0301B6,0x7F0301B7,0x7F0301CC,0x7F0301FA,0x7F0301FB }
+			// aapt resource value: { 0x7F03007A,0x7F0300CB,0x7F0300E1,0x7F0300E4,0x7F0301BB,0x7F0301BC,0x7F0301BD,0x7F0301BE,0x7F0301BF,0x7F0301C0,0x7F0301C1,0x7F0301C2,0x7F0301C3,0x7F0301D8,0x7F030206,0x7F030207 }
 			public static int[] PreferenceTheme = new int[] {
-					2130903150,
-					2130903231,
-					2130903253,
-					2130903256,
-					2130903471,
-					2130903472,
-					2130903473,
-					2130903474,
-					2130903475,
-					2130903476,
-					2130903477,
-					2130903478,
-					2130903479,
-					2130903500,
-					2130903546,
-					2130903547};
+					2130903162,
+					2130903243,
+					2130903265,
+					2130903268,
+					2130903483,
+					2130903484,
+					2130903485,
+					2130903486,
+					2130903487,
+					2130903488,
+					2130903489,
+					2130903490,
+					2130903491,
+					2130903512,
+					2130903558,
+					2130903559};
 			
 			// aapt resource value: 0
 			public const int PreferenceTheme_checkBoxPreferenceStyle = 0;
@@ -24697,10 +27465,61 @@ namespace SushiShop.Droid
 			// aapt resource value: 35
 			public const int Preference_widgetLayout = 35;
 			
-			// aapt resource value: { 0x7F03019E,0x7F0301A1 }
+			// aapt resource value: { 0x7F03002A,0x7F03002B,0x7F03002C,0x7F03002D,0x7F03002E,0x7F03002F,0x7F030030,0x7F030031,0x7F030032,0x7F030033,0x7F030034,0x7F030035 }
+			public static int[] ProgressWheel = new int[] {
+					2130903082,
+					2130903083,
+					2130903084,
+					2130903085,
+					2130903086,
+					2130903087,
+					2130903088,
+					2130903089,
+					2130903090,
+					2130903091,
+					2130903092,
+					2130903093};
+			
+			// aapt resource value: 0
+			public const int ProgressWheel_ahBarColor = 0;
+			
+			// aapt resource value: 1
+			public const int ProgressWheel_ahBarLength = 1;
+			
+			// aapt resource value: 2
+			public const int ProgressWheel_ahBarWidth = 2;
+			
+			// aapt resource value: 3
+			public const int ProgressWheel_ahCircleColor = 3;
+			
+			// aapt resource value: 4
+			public const int ProgressWheel_ahDelayMillis = 4;
+			
+			// aapt resource value: 5
+			public const int ProgressWheel_ahRadius = 5;
+			
+			// aapt resource value: 6
+			public const int ProgressWheel_ahRimColor = 6;
+			
+			// aapt resource value: 7
+			public const int ProgressWheel_ahRimWidth = 7;
+			
+			// aapt resource value: 8
+			public const int ProgressWheel_ahSpinSpeed = 8;
+			
+			// aapt resource value: 9
+			public const int ProgressWheel_ahText = 9;
+			
+			// aapt resource value: 10
+			public const int ProgressWheel_ahTextColor = 10;
+			
+			// aapt resource value: 11
+			public const int ProgressWheel_ahTextSize = 11;
+			
+			// aapt resource value: { 0x7F0301AA,0x7F0301AD }
 			public static int[] RecycleListView = new int[] {
-					2130903454,
-					2130903457};
+					2130903466,
+					2130903469};
 			
 			// aapt resource value: 0
 			public const int RecycleListView_paddingBottomNoButtons = 0;
@@ -24708,20 +27527,20 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int RecycleListView_paddingTopNoTitle = 1;
 			
-			// aapt resource value: { 0x10100C4,0x10100EB,0x10100F1,0x7F0300F3,0x7F0300F4,0x7F0300F5,0x7F0300F6,0x7F0300F7,0x7F030139,0x7F0301C3,0x7F0301DE,0x7F0301E4 }
+			// aapt resource value: { 0x10100C4,0x10100EB,0x10100F1,0x7F0300FF,0x7F030100,0x7F030101,0x7F030102,0x7F030103,0x7F030145,0x7F0301CF,0x7F0301EA,0x7F0301F0 }
 			public static int[] RecyclerView = new int[] {
 					16842948,
 					16842987,
 					16842993,
-					2130903283,
-					2130903284,
-					2130903285,
-					2130903286,
-					2130903287,
-					2130903353,
-					2130903491,
-					2130903518,
-					2130903524};
+					2130903295,
+					2130903296,
+					2130903297,
+					2130903298,
+					2130903299,
+					2130903365,
+					2130903503,
+					2130903530,
+					2130903536};
 			
 			// aapt resource value: 1
 			public const int RecyclerView_android_clipToPadding = 1;
@@ -24759,39 +27578,39 @@ namespace SushiShop.Droid
 			// aapt resource value: 11
 			public const int RecyclerView_stackFromEnd = 11;
 			
-			// aapt resource value: { 0x7F030125 }
+			// aapt resource value: { 0x7F030131 }
 			public static int[] ScrimInsetsFrameLayout = new int[] {
-					2130903333};
+					2130903345};
 			
 			// aapt resource value: 0
 			public const int ScrimInsetsFrameLayout_insetForeground = 0;
 			
-			// aapt resource value: { 0x7F030047 }
+			// aapt resource value: { 0x7F030053 }
 			public static int[] ScrollingViewBehavior_Layout = new int[] {
-					2130903111};
+					2130903123};
 			
 			// aapt resource value: 0
 			public const int ScrollingViewBehavior_Layout_behavior_overlapTop = 0;
 			
-			// aapt resource value: { 0x10100DA,0x101011F,0x1010220,0x1010264,0x7F030087,0x7F03009F,0x7F0300B8,0x7F030108,0x7F030120,0x7F030138,0x7F0301BC,0x7F0301BD,0x7F0301C8,0x7F0301C9,0x7F0301EF,0x7F0301F4,0x7F030259 }
+			// aapt resource value: { 0x10100DA,0x101011F,0x1010220,0x1010264,0x7F030093,0x7F0300AB,0x7F0300C4,0x7F030114,0x7F03012C,0x7F030144,0x7F0301C8,0x7F0301C9,0x7F0301D4,0x7F0301D5,0x7F0301FB,0x7F030200,0x7F030265 }
 			public static int[] SearchView = new int[] {
 					16842970,
 					16843039,
 					16843296,
 					16843364,
-					2130903175,
-					2130903199,
-					2130903224,
-					2130903304,
-					2130903328,
-					2130903352,
-					2130903484,
-					2130903485,
+					2130903187,
+					2130903211,
+					2130903236,
+					2130903316,
+					2130903340,
+					2130903364,
 					2130903496,
 					2130903497,
-					2130903535,
-					2130903540,
-					2130903641};
+					2130903508,
+					2130903509,
+					2130903547,
+					2130903552,
+					2130903653};
 			
 			// aapt resource value: 0
 			public const int SearchView_android_focusable = 0;
@@ -24844,15 +27663,15 @@ namespace SushiShop.Droid
 			// aapt resource value: 16
 			public const int SearchView_voiceIcon = 16;
 			
-			// aapt resource value: { 0x10100F2,0x1010136,0x7F030029,0x7F030193,0x7F0301CB,0x7F0301D5,0x7F030255 }
+			// aapt resource value: { 0x10100F2,0x1010136,0x7F030029,0x7F03019F,0x7F0301D7,0x7F0301E1,0x7F030261 }
 			public static int[] SeekBarPreference = new int[] {
 					16842994,
 					16843062,
 					2130903081,
-					2130903443,
-					2130903499,
-					2130903509,
-					2130903637};
+					2130903455,
+					2130903511,
+					2130903521,
+					2130903649};
 			
 			// aapt resource value: 2
 			public const int SeekBarPreference_adjustable = 2;
@@ -24875,16 +27694,16 @@ namespace SushiShop.Droid
 			// aapt resource value: 6
 			public const int SeekBarPreference_updatesContinuously = 6;
 			
-			// aapt resource value: { 0x7F0301DC,0x7F0301DD }
+			// aapt resource value: { 0x7F0301E8,0x7F0301E9 }
 			public static int[] Snackbar = new int[] {
-					2130903516,
-					2130903517};
+					2130903528,
+					2130903529};
 			
-			// aapt resource value: { 0x101011F,0x7F0300DA,0x7F03018C }
+			// aapt resource value: { 0x101011F,0x7F0300E6,0x7F030198 }
 			public static int[] SnackbarLayout = new int[] {
 					16843039,
-					2130903258,
-					2130903436};
+					2130903270,
+					2130903448};
 			
 			// aapt resource value: 0
 			public const int SnackbarLayout_android_maxWidth = 0;
@@ -24901,13 +27720,13 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int Snackbar_snackbarStyle = 1;
 			
-			// aapt resource value: { 0x10100B2,0x1010176,0x101017B,0x1010262,0x7F0301AC }
+			// aapt resource value: { 0x10100B2,0x1010176,0x101017B,0x1010262,0x7F0301B8 }
 			public static int[] Spinner = new int[] {
 					16842930,
 					16843126,
 					16843131,
 					16843362,
-					2130903468};
+					2130903480};
 			
 			// aapt resource value: 3
 			public const int Spinner_android_dropDownWidth = 3;
@@ -24958,22 +27777,22 @@ namespace SushiShop.Droid
 			// aapt resource value: 1
 			public const int StateListDrawable_android_visible = 1;
 			
-			// aapt resource value: { 0x1010124,0x1010125,0x1010142,0x7F0301D6,0x7F0301E2,0x7F0301F8,0x7F0301F9,0x7F0301FD,0x7F030238,0x7F030239,0x7F03023A,0x7F030251,0x7F030252,0x7F030253 }
+			// aapt resource value: { 0x1010124,0x1010125,0x1010142,0x7F0301E2,0x7F0301EE,0x7F030204,0x7F030205,0x7F030209,0x7F030244,0x7F030245,0x7F030246,0x7F03025D,0x7F03025E,0x7F03025F }
 			public static int[] SwitchCompat = new int[] {
 					16843044,
 					16843045,
 					16843074,
-					2130903510,
 					2130903522,
-					2130903544,
-					2130903545,
-					2130903549,
-					2130903608,
-					2130903609,
-					2130903610,
-					2130903633,
-					2130903634,
-					2130903635};
+					2130903534,
+					2130903556,
+					2130903557,
+					2130903561,
+					2130903620,
+					2130903621,
+					2130903622,
+					2130903645,
+					2130903646,
+					2130903647};
 			
 			// aapt resource value: 1
 			public const int SwitchCompat_android_textOff = 1;
@@ -25017,31 +27836,31 @@ namespace SushiShop.Droid
 			// aapt resource value: 13
 			public const int SwitchCompat_trackTintMode = 13;
 			
-			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x101036B,0x101036C,0x7F0300C3,0x7F0301F6,0x7F0301F7,0x7F0301FE,0x7F0301FF }
+			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x101036B,0x101036C,0x7F0300CF,0x7F030202,0x7F030203,0x7F03020A,0x7F03020B }
 			public static int[] SwitchPreference = new int[] {
 					16843247,
 					16843248,
 					16843249,
 					16843627,
 					16843628,
-					2130903235,
-					2130903542,
-					2130903543,
-					2130903550,
-					2130903551};
+					2130903247,
+					2130903554,
+					2130903555,
+					2130903562,
+					2130903563};
 			
-			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x101036B,0x101036C,0x7F0300C3,0x7F0301F6,0x7F0301F7,0x7F0301FE,0x7F0301FF }
+			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x101036B,0x101036C,0x7F0300CF,0x7F030202,0x7F030203,0x7F03020A,0x7F03020B }
 			public static int[] SwitchPreferenceCompat = new int[] {
 					16843247,
 					16843248,
 					16843249,
 					16843627,
 					16843628,
-					2130903235,
-					2130903542,
-					2130903543,
-					2130903550,
-					2130903551};
+					2130903247,
+					2130903554,
+					2130903555,
+					2130903562,
+					2130903563};
 			
 			// aapt resource value: 2
 			public const int SwitchPreferenceCompat_android_disableDependentsState = 2;
@@ -25118,20 +27937,8 @@ namespace SushiShop.Droid
 			// aapt resource value: 2
 			public const int TabItem_android_text = 2;
 			
-			// aapt resource value: { 0x7F030200,0x7F030201,0x7F030202,0x7F030203,0x7F030204,0x7F030205,0x7F030206,0x7F030207,0x7F030208,0x7F030209,0x7F03020A,0x7F03020B,0x7F03020C,0x7F03020D,0x7F03020E,0x7F03020F,0x7F030210,0x7F030211,0x7F030212,0x7F030213,0x7F030214,0x7F030215,0x7F030217,0x7F030218,0x7F030219 }
+			// aapt resource value: { 0x7F03020C,0x7F03020D,0x7F03020E,0x7F03020F,0x7F030210,0x7F030211,0x7F030212,0x7F030213,0x7F030214,0x7F030215,0x7F030216,0x7F030217,0x7F030218,0x7F030219,0x7F03021A,0x7F03021B,0x7F03021C,0x7F03021D,0x7F03021E,0x7F03021F,0x7F030220,0x7F030221,0x7F030223,0x7F030224,0x7F030225 }
 			public static int[] TabLayout = new int[] {
-					2130903552,
-					2130903553,
-					2130903554,
-					2130903555,
-					2130903556,
-					2130903557,
-					2130903558,
-					2130903559,
-					2130903560,
-					2130903561,
-					2130903562,
-					2130903563,
 					2130903564,
 					2130903565,
 					2130903566,
@@ -25142,9 +27949,21 @@ namespace SushiShop.Droid
 					2130903571,
 					2130903572,
 					2130903573,
+					2130903574,
 					2130903575,
 					2130903576,
-					2130903577};
+					2130903577,
+					2130903578,
+					2130903579,
+					2130903580,
+					2130903581,
+					2130903582,
+					2130903583,
+					2130903584,
+					2130903585,
+					2130903587,
+					2130903588,
+					2130903589};
 			
 			// aapt resource value: 0
 			public const int TabLayout_tabBackground = 0;
@@ -25221,7 +28040,7 @@ namespace SushiShop.Droid
 			// aapt resource value: 24
 			public const int TabLayout_tabUnboundedRipple = 24;
 			
-			// aapt resource value: { 0x1010095,0x1010096,0x1010097,0x1010098,0x101009A,0x101009B,0x1010161,0x1010162,0x1010163,0x1010164,0x10103AC,0x1010585,0x7F0300FB,0x7F030103,0x7F03021A,0x7F030234 }
+			// aapt resource value: { 0x1010095,0x1010096,0x1010097,0x1010098,0x101009A,0x101009B,0x1010161,0x1010162,0x1010163,0x1010164,0x10103AC,0x1010585,0x7F030107,0x7F03010F,0x7F030226,0x7F030240 }
 			public static int[] TextAppearance = new int[] {
 					16842901,
 					16842902,
@@ -25235,10 +28054,10 @@ namespace SushiShop.Droid
 					16843108,
 					16843692,
 					16844165,
-					2130903291,
-					2130903299,
-					2130903578,
-					2130903604};
+					2130903303,
+					2130903311,
+					2130903590,
+					2130903616};
 			
 			// aapt resource value: 10
 			public const int TextAppearance_android_fontFamily = 10;
@@ -25288,36 +28107,36 @@ namespace SushiShop.Droid
 			// aapt resource value: 15
 			public const int TextAppearance_textLocale = 15;
 			
-			// aapt resource value: { 0x101009A,0x1010150,0x7F030050,0x7F030051,0x7F030052,0x7F030053,0x7F030054,0x7F030055,0x7F030056,0x7F030057,0x7F030058,0x7F0300B3,0x7F0300B4,0x7F0300B5,0x7F0300B6,0x7F0300E2,0x7F0300E3,0x7F03010B,0x7F03010C,0x7F03010D,0x7F030111,0x7F030112,0x7F030113,0x7F0301A5,0x7F0301A6,0x7F0301A7,0x7F0301A8,0x7F0301A9 }
+			// aapt resource value: { 0x101009A,0x1010150,0x7F03005C,0x7F03005D,0x7F03005E,0x7F03005F,0x7F030060,0x7F030061,0x7F030062,0x7F030063,0x7F030064,0x7F0300BF,0x7F0300C0,0x7F0300C1,0x7F0300C2,0x7F0300EE,0x7F0300EF,0x7F030117,0x7F030118,0x7F030119,0x7F03011D,0x7F03011E,0x7F03011F,0x7F0301B1,0x7F0301B2,0x7F0301B3,0x7F0301B4,0x7F0301B5 }
 			public static int[] TextInputLayout = new int[] {
 					16842906,
 					16843088,
-					2130903120,
-					2130903121,
-					2130903122,
-					2130903123,
-					2130903124,
-					2130903125,
-					2130903126,
-					2130903127,
-					2130903128,
-					2130903219,
-					2130903220,
-					2130903221,
-					2130903222,
-					2130903266,
-					2130903267,
-					2130903307,
-					2130903308,
-					2130903309,
-					2130903313,
-					2130903314,
-					2130903315,
-					2130903461,
-					2130903462,
-					2130903463,
-					2130903464,
-					2130903465};
+					2130903132,
+					2130903133,
+					2130903134,
+					2130903135,
+					2130903136,
+					2130903137,
+					2130903138,
+					2130903139,
+					2130903140,
+					2130903231,
+					2130903232,
+					2130903233,
+					2130903234,
+					2130903278,
+					2130903279,
+					2130903319,
+					2130903320,
+					2130903321,
+					2130903325,
+					2130903326,
+					2130903327,
+					2130903473,
+					2130903474,
+					2130903475,
+					2130903476,
+					2130903477};
 			
 			// aapt resource value: 1
 			public const int TextInputLayout_android_hint = 1;
@@ -25403,11 +28222,11 @@ namespace SushiShop.Droid
 			// aapt resource value: 27
 			public const int TextInputLayout_passwordToggleTintMode = 27;
 			
-			// aapt resource value: { 0x1010034,0x7F0300DE,0x7F0300DF }
+			// aapt resource value: { 0x1010034,0x7F0300EA,0x7F0300EB }
 			public static int[] ThemeEnforcement = new int[] {
 					16842804,
-					2130903262,
-					2130903263};
+					2130903274,
+					2130903275};
 			
 			// aapt resource value: 0
 			public const int ThemeEnforcement_android_textAppearance = 0;
@@ -25418,38 +28237,38 @@ namespace SushiShop.Droid
 			// aapt resource value: 2
 			public const int ThemeEnforcement_enforceTextAppearance = 2;
 			
-			// aapt resource value: { 0x10100AF,0x1010140,0x7F03005F,0x7F03008F,0x7F030090,0x7F0300A4,0x7F0300A5,0x7F0300A6,0x7F0300A7,0x7F0300A8,0x7F0300A9,0x7F030188,0x7F030189,0x7F03018D,0x7F030192,0x7F030195,0x7F030196,0x7F0301AC,0x7F0301F0,0x7F0301F1,0x7F0301F2,0x7F030240,0x7F030242,0x7F030243,0x7F030244,0x7F030245,0x7F030246,0x7F030247,0x7F030248,0x7F030249 }
+			// aapt resource value: { 0x10100AF,0x1010140,0x7F03006B,0x7F03009B,0x7F03009C,0x7F0300B0,0x7F0300B1,0x7F0300B2,0x7F0300B3,0x7F0300B4,0x7F0300B5,0x7F030194,0x7F030195,0x7F030199,0x7F03019E,0x7F0301A1,0x7F0301A2,0x7F0301B8,0x7F0301FC,0x7F0301FD,0x7F0301FE,0x7F03024C,0x7F03024E,0x7F03024F,0x7F030250,0x7F030251,0x7F030252,0x7F030253,0x7F030254,0x7F030255 }
 			public static int[] Toolbar = new int[] {
 					16842927,
 					16843072,
-					2130903135,
-					2130903183,
-					2130903184,
-					2130903204,
-					2130903205,
-					2130903206,
-					2130903207,
-					2130903208,
-					2130903209,
-					2130903432,
-					2130903433,
-					2130903437,
-					2130903442,
+					2130903147,
+					2130903195,
+					2130903196,
+					2130903216,
+					2130903217,
+					2130903218,
+					2130903219,
+					2130903220,
+					2130903221,
+					2130903444,
 					2130903445,
-					2130903446,
-					2130903468,
-					2130903536,
-					2130903537,
-					2130903538,
-					2130903616,
-					2130903618,
-					2130903619,
-					2130903620,
-					2130903621,
-					2130903622,
-					2130903623,
-					2130903624,
-					2130903625};
+					2130903449,
+					2130903454,
+					2130903457,
+					2130903458,
+					2130903480,
+					2130903548,
+					2130903549,
+					2130903550,
+					2130903628,
+					2130903630,
+					2130903631,
+					2130903632,
+					2130903633,
+					2130903634,
+					2130903635,
+					2130903636,
+					2130903637};
 			
 			// aapt resource value: 0
 			public const int Toolbar_android_gravity = 0;
@@ -25541,19 +28360,19 @@ namespace SushiShop.Droid
 			// aapt resource value: 29
 			public const int Toolbar_titleTextColor = 29;
 			
-			// aapt resource value: { 0x1010000,0x10100DA,0x7F03019F,0x7F0301A0,0x7F030236 }
+			// aapt resource value: { 0x1010000,0x10100DA,0x7F0301AB,0x7F0301AC,0x7F030242 }
 			public static int[] View = new int[] {
 					16842752,
 					16842970,
-					2130903455,
-					2130903456,
-					2130903606};
+					2130903467,
+					2130903468,
+					2130903618};
 			
-			// aapt resource value: { 0x10100D4,0x7F03003F,0x7F030040 }
+			// aapt resource value: { 0x10100D4,0x7F03004B,0x7F03004C }
 			public static int[] ViewBackgroundHelper = new int[] {
 					16842964,
-					2130903103,
-					2130903104};
+					2130903115,
+					2130903116};
 			
 			// aapt resource value: 0
 			public const int ViewBackgroundHelper_android_background = 0;

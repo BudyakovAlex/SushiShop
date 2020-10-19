@@ -91,6 +91,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
         private void InitializeSimpleListCollectionView()
         {
             SimpleListCollectionView.RegisterNibForCell(SimpleMenuItemCell.Nib, SimpleMenuItemCell.Key);
+            SimpleListCollectionView.RegisterNibForCell(SimpleMenuGroupsCell.Nib, SimpleMenuGroupsCell.Key);
+            SimpleListCollectionView.RegisterNibForCell(SimpleMenuActionItemCell.Nib, SimpleMenuActionItemCell.Key);
+
             simpleListCollectionViewSource = new SimpleListMenuCollectionViewSource(SimpleListCollectionView);
             SimpleListCollectionView.Source = simpleListCollectionViewSource;
             SimpleListCollectionView.Delegate = new SimpleListMenuCollectionDelegateFlowLayout(simpleListCollectionViewSource);

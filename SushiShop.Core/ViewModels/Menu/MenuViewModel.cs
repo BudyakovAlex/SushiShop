@@ -1,9 +1,9 @@
-﻿using BuildApps.Core.Mobile.Common.Extensions;
-using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Common;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models;
 using SushiShop.Core.Managers.Menu;
 using SushiShop.Core.NavigationParameters;
@@ -26,27 +26,21 @@ namespace SushiShop.Core.ViewModels.Menu
         {
             this.menuManager = menuManager;
 
-            Items = new MvxObservableCollection<MenuItemViewModel>();
-            SimpleItems = new MvxObservableCollection<MenuItemViewModel>();
+            Items = new MvxObservableCollection<BaseViewModel>();
+            SimpleItems = new MvxObservableCollection<BaseViewModel>();
 
             SelectCityCommand = new SafeAsyncCommand(ExecutionStateWrapper, SelectCityAsync);
             SwitchPresentationCommand = new MvxCommand(() => IsListMenuPresentation = !IsListMenuPresentation);
-
-            SelectBannerItemCommand = new SafeAsyncCommand(ExecutionStateWrapper, SelectBannerItemAsync);
-            OpenFranchiseCommand = new SafeAsyncCommand(ExecutionStateWrapper, OpenFranchiseAsync);
-            OpenVacanciesCommand = new SafeAsyncCommand(ExecutionStateWrapper, OpenVacanciesAsync);
         }
 
-        public MvxObservableCollection<MenuItemViewModel> Items { get; }
-        public MvxObservableCollection<MenuItemViewModel> SimpleItems { get; }
+        public MvxObservableCollection<BaseViewModel> Items { get; }
+        public MvxObservableCollection<BaseViewModel> SimpleItems { get; }
 
         public IMvxCommand SelectCityCommand { get; }
         public IMvxCommand SwitchPresentationCommand { get; }
-        public IMvxCommand SelectBannerItemCommand { get; }
-        public IMvxCommand OpenFranchiseCommand { get; }
-        public IMvxCommand OpenVacanciesCommand { get; }
 
         private bool isListMenuPresentation;
+
         public bool IsListMenuPresentation
         {
             get => isListMenuPresentation;
@@ -62,35 +56,31 @@ namespace SushiShop.Core.ViewModels.Menu
 
         private async Task ReloadDataAsync()
         {
-            // TODO: 
             var response = await menuManager.GetMenuAsync(city?.Name);
 
-            Items.AddRange(
-               new List<MenuItemViewModel>
-               {
-                    new MenuItemViewModel(new MenuItem("Бизнес ланчи", "https://gurmans.dp.ua/giuseppe/7980-large_default/sushi-set-kaliforniya.jpg")),
-                    new MenuItemViewModel(new MenuItem("Роллы", "https://gurmans.dp.ua/giuseppe/7980-large_default/sushi-set-kaliforniya.jpg")),
-                    new MenuItemViewModel(new MenuItem("Суши", "https://gurmans.dp.ua/giuseppe/7980-large_default/sushi-set-kaliforniya.jpg")),
-                    new MenuItemViewModel(new MenuItem("Наборы", "https://gurmans.dp.ua/giuseppe/7980-large_default/sushi-set-kaliforniya.jpg")),
-                    new MenuItemViewModel(new MenuItem("Супы", "https://gurmans.dp.ua/giuseppe/7980-large_default/sushi-set-kaliforniya.jpg")),
-               });
-            SimpleItems.AddRange(
-                new List<MenuItemViewModel>
-                {
-                    new MenuItemViewModel(new MenuItem("Наборы", "https://gurmans.dp.ua/giuseppe/7980-large_default/sushi-set-kaliforniya.jpg")),
-                    new MenuItemViewModel(new MenuItem("Роллы", "https://gurmans.dp.ua/giuseppe/7980-large_default/sushi-set-kaliforniya.jpg")),
-                    new MenuItemViewModel(new MenuItem("Суши", "https://gurmans.dp.ua/giuseppe/7980-large_default/sushi-set-kaliforniya.jpg")),
-                    new MenuItemViewModel(new MenuItem("Горячее", "https://gurmans.dp.ua/giuseppe/7980-large_default/sushi-set-kaliforniya.jpg")),
-                    new MenuItemViewModel(new MenuItem("Бизнес ланчи", "https://gurmans.dp.ua/giuseppe/7980-large_default/sushi-set-kaliforniya.jpg")),
-                });
+            var groupMenuItemViewModels = response.Data.Stickers.Select(sticker => new GroupMenuItemViewModel(sticker) { ExecutionStateWrapper = ExecutionStateWrapper }).ToList();
+            var categoryMenuItemViewModels = response.Data.Categories.Select(categories => new CategoryMenuItemViewModel(categories) { ExecutionStateWrapper = ExecutionStateWrapper }).ToList();
 
-            //return Task.CompletedTask;
+            Items.Clear();
+            SimpleItems.Clear();
+
+            var groupsMenuItemViewModel = new GroupsMenuItemViewModel(groupMenuItemViewModels) { ExecutionStateWrapper = ExecutionStateWrapper };
+            Items.Add(groupsMenuItemViewModel);
+            Items.AddRange(categoryMenuItemViewModels);
+
+            SimpleItems.AddRange(categoryMenuItemViewModels);
+            SimpleItems.Add(groupsMenuItemViewModel);
+            SimpleItems.AddRange(new List<MenuActionItemViewModel>
+                {
+                    new MenuActionItemViewModel(ActionType.Franchise) { ExecutionStateWrapper = ExecutionStateWrapper },
+                    new MenuActionItemViewModel(ActionType.Vacancies) { ExecutionStateWrapper = ExecutionStateWrapper }
+                });
         }
 
         private async Task SelectCityAsync()
         {
             var navigationParams = new SelectCityNavigationParameters();
-            var result = await NavigationManager.NavigateAsync<SelectCityViewModel, SelectCityNavigationParameters, List <CityItemViewModel>?>(navigationParams);
+            var result = await NavigationManager.NavigateAsync<SelectCityViewModel, SelectCityNavigationParameters, List<CityItemViewModel>?>(navigationParams);
             if (result is null)
             {
                 return;
@@ -98,21 +88,6 @@ namespace SushiShop.Core.ViewModels.Menu
 
             city = result.First().City;
             await RaisePropertyChanged(nameof(CityName));
-        }
-
-        private Task SelectBannerItemAsync()
-        {
-            return Task.CompletedTask;
-        }
-
-        private Task OpenFranchiseAsync()
-        {
-            return Task.CompletedTask;
-        }
-
-        private Task OpenVacanciesAsync()
-        {
-            return Task.CompletedTask;
         }
     }
 }

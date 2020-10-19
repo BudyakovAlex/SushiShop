@@ -88,5 +88,77 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("SearchSity", resourceCulture);
             }
         }
+        
+        public static string Franchise {
+            get {
+                return ResourceManager.GetString("Franchise", resourceCulture);
+            }
+        }
+        
+        public static string Vacancies {
+            get {
+                return ResourceManager.GetString("Vacancies", resourceCulture);
+            }
+        }
+        
+        public static string AboutUs {
+            get {
+                return ResourceManager.GetString("AboutUs", resourceCulture);
+            }
+        }
+        
+        public static string GoToTheFranchisePage_ {
+            get {
+                return ResourceManager.GetString("GoToTheFranchisePage?", resourceCulture);
+            }
+        }
+        
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        public static string PrivacyPolicy {
+            get {
+                return ResourceManager.GetString("PrivacyPolicy", resourceCulture);
+            }
+        }
+        
+        public static string PublicOffer {
+            get {
+                return ResourceManager.GetString("PublicOffer", resourceCulture);
+            }
+        }
+        
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
+            }
+        }
+        
+        public static string Hit {
+            get {
+                return ResourceManager.GetString("Hit", resourceCulture);
+            }
+        }
+        
+        public static string Hot {
+            get {
+                return ResourceManager.GetString("Hot", resourceCulture);
+            }
+        }
+        
+        public static string Vegan {
+            get {
+                return ResourceManager.GetString("Vegan", resourceCulture);
+            }
+        }
+        
+        public static string Season {
+            get {
+                return ResourceManager.GetString("Season", resourceCulture);
+            }
+        }
     }
 }

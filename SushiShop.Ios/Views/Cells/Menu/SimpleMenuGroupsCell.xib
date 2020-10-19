@@ -16,18 +16,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="280" height="190"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rLf-F5-FJA">
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rLf-F5-FJA" customClass="MvxStackView">
                         <rect key="frame" x="66" y="-10" width="110" height="200"/>
                     </stackView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="rLf-F5-FJA" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leading" id="9jj-wY-ce0"/>
-                <constraint firstAttribute="bottom" secondItem="rLf-F5-FJA" secondAttribute="bottom" id="OQl-4z-LGT"/>
+                <constraint firstAttribute="bottom" secondItem="rLf-F5-FJA" secondAttribute="bottom" constant="26" id="OQl-4z-LGT"/>
                 <constraint firstAttribute="trailing" secondItem="rLf-F5-FJA" secondAttribute="trailing" id="WrX-Ap-8Ry"/>
-                <constraint firstItem="rLf-F5-FJA" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top" id="fzV-Qf-ZpL"/>
+                <constraint firstItem="rLf-F5-FJA" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top" constant="26" id="fzV-Qf-ZpL"/>
             </constraints>
             <size key="customSize" width="280" height="190"/>
+            <connections>
+                <outlet property="GroupStackView" destination="rLf-F5-FJA" id="TGI-lq-mmg"/>
+            </connections>
             <point key="canvasLocation" x="262.31884057971018" y="49.553571428571423"/>
         </collectionViewCell>
     </objects>

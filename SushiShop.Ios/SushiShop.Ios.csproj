@@ -152,6 +152,14 @@
         <ImageAsset Include="Assets.xcassets\ic_menu_tiles.imageset\ic_menu_tiles.pdf" />
         <ImageAsset Include="Assets.xcassets\ic_chevron_down.imageset\Contents.json" />
         <ImageAsset Include="Assets.xcassets\ic_chevron_down.imageset\ic_chevron_down.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_hit_category.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_hit_category.imageset\ic_hit_category.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_hot_category.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_hot_category.imageset\ic_hot_category.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_season_category.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_season_category.imageset\ic_season_category.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_vegan_category.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_vegan_category.imageset\ic_vegan_category.pdf" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
@@ -183,6 +191,10 @@
         <Folder Include="Assets.xcassets\ic_chevron_down.imageset\" />
         <Folder Include="Views\Cells\Menu\" />
         <Folder Include="Views\Controls\" />
+        <Folder Include="Assets.xcassets\ic_hit_category.imageset\" />
+        <Folder Include="Assets.xcassets\ic_hot_category.imageset\" />
+        <Folder Include="Assets.xcassets\ic_season_category.imageset\" />
+        <Folder Include="Assets.xcassets\ic_vegan_category.imageset\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -267,12 +279,13 @@
           <DependentUpon>SimpleMenuGroupsCell.cs</DependentUpon>
         </Compile>
         <Compile Include="Views\Controls\SimpleMenuGroupView.cs" />
+        <Compile Include="Views\Controls\SimpleMenuGroupView.designer.cs">
+          <DependentUpon>Views\Controls\SimpleMenuGroupView.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Converters\StickerTypeToUIImageConverter.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuActionItemCell.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuActionItemCell.designer.cs">
           <DependentUpon>SimpleMenuActionItemCell.cs</DependentUpon>
-        </Compile>
-        <Compile Include="Views\Controls\SimpleMenuGroupView.designer.cs">
-          <DependentUpon>Views\Controls\SimpleMenuGroupView.cs</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>

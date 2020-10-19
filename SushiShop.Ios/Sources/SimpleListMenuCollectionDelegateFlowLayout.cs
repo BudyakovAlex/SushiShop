@@ -1,17 +1,19 @@
 ﻿using CoreGraphics;
 using Foundation;
 using MvvmCross.Platforms.Ios.Binding.Views;
-using SushiShop.Ios.Views.Cells.Menu;
-using System.Linq;
 using SushiShop.Core.Extensions;
-using UIKit;
 using SushiShop.Core.ViewModels.Menu.Items;
 using System;
+using System.Linq;
+using UIKit;
 
 namespace SushiShop.Ios.Sources
 {
     public class SimpleListMenuCollectionDelegateFlowLayout : UICollectionViewDelegateFlowLayout
     {
+        private const int SimpleCellHeight = 48;
+        private const int GroupsCellHeight = 244;
+
         private readonly MvxCollectionViewSource collectionViewSource;
 
         public SimpleListMenuCollectionDelegateFlowLayout(MvxCollectionViewSource collectionViewSource)
@@ -39,7 +41,9 @@ namespace SushiShop.Ios.Sources
             var viewModel = collectionViewSource.ItemsSource.ElementAtOrDefault(indexPath.Row);
             return viewModel switch
             {
-                MenuItemViewModel _ => new CGSize(collectionView.Frame.Width / 2, 48),
+                MenuActionItemViewModel _ => new CGSize(collectionView.Frame.Width / 2, SimpleCellHeight),
+                CategoryMenuItemViewModel _ => new CGSize(collectionView.Frame.Width / 2, SimpleCellHeight),
+                GroupsMenuItemViewModel _ => new CGSize(collectionView.Frame.Width, GroupsCellHeight),
                 _ => base.GetSizeForItem(collectionView, layout, indexPath)
             };
         }

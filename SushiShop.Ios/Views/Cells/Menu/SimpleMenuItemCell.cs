@@ -1,6 +1,7 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
+using MvvmCross.Platforms.Ios.Binding;
 using SushiShop.Core.ViewModels.Menu.Items;
 using System;
 using UIKit;
@@ -32,9 +33,10 @@ namespace SushiShop.Ios.Views.Cells.Menu
         {
             base.DoBind();
 
-            var bindingSet = this.CreateBindingSet<SimpleMenuItemCell, MenuItemViewModel>();
+            var bindingSet = this.CreateBindingSet<SimpleMenuItemCell, CategoryMenuItemViewModel>();
 
             bindingSet.Bind(NameLabel).For(v => v.Text).To(vm => vm.Title);
+            bindingSet.Bind(ContainerView).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
 
             bindingSet.Apply();
         }
