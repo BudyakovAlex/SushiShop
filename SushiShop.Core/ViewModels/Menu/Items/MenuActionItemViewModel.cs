@@ -1,11 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Acr.UserDialogs;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+using MvvmCross;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
+using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Menu.Items
 {
@@ -24,28 +27,29 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 
         public IMvxCommand ActionCommand { get; }
 
-        private async Task ExecuteActionAsync()
+        private Task ExecuteActionAsync()
         {
-
-            switch (actionType)
+            return actionType switch
             {
-                case ActionType.Franchise:
-                    {
-                        await UserDialogs.Instance.ConfirmAsync(new ConfirmConfig()
-                        {
-                            OkText = AppStrings.Yes,
-                            CancelText = AppStrings.No,
-                            Message = AppStrings.GoToTheFranchisePage_
-                        });
-                        return;
-                    }
-                case ActionType.Vacancies:
-                    {
-                         await NavigationManager.NavigateAsync<CommonInfoViewModel>();
-                         return;
-                    }
-            }
-            // return Task.CompletedTask;
+                ActionType.Franchise => ShowFranchisePopupAsync(),
+                ActionType.Vacancies => NavigationManager.NavigateAsync<CommonInfoViewModel>(),
+                _ => Task.CompletedTask
+            };
+        }
+
+
+        private async Task ShowFranchisePopupAsync()
+        {
+            var isConfirmed = await UserDialogs.Instance.ConfirmAsync(new ConfirmConfig()
+            {
+                OkText = AppStrings.Yes,
+                CancelText = AppStrings.No,
+                Message = AppStrings.GoToTheFranchisePage_
+            });
+            
+            if (isConfirmed)
+                return;
+            await Browser.OpenAsync("http://www.xamarin.com", BrowserLaunchMode.SystemPreferred);
         }
 
         private string GetTitle()

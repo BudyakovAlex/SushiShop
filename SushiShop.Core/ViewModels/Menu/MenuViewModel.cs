@@ -43,7 +43,6 @@ namespace SushiShop.Core.ViewModels.Menu
         public IMvxCommand SelectBannerItemCommand { get; }
 
         private bool isListMenuPresentation;
-
         public bool IsListMenuPresentation
         {
             get => isListMenuPresentation;
@@ -59,7 +58,6 @@ namespace SushiShop.Core.ViewModels.Menu
 
         private async Task ReloadDataAsync()
         {
-            // TODO:
             var response = await menuManager.GetMenuAsync(city?.Name);
 
             var groupMenuItemViewModels = response.Data.Stickers.Select(sticker => new GroupMenuItemViewModel(sticker)).ToList();
@@ -78,7 +76,6 @@ namespace SushiShop.Core.ViewModels.Menu
                     new MenuActionItemViewModel(ActionType.Franchise),
                     new MenuActionItemViewModel(ActionType.Vacancies)
                 });
-            //return Task.CompletedTask;
         }
 
         private async Task SelectCityAsync()
