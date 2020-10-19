@@ -8,8 +8,8 @@ using Foundation;
 
 namespace SushiShop.Ios.Views.Cells.Menu
 {
-    [Register("SimpleMenuGroupCell")]
-    partial class SimpleMenuGroupCell
+    [Register("SimpleMenuGroupsCell")]
+    partial class SimpleMenuGroupsCell
     {
         void ReleaseDesignerOutlets()
         {

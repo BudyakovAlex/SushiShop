@@ -182,6 +182,7 @@
         <Folder Include="Converters\" />
         <Folder Include="Assets.xcassets\ic_chevron_down.imageset\" />
         <Folder Include="Views\Cells\Menu\" />
+        <Folder Include="Views\Controls\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -195,7 +196,9 @@
         <InterfaceDefinition Include="Views\ViewControllers\Info\InfoViewController.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\Cart\CartViewController.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuItemCell.xib" />
-        <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuGroupCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuGroupsCell.xib" />
+        <InterfaceDefinition Include="Views\Controls\SimpleMenuGroupView.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuActionItemCell.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Entitlements.plist" />
@@ -259,9 +262,17 @@
         <Compile Include="Views\Cells\Menu\SimpleMenuItemCell.designer.cs">
           <DependentUpon>SimpleMenuItemCell.cs</DependentUpon>
         </Compile>
-        <Compile Include="Views\Cells\Menu\SimpleMenuGroupCell.cs" />
-        <Compile Include="Views\Cells\Menu\SimpleMenuGroupCell.designer.cs">
-          <DependentUpon>SimpleMenuGroupCell.cs</DependentUpon>
+        <Compile Include="Views\Cells\Menu\SimpleMenuGroupsCell.cs" />
+        <Compile Include="Views\Cells\Menu\SimpleMenuGroupsCell.designer.cs">
+          <DependentUpon>SimpleMenuGroupsCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Controls\SimpleMenuGroupView.cs" />
+        <Compile Include="Views\Cells\Menu\SimpleMenuActionItemCell.cs" />
+        <Compile Include="Views\Cells\Menu\SimpleMenuActionItemCell.designer.cs">
+          <DependentUpon>SimpleMenuActionItemCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Controls\SimpleMenuGroupView.designer.cs">
+          <DependentUpon>Views\Controls\SimpleMenuGroupView.cs</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>
