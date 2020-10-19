@@ -162,4 +162,16 @@
   <data name="Yes" xml:space="preserve">
     <value>Да</value>
   </data>
+  <data name="Hit" xml:space="preserve">
+    <value>Хиты</value>
+  </data>
+  <data name="Hot" xml:space="preserve">
+    <value>Острое</value>
+  </data>
+  <data name="Vegan" xml:space="preserve">
+    <value>Вегетарианское</value>
+  </data>
+  <data name="Season" xml:space="preserve">
+    <value>Сезонное меню</value>
+  </data>
 </root>

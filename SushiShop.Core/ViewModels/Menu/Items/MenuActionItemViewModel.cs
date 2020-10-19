@@ -48,6 +48,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
             {
                 return;
             }
+
             await Browser.OpenAsync("http://www.xamarin.com", BrowserLaunchMode.SystemPreferred);
         }
 
