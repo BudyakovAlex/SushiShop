@@ -43,6 +43,7 @@ namespace SushiShop.Core.ViewModels.Menu
         public IMvxCommand SelectBannerItemCommand { get; }
 
         private bool isListMenuPresentation;
+
         public bool IsListMenuPresentation
         {
             get => isListMenuPresentation;

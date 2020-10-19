@@ -8,9 +8,8 @@ namespace SushiShop.Core.ViewModels.Menu.Items
     {
         public GroupMenuItemViewModel(Sticker sticker)
         {
-
         }
 
-        public ActionType ActionType { get; } 
+        public ActionType ActionType { get; }
     }
 }

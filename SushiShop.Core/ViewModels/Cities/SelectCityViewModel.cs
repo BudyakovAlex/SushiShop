@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using SushiShop.Core.Managers.Cities;
+﻿using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Abstract;
 using SushiShop.Core.ViewModels.Cities.Items;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Cities
 {
