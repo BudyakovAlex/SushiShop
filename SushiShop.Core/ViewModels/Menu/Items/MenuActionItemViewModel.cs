@@ -44,8 +44,10 @@ namespace SushiShop.Core.ViewModels.Menu.Items
                 Message = AppStrings.GoToTheFranchisePage_
             });
 
-            if (isConfirmed)
+            if (!isConfirmed)
+            {
                 return;
+            }
             await Browser.OpenAsync("http://www.xamarin.com", BrowserLaunchMode.SystemPreferred);
         }
 
