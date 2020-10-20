@@ -7,7 +7,7 @@ using System;
 using System.Linq;
 using UIKit;
 
-namespace SushiShop.Ios.Sources
+namespace SushiShop.Ios.Delegates
 {
     public class SimpleListMenuCollectionDelegateFlowLayout : UICollectionViewDelegateFlowLayout
     {

@@ -15,15 +15,15 @@ namespace SushiShop.Ios.Views.Controls
         {
         }
 
-        protected override void DoAwakeFromNib()
+        protected override void Initialize()
         {
-            base.DoAwakeFromNib();
+            base.Initialize();
             ContainerView.Layer.CornerRadius = 6;
         }
 
-        protected override void DoBind()
+        protected override void Bind()
         {
-            base.DoBind();
+            base.Bind();
 
             var bindingSet = this.CreateBindingSet<SimpleMenuGroupView, GroupMenuItemViewModel>();
 

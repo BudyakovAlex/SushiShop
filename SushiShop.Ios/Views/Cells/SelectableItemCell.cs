@@ -23,9 +23,9 @@ namespace SushiShop.Ios.Views.Cells
             // Note: this .ctor should not contain any initialization logic.
         }
 
-        protected override void DoBind()
+        protected override void Bind()
         {
-            base.DoBind();
+            base.Bind();
 
             var bindingSet = this.CreateBindingSet<SelectableItemCell, SelectableItemViewModel>();
 

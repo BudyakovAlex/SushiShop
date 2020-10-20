@@ -23,15 +23,15 @@ namespace SushiShop.Ios.Views.Cells.Menu
             // Note: this .ctor should not contain any initialization logic.
         }
 
-        protected override void Stylize()
+        protected override void Initialize()
         {
-            base.Stylize();
+            base.Initialize();
             GroupStackView.RegisterView<SimpleMenuGroupView, GroupMenuItemViewModel>();
         }
 
-        protected override void DoBind()
+        protected override void Bind()
         {
-            base.DoBind();
+            base.Bind();
 
             var bindingSet = this.CreateBindingSet<SimpleMenuGroupsCell, GroupsMenuItemViewModel>();
 

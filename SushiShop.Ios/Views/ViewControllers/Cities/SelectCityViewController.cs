@@ -25,9 +25,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Cities
             InitTableView();
         }
 
-        protected override void DoBind()
+        protected override void Bind()
         {
-            base.DoBind();
+            base.Bind();
 
             var bindingSet = this.CreateBindingSet<SelectCityViewController, SelectCityViewModel>();
 

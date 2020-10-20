@@ -78,13 +78,13 @@
         <Version>7.0.1</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.MvvmCross">
-        <Version>1.0.67</Version>
+        <Version>1.0.69</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.Common">
-        <Version>1.0.67</Version>
+        <Version>1.0.69</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.iOS">
-        <Version>1.0.67</Version>
+        <Version>1.0.69</Version>
       </PackageReference>
     </ItemGroup>
     <ItemGroup>
@@ -195,6 +195,7 @@
         <Folder Include="Assets.xcassets\ic_hot_category.imageset\" />
         <Folder Include="Assets.xcassets\ic_season_category.imageset\" />
         <Folder Include="Assets.xcassets\ic_vegan_category.imageset\" />
+        <Folder Include="Delegates\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -269,7 +270,6 @@
         <Compile Include="Extensions\BindingExtensions.cs" />
         <Compile Include="Converters\BootToUIImageConverter.cs" />
         <Compile Include="Sources\SimpleListMenuCollectionViewSource.cs" />
-        <Compile Include="Sources\SimpleListMenuCollectionDelegateFlowLayout.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuItemCell.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuItemCell.designer.cs">
           <DependentUpon>SimpleMenuItemCell.cs</DependentUpon>
@@ -287,6 +287,7 @@
         <Compile Include="Views\Cells\Menu\SimpleMenuActionItemCell.designer.cs">
           <DependentUpon>SimpleMenuActionItemCell.cs</DependentUpon>
         </Compile>
+        <Compile Include="Delegates\SimpleListMenuCollectionDelegateFlowLayout.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

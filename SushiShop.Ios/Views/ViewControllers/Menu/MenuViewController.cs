@@ -7,10 +7,10 @@ using SushiShop.Core.Converters;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.ViewModels.Menu;
 using SushiShop.Ios.Common;
+using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Menu;
-using System;
 using UIKit;
 using Xamarin.Essentials;
 
@@ -46,9 +46,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             navigationItem.LeftBarButtonItem = new UIBarButtonItem(leftBarButtonItemView);
         }
 
-        protected override void DoBind()
+        protected override void Bind()
         {
-            base.DoBind();
+            base.Bind();
 
             var bindingSet = this.CreateBindingSet<MenuViewController, MenuViewModel>();
 
