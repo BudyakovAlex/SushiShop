@@ -6,6 +6,7 @@
         {
             public const string CitiesResource = "cities";
             public const string MenuResource = "shop/menu";
+            public const string JobResource = "job";
 
             public const string AboutUsAlias = "o-nas";
             public const string PrivacyPolicyAlias = "politika-konfidencialnosti";

@@ -30,12 +30,8 @@
     <Folder Include="ViewModels\Cities\" />
     <Folder Include="ViewModels\Cities\Items\" />
     <Folder Include="NavigationParameters\Abstract\" />
-    <Folder Include="Services\" />
-    <Folder Include="Services\Http\" />
     <Folder Include="Data\Http\" />
     <Folder Include="Services\Http\Menu\" />
-    <Folder Include="Data\Models\" />
-    <Folder Include="Data\Dtos\" />
     <Folder Include="Data\Dtos\Menu\" />
     <Folder Include="Mappers\" />
     <Folder Include="Data\Models\Menu\" />
@@ -43,7 +39,6 @@
     <Folder Include="Data\Dtos\City\" />
     <Folder Include="Services\Http\Cities\" />
     <Folder Include="Common\" />
-    <Folder Include="Managers\" />
     <Folder Include="Managers\Cities\" />
     <Folder Include="Data\Dtos\Common\" />
     <Folder Include="Converters\" />
