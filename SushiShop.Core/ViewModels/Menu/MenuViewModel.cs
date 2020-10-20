@@ -41,7 +41,6 @@ namespace SushiShop.Core.ViewModels.Menu
         public IMvxCommand SwitchPresentationCommand { get; }
 
         private bool isListMenuPresentation;
-
         public bool IsListMenuPresentation
         {
             get => isListMenuPresentation;

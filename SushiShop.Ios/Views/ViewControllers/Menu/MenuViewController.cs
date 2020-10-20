@@ -6,6 +6,7 @@ using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.Converters;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.ViewModels.Menu;
+using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Extensions;
@@ -22,7 +23,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
         private UIButton switchPresentationButton;
         private UILabel titleLabel;
         private UIView leftBarButtonItemView;
-        private SimpleListMenuCollectionViewSource simpleListCollectionViewSource;
+        private MenuCollectionViewSource collectionViewSource;
+        private CollectionViewSource simpleListCollectionViewSource;
 
         protected override void InitStylesAndContent()
         {
@@ -59,6 +61,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             bindingSet.Bind(titleLabel).For(v => v.Text).To(vm => vm.CityName);
             bindingSet.Bind(leftBarButtonItemView).For(v => v.BindTap()).To(vm => vm.SelectCityCommand);
             bindingSet.Bind(CollectionView).For(v => v.BindHidden()).To(vm => vm.IsListMenuPresentation);
+            bindingSet.Bind(collectionViewSource).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(SimpleListCollectionView).For(v => v.BindVisible()).To(vm => vm.IsListMenuPresentation);
             bindingSet.Bind(simpleListCollectionViewSource).For(v => v.ItemsSource).To(vm => vm.SimpleItems);
             bindingSet.Bind(LoadingIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
@@ -113,16 +116,19 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
 
         private void InitializeCollectionView()
         {
-            //TODO: implement
+            collectionViewSource = new MenuCollectionViewSource(CollectionView);
+
+            CollectionView.Source = collectionViewSource;
+            CollectionView.Delegate = new MenuCollectionViewDelegateFlowLayout(collectionViewSource);
         }
 
         private void InitializeSimpleListCollectionView()
         {
-            SimpleListCollectionView.RegisterNibForCell(SimpleMenuItemCell.Nib, SimpleMenuItemCell.Key);
-            SimpleListCollectionView.RegisterNibForCell(SimpleMenuGroupsCell.Nib, SimpleMenuGroupsCell.Key);
-            SimpleListCollectionView.RegisterNibForCell(SimpleMenuActionItemCell.Nib, SimpleMenuActionItemCell.Key);
+            simpleListCollectionViewSource = new CollectionViewSource(SimpleListCollectionView)
+                .Register<MenuActionItemViewModel>(SimpleMenuActionItemCell.Nib, SimpleMenuActionItemCell.Key)
+                .Register<CategoryMenuItemViewModel>(SimpleMenuItemCell.Nib, SimpleMenuItemCell.Key)
+                .Register<GroupsMenuItemViewModel>(SimpleMenuGroupsCell.Nib, SimpleMenuGroupsCell.Key);
 
-            simpleListCollectionViewSource = new SimpleListMenuCollectionViewSource(SimpleListCollectionView);
             SimpleListCollectionView.Source = simpleListCollectionViewSource;
             SimpleListCollectionView.Delegate = new SimpleListMenuCollectionDelegateFlowLayout(simpleListCollectionViewSource);
         }

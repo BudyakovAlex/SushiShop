@@ -86,6 +86,9 @@
       <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.iOS">
         <Version>1.0.69</Version>
       </PackageReference>
+      <PackageReference Include="Xamarin.FFImageLoading">
+        <Version>2.4.11.982</Version>
+      </PackageReference>
     </ItemGroup>
     <ItemGroup>
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -212,6 +215,9 @@
         <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuGroupsCell.xib" />
         <InterfaceDefinition Include="Views\Controls\SimpleMenuGroupView.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuActionItemCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\GroupsMenuItemViewCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\CategoryMenuItemViewCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\GroupMenuItemViewCell.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Entitlements.plist" />
@@ -269,7 +275,6 @@
         <Compile Include="Common\BindingConstants.cs" />
         <Compile Include="Extensions\BindingExtensions.cs" />
         <Compile Include="Converters\BootToUIImageConverter.cs" />
-        <Compile Include="Sources\SimpleListMenuCollectionViewSource.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuItemCell.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuItemCell.designer.cs">
           <DependentUpon>SimpleMenuItemCell.cs</DependentUpon>
@@ -288,6 +293,23 @@
           <DependentUpon>SimpleMenuActionItemCell.cs</DependentUpon>
         </Compile>
         <Compile Include="Delegates\SimpleListMenuCollectionDelegateFlowLayout.cs" />
+        <Compile Include="Sources\CollectionViewSource.cs" />
+        <Compile Include="Delegates\MenuCollectionViewDelegateFlowLayout.cs" />
+        <Compile Include="Views\Cells\Menu\GroupsMenuItemViewCell.cs" />
+        <Compile Include="Views\Cells\Menu\GroupsMenuItemViewCell.designer.cs">
+          <DependentUpon>GroupsMenuItemViewCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Cells\Menu\CategoryMenuItemViewCell.cs" />
+        <Compile Include="Views\Cells\Menu\CategoryMenuItemViewCell.designer.cs">
+          <DependentUpon>CategoryMenuItemViewCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Sources\MenuCollectionViewSource.cs" />
+        <Compile Include="Delegates\GroupsMenuItemCollectionViewDelegateFlowLayout.cs" />
+        <Compile Include="Views\Cells\Menu\GroupMenuItemViewCell.cs" />
+        <Compile Include="Views\Cells\Menu\GroupMenuItemViewCell.designer.cs">
+          <DependentUpon>GroupMenuItemViewCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Extensions\CollectionViewExtensions.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

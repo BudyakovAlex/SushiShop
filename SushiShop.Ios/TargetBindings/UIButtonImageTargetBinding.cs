@@ -6,7 +6,8 @@ namespace SushiShop.Ios.TargetBindings
 {
     public class UIButtonImageTargetBinding : MvxTargetBinding<UIButton, string>
     {
-        public UIButtonImageTargetBinding(UIButton target) : base(target)
+        public UIButtonImageTargetBinding(UIButton target)
+            : base(target)
         {
         }
 
@@ -14,16 +15,11 @@ namespace SushiShop.Ios.TargetBindings
 
         protected override void SetValue(string value)
         {
-            if (value is null)
-            {
-                Target.SetImage(null, UIControlState.Normal);
-                Target.SetImage(null, UIControlState.Highlighted);
+            var image = value is null
+                ? null
+                : UIImage.FromBundle(value).ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal);
 
-                return;
-            }
-
-            Target.SetImage(UIImage.FromBundle(value), UIControlState.Normal);
-            Target.SetImage(UIImage.FromBundle(value), UIControlState.Highlighted);
+            Target.SetImage(image, UIControlState.Normal);
         }
     }
 }

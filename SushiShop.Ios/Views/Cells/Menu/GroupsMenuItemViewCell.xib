@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cZE-iV-UFb" customClass="GroupsMenuItemViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="185"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="185"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3Xd-XD-HCK">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="185"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zsa-Xl-831">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zU7-xR-DM9">
+                        <rect key="frame" x="170" y="168" width="50" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" placeholder="YES" id="CbR-Ah-85T"/>
+                            <constraint firstAttribute="height" constant="10" placeholder="YES" id="DzF-UE-sxR"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="3Xd-XD-HCK" secondAttribute="bottom" id="1Yh-uh-ks3"/>
+                <constraint firstAttribute="bottom" secondItem="zU7-xR-DM9" secondAttribute="bottom" constant="7" id="8n1-jZ-gas"/>
+                <constraint firstItem="3Xd-XD-HCK" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leading" id="IQM-91-g8n"/>
+                <constraint firstItem="3Xd-XD-HCK" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top" id="RnZ-P3-D4u"/>
+                <constraint firstAttribute="trailing" secondItem="3Xd-XD-HCK" secondAttribute="trailing" id="Tdh-pj-9JY"/>
+                <constraint firstItem="zU7-xR-DM9" firstAttribute="centerX" secondItem="cZE-iV-UFb" secondAttribute="centerX" id="iDd-dK-AWz"/>
+            </constraints>
+            <size key="customSize" width="390" height="185"/>
+            <connections>
+                <outlet property="CollectionView" destination="3Xd-XD-HCK" id="8f2-Hl-CPc"/>
+                <outlet property="StackView" destination="zU7-xR-DM9" id="jTo-hJ-yHW"/>
+            </connections>
+            <point key="canvasLocation" x="139.13043478260872" y="46.540178571428569"/>
+        </collectionViewCell>
+    </objects>
+</document>

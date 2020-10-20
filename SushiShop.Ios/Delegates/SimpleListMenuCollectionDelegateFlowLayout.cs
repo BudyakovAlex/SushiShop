@@ -1,10 +1,10 @@
-﻿using CoreGraphics;
+﻿using System;
+using System.Linq;
+using CoreGraphics;
 using Foundation;
 using MvvmCross.Platforms.Ios.Binding.Views;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.ViewModels.Menu.Items;
-using System;
-using System.Linq;
 using UIKit;
 
 namespace SushiShop.Ios.Delegates
