@@ -30,11 +30,11 @@ namespace SushiShop.Ios.Extensions
             }
 
             var cell = collectionView.VisibleCells
-                .Aggregate((cell1, cell2) =>
+                .Aggregate((firstCell, secondCell) =>
                 {
-                    var distance1 = GetDistanceToX(cell1, x);
-                    var distance2 = GetDistanceToX(cell2, x);
-                    return distance1 <= distance2 ? cell1 : cell2;
+                    var firstDistance = GetDistanceToX(firstCell, x);
+                    var secondDistance = GetDistanceToX(secondCell, x);
+                    return firstDistance <= secondDistance ? firstCell : secondCell;
                 });
 
             return collectionView.IndexPathForCell(cell);
