@@ -33,11 +33,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             InitializeSimpleListCollectionView();
         }
 
-        public bool IsInitialized
-        {
-            set => RequestLocationPermissions(value);
-        }
-
         protected override void InitNavigationItem(UINavigationItem navigationItem)
         {
             base.InitNavigationItem(navigationItem);
@@ -65,27 +60,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             bindingSet.Bind(SimpleListCollectionView).For(v => v.BindVisible()).To(vm => vm.IsListMenuPresentation);
             bindingSet.Bind(simpleListCollectionViewSource).For(v => v.ItemsSource).To(vm => vm.SimpleItems);
             bindingSet.Bind(LoadingIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
-            bindingSet.Bind(this).For(nameof(IsInitialized)).To(vm => vm.IsInitialized);
 
             bindingSet.Apply();
-        }
-
-        private void RequestLocationPermissions(bool isInitialized)
-        {
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                if (!isInitialized)
-                {
-                    return;
-                }
-
-                var locationManager = new CLLocationManager
-                {
-                    AllowsBackgroundLocationUpdates = false
-                };
-
-                locationManager.RequestWhenInUseAuthorization();
-            });
         }
 
         private UIView CreateLeftBarButtonItem()

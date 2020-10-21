@@ -3,7 +3,6 @@ using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
 using SushiShop.Core.ViewModels.Menu.Items;
-using SushiShop.Ios.Converters;
 using System;
 
 namespace SushiShop.Ios.Views.Controls
@@ -29,8 +28,7 @@ namespace SushiShop.Ios.Views.Controls
 
             bindingSet.Bind(ContainerView).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
             bindingSet.Bind(GroupNameLabel).For(v => v.Text).To(vm => vm.Title);
-            bindingSet.Bind(GroupImageView).For(v => v.Image).To(vm => vm.Type)
-                .WithConversion<StickerTypeToUIImageConverter>();
+            bindingSet.Bind(GroupImageView).For(v => v.ImagePath).To(vm => vm.ImageUrl);
 
             bindingSet.Apply();
         }

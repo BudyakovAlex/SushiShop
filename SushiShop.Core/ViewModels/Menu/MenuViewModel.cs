@@ -15,6 +15,7 @@ using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Cities;
 using SushiShop.Core.ViewModels.Cities.Items;
 using SushiShop.Core.ViewModels.Menu.Items;
+using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Menu
 {
@@ -52,13 +53,13 @@ namespace SushiShop.Core.ViewModels.Menu
 
         public override async Task InitializeAsync()
         {
-            await Task.WhenAll(base.InitializeAsync(), ReloadDataAsync());
+            await base.InitializeAsync();
+            _ = ExecutionStateWrapper.WrapAsync(ReloadDataAsync, awaitWhenBusy: true);
         }
 
         private async Task ReloadDataAsync()
         {
             var response = await menuManager.GetMenuAsync(city?.Name);
-
             var groupMenuItemViewModels = response.Data.Stickers.Select(sticker => new GroupMenuItemViewModel(sticker) { ExecutionStateWrapper = ExecutionStateWrapper }).ToList();
             var categoryMenuItemViewModels = response.Data.Categories.Select(categories => new CategoryMenuItemViewModel(categories) { ExecutionStateWrapper = ExecutionStateWrapper }).ToList();
 
@@ -79,6 +80,8 @@ namespace SushiShop.Core.ViewModels.Menu
                 new MenuActionItemViewModel(ActionType.Franchise) { ExecutionStateWrapper = ExecutionStateWrapper },
                 new MenuActionItemViewModel(ActionType.Vacancies) { ExecutionStateWrapper = ExecutionStateWrapper }
             });
+
+            _ = Permissions.RequestAsync<Permissions.LocationWhenInUse>();
         }
 
         private async Task SelectCityAsync()
