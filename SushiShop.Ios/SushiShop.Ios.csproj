@@ -179,7 +179,6 @@
         <Folder Include="Assets.xcassets\ic_menu_tiles.imageset\" />
         <Folder Include="TargetBindings\" />
         <Folder Include="Extensions\" />
-        <Folder Include="Converters\" />
         <Folder Include="Assets.xcassets\ic_chevron_down.imageset\" />
         <Folder Include="Views\Cells\Menu\" />
         <Folder Include="Views\Controls\" />
@@ -265,7 +264,6 @@
         <Compile Include="TargetBindings\UIButtonImageTargetBinding.cs" />
         <Compile Include="Common\BindingConstants.cs" />
         <Compile Include="Extensions\BindingExtensions.cs" />
-        <Compile Include="Converters\BootToUIImageConverter.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuItemCell.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuItemCell.designer.cs">
           <DependentUpon>SimpleMenuItemCell.cs</DependentUpon>

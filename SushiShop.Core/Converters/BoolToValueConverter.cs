@@ -1,17 +1,23 @@
-﻿using MvvmCross.Converters;
-using System;
+﻿using System;
 using System.Globalization;
+using MvvmCross.Converters;
 
 namespace SushiShop.Core.Converters
 {
     public class BoolToValueConverter<TValue> : MvxValueConverter<bool, TValue>
     {
-        public TValue TrueValue { get; set; }
-        public TValue FalseValue { get; set; }
+        private readonly TValue trueValue;
+        private readonly TValue falseValue;
+
+        public BoolToValueConverter(TValue trueValue, TValue falseValue)
+        {
+            this.trueValue = trueValue;
+            this.falseValue = falseValue;
+        }
 
         protected override TValue Convert(bool value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value ? TrueValue : FalseValue;
+            return value ? trueValue : falseValue;
         }
     }
 }
