@@ -4,7 +4,9 @@ using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Data.Models;
 using SushiShop.Core.Managers.CommonInfo;
+using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
 using System.Threading.Tasks;
@@ -16,10 +18,12 @@ namespace SushiShop.Core.ViewModels.Menu.Items
     {
         private readonly ICommonInfoManager commonInfoManager;
         private readonly ActionType actionType;
+        private readonly City? city;
 
-        public MenuActionItemViewModel(ActionType actionType)
+        public MenuActionItemViewModel(ActionType actionType, City? city)
         {
             this.actionType = actionType;
+            this.city = city;
             commonInfoManager = BaseCompositionRoot.Container.Resolve<ICommonInfoManager>();
 
             ActionCommand = new SafeAsyncCommand(ExecutionStateWrapper, ExecuteActionAsync);
@@ -34,9 +38,15 @@ namespace SushiShop.Core.ViewModels.Menu.Items
             return actionType switch
             {
                 ActionType.Franchise => ShowFranchisePopupAsync(),
-                ActionType.Vacancies => NavigationManager.NavigateAsync<CommonInfoViewModel>(),
+                ActionType.Vacancies => ShowVacanciesAsync(),
                 _ => Task.CompletedTask
             };
+        }
+
+        private Task ShowVacanciesAsync()
+        {
+            var commonInfoNavigationParams = new CommonInfoNavigationParameters(CommonInfoType.Vacancies, city?.Name);
+            return NavigationManager.NavigateAsync<CommonInfoViewModel, CommonInfoNavigationParameters>(commonInfoNavigationParams);
         }
 
         private async Task ShowFranchisePopupAsync()

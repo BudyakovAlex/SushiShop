@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using FFImageLoading;
 using MvvmCross.Commands;
@@ -15,6 +11,10 @@ using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Cities;
 using SushiShop.Core.ViewModels.Cities.Items;
 using SushiShop.Core.ViewModels.Menu.Items;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Menu
@@ -77,8 +77,8 @@ namespace SushiShop.Core.ViewModels.Menu
             SimpleItems.Add(groupsMenuItemViewModel);
             SimpleItems.AddRange(new List<MenuActionItemViewModel>
             {
-                new MenuActionItemViewModel(ActionType.Franchise) { ExecutionStateWrapper = ExecutionStateWrapper },
-                new MenuActionItemViewModel(ActionType.Vacancies) { ExecutionStateWrapper = ExecutionStateWrapper }
+                new MenuActionItemViewModel(ActionType.Franchise, city) { ExecutionStateWrapper = ExecutionStateWrapper },
+                new MenuActionItemViewModel(ActionType.Vacancies, city) { ExecutionStateWrapper = ExecutionStateWrapper }
             });
 
             _ = Permissions.RequestAsync<Permissions.LocationWhenInUse>();

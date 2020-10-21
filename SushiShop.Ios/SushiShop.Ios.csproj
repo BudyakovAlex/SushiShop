@@ -188,6 +188,7 @@
         <Folder Include="Assets.xcassets\ic_season_category.imageset\" />
         <Folder Include="Assets.xcassets\ic_vegan_category.imageset\" />
         <Folder Include="Delegates\" />
+        <Folder Include="Views\ViewControllers\CommonInfo\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -207,6 +208,7 @@
         <InterfaceDefinition Include="Views\Cells\Menu\GroupsMenuItemViewCell.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\CategoryMenuItemViewCell.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\GroupMenuItemViewCell.xib" />
+        <InterfaceDefinition Include="Views\ViewControllers\CommonInfo\CommonInfoViewController.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Entitlements.plist" />
@@ -298,6 +300,10 @@
           <DependentUpon>GroupMenuItemViewCell.cs</DependentUpon>
         </Compile>
         <Compile Include="Extensions\CollectionViewExtensions.cs" />
+        <Compile Include="Views\ViewControllers\CommonInfo\CommonInfoViewController.cs" />
+        <Compile Include="Views\ViewControllers\CommonInfo\CommonInfoViewController.designer.cs">
+          <DependentUpon>CommonInfoViewController.cs</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
