@@ -9,12 +9,15 @@ namespace SushiShop.Core.Mappers
 {
     public static class StickerMapper
     {
-        public static Sticker Map(this StickerDto dto) =>
+        public static Sticker Map(this StickerDto dto, string stickerType) =>
             new Sticker(
-                Enum.Parse<StickerType>(dto.Value, ignoreCase: true),
-                dto.ItemsCount);
+                Enum.Parse<StickerType>(stickerType, ignoreCase: true),
+                dto.ItemsCount,
+                dto.Image);
 
-        public static Sticker[] Map(this Dictionary<string, StickerDto> stickers) =>
-            stickers.Values.Select(dto => dto.Map()).ToArray();
+        public static Sticker[] Map(this Dictionary<string, StickerDto> stickers)
+        {
+            return stickers.Select(kv => kv.Value.Map(kv.Key)).ToArray();
+        }
     }
 }
