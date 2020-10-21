@@ -1,5 +1,5 @@
 ﻿using SushiShop.Core.Data.Dtos.Common;
-using SushiShop.Core.Data.Models;
+using SushiShop.Core.Data.Models.Common;
 
 namespace SushiShop.Core.Mappers
 {

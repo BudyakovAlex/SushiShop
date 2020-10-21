@@ -45,7 +45,7 @@ namespace SushiShop.Ios.Delegates
             var item = viewSource.GetItem(indexPath);
             switch (item)
             {
-                case GroupsMenuItemViewModel _:
+                case MenuPromotionListItemViewModel _:
                     categoryPosition = 0;
                     return new CGSize(collectionView.Bounds.Width, GroupHeight);
 

@@ -9,17 +9,25 @@ using System.CodeDom.Compiler;
 
 namespace SushiShop.Ios.Views.Cells.Menu
 {
-	[Register ("GroupMenuItemViewCell")]
-	partial class GroupMenuItemViewCell
+	[Register ("MenuPromotionListItemViewCell")]
+	partial class MenuPromotionListItemViewCell
 	{
 		[Outlet]
-		FFImageLoading.Cross.MvxCachedImageView ImageView { get; set; }
+		UIKit.UICollectionView CollectionView { get; set; }
+
+		[Outlet]
+		UIKit.UIStackView StackView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (ImageView != null) {
-				ImageView.Dispose ();
-				ImageView = null;
+			if (CollectionView != null) {
+				CollectionView.Dispose ();
+				CollectionView = null;
+			}
+
+			if (StackView != null) {
+				StackView.Dispose ();
+				StackView = null;
 			}
 		}
 	}

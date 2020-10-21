@@ -1,4 +1,4 @@
-﻿namespace SushiShop.Core.Data.Dtos.Sticker
+﻿namespace SushiShop.Core.Data.Dtos.Stickers
 {
     public class StickerDto
     {

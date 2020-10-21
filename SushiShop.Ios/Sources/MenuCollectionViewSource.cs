@@ -13,7 +13,7 @@ namespace SushiShop.Ios.Sources
         public MenuCollectionViewSource(UICollectionView collectionView)
             : base(collectionView)
         {
-            CollectionView.RegisterNibForCell(GroupsMenuItemViewCell.Nib, GroupsMenuItemViewCell.Key);
+            CollectionView.RegisterNibForCell(MenuPromotionListItemViewCell.Nib, MenuPromotionListItemViewCell.Key);
             CollectionView.RegisterNibForCell(CategoryMenuItemViewCell.Nib, CategoryMenuItemViewCell.Key);
         }
 
@@ -49,8 +49,8 @@ namespace SushiShop.Ios.Sources
 
             static NSString GetReuseIdentifier(object item) => item switch
             {
-                GroupsMenuItemViewModel _   => GroupsMenuItemViewCell.Key,
-                CategoryMenuItemViewModel _ => CategoryMenuItemViewCell.Key,
+                MenuPromotionListItemViewModel _ => MenuPromotionListItemViewCell.Key,
+                CategoryMenuItemViewModel _      => CategoryMenuItemViewCell.Key,
                 _ => throw new ArgumentOutOfRangeException()
             };
         }

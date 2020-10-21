@@ -13,15 +13,15 @@ using UIKit;
 
 namespace SushiShop.Ios.Views.Cells.Menu
 {
-    public partial class GroupsMenuItemViewCell : BaseCollectionViewCell
+    public partial class MenuPromotionListItemViewCell : BaseCollectionViewCell
     {
-        public static readonly NSString Key = new NSString(nameof(GroupsMenuItemViewCell));
+        public static readonly NSString Key = new NSString(nameof(MenuPromotionListItemViewCell));
         public static readonly UINib Nib = UINib.FromName(Key, NSBundle.MainBundle);
 
         private CollectionViewSource viewSource;
         private IndicatorView[] indicators;
 
-        protected GroupsMenuItemViewCell(IntPtr handle)
+        protected MenuPromotionListItemViewCell(IntPtr handle)
             : base(handle)
         {
         }
@@ -61,7 +61,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
             base.Initialize();
 
             viewSource = new CollectionViewSource(CollectionView)
-                .Register<GroupMenuItemViewModel>(GroupMenuItemViewCell.Nib, GroupMenuItemViewCell.Key);
+                .Register<MenuPromotionItemViewModel>(MenuPromotionItemViewCell.Nib, MenuPromotionItemViewCell.Key);
 
             CollectionView.Source = viewSource;
             CollectionView.Delegate = new GroupsMenuItemCollectionViewDelegateFlowLayout(OnScrolled);
@@ -71,7 +71,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
         {
             base.Bind();
 
-            var bindingSet = this.CreateBindingSet<GroupsMenuItemViewCell, GroupsMenuItemViewModel>();
+            var bindingSet = this.CreateBindingSet<MenuPromotionListItemViewCell, MenuPromotionListItemViewModel>();
             bindingSet.Bind(viewSource).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(this).For(v => v.ItemsCount).To(vm => vm.ItemsCount);
             bindingSet.Apply();

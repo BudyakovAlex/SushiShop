@@ -1,20 +1,22 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using FFImageLoading;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
-using SushiShop.Core.Data.Models;
+using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Managers.Menu;
+using SushiShop.Core.Managers.Promotions;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Cities;
 using SushiShop.Core.ViewModels.Cities.Items;
 using SushiShop.Core.ViewModels.Menu.Items;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Menu
@@ -22,12 +24,14 @@ namespace SushiShop.Core.ViewModels.Menu
     public class MenuViewModel : BasePageViewModel
     {
         private readonly IMenuManager menuManager;
+        private readonly IPromotionsManager promotionsManager;
 
         private City? city;
 
-        public MenuViewModel(IMenuManager menuManager)
+        public MenuViewModel(IMenuManager menuManager, IPromotionsManager promotionsManager)
         {
             this.menuManager = menuManager;
+            this.promotionsManager = promotionsManager;
 
             Items = new MvxObservableCollection<BaseViewModel>();
             SimpleItems = new MvxObservableCollection<BaseViewModel>();
@@ -59,21 +63,35 @@ namespace SushiShop.Core.ViewModels.Menu
 
         private async Task ReloadDataAsync()
         {
-            var response = await menuManager.GetMenuAsync(city?.Name);
-            var groupMenuItemViewModels = response.Data.Stickers.Select(sticker => new GroupMenuItemViewModel(sticker) { ExecutionStateWrapper = ExecutionStateWrapper }).ToList();
-            var categoryMenuItemViewModels = response.Data.Categories.Select(categories => new CategoryMenuItemViewModel(categories) { ExecutionStateWrapper = ExecutionStateWrapper }).ToList();
+            var cityName = city?.Name;
 
-            await Task.WhenAll(categoryMenuItemViewModels
-                .Select(item => ImageService.Instance.LoadUrl(item.ImageUrl).PreloadAsync()));
+            var promotionsTask = promotionsManager.GetPromotionsAsync(cityName);
+            var menuTask = menuManager.GetMenuAsync(cityName);
+
+            await Task.WhenAll(promotionsTask, menuTask);
+
+            var categoryItems = menuTask.Result.Data.Categories
+                .Select(category => new CategoryMenuItemViewModel(category) { ExecutionStateWrapper = ExecutionStateWrapper })
+                .ToArray();
+
+            await Task.WhenAll(
+                categoryItems.Select(item => ImageService.Instance.LoadUrl(item.ImageUrl).PreloadAsync()));
 
             Items.Clear();
             SimpleItems.Clear();
 
-            var groupsMenuItemViewModel = new GroupsMenuItemViewModel(groupMenuItemViewModels) { ExecutionStateWrapper = ExecutionStateWrapper };
-            Items.Add(groupsMenuItemViewModel);
-            Items.AddRange(categoryMenuItemViewModels);
+            var promotionItems = promotionsTask.Result.Data
+                .Select(promotion => new MenuPromotionItemViewModel(promotion))
+                .ToArray();
+            Items.Add(new MenuPromotionListItemViewModel(promotionItems));
+            Items.AddRange(categoryItems);
 
-            SimpleItems.AddRange(categoryMenuItemViewModels);
+            var groupMenuItemViewModels = menuTask.Result.Data.Stickers
+                .Select(sticker => new GroupMenuItemViewModel(sticker) { ExecutionStateWrapper = ExecutionStateWrapper })
+                .ToArray();
+            var groupsMenuItemViewModel = new GroupsMenuItemViewModel(groupMenuItemViewModels) { ExecutionStateWrapper = ExecutionStateWrapper };
+
+            SimpleItems.AddRange(categoryItems);
             SimpleItems.Add(groupsMenuItemViewModel);
             SimpleItems.AddRange(new List<MenuActionItemViewModel>
             {

@@ -1,8 +1,9 @@
-﻿namespace SushiShop.Core.Data.Models
+﻿namespace SushiShop.Core.Data.Models.Common
 {
     public class Currency
     {
-        public Currency(string? code,
+        public Currency(
+            string? code,
             string? symbol,
             int decimals)
         {

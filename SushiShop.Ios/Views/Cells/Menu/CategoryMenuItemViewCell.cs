@@ -1,5 +1,6 @@
 ﻿using System;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
+using CoreAnimation;
 using CoreGraphics;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
@@ -17,6 +18,8 @@ namespace SushiShop.Ios.Views.Cells.Menu
         public static readonly NSString Key = new NSString(nameof(CategoryMenuItemViewCell));
         public static readonly UINib Nib = UINib.FromName(Key, NSBundle.MainBundle);
 
+        private CAGradientLayer overlayLayer;
+
         protected CategoryMenuItemViewCell(IntPtr handle)
             : base(handle)
         {
@@ -25,7 +28,9 @@ namespace SushiShop.Ios.Views.Cells.Menu
         public override void LayoutSubviews()
         {
             base.LayoutSubviews();
+
             Layer.ShadowPath = UIBezierPath.FromRoundedRect(Bounds, CornerRadius).CGPath;
+            overlayLayer.Frame = Bounds;
         }
 
         protected override void Initialize()
@@ -43,6 +48,9 @@ namespace SushiShop.Ios.Views.Cells.Menu
             ContentView.ClipsToBounds = true;
             ContentView.BackgroundColor = Colors.White;
             ContentView.Layer.CornerRadius = CornerRadius;
+
+            overlayLayer = CreateOverlayLayer();
+            ContentView.Layer.InsertSublayerBelow(overlayLayer, Label.Layer);
         }
 
         protected override void Bind()
@@ -57,5 +65,19 @@ namespace SushiShop.Ios.Views.Cells.Menu
 
             bindingSet.Apply();
         }
+
+        private CAGradientLayer CreateOverlayLayer() =>
+            new CAGradientLayer
+            {
+                Colors = new[]
+                {
+                    Colors.RealBlack.ColorWithAlpha(0f).CGColor,
+                    Colors.RealBlack.ColorWithAlpha(0f).CGColor,
+                    Colors.RealBlack.ColorWithAlpha(0.31f).CGColor,
+                    Colors.RealBlack.ColorWithAlpha(0.56f).CGColor,
+                },
+                StartPoint = new CGPoint(1f, 0f),
+                EndPoint = new CGPoint(1f, 1f)
+            };
     }
 }

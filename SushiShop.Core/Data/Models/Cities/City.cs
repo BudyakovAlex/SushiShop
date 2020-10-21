@@ -1,6 +1,7 @@
 ﻿using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Data.Models.Common;
 
-namespace SushiShop.Core.Data.Models
+namespace SushiShop.Core.Data.Models.Cities
 {
     public class City
     {

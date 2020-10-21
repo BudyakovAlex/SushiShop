@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using SushiShop.Core.Data.Http;
-using SushiShop.Core.Data.Models;
+using SushiShop.Core.Data.Models.Cities;
 
 namespace SushiShop.Core.Managers.Cities
 {

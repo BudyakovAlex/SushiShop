@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Common;
 
-namespace SushiShop.Core.Data.Dtos.City
+namespace SushiShop.Core.Data.Dtos.Cities
 {
     public class CityDto
     {

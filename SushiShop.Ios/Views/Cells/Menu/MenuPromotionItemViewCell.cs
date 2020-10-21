@@ -7,12 +7,12 @@ using UIKit;
 
 namespace SushiShop.Ios.Views.Cells.Menu
 {
-    public partial class GroupMenuItemViewCell : BaseCollectionViewCell
+    public partial class MenuPromotionItemViewCell : BaseCollectionViewCell
     {
-        public static readonly NSString Key = new NSString(nameof(GroupMenuItemViewCell));
+        public static readonly NSString Key = new NSString(nameof(MenuPromotionItemViewCell));
         public static readonly UINib Nib = UINib.FromName(Key, NSBundle.MainBundle);
 
-        protected GroupMenuItemViewCell(IntPtr handle)
+        protected MenuPromotionItemViewCell(IntPtr handle)
             : base(handle)
         {
         }
@@ -21,7 +21,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
         {
             base.Bind();
 
-            var bindingSet = this.CreateBindingSet<GroupMenuItemViewCell, GroupMenuItemViewModel>();
+            var bindingSet = this.CreateBindingSet<MenuPromotionItemViewCell, MenuPromotionItemViewModel>();
             bindingSet.Bind(ImageView).For(v => v.ImagePath).To(vm => vm.ImageUrl);
             bindingSet.Apply();
         }

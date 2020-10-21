@@ -1,7 +1,7 @@
 ﻿using System;
-using SushiShop.Core.Data.Dtos.City;
+using SushiShop.Core.Data.Dtos.Cities;
 using SushiShop.Core.Data.Enums;
-using SushiShop.Core.Data.Models;
+using SushiShop.Core.Data.Models.Cities;
 
 namespace SushiShop.Core.Mappers
 {

@@ -1,15 +1,15 @@
-﻿using Acr.UserDialogs;
+﻿using System.Threading.Tasks;
+using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.IoC;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
-using SushiShop.Core.Data.Models;
+using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Managers.CommonInfo;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Menu.Items

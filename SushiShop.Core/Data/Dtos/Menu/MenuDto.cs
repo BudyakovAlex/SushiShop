@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SushiShop.Core.Data.Dtos.Sticker;
+using SushiShop.Core.Data.Dtos.Stickers;
 
 namespace SushiShop.Core.Data.Dtos.Menu
 {

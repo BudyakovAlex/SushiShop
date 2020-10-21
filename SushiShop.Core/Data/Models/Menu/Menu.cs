@@ -1,4 +1,6 @@
-﻿namespace SushiShop.Core.Data.Models.Menu
+﻿using SushiShop.Core.Data.Models.Stickers;
+
+namespace SushiShop.Core.Data.Models.Menu
 {
     public class Menu
     {

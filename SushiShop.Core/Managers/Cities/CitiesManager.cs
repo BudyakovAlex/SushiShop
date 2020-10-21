@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Data.Http;
-using SushiShop.Core.Data.Models;
+using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Mappers;
 using SushiShop.Core.Services.Http.Cities;
 
@@ -25,10 +25,8 @@ namespace SushiShop.Core.Managers.Cities
                 var data = response.Data!.SuccessData!.Select(x => x.Map()).ToArray();
                 return new Response<City[]>(isSuccessful: true, data);
             }
-            else
-            {
-                return new Response<City[]>(isSuccessful: false, new City[0]);
-            }
+
+            return new Response<City[]>(isSuccessful: false, new City[0]);
         }
     }
 }

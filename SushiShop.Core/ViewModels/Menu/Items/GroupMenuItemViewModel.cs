@@ -3,7 +3,7 @@ using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
-using SushiShop.Core.Data.Models;
+using SushiShop.Core.Data.Models.Stickers;
 using SushiShop.Core.Extensions;
 
 namespace SushiShop.Core.ViewModels.Menu.Items

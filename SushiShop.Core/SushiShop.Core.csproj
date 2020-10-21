@@ -31,15 +31,20 @@
     <Folder Include="ViewModels\Cities\" />
     <Folder Include="ViewModels\Cities\Items\" />
     <Folder Include="NavigationParameters\Abstract\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Http\" />
     <Folder Include="Data\Http\" />
     <Folder Include="Services\Http\Menu\" />
+    <Folder Include="Data\Models\" />
+    <Folder Include="Data\Dtos\" />
     <Folder Include="Data\Dtos\Menu\" />
     <Folder Include="Mappers\" />
     <Folder Include="Data\Models\Menu\" />
-    <Folder Include="Data\Dtos\Sticker\" />
-    <Folder Include="Data\Dtos\City\" />
+    <Folder Include="Data\Dtos\Stickers\" />
+    <Folder Include="Data\Dtos\Cities\" />
     <Folder Include="Services\Http\Cities\" />
     <Folder Include="Common\" />
+    <Folder Include="Managers\" />
     <Folder Include="Managers\Cities\" />
     <Folder Include="Data\Dtos\Common\" />
     <Folder Include="Converters\" />
@@ -48,6 +53,13 @@
     <Folder Include="Data\Models\Vacancy\" />
     <Folder Include="Data\Dtos\Franchise\" />
     <Folder Include="Data\Models\Franchise\" />
+    <Folder Include="Services\Http\Promotions\" />
+    <Folder Include="Data\Models\Cities\" />
+    <Folder Include="Data\Models\Stickers\" />
+    <Folder Include="Data\Models\Common\" />
+    <Folder Include="Data\Dtos\Promotions\" />
+    <Folder Include="Data\Models\Promotions\" />
+    <Folder Include="Managers\Promotions\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">

@@ -12,7 +12,5 @@ namespace SushiShop.Core.ViewModels.Menu.Items
         }
 
         public MvxObservableCollection<GroupMenuItemViewModel> Items { get; }
-
-        public int ItemsCount => Items.Count;
     }
 }

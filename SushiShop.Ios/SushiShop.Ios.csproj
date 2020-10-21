@@ -205,9 +205,9 @@
         <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuGroupsCell.xib" />
         <InterfaceDefinition Include="Views\Controls\SimpleMenuGroupView.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuActionItemCell.xib" />
-        <InterfaceDefinition Include="Views\Cells\Menu\GroupsMenuItemViewCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\MenuPromotionListItemViewCell.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\CategoryMenuItemViewCell.xib" />
-        <InterfaceDefinition Include="Views\Cells\Menu\GroupMenuItemViewCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\MenuPromotionItemViewCell.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\CommonInfo\CommonInfoViewController.xib" />
     </ItemGroup>
     <ItemGroup>
@@ -285,9 +285,9 @@
         <Compile Include="Delegates\SimpleListMenuCollectionDelegateFlowLayout.cs" />
         <Compile Include="Sources\CollectionViewSource.cs" />
         <Compile Include="Delegates\MenuCollectionViewDelegateFlowLayout.cs" />
-        <Compile Include="Views\Cells\Menu\GroupsMenuItemViewCell.cs" />
-        <Compile Include="Views\Cells\Menu\GroupsMenuItemViewCell.designer.cs">
-          <DependentUpon>GroupsMenuItemViewCell.cs</DependentUpon>
+        <Compile Include="Views\Cells\Menu\MenuPromotionListItemViewCell.cs" />
+        <Compile Include="Views\Cells\Menu\MenuPromotionListItemViewCell.designer.cs">
+          <DependentUpon>MenuPromotionListItemViewCell.cs</DependentUpon>
         </Compile>
         <Compile Include="Views\Cells\Menu\CategoryMenuItemViewCell.cs" />
         <Compile Include="Views\Cells\Menu\CategoryMenuItemViewCell.designer.cs">
@@ -295,9 +295,9 @@
         </Compile>
         <Compile Include="Sources\MenuCollectionViewSource.cs" />
         <Compile Include="Delegates\GroupsMenuItemCollectionViewDelegateFlowLayout.cs" />
-        <Compile Include="Views\Cells\Menu\GroupMenuItemViewCell.cs" />
-        <Compile Include="Views\Cells\Menu\GroupMenuItemViewCell.designer.cs">
-          <DependentUpon>GroupMenuItemViewCell.cs</DependentUpon>
+        <Compile Include="Views\Cells\Menu\MenuPromotionItemViewCell.cs" />
+        <Compile Include="Views\Cells\Menu\MenuPromotionItemViewCell.designer.cs">
+          <DependentUpon>MenuPromotionItemViewCell.cs</DependentUpon>
         </Compile>
         <Compile Include="Extensions\CollectionViewExtensions.cs" />
         <Compile Include="Views\ViewControllers\CommonInfo\CommonInfoViewController.cs" />

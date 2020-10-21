@@ -1,6 +1,6 @@
 ﻿using SushiShop.Core.Data.Enums;
 
-namespace SushiShop.Core.Data.Models
+namespace SushiShop.Core.Data.Models.Stickers
 {
     public class Sticker
     {

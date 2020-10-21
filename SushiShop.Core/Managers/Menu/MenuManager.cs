@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Menu;
+using SushiShop.Core.Data.Models.Stickers;
 using SushiShop.Core.Mappers;
 using SushiShop.Core.Services.Http.Menu;
 
@@ -24,12 +25,10 @@ namespace SushiShop.Core.Managers.Menu
                 var data = response.Data!.SuccessData!.Map();
                 return new Response<Data.Models.Menu.Menu>(isSuccessful: true, data);
             }
-            else
-            {
-                return new Response<Data.Models.Menu.Menu>(
-                    isSuccessful: false,
-                    new Data.Models.Menu.Menu(new Category[0], new Data.Models.Sticker[0]));
-            }
+
+            return new Response<Data.Models.Menu.Menu>(
+                isSuccessful: false,
+                new Data.Models.Menu.Menu(new Category[0], new Sticker[0]));
         }
     }
 }

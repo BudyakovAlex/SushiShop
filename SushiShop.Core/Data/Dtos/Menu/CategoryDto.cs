@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SushiShop.Core.Data.Dtos.Common;
 
 namespace SushiShop.Core.Data.Dtos.Menu
 {
@@ -14,7 +15,7 @@ namespace SushiShop.Core.Data.Dtos.Menu
         public int MenuIndex { get; set; }
         public int ItemsCount { get; set; }
         [JsonProperty("categotyIcon")]
-        public CategoryIconDto? CategoryIcon { get; set; }
+        public ImageInfoDto? CategoryIcon { get; set; }
         public CategoryChildrenDto? Children { get; set; }
     }
 }

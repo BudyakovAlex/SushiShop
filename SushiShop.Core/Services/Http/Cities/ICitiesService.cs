@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using SushiShop.Core.Data.Dtos.City;
+using SushiShop.Core.Data.Dtos.Cities;
 using SushiShop.Core.Data.Http;
 
 namespace SushiShop.Core.Services.Http.Cities

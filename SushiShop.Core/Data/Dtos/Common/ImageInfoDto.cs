@@ -1,6 +1,6 @@
-﻿namespace SushiShop.Core.Data.Dtos.Menu
+﻿namespace SushiShop.Core.Data.Dtos.Common
 {
-    public class CategoryIconDto
+    public class ImageInfoDto
     {
         public string? Original { get; set; }
         public string? Jpg { get; set; }
