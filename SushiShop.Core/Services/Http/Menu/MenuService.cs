@@ -15,9 +15,9 @@ namespace SushiShop.Core.Services.Http.Menu
             this.httpService = httpService;
         }
 
-        public async Task<HttpResponse<ResponseDto<MenuDto>>> GetMenuAsync(string? city, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<MenuDto>>> GetMenuAsync(string? city, CancellationToken cancellationToken)
         {
-            return await httpService.ExecuteAsync<ResponseDto<MenuDto>>(
+            return httpService.ExecuteAsync<ResponseDto<MenuDto>>(
                 Method.Post,
                 Constants.Rest.MenuResource,
                 cancellationToken);

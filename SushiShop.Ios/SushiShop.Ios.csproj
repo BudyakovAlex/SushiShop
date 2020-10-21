@@ -78,13 +78,13 @@
         <Version>7.0.1</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.MvvmCross">
-        <Version>1.0.67</Version>
+        <Version>1.0.69</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.Common">
-        <Version>1.0.67</Version>
+        <Version>1.0.69</Version>
       </PackageReference>
       <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.iOS">
-        <Version>1.0.67</Version>
+        <Version>1.0.69</Version>
       </PackageReference>
     </ItemGroup>
     <ItemGroup>
@@ -152,14 +152,6 @@
         <ImageAsset Include="Assets.xcassets\ic_menu_tiles.imageset\ic_menu_tiles.pdf" />
         <ImageAsset Include="Assets.xcassets\ic_chevron_down.imageset\Contents.json" />
         <ImageAsset Include="Assets.xcassets\ic_chevron_down.imageset\ic_chevron_down.pdf" />
-        <ImageAsset Include="Assets.xcassets\ic_hit_category.imageset\Contents.json" />
-        <ImageAsset Include="Assets.xcassets\ic_hit_category.imageset\ic_hit_category.pdf" />
-        <ImageAsset Include="Assets.xcassets\ic_hot_category.imageset\Contents.json" />
-        <ImageAsset Include="Assets.xcassets\ic_hot_category.imageset\ic_hot_category.pdf" />
-        <ImageAsset Include="Assets.xcassets\ic_season_category.imageset\Contents.json" />
-        <ImageAsset Include="Assets.xcassets\ic_season_category.imageset\ic_season_category.pdf" />
-        <ImageAsset Include="Assets.xcassets\ic_vegan_category.imageset\Contents.json" />
-        <ImageAsset Include="Assets.xcassets\ic_vegan_category.imageset\ic_vegan_category.pdf" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
@@ -195,6 +187,7 @@
         <Folder Include="Assets.xcassets\ic_hot_category.imageset\" />
         <Folder Include="Assets.xcassets\ic_season_category.imageset\" />
         <Folder Include="Assets.xcassets\ic_vegan_category.imageset\" />
+        <Folder Include="Delegates\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -211,6 +204,9 @@
         <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuGroupsCell.xib" />
         <InterfaceDefinition Include="Views\Controls\SimpleMenuGroupView.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\SimpleMenuActionItemCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\GroupsMenuItemViewCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\CategoryMenuItemViewCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\GroupMenuItemViewCell.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Entitlements.plist" />
@@ -268,8 +264,6 @@
         <Compile Include="Common\BindingConstants.cs" />
         <Compile Include="Extensions\BindingExtensions.cs" />
         <Compile Include="Converters\BootToUIImageConverter.cs" />
-        <Compile Include="Sources\SimpleListMenuCollectionViewSource.cs" />
-        <Compile Include="Sources\SimpleListMenuCollectionDelegateFlowLayout.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuItemCell.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuItemCell.designer.cs">
           <DependentUpon>SimpleMenuItemCell.cs</DependentUpon>
@@ -282,11 +276,28 @@
         <Compile Include="Views\Controls\SimpleMenuGroupView.designer.cs">
           <DependentUpon>Views\Controls\SimpleMenuGroupView.cs</DependentUpon>
         </Compile>
-        <Compile Include="Converters\StickerTypeToUIImageConverter.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuActionItemCell.cs" />
         <Compile Include="Views\Cells\Menu\SimpleMenuActionItemCell.designer.cs">
           <DependentUpon>SimpleMenuActionItemCell.cs</DependentUpon>
         </Compile>
+        <Compile Include="Delegates\SimpleListMenuCollectionDelegateFlowLayout.cs" />
+        <Compile Include="Sources\CollectionViewSource.cs" />
+        <Compile Include="Delegates\MenuCollectionViewDelegateFlowLayout.cs" />
+        <Compile Include="Views\Cells\Menu\GroupsMenuItemViewCell.cs" />
+        <Compile Include="Views\Cells\Menu\GroupsMenuItemViewCell.designer.cs">
+          <DependentUpon>GroupsMenuItemViewCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Cells\Menu\CategoryMenuItemViewCell.cs" />
+        <Compile Include="Views\Cells\Menu\CategoryMenuItemViewCell.designer.cs">
+          <DependentUpon>CategoryMenuItemViewCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Sources\MenuCollectionViewSource.cs" />
+        <Compile Include="Delegates\GroupsMenuItemCollectionViewDelegateFlowLayout.cs" />
+        <Compile Include="Views\Cells\Menu\GroupMenuItemViewCell.cs" />
+        <Compile Include="Views\Cells\Menu\GroupMenuItemViewCell.designer.cs">
+          <DependentUpon>GroupMenuItemViewCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Extensions\CollectionViewExtensions.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

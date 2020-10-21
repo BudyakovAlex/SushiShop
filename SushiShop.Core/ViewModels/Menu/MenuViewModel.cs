@@ -1,5 +1,10 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+using FFImageLoading;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Common;
@@ -10,10 +15,7 @@ using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Cities;
 using SushiShop.Core.ViewModels.Cities.Items;
 using SushiShop.Core.ViewModels.Menu.Items;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Menu
 {
@@ -41,7 +43,6 @@ namespace SushiShop.Core.ViewModels.Menu
         public IMvxCommand SwitchPresentationCommand { get; }
 
         private bool isListMenuPresentation;
-
         public bool IsListMenuPresentation
         {
             get => isListMenuPresentation;
@@ -52,15 +53,18 @@ namespace SushiShop.Core.ViewModels.Menu
 
         public override async Task InitializeAsync()
         {
-            await Task.WhenAll(base.InitializeAsync(), ReloadDataAsync());
+            await base.InitializeAsync();
+            _ = ExecutionStateWrapper.WrapAsync(ReloadDataAsync, awaitWhenBusy: true);
         }
 
         private async Task ReloadDataAsync()
         {
             var response = await menuManager.GetMenuAsync(city?.Name);
-
             var groupMenuItemViewModels = response.Data.Stickers.Select(sticker => new GroupMenuItemViewModel(sticker) { ExecutionStateWrapper = ExecutionStateWrapper }).ToList();
             var categoryMenuItemViewModels = response.Data.Categories.Select(categories => new CategoryMenuItemViewModel(categories) { ExecutionStateWrapper = ExecutionStateWrapper }).ToList();
+
+            await Task.WhenAll(categoryMenuItemViewModels
+                .Select(item => ImageService.Instance.LoadUrl(item.ImageUrl).PreloadAsync()));
 
             Items.Clear();
             SimpleItems.Clear();
@@ -72,10 +76,12 @@ namespace SushiShop.Core.ViewModels.Menu
             SimpleItems.AddRange(categoryMenuItemViewModels);
             SimpleItems.Add(groupsMenuItemViewModel);
             SimpleItems.AddRange(new List<MenuActionItemViewModel>
-                {
-                    new MenuActionItemViewModel(ActionType.Franchise) { ExecutionStateWrapper = ExecutionStateWrapper },
-                    new MenuActionItemViewModel(ActionType.Vacancies) { ExecutionStateWrapper = ExecutionStateWrapper }
-                });
+            {
+                new MenuActionItemViewModel(ActionType.Franchise) { ExecutionStateWrapper = ExecutionStateWrapper },
+                new MenuActionItemViewModel(ActionType.Vacancies) { ExecutionStateWrapper = ExecutionStateWrapper }
+            });
+
+            _ = Permissions.RequestAsync<Permissions.LocationWhenInUse>();
         }
 
         private async Task SelectCityAsync()

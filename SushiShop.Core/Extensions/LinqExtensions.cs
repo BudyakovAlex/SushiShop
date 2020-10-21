@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace SushiShop.Core.Extensions
 {
@@ -34,6 +36,23 @@ namespace SushiShop.Core.Extensions
             }
 
             return null;
+        }
+
+        public static void ForEach<T>(this IEnumerable<T> items, Action<T> action)
+        {
+            foreach (var item in items)
+            {
+                action(item);
+            }
+        }
+
+        public static IEnumerable<T> Pipe<T>(this IEnumerable<T> items, Action<T> action)
+        {
+            foreach (var item in items)
+            {
+                action(item);
+                yield return item;
+            }
         }
     }
 }

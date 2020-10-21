@@ -21,30 +21,28 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3Q-sd-poj">
                     <rect key="frame" x="4" y="4" width="391" height="40"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cDb-is-j9k">
-                            <rect key="frame" x="158" y="11" width="75" height="18"/>
-                            <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zg5-7h-VzW">
-                                    <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="18" id="1y9-qJ-rcC"/>
-                                        <constraint firstAttribute="height" constant="18" id="mVf-Qk-8Gy"/>
-                                    </constraints>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bf7-we-VvO">
-                                    <rect key="frame" x="38" y="0.0" width="37" height="18"/>
-                                    <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bf7-we-VvO">
+                            <rect key="frame" x="177" y="10.333333333333334" width="37" height="19.333333333333329"/>
+                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                            <color key="textColor" red="0.090196078431372548" green="0.094117647058823528" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zg5-7h-VzW" customClass="MvxCachedImageView">
+                            <rect key="frame" x="143" y="10.666666666666664" width="19" height="19"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="19" id="1y9-qJ-rcC"/>
+                                <constraint firstAttribute="height" constant="19" id="mVf-Qk-8Gy"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="cDb-is-j9k" firstAttribute="centerY" secondItem="C3Q-sd-poj" secondAttribute="centerY" id="FxF-wC-6Xd"/>
+                        <constraint firstItem="Bf7-we-VvO" firstAttribute="centerY" secondItem="C3Q-sd-poj" secondAttribute="centerY" id="BJg-8O-K6H"/>
+                        <constraint firstItem="Bf7-we-VvO" firstAttribute="width" relation="lessThanOrEqual" secondItem="C3Q-sd-poj" secondAttribute="width" multiplier="0.8" id="KqC-Mm-2pn"/>
+                        <constraint firstItem="zg5-7h-VzW" firstAttribute="centerY" secondItem="Bf7-we-VvO" secondAttribute="centerY" id="ZtW-1O-CFV"/>
                         <constraint firstAttribute="height" constant="40" id="bmH-MF-QLr"/>
-                        <constraint firstItem="cDb-is-j9k" firstAttribute="centerX" secondItem="C3Q-sd-poj" secondAttribute="centerX" id="xpz-YA-2cB"/>
+                        <constraint firstItem="Bf7-we-VvO" firstAttribute="leading" secondItem="zg5-7h-VzW" secondAttribute="trailing" constant="15" id="lDT-1w-ydl"/>
+                        <constraint firstItem="Bf7-we-VvO" firstAttribute="centerX" secondItem="C3Q-sd-poj" secondAttribute="centerX" id="vuc-Zj-yIp"/>
                     </constraints>
                 </view>
             </subviews>
@@ -58,7 +56,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="ContainerView" destination="C3Q-sd-poj" id="WEv-7P-rgv"/>
-                <outlet property="GroupImageView" destination="zg5-7h-VzW" id="7ZT-zn-bpQ"/>
+                <outlet property="GroupImageView" destination="zg5-7h-VzW" id="7hX-RB-2UV"/>
                 <outlet property="GroupNameLabel" destination="Bf7-we-VvO" id="tjR-0z-Akp"/>
             </connections>
             <point key="canvasLocation" x="84.782608695652186" y="-300.81521739130437"/>

@@ -15,7 +15,7 @@ namespace SushiShop.Ios.Views.Controls
 		UIKit.UIView ContainerView { get; set; }
 
 		[Outlet]
-		UIKit.UIImageView GroupImageView { get; set; }
+		FFImageLoading.Cross.MvxCachedImageView GroupImageView { get; set; }
 
 		[Outlet]
 		UIKit.UILabel GroupNameLabel { get; set; }
@@ -27,14 +27,14 @@ namespace SushiShop.Ios.Views.Controls
 				ContainerView = null;
 			}
 
-			if (GroupImageView != null) {
-				GroupImageView.Dispose ();
-				GroupImageView = null;
-			}
-
 			if (GroupNameLabel != null) {
 				GroupNameLabel.Dispose ();
 				GroupNameLabel = null;
+			}
+
+			if (GroupImageView != null) {
+				GroupImageView.Dispose ();
+				GroupImageView = null;
 			}
 		}
 	}

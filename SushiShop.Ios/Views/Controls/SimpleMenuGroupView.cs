@@ -3,7 +3,6 @@ using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
 using SushiShop.Core.ViewModels.Menu.Items;
-using SushiShop.Ios.Converters;
 using System;
 
 namespace SushiShop.Ios.Views.Controls
@@ -15,22 +14,21 @@ namespace SushiShop.Ios.Views.Controls
         {
         }
 
-        protected override void DoAwakeFromNib()
+        protected override void Initialize()
         {
-            base.DoAwakeFromNib();
+            base.Initialize();
             ContainerView.Layer.CornerRadius = 6;
         }
 
-        protected override void DoBind()
+        protected override void Bind()
         {
-            base.DoBind();
+            base.Bind();
 
             var bindingSet = this.CreateBindingSet<SimpleMenuGroupView, GroupMenuItemViewModel>();
 
             bindingSet.Bind(ContainerView).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
             bindingSet.Bind(GroupNameLabel).For(v => v.Text).To(vm => vm.Title);
-            bindingSet.Bind(GroupImageView).For(v => v.Image).To(vm => vm.Type)
-                .WithConversion<StickerTypeToUIImageConverter>();
+            bindingSet.Bind(GroupImageView).For(v => v.ImagePath).To(vm => vm.ImageUrl);
 
             bindingSet.Apply();
         }

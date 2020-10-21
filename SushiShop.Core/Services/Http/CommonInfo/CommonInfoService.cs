@@ -1,4 +1,5 @@
 ﻿using SushiShop.Core.Common;
+using SushiShop.Core.Data.Dtos.Franchise;
 using SushiShop.Core.Data.Dtos.Job;
 using SushiShop.Core.Data.Http;
 using System.Threading;
@@ -15,9 +16,17 @@ namespace SushiShop.Core.Services.Http.CommonInfo
             this.httpService = httpService;
         }
 
-        public async Task<HttpResponse<ResponseDto<JobDto>>> GetVacanciesAsync(string? city, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<FranchiseDto>>> GetFranchiseAsync(CancellationToken cancellationToken)
         {
-            return await httpService.ExecuteAsync<ResponseDto<JobDto>>(
+            return httpService.ExecuteAsync<ResponseDto<FranchiseDto>>(
+                Method.Post,
+                Constants.Rest.FranchiseResource,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<VacancyDto>>> GetVacanciesAsync(string? city, CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<VacancyDto>>(
                 Method.Post,
                 Constants.Rest.JobResource,
                 cancellationToken);

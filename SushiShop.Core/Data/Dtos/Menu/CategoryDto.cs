@@ -15,7 +15,6 @@ namespace SushiShop.Core.Data.Dtos.Menu
         public int ItemsCount { get; set; }
         [JsonProperty("categotyIcon")]
         public CategoryIconDto? CategoryIcon { get; set; }
-        [JsonProperty("childrens")]
         public CategoryChildrenDto? Children { get; set; }
     }
 }

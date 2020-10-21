@@ -1,8 +1,10 @@
 ﻿using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.IoC;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Managers.CommonInfo;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
 using System.Threading.Tasks;
@@ -12,11 +14,13 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 {
     public class MenuActionItemViewModel : BaseViewModel
     {
+        private readonly ICommonInfoManager commonInfoManager;
         private readonly ActionType actionType;
 
         public MenuActionItemViewModel(ActionType actionType)
         {
             this.actionType = actionType;
+            commonInfoManager = BaseCompositionRoot.Container.Resolve<ICommonInfoManager>();
 
             ActionCommand = new SafeAsyncCommand(ExecutionStateWrapper, ExecuteActionAsync);
         }
@@ -37,19 +41,17 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 
         private async Task ShowFranchisePopupAsync()
         {
-            var isConfirmed = await UserDialogs.Instance.ConfirmAsync(new ConfirmConfig()
-            {
-                OkText = AppStrings.Yes,
-                CancelText = AppStrings.No,
-                Message = AppStrings.GoToTheFranchisePage_
-            });
+            var getFranchiseTask = commonInfoManager.GetFranchiseAsync();
+            var confirmationTask = UserDialogs.Instance.ConfirmAsync(AppStrings.GoToTheFranchisePage, okText: AppStrings.Yes, cancelText: AppStrings.No);
+            await Task.WhenAll(getFranchiseTask, confirmationTask);
 
+            var isConfirmed = confirmationTask.Result;
             if (!isConfirmed)
             {
                 return;
             }
 
-            await Browser.OpenAsync("http://www.xamarin.com", BrowserLaunchMode.SystemPreferred);
+            await Browser.OpenAsync(getFranchiseTask.Result.Data.Url, BrowserLaunchMode.SystemPreferred);
         }
 
         private string GetTitle()
