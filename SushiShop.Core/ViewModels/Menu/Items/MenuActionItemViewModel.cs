@@ -37,13 +37,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 
         private async Task ShowFranchisePopupAsync()
         {
-            var isConfirmed = await UserDialogs.Instance.ConfirmAsync(new ConfirmConfig()
-            {
-                OkText = AppStrings.Yes,
-                CancelText = AppStrings.No,
-                Message = AppStrings.GoToTheFranchisePage_
-            });
-
+            var isConfirmed = await UserDialogs.Instance.ConfirmAsync(AppStrings.GoToTheFranchisePage, okText: AppStrings.Yes, cancelText: AppStrings.No);
             if (!isConfirmed)
             {
                 return;

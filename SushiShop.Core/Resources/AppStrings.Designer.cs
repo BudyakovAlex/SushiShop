@@ -107,9 +107,9 @@ namespace SushiShop.Core.Resources {
             }
         }
         
-        public static string GoToTheFranchisePage_ {
+        public static string GoToTheFranchisePage {
             get {
-                return ResourceManager.GetString("GoToTheFranchisePage?", resourceCulture);
+                return ResourceManager.GetString("GoToTheFranchisePage", resourceCulture);
             }
         }
         

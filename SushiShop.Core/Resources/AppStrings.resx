@@ -147,7 +147,7 @@
   <data name="AboutUs" xml:space="preserve">
     <value>О нас</value>
   </data>
-  <data name="GoToTheFranchisePage?" xml:space="preserve">
+  <data name="GoToTheFranchisePage" xml:space="preserve">
     <value>Перейти на страницу франшизы?</value>
   </data>
   <data name="No" xml:space="preserve">
