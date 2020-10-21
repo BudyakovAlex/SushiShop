@@ -100,7 +100,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
 
             titleLabel = new UILabel()
             {
-                Font = Font.Create(FontStyle.Regular, 18f)
+                Font = Font.Create(FontStyle.Medium, 18f),
+                TextColor = Colors.FigmaBlack
             };
 
             stackView.AddArrangedSubview(titleLabel);

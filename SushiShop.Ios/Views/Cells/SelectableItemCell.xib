@@ -7,8 +7,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="SF-Pro-Display-Regular.otf">
-            <string>SFProDisplay-Regular</string>
+        <array key="SF-Pro-Display-Medium.otf">
+            <string>SFProDisplay-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -17,25 +17,24 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="48" id="cxk-wN-pdQ" customClass="SelectableItemCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLJ-ng-uTA">
-                        <rect key="frame" x="16" y="11" width="37" height="20.5"/>
-                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLJ-ng-uTA">
+                        <rect key="frame" x="16" y="14.5" width="238" height="19.5"/>
+                        <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
                         <color key="textColor" red="0.090196078431372548" green="0.094117647058823528" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="Osq-9M-drO">
-                        <rect key="frame" x="270" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="270" y="0.0" width="50" height="48"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="1Vz-cG-YgF"/>
-                            <constraint firstAttribute="height" constant="50" id="ErR-MO-nPB"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBZ-AQ-Xjg">
-                        <rect key="frame" x="16" y="68" width="304" height="21"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBZ-AQ-Xjg">
+                        <rect key="frame" x="16" y="47" width="304" height="1"/>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="sT7-rj-HCp"/>
@@ -44,6 +43,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Osq-9M-drO" secondAttribute="trailing" id="7Nq-4f-xw5"/>
+                    <constraint firstItem="Osq-9M-drO" firstAttribute="leading" secondItem="WLJ-ng-uTA" secondAttribute="trailing" constant="16" id="FrP-ff-i7O"/>
                     <constraint firstItem="jBZ-AQ-Xjg" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="GQP-7f-ujI"/>
                     <constraint firstItem="WLJ-ng-uTA" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="KxE-T6-d1c"/>
                     <constraint firstAttribute="trailing" secondItem="jBZ-AQ-Xjg" secondAttribute="trailing" id="WsZ-Ad-Spd"/>

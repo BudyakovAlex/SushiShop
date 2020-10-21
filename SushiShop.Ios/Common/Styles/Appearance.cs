@@ -18,7 +18,6 @@ namespace SushiShop.Ios.Common.Styles
             appearance.ShadowImage = new UIImage();
             appearance.BarTintColor = Colors.White;
             appearance.TintColor = Colors.FigmaBlack;
-            appearance.BarStyle = UIBarStyle.Default;
             appearance.TitleTextAttributes = new UIStringAttributes { Font = Font.Create(FontStyle.Medium, 18f) };
         }
 

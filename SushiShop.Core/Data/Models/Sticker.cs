@@ -4,17 +4,17 @@ namespace SushiShop.Core.Data.Models
 {
     public class Sticker
     {
-        public Sticker(StickerType type, int count, string? image)
+        public Sticker(StickerType type, int count, string imageUrl)
         {
             Type = type;
             Count = count;
-            Image = image;
+            ImageUrl = imageUrl;
         }
 
         public StickerType Type { get; }
 
         public int Count { get; }
 
-        public string? Image { get; }
+        public string ImageUrl { get; }
     }
 }

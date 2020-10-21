@@ -49,7 +49,10 @@ namespace SushiShop.Ios.Views.Cells.Menu
                 }
 
                 selectedIndicator = value;
-                selectedIndicator.IsSelected = true;
+                if (selectedIndicator != null)
+                {
+                    selectedIndicator.IsSelected = true;
+                }
             }
         }
 
@@ -90,6 +93,15 @@ namespace SushiShop.Ios.Views.Cells.Menu
 
         private void InitializeStackViewItems(int itemsCount)
         {
+            StackView.ArrangedSubviews.ForEach(view => view.RemoveFromSuperview());
+            indicators = null;
+            SelectedIndicator = null;
+
+            if (itemsCount == 0)
+            {
+                return;
+            }
+
             indicators = Enumerable
                 .Range(0, itemsCount)
                 .Select(_ => CreateIndicatorView())

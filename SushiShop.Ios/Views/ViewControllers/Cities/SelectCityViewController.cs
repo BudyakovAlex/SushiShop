@@ -6,6 +6,7 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cities;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Sources;
+using SushiShop.Ios.Views.Cells;
 using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Cities
@@ -43,6 +44,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cities
         protected override void InitNavigationItem(UINavigationItem navigationItem)
         {
             base.InitNavigationItem(navigationItem);
+
             backButton = UIHelper.CreateDefaultBarButton(ImageNames.ImageBack, ImageNames.ImageBack);
             navigationItem.LeftBarButtonItem = new UIBarButtonItem(backButton);
             navigationItem.Title = AppStrings.SelectSity;
@@ -52,9 +54,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cities
         {
             source = new SelectableTableSource(SearchResultTableView);
             SearchResultTableView.Source = source;
-            SearchResultTableView.EstimatedRowHeight = 50f;
-            SearchResultTableView.SeparatorStyle = UITableViewCellSeparatorStyle.None;
-            SearchResultTableView.RowHeight = UITableView.AutomaticDimension;
+            SearchResultTableView.RowHeight = SelectableItemCell.Height;
         }
     }
 }

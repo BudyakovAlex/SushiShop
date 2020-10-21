@@ -41,6 +41,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
             Layer.ShadowRadius = 18f;
 
             ContentView.ClipsToBounds = true;
+            ContentView.BackgroundColor = Colors.White;
             ContentView.Layer.CornerRadius = CornerRadius;
         }
 
