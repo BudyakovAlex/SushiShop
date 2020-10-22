@@ -1,4 +1,6 @@
-﻿using SushiShop.Core.Managers.Cities;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
+using SushiShop.Core.Common;
+using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Abstract;
@@ -20,11 +22,23 @@ namespace SushiShop.Core.ViewModels.Cities
 
         public override string QueryPlaceholder => AppStrings.SearchSity;
 
-        protected override async Task<List<CityItemViewModel>> LoadDataAsync(List<int> selectedItemId)
+        protected override async Task<List<CityItemViewModel>> LoadDataAsync(List<int> selectedItemIds)
         {
             var response = await citiesManager.GetCitiesAsync();
             var items = response.Data.Select(city => new CityItemViewModel(city)).ToList();
-            items.ForEach(item => item.IsSelected = selectedItemId.Contains(item.City.Id));
+            if (selectedItemIds.Count == 0)
+            {
+                var foundItem = items.FirstOrDefault(item => item.City.Name.ToLowerInvariant().Equals(Constants.Menu.DefaultCityName.ToLowerInvariant()));
+                if (foundItem != null)
+                {
+                    foundItem.IsSelected = true;
+                }
+            }
+            else
+            {
+                items.ForEach(item => item.IsSelected = selectedItemIds.Contains(item.City.Id));
+            }
+
             return items;
         }
     }

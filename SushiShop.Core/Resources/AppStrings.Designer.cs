@@ -137,27 +137,9 @@ namespace SushiShop.Core.Resources {
             }
         }
         
-        public static string Hit {
+        public static string IsItYourCityQuestionTemplate {
             get {
-                return ResourceManager.GetString("Hit", resourceCulture);
-            }
-        }
-        
-        public static string Hot {
-            get {
-                return ResourceManager.GetString("Hot", resourceCulture);
-            }
-        }
-        
-        public static string Vegan {
-            get {
-                return ResourceManager.GetString("Vegan", resourceCulture);
-            }
-        }
-        
-        public static string Season {
-            get {
-                return ResourceManager.GetString("Season", resourceCulture);
+                return ResourceManager.GetString("IsItYourCityQuestionTemplate", resourceCulture);
             }
         }
     }

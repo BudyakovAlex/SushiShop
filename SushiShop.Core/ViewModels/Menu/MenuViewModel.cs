@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Acr.UserDialogs;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using FFImageLoading;
@@ -11,12 +7,20 @@ using MvvmCross.ViewModels;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cities;
+using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.Managers.Menu;
 using SushiShop.Core.Managers.Promotions;
 using SushiShop.Core.NavigationParameters;
+using SushiShop.Core.Providers;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cities;
 using SushiShop.Core.ViewModels.Cities.Items;
 using SushiShop.Core.ViewModels.Menu.Items;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Menu
@@ -25,13 +29,21 @@ namespace SushiShop.Core.ViewModels.Menu
     {
         private readonly IMenuManager menuManager;
         private readonly IPromotionsManager promotionsManager;
+        private readonly ICitiesManager citiesManager;
+        private readonly IUserSession userSession;
 
         private City? city;
 
-        public MenuViewModel(IMenuManager menuManager, IPromotionsManager promotionsManager)
+        public MenuViewModel(
+            IMenuManager menuManager,
+            IPromotionsManager promotionsManager,
+            ICitiesManager citiesManager,
+            IUserSession userSession)
         {
             this.menuManager = menuManager;
             this.promotionsManager = promotionsManager;
+            this.citiesManager = citiesManager;
+            this.userSession = userSession;
 
             Items = new MvxObservableCollection<BaseViewModel>();
             SimpleItems = new MvxObservableCollection<BaseViewModel>();
@@ -58,17 +70,18 @@ namespace SushiShop.Core.ViewModels.Menu
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
-            _ = ExecutionStateWrapper.WrapAsync(ReloadDataAsync, awaitWhenBusy: true);
+            city = userSession.GetCity();
+
+            _ = ExecutionStateWrapper.WrapAsync(() => ReloadDataAsync(true), awaitWhenBusy: true);
         }
 
-        private async Task ReloadDataAsync()
+        private async Task ReloadDataAsync(bool shouldReloadUserLocation = false)
         {
-            var cityName = city?.Name;
+            var citiesTask = citiesManager.GetCitiesAsync();
+            var promotionsTask = promotionsManager.GetPromotionsAsync(CityName);
+            var menuTask = menuManager.GetMenuAsync(CityName);
 
-            var promotionsTask = promotionsManager.GetPromotionsAsync(cityName);
-            var menuTask = menuManager.GetMenuAsync(cityName);
-
-            await Task.WhenAll(promotionsTask, menuTask);
+            await Task.WhenAll(promotionsTask, menuTask, citiesTask);
 
             var categoryItems = menuTask.Result.Data.Categories
                 .Select(category => new CategoryMenuItemViewModel(category) { ExecutionStateWrapper = ExecutionStateWrapper })
@@ -99,7 +112,65 @@ namespace SushiShop.Core.ViewModels.Menu
                 new MenuActionItemViewModel(ActionType.Vacancies, city) { ExecutionStateWrapper = ExecutionStateWrapper }
             });
 
-            _ = Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            if (!shouldReloadUserLocation)
+            {
+                return;
+            }
+
+            await TryRefreshGelolocationAsync(citiesTask.Result.Data);
+        }
+
+        private async Task TryRefreshGelolocationAsync(City[] cities)
+        {
+            try
+            {
+                if (city != null)
+                {
+                    return;
+                }
+
+                var lastKnownLocation = await Geolocation.GetLastKnownLocationAsync();
+                if (lastKnownLocation is null)
+                {
+                    var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromMinutes(1));
+                    lastKnownLocation = await Geolocation.GetLocationAsync(request);
+                }
+
+                if (lastKnownLocation is null)
+                {
+                    return;
+                }
+
+                var placemarks = await Geocoding.GetPlacemarksAsync(lastKnownLocation);
+                var firtPlacemark = placemarks.FirstOrDefault();
+                if (firtPlacemark is null)
+                {
+                    return;
+                }
+
+                var foundCity = cities.FirstOrDefault(city => city.Name.ToLowerInvariant()
+                                                                       .Equals(firtPlacemark.SubAdminArea
+                                                                       .ToLowerInvariant()));
+                if (foundCity is null)
+                {
+                    return;
+                }
+
+                var message = string.Format(AppStrings.IsItYourCityQuestionTemplate, foundCity.Name);
+                var isConfirmed = await UserDialogs.Instance.ConfirmAsync(message, okText: AppStrings.Yes, cancelText: AppStrings.No);
+                if (!isConfirmed)
+                {
+                    return;
+                }
+
+                userSession.SetCity(foundCity);
+                city = foundCity;
+                _ = ReloadDataAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
 
         private async Task SelectCityAsync()
@@ -113,6 +184,7 @@ namespace SushiShop.Core.ViewModels.Menu
             }
 
             city = result.First().City;
+            userSession.SetCity(city);
             await RaisePropertyChanged(nameof(CityName));
             await ReloadDataAsync();
         }
@@ -132,9 +204,9 @@ namespace SushiShop.Core.ViewModels.Menu
             {
                 await ImageService.Instance.LoadUrl(url).PreloadAsync();
             }
-            catch
+            catch (Exception ex)
             {
-                // TODO: log
+                Debug.WriteLine(ex);
             }
         }
     }

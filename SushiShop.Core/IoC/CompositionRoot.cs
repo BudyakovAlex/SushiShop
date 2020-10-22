@@ -2,6 +2,7 @@ using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.Managers.CommonInfo;
 using SushiShop.Core.Managers.Menu;
 using SushiShop.Core.Managers.Promotions;
+using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http;
 using SushiShop.Core.Services.Http.Cities;
 using SushiShop.Core.Services.Http.CommonInfo;
@@ -31,6 +32,12 @@ namespace SushiShop.Core.IoC
             Container.RegisterSingleton<ICitiesService, CitiesService>();
             Container.RegisterSingleton<ICommonInfoService, CommonInfoService>();
             Container.RegisterSingleton<IPromotionsService, PromotionsService>();
+        }
+
+        protected override void RegisterDependencies()
+        {
+            base.RegisterDependencies();
+            Container.RegisterSingleton<IUserSession, UserSession>();
         }
     }
 }

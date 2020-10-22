@@ -60,6 +60,7 @@
     <Folder Include="Data\Dtos\Promotions\" />
     <Folder Include="Data\Models\Promotions\" />
     <Folder Include="Managers\Promotions\" />
+    <Folder Include="Providers\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">

@@ -13,7 +13,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
         public GroupMenuItemViewModel(Sticker sticker)
         {
             Type = sticker.Type;
-            Title = sticker.Type.ToLocalizedString();
+            Title = sticker.Title;
             ImageUrl = sticker.ImageUrl;
 
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
