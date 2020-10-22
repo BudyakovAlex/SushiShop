@@ -1,8 +1,8 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using System.Threading.Tasks;
+using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Models.Menu;
-using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Menu.Items
 {
@@ -11,7 +11,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
         public CategoryMenuItemViewModel(Category category)
         {
             Title = category.PageTitle;
-            ImageUrl = category.CategotyIcon?.JpgUrl ?? string.Empty;
+            ImageUrl = category.CategoryIcon?.JpgUrl ?? string.Empty;
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
 

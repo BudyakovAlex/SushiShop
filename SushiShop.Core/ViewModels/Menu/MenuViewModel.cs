@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using FFImageLoading;
@@ -74,15 +74,15 @@ namespace SushiShop.Core.ViewModels.Menu
                 .Select(category => new CategoryMenuItemViewModel(category) { ExecutionStateWrapper = ExecutionStateWrapper })
                 .ToArray();
 
-            await Task.WhenAll(
-                categoryItems.Select(item => ImageService.Instance.LoadUrl(item.ImageUrl).PreloadAsync()));
+            var promotionItems = promotionsTask.Result.Data
+                .Select(promotion => new MenuPromotionItemViewModel(promotion))
+                .ToArray();
+
+            await PreloadImagesAsync(categoryItems, promotionItems);
 
             Items.Clear();
             SimpleItems.Clear();
 
-            var promotionItems = promotionsTask.Result.Data
-                .Select(promotion => new MenuPromotionItemViewModel(promotion))
-                .ToArray();
             Items.Add(new MenuPromotionListItemViewModel(promotionItems));
             Items.AddRange(categoryItems);
 
@@ -115,6 +115,27 @@ namespace SushiShop.Core.ViewModels.Menu
             city = result.First().City;
             await RaisePropertyChanged(nameof(CityName));
             await ReloadDataAsync();
+        }
+
+        private async Task PreloadImagesAsync(CategoryMenuItemViewModel[] categories, MenuPromotionItemViewModel[] promotions)
+        {
+            var urls = Enumerable.Concat(
+                categories.Select(item => item.ImageUrl),
+                promotions.Select(item => item.ImageUrl));
+
+            await Task.WhenAll(urls.Select(PreloadImageAsync));
+        }
+
+        private async Task PreloadImageAsync(string url)
+        {
+            try
+            {
+                await ImageService.Instance.LoadUrl(url).PreloadAsync();
+            }
+            catch
+            {
+                // TODO: log
+            }
         }
     }
 }

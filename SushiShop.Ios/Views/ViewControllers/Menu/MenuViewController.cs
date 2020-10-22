@@ -1,5 +1,4 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
-using CoreLocation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
@@ -13,7 +12,6 @@ using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Menu;
 using UIKit;
-using Xamarin.Essentials;
 
 namespace SushiShop.Ios.Views.ViewControllers.Menu
 {
