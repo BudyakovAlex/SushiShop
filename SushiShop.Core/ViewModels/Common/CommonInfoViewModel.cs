@@ -1,4 +1,5 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Managers.CommonInfo;
 using SushiShop.Core.NavigationParameters;
@@ -34,11 +35,11 @@ namespace SushiShop.Core.ViewModels.Common
             await base.InitializeAsync();
 
             //TODO: add all cases load here
-            switch(commonInfoType)
+            switch (commonInfoType)
             {
                 case CommonInfoType.Vacancies:
                     var vacancies = await commonInfoManager.GetVacanciesAsync(city);
-                    Content = vacancies.Data.Text;
+                    Content = string.Format(Constants.Html.Format, vacancies.Data.Text);
                     break;
             }
 

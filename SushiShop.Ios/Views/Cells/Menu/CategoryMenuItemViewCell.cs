@@ -30,7 +30,10 @@ namespace SushiShop.Ios.Views.Cells.Menu
             base.LayoutSubviews();
 
             Layer.ShadowPath = UIBezierPath.FromRoundedRect(Bounds, CornerRadius).CGPath;
+
+            CATransaction.DisableActions = true;
             overlayLayer.Frame = Bounds;
+            CATransaction.DisableActions = false;
         }
 
         protected override void Initialize()

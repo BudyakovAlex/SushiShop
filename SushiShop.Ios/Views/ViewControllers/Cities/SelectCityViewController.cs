@@ -45,7 +45,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cities
         {
             base.InitNavigationItem(navigationItem);
 
-            backButton = UIHelper.CreateDefaultBarButton(ImageNames.ImageBack, ImageNames.ImageBack);
+            backButton = Components.CreateDefaultBarButton(ImageNames.ImageBack);
             navigationItem.LeftBarButtonItem = new UIBarButtonItem(backButton);
             navigationItem.Title = AppStrings.SelectSity;
         }

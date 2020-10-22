@@ -230,7 +230,6 @@
           <DependentUpon>SelectableItemCell.cs</DependentUpon>
         </Compile>
         <Compile Include="Sources\SelectableTableSource.cs" />
-        <Compile Include="Common\UIHelper.cs" />
         <Compile Include="Common\ImageNames.cs" />
         <Compile Include="Views\ViewControllers\MainViewController.cs" />
         <Compile Include="Views\ViewControllers\MainViewController.designer.cs">
@@ -302,6 +301,7 @@
         <Compile Include="Views\ViewControllers\CommonInfo\CommonInfoViewController.designer.cs">
           <DependentUpon>CommonInfoViewController.cs</DependentUpon>
         </Compile>
+        <Compile Include="Common\Components.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

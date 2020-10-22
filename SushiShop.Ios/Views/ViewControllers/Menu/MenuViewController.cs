@@ -34,7 +34,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
         protected override void InitNavigationItem(UINavigationItem navigationItem)
         {
             base.InitNavigationItem(navigationItem);
-            switchPresentationButton = UIHelper.CreateDefaultBarButton(ImageNames.MenuList, ImageNames.MenuList);
+
+            switchPresentationButton = Components.CreateDefaultBarButton(ImageNames.MenuList);
             navigationItem.RightBarButtonItem = new UIBarButtonItem(switchPresentationButton);
 
             leftBarButtonItemView = CreateLeftBarButtonItem();
