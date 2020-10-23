@@ -18,9 +18,11 @@ namespace SushiShop.Core.Services.Http.Promotions
 
         public async Task<HttpResponse<ResponseDto<Dictionary<string, PromotionDto>>>> GetPromotionsAsync(string? city, CancellationToken cancellationToken)
         {
+            var body = new { City = city };
             return await httpService.ExecuteAsync<ResponseDto<Dictionary<string, PromotionDto>>>(
                 Method.Post,
                 Constants.Rest.PromotionsResource,
+                body,
                 cancellationToken);
         }
     }

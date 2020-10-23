@@ -1,5 +1,4 @@
-﻿using BuildApps.Core.Mobile.Common.Extensions;
-using SushiShop.Core.Common;
+﻿using SushiShop.Core.Common;
 using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Resources;

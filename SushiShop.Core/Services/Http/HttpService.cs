@@ -26,6 +26,13 @@ namespace SushiShop.Core.Services.Http
             return Deserialize<T>(response);
         }
 
+        public async Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, object body, CancellationToken cancellationToken) where T : class
+        {
+            var content = Json.Serialize(body);
+            var response = await ExecuteAsync(method, url, content, cancellationToken);
+            return Deserialize<T>(response);
+        }
+
         public async Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, CancellationToken cancellationToken) where T : class
         {
             var response = await ExecuteAsync(method, url, cancellationToken);

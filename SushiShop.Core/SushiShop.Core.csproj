@@ -61,6 +61,10 @@
     <Folder Include="Data\Models\Promotions\" />
     <Folder Include="Managers\Promotions\" />
     <Folder Include="Providers\" />
+    <Folder Include="Data\Models\Products\" />
+    <Folder Include="Data\Dtos\Products\" />
+    <Folder Include="Services\Http\Products\" />
+    <Folder Include="Managers\Products\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">
