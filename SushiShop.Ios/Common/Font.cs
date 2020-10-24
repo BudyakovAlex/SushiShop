@@ -6,14 +6,14 @@ namespace SushiShop.Ios.Common
 {
     public static class Font
     {
-        private const string SFProDisplayRegular = "SF Pro Display Regular";
-        private const string SFProDisplayRegularItalic = "SF Pro Display RegularItalic";
-        private const string SFProDisplayMedium = "SF Pro Display Medium";
-        private const string SFProDisplayMediumItalic = "SF Pro Display MediumItalic";
-        private const string SFProDisplaySemibold = "SF Pro Display Semibold";
-        private const string SFProDisplaySemiboldItalic = "SF Pro Display SemiboldItalic";
-        private const string SFProDisplayBold = "SF Pro Display Bold";
-        private const string SFProDisplayBoldItalic = "SF Pro Display BoldItalic";
+        private const string SFProDisplayRegular = "SFProDisplay-Regular";
+        private const string SFProDisplayRegularItalic = "SFProDisplay-RegularItalic";
+        private const string SFProDisplayMedium = "SFProDisplay-Medium";
+        private const string SFProDisplayMediumItalic = "SFProDisplay-MediumItalic";
+        private const string SFProDisplaySemibold = "SFProDisplay-Semibold";
+        private const string SFProDisplaySemiboldItalic = "SFProDisplay-SemiboldItalic";
+        private const string SFProDisplayBold = "SFProDisplay-Bold";
+        private const string SFProDisplayBoldItalic = "SFProDisplay-BoldItalic";
 
         public static UIFont Create(FontStyle fontStyle, nfloat size)
         {
