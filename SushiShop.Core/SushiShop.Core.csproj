@@ -65,6 +65,8 @@
     <Folder Include="Data\Dtos\Products\" />
     <Folder Include="Services\Http\Products\" />
     <Folder Include="Managers\Products\" />
+    <Folder Include="Data\Dtos\Toppings\" />
+    <Folder Include="Data\Models\Toppings\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">

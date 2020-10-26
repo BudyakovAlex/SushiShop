@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Data.Http;
@@ -26,7 +27,7 @@ namespace SushiShop.Core.Managers.Cities
                 return new Response<City[]>(isSuccessful: true, data);
             }
 
-            return new Response<City[]>(isSuccessful: false, new City[0]);
+            return new Response<City[]>(isSuccessful: false, Array.Empty<City>());
         }
     }
 }

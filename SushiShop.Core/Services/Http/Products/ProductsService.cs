@@ -24,9 +24,9 @@ namespace SushiShop.Core.Services.Http.Products
         {
             var body = new
             {
-                Cid = categoryId,
-                City = city,
-                Sticker = stickerType?.ToString().ToLower()
+                cid = categoryId,
+                city,
+                sticker = stickerType?.ToString().ToLower() ?? null
             };
 
             return await httpService.ExecuteAsync<ResponseDto<ProductDto[]>>(
