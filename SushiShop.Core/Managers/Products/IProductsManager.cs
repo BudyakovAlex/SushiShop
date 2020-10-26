@@ -11,5 +11,7 @@ namespace SushiShop.Core.Managers.Products
             int categoryId,
             string? city,
             StickerType? stickerType);
+
+        Task<Response<Product?>> GetProductAsync(int id, string? city);
     }
 }

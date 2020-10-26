@@ -19,6 +19,18 @@ namespace SushiShop.Core.Managers.Products
             this.productsService = productsService;
         }
 
+        public async Task<Response<Product?>> GetProductAsync(int id, string? city)
+        {
+            var response = await productsService.GetProductAsync(id, city, CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData?.Map();
+                return new Response<Product?>(isSuccessful: true, data);
+            }
+
+            return new Response<Product?>(isSuccessful: false, null);
+        }
+
         public async Task<Response<Product[]>> GetProductsByCategoryAsync(
             int categoryId,
             string? city,

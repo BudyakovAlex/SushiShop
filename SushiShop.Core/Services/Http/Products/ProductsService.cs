@@ -16,7 +16,25 @@ namespace SushiShop.Core.Services.Http.Products
             this.httpService = httpService;
         }
 
-        public async Task<HttpResponse<ResponseDto<ProductDto[]>>> GetProductsByCategoryAsync(
+        public Task<HttpResponse<ResponseDto<ProductDto>>> GetProductAsync(
+            int id,
+            string? city,
+            CancellationToken cancellationToken)
+        {
+            var body = new
+            {
+                id,
+                city
+            };
+
+            return httpService.ExecuteAsync<ResponseDto<ProductDto>>(
+                Method.Post,
+                Constants.Rest.ProductResource,
+                body,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<ProductDto[]>>> GetProductsByCategoryAsync(
             int categoryId,
             string? city,
             StickerType? stickerType,
@@ -29,7 +47,7 @@ namespace SushiShop.Core.Services.Http.Products
                 sticker = stickerType?.ToString().ToLower() ?? null
             };
 
-            return await httpService.ExecuteAsync<ResponseDto<ProductDto[]>>(
+            return httpService.ExecuteAsync<ResponseDto<ProductDto[]>>(
                 Method.Post,
                 Constants.Rest.CategoryProductsResource,
                 body,
