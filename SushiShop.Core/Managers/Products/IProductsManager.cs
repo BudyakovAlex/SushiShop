@@ -13,5 +13,9 @@ namespace SushiShop.Core.Managers.Products
             StickerType? stickerType);
 
         Task<Response<Product?>> GetProductAsync(int id, string? city);
+
+        Task<Response<Product[]>> GetRelatedProductsAsync(
+            int id,
+            string? city);
     }
 }

@@ -53,5 +53,20 @@ namespace SushiShop.Core.Services.Http.Products
                 body,
                 cancellationToken);
         }
+
+        public Task<HttpResponse<ResponseDto<ProductDto[]>>> GetRelatedProductsAsync(int id, string? city, CancellationToken cancellationToken)
+        {
+            var body = new
+            {
+                id,
+                city,
+            };
+
+            return httpService.ExecuteAsync<ResponseDto<ProductDto[]>>(
+                Method.Post,
+                Constants.Rest.RelatedResource,
+                body,
+                cancellationToken);
+        }
     }
 }

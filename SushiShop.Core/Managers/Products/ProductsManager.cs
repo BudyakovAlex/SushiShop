@@ -45,5 +45,17 @@ namespace SushiShop.Core.Managers.Products
 
             return new Response<Product[]>(isSuccessful: false, Array.Empty<Product>());
         }
+
+        public async Task<Response<Product[]>> GetRelatedProductsAsync(int id, string? city)
+        {
+            var response = await productsService.GetRelatedProductsAsync(id, city, CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData!.Select(product => product.Map()).ToArray();
+                return new Response<Product[]>(isSuccessful: true, data);
+            }
+
+            return new Response<Product[]>(isSuccessful: false, Array.Empty<Product>());
+        }
     }
 }
