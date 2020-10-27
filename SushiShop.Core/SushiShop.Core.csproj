@@ -26,7 +26,6 @@
     <Folder Include="ViewModels\Info\" />
     <Folder Include="ViewModels\Promotions\" />
     <Folder Include="ViewModels\Cart\" />
-    <Folder Include="NavigationParameters\" />
     <Folder Include="Resources\" />
     <Folder Include="ViewModels\Cities\" />
     <Folder Include="ViewModels\Cities\Items\" />
