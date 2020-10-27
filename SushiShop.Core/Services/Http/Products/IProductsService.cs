@@ -13,5 +13,15 @@ namespace SushiShop.Core.Services.Http.Products
             string? city,
             StickerType? stickerType,
             CancellationToken cancellationToken);
+
+        Task<HttpResponse<ResponseDto<ProductDto>>> GetProductAsync(
+            int id,
+            string? city,
+            CancellationToken cancellationToken);
+
+        Task<HttpResponse<ResponseDto<ProductDto[]>>> GetRelatedProductsAsync(
+            int id,
+            string? city,
+            CancellationToken cancellationToken);
     }
 }
