@@ -152,6 +152,8 @@
         <ImageAsset Include="Assets.xcassets\ic_menu_tiles.imageset\ic_menu_tiles.pdf" />
         <ImageAsset Include="Assets.xcassets\ic_chevron_down.imageset\Contents.json" />
         <ImageAsset Include="Assets.xcassets\ic_chevron_down.imageset\ic_chevron_down.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_back_white.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_back_white.imageset\Group 4.pdf" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
@@ -188,6 +190,9 @@
         <Folder Include="Assets.xcassets\ic_vegan_category.imageset\" />
         <Folder Include="Delegates\" />
         <Folder Include="Views\ViewControllers\CommonInfo\" />
+        <Folder Include="Views\ViewControllers\Products\" />
+        <Folder Include="Assets.xcassets\ic_back_white.imageset\" />
+        <Folder Include="Converters\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -208,6 +213,7 @@
         <InterfaceDefinition Include="Views\Cells\Menu\CategoryMenuItemViewCell.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\MenuPromotionItemViewCell.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\CommonInfo\CommonInfoViewController.xib" />
+        <InterfaceDefinition Include="Views\ViewControllers\Products\ProductDetailsViewController.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Entitlements.plist" />
@@ -302,6 +308,12 @@
           <DependentUpon>CommonInfoViewController.cs</DependentUpon>
         </Compile>
         <Compile Include="Common\Components.cs" />
+        <Compile Include="Views\ViewControllers\Products\ProductDetailsViewController.cs" />
+        <Compile Include="Views\ViewControllers\Products\ProductDetailsViewController.designer.cs">
+          <DependentUpon>ProductDetailsViewController.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Common\Styles\StylesExtensions.cs" />
+        <Compile Include="Converters\StringToStrikethroughTextConverter.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

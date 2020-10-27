@@ -3,6 +3,7 @@
     public static class ImageNames
     {
         public const string ImageBack = "ic_back";
+        public const string ImageBackWhite = "ic_back_white";
 
         public const string MenuTabIcon = "ic_menu_tab";
         public const string PromotionsTabIcon = "ic_promotions_tab";
