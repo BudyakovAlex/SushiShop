@@ -17,6 +17,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 
         public string Title { get; }
         public string ImageUrl { get; }
+
         public IMvxCommand ShowDetailsCommand { get; }
 
         private Task ShowDetailsAsync()
