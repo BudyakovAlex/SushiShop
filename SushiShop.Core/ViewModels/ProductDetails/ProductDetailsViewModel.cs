@@ -1,19 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.Managers.Products;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.CardProduct.Items;
+using SushiShop.Core.ViewModels.Cities;
+using SushiShop.Core.ViewModels.Cities.Items;
 
-namespace SushiShop.Core.ViewModels.CardProduct
+namespace SushiShop.Core.ViewModels.ProductDetails
 {
-    public class CardProductViewModel : BasePageViewModel<CardProductNavigationParameters>
+    public class ProductDetailsViewModel : BasePageViewModel<CardProductNavigationParameters>
     {
         private readonly IProductsManager productsManager;
         private Product? product;
@@ -21,9 +25,11 @@ namespace SushiShop.Core.ViewModels.CardProduct
         private int id;
         private string? city;
 
-        public CardProductViewModel(IProductsManager productsManager)
+        public ProductDetailsViewModel(IProductsManager productsManager)
         {
             this.productsManager = productsManager;
+            ToppingViewModels = new List<ToppingItemViewModel>();
+
             AddToCartCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddToCartAsync);
         }
 
@@ -36,7 +42,6 @@ namespace SushiShop.Core.ViewModels.CardProduct
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
-            ToppingViewModels = new List<ToppingViewModel>();
 
             var getProductTask = productsManager.GetProductAsync(id, city);
             var getRelatedProductTask = productsManager.GetRelatedProductsAsync(id, city);
@@ -44,46 +49,36 @@ namespace SushiShop.Core.ViewModels.CardProduct
             await Task.WhenAll(getProductTask, getRelatedProductTask);
 
             product = getProductTask.Result.Data;
-            List<Product> RelatedProducts = getRelatedProductTask.Result.Data.ToList();
+            List<Product> relatedProducts = getRelatedProductTask.Result.Data.ToList();
 
-            for (var i = 0; i < RelatedProducts.Count; i++)
-            {
-                ToppingViewModels.Add(new ToppingViewModel(
-                    new Topping(
-                        RelatedProducts[i].Params.AvailableToppings[i].Id,
-                        RelatedProducts[i].Params.AvailableToppings[i].PageTitle,
-                        RelatedProducts[i].Params.AvailableToppings[i].Price,
-                        RelatedProducts[i].Params.AvailableToppings[i].CountInBasket)));
-            }
+            //SimpleItems.Add(new ToppingItemViewModel());
 
             _ = RaisePropertyChanged(nameof(product));
         }
 
+        public MvxObservableCollection<Product> SimpleItems { get; }
+
         public IMvxCommand AddToCartCommand { get; }
-
-        public string ProteinTitle => GetProteinTitle();
-        public string FatsTitle => GetFatsTitle();
-        public string CarbohydratesTitle => GetCarbohydratesTitle();
-        public string CcalTitle => GetCcalTitle();
-
-        public string BackgroungImageUrl => product?.MainImageInfo.OriginalUrl ?? string.Empty;
+        
+        public string BackgroungImageUrl => product?.MainImageInfo?.OriginalUrl ?? string.Empty;
         public string Protein => product?.Params?.Proteins ?? string.Empty;
         public string Fats => product?.Params?.Fats ?? string.Empty;
         public string Carbohydrates => product?.Params?.Carbons ?? string.Empty;
         public string Ccal => product?.Params?.CalorificValue ?? string.Empty;
         public string Title => product?.PageTitle ?? string.Empty;
         public string Description => product?.IntroText ?? string.Empty;
-        public string WeightProduct => product?.Params?.Weight ?? string.Empty;
+        public string Weight => product?.Params?.Weight ?? string.Empty;
         public string Price => product?.Price.ToString() ?? string.Empty;
         public string OldPrice => product?.Price.ToString() ?? string.Empty;
-        public List<ToppingViewModel> ToppingViewModels { get; set; }
+        public List<ToppingItemViewModel> ToppingViewModels { get; set; }
         private async Task AddToCartAsync()
         {
+            var navigationParams = new ToppingNavigationParameters(product.Params?.AvailableToppings.ToList() ?? new List<Topping> {});
+            var result = await NavigationManager.NavigateAsync<ToppingsViewModel, ToppingNavigationParameters, List<Topping>>(navigationParams);
+            if (result is null)
+            {
+                return;
+            }
         }
-
-        private string GetProteinTitle() => AppStrings.Protein;
-        private string GetFatsTitle() => AppStrings.Fats;
-        private string GetCarbohydratesTitle() => AppStrings.Carbohydrates;
-        private string GetCcalTitle() => AppStrings.Ccal;
     }
 }

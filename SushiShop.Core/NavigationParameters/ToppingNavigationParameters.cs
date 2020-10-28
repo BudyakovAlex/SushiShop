@@ -1,14 +1,16 @@
-﻿using SushiShop.Core.Data.Models.Toppings;
+﻿using System.Collections.Generic;
+using SushiShop.Core.Data.Models.Toppings;
+using SushiShop.Core.NavigationParameters.Abstract;
 
 namespace SushiShop.Core.NavigationParameters
 {
     public class ToppingNavigationParameters
     {
-        public ToppingNavigationParameters(Topping topping)
+        public ToppingNavigationParameters(List<Topping> toppings) 
         {
-            Topping = topping;
+            Toppings = toppings;
         }
 
-        public Topping Topping { get; }
+        public List<Topping> Toppings { get; }
     }
 }

@@ -1,16 +1,16 @@
 ﻿using System.Threading.Tasks;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+using BuildApps.Core.Mobile.MvvmCross.ViewModels.Simple;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Models.Toppings;
-using SushiShop.Core.NavigationParameters;
 
 namespace SushiShop.Core.ViewModels.CardProduct.Items
 {
-    public class ToppingViewModel : BasePageViewModel<ToppingNavigationParameters>
+    public class ToppingItemViewModel : BaseViewModel
     {
-        public ToppingViewModel(Topping? topping)
+        public ToppingItemViewModel(Topping topping)
         {
-            Title = topping?.PageTitle;
+            Title = topping.PageTitle ?? string.Empty;
             Price = topping.Price;
             CountInBusket = topping.CountInBasket;
 
@@ -21,9 +21,9 @@ namespace SushiShop.Core.ViewModels.CardProduct.Items
         public IMvxCommand IncrementCommand { get; }
         public IMvxCommand DecrementCommand { get; }
 
-        public string? Title { get; private set; }
-        public long Price { get; private set; }
-        public long CountInBusket { get; private set; }
+        public string Title { get; }
+        public long Price { get; }
+        public long CountInBusket { get; }
 
         private Task IncrementAsync()
         {
@@ -33,13 +33,6 @@ namespace SushiShop.Core.ViewModels.CardProduct.Items
         private Task DecrementAsync()
         {
             return Task.CompletedTask;
-        }
-
-        public override void Prepare(ToppingNavigationParameters parameter)
-        {
-            Title = parameter.Topping.PageTitle;
-            Price = parameter.Topping.Price;
-            CountInBusket = parameter.Topping.CountInBasket;
         }
     }
 }
