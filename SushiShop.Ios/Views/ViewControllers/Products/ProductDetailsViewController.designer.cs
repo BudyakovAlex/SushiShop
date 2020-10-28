@@ -22,28 +22,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
 		UIKit.UICollectionView BuyAnotherCollectionView { get; set; }
 
 		[Outlet]
-		UIKit.UILabel BuyAnotherTitleLabel { get; set; }
-
-		[Outlet]
-		UIKit.UILabel CaloriesTitleLabel { get; set; }
-
-		[Outlet]
 		UIKit.UILabel CaloriesValueLabel { get; set; }
-
-		[Outlet]
-		UIKit.UILabel CarbohydratesTitleLabel { get; set; }
 
 		[Outlet]
 		UIKit.UILabel CarbohydratesValueLabel { get; set; }
 
 		[Outlet]
-		UIKit.UILabel FatsTitleLabel { get; set; }
-
-		[Outlet]
 		UIKit.UILabel FatsValueLabel { get; set; }
-
-		[Outlet]
-		UIKit.UIView FirstSplitView { get; set; }
 
 		[Outlet]
 		UIKit.UILabel OldPriceLabel { get; set; }
@@ -64,16 +49,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
 		UIKit.UIView ProductSpecificationsView { get; set; }
 
 		[Outlet]
-		UIKit.UILabel ProteinsTitleLabel { get; set; }
-
-		[Outlet]
 		UIKit.UILabel ProteinsValueLabel { get; set; }
-
-		[Outlet]
-		UIKit.UIView SecondSplitView { get; set; }
-
-		[Outlet]
-		UIKit.UIView ThirdSplitView { get; set; }
 
 		[Outlet]
 		UIKit.UILabel WeightLabel { get; set; }
@@ -95,34 +71,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
 				BuyAnotherCollectionView = null;
 			}
 
-			if (BuyAnotherTitleLabel != null) {
-				BuyAnotherTitleLabel.Dispose ();
-				BuyAnotherTitleLabel = null;
-			}
-
-			if (CaloriesTitleLabel != null) {
-				CaloriesTitleLabel.Dispose ();
-				CaloriesTitleLabel = null;
-			}
-
 			if (CaloriesValueLabel != null) {
 				CaloriesValueLabel.Dispose ();
 				CaloriesValueLabel = null;
 			}
 
-			if (CarbohydratesTitleLabel != null) {
-				CarbohydratesTitleLabel.Dispose ();
-				CarbohydratesTitleLabel = null;
-			}
-
 			if (CarbohydratesValueLabel != null) {
 				CarbohydratesValueLabel.Dispose ();
 				CarbohydratesValueLabel = null;
-			}
-
-			if (FatsTitleLabel != null) {
-				FatsTitleLabel.Dispose ();
-				FatsTitleLabel = null;
 			}
 
 			if (FatsValueLabel != null) {
@@ -160,11 +116,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
 				ProductSpecificationsView = null;
 			}
 
-			if (ProteinsTitleLabel != null) {
-				ProteinsTitleLabel.Dispose ();
-				ProteinsTitleLabel = null;
-			}
-
 			if (ProteinsValueLabel != null) {
 				ProteinsValueLabel.Dispose ();
 				ProteinsValueLabel = null;
@@ -173,21 +124,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
 			if (WeightLabel != null) {
 				WeightLabel.Dispose ();
 				WeightLabel = null;
-			}
-
-			if (FirstSplitView != null) {
-				FirstSplitView.Dispose ();
-				FirstSplitView = null;
-			}
-
-			if (SecondSplitView != null) {
-				SecondSplitView.Dispose ();
-				SecondSplitView = null;
-			}
-
-			if (ThirdSplitView != null) {
-				ThirdSplitView.Dispose ();
-				ThirdSplitView = null;
 			}
 		}
 	}
