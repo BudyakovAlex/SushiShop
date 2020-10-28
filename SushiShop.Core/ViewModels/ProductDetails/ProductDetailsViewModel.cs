@@ -71,6 +71,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         public string Price => product?.Price.ToString() ?? string.Empty;
         public string OldPrice => product?.Price.ToString() ?? string.Empty;
         public List<ToppingItemViewModel> ToppingViewModels { get; set; }
+
         private async Task AddToCartAsync()
         {
             var navigationParams = new ToppingNavigationParameters(product.Params?.AvailableToppings.ToList() ?? new List<Topping> {});
