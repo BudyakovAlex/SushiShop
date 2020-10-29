@@ -10,7 +10,7 @@ namespace SushiShop.Core.Mappers
         {
             return new Product(
                 productDto.Id,
-                productDto.PageTitle,
+                productDto.PageTitle!,
                 productDto.Alias,
                 productDto.Parent,
                 DateTimeOffset.FromUnixTimeSeconds(productDto.PublishDate),
