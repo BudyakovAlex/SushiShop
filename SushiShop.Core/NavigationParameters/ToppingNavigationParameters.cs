@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using SushiShop.Core.Data.Models.Toppings;
-using SushiShop.Core.NavigationParameters.Abstract;
 
 namespace SushiShop.Core.NavigationParameters
 {

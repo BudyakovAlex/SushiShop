@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
-using BuildApps.Core.Mobile.MvvmCross.ViewModels.Simple;
+﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Models.Toppings;
 
@@ -23,16 +21,17 @@ namespace SushiShop.Core.ViewModels.CardProduct.Items
 
         public string Title { get; }
         public long Price { get; }
-        public long CountInBusket { get; }
+        public long CountInBusket { get; private set; }
 
-        private Task IncrementAsync()
+        private void IncrementAsync()
         {
-            return Task.CompletedTask;
+            CountInBusket++;
         }
 
-        private Task DecrementAsync()
+        private void DecrementAsync()
         {
-            return Task.CompletedTask;
+            if(CountInBusket > 1)
+                CountInBusket--; 
         }
     }
 }

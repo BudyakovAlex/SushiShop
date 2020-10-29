@@ -1,34 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using BuildApps.Core.Mobile.Common.Extensions;
-using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
-using MvvmCross.ViewModels;
-using SushiShop.Core.Common;
+using BuildApps.Core.Mobile.MvvmCross.Commands;
+using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
+using MvvmCross.Commands;
 using SushiShop.Core.Data.Models.Toppings;
-using SushiShop.Core.Managers.Products;
 using SushiShop.Core.NavigationParameters;
-using SushiShop.Core.ViewModels.Abstract;
 using SushiShop.Core.ViewModels.CardProduct.Items;
-using SushiShop.Core.ViewModels.Cities.Items;
 
 namespace SushiShop.Core.ViewModels.ProductDetails
 {
-    public class ToppingsViewModel : BasePageViewModel<ToppingNavigationParameters, List<Topping>>
+    public class ToppingsViewModel : BaseItemsPageViewModel<ToppingItemViewModel, ToppingNavigationParameters, List<Topping>>
     {
+        private List<Topping> toppings;
+
         public ToppingsViewModel()
         {
-            Items = new MvxObservableCollection<ToppingItemViewModel>();
+            AddToCartCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddToCartAsync);
         }
 
-        public MvxObservableCollection<ToppingItemViewModel> Items { get; }
+        public IMvxCommand AddToCartCommand { get; }
 
         public override void Prepare(ToppingNavigationParameters parameter)
         {
-            var items = parameter.Toppings.Select(topping => new ToppingItemViewModel(topping)).ToList();
-            Items.AddRange(items);
+            toppings = parameter.Toppings;
+            Items.AddRange(parameter.Toppings.Select(topping => new ToppingItemViewModel(topping)));
+        }
+
+        private async Task AddToCartAsync()
+        {
+            await NavigationManager.CloseAsync(this, toppings);
         }
     }
 }
