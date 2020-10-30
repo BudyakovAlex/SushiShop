@@ -340,6 +340,7 @@
         <Compile Include="Views\Controls\Stepper\BigStepperView.cs" />
         <Compile Include="Common\ConstantsUI.cs" />
         <Compile Include="Common\Styles\ViewStyles.cs" />
+        <Compile Include="Sources\TableViewSource.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

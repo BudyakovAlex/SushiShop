@@ -1,6 +1,8 @@
 ﻿using System;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
+using MvvmCross.Binding.BindingContext;
+using SushiShop.Core.ViewModels.Products.Items;
 using UIKit;
 
 namespace SushiShop.Ios.Views.Cells.Products
@@ -28,6 +30,13 @@ namespace SushiShop.Ios.Views.Cells.Products
         protected override void Bind()
         {
             base.Bind();
+
+            var bindingSet = this.CreateBindingSet<ToppingItemCell, ToppingItemViewModel>();
+
+            bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.Title);
+            bindingSet.Bind(PriceLabel).For(v => v.Text).To(vm => vm.Price);
+
+            bindingSet.Apply();
         }
     }
 }
