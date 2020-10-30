@@ -25,20 +25,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkn-L6-8Wq">
-                        <rect key="frame" x="73" y="15" width="40" height="20"/>
+                        <rect key="frame" x="208" y="15" width="40" height="20"/>
                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="d0h-2W-qLX" customClass="SmallStepperView">
-                        <rect key="frame" x="137" y="9" width="167" height="32"/>
+                        <rect key="frame" x="272" y="9" width="32" height="32"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="KBF-0I-DlD"/>
+                            <constraint firstAttribute="width" constant="32" id="laj-PV-D9M"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ec-Pf-knF">
-                        <rect key="frame" x="16" y="15" width="37" height="20"/>
+                        <rect key="frame" x="16" y="15" width="172" height="20"/>
                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

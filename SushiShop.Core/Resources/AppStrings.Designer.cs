@@ -142,5 +142,11 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("IsItYourCityQuestionTemplate", resourceCulture);
             }
         }
+        
+        public static string Discard {
+            get {
+                return ResourceManager.GetString("Discard", resourceCulture);
+            }
+        }
     }
 }

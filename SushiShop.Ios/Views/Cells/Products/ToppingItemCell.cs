@@ -35,6 +35,7 @@ namespace SushiShop.Ios.Views.Cells.Products
 
             bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.Title);
             bindingSet.Bind(PriceLabel).For(v => v.Text).To(vm => vm.Price);
+            bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);
 
             bindingSet.Apply();
         }

@@ -15,5 +15,11 @@ namespace SushiShop.Ios.Common
 
         public static UIBarButtonItem CreateBarButtonItem(string imageName) =>
             new UIBarButtonItem(UIImage.FromBundle(imageName), UIBarButtonItemStyle.Plain, null);
+
+        public static UIBarButtonItem CreateBarButtonItemText(string title) =>
+            new UIBarButtonItem(title, UIBarButtonItemStyle.Plain, null)
+            {
+                TintColor = Colors.Orange2
+            };
     }
 }

@@ -7,6 +7,7 @@ using MvvmCross.Platforms.Ios.Binding;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.ViewModels.Common;
 using SushiShop.Ios.Common;
+using SushiShop.Ios.Common.Styles;
 using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Views.Controls.Abstract;
 using UIKit;
@@ -113,18 +114,7 @@ namespace SushiShop.Ios.Views.Controls.Stepper
 
         private void InitializeGradientLayer()
         {
-            gradientLayer = new CAGradientLayer
-            {
-                Colors = new[]
-                {
-                    Colors.OrangeGradientStart.CGColor,
-                    Colors.OrangeGradientEnd.CGColor,
-                },
-                StartPoint = new CGPoint(0f, 1f),
-                EndPoint = new CGPoint(1f, 1f)
-            };
-
-            Layer.AddSublayer(gradientLayer);
+            gradientLayer = this.SetGradientBackground();
         }
 
         private void InitializeStackView()

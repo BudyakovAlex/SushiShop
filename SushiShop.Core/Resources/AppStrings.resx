@@ -165,4 +165,7 @@
   <data name="IsItYourCityQuestionTemplate" xml:space="preserve">
     <value>Это Ваш город «{0}»?</value>
   </data>
+  <data name="Discard" xml:space="preserve">
+    <value>Сбросить</value>
+  </data>
 </root>
