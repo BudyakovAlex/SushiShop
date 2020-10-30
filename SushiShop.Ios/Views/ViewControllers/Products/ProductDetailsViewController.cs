@@ -20,7 +20,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
             ProductImageView.ImagePath = "https://img.championat.com/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg";
             ProductImageView.ContentMode = UIViewContentMode.ScaleAspectFill;
 
-            AddToCartButton.SetGradientBackground().SetCornerRadius(); ;
+            AddToCartButton.SetGradientBackground();
+            AddToCartButton.SetCornerRadius();
             ProductSpecificationsView.SetCornerRadius(4);
 
             InitCollectionView();
@@ -35,6 +36,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
             bindingSet.Bind(BackButton).For(v => v.BindTap()).To(vm => vm.CloseCommand);
             bindingSet.Bind(OldPriceLabel).For(v => v.AttributedText).To(vm => vm.OldPrice)
                 .WithConversion<StringToStrikethroughAttributedTextConverter>();
+            // bindingSet.Bind(StepperView)
 
             bindingSet.Apply();
         }

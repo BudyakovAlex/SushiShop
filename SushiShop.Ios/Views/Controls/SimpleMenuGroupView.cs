@@ -1,16 +1,17 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Controls;
+﻿using System;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Controls;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
 using SushiShop.Core.ViewModels.Menu.Items;
-using System;
 
 namespace SushiShop.Ios.Views.Controls
 {
-    [Register("SimpleMenuGroupView")]
+    [Register(nameof(SimpleMenuGroupView))]
     public partial class SimpleMenuGroupView : MvxGenericView<SimpleMenuGroupView>
     {
-        protected SimpleMenuGroupView(IntPtr handle) : base(handle)
+        protected SimpleMenuGroupView(IntPtr handle)
+            : base(handle)
         {
         }
 

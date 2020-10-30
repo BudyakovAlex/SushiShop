@@ -52,6 +52,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
 		UIKit.UILabel ProteinsValueLabel { get; set; }
 
 		[Outlet]
+		SushiShop.Ios.Views.Controls.Stepper.BigStepperView StepperView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel WeightLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -124,6 +127,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
 			if (WeightLabel != null) {
 				WeightLabel.Dispose ();
 				WeightLabel = null;
+			}
+
+			if (StepperView != null) {
+				StepperView.Dispose ();
+				StepperView = null;
 			}
 		}
 	}
