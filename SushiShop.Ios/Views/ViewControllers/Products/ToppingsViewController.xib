@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ToppingsViewController">
+            <connections>
+                <outlet property="AddButton" destination="u11-16-KjA" id="vCt-TH-XfR"/>
+                <outlet property="DataTableView" destination="JmO-82-2RP" id="Nl8-SS-CiJ"/>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JmO-82-2RP">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u11-16-KjA">
+                    <rect key="frame" x="16" y="796" width="382" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="rDb-se-WVi"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="12X-Ff-hKW" firstAttribute="bottom" secondItem="JmO-82-2RP" secondAttribute="bottom" id="G4O-KA-Zo7"/>
+                <constraint firstItem="12X-Ff-hKW" firstAttribute="trailing" secondItem="JmO-82-2RP" secondAttribute="trailing" id="XML-4X-zvN"/>
+                <constraint firstItem="12X-Ff-hKW" firstAttribute="trailing" secondItem="u11-16-KjA" secondAttribute="trailing" constant="16" id="YOp-Qj-GWX"/>
+                <constraint firstItem="JmO-82-2RP" firstAttribute="top" secondItem="12X-Ff-hKW" secondAttribute="top" id="bXW-9E-vNa"/>
+                <constraint firstItem="12X-Ff-hKW" firstAttribute="bottom" secondItem="u11-16-KjA" secondAttribute="bottom" constant="16" id="enb-Hp-MS2"/>
+                <constraint firstItem="u11-16-KjA" firstAttribute="leading" secondItem="12X-Ff-hKW" secondAttribute="leading" constant="16" id="fU6-nK-x9C"/>
+                <constraint firstItem="JmO-82-2RP" firstAttribute="leading" secondItem="12X-Ff-hKW" secondAttribute="leading" id="sso-xp-z6l"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="12X-Ff-hKW"/>
+            <point key="canvasLocation" x="34" y="54"/>
+        </view>
+    </objects>
+</document>
