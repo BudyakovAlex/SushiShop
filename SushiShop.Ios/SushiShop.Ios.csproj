@@ -319,6 +319,7 @@
         <Compile Include="Views\ViewControllers\Products\ToppingsViewController.cs" />
         <Compile Include="Views\ViewControllers\Products\ToppingsViewController.designer.cs">
           <DependentUpon>ToppingsViewController.cs</DependentUpon>
+        </Compile>
         <Compile Include="Views\ViewControllers\Menu\ProductViewController.cs" />
         <Compile Include="Views\ViewControllers\Menu\ProductViewController.designer.cs">
           <DependentUpon>ProductViewController.cs</DependentUpon>
