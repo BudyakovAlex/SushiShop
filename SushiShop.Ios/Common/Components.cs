@@ -12,5 +12,8 @@ namespace SushiShop.Ios.Common
 
             return button;
         }
+
+        public static UIBarButtonItem CreateBarButtonItem(string imageName) =>
+            new UIBarButtonItem(UIImage.FromBundle(imageName), UIBarButtonItemStyle.Plain, null);
     }
 }

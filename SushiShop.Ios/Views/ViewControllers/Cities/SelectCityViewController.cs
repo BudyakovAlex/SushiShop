@@ -18,7 +18,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Cities
     public partial class SelectCityViewController : BaseViewController<SelectCityViewModel>
     {
         private SelectableTableSource source;
-        private UIButton backButton;
 
         protected override void InitStylesAndContent()
         {
@@ -36,7 +35,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cities
             bindingSet.Bind(SearchBar).For(v => v.Text).To(vm => vm.Query);
             bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(source).For(v => v.SelectionChangedCommand).To(vm => vm.SelectItemCommand);
-            bindingSet.Bind(backButton).For(v => v.BindTap()).To(vm => vm.PlatformCloseCommand);
+            bindingSet.Bind(NavigationItem.LeftBarButtonItem).For(v => v.BindClicked()).To(vm => vm.PlatformCloseCommand);
 
             bindingSet.Apply();
         }
@@ -45,8 +44,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cities
         {
             base.InitNavigationItem(navigationItem);
 
-            backButton = Components.CreateDefaultBarButton(ImageNames.ImageBack);
-            navigationItem.LeftBarButtonItem = new UIBarButtonItem(backButton);
+            navigationItem.LeftBarButtonItem = Components.CreateBarButtonItem(ImageNames.ArrowBack);
             navigationItem.Title = AppStrings.SelectSity;
         }
 
