@@ -8,7 +8,7 @@ namespace SushiShop.Core.Managers.Products
     public interface IProductsManager
     {
         Task<Response<Product[]>> GetProductsByCategoryAsync(
-            int categoryId,
+            int? categoryId,
             string? city,
             StickerType? stickerType);
 

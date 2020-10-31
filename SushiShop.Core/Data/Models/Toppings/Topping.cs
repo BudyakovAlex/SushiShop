@@ -17,6 +17,6 @@
         public long Id { get; }
         public string? PageTitle { get; }
         public long Price { get; }
-        public long CountInBasket { get; }
+        public long CountInBasket { get; set; }
     }
 }

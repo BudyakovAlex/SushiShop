@@ -25,7 +25,7 @@ namespace SushiShop.Core.ViewModels.Common
 
         public IMvxCommand AddCommand { get; }
         public IMvxCommand RemoveCommand { get; }
-
+        
         public string? Title { get; }
 
         private int count;
@@ -37,6 +37,11 @@ namespace SushiShop.Core.ViewModels.Common
                 RemoveCommand.RaiseCanExecuteChanged();
                 onCountChanged(count);
             });
+        }
+
+        public void Reset()
+        {
+            Count = 0;
         }
 
         private void Add() => ++Count;

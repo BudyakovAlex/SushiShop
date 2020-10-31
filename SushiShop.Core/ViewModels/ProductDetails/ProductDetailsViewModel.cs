@@ -8,6 +8,7 @@ using SushiShop.Core.Managers.Products;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Common;
 using SushiShop.Core.ViewModels.Menu.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +30,8 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             this.productsManager = productsManager;
 
             toppings = new List<Topping>();
+
+            StepperViewModel = new StepperViewModel(0, OnCountChanged);
             RelatedItems = new MvxObservableCollection<ProductItemViewModel>();
             AddToCartCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddToCartAsync);
         }
@@ -46,14 +49,14 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         public string Price => product?.Price.ToString() ?? string.Empty;
         public string OldPrice => product?.Price.ToString() ?? string.Empty;
 
-        public StepperViewModel StepperViewModel { get; } = new StepperViewModel(0, _ => { });
+        public StepperViewModel StepperViewModel { get; }
         public MvxObservableCollection<ProductItemViewModel> RelatedItems { get; }
 
-        private bool isVisibleStepper = true;
+        private bool isHiddenStepper = true;
         public bool IsHiddenStepper
         {
-            get => isVisibleStepper;
-            set => SetProperty(ref isVisibleStepper, value);
+            get => isHiddenStepper;
+            set => SetProperty(ref isHiddenStepper, value);
         }
 
         public override void Prepare(CardProductNavigationParameters parameter)
@@ -73,9 +76,10 @@ namespace SushiShop.Core.ViewModels.ProductDetails
 
             product = getProductTask.Result.Data;
             var relatedProducts = getRelatedProductTask.Result.Data.ToList();
-            toppings = product?.Params?.AvailableToppings.ToList() ?? new List<Topping>();
+            toppings = product?.Params?.AvailableToppings?.ToList() ?? new List<Topping>();
 
-            RelatedItems.AddRange(relatedProducts.Select(x => new ProductItemViewModel(x)));
+            var viewModels = relatedProducts.Select(product => new ProductItemViewModel(product)).ToList();
+            RelatedItems.AddRange(viewModels);
             await RaiseAllPropertiesChanged();
         }
 
@@ -83,6 +87,11 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         {
             try
             {
+                if (toppings.Count == 0)
+                {
+                    return;
+                }
+                
                 var navigationParams = new ToppingNavigationParameters(toppings);
                 var result = await NavigationManager.NavigateAsync<ToppingsViewModel, ToppingNavigationParameters, List<Topping>>(navigationParams);
                 if (result is null)
@@ -97,6 +106,17 @@ namespace SushiShop.Core.ViewModels.ProductDetails
                 StepperViewModel.AddCommand.Execute();
                 IsHiddenStepper = false;
             }
+        }
+
+        private void OnCountChanged(int count)
+        {
+            if (count > 0)
+            {
+                return;
+            }
+
+            IsHiddenStepper = true;
+            toppings?.ForEach(item => item.CountInBasket = 0);
         }
     }
 }

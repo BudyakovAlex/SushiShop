@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Models.Toppings;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.CardProduct.Items;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.ProductDetails
 {
@@ -16,20 +17,31 @@ namespace SushiShop.Core.ViewModels.ProductDetails
 
         public ToppingsViewModel()
         {
+            toppings = new List<Topping>();
+
             AddToCartCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddToCartAsync);
+            ResetCommand = new MvxCommand(Reset);
         }
 
         public IMvxCommand AddToCartCommand { get; }
 
+        public IMvxCommand ResetCommand { get; }
+
         public override void Prepare(ToppingNavigationParameters parameter)
         {
             toppings = parameter.Toppings;
-            Items.AddRange(parameter.Toppings.Select(topping => new ToppingItemViewModel(topping)));
+            var viewModels = parameter.Toppings.Select(topping => new ToppingItemViewModel(topping)).ToList();
+            Items.AddRange(viewModels);
         }
 
         private Task AddToCartAsync()
         {
             return NavigationManager.CloseAsync(this, toppings);
+        }
+
+        private void Reset()
+        {
+            Items.ForEach(item => item.Reset());
         }
     }
 }

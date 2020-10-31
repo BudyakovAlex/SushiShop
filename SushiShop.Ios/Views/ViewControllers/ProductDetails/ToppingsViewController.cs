@@ -42,6 +42,7 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
             bindingSet.Bind(tableViewSource).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(NavigationItem.LeftBarButtonItem).For(v => v.BindClicked()).To(vm => vm.PlatformCloseCommand);
             bindingSet.Bind(AddButton).For(v => v.BindTap()).To(vm => vm.AddToCartCommand);
+            bindingSet.Bind(NavigationItem.RightBarButtonItem).For(v => v.BindClicked()).To(vm => vm.ResetCommand);
 
             bindingSet.Apply();
         }
@@ -63,4 +64,3 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
         }
     }
 }
-

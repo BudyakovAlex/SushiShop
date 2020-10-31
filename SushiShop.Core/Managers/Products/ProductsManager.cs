@@ -32,7 +32,7 @@ namespace SushiShop.Core.Managers.Products
         }
 
         public async Task<Response<Product[]>> GetProductsByCategoryAsync(
-            int categoryId,
+            int? categoryId,
             string? city,
             StickerType? stickerType)
         {
