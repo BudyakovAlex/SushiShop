@@ -55,8 +55,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
 
             BuyAnotherCollectionView.Source = source;
             BuyAnotherCollectionView.Delegate = new RelatedProductsCollectionViewDelegateFlow();
-            BuyAnotherCollectionView.CollectionViewLayout = new UICollectionViewFlowLayout();
-            (BuyAnotherCollectionView.CollectionViewLayout as UICollectionViewFlowLayout).ScrollDirection = UICollectionViewScrollDirection.Horizontal;
+            BuyAnotherCollectionView.CollectionViewLayout = new UICollectionViewFlowLayout { ScrollDirection = UICollectionViewScrollDirection.Horizontal };
         }
 
         public override void ViewWillAppear(bool animated)
