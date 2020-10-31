@@ -2,15 +2,15 @@
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.Resources;
-using SushiShop.Core.ViewModels.Products;
-using SushiShop.Core.ViewModels.Products.Items;
+using SushiShop.Core.ViewModels.CardProduct.Items;
+using SushiShop.Core.ViewModels.ProductDetails;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Common.Styles;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Products;
 using UIKit;
 
-namespace SushiShop.Ios.Views.ViewControllers.Products
+namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 {
     [MvxModalPresentation(
         WrapInNavigationController = true,
@@ -29,6 +29,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
             AddButton.SetGradientBackground();
             AddButton.SetCornerRadius();
             DataTableView.ContentInset = new UIEdgeInsets(0, 0, 82, 0);
+
+            Title = "Добавить соус";
         }
 
         protected override void Bind()
@@ -38,8 +40,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
             var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(tableViewSource).For(v => v.ItemsSource).To(vm => vm.Items);
-            bindingSet.Bind(this).For(v => v.Title).To(vm => vm.Title);
-            bindingSet.Bind(AddButton).For(v => v.BindTitle()).To(vm => vm.ButtonText);
             bindingSet.Bind(NavigationItem.LeftBarButtonItem).For(v => v.BindClicked()).To(vm => vm.PlatformCloseCommand);
 
             bindingSet.Apply();

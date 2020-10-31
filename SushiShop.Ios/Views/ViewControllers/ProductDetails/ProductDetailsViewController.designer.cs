@@ -7,7 +7,7 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace SushiShop.Ios.Views.ViewControllers.Products
+namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 {
 	[Register ("ProductDetailsViewController")]
 	partial class ProductDetailsViewController

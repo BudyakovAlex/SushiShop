@@ -21,7 +21,6 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cities;
 using SushiShop.Core.ViewModels.Cities.Items;
 using SushiShop.Core.ViewModels.Menu.Items;
-using SushiShop.Core.ViewModels.Products;
 using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Menu

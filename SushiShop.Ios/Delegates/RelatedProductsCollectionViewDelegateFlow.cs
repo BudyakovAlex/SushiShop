@@ -12,10 +12,6 @@ namespace SushiShop.Ios.Delegates
         private const float CellHeight = 260f;
         private const float CellWidth = 176f;
 
-        public RelatedProductsCollectionViewDelegateFlow()
-        {
-        }
-
         public override nfloat GetMinimumInteritemSpacingForSection(UICollectionView collectionView, UICollectionViewLayout layout, nint section)
         {
             return InteritemSpacing;

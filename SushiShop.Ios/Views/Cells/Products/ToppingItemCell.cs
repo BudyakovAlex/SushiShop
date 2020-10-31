@@ -2,7 +2,7 @@
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
-using SushiShop.Core.ViewModels.Products.Items;
+using SushiShop.Core.ViewModels.CardProduct.Items;
 using UIKit;
 
 namespace SushiShop.Ios.Views.Cells.Products

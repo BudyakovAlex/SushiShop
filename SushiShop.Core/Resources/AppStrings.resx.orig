@@ -165,9 +165,10 @@
   <data name="IsItYourCityQuestionTemplate" xml:space="preserve">
     <value>Это Ваш город «{0}»?</value>
   </data>
+<<<<<<< HEAD
   <data name="Discard" xml:space="preserve">
     <value>Сбросить</value>
-  </data>
+=======
   <data name="Carbohydrates" xml:space="preserve">
     <value>Углеводы</value>
   </data>
@@ -179,5 +180,6 @@
   </data>
   <data name="Protein" xml:space="preserve">
     <value>Белки</value>
+>>>>>>> df8bd77ccef6ee6388a372e2a7d028535aaed243
   </data>
 </root>

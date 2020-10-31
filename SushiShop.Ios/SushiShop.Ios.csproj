@@ -194,7 +194,7 @@
         <Folder Include="Assets.xcassets\ic_vegan_category.imageset\" />
         <Folder Include="Delegates\" />
         <Folder Include="Views\ViewControllers\CommonInfo\" />
-        <Folder Include="Views\ViewControllers\Products\" />
+        <Folder Include="Views\ViewControllers\ProductDetails\" />
         <Folder Include="Views\Cells\Products\" />
         <Folder Include="Assets.xcassets\ic_back_white.imageset\" />
         <Folder Include="Converters\" />
@@ -222,8 +222,8 @@
         <InterfaceDefinition Include="Views\Cells\Menu\CategoryMenuItemViewCell.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\MenuPromotionItemViewCell.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\CommonInfo\CommonInfoViewController.xib" />
-        <InterfaceDefinition Include="Views\ViewControllers\Products\ToppingsViewController.xib" />
-        <InterfaceDefinition Include="Views\ViewControllers\Products\ProductDetailsViewController.xib" />
+        <InterfaceDefinition Include="Views\ViewControllers\ProductDetails\ToppingsViewController.xib" />
+        <InterfaceDefinition Include="Views\ViewControllers\ProductDetails\ProductDetailsViewController.xib" />
         <InterfaceDefinition Include="Views\Cells\Products\ToppingItemCell.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\Menu\ProductViewController.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\ProductItemViewCell.xib" />
@@ -321,12 +321,12 @@
           <DependentUpon>CommonInfoViewController.cs</DependentUpon>
         </Compile>
         <Compile Include="Common\Components.cs" />
-        <Compile Include="Views\ViewControllers\Products\ToppingsViewController.cs" />
-        <Compile Include="Views\ViewControllers\Products\ToppingsViewController.designer.cs">
+        <Compile Include="Views\ViewControllers\ProductDetails\ToppingsViewController.cs" />
+        <Compile Include="Views\ViewControllers\ProductDetails\ToppingsViewController.designer.cs">
           <DependentUpon>ToppingsViewController.cs</DependentUpon>
         </Compile>
-        <Compile Include="Views\ViewControllers\Products\ProductDetailsViewController.cs" />
-        <Compile Include="Views\ViewControllers\Products\ProductDetailsViewController.designer.cs">
+        <Compile Include="Views\ViewControllers\ProductDetails\ProductDetailsViewController.cs" />
+        <Compile Include="Views\ViewControllers\ProductDetails\ProductDetailsViewController.designer.cs">
           <DependentUpon>ProductDetailsViewController.cs</DependentUpon>
         </Compile>
         <Compile Include="Views\ViewControllers\Menu\ProductViewController.cs" />

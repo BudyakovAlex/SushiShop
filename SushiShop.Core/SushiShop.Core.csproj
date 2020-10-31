@@ -26,7 +26,6 @@
     <Folder Include="ViewModels\Info\" />
     <Folder Include="ViewModels\Promotions\" />
     <Folder Include="ViewModels\Cart\" />
-    <Folder Include="NavigationParameters\" />
     <Folder Include="Resources\" />
     <Folder Include="ViewModels\Cities\" />
     <Folder Include="ViewModels\Cities\Items\" />
@@ -65,11 +64,8 @@
     <Folder Include="Data\Dtos\Products\" />
     <Folder Include="Services\Http\Products\" />
     <Folder Include="Managers\Products\" />
-    <Folder Include="ViewModels\Products\" />
     <Folder Include="Data\Dtos\Toppings\" />
     <Folder Include="Data\Models\Toppings\" />
-    <Folder Include="ViewModels\Products\" />
-    <Folder Include="ViewModels\Products\Items\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">

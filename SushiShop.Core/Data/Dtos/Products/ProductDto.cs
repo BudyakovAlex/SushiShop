@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Common;
-using System;
 
 namespace SushiShop.Core.Data.Dtos.Products
 {

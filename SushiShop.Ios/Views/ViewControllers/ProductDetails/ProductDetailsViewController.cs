@@ -2,7 +2,7 @@
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Menu.Items;
-using SushiShop.Core.ViewModels.Products;
+using SushiShop.Core.ViewModels.ProductDetails;
 using SushiShop.Ios.Common.Styles;
 using SushiShop.Ios.Converters;
 using SushiShop.Ios.Delegates;
@@ -10,7 +10,7 @@ using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Menu;
 using UIKit;
 
-namespace SushiShop.Ios.Views.ViewControllers.Products
+namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 {
     [MvxChildPresentation(Animated = true)]
     public partial class ProductDetailsViewController : BaseViewController<ProductDetailsViewModel>
@@ -43,7 +43,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
             bindingSet.Bind(OldPriceLabel).For(v => v.AttributedText).To(vm => vm.OldPrice)
                 .WithConversion<StringToStrikethroughAttributedTextConverter>();
             bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);
-            bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.Items);
+            bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.RelatedItems);
 
             bindingSet.Apply();
         }
@@ -55,8 +55,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Products
 
             BuyAnotherCollectionView.Source = source;
             BuyAnotherCollectionView.Delegate = new RelatedProductsCollectionViewDelegateFlow();
-            BuyAnotherCollectionView.CollectionViewLayout = new UICollectionViewFlowLayout();
-            (BuyAnotherCollectionView.CollectionViewLayout as UICollectionViewFlowLayout).ScrollDirection = UICollectionViewScrollDirection.Horizontal;
+            BuyAnotherCollectionView.CollectionViewLayout = new UICollectionViewFlowLayout() { ScrollDirection = UICollectionViewScrollDirection.Horizontal };
         }
 
         public override void ViewWillAppear(bool animated)
