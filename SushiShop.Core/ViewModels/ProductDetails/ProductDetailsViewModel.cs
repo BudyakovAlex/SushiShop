@@ -94,6 +94,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             }
             finally
             {
+                StepperViewModel.AddCommand.Execute();
                 IsHiddenStepper = false;
             }
         }
