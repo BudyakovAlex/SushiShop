@@ -7,7 +7,7 @@ namespace SushiShop.Core.Data.Models.Products
     public class Product
     {
         public Product(
-            long id,
+            int id,
             string pageTitle,
             string? alias,
             long parent,
@@ -42,7 +42,7 @@ namespace SushiShop.Core.Data.Models.Products
             CountInBasket = countInBasket;
         }
 
-        public long Id { get; }
+        public int Id { get; }
         public string PageTitle { get; }
         public string? Alias { get; }
         public long Parent { get; }

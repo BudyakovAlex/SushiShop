@@ -2,6 +2,7 @@
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
+using MvvmCross.Platforms.Ios.Binding;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Common.Styles;
@@ -65,7 +66,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
 
             var bindingSet = this.CreateBindingSet<ProductItemViewCell, ProductItemViewModel>();
 
-            //bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
+            bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
             bindingSet.Bind(this).For(v => v.OldPrice).To(vm => vm.OldPrice);
             bindingSet.Bind(TopImageView).For(v => v.ImagePath).To(vm => vm.ImageUrl);
             bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.Title);
