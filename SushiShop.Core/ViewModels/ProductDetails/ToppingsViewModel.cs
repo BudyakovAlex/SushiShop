@@ -27,9 +27,9 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             Items.AddRange(parameter.Toppings.Select(topping => new ToppingItemViewModel(topping)));
         }
 
-        private async Task AddToCartAsync()
+        private Task AddToCartAsync()
         {
-            await NavigationManager.CloseAsync(this, toppings);
+            return NavigationManager.CloseAsync(this, toppings);
         }
     }
 }

@@ -23,7 +23,6 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 
             BackButton.SetCornerRadius();
 
-            ProductImageView.ImagePath = "https://img.championat.com/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg";
             ProductImageView.ContentMode = UIViewContentMode.ScaleAspectFill;
 
             AddToCartButton.SetGradientBackground();
@@ -39,10 +38,22 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 
             var bindingSet = CreateBindingSet();
 
+            bindingSet.Bind(ProductImageView).For(v => v.ImagePath).To(vm => vm.BackgroungImageUrl);
+            bindingSet.Bind(PriceLabel).For(v => v.Text).To(vm => vm.Price);
+            bindingSet.Bind(OldPriceLabel).For(v => v.Text).To(vm => vm.OldPrice);
+            bindingSet.Bind(ProductNameLabel).For(v => v.Text).To(vm => vm.Title);
+            bindingSet.Bind(ProductDescriptionLabel).For(v => v.Text).To(vm => vm.Description);
+            bindingSet.Bind(WeightLabel).For(v => v.Text).To(vm => vm.Weight);
+            bindingSet.Bind(FatsValueLabel).For(v => v.Text).To(vm => vm.Fats);
+            bindingSet.Bind(ProteinsValueLabel).For(v => v.Text).To(vm => vm.Protein);
+            bindingSet.Bind(CarbohydratesValueLabel).For(v => v.Text).To(vm => vm.Carbohydrates);
+            bindingSet.Bind(CaloriesValueLabel).For(v => v.Text).To(vm => vm.Calories);
+            bindingSet.Bind(AddToCartButton).For(v => v.BindTap()).To(vm => vm.AddToCartCommand);
             bindingSet.Bind(BackButton).For(v => v.BindTap()).To(vm => vm.CloseCommand);
             bindingSet.Bind(OldPriceLabel).For(v => v.AttributedText).To(vm => vm.OldPrice)
                 .WithConversion<StringToStrikethroughAttributedTextConverter>();
             bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);
+            bindingSet.Bind(StepperView).For(v => v.Hidden).To(vm => vm.IsHiddenStepper);
             bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.RelatedItems);
 
             bindingSet.Apply();
@@ -55,7 +66,7 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 
             BuyAnotherCollectionView.Source = source;
             BuyAnotherCollectionView.Delegate = new RelatedProductsCollectionViewDelegateFlow();
-            BuyAnotherCollectionView.CollectionViewLayout = new UICollectionViewFlowLayout() { ScrollDirection = UICollectionViewScrollDirection.Horizontal };
+            BuyAnotherCollectionView.CollectionViewLayout = new UICollectionViewFlowLayout { ScrollDirection = UICollectionViewScrollDirection.Horizontal };
         }
 
         public override void ViewWillAppear(bool animated)
