@@ -2,7 +2,7 @@
 {
     public static class ImageNames
     {
-        public const string ImageBack = "ic_back";
+        public const string ArrowBack = "ic_back";
 
         public const string MenuTabIcon = "ic_menu_tab";
         public const string PromotionsTabIcon = "ic_promotions_tab";
@@ -13,5 +13,8 @@
         public const string MenuList = "ic_menu_list";
         public const string MenuTiles = "ic_menu_tiles";
         public const string ChevronDown = "ic_chevron_down";
+
+        public const string Minus = "ic_minus";
+        public const string Plus = "ic_plus";
     }
 }

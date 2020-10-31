@@ -8,21 +8,21 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 {
     public class CategoryMenuItemViewModel : BaseViewModel
     {
+        private readonly Category category;
+
         public CategoryMenuItemViewModel(Category category)
         {
-            Title = category.PageTitle;
-            ImageUrl = category.CategoryIcon?.JpgUrl ?? string.Empty;
+            this.category = category;
+
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
 
-        public string Title { get; }
-        public string ImageUrl { get; }
+        public IMvxAsyncCommand ShowDetailsCommand { get; }
 
-        public IMvxCommand ShowDetailsCommand { get; }
+        public string Title => category.PageTitle;
+        public string ImageUrl => category.CategoryIcon?.JpgUrl ?? string.Empty;
 
-        private Task ShowDetailsAsync()
-        {
-            return Task.CompletedTask;
-        }
+        private async Task ShowDetailsAsync() =>
+            await NavigationManager.NavigateAsync<ProductViewModel, Category>(category);
     }
 }
