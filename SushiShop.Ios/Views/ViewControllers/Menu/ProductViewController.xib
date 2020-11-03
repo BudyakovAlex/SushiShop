@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductViewController">
             <connections>
                 <outlet property="CollectionView" destination="HNB-8r-235" id="ilT-cQ-5XH"/>
+                <outlet property="FilterTabView" destination="T94-an-Fjo" id="dCd-V4-Vbh"/>
                 <outlet property="LoadingView" destination="tdf-lh-RC7" id="7WR-8M-skv"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
@@ -20,16 +21,28 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HNB-8r-235">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j6T-hh-hz9">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
-                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JFE-R9-1Jd">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T94-an-Fjo" customClass="ScrollableTabView">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="v4c-3C-Lul"/>
+                            </constraints>
+                        </view>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HNB-8r-235">
+                            <rect key="frame" x="0.0" y="44" width="414" height="730"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JFE-R9-1Jd">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                    </subviews>
+                </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdf-lh-RC7">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                     <subviews>
@@ -47,17 +60,17 @@
             <viewLayoutGuide key="safeArea" id="fVO-2t-CmR"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fVO-2t-CmR" firstAttribute="trailing" secondItem="HNB-8r-235" secondAttribute="trailing" id="Eyc-s4-3d7"/>
-                <constraint firstItem="HNB-8r-235" firstAttribute="leading" secondItem="fVO-2t-CmR" secondAttribute="leading" id="GA4-mh-ugZ"/>
-                <constraint firstItem="HNB-8r-235" firstAttribute="top" secondItem="fVO-2t-CmR" secondAttribute="top" id="MJq-oe-Do6"/>
+                <constraint firstItem="j6T-hh-hz9" firstAttribute="trailing" secondItem="fVO-2t-CmR" secondAttribute="trailing" id="ATx-z2-gRb"/>
+                <constraint firstItem="j6T-hh-hz9" firstAttribute="top" secondItem="fVO-2t-CmR" secondAttribute="top" id="Eq6-wN-gpH"/>
+                <constraint firstItem="j6T-hh-hz9" firstAttribute="bottom" secondItem="fVO-2t-CmR" secondAttribute="bottom" id="Jo1-lS-l1B"/>
                 <constraint firstItem="tdf-lh-RC7" firstAttribute="top" secondItem="fVO-2t-CmR" secondAttribute="top" id="Z8T-Ms-b3h"/>
-                <constraint firstItem="fVO-2t-CmR" firstAttribute="bottom" secondItem="HNB-8r-235" secondAttribute="bottom" id="Zqg-7g-DwO"/>
                 <constraint firstItem="tdf-lh-RC7" firstAttribute="leading" secondItem="fVO-2t-CmR" secondAttribute="leading" id="cel-LX-NRN"/>
+                <constraint firstItem="j6T-hh-hz9" firstAttribute="leading" secondItem="fVO-2t-CmR" secondAttribute="leading" id="chf-Ji-fS7"/>
                 <constraint firstItem="fVO-2t-CmR" firstAttribute="trailing" secondItem="tdf-lh-RC7" secondAttribute="trailing" id="eCB-WV-vIR"/>
                 <constraint firstItem="fVO-2t-CmR" firstAttribute="bottom" secondItem="tdf-lh-RC7" secondAttribute="bottom" id="vgw-JR-9Ye"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <point key="canvasLocation" x="71" y="2"/>
+            <point key="canvasLocation" x="69.565217391304358" y="1.3392857142857142"/>
         </view>
     </objects>
 </document>

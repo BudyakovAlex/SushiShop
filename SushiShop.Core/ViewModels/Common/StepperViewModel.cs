@@ -6,6 +6,8 @@ namespace SushiShop.Core.ViewModels.Common
 {
     public class StepperViewModel : BaseViewModel
     {
+        private const int MaxCount = 99;
+
         private readonly Action<int> onCountChanged;
 
         public StepperViewModel(string? title, int count, Action<int> onCountChanged)
@@ -14,7 +16,7 @@ namespace SushiShop.Core.ViewModels.Common
             Count = count;
             this.onCountChanged = onCountChanged;
 
-            AddCommand = new MvxCommand(Add);
+            AddCommand = new MvxCommand(Add, () => Count < MaxCount);
             RemoveCommand = new MvxCommand(Remove, () => Count > 0);
         }
 
@@ -34,6 +36,7 @@ namespace SushiShop.Core.ViewModels.Common
             get => count;
             private set => SetProperty(ref count, value, () =>
             {
+                AddCommand.RaiseCanExecuteChanged();
                 RemoveCommand.RaiseCanExecuteChanged();
                 onCountChanged(count);
             });

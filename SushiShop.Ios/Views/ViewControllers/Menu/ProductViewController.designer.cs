@@ -16,10 +16,18 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
 		UIKit.UICollectionView CollectionView { get; set; }
 
 		[Outlet]
+		SushiShop.Ios.Views.Controls.ScrollableTabView FilterTabView { get; set; }
+
+		[Outlet]
 		UIKit.UIView LoadingView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (FilterTabView != null) {
+				FilterTabView.Dispose ();
+				FilterTabView = null;
+			}
+
 			if (CollectionView != null) {
 				CollectionView.Dispose ();
 				CollectionView = null;

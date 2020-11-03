@@ -28,6 +28,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             var bindingSet = this.CreateBindingSet<ProductViewController, ProductViewModel>();
 
             bindingSet.Bind(this).For(v => v.Title).To(vm => vm.Title);
+            bindingSet.Bind(FilterTabView).For(v => v.Items).To(vm => vm.Filters);
+            bindingSet.Bind(FilterTabView).For(v => v.SelectedIndex).To(vm => vm.SelectedFilterIndex);
+            bindingSet.Bind(FilterTabView).For(v => v.BindVisible()).To(vm => vm.IsFiltersVisible);
             bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(LoadingView).For(v => v.BindVisible()).To(vm => vm.IsLoading);
 

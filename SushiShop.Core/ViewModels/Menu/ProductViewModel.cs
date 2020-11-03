@@ -1,14 +1,16 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Data.Models.Menu;
 using SushiShop.Core.Managers.Products;
+using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Menu.Items;
 
 namespace SushiShop.Core.ViewModels.Menu
 {
-    public class ProductViewModel : BaseItemsPageViewModel<ProductItemViewModel, Category>
+    public class ProductViewModel : BaseItemsPageViewModel<ProductItemViewModel, ProductNavigationParameters>
     {
         private readonly IProductsManager productsManager;
         private readonly IUserSession userSession;
@@ -42,12 +44,20 @@ namespace SushiShop.Core.ViewModels.Menu
             });
         }
 
-        public override void Prepare(Category parameter)
+        public bool IsFiltersVisible => Filters.IsNotEmpty();
+
+        public override void Prepare(ProductNavigationParameters parameter)
         {
-            category = parameter;
-            Filters = category.Children is null
-                ? new string[] { "Все" }
-                : category.Children.SubCategories.Select(category => category.PageTitle).Prepend("Все").ToArray();
+            category = parameter.Category;
+
+            var subCategories = parameter.Category?.Children?.SubCategories;
+            if (subCategories != null && subCategories.Length > 0)
+            {
+                Filters = subCategories
+                    .Select(category => category.PageTitle)
+                    .Prepend("Все")
+                    .ToArray();
+            }
         }
 
         public override async Task InitializeAsync()
@@ -69,12 +79,16 @@ namespace SushiShop.Core.ViewModels.Menu
 
         private void SelectedFilterIndexChanged()
         {
-            if (SelectedFilterIndex == 0)
+            var index = SelectedFilterIndex;
+            if (index == 0)
             {
                 Items.ReplaceWith(allItems);
             }
             else
             {
+                var parentId = category!.Children!.SubCategories[index - 1].Id;
+                var items = allItems.Where(item => item.ParentId == parentId).ToArray();
+                Items.ReplaceWith(items);
             }
         }
     }

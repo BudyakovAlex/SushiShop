@@ -1,8 +1,10 @@
-﻿using SushiShop.Core.Data.Dtos.Products;
+﻿using System;
+using System.Linq;
+using SushiShop.Core.Data.Dtos.Products;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Products;
-using System;
-using System.Linq;
+using SushiShop.Core.Data.Models.Stickers;
+using Xamarin.Essentials;
 
 namespace SushiShop.Core.Mappers
 {
@@ -10,7 +12,13 @@ namespace SushiShop.Core.Mappers
     {
         public static ProductParameters Map(this ProductParametersDto parametersDto)
         {
-            var stickers = parametersDto.Stickers?.Select(sticker => Enum.Parse<StickerType>(sticker, ignoreCase: true)).ToArray() ?? Array.Empty<StickerType>();
+            var stickers = parametersDto.StickerParams?
+                .Select(kv => new StickerParams(
+                    Enum.Parse<StickerType>(kv.Key, ignoreCase: true),
+                    kv.Value.StickerImage!,
+                    ColorConverters.FromHex(kv.Value.StickerBg)))
+                .ToArray();
+
             return new ProductParameters(
                 stickers,
                 parametersDto.AvailableToppings?.Map(),

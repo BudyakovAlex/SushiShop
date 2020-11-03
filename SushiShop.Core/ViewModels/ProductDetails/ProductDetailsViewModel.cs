@@ -1,4 +1,7 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
@@ -8,10 +11,6 @@ using SushiShop.Core.Managers.Products;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Common;
 using SushiShop.Core.ViewModels.Menu.Items;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.ProductDetails
 {
@@ -46,8 +45,10 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         public string Title => product?.PageTitle ?? string.Empty;
         public string Description => product?.IntroText ?? string.Empty;
         public string Weight => product?.Params?.Weight ?? string.Empty;
-        public string Price => product?.Price.ToString() ?? string.Empty;
-        public string OldPrice => product?.Price.ToString() ?? string.Empty;
+        public string Price => product is null ? string.Empty : $"{product.Price} {product.Currency.Symbol}";
+        public string? OldPrice => product is null || product.OldPrice == 0
+            ? string.Empty
+            : $"{product.OldPrice} {product.Currency.Symbol}";
 
         public StepperViewModel StepperViewModel { get; }
         public MvxObservableCollection<ProductItemViewModel> RelatedItems { get; }

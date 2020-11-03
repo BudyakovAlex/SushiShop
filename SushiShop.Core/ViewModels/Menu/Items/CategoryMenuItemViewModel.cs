@@ -3,6 +3,7 @@ using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Models.Menu;
+using SushiShop.Core.NavigationParameters;
 
 namespace SushiShop.Core.ViewModels.Menu.Items
 {
@@ -22,7 +23,10 @@ namespace SushiShop.Core.ViewModels.Menu.Items
         public string Title => category.PageTitle;
         public string ImageUrl => category.CategoryIcon?.JpgUrl ?? string.Empty;
 
-        private async Task ShowDetailsAsync() =>
-            await NavigationManager.NavigateAsync<ProductViewModel, Category>(category);
+        private Task ShowDetailsAsync()
+        {
+            var parameters = new ProductNavigationParameters(category);
+            return NavigationManager.NavigateAsync<ProductViewModel, ProductNavigationParameters>(parameters);
+        }
     }
 }

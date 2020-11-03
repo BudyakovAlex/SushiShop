@@ -4,6 +4,7 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Stickers;
+using SushiShop.Core.NavigationParameters;
 
 namespace SushiShop.Core.ViewModels.Menu.Items
 {
@@ -28,7 +29,8 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 
         private Task ShowDetailsAsync()
         {
-            return Task.CompletedTask;
+            var parameters = new ProductNavigationParameters(Type);
+            return NavigationManager.NavigateAsync<ProductViewModel, ProductNavigationParameters>(parameters);
         }
     }
 }

@@ -22,6 +22,9 @@ namespace SushiShop.Ios.Views.Cells.Menu
 		SushiShop.Ios.Views.Controls.Stepper.SmallStepperView StepperView { get; set; }
 
 		[Outlet]
+		UIKit.UIStackView StickerStackView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel TitleLabel { get; set; }
 
 		[Outlet]
@@ -29,14 +32,19 @@ namespace SushiShop.Ios.Views.Cells.Menu
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (PriceLabel != null) {
-				PriceLabel.Dispose ();
-				PriceLabel = null;
+			if (StickerStackView != null) {
+				StickerStackView.Dispose ();
+				StickerStackView = null;
 			}
 
 			if (OldPriceLabel != null) {
 				OldPriceLabel.Dispose ();
 				OldPriceLabel = null;
+			}
+
+			if (PriceLabel != null) {
+				PriceLabel.Dispose ();
+				PriceLabel = null;
 			}
 
 			if (StepperView != null) {
