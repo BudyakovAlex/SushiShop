@@ -180,4 +180,7 @@
   <data name="Protein" xml:space="preserve">
     <value>Белки</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Все</value>
+  </data>
 </root>

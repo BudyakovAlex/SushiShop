@@ -1,5 +1,5 @@
-﻿using SushiShop.Core.Data.Enums;
-using SushiShop.Core.Data.Models.Menu;
+﻿using SushiShop.Core.Data.Models.Menu;
+using SushiShop.Core.Data.Models.Stickers;
 
 namespace SushiShop.Core.NavigationParameters
 {
@@ -10,12 +10,12 @@ namespace SushiShop.Core.NavigationParameters
             Category = category;
         }
 
-        public ProductNavigationParameters(StickerType stickerType)
+        public ProductNavigationParameters(Sticker sticker)
         {
-            StickerType = stickerType;
+            Sticker = sticker;
         }
 
         public Category? Category { get; }
-        public StickerType? StickerType { get; }
+        public Sticker? Sticker { get; }
     }
 }

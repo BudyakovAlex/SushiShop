@@ -3,9 +3,11 @@ using System.Threading.Tasks;
 using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Data.Models.Menu;
+using SushiShop.Core.Data.Models.Stickers;
 using SushiShop.Core.Managers.Products;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Menu.Items;
 
 namespace SushiShop.Core.ViewModels.Menu
@@ -16,6 +18,7 @@ namespace SushiShop.Core.ViewModels.Menu
         private readonly IUserSession userSession;
 
         private Category? category;
+        private Sticker? sticker;
         private ProductItemViewModel[] allItems = new ProductItemViewModel[0];
 
         public ProductViewModel(IProductsManager productsManager, IUserSession userSession)
@@ -24,7 +27,7 @@ namespace SushiShop.Core.ViewModels.Menu
             this.userSession = userSession;
         }
 
-        public string Title => category!.PageTitle;
+        public string? Title => category?.PageTitle ?? sticker?.Title;
         public string[] Filters { get; private set; } = new string[0];
 
         private bool isLoading;
@@ -49,13 +52,14 @@ namespace SushiShop.Core.ViewModels.Menu
         public override void Prepare(ProductNavigationParameters parameter)
         {
             category = parameter.Category;
+            sticker = parameter.Sticker;
 
             var subCategories = parameter.Category?.Children?.SubCategories;
             if (subCategories != null && subCategories.Length > 0)
             {
                 Filters = subCategories
                     .Select(category => category.PageTitle)
-                    .Prepend("Все")
+                    .Prepend(AppStrings.All)
                     .ToArray();
             }
         }
@@ -67,7 +71,7 @@ namespace SushiShop.Core.ViewModels.Menu
             await base.InitializeAsync();
 
             var city = userSession.GetCity();
-            var response = await productsManager.GetProductsByCategoryAsync(category!.Id, city?.Name, stickerType: null);
+            var response = await productsManager.GetProductsByCategoryAsync(category?.Id, city?.Name, sticker?.Type);
             if (response.IsSuccessful)
             {
                 allItems = response.Data.Select(product => new ProductItemViewModel(product)).ToArray();

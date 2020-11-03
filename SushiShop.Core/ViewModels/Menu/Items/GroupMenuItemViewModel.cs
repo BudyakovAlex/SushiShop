@@ -10,26 +10,24 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 {
     public class GroupMenuItemViewModel : BaseViewModel
     {
+        private readonly Sticker sticker;
+
         public GroupMenuItemViewModel(Sticker sticker)
         {
-            Type = sticker.Type;
-            Title = sticker.Title;
-            ImageUrl = sticker.ImageUrl;
+            this.sticker = sticker;
 
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
 
         public IMvxCommand ShowDetailsCommand { get; }
 
-        public StickerType Type { get; }
-
-        public string Title { get; }
-
-        public string ImageUrl { get; }
+        public StickerType Type => sticker.Type;
+        public string Title => sticker.Title;
+        public string ImageUrl => sticker.ImageUrl;
 
         private Task ShowDetailsAsync()
         {
-            var parameters = new ProductNavigationParameters(Type);
+            var parameters = new ProductNavigationParameters(sticker);
             return NavigationManager.NavigateAsync<ProductViewModel, ProductNavigationParameters>(parameters);
         }
     }

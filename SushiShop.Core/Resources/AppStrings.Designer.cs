@@ -172,5 +172,11 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("Protein", resourceCulture);
             }
         }
+        
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
     }
 }
