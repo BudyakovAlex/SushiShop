@@ -13,7 +13,7 @@ namespace SushiShop.Core.ViewModels.Common
         public StepperViewModel(string? title, int count, Action<int> onCountChanged)
         {
             Title = title;
-            Count = count;
+            this.count = count;
             this.onCountChanged = onCountChanged;
 
             AddCommand = new MvxCommand(Add, () => Count < MaxCount);
