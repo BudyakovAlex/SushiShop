@@ -22,7 +22,7 @@ namespace SushiShop.Core.Data.Models.Products
             long oldPrice,
             ImageInfo? mainImageInfo,
             ImageInfo? optionalImageInfo,
-            long countInBasket)
+            int countInBasket)
         {
             Id = id;
             PageTitle = pageTitle;
@@ -57,6 +57,6 @@ namespace SushiShop.Core.Data.Models.Products
         public long OldPrice { get; }
         public ImageInfo? MainImageInfo { get; }
         public ImageInfo? OptionalImageInfo { get; }
-        public long CountInBasket { get; }
+        public int CountInBasket { get; }
     }
 }

@@ -18,7 +18,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
         {
             this.product = product;
 
-            StepperViewModel = new StepperViewModel(0, _ => { });
+            StepperViewModel = new StepperViewModel(product.CountInBasket, _ => { });
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
 

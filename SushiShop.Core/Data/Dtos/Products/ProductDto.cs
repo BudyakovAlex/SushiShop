@@ -29,6 +29,6 @@ namespace SushiShop.Core.Data.Dtos.Products
         public ImageInfoDto? MainImageInfo { get; set; }
         [JsonProperty("itemImage2")]
         public ImageInfoDto? OptionalImageInfo { get; set; }
-        public long CountInBasket { get; set; }
+        public int CountInBasket { get; set; }
     }
 }

@@ -6,7 +6,7 @@
             long id,
             string? pageTitle,
             long price,
-            long countInBasket)
+            int countInBasket)
         {
             Id = id;
             PageTitle = pageTitle;
@@ -17,6 +17,6 @@
         public long Id { get; }
         public string? PageTitle { get; }
         public long Price { get; }
-        public long CountInBasket { get; set; }
+        public int CountInBasket { get; set; }
     }
 }

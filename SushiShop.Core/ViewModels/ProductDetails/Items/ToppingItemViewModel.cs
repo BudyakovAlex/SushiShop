@@ -10,7 +10,7 @@ namespace SushiShop.Core.ViewModels.CardProduct.Items
         {
             Title = topping.PageTitle ?? string.Empty;
             Price = topping.Price;
-            StepperViewModel = new StepperViewModel(0, (count) => topping.CountInBasket = count);
+            StepperViewModel = new StepperViewModel(topping.CountInBasket, (count) => topping.CountInBasket = count);
         }
 
         public string Title { get; }
