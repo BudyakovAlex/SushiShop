@@ -32,7 +32,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         public override void Prepare(ToppingNavigationParameters parameter)
         {
             toppings = parameter.Toppings;
-            PageTitle = parameter.PageTitle;
+            PageTitle = parameter.Title;
             var viewModels = parameter.Toppings.Select(topping => new ToppingItemViewModel(topping)).ToList();
             Items.AddRange(viewModels);
         }

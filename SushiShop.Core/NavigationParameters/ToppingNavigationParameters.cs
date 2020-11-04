@@ -5,13 +5,13 @@ namespace SushiShop.Core.NavigationParameters
 {
     public class ToppingNavigationParameters
     {
-        public ToppingNavigationParameters(List<Topping> toppings, string pageTitle)
+        public ToppingNavigationParameters(List<Topping> toppings, string title)
         {
             Toppings = toppings;
-            PageTitle = pageTitle;
+            Title = title;
         }
 
         public List<Topping> Toppings { get; }
-        public string PageTitle { get; set; }
+        public string Title { get; set; }
     }
 }
