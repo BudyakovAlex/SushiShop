@@ -37,7 +37,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
 
         public IMvxCommand AddToCartCommand { get; }
 
-        public string BackgroungImageUrl => product?.MainImageInfo?.OriginalUrl ?? string.Empty;
+        public string? BackgroungImageUrl => product?.MainImageInfo?.OriginalUrl;
         public string Protein => product?.Params?.Proteins ?? string.Empty;
         public string Fats => product?.Params?.Fats ?? string.Empty;
         public string Carbohydrates => product?.Params?.Carbons ?? string.Empty;

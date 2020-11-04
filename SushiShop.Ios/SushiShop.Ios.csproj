@@ -158,6 +158,8 @@
         <ImageAsset Include="Assets.xcassets\ic_minus.imageset\ic_minus.pdf" />
         <ImageAsset Include="Assets.xcassets\ic_plus.imageset\Contents.json" />
         <ImageAsset Include="Assets.xcassets\ic_plus.imageset\ic_plus.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_default.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_default.imageset\default_img_bg-1.pdf" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
@@ -202,6 +204,7 @@
         <Folder Include="Assets.xcassets\ic_minus.imageset\" />
         <Folder Include="Assets.xcassets\ic_plus.imageset\" />
         <Folder Include="Views\Controls\Stepper\" />
+        <Folder Include="Assets.xcassets\ic_default.imageset\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -353,6 +356,7 @@
         <Compile Include="Sources\TableViewSource.cs" />
         <Compile Include="Delegates\RelatedProductsCollectionViewDelegateFlow.cs" />
         <Compile Include="Views\Controls\ScrollableTabView.cs" />
+        <Compile Include="Common\Styles\ImageViewStyles.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

@@ -2,6 +2,7 @@
 using System;
 using CoreGraphics;
 using UIKit;
+using FFImageLoading.Cross;
 
 namespace SushiShop.Ios.Common.Styles
 {
