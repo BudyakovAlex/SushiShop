@@ -114,6 +114,7 @@ namespace SushiShop.Ios.Views.Controls.Stepper
         private void InitializeGradientLayer()
         {
             gradientLayer = Components.CreateGradientLayer();
+            Layer.AddSublayer(gradientLayer);
         }
 
         private void InitializeStackView()
