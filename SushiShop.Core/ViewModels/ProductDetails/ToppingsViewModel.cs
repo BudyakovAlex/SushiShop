@@ -27,9 +27,12 @@ namespace SushiShop.Core.ViewModels.ProductDetails
 
         public IMvxCommand ResetCommand { get; }
 
+        public string PageTitle { get; set; }
+
         public override void Prepare(ToppingNavigationParameters parameter)
         {
             toppings = parameter.Toppings;
+            PageTitle = parameter.PageTitle;
             var viewModels = parameter.Toppings.Select(topping => new ToppingItemViewModel(topping)).ToList();
             Items.AddRange(viewModels);
         }

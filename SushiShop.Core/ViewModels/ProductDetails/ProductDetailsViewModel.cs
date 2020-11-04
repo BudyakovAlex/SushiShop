@@ -93,7 +93,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
                     return;
                 }
                 
-                var navigationParams = new ToppingNavigationParameters(toppings);
+                var navigationParams = new ToppingNavigationParameters(toppings, product?.PageTitle);
                 var result = await NavigationManager.NavigateAsync<ToppingsViewModel, ToppingNavigationParameters, List<Topping>>(navigationParams);
                 if (result is null)
                 {
