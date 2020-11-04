@@ -1,7 +1,5 @@
 ﻿using System;
 using CoreGraphics;
-using FFImageLoading.Cross;
-using SushiShop.Ios.Common;
 using UIKit;
 
 namespace SushiShop.Ios.Extensions

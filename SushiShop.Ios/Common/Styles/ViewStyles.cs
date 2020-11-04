@@ -46,10 +46,10 @@ namespace SushiShop.Ios.Common.Styles
             return gradientLayer;
         }
 
-        public static void SetPlaceholders(this MvxCachedImageView image, string img = ImageNames.DefaultPlaceholder)
+        public static void SetPlaceholders(this MvxCachedImageView imageView, string imageName = ImageNames.DefaultPlaceholder)
         {
-            image.ErrorPlaceholderImagePath = img;
-            image.LoadingPlaceholderImagePath = img;
+            imageView.ErrorPlaceholderImagePath = imageName;
+            imageView.LoadingPlaceholderImagePath = imageName;
         }
     }
 }
