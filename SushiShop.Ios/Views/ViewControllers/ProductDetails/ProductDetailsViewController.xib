@@ -323,7 +323,7 @@
                     </constraints>
                     <state key="normal" image="ic_back_white"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2il-nv-pxQ">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2il-nv-pxQ" customClass="PrimaryButton">
                     <rect key="frame" x="16" y="796" width="382" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="EiP-xy-cQG"/>

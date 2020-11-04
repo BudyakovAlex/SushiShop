@@ -1,8 +1,6 @@
-﻿using CoreAnimation;
-using System;
+﻿using System;
 using CoreGraphics;
 using UIKit;
-using FFImageLoading.Cross;
 
 namespace SushiShop.Ios.Common.Styles
 {
@@ -31,19 +29,6 @@ namespace SushiShop.Ios.Common.Styles
         {
             view.Layer.CornerRadius = cornerRadius ?? view.Frame.Height / 2;
             view.Layer.MasksToBounds = true;
-        }
-
-        public static CAGradientLayer SetGradientBackground(this UIView view)
-        {
-            var gradientLayer = new CAGradientLayer()
-            {
-                Frame = view.Bounds,
-                Colors = new[] { Colors.OrangeGradientStart.CGColor, Colors.OrangeGradientEnd.CGColor },
-                StartPoint = new CGPoint(0, 0.5),
-                EndPoint = new CGPoint(1, 0.5)
-            };
-            view.Layer.AddSublayer(gradientLayer);
-            return gradientLayer;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CoreGraphics;
+﻿using CoreAnimation;
+using CoreGraphics;
 using UIKit;
 
 namespace SushiShop.Ios.Common
@@ -20,6 +21,14 @@ namespace SushiShop.Ios.Common
             new UIBarButtonItem(title, UIBarButtonItemStyle.Plain, null)
             {
                 TintColor = Colors.Orange2
+            };
+
+        public static CAGradientLayer CreateGradientLayer() =>
+            new CAGradientLayer()
+            {
+                Colors = new[] { Colors.OrangeGradientStart.CGColor, Colors.OrangeGradientEnd.CGColor },
+                StartPoint = new CGPoint(0, 0.5),
+                EndPoint = new CGPoint(1, 0.5)
             };
     }
 }

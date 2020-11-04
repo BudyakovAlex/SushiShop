@@ -26,7 +26,6 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 
             InitializeTableView();
 
-            AddButton.SetGradientBackground();
             AddButton.SetCornerRadius();
             DataTableView.ContentInset = new UIEdgeInsets(0, 0, 82, 0);
 
