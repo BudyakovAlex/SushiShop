@@ -27,7 +27,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
         public StepperViewModel StepperViewModel { get; }
 
         public StickerParams[]? Stickers => product.Params?.Stickers;
-        public string ImageUrl => product.MainImageInfo?.JpgUrl ?? string.Empty;
+        public string? ImageUrl => product.MainImageInfo?.JpgUrl;
         public string Title => product.PageTitle;
         public string Price => $"{product.Price} {product.Currency.Symbol}";
         public string? OldPrice => product.OldPrice == 0 ? null : $"{product.OldPrice} {product.Currency.Symbol}";
