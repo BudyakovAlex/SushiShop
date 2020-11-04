@@ -18,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailsViewController">
             <connections>
+                <outlet property="ActivityIndicator" destination="dQF-Uh-6mn" id="oD0-BZ-1dI"/>
                 <outlet property="AddToCartButton" destination="2il-nv-pxQ" id="P7b-ER-Aww"/>
                 <outlet property="BackButton" destination="qka-bU-2Nc" id="XeB-Xy-YMo"/>
                 <outlet property="BuyAnotherCollectionView" destination="XtD-TA-j7M" id="g9V-3S-7Mx"/>
@@ -47,7 +48,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPj-jV-jup">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="882.5"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_default" translatesAutoresizingMaskIntoConstraints="NO" id="Uvp-yf-rUU" customClass="DefaultImageView">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_default" translatesAutoresizingMaskIntoConstraints="NO" id="Uvp-yf-rUU" customClass="MvxCachedImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="360"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -332,6 +333,9 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dQF-Uh-6mn">
+                    <rect key="frame" x="197" y="443" width="20" height="20"/>
+                </activityIndicatorView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rf1-Pc-RW6" customClass="BigStepperView">
                     <rect key="frame" x="16" y="796" width="382" height="50"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -343,6 +347,7 @@
                 <constraint firstAttribute="top" secondItem="qka-bU-2Nc" secondAttribute="top" priority="750" constant="20" id="7Z2-nP-qdd"/>
                 <constraint firstItem="MDZ-nl-vbV" firstAttribute="top" secondItem="2" secondAttribute="top" id="CL2-i0-6Dm"/>
                 <constraint firstAttribute="trailing" secondItem="2il-nv-pxQ" secondAttribute="trailing" constant="16" id="GNh-EI-6TQ"/>
+                <constraint firstItem="dQF-Uh-6mn" firstAttribute="centerY" secondItem="JpG-M3-BON" secondAttribute="centerY" id="NkL-mU-khZ"/>
                 <constraint firstItem="MDZ-nl-vbV" firstAttribute="width" secondItem="2" secondAttribute="width" id="YcV-fM-7gt"/>
                 <constraint firstItem="MDZ-nl-vbV" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="aAE-wn-dcP"/>
                 <constraint firstItem="JpG-M3-BON" firstAttribute="bottom" secondItem="MDZ-nl-vbV" secondAttribute="bottom" id="aIm-5c-xGn"/>
@@ -353,6 +358,7 @@
                 <constraint firstItem="rf1-Pc-RW6" firstAttribute="trailing" secondItem="2il-nv-pxQ" secondAttribute="trailing" id="sLB-L5-CEO"/>
                 <constraint firstItem="qka-bU-2Nc" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="slr-sL-vTc"/>
                 <constraint firstItem="rf1-Pc-RW6" firstAttribute="bottom" secondItem="2il-nv-pxQ" secondAttribute="bottom" id="tJ2-19-A8S"/>
+                <constraint firstItem="dQF-Uh-6mn" firstAttribute="centerX" secondItem="JpG-M3-BON" secondAttribute="centerX" id="vTo-aB-M5e"/>
                 <constraint firstItem="VPj-jV-jup" firstAttribute="width" secondItem="2" secondAttribute="width" id="vc9-rK-QbS"/>
                 <constraint firstItem="qka-bU-2Nc" firstAttribute="top" secondItem="JpG-M3-BON" secondAttribute="top" constant="21" id="yvA-9i-hzo"/>
             </constraints>

@@ -12,6 +12,7 @@ using SushiShop.Core.Extensions;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Common.Styles;
+using SushiShop.Ios.Extensions;
 using UIKit;
 using Xamarin.Essentials;
 
@@ -80,6 +81,8 @@ namespace SushiShop.Ios.Views.Cells.Menu
             ContentView.ClipsToBounds = true;
             ContentView.BackgroundColor = Colors.White;
             ContentView.Layer.CornerRadius = Constants.UI.CornerRadius;
+
+            TopImageView.SetDefaultImages();
         }
 
         protected override void Bind()

@@ -356,7 +356,6 @@
         <Compile Include="Sources\TableViewSource.cs" />
         <Compile Include="Delegates\RelatedProductsCollectionViewDelegateFlow.cs" />
         <Compile Include="Views\Controls\ScrollableTabView.cs" />
-        <Compile Include="Views\Controls\DefaultImageView.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

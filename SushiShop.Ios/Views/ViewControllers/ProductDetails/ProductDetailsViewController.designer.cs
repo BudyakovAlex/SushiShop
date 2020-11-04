@@ -13,6 +13,9 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 	partial class ProductDetailsViewController
 	{
 		[Outlet]
+		UIKit.UIActivityIndicatorView ActivityIndicator { get; set; }
+
+		[Outlet]
 		UIKit.UIButton AddToCartButton { get; set; }
 
 		[Outlet]
@@ -124,14 +127,19 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 				ProteinsValueLabel = null;
 			}
 
+			if (StepperView != null) {
+				StepperView.Dispose ();
+				StepperView = null;
+			}
+
 			if (WeightLabel != null) {
 				WeightLabel.Dispose ();
 				WeightLabel = null;
 			}
 
-			if (StepperView != null) {
-				StepperView.Dispose ();
-				StepperView = null;
+			if (ActivityIndicator != null) {
+				ActivityIndicator.Dispose ();
+				ActivityIndicator = null;
 			}
 		}
 	}

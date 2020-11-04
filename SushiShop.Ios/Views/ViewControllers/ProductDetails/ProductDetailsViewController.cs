@@ -6,6 +6,7 @@ using SushiShop.Core.ViewModels.ProductDetails;
 using SushiShop.Ios.Common.Styles;
 using SushiShop.Ios.Converters;
 using SushiShop.Ios.Delegates;
+using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Menu;
 using UIKit;
@@ -28,6 +29,8 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
             AddToCartButton.SetGradientBackground();
             AddToCartButton.SetCornerRadius();
             ProductSpecificationsView.SetCornerRadius(4);
+
+            ProductImageView.SetDefaultImages();
 
             InitCollectionView();
         }
@@ -55,6 +58,7 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
             bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);
             bindingSet.Bind(StepperView).For(v => v.Hidden).To(vm => vm.IsHiddenStepper);
             bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.RelatedItems);
+            bindingSet.Bind(ActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
 
             bindingSet.Apply();
         }
