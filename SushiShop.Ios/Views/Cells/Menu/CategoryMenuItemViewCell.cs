@@ -55,7 +55,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
             overlayLayer = CreateOverlayLayer();
             ContentView.Layer.InsertSublayerBelow(overlayLayer, Label.Layer);
 
-            ImageView.SetDefaultImages();
+            ImageView.SetPlaceholders();
         }
 
         protected override void Bind()

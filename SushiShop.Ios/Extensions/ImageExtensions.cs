@@ -11,11 +11,5 @@ namespace SushiShop.Ios.Extensions
         public static UIImage WithAlpha(this UIImage image, nfloat alpha) =>
             new UIGraphicsImageRenderer(image.Size, image.ImageRendererFormat)
                 .CreateImage(_ => image.Draw(CGPoint.Empty, CGBlendMode.Normal, alpha));
-
-        public static void SetDefaultImages(this MvxCachedImageView image)
-        {
-            image.ErrorPlaceholderImagePath = ImageNames.DefaultImage;
-            image.LoadingPlaceholderImagePath = ImageNames.DefaultImage;
-        }
     }
 }

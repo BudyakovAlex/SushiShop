@@ -82,7 +82,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
             ContentView.BackgroundColor = Colors.White;
             ContentView.Layer.CornerRadius = Constants.UI.CornerRadius;
 
-            TopImageView.SetDefaultImages();
+            TopImageView.SetPlaceholders();
         }
 
         protected override void Bind()

@@ -30,7 +30,7 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
             AddToCartButton.SetCornerRadius();
             ProductSpecificationsView.SetCornerRadius(4);
 
-            ProductImageView.SetDefaultImages();
+            ProductImageView.SetPlaceholders();
 
             InitCollectionView();
         }

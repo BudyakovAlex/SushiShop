@@ -18,6 +18,6 @@
         public const string Minus = "ic_minus";
         public const string Plus = "ic_plus";
 
-        public const string DefaultImage = "ic_default";
+        public const string DefaultPlaceholder = "ic_default";
     }
 }

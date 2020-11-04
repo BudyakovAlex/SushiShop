@@ -2,6 +2,7 @@
 using System;
 using CoreGraphics;
 using UIKit;
+using FFImageLoading.Cross;
 
 namespace SushiShop.Ios.Common.Styles
 {
@@ -43,6 +44,12 @@ namespace SushiShop.Ios.Common.Styles
             };
             view.Layer.AddSublayer(gradientLayer);
             return gradientLayer;
+        }
+
+        public static void SetPlaceholders(this MvxCachedImageView image, string img = ImageNames.DefaultPlaceholder)
+        {
+            image.ErrorPlaceholderImagePath = img;
+            image.LoadingPlaceholderImagePath = img;
         }
     }
 }

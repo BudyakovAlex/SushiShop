@@ -3,7 +3,7 @@ using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Menu.Items;
-using SushiShop.Ios.Extensions;
+using SushiShop.Ios.Common.Styles;
 using UIKit;
 
 namespace SushiShop.Ios.Views.Cells.Menu
@@ -22,7 +22,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
         {
             base.Initialize();
 
-            ImageView.SetDefaultImages();
+            ImageView.SetPlaceholders();
         }
 
         protected override void Bind()
