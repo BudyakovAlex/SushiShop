@@ -7,6 +7,7 @@ using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Menu;
+using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Menu
 {
@@ -44,6 +45,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
 
             CollectionView.Source = source;
             CollectionView.Delegate = new ProductCollectionViewDelegateFlowLayout();
+
+            CollectionView.AddGestureRecognizer(new UISwipeGestureRecognizer(FilterTabView.SwipeLeft)
+            {
+                Direction = UISwipeGestureRecognizerDirection.Left
+            });
+
+            CollectionView.AddGestureRecognizer(new UISwipeGestureRecognizer(FilterTabView.SwipeRight)
+            {
+                Direction = UISwipeGestureRecognizerDirection.Right
+            });
         }
     }
 }
