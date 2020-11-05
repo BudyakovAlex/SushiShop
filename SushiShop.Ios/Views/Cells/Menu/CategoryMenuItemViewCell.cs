@@ -7,14 +7,14 @@ using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Ios.Common;
+using SushiShop.Ios.Common.Styles;
+using SushiShop.Ios.Extensions;
 using UIKit;
 
 namespace SushiShop.Ios.Views.Cells.Menu
 {
     public partial class CategoryMenuItemViewCell : BaseCollectionViewCell
     {
-        private const float CornerRadius = 6f;
-
         public static readonly NSString Key = new NSString(nameof(CategoryMenuItemViewCell));
         public static readonly UINib Nib = UINib.FromName(Key, NSBundle.MainBundle);
 
@@ -31,7 +31,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
 
             if (Layer.ShadowPath?.BoundingBox != Bounds)
             {
-                Layer.ShadowPath = UIBezierPath.FromRoundedRect(Bounds, CornerRadius).CGPath;
+                Layer.ShadowPath = UIBezierPath.FromRoundedRect(Bounds, Constants.UI.CornerRadius).CGPath;
             }
 
             if (overlayLayer.Frame != Bounds)
@@ -46,20 +46,16 @@ namespace SushiShop.Ios.Views.Cells.Menu
         {
             base.Initialize();
 
-            Layer.MasksToBounds = false;
-            Layer.ShouldRasterize = true;
-            Layer.RasterizationScale = UIScreen.MainScreen.Scale;
-            Layer.ShadowColor = Colors.RealBlack.CGColor;
-            Layer.ShadowOffset = new CGSize(0f, 2f);
-            Layer.ShadowOpacity = 0.2f;
-            Layer.ShadowRadius = 18f;
+            this.ApplyShadow();
 
             ContentView.ClipsToBounds = true;
             ContentView.BackgroundColor = Colors.White;
-            ContentView.Layer.CornerRadius = CornerRadius;
+            ContentView.Layer.CornerRadius = Constants.UI.CornerRadius;
 
             overlayLayer = CreateOverlayLayer();
             ContentView.Layer.InsertSublayerBelow(overlayLayer, Label.Layer);
+
+            ImageView.SetPlaceholders();
         }
 
         protected override void Bind()

@@ -1,4 +1,4 @@
-﻿using SushiShop.Core.Data.Enums;
+﻿using SushiShop.Core.Data.Models.Stickers;
 using SushiShop.Core.Data.Models.Toppings;
 
 namespace SushiShop.Core.Data.Models.Products
@@ -6,7 +6,7 @@ namespace SushiShop.Core.Data.Models.Products
     public class ProductParameters
     {
         public ProductParameters(
-            StickerType[]? stickers,
+            StickerParams[]? stickers,
             Topping[]? availableToppings,
             string? proteins,
             string? fats,
@@ -25,7 +25,7 @@ namespace SushiShop.Core.Data.Models.Products
             Volume = volume;
         }
 
-        public StickerType[]? Stickers { get; }
+        public StickerParams[]? Stickers { get; }
         public Topping[]? AvailableToppings { get; }
         public string? Proteins { get; }
         public string? Fats { get; }

@@ -9,7 +9,7 @@ namespace SushiShop.Core.Services.Http.Products
     public interface IProductsService
     {
         Task<HttpResponse<ResponseDto<ProductDto[]>>> GetProductsByCategoryAsync(
-            int categoryId,
+            int? categoryId,
             string? city,
             StickerType? stickerType,
             CancellationToken cancellationToken);

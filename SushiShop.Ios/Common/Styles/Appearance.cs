@@ -19,6 +19,10 @@ namespace SushiShop.Ios.Common.Styles
             appearance.BarTintColor = Colors.White;
             appearance.TintColor = Colors.FigmaBlack;
             appearance.TitleTextAttributes = new UIStringAttributes { Font = Font.Create(FontStyle.Medium, 18f) };
+
+            var backImage = UIImage.FromBundle(ImageNames.ArrowBack);
+            appearance.BackIndicatorImage = backImage;
+            appearance.BackIndicatorTransitionMaskImage = backImage;
         }
 
         private static void SetTabBarItemAppearance()

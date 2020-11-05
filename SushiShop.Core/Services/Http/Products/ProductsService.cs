@@ -35,7 +35,7 @@ namespace SushiShop.Core.Services.Http.Products
         }
 
         public Task<HttpResponse<ResponseDto<ProductDto[]>>> GetProductsByCategoryAsync(
-            int categoryId,
+            int? categoryId,
             string? city,
             StickerType? stickerType,
             CancellationToken cancellationToken)

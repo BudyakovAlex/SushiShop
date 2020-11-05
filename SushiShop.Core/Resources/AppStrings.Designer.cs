@@ -142,5 +142,41 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("IsItYourCityQuestionTemplate", resourceCulture);
             }
         }
+        
+        public static string Discard {
+            get {
+                return ResourceManager.GetString("Discard", resourceCulture);
+            }
+        }
+        
+        public static string Carbohydrates {
+            get {
+                return ResourceManager.GetString("Carbohydrates", resourceCulture);
+            }
+        }
+        
+        public static string Ccal {
+            get {
+                return ResourceManager.GetString("Ccal", resourceCulture);
+            }
+        }
+        
+        public static string Fats {
+            get {
+                return ResourceManager.GetString("Fats", resourceCulture);
+            }
+        }
+        
+        public static string Protein {
+            get {
+                return ResourceManager.GetString("Protein", resourceCulture);
+            }
+        }
+        
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
     }
 }

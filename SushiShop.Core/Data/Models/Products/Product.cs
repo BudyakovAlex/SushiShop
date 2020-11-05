@@ -7,8 +7,8 @@ namespace SushiShop.Core.Data.Models.Products
     public class Product
     {
         public Product(
-            long id,
-            string? pageTitle,
+            int id,
+            string pageTitle,
             string? alias,
             long parent,
             DateTimeOffset publishDate,
@@ -17,12 +17,12 @@ namespace SushiShop.Core.Data.Models.Products
             DateTimeOffset creationDate,
             ProductParameters? @params,
             string? priceGroup,
-            Currency? currency,
+            Currency currency,
             long price,
             long oldPrice,
             ImageInfo? mainImageInfo,
             ImageInfo? optionalImageInfo,
-            long countInBasket)
+            int countInBasket)
         {
             Id = id;
             PageTitle = pageTitle;
@@ -42,8 +42,8 @@ namespace SushiShop.Core.Data.Models.Products
             CountInBasket = countInBasket;
         }
 
-        public long Id { get; }
-        public string? PageTitle { get; }
+        public int Id { get; }
+        public string PageTitle { get; }
         public string? Alias { get; }
         public long Parent { get; }
         public DateTimeOffset PublishDate { get; }
@@ -52,11 +52,11 @@ namespace SushiShop.Core.Data.Models.Products
         public DateTimeOffset CreationDate { get; }
         public ProductParameters? Params { get; }
         public string? PriceGroup { get; }
-        public Currency? Currency { get; }
+        public Currency Currency { get; }
         public long Price { get; }
         public long OldPrice { get; }
         public ImageInfo? MainImageInfo { get; }
         public ImageInfo? OptionalImageInfo { get; }
-        public long CountInBasket { get; }
+        public int CountInBasket { get; }
     }
 }

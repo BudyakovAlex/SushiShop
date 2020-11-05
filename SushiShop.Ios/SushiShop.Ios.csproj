@@ -152,6 +152,14 @@
         <ImageAsset Include="Assets.xcassets\ic_menu_tiles.imageset\ic_menu_tiles.pdf" />
         <ImageAsset Include="Assets.xcassets\ic_chevron_down.imageset\Contents.json" />
         <ImageAsset Include="Assets.xcassets\ic_chevron_down.imageset\ic_chevron_down.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_back_white.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_back_white.imageset\Group 4.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_minus.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_minus.imageset\ic_minus.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_plus.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_plus.imageset\ic_plus.pdf" />
+        <ImageAsset Include="Assets.xcassets\ic_default.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ic_default.imageset\default_img_bg-1.pdf" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
@@ -188,6 +196,15 @@
         <Folder Include="Assets.xcassets\ic_vegan_category.imageset\" />
         <Folder Include="Delegates\" />
         <Folder Include="Views\ViewControllers\CommonInfo\" />
+        <Folder Include="Views\ViewControllers\ProductDetails\" />
+        <Folder Include="Views\Cells\Products\" />
+        <Folder Include="Assets.xcassets\ic_back_white.imageset\" />
+        <Folder Include="Converters\" />
+        <Folder Include="Views\Controls\Abstract\" />
+        <Folder Include="Assets.xcassets\ic_minus.imageset\" />
+        <Folder Include="Assets.xcassets\ic_plus.imageset\" />
+        <Folder Include="Views\Controls\Stepper\" />
+        <Folder Include="Assets.xcassets\ic_default.imageset\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -208,6 +225,11 @@
         <InterfaceDefinition Include="Views\Cells\Menu\CategoryMenuItemViewCell.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\MenuPromotionItemViewCell.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\CommonInfo\CommonInfoViewController.xib" />
+        <InterfaceDefinition Include="Views\ViewControllers\ProductDetails\ToppingsViewController.xib" />
+        <InterfaceDefinition Include="Views\ViewControllers\ProductDetails\ProductDetailsViewController.xib" />
+        <InterfaceDefinition Include="Views\Cells\Products\ToppingItemCell.xib" />
+        <InterfaceDefinition Include="Views\ViewControllers\Menu\ProductViewController.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\ProductItemViewCell.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Entitlements.plist" />
@@ -302,6 +324,39 @@
           <DependentUpon>CommonInfoViewController.cs</DependentUpon>
         </Compile>
         <Compile Include="Common\Components.cs" />
+        <Compile Include="Views\ViewControllers\ProductDetails\ToppingsViewController.cs" />
+        <Compile Include="Views\ViewControllers\ProductDetails\ToppingsViewController.designer.cs">
+          <DependentUpon>ToppingsViewController.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\ViewControllers\ProductDetails\ProductDetailsViewController.cs" />
+        <Compile Include="Views\ViewControllers\ProductDetails\ProductDetailsViewController.designer.cs">
+          <DependentUpon>ProductDetailsViewController.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\ViewControllers\Menu\ProductViewController.cs" />
+        <Compile Include="Views\ViewControllers\Menu\ProductViewController.designer.cs">
+          <DependentUpon>ProductViewController.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Cells\Products\ToppingItemCell.cs" />
+        <Compile Include="Converters\StringToStrikethroughTextConverter.cs" />
+        <Compile Include="Views\Cells\Products\ToppingItemCell.designer.cs">
+          <DependentUpon>ToppingItemCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Delegates\ProductCollectionViewDelegateFlowLayout.cs" />
+        <Compile Include="Views\Cells\Menu\ProductItemViewCell.cs" />
+        <Compile Include="Views\Cells\Menu\ProductItemViewCell.designer.cs">
+          <DependentUpon>ProductItemViewCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Controls\Abstract\BaseView.cs" />
+        <Compile Include="Views\Controls\Stepper\BaseStepperView.cs" />
+        <Compile Include="Extensions\ImageExtensions.cs" />
+        <Compile Include="Views\Controls\Stepper\SmallStepperView.cs" />
+        <Compile Include="Views\Controls\Stepper\BigStepperView.cs" />
+        <Compile Include="Common\ConstantsUI.cs" />
+        <Compile Include="Common\Styles\ViewStyles.cs" />
+        <Compile Include="Sources\TableViewSource.cs" />
+        <Compile Include="Delegates\RelatedProductsCollectionViewDelegateFlow.cs" />
+        <Compile Include="Views\Controls\ScrollableTabView.cs" />
+        <Compile Include="Common\Styles\ImageViewStyles.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

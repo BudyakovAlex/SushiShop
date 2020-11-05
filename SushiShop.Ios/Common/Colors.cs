@@ -10,5 +10,13 @@ namespace SushiShop.Ios.Common
         public static UIColor Orange2 => UIColor.FromRGB(255, 103, 19);
         public static UIColor FigmaBlack => UIColor.FromRGB(23, 24, 27);
         public static UIColor Gray4 => UIColor.FromRGB(133, 135, 141);
+        public static UIColor Background => UIColor.FromRGB(242, 242, 247);
+        public static UIColor Gray2 => UIColor.FromRGB(229, 229, 237);
+
+
+        public static UIColor OrangeGradientStart => UIColor.FromRGB(248, 139, 91);
+        public static UIColor OrangeGradientEnd => UIColor.FromRGB(250, 103, 89);
+        public static UIColor TransparentBlack => UIColor.Black.ColorWithAlpha(0.4f);
+        public static UIColor TransparentWhite => UIColor.White.ColorWithAlpha(0.2f);
     }
 }

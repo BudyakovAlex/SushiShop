@@ -165,4 +165,22 @@
   <data name="IsItYourCityQuestionTemplate" xml:space="preserve">
     <value>Это Ваш город «{0}»?</value>
   </data>
+  <data name="Discard" xml:space="preserve">
+    <value>Сбросить</value>
+  </data>
+  <data name="Carbohydrates" xml:space="preserve">
+    <value>Углеводы</value>
+  </data>
+  <data name="Ccal" xml:space="preserve">
+    <value>Ккал</value>
+  </data>
+  <data name="Fats" xml:space="preserve">
+    <value>Жиры</value>
+  </data>
+  <data name="Protein" xml:space="preserve">
+    <value>Белки</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Все</value>
+  </data>
 </root>

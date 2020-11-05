@@ -8,6 +8,6 @@ namespace SushiShop.Core.Data.Dtos.Toppings
         [JsonProperty("pagetitle")]
         public string? PageTitle { get; set; }
         public long Price { get; set; }
-        public long CountInBasket { get; set; }
+        public int CountInBasket { get; set; }
     }
 }
