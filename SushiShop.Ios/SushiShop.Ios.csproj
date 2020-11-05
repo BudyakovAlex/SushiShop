@@ -357,6 +357,7 @@
         <Compile Include="Delegates\RelatedProductsCollectionViewDelegateFlow.cs" />
         <Compile Include="Views\Controls\ScrollableTabView.cs" />
         <Compile Include="Common\Styles\ImageViewStyles.cs" />
+        <Compile Include="Views\Controls\PrimaryButton.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
