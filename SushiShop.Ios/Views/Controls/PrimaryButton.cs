@@ -3,6 +3,7 @@ using CoreAnimation;
 using CoreGraphics;
 using Foundation;
 using SushiShop.Ios.Common;
+using SushiShop.Ios.Common.Styles;
 using UIKit;
 
 namespace SushiShop.Ios.Views.Controls
@@ -39,19 +40,25 @@ namespace SushiShop.Ios.Views.Controls
 
         protected internal PrimaryButton(IntPtr handle) : base(handle)
         {
-            Initialize();
         }
 
-        private void Initialize()
+        public override void AwakeFromNib()
         {
-            gradientLayer = Components.CreateGradientLayer();
-            Layer.AddSublayer(gradientLayer);
+            base.AwakeFromNib();
+            Initialize();
         }
 
         public override void LayoutSubviews()
         {
             base.LayoutSubviews();
             gradientLayer.Frame = Bounds;
+        }
+
+        private void Initialize()
+        {
+            gradientLayer = Components.CreateGradientLayer();
+            Layer.AddSublayer(gradientLayer);
+            this.SetCornerRadius();
         }
     }
 }

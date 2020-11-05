@@ -25,7 +25,6 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 
             ProductImageView.ContentMode = UIViewContentMode.ScaleAspectFill;
 
-            AddToCartButton.SetCornerRadius();
             ProductSpecificationsView.SetCornerRadius(4);
 
             ProductImageView.SetPlaceholders();
