@@ -117,7 +117,7 @@ namespace SushiShop.Core.ViewModels.Menu
                 return;
             }
 
-            await TryRefreshGelolocationAsync(citiesTask.Result.Data);
+            _ = TryRefreshGelolocationAsync(citiesTask.Result.Data);
         }
 
         private async Task TryRefreshGelolocationAsync(City[] cities)
@@ -132,7 +132,7 @@ namespace SushiShop.Core.ViewModels.Menu
                 var lastKnownLocation = await Geolocation.GetLastKnownLocationAsync();
                 if (lastKnownLocation is null)
                 {
-                    var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromMinutes(1));
+                    var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(3));
                     lastKnownLocation = await Geolocation.GetLocationAsync(request);
                 }
 
