@@ -72,6 +72,8 @@ namespace SushiShop.Core.ViewModels.Menu
             await base.InitializeAsync();
             city = userSession.GetCity();
 
+            await RaisePropertyChanged(nameof(CityName));
+
             _ = ExecutionStateWrapper.WrapAsync(() => ReloadDataAsync(true), awaitWhenBusy: true);
         }
 
@@ -90,8 +92,6 @@ namespace SushiShop.Core.ViewModels.Menu
             var promotionItems = promotionsTask.Result.Data
                 .Select(promotion => new MenuPromotionItemViewModel(promotion))
                 .ToArray();
-
-            await PreloadImagesAsync(categoryItems, promotionItems);
 
             Items.Clear();
             SimpleItems.Clear();
@@ -165,6 +165,9 @@ namespace SushiShop.Core.ViewModels.Menu
 
                 userSession.SetCity(foundCity);
                 city = foundCity;
+
+                await RaisePropertyChanged(nameof(CityName));
+
                 _ = ReloadDataAsync();
             }
             catch (Exception ex)
@@ -187,27 +190,6 @@ namespace SushiShop.Core.ViewModels.Menu
             userSession.SetCity(city);
             await RaisePropertyChanged(nameof(CityName));
             await ReloadDataAsync();
-        }
-
-        private async Task PreloadImagesAsync(CategoryMenuItemViewModel[] categories, MenuPromotionItemViewModel[] promotions)
-        {
-            var urls = Enumerable.Concat(
-                categories.Select(item => item.ImageUrl),
-                promotions.Select(item => item.ImageUrl));
-
-            await Task.WhenAll(urls.Select(PreloadImageAsync));
-        }
-
-        private async Task PreloadImageAsync(string url)
-        {
-            try
-            {
-                await ImageService.Instance.LoadUrl(url).PreloadAsync();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
         }
     }
 }
