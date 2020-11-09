@@ -24,10 +24,9 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
             BackButton.SetCornerRadius();
 
             ProductImageView.ContentMode = UIViewContentMode.ScaleAspectFill;
+            ProductImageView.SetPlaceholders();
 
             ProductSpecificationsView.SetCornerRadius(4);
-
-            ProductImageView.SetPlaceholders();
 
             InitCollectionView();
         }

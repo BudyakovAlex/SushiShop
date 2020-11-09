@@ -62,6 +62,11 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ActivityIndicator != null) {
+				ActivityIndicator.Dispose ();
+				ActivityIndicator = null;
+			}
+
 			if (AddToCartButton != null) {
 				AddToCartButton.Dispose ();
 				AddToCartButton = null;
@@ -117,11 +122,6 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 				ProductNameLabel = null;
 			}
 
-			if (ProductSpecificationsView != null) {
-				ProductSpecificationsView.Dispose ();
-				ProductSpecificationsView = null;
-			}
-
 			if (ProteinsValueLabel != null) {
 				ProteinsValueLabel.Dispose ();
 				ProteinsValueLabel = null;
@@ -137,9 +137,9 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 				WeightLabel = null;
 			}
 
-			if (ActivityIndicator != null) {
-				ActivityIndicator.Dispose ();
-				ActivityIndicator = null;
+			if (ProductSpecificationsView != null) {
+				ProductSpecificationsView.Dispose ();
+				ProductSpecificationsView = null;
 			}
 		}
 	}
