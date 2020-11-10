@@ -6,9 +6,9 @@ namespace SushiShop.Ios.Common
 {
     public static class Components
     {
-        public static UIButton CreateDefaultBarButton(string imageName)
+        public static UIButton CreateDefaultBarButton(string imageName, float width = 24f, float heigth = 24f)
         {
-            var button = new UIButton(new CGRect(0, 0, 24f, 24f));
+            var button = new UIButton(new CGRect(0, 0, width, heigth));
             button.SetImage(UIImage.FromBundle(imageName), UIControlState.Normal);
 
             return button;
