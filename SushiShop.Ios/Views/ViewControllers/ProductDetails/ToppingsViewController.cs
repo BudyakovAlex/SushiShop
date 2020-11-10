@@ -26,11 +26,7 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 
             InitializeTableView();
 
-            AddButton.SetGradientBackground();
-            AddButton.SetCornerRadius();
             DataTableView.ContentInset = new UIEdgeInsets(0, 0, 82, 0);
-
-            Title = "Добавить соус";
         }
 
         protected override void Bind()
@@ -43,6 +39,7 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
             bindingSet.Bind(NavigationItem.LeftBarButtonItem).For(v => v.BindClicked()).To(vm => vm.PlatformCloseCommand);
             bindingSet.Bind(AddButton).For(v => v.BindTap()).To(vm => vm.AddToCartCommand);
             bindingSet.Bind(NavigationItem.RightBarButtonItem).For(v => v.BindClicked()).To(vm => vm.ResetCommand);
+            bindingSet.Bind(this).For(v => v.Title).To(vm => vm.PageTitle);
 
             bindingSet.Apply();
         }

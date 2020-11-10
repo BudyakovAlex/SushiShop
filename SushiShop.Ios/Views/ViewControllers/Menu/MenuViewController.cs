@@ -108,5 +108,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             SimpleListCollectionView.Source = simpleListCollectionViewSource;
             SimpleListCollectionView.Delegate = new SimpleListMenuCollectionDelegateFlowLayout(simpleListCollectionViewSource);
         }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            NavigationController?.SetNavigationBarHidden(false, animated);
+        }
     }
 }

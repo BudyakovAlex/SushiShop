@@ -52,11 +52,12 @@ namespace SushiShop.Core.ViewModels.Menu.Items
         private async Task ShowFranchisePopupAsync()
         {
             var getFranchiseTask = commonInfoManager.GetFranchiseAsync();
-            var confirmationTask = UserDialogs.Instance.ConfirmAsync(AppStrings.GoToTheFranchisePage, okText: AppStrings.Yes, cancelText: AppStrings.No);
+            var confirmationTask = UserDialogs.Instance.ConfirmAsync(string.Empty, AppStrings.GoToTheFranchisePage, okText: AppStrings.No, cancelText: AppStrings.Yes);
             await Task.WhenAll(getFranchiseTask, confirmationTask);
 
+            //HACK: to avoid design issue
             var isConfirmed = confirmationTask.Result;
-            if (!isConfirmed)
+            if (isConfirmed)
             {
                 return;
             }

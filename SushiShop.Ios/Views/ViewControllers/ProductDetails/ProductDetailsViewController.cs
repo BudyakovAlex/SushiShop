@@ -6,7 +6,6 @@ using SushiShop.Core.ViewModels.ProductDetails;
 using SushiShop.Ios.Common.Styles;
 using SushiShop.Ios.Converters;
 using SushiShop.Ios.Delegates;
-using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Menu;
 using UIKit;
@@ -25,12 +24,9 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
             BackButton.SetCornerRadius();
 
             ProductImageView.ContentMode = UIViewContentMode.ScaleAspectFill;
-
-            AddToCartButton.SetGradientBackground();
-            AddToCartButton.SetCornerRadius();
-            ProductSpecificationsView.SetCornerRadius(4);
-
             ProductImageView.SetPlaceholders();
+
+            ProductSpecificationsView.SetCornerRadius(4);
 
             InitCollectionView();
         }

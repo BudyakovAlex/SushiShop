@@ -81,20 +81,25 @@ namespace SushiShop.Ios.Views.Controls
             }
         }
 
+        public void SwipeLeft()
+        {
+            if (SelectedIndex < stackView.ArrangedSubviews.Length - 1)
+            {
+                ++SelectedIndex;
+            }
+        }
+
+        public void SwipeRight()
+        {
+            if (SelectedIndex != 0)
+            {
+                --SelectedIndex;
+            }
+        }
+
         protected override void Initialize()
         {
             base.Initialize();
-
-            AddGestureRecognizer(new UISwipeGestureRecognizer(OnLeftSwipe)
-            {
-                Direction = UISwipeGestureRecognizerDirection.Left
-            });
-
-            AddGestureRecognizer(new UISwipeGestureRecognizer(OnRightSwipe)
-            {
-                Direction = UISwipeGestureRecognizerDirection.Right
-            });
-
             InitializeStackView();
         }
 
@@ -122,22 +127,6 @@ namespace SushiShop.Ios.Views.Controls
 
         private TabItemView CreateTabItem(string text, int index) =>
             new TabItemView(text, index, () => SelectedIndex = index);
-
-        private void OnLeftSwipe()
-        {
-            if (SelectedIndex < stackView.ArrangedSubviews.Length - 1)
-            {
-                ++SelectedIndex;
-            }
-        }
-
-        private void OnRightSwipe()
-        {
-            if (SelectedIndex != 0)
-            {
-                --SelectedIndex;
-            }
-        }
 
         private void ScrollTo(TabItemView tab)
         {
