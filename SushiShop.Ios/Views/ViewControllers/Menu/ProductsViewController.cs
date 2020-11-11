@@ -1,10 +1,11 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Menu;
-using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Ios.Delegates;
+using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Menu;
 using UIKit;
@@ -12,21 +13,23 @@ using UIKit;
 namespace SushiShop.Ios.Views.ViewControllers.Menu
 {
     [MvxChildPresentation]
-    public partial class ProductViewController : BaseViewController<ProductViewModel>
+    public partial class ProductsViewController : BaseViewController<ProductsViewModel>
     {
         private CollectionViewSource source;
 
         protected override void InitStylesAndContent()
         {
             base.InitStylesAndContent();
+
             InitializeCollectionView();
+            FilterTabView.OnTabChangedAfterTapAction = OnTabChangedAfterTap;
         }
 
         protected override void Bind()
         {
             base.Bind();
 
-            var bindingSet = this.CreateBindingSet<ProductViewController, ProductViewModel>();
+            var bindingSet = this.CreateBindingSet<ProductsViewController, ProductsViewModel>();
 
             bindingSet.Bind(this).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(FilterTabView).For(v => v.Items).To(vm => vm.Filters);
@@ -38,23 +41,27 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             bindingSet.Apply();
         }
 
+        private void OnTabChangedAfterTap()
+        {
+            CollectionView.ScrollToItem(NSIndexPath.FromRowSection(FilterTabView.SelectedIndex, 0), UICollectionViewScrollPosition.CenteredHorizontally, true);
+        }
+
         private void InitializeCollectionView()
         {
             source = new CollectionViewSource(CollectionView)
-                .Register<ProductItemViewModel>(ProductItemViewCell.Nib, ProductItemViewCell.Key);
+                .Register<FilteredProductsViewModel>(FilteredProductsItemViewCell.Nib, FilteredProductsItemViewCell.Key);
 
             CollectionView.Source = source;
-            CollectionView.Delegate = new ProductCollectionViewDelegateFlowLayout();
+            CollectionView.Delegate = new GroupsMenuItemCollectionViewDelegateFlowLayout(() => { }, OnDecelerated);
+        }
 
-            CollectionView.AddGestureRecognizer(new UISwipeGestureRecognizer(FilterTabView.SwipeLeft)
+        private void OnDecelerated()
+        {
+            var indexPath = CollectionView.GetCenterIndexPathOrDefault();
+            if (indexPath != null && FilterTabView.SelectedIndex != indexPath.Row)
             {
-                Direction = UISwipeGestureRecognizerDirection.Left
-            });
-
-            CollectionView.AddGestureRecognizer(new UISwipeGestureRecognizer(FilterTabView.SwipeRight)
-            {
-                Direction = UISwipeGestureRecognizerDirection.Right
-            });
+                FilterTabView.SelectedIndex = indexPath.Row;
+            }
         }
     }
 }

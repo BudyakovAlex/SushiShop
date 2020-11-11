@@ -228,8 +228,9 @@
         <InterfaceDefinition Include="Views\ViewControllers\ProductDetails\ToppingsViewController.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\ProductDetails\ProductDetailsViewController.xib" />
         <InterfaceDefinition Include="Views\Cells\Products\ToppingItemCell.xib" />
-        <InterfaceDefinition Include="Views\ViewControllers\Menu\ProductViewController.xib" />
+        <InterfaceDefinition Include="Views\ViewControllers\Menu\ProductsViewController.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\ProductItemViewCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Menu\FilteredProductsItemViewCell.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Entitlements.plist" />
@@ -332,9 +333,9 @@
         <Compile Include="Views\ViewControllers\ProductDetails\ProductDetailsViewController.designer.cs">
           <DependentUpon>ProductDetailsViewController.cs</DependentUpon>
         </Compile>
-        <Compile Include="Views\ViewControllers\Menu\ProductViewController.cs" />
-        <Compile Include="Views\ViewControllers\Menu\ProductViewController.designer.cs">
-          <DependentUpon>ProductViewController.cs</DependentUpon>
+        <Compile Include="Views\ViewControllers\Menu\ProductsViewController.cs" />
+        <Compile Include="Views\ViewControllers\Menu\ProductsViewController.designer.cs">
+          <DependentUpon>ProductsViewController.cs</DependentUpon>
         </Compile>
         <Compile Include="Views\Cells\Products\ToppingItemCell.cs" />
         <Compile Include="Converters\StringToStrikethroughTextConverter.cs" />
@@ -358,6 +359,10 @@
         <Compile Include="Views\Controls\ScrollableTabView.cs" />
         <Compile Include="Common\Styles\ImageViewStyles.cs" />
         <Compile Include="Views\Controls\PrimaryButton.cs" />
+        <Compile Include="Views\Cells\Menu\FilteredProductsItemViewCell.cs" />
+        <Compile Include="Views\Cells\Menu\FilteredProductsItemViewCell.designer.cs">
+          <DependentUpon>FilteredProductsItemViewCell.cs</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

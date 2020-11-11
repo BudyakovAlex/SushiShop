@@ -25,8 +25,8 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 
         private Task ShowDetailsAsync()
         {
-            var parameters = new ProductNavigationParameters(category);
-            return NavigationManager.NavigateAsync<ProductViewModel, ProductNavigationParameters>(parameters);
+            var parameters = new ProductsNavigationParameters(category);
+            return NavigationManager.NavigateAsync<ProductsViewModel, ProductsNavigationParameters>(parameters);
         }
     }
 }
