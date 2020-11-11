@@ -1,11 +1,13 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
+﻿using System;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Menu;
 using SushiShop.Core.ViewModels.Menu.Items;
+using SushiShop.Ios.Common;
 using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Sources;
-using System;
+using SushiShop.Ios.Views.ViewControllers;
 using UIKit;
 
 namespace SushiShop.Ios.Views.Cells.Menu
@@ -15,7 +17,9 @@ namespace SushiShop.Ios.Views.Cells.Menu
         public static readonly NSString Key = new NSString("FilteredProductsItemViewCell");
         public static readonly UINib Nib;
 
+        private MainViewController rootViewController = (MainViewController) UIApplication.SharedApplication.KeyWindow.RootViewController;
         private CollectionViewSource source;
+        private int scrollOffsetY;
 
         static FilteredProductsItemViewCell()
         {
@@ -30,6 +34,11 @@ namespace SushiShop.Ios.Views.Cells.Menu
         protected override void Initialize()
         {
             base.Initialize();
+
+            BackgroundColor = Colors.Background;
+            ContentView.BackgroundColor = Colors.Background;
+            ProductsCollectionView.BackgroundColor = Colors.Background;
+
             InitializeCollectionView();
         }
 
@@ -50,7 +59,28 @@ namespace SushiShop.Ios.Views.Cells.Menu
                 .Register<ProductItemViewModel>(ProductItemViewCell.Nib, ProductItemViewCell.Key);
 
             ProductsCollectionView.Source = source;
-            ProductsCollectionView.Delegate = new ProductCollectionViewDelegateFlowLayout();
+            ProductsCollectionView.Delegate = new FilteredProductsCollectionViewDelegateFlowLayout(OnScrolled);
         }
+
+        private void OnScrolled(UIScrollView scrollView)
+        {
+            if (scrollView.Decelerating)
+            {
+                return;
+            }
+
+            var newOffset = (int) scrollView.ContentOffset.Y;
+            if (newOffset > scrollOffsetY)
+            {
+                rootViewController.HideTabs();
+            }
+            else if (newOffset < scrollOffsetY)
+            {
+                rootViewController.ShowTabs();
+            }
+
+            scrollOffsetY = newOffset;
+        }
+
     }
 }

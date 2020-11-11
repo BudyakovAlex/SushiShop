@@ -15,7 +15,7 @@ using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Menu
 {
-    [MvxTabPresentation(WrapInNavigationController = true, TabIconName = ImageNames.MenuTabIcon)]
+    [MvxTabPresentation(WrapInNavigationController = true)]
     public partial class MenuViewController : BaseViewController<MenuViewModel>
     {
         private UIButton switchPresentationButton;
