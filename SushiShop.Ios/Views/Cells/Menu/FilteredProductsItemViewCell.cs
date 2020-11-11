@@ -63,7 +63,8 @@ namespace SushiShop.Ios.Views.Cells.Menu
                 return;
             }
 
-            if (newScrollY > scrollY || (newScrollY + scrollView.Bounds.Height) > scrollView.ContentSize.Height)
+            if (newScrollY > 0
+                && (newScrollY > scrollY || (newScrollY + scrollView.Bounds.Height) > scrollView.ContentSize.Height))
             {
                 rootViewController.HideTabs();
             }

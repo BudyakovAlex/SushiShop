@@ -179,7 +179,7 @@ namespace SushiShop.Ios.Views.Controls
                 var button = new UIButton();
                 button.TranslatesAutoresizingMaskIntoConstraints = false;
                 button.Font = Font.Create(FontStyle.Medium, 16f);
-                button.ContentEdgeInsets = new UIEdgeInsets(0f, 18f, 0f, 18f);
+                button.ContentEdgeInsets = new UIEdgeInsets(0f, 12f, 0f, 12f);
                 button.SetTitle(title, UIControlState.Normal);
                 button.AddGestureRecognizer(new UITapGestureRecognizer(() => onTap(Index)));
                 button.SetTitleColor(Colors.FigmaBlack, UIControlState.Normal);
