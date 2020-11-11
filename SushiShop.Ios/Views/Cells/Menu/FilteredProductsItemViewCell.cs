@@ -14,21 +14,16 @@ namespace SushiShop.Ios.Views.Cells.Menu
 {
     public partial class FilteredProductsItemViewCell : BaseCollectionViewCell
     {
-        public static readonly NSString Key = new NSString("FilteredProductsItemViewCell");
-        public static readonly UINib Nib;
+        public static readonly NSString Key = new NSString(nameof(FilteredProductsItemViewCell));
+        public static readonly UINib Nib = UINib.FromName(Key, NSBundle.MainBundle);
 
         private MainViewController rootViewController = (MainViewController) UIApplication.SharedApplication.KeyWindow.RootViewController;
         private CollectionViewSource source;
-        private int scrollOffsetY;
+        private int scrollY;
 
-        static FilteredProductsItemViewCell()
+        protected FilteredProductsItemViewCell(IntPtr handle)
+            : base(handle)
         {
-            Nib = UINib.FromName("FilteredProductsItemViewCell", NSBundle.MainBundle);
-        }
-
-        protected FilteredProductsItemViewCell(IntPtr handle) : base(handle)
-        {
-            // Note: this .ctor should not contain any initialization logic.
         }
 
         protected override void Initialize()
@@ -47,9 +42,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
             base.Bind();
 
             var bindingSet = this.CreateBindingSet<FilteredProductsItemViewCell, FilteredProductsViewModel>();
-
             bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.Items);
-
             bindingSet.Apply();
         }
 
@@ -64,23 +57,22 @@ namespace SushiShop.Ios.Views.Cells.Menu
 
         private void OnScrolled(UIScrollView scrollView)
         {
-            if (scrollView.Decelerating)
+            var newScrollY = (int) scrollView.ContentOffset.Y;
+            if (Math.Abs(newScrollY - scrollY) < (scrollView.Bounds.Height * 0.1f))
             {
                 return;
             }
 
-            var newOffset = (int) scrollView.ContentOffset.Y;
-            if (newOffset > scrollOffsetY)
+            if (newScrollY > scrollY || (newScrollY + scrollView.Bounds.Height) > scrollView.ContentSize.Height)
             {
                 rootViewController.HideTabs();
             }
-            else if (newOffset < scrollOffsetY)
+            else
             {
                 rootViewController.ShowTabs();
             }
 
-            scrollOffsetY = newOffset;
+            scrollY = newScrollY;
         }
-
     }
 }

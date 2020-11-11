@@ -372,7 +372,7 @@ namespace SushiShop.Ios.Views.ViewControllers
                 {
                     label.LeadingAnchor.ConstraintEqualTo(LeadingAnchor),
                     label.TrailingAnchor.ConstraintEqualTo(TrailingAnchor),
-                    label.BottomAnchor.ConstraintEqualTo(BottomAnchor, 3f)
+                    label.BottomAnchor.ConstraintEqualTo(BottomAnchor, -3f)
                 });
             }
 
@@ -387,7 +387,7 @@ namespace SushiShop.Ios.Views.ViewControllers
                 NSLayoutConstraint.ActivateConstraints(new[]
                 {
                     imageView.CenterXAnchor.ConstraintEqualTo(CenterXAnchor),
-                    imageView.CenterYAnchor.ConstraintEqualTo(CenterYAnchor, 4f)
+                    imageView.CenterYAnchor.ConstraintEqualTo(CenterYAnchor, -4f)
                 });
             }
         }
