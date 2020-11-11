@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CoreGraphics;
 using Foundation;
@@ -32,8 +33,10 @@ namespace SushiShop.Ios.Views.Controls
         {
         }
 
-        private string[] items;
-        public string[] Items
+        public Action OnTabChangedAfterTapAction { get; set; }
+
+        private List<string> items;
+        public List<string> Items
         {
             get => items;
             set
@@ -41,7 +44,7 @@ namespace SushiShop.Ios.Views.Controls
                 items = value;
                 stackView.ArrangedSubviews.ForEach(view => view.RemoveFromSuperview());
 
-                if (items is null || items.Length == 0)
+                if (items is null || items.Count == 0)
                 {
                     tabs = null;
                 }
@@ -81,22 +84,6 @@ namespace SushiShop.Ios.Views.Controls
             }
         }
 
-        public void SwipeLeft()
-        {
-            if (SelectedIndex < stackView.ArrangedSubviews.Length - 1)
-            {
-                ++SelectedIndex;
-            }
-        }
-
-        public void SwipeRight()
-        {
-            if (SelectedIndex != 0)
-            {
-                --SelectedIndex;
-            }
-        }
-
         protected override void Initialize()
         {
             base.Initialize();
@@ -126,7 +113,13 @@ namespace SushiShop.Ios.Views.Controls
         }
 
         private TabItemView CreateTabItem(string text, int index) =>
-            new TabItemView(text, index, () => SelectedIndex = index);
+            new TabItemView(text, index, OnTabTapped);
+
+        private void OnTabTapped(int index)
+        {
+            SelectedIndex = index;
+            OnTabChangedAfterTapAction?.Invoke();
+        }
 
         private void ScrollTo(TabItemView tab)
         {
@@ -160,7 +153,7 @@ namespace SushiShop.Ios.Views.Controls
 
             private UIView indicator;
 
-            public TabItemView(string title, int index, Action onTap)
+            public TabItemView(string title, int index, Action<int> onTap)
             {
                 Index = index;
 
@@ -181,14 +174,14 @@ namespace SushiShop.Ios.Views.Controls
                 }
             }
 
-            private void InitializeButton(string title, Action onTap)
+            private void InitializeButton(string title, Action<int> onTap)
             {
                 var button = new UIButton();
                 button.TranslatesAutoresizingMaskIntoConstraints = false;
                 button.Font = Font.Create(FontStyle.Medium, 16f);
                 button.ContentEdgeInsets = new UIEdgeInsets(0f, 18f, 0f, 18f);
                 button.SetTitle(title, UIControlState.Normal);
-                button.AddGestureRecognizer(new UITapGestureRecognizer(onTap));
+                button.AddGestureRecognizer(new UITapGestureRecognizer(() => onTap(Index)));
                 button.SetTitleColor(Colors.FigmaBlack, UIControlState.Normal);
                 button.SetTitleColor(Colors.FigmaBlack.ColorWithAlpha(0.5f), UIControlState.Highlighted);
 

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using BuildApps.Core.Mobile.Common.Extensions;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Data.Models.Menu;
 using SushiShop.Core.Data.Models.Stickers;
@@ -9,26 +7,28 @@ using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Menu.Items;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Menu
 {
-    public class ProductViewModel : BaseItemsPageViewModel<ProductItemViewModel, ProductNavigationParameters>
+    public class ProductsViewModel : BaseItemsPageViewModel<FilteredProductsViewModel, ProductsNavigationParameters>
     {
         private readonly IProductsManager productsManager;
         private readonly IUserSession userSession;
 
         private Category? category;
         private Sticker? sticker;
-        private ProductItemViewModel[] allItems = new ProductItemViewModel[0];
 
-        public ProductViewModel(IProductsManager productsManager, IUserSession userSession)
+        public ProductsViewModel(IProductsManager productsManager, IUserSession userSession)
         {
             this.productsManager = productsManager;
             this.userSession = userSession;
         }
 
         public string? Title => category?.PageTitle ?? sticker?.Title;
-        public string[] Filters { get; private set; } = new string[0];
+        public List<string> Filters { get; private set; } = new List<string>();
 
         private bool isLoading;
         public bool IsLoading
@@ -41,15 +41,12 @@ namespace SushiShop.Core.ViewModels.Menu
         public int SelectedFilterIndex
         {
             get => selectedFilterIndex;
-            set => SetProperty(ref selectedFilterIndex, value, () =>
-            {
-                SelectedFilterIndexChanged();
-            });
+            set => SetProperty(ref selectedFilterIndex, value);
         }
 
         public bool IsFiltersVisible => Filters.IsNotEmpty();
 
-        public override void Prepare(ProductNavigationParameters parameter)
+        public override void Prepare(ProductsNavigationParameters parameter)
         {
             category = parameter.Category;
             sticker = parameter.Sticker;
@@ -60,7 +57,7 @@ namespace SushiShop.Core.ViewModels.Menu
                 Filters = subCategories
                     .Select(category => category.PageTitle)
                     .Prepend(AppStrings.All)
-                    .ToArray();
+                    .ToList();
             }
         }
 
@@ -74,26 +71,26 @@ namespace SushiShop.Core.ViewModels.Menu
             var response = await productsManager.GetProductsByCategoryAsync(category?.Id, city?.Name, sticker?.Type);
             if (response.IsSuccessful)
             {
-                allItems = response.Data.Select(product => new ProductItemViewModel(product)).ToArray();
-                Items.ReplaceWith(allItems);
+                var allItems = response.Data.Select(product => new ProductItemViewModel(product)).ToArray();
+                var filteredItems = Filters.Select(filter => ProduceItemsByFilter(allItems, filter)).ToArray();
+                Items.ReplaceWith(filteredItems);
             }
 
             IsLoading = false;
         }
 
-        private void SelectedFilterIndexChanged()
+        private FilteredProductsViewModel ProduceItemsByFilter(ProductItemViewModel[] items, string filter)
         {
-            var index = SelectedFilterIndex;
-            if (index == 0)
+            if (filter == AppStrings.All)
             {
-                Items.ReplaceWith(allItems);
+                return new FilteredProductsViewModel(items, filter);
             }
-            else
-            {
-                var parentId = category!.Children!.SubCategories[index - 1].Id;
-                var items = allItems.Where(item => item.ParentId == parentId).ToArray();
-                Items.ReplaceWith(items);
-            }
+
+            var index = Filters.IndexOf(filter);
+            var parentId = category!.Children!.SubCategories[index - 1].Id;
+            var filteredItems = items.Where(item => item.ParentId == parentId).ToArray();
+
+            return new FilteredProductsViewModel(filteredItems, filter);
         }
     }
 }

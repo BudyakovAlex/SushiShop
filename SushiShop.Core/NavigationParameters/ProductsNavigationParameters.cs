@@ -3,14 +3,14 @@ using SushiShop.Core.Data.Models.Stickers;
 
 namespace SushiShop.Core.NavigationParameters
 {
-    public class ProductNavigationParameters
+    public class ProductsNavigationParameters
     {
-        public ProductNavigationParameters(Category category)
+        public ProductsNavigationParameters(Category category)
         {
             Category = category;
         }
 
-        public ProductNavigationParameters(Sticker sticker)
+        public ProductsNavigationParameters(Sticker sticker)
         {
             Sticker = sticker;
         }
