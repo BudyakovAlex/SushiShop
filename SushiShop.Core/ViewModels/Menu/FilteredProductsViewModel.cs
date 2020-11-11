@@ -6,14 +6,11 @@ namespace SushiShop.Core.ViewModels.Menu
 {
     public class FilteredProductsViewModel : BaseViewModel
     {
-        public FilteredProductsViewModel(ProductItemViewModel[] productItemViewModels, string filter)
+        public FilteredProductsViewModel(ProductItemViewModel[] productItemViewModels)
         {
             Items = new MvxObservableCollection<ProductItemViewModel>(productItemViewModels);
-            Filter = filter;
         }
 
         public MvxObservableCollection<ProductItemViewModel> Items { get; }
-
-        public string Filter { get; }
     }
 }

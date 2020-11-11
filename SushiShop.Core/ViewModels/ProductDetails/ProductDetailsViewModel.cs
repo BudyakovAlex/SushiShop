@@ -9,6 +9,7 @@ using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.Managers.Products;
 using SushiShop.Core.NavigationParameters;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
 using SushiShop.Core.ViewModels.Menu.Items;
 
@@ -93,7 +94,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
                     return;
                 }
                 
-                var navigationParams = new ToppingNavigationParameters(toppings, product?.PageTitle);
+                var navigationParams = new ToppingNavigationParameters(toppings, AppStrings.MakeItTastier);
                 var result = await NavigationManager.NavigateAsync<ToppingsViewModel, ToppingNavigationParameters, List<Topping>>(navigationParams);
                 if (result is null)
                 {

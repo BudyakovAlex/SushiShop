@@ -5,11 +5,23 @@ using UIKit;
 
 namespace SushiShop.Ios.Delegates
 {
-    public class ProductCollectionViewDelegateFlowLayout : UICollectionViewDelegateFlowLayout
+    public class FilteredProductsCollectionViewDelegateFlowLayout : UICollectionViewDelegateFlowLayout
     {
         private const float InteritemSpacing = 7f;
         private const float SideInset = 8f;
         private const float CellHeight = 260f;
+
+        private readonly Action<UIScrollView> onScrolled;
+
+        public FilteredProductsCollectionViewDelegateFlowLayout(Action<UIScrollView> onScrolled)
+        {
+            this.onScrolled = onScrolled;
+        }
+
+        public override void Scrolled(UIScrollView scrollView)
+        {
+            onScrolled(scrollView);
+        }
 
         public override nfloat GetMinimumInteritemSpacingForSection(UICollectionView collectionView, UICollectionViewLayout layout, nint section)
         {

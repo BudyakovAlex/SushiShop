@@ -1,4 +1,8 @@
-﻿using BuildApps.Core.Mobile.Common.Extensions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Data.Models.Menu;
 using SushiShop.Core.Data.Models.Stickers;
@@ -7,9 +11,6 @@ using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Menu.Items;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Menu
 {
@@ -72,25 +73,27 @@ namespace SushiShop.Core.ViewModels.Menu
             if (response.IsSuccessful)
             {
                 var allItems = response.Data.Select(product => new ProductItemViewModel(product)).ToArray();
-                var filteredItems = Filters.Select(filter => ProduceItemsByFilter(allItems, filter)).ToArray();
+                var filteredItems = Filters.IsEmpty()
+                    ? new FilteredProductsViewModel[] { new FilteredProductsViewModel(allItems) }
+                    : Filters.Select((_, index) => ProduceItemsByFilter(allItems, index)).ToArray();
+
                 Items.ReplaceWith(filteredItems);
             }
 
             IsLoading = false;
         }
 
-        private FilteredProductsViewModel ProduceItemsByFilter(ProductItemViewModel[] items, string filter)
+        private FilteredProductsViewModel ProduceItemsByFilter(ProductItemViewModel[] items, int index)
         {
-            if (filter == AppStrings.All)
+            if (index == 0)
             {
-                return new FilteredProductsViewModel(items, filter);
+                return new FilteredProductsViewModel(items);
             }
 
-            var index = Filters.IndexOf(filter);
             var parentId = category!.Children!.SubCategories[index - 1].Id;
             var filteredItems = items.Where(item => item.ParentId == parentId).ToArray();
 
-            return new FilteredProductsViewModel(filteredItems, filter);
+            return new FilteredProductsViewModel(filteredItems);
         }
     }
 }

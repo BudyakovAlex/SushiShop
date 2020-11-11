@@ -183,4 +183,7 @@
   <data name="All" xml:space="preserve">
     <value>Все</value>
   </data>
+  <data name="MakeItTastier" xml:space="preserve">
+    <value>Сделать вкуснее</value>
+  </data>
 </root>

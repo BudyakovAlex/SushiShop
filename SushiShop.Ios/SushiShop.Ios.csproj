@@ -211,7 +211,6 @@
         <InterfaceDefinition Include="Views\ViewControllers\AppStartViewController.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\Cities\SelectCityViewController.xib" />
         <InterfaceDefinition Include="Views\Cells\SelectableItemCell.xib" />
-        <InterfaceDefinition Include="Views\ViewControllers\MainViewController.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\Promotions\PromotionsViewController.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\Profile\ProfileViewController.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\Menu\MenuViewController.xib" />
@@ -228,7 +227,6 @@
         <InterfaceDefinition Include="Views\ViewControllers\ProductDetails\ToppingsViewController.xib" />
         <InterfaceDefinition Include="Views\ViewControllers\ProductDetails\ProductDetailsViewController.xib" />
         <InterfaceDefinition Include="Views\Cells\Products\ToppingItemCell.xib" />
-        <InterfaceDefinition Include="Views\ViewControllers\Menu\ProductsViewController.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\ProductItemViewCell.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\FilteredProductsItemViewCell.xib" />
     </ItemGroup>
@@ -255,9 +253,6 @@
         <Compile Include="Sources\SelectableTableSource.cs" />
         <Compile Include="Common\ImageNames.cs" />
         <Compile Include="Views\ViewControllers\MainViewController.cs" />
-        <Compile Include="Views\ViewControllers\MainViewController.designer.cs">
-          <DependentUpon>MainViewController.cs</DependentUpon>
-        </Compile>
         <Compile Include="Views\ViewControllers\Promotions\PromotionsViewController.cs" />
         <Compile Include="Views\ViewControllers\Promotions\PromotionsViewController.designer.cs">
           <DependentUpon>PromotionsViewController.cs</DependentUpon>
@@ -334,15 +329,12 @@
           <DependentUpon>ProductDetailsViewController.cs</DependentUpon>
         </Compile>
         <Compile Include="Views\ViewControllers\Menu\ProductsViewController.cs" />
-        <Compile Include="Views\ViewControllers\Menu\ProductsViewController.designer.cs">
-          <DependentUpon>ProductsViewController.cs</DependentUpon>
-        </Compile>
         <Compile Include="Views\Cells\Products\ToppingItemCell.cs" />
         <Compile Include="Converters\StringToStrikethroughTextConverter.cs" />
         <Compile Include="Views\Cells\Products\ToppingItemCell.designer.cs">
           <DependentUpon>ToppingItemCell.cs</DependentUpon>
         </Compile>
-        <Compile Include="Delegates\ProductCollectionViewDelegateFlowLayout.cs" />
+        <Compile Include="Delegates\FilteredProductsCollectionViewDelegateFlowLayout.cs" />
         <Compile Include="Views\Cells\Menu\ProductItemViewCell.cs" />
         <Compile Include="Views\Cells\Menu\ProductItemViewCell.designer.cs">
           <DependentUpon>ProductItemViewCell.cs</DependentUpon>
@@ -363,6 +355,7 @@
         <Compile Include="Views\Cells\Menu\FilteredProductsItemViewCell.designer.cs">
           <DependentUpon>FilteredProductsItemViewCell.cs</DependentUpon>
         </Compile>
+        <Compile Include="Delegates\ProductsCollectionViewDelegateFlowLayout.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
