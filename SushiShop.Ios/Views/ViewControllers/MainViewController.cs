@@ -73,7 +73,7 @@ namespace SushiShop.Ios.Views.ViewControllers
             _ = InitializeTabsAsync();
         }
 
-        public void ShowTabs()
+        public void ShowTabView()
         {
             if (!isTabViewHidden)
             {
@@ -90,7 +90,7 @@ namespace SushiShop.Ios.Views.ViewControllers
             });
         }
 
-        public void HideTabs()
+        public void HideTabView()
         {
             if (isTabViewHidden)
             {

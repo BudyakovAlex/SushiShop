@@ -7,5 +7,10 @@
             public const string PreferencesCityKey = nameof(PreferencesCityKey);
             public const string DefaultCityName = "Санкт-Петербург";
         }
+
+        public static class Cart
+        {
+            public const string PreferencesCartKey = nameof(PreferencesCartKey);
+        }
     }
 }

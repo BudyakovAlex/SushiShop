@@ -9,7 +9,6 @@ using SushiShop.Ios.Common;
 using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Sources;
-using SushiShop.Ios.Views.Cells.Menu;
 using SushiShop.Ios.Views.Controls;
 using UIKit;
 
@@ -24,12 +23,22 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
         private ScrollableTabView filterTabView;
         private UICollectionView collectionView;
         private UIActivityIndicatorView loadingIndicator;
-        private CollectionViewSource source;
+        private ProductsCollectionViewSource source;
+
+        private bool isAppeared;
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            isAppeared = true;
+        }
 
         public override void ViewWillDisappear(bool animated)
         {
             base.ViewWillDisappear(animated);
-            rootViewController.ShowTabs();
+
+            isAppeared = false;
+            rootViewController.ShowTabView();
         }
 
         protected override void InitStylesAndContent()
@@ -97,8 +106,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
                 BackgroundColor = Colors.Background
             };
 
-            source = new CollectionViewSource(collectionView)
-                .Register<FilteredProductsViewModel>(FilteredProductsItemViewCell.Nib, FilteredProductsItemViewCell.Key);
+            source = new ProductsCollectionViewSource(collectionView, () => isAppeared);
             collectionView.Source = source;
             collectionView.Delegate = new ProductsCollectionViewDelegateFlowLayout(OnDecelerated);
 
@@ -125,7 +133,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             var indexPath = NSIndexPath.FromRowSection(filterTabView.SelectedIndex, 0);
             collectionView.ScrollToItem(indexPath, UICollectionViewScrollPosition.CenteredHorizontally, true);
 
-            rootViewController.ShowTabs();
+            rootViewController.ShowTabView();
         }
 
         private void OnDecelerated()
@@ -134,7 +142,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             if (indexPath != null && filterTabView.SelectedIndex != indexPath.Row)
             {
                 filterTabView.SelectedIndex = indexPath.Row;
-                rootViewController.ShowTabs();
+                rootViewController.ShowTabView();
             }
         }
     }

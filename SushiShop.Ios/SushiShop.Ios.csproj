@@ -356,6 +356,7 @@
           <DependentUpon>FilteredProductsItemViewCell.cs</DependentUpon>
         </Compile>
         <Compile Include="Delegates\ProductsCollectionViewDelegateFlowLayout.cs" />
+        <Compile Include="Sources\ProductsCollectionViewSource.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

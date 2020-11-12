@@ -1,24 +1,35 @@
-﻿using System.Threading.Tasks;
-using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Stickers;
+using SushiShop.Core.Data.Models.Toppings;
+using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Common;
 using SushiShop.Core.ViewModels.ProductDetails;
+using System;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Menu.Items
 {
     public class ProductItemViewModel : BaseViewModel
     {
+        private readonly ICartManager cartManager;
+
         private readonly Product product;
+        private readonly string? city;
 
-        public ProductItemViewModel(Product product)
+        public ProductItemViewModel(
+            ICartManager cartManager,
+            Product product,
+            string? city)
         {
+            this.cartManager = cartManager;
             this.product = product;
+            this.city = city;
 
-            StepperViewModel = new StepperViewModel(product.CountInBasket, _ => { });
+            StepperViewModel = new StepperViewModel(product.CountInBasket, OnCountChangedAsync);
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
 
@@ -38,6 +49,17 @@ namespace SushiShop.Core.ViewModels.Menu.Items
         {
             var parameters = new CardProductNavigationParameters(product.Id, null);
             return NavigationManager.NavigateAsync<ProductDetailsViewModel, CardProductNavigationParameters>(parameters);
+        }
+
+        private async Task OnCountChangedAsync(int count)
+        {
+            var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, count, Array.Empty<Topping>());
+            if (response.Data is null)
+            {
+                return;
+            }
+
+            product!.Uid = response.Data.Uid;
         }
     }
 }

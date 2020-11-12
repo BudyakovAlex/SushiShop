@@ -1,3 +1,4 @@
+using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.Managers.CommonInfo;
 using SushiShop.Core.Managers.Menu;
@@ -5,6 +6,7 @@ using SushiShop.Core.Managers.Products;
 using SushiShop.Core.Managers.Promotions;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http;
+using SushiShop.Core.Services.Http.Cart;
 using SushiShop.Core.Services.Http.Cities;
 using SushiShop.Core.Services.Http.CommonInfo;
 using SushiShop.Core.Services.Http.Menu;
@@ -26,6 +28,7 @@ namespace SushiShop.Core.IoC
             Container.RegisterSingleton<ICommonInfoManager, CommonInfoManager>();
             Container.RegisterSingleton<IPromotionsManager, PromotionsManager>();
             Container.RegisterSingleton<IProductsManager, ProductsManager>();
+            Container.RegisterSingleton<ICartManager, CartManager>();
         }
 
         protected override void RegisterServices()
@@ -36,6 +39,7 @@ namespace SushiShop.Core.IoC
             Container.RegisterSingleton<ICommonInfoService, CommonInfoService>();
             Container.RegisterSingleton<IPromotionsService, PromotionsService>();
             Container.RegisterSingleton<IProductsService, ProductsService>();
+            Container.RegisterSingleton<ICartService, CartService>();
         }
 
         protected override void RegisterDependencies()
