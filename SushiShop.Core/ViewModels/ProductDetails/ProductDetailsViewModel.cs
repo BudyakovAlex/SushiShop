@@ -1,23 +1,25 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Toppings;
+using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Managers.Products;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
 using SushiShop.Core.ViewModels.Menu.Items;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.ProductDetails
 {
     public class ProductDetailsViewModel : BasePageViewModel<CardProductNavigationParameters>
     {
         private readonly IProductsManager productsManager;
+        private readonly ICartManager cartManager;
 
         private Product? product;
         private List<Topping> toppings;
@@ -25,13 +27,14 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         private long id;
         private string? city;
 
-        public ProductDetailsViewModel(IProductsManager productsManager)
+        public ProductDetailsViewModel(IProductsManager productsManager, ICartManager cartManager)
         {
             this.productsManager = productsManager;
+            this.cartManager = cartManager;
 
             toppings = new List<Topping>();
 
-            StepperViewModel = new StepperViewModel(0, OnCountChanged);
+            StepperViewModel = new StepperViewModel(0, OnCountChangedAsync);
             RelatedItems = new MvxObservableCollection<ProductItemViewModel>();
             AddToCartCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddToCartAsync);
         }
@@ -80,7 +83,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             var relatedProducts = getRelatedProductTask.Result.Data.ToList();
             toppings = product?.Params?.AvailableToppings?.ToList() ?? new List<Topping>();
 
-            var viewModels = relatedProducts.Select(product => new ProductItemViewModel(product)).ToList();
+            var viewModels = relatedProducts.Select(product => new ProductItemViewModel(cartManager, product, city)).ToList();
             RelatedItems.AddRange(viewModels);
             await RaiseAllPropertiesChanged();
         }
@@ -110,15 +113,17 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             }
         }
 
-        private void OnCountChanged(int count)
+        private async Task OnCountChangedAsync(int count)
         {
-            if (count > 0)
+            IsHiddenStepper = count == 0;
+
+            var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, count, toppings.ToArray());
+            if (response.Data is null)
             {
                 return;
             }
 
-            IsHiddenStepper = true;
-            toppings?.ForEach(item => item.CountInBasket = 0);
+            product!.Uid = response.Data.Uid;
         }
     }
 }

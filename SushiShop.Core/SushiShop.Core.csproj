@@ -67,6 +67,8 @@
     <Folder Include="Managers\Products\" />
     <Folder Include="Data\Dtos\Toppings\" />
     <Folder Include="Data\Models\Toppings\" />
+    <Folder Include="Managers\Cart\" />
+    <Folder Include="Services\Http\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">
