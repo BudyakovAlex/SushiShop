@@ -26,6 +26,16 @@ namespace SushiShop.Ios.Views.Cells.Menu
         {
         }
 
+        public Func<bool> ListenScrollChanges { get; set; }
+
+        private bool ShouldHandleScrolling => ListenScrollChanges?.Invoke() ?? true;
+
+        public override void PrepareForReuse()
+        {
+            base.PrepareForReuse();
+            scrollY = (int) ProductsCollectionView.ContentOffset.Y;
+        }
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -57,6 +67,11 @@ namespace SushiShop.Ios.Views.Cells.Menu
 
         private void OnScrolled(UIScrollView scrollView)
         {
+            if (!ShouldHandleScrolling)
+            {
+                return;
+            }
+
             var newScrollY = (int) scrollView.ContentOffset.Y;
             if (Math.Abs(newScrollY - scrollY) < (scrollView.Bounds.Height * 0.1f))
             {
@@ -66,11 +81,11 @@ namespace SushiShop.Ios.Views.Cells.Menu
             if (newScrollY > 0
                 && (newScrollY > scrollY || (newScrollY + scrollView.Bounds.Height) > scrollView.ContentSize.Height))
             {
-                rootViewController.HideTabs();
+                rootViewController.HideTabView();
             }
             else
             {
-                rootViewController.ShowTabs();
+                rootViewController.ShowTabView();
             }
 
             scrollY = newScrollY;
