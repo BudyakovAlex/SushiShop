@@ -14,5 +14,7 @@ namespace SushiShop.Core.Managers.Cart
             Guid? uid,
             int count,
             Topping[] toppings);
+
+        Task<Response<Data.Models.Cart.Cart?>> GetProductInCartAsync(string? city);
     }
 }

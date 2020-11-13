@@ -1,7 +1,6 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.ViewModels.Common;
-using System;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.CardProduct.Items

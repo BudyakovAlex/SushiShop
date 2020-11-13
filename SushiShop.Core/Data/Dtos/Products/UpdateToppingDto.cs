@@ -6,6 +6,7 @@ namespace SushiShop.Core.Data.Dtos.Products
     {
         [JsonProperty("id")]
         public int Id { get; set; }
+
         [JsonProperty("count")]
         public int Count { get; set; }
     }

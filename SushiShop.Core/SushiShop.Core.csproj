@@ -35,10 +35,7 @@
     <Folder Include="Services\Http\" />
     <Folder Include="Data\Http\" />
     <Folder Include="Services\Http\Menu\" />
-    <Folder Include="Data\Models\" />
-    <Folder Include="Data\Dtos\" />
     <Folder Include="Data\Dtos\Menu\" />
-    <Folder Include="Mappers\" />
     <Folder Include="Data\Models\Menu\" />
     <Folder Include="Data\Dtos\Stickers\" />
     <Folder Include="Data\Dtos\Cities\" />
@@ -62,7 +59,6 @@
     <Folder Include="Managers\Promotions\" />
     <Folder Include="Providers\" />
     <Folder Include="Data\Models\Products\" />
-    <Folder Include="Data\Dtos\Products\" />
     <Folder Include="Services\Http\Products\" />
     <Folder Include="Managers\Products\" />
     <Folder Include="Data\Dtos\Toppings\" />

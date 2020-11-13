@@ -47,5 +47,24 @@ namespace SushiShop.Core.Managers.Cart
 
             return new Response<Product?>(isSuccessful: false, null);
         }
+
+
+        public async Task<Response<Data.Models.Cart.Cart?>> GetProductInCartAsync(string? city)
+        {
+            var getProductDto = new GetProductDto()
+            {
+                BaseketId = userSession.GetCartId(),
+                City = city
+            };
+
+            var response = await cartService.GetProductInCartAsync(getProductDto, CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData?.Map();
+                return new Response<Data.Models.Cart.Cart?>(isSuccessful: true, data);
+            }
+
+            return new Response<Data.Models.Cart.Cart?>(isSuccessful: false, null);
+        }
     }
 }
