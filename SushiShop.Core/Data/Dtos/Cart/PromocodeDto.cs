@@ -5,10 +5,10 @@ using Newtonsoft.Json;
 
 namespace SushiShop.Core.Data.Dtos.Cart
 {
-    public class PromocodeDto
+    public class PromoCodeDto
     {
         [JsonProperty("promocode")]
-        public string Promocode { get; set; }
+        public string PromoCode { get; set; }
 
         [JsonProperty("discountFixed")]
         public long DiscountFixed { get; set; }

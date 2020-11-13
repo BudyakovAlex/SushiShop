@@ -8,6 +8,8 @@ using SushiShop.Core.Services.Http.Cart;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using SushiShop.Core.Data.Dtos.Cart;
+using SushiShop.Core.Data.Models.Cart;
 
 namespace SushiShop.Core.Managers.Cart
 {
@@ -65,6 +67,26 @@ namespace SushiShop.Core.Managers.Cart
             }
 
             return new Response<Data.Models.Cart.Cart?>(isSuccessful: false, null);
+        }
+
+        public async Task<Response<PromoCode>> GetCartPromoCodeAsync(string? city, string promocode)
+        {
+            var promoCodeDto = new GetPromoCodeDto()
+            {
+                BaseketId = userSession.GetCartId(),
+                City = city,
+                Promocode = promocode
+            };
+
+            var response = await cartService.GetCartPromoCodeAsync(promoCodeDto, CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData?.Map();
+                if (data != null) 
+                    return new Response<PromoCode>(isSuccessful: true, data);
+            }
+
+            return new Response<PromoCode>(isSuccessful: false, null!);
         }
     }
 }

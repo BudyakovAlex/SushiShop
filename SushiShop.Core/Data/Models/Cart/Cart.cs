@@ -7,7 +7,7 @@ namespace SushiShop.Core.Data.Models.Cart
 {
     public class Cart
     {
-        public Cart(int basketId, string? city, string? priceGroup, long totalCount, long totalSum, CurrencyDto? currency, CartProductDto? products, PromocodeDto? promoCode, Guid productUid)
+        public Cart(int basketId, string? city, string? priceGroup, long totalCount, long totalSum, CurrencyDto? currency, CartProductDto? products, PromoCodeDto? promoCode, Guid productUid)
         {
             BasketId = basketId;
             City = city;
@@ -34,7 +34,7 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public CartProductDto? Products { get; }
 
-        public PromocodeDto? PromoCode { get; }
+        public PromoCodeDto? PromoCode { get; }
 
         public Guid ProductUid { get; }
     }

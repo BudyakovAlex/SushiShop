@@ -16,9 +16,9 @@ namespace SushiShop.Core.Services.Http.Cart
             this.httpService = httpService;
         }
 
-        public Task<HttpResponse<ResponseDto<CartDto>>> UpdateProductInCartAsync(UpdateProductDto updateProductDto, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ProductDto>>> UpdateProductInCartAsync(UpdateProductDto updateProductDto, CancellationToken cancellationToken)
         {
-            return httpService.ExecuteAsync<ResponseDto<CartDto>>(
+            return httpService.ExecuteAsync<ResponseDto<ProductDto>>(
                Method.Post,
                Constants.Rest.CartUpdateResource,
                updateProductDto,
@@ -31,6 +31,16 @@ namespace SushiShop.Core.Services.Http.Cart
             return httpService.ExecuteAsync<ResponseDto<CartDto>>(
                 Method.Post,
                 Constants.Rest.CartGetResource,
+                getProductDto,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<PromoCodeDto>>> GetCartPromoCodeAsync(GetProductDto getProductDto,
+                CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<PromoCodeDto>>(
+                Method.Post,
+                Constants.Rest.CartPromocodeResource,
                 getProductDto,
                 cancellationToken);
         }

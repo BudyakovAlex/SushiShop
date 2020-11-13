@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Common;
 using SushiShop.Core.Data.Dtos.Products;
@@ -31,7 +29,7 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public CartProductDto? Products { get; set; }
 
         [JsonProperty("promocode")]
-        public PromocodeDto? PromoCode { get; set; }
+        public PromoCodeDto? PromoCode { get; set; }
 
         [JsonProperty("productUid")]
         public Guid ProductUid { get; set; }

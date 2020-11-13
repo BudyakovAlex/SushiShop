@@ -3,6 +3,7 @@ using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Toppings;
 using System;
 using System.Threading.Tasks;
+using SushiShop.Core.Data.Models.Cart;
 
 namespace SushiShop.Core.Managers.Cart
 {
@@ -16,5 +17,7 @@ namespace SushiShop.Core.Managers.Cart
             Topping[] toppings);
 
         Task<Response<Data.Models.Cart.Cart?>> GetProductInCartAsync(string? city);
+
+        Task<Response<PromoCode>> GetCartPromoCodeAsync(string? city, string promocode);
     }
 }
