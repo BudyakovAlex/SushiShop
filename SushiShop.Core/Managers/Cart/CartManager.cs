@@ -24,7 +24,8 @@ namespace SushiShop.Core.Managers.Cart
             this.cartService = cartService;
         }
 
-        public async Task<Response<Product?>> UpdateProductInCartAsync(string? city,
+        public async Task<Response<Product?>> UpdateProductInCartAsync(
+            string? city,
             int id,
             Guid? uid,
             int count,
@@ -51,7 +52,9 @@ namespace SushiShop.Core.Managers.Cart
         }
 
 
-        public async Task<Response<Data.Models.Cart.Cart?>> GetProductInCartAsync(string? city)
+        public async Task<Response<Data.Models.Cart.Cart?>> GetProductInCartAsync(
+            int id, 
+            string? city)
         {
             var getProductDto = new GetProductDto()
             {
@@ -69,7 +72,10 @@ namespace SushiShop.Core.Managers.Cart
             return new Response<Data.Models.Cart.Cart?>(isSuccessful: false, null);
         }
 
-        public async Task<Response<PromoCode>> GetCartPromoCodeAsync(string? city, string promocode)
+        public async Task<Response<PromoCode>> GetCartPromoCodeAsync(
+            int id, 
+            string? city, 
+            string promocode)
         {
             var promoCodeDto = new GetPromoCodeDto()
             {
@@ -87,6 +93,27 @@ namespace SushiShop.Core.Managers.Cart
             }
 
             return new Response<PromoCode>(isSuccessful: false, null!);
+        }
+
+        public async Task<Response<Packaging>> GetCartPackagingAsync(
+            int id,
+            string? city)
+        {
+            var promoCodeDto = new GetPromoCodeDto()
+            {
+                BaseketId = userSession.GetCartId(),
+                City = city
+            };
+
+            var response = await cartService.GetCartPackagingAsync(promoCodeDto, CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData?.Map();
+                if (data != null)
+                    return new Response<Packaging>(isSuccessful: true, data);
+            }
+
+            return new Response<Packaging>(isSuccessful: false, null!);
         }
     }
 }

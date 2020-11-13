@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Common;
 
-namespace SushiShop.Core.Data.Dtos.Products
+namespace SushiShop.Core.Data.Dtos.Cart
 {
-    public class ProductDto
+    public class PackagingDto
     {
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -18,20 +19,16 @@ namespace SushiShop.Core.Data.Dtos.Products
         public long Parent { get; set; }
 
         [JsonProperty("pub_date")]
-        public long PublishDate { get; set; }
+        public DateTime PublishDate { get; set; }
 
         [JsonProperty("unpub_date")]
-        public long UnpublishDate { get; set; }
+        public DateTime UnpublishDate { get; set; }
 
         [JsonProperty("introtext")]
         public string? IntroText { get; set; }
 
         [JsonProperty("createdon")]
-        public long CreationDate { get; set; }
-
-        [JsonProperty("params")]
-        public ProductParametersDto? Params { get; set; }
-        public string? PriceGroup { get; set; }
+        public DateTime CreationDate  { get; set; }
 
         [JsonProperty("countInBasket")]
         public int CountInBasket { get; set; }

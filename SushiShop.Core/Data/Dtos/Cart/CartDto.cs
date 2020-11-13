@@ -23,13 +23,13 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public long TotalSum { get; set; }
 
         [JsonProperty("discount")]
-        public CurrencyDto? Currency { get; set; }
+        public CurrencyDto?[] Currency { get; set; }
 
         [JsonProperty("products")]
-        public CartProductDto? Products { get; set; }
+        public CartProductDto?[] Products { get; set; }
 
         [JsonProperty("promocode")]
-        public PromoCodeDto? PromoCode { get; set; }
+        public PromoCodeDto?[] PromoCode { get; set; }
 
         [JsonProperty("productUid")]
         public Guid ProductUid { get; set; }

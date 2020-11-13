@@ -35,13 +35,23 @@ namespace SushiShop.Core.Services.Http.Cart
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<PromoCodeDto>>> GetCartPromoCodeAsync(GetProductDto getProductDto,
+        public Task<HttpResponse<ResponseDto<PromoCodeDto>>> GetCartPromoCodeAsync(GetPromoCodeDto getPromoCodeDto,
                 CancellationToken cancellationToken)
         {
             return httpService.ExecuteAsync<ResponseDto<PromoCodeDto>>(
                 Method.Post,
                 Constants.Rest.CartPromocodeResource,
-                getProductDto,
+                getPromoCodeDto,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<PackagingDto>>> GetCartPackagingAsync(string city,
+            CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<PackagingDto>>(
+                Method.Post,
+                Constants.Rest.CartPackagingResource,
+                city,
                 cancellationToken);
         }
     }
