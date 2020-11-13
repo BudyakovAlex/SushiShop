@@ -99,13 +99,7 @@ namespace SushiShop.Core.Managers.Cart
             int id,
             string? city)
         {
-            var promoCodeDto = new GetPromoCodeDto()
-            {
-                BaseketId = userSession.GetCartId(),
-                City = city
-            };
-
-            var response = await cartService.GetCartPackagingAsync(promoCodeDto, CancellationToken.None);
+            var response = await cartService.GetCartPackagingAsync(city, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
