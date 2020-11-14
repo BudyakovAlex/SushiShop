@@ -16,17 +16,17 @@ namespace SushiShop.Core.Managers.Cart
             int count,
             Topping[] toppings);
 
-        Task<Response<Data.Models.Cart.Cart?>> GetProductInCartAsync(
+        Task<Response<Data.Models.Cart.Cart?>> GetCartAsync(
             int id, 
-            string? city);
+            string city);
 
         Task<Response<PromoCode>> GetCartPromoCodeAsync(
             int id, 
-            string? city, 
+            string city, 
             string promocode);
 
         Task<Response<Packaging>> GetCartPackagingAsync(
             int id,
-            string? city);
+            string city);
     }
 }

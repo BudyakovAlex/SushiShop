@@ -8,7 +8,6 @@ using SushiShop.Core.Services.Http.Cart;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using SushiShop.Core.Data.Dtos.Cart;
 using SushiShop.Core.Data.Models.Cart;
 
 namespace SushiShop.Core.Managers.Cart
@@ -52,17 +51,11 @@ namespace SushiShop.Core.Managers.Cart
         }
 
 
-        public async Task<Response<Data.Models.Cart.Cart?>> GetProductInCartAsync(
+        public async Task<Response<Data.Models.Cart.Cart?>> GetCartAsync(
             int id, 
-            string? city)
+            string city)
         {
-            var getProductDto = new GetProductDto()
-            {
-                BaseketId = userSession.GetCartId(),
-                City = city
-            };
-
-            var response = await cartService.GetProductInCartAsync(getProductDto, CancellationToken.None);
+            var response = await cartService.GetCartAsync(city, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
@@ -74,17 +67,10 @@ namespace SushiShop.Core.Managers.Cart
 
         public async Task<Response<PromoCode>> GetCartPromoCodeAsync(
             int id, 
-            string? city, 
+            string city, 
             string promocode)
         {
-            var promoCodeDto = new GetPromoCodeDto()
-            {
-                BaseketId = userSession.GetCartId(),
-                City = city,
-                Promocode = promocode
-            };
-
-            var response = await cartService.GetCartPromoCodeAsync(promoCodeDto, CancellationToken.None);
+            var response = await cartService.GetCartPromoCodeAsync(city, promocode, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
@@ -97,7 +83,7 @@ namespace SushiShop.Core.Managers.Cart
 
         public async Task<Response<Packaging>> GetCartPackagingAsync(
             int id,
-            string? city)
+            string city)
         {
             var response = await cartService.GetCartPackagingAsync(city, CancellationToken.None);
             if (response.IsSuccessful)

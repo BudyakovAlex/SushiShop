@@ -47,7 +47,7 @@ namespace SushiShop.Core.ViewModels.Cart
         {
             await base.InitializeAsync();
 
-            var getBasket = cartManager.GetProductInCartAsync(id, city);
+            var getBasket = cartManager.GetCartAsync(id, city);
 
             await Task.WhenAll(getBasket);
 
