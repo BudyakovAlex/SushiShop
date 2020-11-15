@@ -59,7 +59,7 @@ namespace SushiShop.Core.ViewModels.Cart
             //RelatedItems.AddRange(viewModels);
             await RaiseAllPropertiesChanged();
         }
-        private Task AddSauceAsync()
+        private async Task AddSauceAsync()
         {
             //var navigationParams = new ToppingNavigationParameters(toppings, AppStrings.MakeItTastier);
             //var result = await NavigationManager.NavigateAsync<ToppingsViewModel, ToppingNavigationParameters, List<Topping>>(navigationParams);

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Common;
+using System;
 
 namespace SushiShop.Core.Data.Dtos.Products
 {
@@ -7,6 +8,9 @@ namespace SushiShop.Core.Data.Dtos.Products
     {
         [JsonProperty("id")]
         public int Id { get; set; }
+
+        [JsonProperty("uid")]
+        public Guid? Uid { get; set; }
 
         [JsonProperty("pagetitle")]
         public string? PageTitle { get; set; }

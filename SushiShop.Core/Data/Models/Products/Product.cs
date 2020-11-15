@@ -8,7 +8,7 @@ namespace SushiShop.Core.Data.Models.Products
     {
         public Product(
             int id,
-            Guid uid,
+            Guid? uid,
             string pageTitle,
             string? alias,
             long parent,
@@ -45,7 +45,7 @@ namespace SushiShop.Core.Data.Models.Products
         }
 
         public int Id { get; }
-        public Guid Uid { get; set; }
+        public Guid? Uid { get; set; }
         public string PageTitle { get; }
         public string? Alias { get; }
         public long Parent { get; }

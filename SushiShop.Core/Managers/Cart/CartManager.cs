@@ -50,7 +50,6 @@ namespace SushiShop.Core.Managers.Cart
             return new Response<Product?>(isSuccessful: false, null);
         }
 
-
         public async Task<Response<Data.Models.Cart.Cart?>> GetCartAsync(
             int id, 
             string city)
