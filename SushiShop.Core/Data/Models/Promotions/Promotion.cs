@@ -1,4 +1,5 @@
 ﻿using System;
+using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Data.Models.Menu;
 
 namespace SushiShop.Core.Data.Models.Promotions
@@ -17,8 +18,8 @@ namespace SushiShop.Core.Data.Models.Promotions
             DateTimeOffset createdOn,
             string url,
             string? showOnHome,
-            ImageInfo squareImageInfo,
-            ImageInfo rectangularImageInfo,
+            ImageInfoUri squareImageInfo,
+            ImageInfoUri rectangularImageInfo,
             string[] cities,
             object? productId)
         {
@@ -50,8 +51,8 @@ namespace SushiShop.Core.Data.Models.Promotions
         public DateTimeOffset CreatedOn { get; }
         public string Url { get; }
         public string? ShowOnHome { get; }
-        public ImageInfo SquareImageInfo { get; }
-        public ImageInfo RectangularImageInfo { get; }
+        public ImageInfoUri SquareImageInfo { get; }
+        public ImageInfoUri RectangularImageInfo { get; }
         public string[] Cities { get; }
         public object? ProductId { get; }
     }

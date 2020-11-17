@@ -62,7 +62,7 @@ namespace SushiShop.Core.ViewModels.Cart
             await Task.WhenAll(getBasket, packagingCart);
 
             cart = getBasket.Result.Data;
-            Products = cart.Products.Select(product => new CartProductItemViewModel(cartManager, , city)).ToList();
+            //Products = cart.Products.Select(product => new CartProductItemViewModel(cartManager, , city)).ToList();
 
             //Packagings = packagingCart.Result.Data.ToList();
             //var packViewModels = packagingList.Select(packaging => new ProductItemViewModel(cartManager, packaging, city)).ToList();

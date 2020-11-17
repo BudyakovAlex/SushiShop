@@ -8,11 +8,20 @@ namespace SushiShop.Core.Mappers
         public static Packaging Map(this PackagingDto packagingDto)
         {
             return new Packaging(
-                packagingDto.Id, packagingDto.PageTitle, packagingDto.Alias,
-                packagingDto.Parent, packagingDto.PublishDate, packagingDto.UnpublishDate,
-                packagingDto.IntroText, packagingDto.CreationDate, packagingDto.CountInBasket,
-                packagingDto.Price, packagingDto.OldPrice, packagingDto.Currency,
-                packagingDto.MainImageInfo, packagingDto.OptionalImageInfo);
+                packagingDto.Id,
+                packagingDto.PageTitle,
+                packagingDto.Alias,
+                packagingDto.Parent,
+                packagingDto.PublishDate,
+                packagingDto.UnpublishDate,
+                packagingDto.IntroText,
+                packagingDto.CreationDate,
+                packagingDto.CountInBasket,
+                packagingDto.Price,
+                packagingDto.OldPrice,
+                packagingDto.Currency?.Map(),
+                packagingDto.MainImageInfo?.Map(),
+                packagingDto.OptionalImageInfo?.Map());
         }
     }
 }

@@ -7,7 +7,7 @@ namespace SushiShop.Core.Data.Dtos.Cart
     public class CartDto
     {
         [JsonProperty("basketId")] 
-        public int BasketId { get; set; }
+        public Guid BasketId { get; set; }
 
         [JsonProperty("city")]
         public string? City { get; set; }
@@ -31,7 +31,7 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public CartProductDto[]? Products { get; set; }
 
         [JsonProperty("promocode")]
-        public PromocodeDto[]? Promoсode { get; set; }
+        public PromocodeDto[]? Promoсodes { get; set; }
 
         [JsonProperty("productUid")]
         public Guid? ProductUid { get; set; }
