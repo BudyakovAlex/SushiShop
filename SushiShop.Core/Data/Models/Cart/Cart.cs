@@ -2,6 +2,7 @@
 using SushiShop.Core.Data.Dtos.Cart;
 using SushiShop.Core.Data.Dtos.Common;
 using SushiShop.Core.Data.Dtos.Products;
+using SushiShop.Core.Data.Models.Common;
 
 namespace SushiShop.Core.Data.Models.Cart
 {
@@ -12,9 +13,9 @@ namespace SushiShop.Core.Data.Models.Cart
             string? priceGroup, 
             long totalCount, 
             long totalSum, 
-            CurrencyDto?[] currency, 
-            CartProductDto?[] products, 
-            PromoCodeDto?[] promoCode, 
+            Currency?[] currency, 
+            CartProduct?[] products, 
+            PromoCode?[] promoCode, 
             Guid productUid)
         {
             BasketId = basketId;
@@ -38,11 +39,11 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public long TotalSum { get; }
 
-        public CurrencyDto?[] Currency { get; }
+        public Currency?[] Currency { get; }
 
-        public CartProductDto?[] Products { get; }
+        public CartProduct?[] Products { get; }
 
-        public PromoCodeDto?[] PromoCode { get; }
+        public PromoCode?[] PromoCode { get; }
 
         public Guid ProductUid { get; }
     }

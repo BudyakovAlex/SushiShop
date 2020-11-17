@@ -1,26 +1,31 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Dtos.Products;
 using SushiShop.Core.Managers.Cart;
+using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
+using SushiShop.Core.ViewModels.Menu.Items;
 
 namespace SushiShop.Core.ViewModels.Cart
 {
     public class CartViewModel : BasePageViewModel
     {
         private readonly ICartManager cartManager;
+        private readonly IUserSession userSession;
 
         private Data.Models.Cart.Cart? cart;
 
         private int id;
         private string? city;
 
-        public CartViewModel(ICartManager cartManager)
+        public CartViewModel(ICartManager cartManager, IUserSession userSession)
         {
             this.cartManager = cartManager;
+            this.userSession = userSession;
 
             CheckoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, CheckoutAsync);
             AddSauceCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddSauceAsync);
@@ -46,14 +51,17 @@ namespace SushiShop.Core.ViewModels.Cart
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
+            city = userSession.GetCity()?.Name;
 
             var getBasket = cartManager.GetCartAsync(id, city);
+            var packagingCart = cartManager.GetCartPackagingAsync(id, city);
 
-            await Task.WhenAll(getBasket);
+            await Task.WhenAll(getBasket, packagingCart);
 
             cart = getBasket.Result.Data;
-            //var relatedProducts = cart.Products.
-            //toppings = product?.Params?.AvailableToppings?.ToList() ?? new List<Topping>();
+
+            var packagingList = packagingCart.Result.Data.ToList();
+            //var packViewModels = packagingList.Select(packaging => new ProductItemViewModel(cartManager, packaging, city)).ToList();
 
             //var viewModels = relatedProducts.Select(product => new ProductItemViewModel(cartManager, product, city)).ToList();
             //RelatedItems.AddRange(viewModels);

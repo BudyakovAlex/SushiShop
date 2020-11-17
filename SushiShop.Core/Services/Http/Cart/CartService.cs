@@ -25,12 +25,11 @@ namespace SushiShop.Core.Services.Http.Cart
                cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<CartDto>>> GetCartAsync(string city,
-            CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<CartDto>>> GetCartAsync(string city, CancellationToken cancellationToken)
         {
             var body = new
             {
-                City = city
+                city
             };
 
             return httpService.ExecuteAsync<ResponseDto<CartDto>>(
@@ -40,14 +39,12 @@ namespace SushiShop.Core.Services.Http.Cart
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<PromoCodeDto>>> GetCartPromoCodeAsync(string city, 
-                string promocode,
-                CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<PromoCodeDto>>> GetCartPromoCodeAsync(string city, string promocode, CancellationToken cancellationToken)
         {
             var body = new
             {
-                City = city,
-                Promocode = promocode
+                city,
+                promocode
             };
 
             return httpService.ExecuteAsync<ResponseDto<PromoCodeDto>>(
@@ -57,15 +54,14 @@ namespace SushiShop.Core.Services.Http.Cart
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<PackagingDto>>> GetCartPackagingAsync(string city,
-            CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<PackagingDto[]>>> GetCartPackagingAsync(string city, CancellationToken cancellationToken)
         {
             var body = new
             {
-                City = city
+                city
             };
 
-            return httpService.ExecuteAsync<ResponseDto<PackagingDto>>(
+            return httpService.ExecuteAsync<ResponseDto<PackagingDto[]>>(
                 Method.Post,
                 Constants.Rest.CartPackagingResource,
                 body,
