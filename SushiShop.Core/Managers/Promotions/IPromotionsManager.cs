@@ -7,5 +7,7 @@ namespace SushiShop.Core.Managers.Promotions
     public interface IPromotionsManager
     {
         Task<Response<Promotion[]>> GetPromotionsAsync(string? city);
+
+        Task<Response<Promotion?>> GetPromotionAsync(string? city, int id);
     }
 }

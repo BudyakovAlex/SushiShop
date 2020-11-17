@@ -184,5 +184,11 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("MakeItTastier", resourceCulture);
             }
         }
+        
+        public static string FromToDateFormat {
+            get {
+                return ResourceManager.GetString("FromToDateFormat", resourceCulture);
+            }
+        }
     }
 }

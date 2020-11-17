@@ -69,6 +69,7 @@
     <Folder Include="Data\Models\Toppings\" />
     <Folder Include="Managers\Cart\" />
     <Folder Include="Services\Http\Cart\" />
+    <Folder Include="ViewModels\Promotions\Items\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">

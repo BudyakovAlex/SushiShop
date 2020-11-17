@@ -8,7 +8,6 @@ using MvvmCross.Platforms.Ios.Binding;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Common.Styles;
-using SushiShop.Ios.Extensions;
 using UIKit;
 
 namespace SushiShop.Ios.Views.Cells.Menu

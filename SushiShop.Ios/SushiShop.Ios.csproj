@@ -205,6 +205,7 @@
         <Folder Include="Assets.xcassets\ic_plus.imageset\" />
         <Folder Include="Views\Controls\Stepper\" />
         <Folder Include="Assets.xcassets\ic_default.imageset\" />
+        <Folder Include="Views\Cells\Promotions\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -229,6 +230,8 @@
         <InterfaceDefinition Include="Views\Cells\Products\ToppingItemCell.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\ProductItemViewCell.xib" />
         <InterfaceDefinition Include="Views\Cells\Menu\FilteredProductsItemViewCell.xib" />
+        <InterfaceDefinition Include="Views\Cells\Promotions\PromotionItemViewCell.xib" />
+        <InterfaceDefinition Include="Views\ViewControllers\Promotions\PromotionDetailsViewController.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Entitlements.plist" />
@@ -357,6 +360,15 @@
         </Compile>
         <Compile Include="Delegates\ProductsCollectionViewDelegateFlowLayout.cs" />
         <Compile Include="Sources\ProductsCollectionViewSource.cs" />
+        <Compile Include="Views\Cells\Promotions\PromotionItemViewCell.cs" />
+        <Compile Include="Views\Cells\Promotions\PromotionItemViewCell.designer.cs">
+          <DependentUpon>PromotionItemViewCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Delegates\PromotionsCollectionViewDelegateFlowLayout.cs" />
+        <Compile Include="Views\ViewControllers\Promotions\PromotionDetailsViewController.cs" />
+        <Compile Include="Views\ViewControllers\Promotions\PromotionDetailsViewController.designer.cs">
+          <DependentUpon>PromotionDetailsViewController.cs</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

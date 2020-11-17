@@ -28,5 +28,17 @@ namespace SushiShop.Core.Managers.Promotions
 
             return new Response<Promotion[]>(isSuccessful: false, new Promotion[0]);
         }
+
+        public async Task<Response<Promotion?>> GetPromotionAsync(string? city, int id)
+        {
+            var response = await promotionsService.GetPromotionAsync(city, id, CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData!.Map();
+                return new Response<Promotion?>(isSuccessful: true, data);
+            }
+
+            return new Response<Promotion?>(isSuccessful: false, default);
+        }
     }
 }
