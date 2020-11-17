@@ -1,7 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Common;
-using SushiShop.Core.Data.Dtos.Products;
 
 namespace SushiShop.Core.Data.Dtos.Cart
 {
@@ -11,7 +10,7 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public int BasketId { get; set; }
 
         [JsonProperty("city")]
-        public string City { get; set; }
+        public string? City { get; set; }
 
         [JsonProperty("priceGroup")]
         public string? PriceGroup { get; set; }
@@ -23,15 +22,18 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public long TotalSum { get; set; }
 
         [JsonProperty("discount")]
-        public CurrencyDto?[] Currency { get; set; }
+        public long Discount { get; set; }        
+
+        [JsonProperty("currency")]
+        public CurrencyDto[]? Currency { get; set; }
 
         [JsonProperty("products")]
-        public CartProductDto?[] Products { get; set; }
+        public CartProductDto[]? Products { get; set; }
 
         [JsonProperty("promocode")]
-        public PromoCodeDto?[] PromoCode { get; set; }
+        public PromocodeDto[]? Promoсode { get; set; }
 
         [JsonProperty("productUid")]
-        public Guid ProductUid { get; set; }
+        public Guid? ProductUid { get; set; }
     }
 }

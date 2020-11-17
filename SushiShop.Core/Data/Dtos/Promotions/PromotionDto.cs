@@ -15,8 +15,8 @@ namespace SushiShop.Core.Data.Dtos.Promotions
         public int CreatedOn { get; set; }
         public string? Url { get; set; }
         public string? SaleShowOnHome { get; set; }
-        public ImageInfoDto? SaleSquareImage { get; set; }
-        public ImageInfoDto? SaleRectangularImage { get; set; }
+        public ImageInfoUriDto? SaleSquareImage { get; set; }
+        public ImageInfoUriDto? SaleRectangularImage { get; set; }
         public string[]? CityMulti { get; set; }
         public object? SaleProductId { get; set; }
     }

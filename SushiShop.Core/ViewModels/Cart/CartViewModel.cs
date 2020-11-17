@@ -4,10 +4,10 @@ using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
-using SushiShop.Core.Data.Dtos.Products;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
+using SushiShop.Core.ViewModels.Cart.Items;
 using SushiShop.Core.ViewModels.Menu.Items;
 
 namespace SushiShop.Core.ViewModels.Cart
@@ -35,12 +35,15 @@ namespace SushiShop.Core.ViewModels.Cart
         //public IMvxCommand AddBagCommand { get; }
         public IMvxCommand CheckoutCommand { get; }
 
+        public MvxObservableCollection<ProductItemViewModel> Products { get; }
+        public MvxObservableCollection<ProductItemViewModel> Packagings { get; }
+
         public string Title => AppStrings.Basket;
-        public MvxObservableCollection<CartProductDto> Products { get; }
         public string ProductUrl => string.Empty;
         public string ProductName => string.Empty;
         public int CountProductsInCart => cart.Products.Length;
         public string TotalPrice => cart.TotalSum.ToString();
+
         
         //public override void Prepare(CardProductNavigationParameters parameter)
         //{
@@ -59,8 +62,9 @@ namespace SushiShop.Core.ViewModels.Cart
             await Task.WhenAll(getBasket, packagingCart);
 
             cart = getBasket.Result.Data;
+            Products = cart.Products.Select(product => new CartProductItemViewModel(cartManager, , city)).ToList();
 
-            var packagingList = packagingCart.Result.Data.ToList();
+            //Packagings = packagingCart.Result.Data.ToList();
             //var packViewModels = packagingList.Select(packaging => new ProductItemViewModel(cartManager, packaging, city)).ToList();
 
             //var viewModels = relatedProducts.Select(product => new ProductItemViewModel(cartManager, product, city)).ToList();

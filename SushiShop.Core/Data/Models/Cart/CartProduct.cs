@@ -1,22 +1,24 @@
-﻿using SushiShop.Core.Data.Dtos.Products;
+﻿using SushiShop.Core.Data.Models.Products;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SushiShop.Core.Data.Models.Cart
 {
     public class CartProduct
     {
-        public int Id { get; set; }
+        public Guid Id { get; }
 
-        public int Count { get; set; }
+        public int Count { get; }
 
-        public int Price { get; set; }
+        public int Price { get; }
 
-        public string? Pagetitle { get; set; }
+        public int? Amount { get; }
 
-        public Guid? Uid { get; set; }
+        public string? Pagetitle { get; }
 
-        public GetToppingDto[] Toppings { get; set; } = Array.Empty<GetToppingDto>();
+        public Guid? Uid { get; }
+
+        public bool? ReadonlyFlag { get; }
+
+        public GetTopping[] Toppings { get; } = Array.Empty<GetTopping>();
     }
 }

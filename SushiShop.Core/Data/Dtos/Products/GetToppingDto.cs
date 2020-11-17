@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace SushiShop.Core.Data.Dtos.Products
 {
     public class GetToppingDto
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [JsonProperty("count")]
         public int Count { get; set; }
@@ -14,6 +15,6 @@ namespace SushiShop.Core.Data.Dtos.Products
         public int Price { get; set; }
 
         [JsonProperty("pagetitle")]
-        public int PageTitle { get; set; }
+        public string? PageTitle { get; set; }
     }
 }

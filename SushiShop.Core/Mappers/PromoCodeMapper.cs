@@ -5,9 +5,9 @@ namespace SushiShop.Core.Mappers
 {
     public static class PromoCodeMapper
     {
-        public static PromoCode Map(this PromoCodeDto promoCodeDto)
+        public static Promocode Map(this PromocodeDto promoCodeDto)
         {
-            return new PromoCode(promoCodeDto.PromoCode,
+            return new Promocode(promoCodeDto.PromoCode,
                 promoCodeDto.DiscountFixed,
                 promoCodeDto.DiscountPercent,
                 promoCodeDto.ItemGift,

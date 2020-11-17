@@ -30,6 +30,9 @@ namespace SushiShop.Core.Data.Dtos.Cart
         [JsonProperty("createdon")]
         public DateTime CreationDate  { get; set; }
 
+        [JsonProperty("priceGroup")]
+        public string? PriceGroup { get; set; }
+
         [JsonProperty("countInBasket")]
         public int CountInBasket { get; set; }
 
@@ -43,9 +46,9 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public CurrencyDto? Currency { get; set; }
 
         [JsonProperty("itemImage")]
-        public ImageInfoDto? MainImageInfo { get; set; }
+        public ImageInfoUriDto? MainImageInfo { get; set; }
 
         [JsonProperty("itemImage2")]
-        public ImageInfoDto? OptionalImageInfo { get; set; }
+        public ImageInfoUriDto? OptionalImageInfo { get; set; }
     }
 }

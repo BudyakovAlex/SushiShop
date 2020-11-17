@@ -39,7 +39,7 @@ namespace SushiShop.Core.Services.Http.Cart
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<PromoCodeDto>>> GetCartPromoCodeAsync(string city, string promocode, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<PromocodeDto>>> GetCartPromoCodeAsync(string city, string promocode, CancellationToken cancellationToken)
         {
             var body = new
             {
@@ -47,7 +47,7 @@ namespace SushiShop.Core.Services.Http.Cart
                 promocode
             };
 
-            return httpService.ExecuteAsync<ResponseDto<PromoCodeDto>>(
+            return httpService.ExecuteAsync<ResponseDto<PromocodeDto>>(
                 Method.Post,
                 Constants.Rest.CartPromocodeResource,
                 body,

@@ -1,16 +1,16 @@
 ﻿using System;
-using SushiShop.Core.Data.Dtos.Common;
+using SushiShop.Core.Data.Models.Common;
 
 namespace SushiShop.Core.Data.Models.Cart
 {
     public class Packaging
     {
         public Packaging(
-            int id, string? pageTitle, string? alias, 
+            int id, string? pageTitle, string? alias,
             long parent, DateTime publishDate, DateTime unpublishDate,
-            string? introText, DateTime creationDate, int countInBasket, 
-            long price, long oldPrice, CurrencyDto? currency, 
-            ImageInfoDto? mainImageInfo, ImageInfoDto? optionalImageInfo)
+            string? introText, DateTime creationDate, int countInBasket,
+            long price, long oldPrice, Currency? currency,
+            ImageInfoUri? mainImageInfo, ImageInfoUri? optionalImageInfo)
         {
             Id = id;
             PageTitle = pageTitle;
@@ -51,10 +51,10 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public long OldPrice { get; set; }
 
-        public CurrencyDto? Currency { get; set; }
+        public Currency? Currency { get; set; }
 
-        public ImageInfoDto? MainImageInfo { get; set; }
+        public ImageInfoUri? MainImageInfo { get; set; }
 
-        public ImageInfoDto? OptionalImageInfo { get; set; }
+        public ImageInfoUri? OptionalImageInfo { get; set; }
     }
 }
