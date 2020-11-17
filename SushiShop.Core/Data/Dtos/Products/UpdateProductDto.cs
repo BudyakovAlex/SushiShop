@@ -6,7 +6,7 @@ namespace SushiShop.Core.Data.Dtos.Products
     public class UpdateProductDto
     {
         [JsonProperty("basketId")]
-        public Guid BaseketId { get; set; }
+        public Guid BasketId { get; set; }
 
         [JsonProperty("city")]
         public string? City { get; set; }
