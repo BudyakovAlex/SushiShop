@@ -113,11 +113,13 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             }
         }
 
-        private async Task OnCountChangedAsync(int count)
+        private async Task OnCountChangedAsync(int previousCount, int newCount)
         {
-            IsHiddenStepper = count == 0;
+            IsHiddenStepper = newCount == 0;
+            var step = newCount - previousCount;
 
-            var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, count, toppings.ToArray());
+            var selectedToppings = toppings.Where(topping => topping.CountInBasket > 0).ToArray();
+            var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, step, selectedToppings);
             if (response.Data is null)
             {
                 return;

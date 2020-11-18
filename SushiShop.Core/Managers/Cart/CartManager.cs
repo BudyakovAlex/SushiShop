@@ -24,7 +24,7 @@ namespace SushiShop.Core.Managers.Cart
             this.cartService = cartService;
         }
 
-        public async Task<Response<Product?>> UpdateProductInCartAsync(
+        public async Task<Response<CartProduct?>> UpdateProductInCartAsync(
             string? city,
             int id,
             Guid? uid,
@@ -45,10 +45,10 @@ namespace SushiShop.Core.Managers.Cart
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<Product?>(isSuccessful: true, data);
+                return new Response<CartProduct?>(isSuccessful: true, data);
             }
 
-            return new Response<Product?>(isSuccessful: false, null);
+            return new Response<CartProduct?>(isSuccessful: false, null);
         }
 
         public async Task<Response<Data.Models.Cart.Cart?>> GetCartAsync(int id, string city)

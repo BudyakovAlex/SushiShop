@@ -8,7 +8,7 @@ namespace SushiShop.Core.Services.Http.Cart
 {
     public interface ICartService
     {
-        Task<HttpResponse<ResponseDto<ProductDto>>> UpdateProductInCartAsync(UpdateProductDto updateProductDto, CancellationToken cancellationToken);
+        Task<HttpResponse<ResponseDto<CartProductDto>>> UpdateProductInCartAsync(UpdateProductDto updateProductDto, CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<CartDto>>> GetCartAsync(string сity, CancellationToken cancellationToken);
 

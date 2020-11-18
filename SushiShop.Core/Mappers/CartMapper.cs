@@ -15,7 +15,7 @@ namespace SushiShop.Core.Mappers
                 cartDto.TotalSum,
                 cartDto.Discount,
                 cartDto.Currency?.Select(currency => currency.Map()).ToArray(),
-                null, //TODO: add product mapper to map list products here instead null stub
+                cartDto.Products?.Select(product => product.Map()).ToArray(),
                 cartDto.Promoсodes?.Select(promocode => promocode.Map()).ToArray(),
                 cartDto.ProductUid);
         }

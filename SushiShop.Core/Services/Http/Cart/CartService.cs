@@ -1,9 +1,9 @@
 ﻿using SushiShop.Core.Common;
+using SushiShop.Core.Data.Dtos.Cart;
 using SushiShop.Core.Data.Dtos.Products;
 using SushiShop.Core.Data.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using SushiShop.Core.Data.Dtos.Cart;
 
 namespace SushiShop.Core.Services.Http.Cart
 {
@@ -16,13 +16,14 @@ namespace SushiShop.Core.Services.Http.Cart
             this.httpService = httpService;
         }
 
-        public Task<HttpResponse<ResponseDto<ProductDto>>> UpdateProductInCartAsync(UpdateProductDto updateProductDto, CancellationToken cancellationToken)
+        public async Task<HttpResponse<ResponseDto<CartProductDto>>> UpdateProductInCartAsync(UpdateProductDto updateProductDto, CancellationToken cancellationToken)
         {
-            return httpService.ExecuteAsync<ResponseDto<ProductDto>>(
+            var a = await httpService.ExecuteAsync<ResponseDto<object>>(
                Method.Post,
                Constants.Rest.CartUpdateResource,
                updateProductDto,
                cancellationToken);
+            return null;
         }
 
         public Task<HttpResponse<ResponseDto<CartDto>>> GetCartAsync(string city, CancellationToken cancellationToken)

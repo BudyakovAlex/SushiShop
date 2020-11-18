@@ -51,9 +51,10 @@ namespace SushiShop.Core.ViewModels.Menu.Items
             return NavigationManager.NavigateAsync<ProductDetailsViewModel, CardProductNavigationParameters>(parameters);
         }
 
-        private async Task OnCountChangedAsync(int count)
+        private async Task OnCountChangedAsync(int previousCount, int newCount)
         {
-            var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, count, Array.Empty<Topping>());
+            var step = newCount - previousCount;
+            var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, step, Array.Empty<Topping>());
             if (response.Data is null)
             {
                 return;

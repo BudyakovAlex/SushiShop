@@ -1,15 +1,14 @@
 ﻿using SushiShop.Core.Data.Http;
-using SushiShop.Core.Data.Models.Products;
+using SushiShop.Core.Data.Models.Cart;
 using SushiShop.Core.Data.Models.Toppings;
 using System;
 using System.Threading.Tasks;
-using SushiShop.Core.Data.Models.Cart;
 
 namespace SushiShop.Core.Managers.Cart
 {
     public interface ICartManager
     {
-        Task<Response<Product?>> UpdateProductInCartAsync(
+        Task<Response<CartProduct?>> UpdateProductInCartAsync(
             string? city,
             int id,
             Guid? uid,
