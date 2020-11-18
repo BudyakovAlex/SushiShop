@@ -50,9 +50,9 @@ namespace SushiShop.Core.Data.Dtos.Products
         public CurrencyDto? Currency { get; set; }
 
         [JsonProperty("itemImage")]
-        public ImageInfoUriDto? MainImageInfo { get; set; }
+        public ImageInfoDto? MainImageInfo { get; set; }
 
         [JsonProperty("itemImage2")]
-        public ImageInfoUriDto? OptionalImageInfo { get; set; }
+        public ImageInfoDto? OptionalImageInfo { get; set; }
     }
 }

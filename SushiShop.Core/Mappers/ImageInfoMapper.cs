@@ -5,7 +5,7 @@ namespace SushiShop.Core.Mappers
 {
     public static class ImageInfoMapper
     {
-        public static ImageInfo Map(this ImageInfoUriDto dto) =>
+        public static ImageInfo Map(this ImageInfoDto dto) =>
             new ImageInfo(dto.Original!, dto.Jpg!, dto.Webp!);
     }
 }

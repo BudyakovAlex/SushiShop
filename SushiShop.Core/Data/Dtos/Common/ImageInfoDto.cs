@@ -2,7 +2,7 @@
 
 namespace SushiShop.Core.Data.Dtos.Common
 {
-    public class ImageInfoUriDto
+    public class ImageInfoDto
     {
         [JsonProperty("original")]
         public string? Original { get; set; }

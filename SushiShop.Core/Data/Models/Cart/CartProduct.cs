@@ -13,7 +13,7 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public int? Amount { get; }
 
-        public string? Pagetitle { get; }
+        public string? PageTitle { get; }
 
         public Guid? Uid { get; }
 

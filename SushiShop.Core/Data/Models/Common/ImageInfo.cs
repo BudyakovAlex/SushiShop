@@ -1,8 +1,8 @@
 ﻿namespace SushiShop.Core.Data.Models.Common
 {
-    public class ImageInfoUri
+    public class ImageInfo
     {
-        public ImageInfoUri(string originalUrl, string jpgUrl, string webpUrl)
+        public ImageInfo(string originalUrl, string jpgUrl, string webpUrl)
         {
             OriginalUrl = originalUrl;
             JpgUrl = jpgUrl;

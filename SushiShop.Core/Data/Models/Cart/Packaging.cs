@@ -10,7 +10,7 @@ namespace SushiShop.Core.Data.Models.Cart
             long parent, DateTime publishDate, DateTime unpublishDate,
             string? introText, DateTime creationDate, int countInBasket,
             long price, long oldPrice, Currency? currency,
-            ImageInfoUri? mainImageInfo, ImageInfoUri? optionalImageInfo)
+            ImageInfo? mainImageInfo, ImageInfo? optionalImageInfo)
         {
             Id = id;
             PageTitle = pageTitle;
@@ -53,8 +53,8 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public Currency? Currency { get; set; }
 
-        public ImageInfoUri? MainImageInfo { get; set; }
+        public ImageInfo? MainImageInfo { get; set; }
 
-        public ImageInfoUri? OptionalImageInfo { get; set; }
+        public ImageInfo? OptionalImageInfo { get; set; }
     }
 }
