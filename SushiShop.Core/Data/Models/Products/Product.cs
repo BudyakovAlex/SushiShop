@@ -21,8 +21,8 @@ namespace SushiShop.Core.Data.Models.Products
             Currency currency,
             long price,
             long oldPrice,
-            ImageInfoUri? mainImageInfo,
-            ImageInfoUri? optionalImageInfo,
+            ImageInfo? mainImageInfo,
+            ImageInfo? optionalImageInfo,
             int countInBasket)
         {
             Id = id;
@@ -58,8 +58,8 @@ namespace SushiShop.Core.Data.Models.Products
         public Currency Currency { get; }
         public long Price { get; }
         public long OldPrice { get; }
-        public ImageInfoUri? MainImageInfo { get; }
-        public ImageInfoUri? OptionalImageInfo { get; }
+        public ImageInfo? MainImageInfo { get; }
+        public ImageInfo? OptionalImageInfo { get; }
         public int CountInBasket { get; }
     }
 }

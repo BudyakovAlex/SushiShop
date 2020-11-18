@@ -15,7 +15,7 @@ namespace SushiShop.Core.Data.Models.Menu
             DateTimeOffset createdOn,
             int menuIndex,
             int itemsCount,
-            ImageInfoUri? categoryIcon,
+            ImageInfo? categoryIcon,
             CategoryChildren? children)
         {
             Id = id;
@@ -49,7 +49,7 @@ namespace SushiShop.Core.Data.Models.Menu
 
         public int ItemsCount { get; }
 
-        public ImageInfoUri? CategoryIcon { get; }
+        public ImageInfo? CategoryIcon { get; }
 
         public CategoryChildren? Children { get; }
     }

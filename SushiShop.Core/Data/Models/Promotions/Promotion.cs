@@ -18,8 +18,8 @@ namespace SushiShop.Core.Data.Models.Promotions
             DateTimeOffset createdOn,
             string url,
             string? showOnHome,
-            ImageInfoUri squareImageInfo,
-            ImageInfoUri rectangularImageInfo,
+            ImageInfo squareImageInfo,
+            ImageInfo rectangularImageInfo,
             string[] cities,
             object? productId)
         {
@@ -51,8 +51,8 @@ namespace SushiShop.Core.Data.Models.Promotions
         public DateTimeOffset CreatedOn { get; }
         public string Url { get; }
         public string? ShowOnHome { get; }
-        public ImageInfoUri SquareImageInfo { get; }
-        public ImageInfoUri RectangularImageInfo { get; }
+        public ImageInfo SquareImageInfo { get; }
+        public ImageInfo RectangularImageInfo { get; }
         public string[] Cities { get; }
         public object? ProductId { get; }
     }
