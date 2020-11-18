@@ -12,39 +12,45 @@ namespace SushiShop.Core.ViewModels.Cart.Items
     public class CartProductItemViewModel : BaseViewModel
     {
         private readonly ICartManager cartManager;
-        private readonly CartProduct cartProduct;
+        private readonly CartProduct product;
         private readonly string? city;
 
-        public CartProductItemViewModel(ICartManager cartManager, CartProduct cartProduct, string? city)
+        public CartProductItemViewModel(
+            ICartManager cartManager,
+            CartProduct product,
+            string? city)
         {
             this.cartManager = cartManager;
-            this.cartProduct = cartProduct;
+            this.product = product;
             this.city = city;
 
-            StepperViewModel = new StepperViewModel(cartProduct.Count, OnCountChangedAsync);
-            ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
+            //TODO: make it not nullable
+            //StepperViewModel = new StepperViewModel(product.Amount.Value, OnCountChangedAsync);
+            //ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
+
         public IMvxAsyncCommand ShowDetailsCommand { get; }
 
         public StepperViewModel StepperViewModel { get; }
 
-        public string? ImageUrl => cartProduct.MainImageInfo?.JpgUrl;
+        //TODO: fixme
+        //public string? ImageUrl => product.MainImageInfo?.JpgUrl; 
 
-        private Task ShowDetailsAsync()
-        {
-            //var parameters = new CardProductNavigationParameters(product.Id, null);
-            //return NavigationManager.NavigateAsync<ProductDetailsViewModel, CardProductNavigationParameters>(parameters);
-        }
+        //private Task ShowDetailsAsync()
+        //{
+        //    //var parameters = new CardProductNavigationParameters(product.Id, null);
+        //    //return NavigationManager.NavigateAsync<ProductDetailsViewModel, CardProductNavigationParameters>(parameters);
+        //}
 
-        private async Task OnCountChangedAsync(int count)
-        {
-            var response = await cartManager.UpdateProductInCartAsync(city, cartProduct!.Id, cartProduct?.Uid, count, Array.Empty<Topping>());
-            if (response.Data is null)
-            {
-                return;
-            }
+        //private async Task OnCountChangedAsync(int count)
+        //{
+        //    var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, count, Array.Empty<Topping>());
+        //    if (response.Data is null)
+        //    {
+        //        return;
+        //    }
 
-            cartProduct!.Uid = response.Data.Uid;
-        }
+        //    product!.Uid = response.Data.Uid;
+        //}
     }
 }

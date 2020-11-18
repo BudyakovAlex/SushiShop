@@ -21,49 +21,6 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="IoC\" />
-    <Folder Include="ViewModels\Abstract\" />
-    <Folder Include="ViewModels\Profile\" />
-    <Folder Include="ViewModels\Info\" />
-    <Folder Include="ViewModels\Promotions\" />
-    <Folder Include="Resources\" />
-    <Folder Include="ViewModels\Cities\" />
-    <Folder Include="ViewModels\Cities\Items\" />
-    <Folder Include="NavigationParameters\Abstract\" />
-    <Folder Include="Services\" />
-    <Folder Include="Services\Http\" />
-    <Folder Include="Data\Http\" />
-    <Folder Include="Services\Http\Menu\" />
-    <Folder Include="Data\Dtos\Menu\" />
-    <Folder Include="Data\Models\Menu\" />
-    <Folder Include="Data\Dtos\Stickers\" />
-    <Folder Include="Data\Dtos\Cities\" />
-    <Folder Include="Services\Http\Cities\" />
-    <Folder Include="Common\" />
-    <Folder Include="Managers\" />
-    <Folder Include="Managers\Cities\" />
-    <Folder Include="Data\Dtos\Common\" />
-    <Folder Include="Converters\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="Managers\Menu\" />
-    <Folder Include="Data\Models\Vacancy\" />
-    <Folder Include="Data\Dtos\Franchise\" />
-    <Folder Include="Data\Models\Franchise\" />
-    <Folder Include="Services\Http\Promotions\" />
-    <Folder Include="Data\Models\Cities\" />
-    <Folder Include="Data\Models\Stickers\" />
-    <Folder Include="Data\Dtos\Promotions\" />
-    <Folder Include="Data\Models\Promotions\" />
-    <Folder Include="Managers\Promotions\" />
-    <Folder Include="Providers\" />
-    <Folder Include="Services\Http\Products\" />
-    <Folder Include="Managers\Products\" />
-    <Folder Include="Data\Dtos\Toppings\" />
-    <Folder Include="Data\Models\Toppings\" />
-    <Folder Include="Managers\Cart\" />
-    <Folder Include="Services\Http\Cart\" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppStrings.Designer.cs</LastGenOutput>

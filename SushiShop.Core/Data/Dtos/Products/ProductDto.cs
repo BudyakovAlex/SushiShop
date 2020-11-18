@@ -9,7 +9,7 @@ namespace SushiShop.Core.Data.Dtos.Products
         [JsonProperty("id")]
         public int Id { get; set; }
 
-        [JsonProperty("uid")]
+        [JsonProperty("uidInBasket")]
         public Guid? Uid { get; set; }
 
         [JsonProperty("pagetitle")]

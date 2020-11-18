@@ -5,13 +5,13 @@ namespace SushiShop.Core.Mappers
 {
     public static class PromoCodeMapper
     {
-        public static Promocode Map(this PromocodeDto promoCodeDto)
+        public static Promocode Map(this PromocodeDto promoсodeDto)
         {
-            return new Promocode(promoCodeDto.PromoCode,
-                promoCodeDto.DiscountFixed,
-                promoCodeDto.DiscountPercent,
-                promoCodeDto.ItemGift,
-                promoCodeDto.Description);
+            return new Promocode(promoсodeDto.Promoсode,
+                promoсodeDto.DiscountFixed,
+                promoсodeDto.DiscountPercent,
+                promoсodeDto.ItemGift,
+                promoсodeDto.Description);
         }
     }
 }
