@@ -7,10 +7,11 @@ namespace SushiShop.Core.Mappers
     {
         public static Promocode Map(this PromocodeDto promoсodeDto)
         {
-            return new Promocode(promoсodeDto.Promoсode,
+            return new Promocode(
+                promoсodeDto.Promoсode,
                 promoсodeDto.DiscountFixed,
                 promoсodeDto.DiscountPercent,
-                promoсodeDto.ItemGift,
+                promoсodeDto.Gift,
                 promoсodeDto.Description);
         }
     }

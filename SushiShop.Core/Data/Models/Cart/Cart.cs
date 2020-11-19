@@ -5,11 +5,12 @@ namespace SushiShop.Core.Data.Models.Cart
 {
     public class Cart
     {
-        public Cart(Guid basketId, 
+        public Cart(
+            Guid basketId, 
             string? city, 
             string? priceGroup, 
             long totalCount, 
-            long totalSum,
+            int totalSum,
             long discount,
             Currency[]? currency, 
             CartProduct[]? products, 
@@ -34,7 +35,7 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public long TotalCount { get; }
 
-        public long TotalSum { get; }
+        public int TotalSum { get; }
 
         public long Discount { get; }
 

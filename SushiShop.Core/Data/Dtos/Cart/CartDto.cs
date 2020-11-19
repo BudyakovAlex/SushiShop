@@ -19,7 +19,7 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public long TotalCount { get; set; }
 
         [JsonProperty("totalSum")]
-        public long TotalSum { get; set; }
+        public int TotalSum { get; set; }
 
         [JsonProperty("discount")]
         public long Discount { get; set; }        

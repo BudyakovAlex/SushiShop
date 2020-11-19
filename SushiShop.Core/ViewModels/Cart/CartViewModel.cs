@@ -41,9 +41,7 @@ namespace SushiShop.Core.ViewModels.Cart
         public MvxObservableCollection<CartProductItemViewModel> Packagings { get; }
 
         public string Title => AppStrings.Basket;
-        public string ProductUrl => string.Empty;
-        public string ProductName => string.Empty;
-        public int CountProductsInCart => cart.Products.Length;
+        public long CountProductsInCart => cart.TotalSum;
         public string TotalPrice => cart.TotalSum.ToString();
 
         

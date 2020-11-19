@@ -4,6 +4,7 @@ using MvvmCross.Commands;
 using SushiShop.Core.Data.Models.Cart;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.ViewModels.Common;
+using System;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Cart.Items
@@ -24,7 +25,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items
             this.city = city;
 
             //TODO: make it not nullable
-            //StepperViewModel = new StepperViewModel(product?.TotalPrice, OnCountChangedAsync);
+            StepperViewModel = new StepperViewModel(product.Count, OnCountChangedAsync);
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
 
