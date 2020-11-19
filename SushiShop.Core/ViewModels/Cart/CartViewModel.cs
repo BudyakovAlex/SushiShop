@@ -27,6 +27,9 @@ namespace SushiShop.Core.ViewModels.Cart
             this.cartManager = cartManager;
             this.userSession = userSession;
 
+            Products = new MvxObservableCollection<CartProductItemViewModel>();
+            Packagings = new MvxObservableCollection<CartProductItemViewModel>();
+
             CheckoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, CheckoutAsync);
             AddSauceCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddSauceAsync);
         }
@@ -35,8 +38,8 @@ namespace SushiShop.Core.ViewModels.Cart
         //public IMvxCommand AddBagCommand { get; }
         public IMvxCommand CheckoutCommand { get; }
 
-        public MvxObservableCollection<ProductItemViewModel> Products { get; }
-        public MvxObservableCollection<ProductItemViewModel> Packagings { get; }
+        public MvxObservableCollection<CartProductItemViewModel> Products { get; }
+        public MvxObservableCollection<CartProductItemViewModel> Packagings { get; }
 
         public string Title => AppStrings.Basket;
         public string ProductUrl => string.Empty;
@@ -54,6 +57,7 @@ namespace SushiShop.Core.ViewModels.Cart
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
+
             city = userSession.GetCity()?.Name;
 
             var getBasket = cartManager.GetCartAsync(id, city);
@@ -62,9 +66,9 @@ namespace SushiShop.Core.ViewModels.Cart
             await Task.WhenAll(getBasket, packagingCart);
 
             cart = getBasket.Result.Data;
-            //Products = cart.Products.Select(product => new CartProductItemViewModel(cartManager, , city)).ToList();
+            Products.AddRange(cart.Products.Select(product => new CartProductItemViewModel(cartManager, product, city)).ToList());
 
-            //Packagings = packagingCart.Result.Data.ToList();
+            //Packagings = new MvxObservableCollection<CartProductItemViewModel> packagingCart.Result.Data.ToList()
             //var packViewModels = packagingList.Select(packaging => new ProductItemViewModel(cartManager, packaging, city)).ToList();
 
             //var viewModels = relatedProducts.Select(product => new ProductItemViewModel(cartManager, product, city)).ToList();

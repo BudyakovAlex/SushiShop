@@ -1,5 +1,4 @@
 ﻿using SushiShop.Core.Data.Models.Common;
-using SushiShop.Core.Data.Models.Menu;
 using System;
 
 namespace SushiShop.Core.Data.Models.Products
