@@ -13,7 +13,7 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public int Count { get; set; }
 
         [JsonProperty("price")]
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         
         [JsonProperty("amount")]
         public int? Amount { get; set; }
@@ -25,7 +25,7 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public Guid? Uid { get; set; }
         
         [JsonProperty("readonly")]
-        public bool? ReadonlyFlag { get; set; }
+        public bool? IsReadonly { get; set; }
 
         [JsonProperty("toppings")]
         public GetToppingDto[] Toppings { get; set; } = Array.Empty<GetToppingDto>();

@@ -29,9 +29,9 @@ namespace SushiShop.Core.ViewModels.CardProduct.Items
             StepperViewModel.Reset();
         }
 
-        private Task OnCountChangedAsync(int count)
+        private Task OnCountChangedAsync(int previousCount, int newCount)
         {
-            topping.CountInBasket = count;
+            topping.CountInBasket = newCount;
             return Task.CompletedTask;
         }
     }

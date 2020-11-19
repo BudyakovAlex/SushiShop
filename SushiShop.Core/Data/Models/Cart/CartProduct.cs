@@ -6,23 +6,22 @@ namespace SushiShop.Core.Data.Models.Cart
     public class CartProduct
     {
         public CartProduct(
-            Guid id, 
-            int count, 
-            int price, 
-            int amount, 
+            Guid id,
+            int count,
+            decimal price,
+            int? amount,
             string? pageTitle,
-            Guid? uid, 
-            bool? readonlyFlag, 
+            Guid? uid,
+            bool? isReadonly,
             GetTopping[] toppings)
         {
             Id = id;
             Count = count;
             Price = price;
-
             Amount = amount;
             PageTitle = pageTitle;
             Uid = uid;
-            ReadonlyFlag = readonlyFlag;
+            IsReadonly = isReadonly;
             Toppings = toppings;
         }
 
@@ -30,15 +29,15 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public int Count { get; }
 
-        public int Price { get; }
+        public decimal Price { get; }
 
-        public int Amount { get; }
+        public int? Amount { get; }
 
         public string? PageTitle { get; }
 
         public Guid? Uid { get; }
 
-        public bool? ReadonlyFlag { get; }
+        public bool? IsReadonly { get; }
 
         public GetTopping[] Toppings { get; } = Array.Empty<GetTopping>();
     }

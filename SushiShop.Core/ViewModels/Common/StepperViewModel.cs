@@ -9,9 +9,9 @@ namespace SushiShop.Core.ViewModels.Common
     {
         private const int MaxCount = 99;
 
-        private readonly Func<int, Task> onCountChangedFunc;
+        private readonly Func<int, int, Task> onCountChangedFunc;
 
-        public StepperViewModel(string? title, int count, Func<int, Task> onCountChangedFunc)
+        public StepperViewModel(string? title, int count, Func<int, int, Task> onCountChangedFunc)
         {
             Title = title;
             this.count = count;
@@ -21,7 +21,7 @@ namespace SushiShop.Core.ViewModels.Common
             RemoveCommand = new MvxAsyncCommand(RemoveAsync, () => Count > 0);
         }
 
-        public StepperViewModel(int count, Func<int, Task> onCountChangedFunc)
+        public StepperViewModel(int count, Func<int, int, Task> onCountChangedFunc)
             : this(title: null, count, onCountChangedFunc)
         {
         }
@@ -49,14 +49,18 @@ namespace SushiShop.Core.ViewModels.Common
 
         private Task AddAsync()
         {
+            var previousValue = count;
             ++Count;
-            return onCountChangedFunc?.Invoke(Count) ?? Task.CompletedTask;
+
+            return onCountChangedFunc?.Invoke(previousValue, Count) ?? Task.CompletedTask;
         }
 
         private Task RemoveAsync()
         {
+            var previousValue = Count;
             --Count;
-            return onCountChangedFunc?.Invoke(Count) ?? Task.CompletedTask;
+
+            return onCountChangedFunc?.Invoke(previousValue, Count) ?? Task.CompletedTask;
         }
     }
 }
