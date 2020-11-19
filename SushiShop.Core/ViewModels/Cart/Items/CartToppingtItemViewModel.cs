@@ -4,41 +4,31 @@ using MvvmCross.Commands;
 using SushiShop.Core.Data.Models.Cart;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.ViewModels.Common;
-using System;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Cart.Items
 {
-    public class CartProductItemViewModel : BaseViewModel
+    public class CartToppingtItemViewModel : BaseViewModel
     {
         private readonly ICartManager cartManager;
-        private readonly CartProduct product;
+        private readonly CartTopping topping;
         private readonly string? city;
 
-        public CartProductItemViewModel(
+        public CartToppingtItemViewModel(
             ICartManager cartManager,
-            CartProduct product,
+            CartTopping topping,
             string? city)
         {
             this.cartManager = cartManager;
-            this.product = product;
+            this.topping = topping;
             this.city = city;
 
-            //TODO: make it not nullable
-            StepperViewModel = new StepperViewModel(product.Count, OnCountChangedAsync);
+            StepperViewModel = new StepperViewModel(topping.Count, OnCountChangedAsync);
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
-
         public IMvxAsyncCommand ShowDetailsCommand { get; }
 
         public StepperViewModel StepperViewModel { get; }
-
-        public string? ImageUrl => product.MainImageInfo?.JpgUrl;
-        public string? Title => product.PageTitle;
-        public string Price => $"{product.Price} {product.Currency.Symbol}";
-        public string? OldPrice => product.OldPrice == 0 ? null : $"{product.OldPrice} {product.Currency.Symbol}";
-
-        public string Weight => product.Params.Weight;
 
         private Task ShowDetailsAsync()
         {
@@ -48,13 +38,13 @@ namespace SushiShop.Core.ViewModels.Cart.Items
 
         private async Task OnCountChangedAsync(int count)
         {
-            var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, count, Array.Empty<Topping>());
-            if (response.Data is null)
-            {
-                return;
-            }
+            //var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, count, Array.Empty<Topping>());
+            //if (response.Data is null)
+            //{
+            //    return;
+            //}
 
-            product!.Uid = response.Data.Uid;
+            //product!.Uid = response.Data.Uid;
         }
     }
 }

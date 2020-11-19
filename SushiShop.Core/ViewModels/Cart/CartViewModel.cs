@@ -27,7 +27,8 @@ namespace SushiShop.Core.ViewModels.Cart
             this.userSession = userSession;
 
             Products = new MvxObservableCollection<CartProductItemViewModel>();
-            Packagings = new MvxObservableCollection<CartProductItemViewModel>();
+            Sauces = new MvxObservableCollection<CartToppingtItemViewModel>();
+            Packagings = new MvxObservableCollection<CartPackItemViewModel>();
 
             CheckoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, CheckoutAsync);
             AddSauceCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddSauceAsync);
@@ -37,7 +38,8 @@ namespace SushiShop.Core.ViewModels.Cart
         public IMvxCommand CheckoutCommand { get; }
 
         public MvxObservableCollection<CartProductItemViewModel> Products { get; }
-        public MvxObservableCollection<CartProductItemViewModel> Packagings { get; }
+        public MvxObservableCollection<CartToppingtItemViewModel> Sauces { get; }
+        public MvxObservableCollection<CartPackItemViewModel> Packagings { get; }
 
         public string Title => AppStrings.Basket;
         public long? CountProductsInCart => cart?.TotalCount;
