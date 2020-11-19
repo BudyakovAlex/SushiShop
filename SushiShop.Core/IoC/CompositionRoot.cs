@@ -1,3 +1,4 @@
+using SushiShop.Core.Factories.Cart;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.Managers.CommonInfo;
@@ -40,6 +41,12 @@ namespace SushiShop.Core.IoC
             Container.RegisterSingleton<IPromotionsService, PromotionsService>();
             Container.RegisterSingleton<IProductsService, ProductsService>();
             Container.RegisterSingleton<ICartService, CartService>();
+        }
+
+        protected override void RegisterFactories()
+        {
+            base.RegisterFactories();
+            Container.RegisterSingleton<ICartItemsViewModelsFactory, CartItemsViewModelsFactory>();
         }
 
         protected override void RegisterDependencies()

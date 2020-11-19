@@ -10,20 +10,20 @@ namespace SushiShop.Core.Services.Http.Products
     public interface IProductsService
     {
         Task<HttpResponse<ResponseDto<ProductDto[]>>> GetProductsByCategoryAsync(
-            int? categoryId,
+            long? categoryId,
             string? city,
             Guid? basketId,
             StickerType? stickerType,
             CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<ProductDto>>> GetProductAsync(
-            int id,
+            long id,
             string? city,
             Guid? basketId,
             CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<ProductDto[]>>> GetRelatedProductsAsync(
-            int id,
+            long id,
             string? city,
             Guid? basketId,
             CancellationToken cancellationToken);

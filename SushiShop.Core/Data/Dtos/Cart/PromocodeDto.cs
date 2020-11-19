@@ -8,10 +8,10 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public string? Promoсode { get; set; }
 
         [JsonProperty("discountFixed")]
-        public decimal? DiscountFixed { get; set; }
+        public decimal DiscountFixed { get; set; }
 
         [JsonProperty("discountPercent")]
-        public int? DiscountPercent { get; set; }
+        public int DiscountPercent { get; set; }
 
         [JsonProperty("itemGift")]
         public string? Gift { get; set; }

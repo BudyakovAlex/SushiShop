@@ -1,60 +1,32 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
-using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Models.Cart;
+using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Managers.Cart;
-using SushiShop.Core.ViewModels.Common;
-using System;
+using SushiShop.Core.NavigationParameters;
+using SushiShop.Core.ViewModels.Cart.Items.Abstract;
+using SushiShop.Core.ViewModels.ProductDetails;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Cart.Items
 {
-    public class CartProductItemViewModel : BaseViewModel
+    public class CartProductItemViewModel : BaseCartProductItemViewModel
     {
-        private readonly ICartManager cartManager;
-        private readonly CartProduct product;
-        private readonly string? city;
-
         public CartProductItemViewModel(
             ICartManager cartManager,
             CartProduct product,
-            string? city)
+            Currency? currency,
+            string? city) : base(cartManager, product, currency, city)
         {
-            this.cartManager = cartManager;
-            this.product = product;
-            this.city = city;
-
-            //TODO: make it not nullable
-            StepperViewModel = new StepperViewModel(product.Count, OnCountChangedAsync);
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
 
         public IMvxAsyncCommand ShowDetailsCommand { get; }
 
-        public StepperViewModel StepperViewModel { get; }
-
-        public string? ImageUrl => product.MainImageInfo?.JpgUrl;
-        public string? Title => product.PageTitle;
-        public string Price => $"{product.Price} {product.Currency.Symbol}";
-        public string? OldPrice => product.OldPrice == 0 ? null : $"{product.OldPrice} {product.Currency.Symbol}";
-
-        public string Weight => product.Params.Weight;
-
         private Task ShowDetailsAsync()
         {
-            //var parameters = new CardProductNavigationParameters(product.Id, null);
-            //return NavigationManager.NavigateAsync<ProductDetailsViewModel, CardProductNavigationParameters>(parameters);
-        }
-
-        private async Task OnCountChangedAsync(int count)
-        {
-            var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, count, Array.Empty<Topping>());
-            if (response.Data is null)
-            {
-                return;
-            }
-
-            product!.Uid = response.Data.Uid;
+            var parameters = new CardProductNavigationParameters(Product.Id, null, Product.IsReadOnly);
+            return NavigationManager.NavigateAsync<ProductDetailsViewModel, CardProductNavigationParameters>(parameters);
         }
     }
 }

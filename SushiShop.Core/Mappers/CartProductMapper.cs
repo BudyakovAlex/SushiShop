@@ -1,5 +1,7 @@
 ﻿using SushiShop.Core.Data.Dtos.Cart;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cart;
+using System;
 using System.Linq;
 
 namespace SushiShop.Core.Mappers
@@ -15,8 +17,9 @@ namespace SushiShop.Core.Mappers
                 productDto.TotalPrice,
                 productDto.PageTitle!,
                 productDto.Uid,
-                productDto.IsReadonly,
-                productDto.Toppings.Select(topping => topping.Map()).ToArray());
+                productDto.IsReadOnly,
+                Enum.Parse<ProductType>(productDto.Type, ignoreCase: true),
+                productDto.Toppings!.Values.Select(topping => topping.Map()).ToArray());
         }
     }
 }

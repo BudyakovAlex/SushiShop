@@ -12,7 +12,7 @@ namespace SushiShop.Core.Data.Dtos.Products
         public string? City { get; set; }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("uid")]
         public Guid? Uid { get; set; }

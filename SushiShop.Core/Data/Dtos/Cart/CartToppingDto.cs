@@ -11,7 +11,10 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public int Count { get; set; }
 
         [JsonProperty("price")]
-        public int Price { get; set; }
+        public decimal Price { get; set; }
+
+        [JsonProperty("amount")]
+        public decimal Amount { get; set; }
 
         [JsonProperty("pagetitle")]
         public string? PageTitle { get; set; }

@@ -1,4 +1,5 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using MvvmCross.Binding.Combiners;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Menu.Items;
@@ -48,11 +49,14 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
             bindingSet.Bind(CarbohydratesValueLabel).For(v => v.Text).To(vm => vm.Carbohydrates);
             bindingSet.Bind(CaloriesValueLabel).For(v => v.Text).To(vm => vm.Calories);
             bindingSet.Bind(AddToCartButton).For(v => v.BindTap()).To(vm => vm.AddToCartCommand);
+            bindingSet.Bind(AddToCartButton).For(v => v.Hidden).To(vm => vm.IsReadOnly);
             bindingSet.Bind(BackButton).For(v => v.BindTap()).To(vm => vm.CloseCommand);
             bindingSet.Bind(OldPriceLabel).For(v => v.AttributedText).To(vm => vm.OldPrice)
                 .WithConversion<StringToStrikethroughAttributedTextConverter>();
             bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);
-            bindingSet.Bind(StepperView).For(v => v.Hidden).To(vm => vm.IsHiddenStepper);
+            bindingSet.Bind(StepperView).For(v => v.Hidden).ByCombining(new MvxOrValueCombiner(),
+                                                                        vm => vm.IsHiddenStepper,
+                                                                        vm => vm.IsReadOnly);
             bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.RelatedItems);
             bindingSet.Bind(ActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
 

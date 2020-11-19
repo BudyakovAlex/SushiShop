@@ -1,13 +1,15 @@
-﻿namespace SushiShop.Core.Data.Models.Toppings
+﻿using SushiShop.Core.Data.Enums;
+
+namespace SushiShop.Core.Data.Models.Toppings
 {
     public class Topping
     {
         public Topping(
-            int id,
+            long id,
             string? pageTitle,
-            long price,
+            decimal price,
             int countInBasket,
-            string? toppingCategory)
+            ToppingCategory toppingCategory)
         {
             Id = id;
             PageTitle = pageTitle;
@@ -16,10 +18,10 @@
             ToppingCategory = toppingCategory;
         }
 
-        public int Id { get; }
+        public long Id { get; }
         public string? PageTitle { get; }
-        public long Price { get; }
-        public string? ToppingCategory { get; set; }
+        public decimal Price { get; }
+        public ToppingCategory ToppingCategory { get; set; }
         public int CountInBasket { get; set; }
     }
 }

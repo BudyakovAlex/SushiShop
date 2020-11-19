@@ -4,7 +4,6 @@ namespace SushiShop.Core.Data.Dtos.Common
 {
     public class CurrencyDto
     {
-
         [JsonProperty("code")]
         public string? Code { get; set; }
 

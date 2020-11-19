@@ -7,7 +7,7 @@ namespace SushiShop.Core.Data.Dtos.Products
     public class ProductDto
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("uidInBasket")]
         public Guid? Uid { get; set; }
@@ -35,6 +35,7 @@ namespace SushiShop.Core.Data.Dtos.Products
 
         [JsonProperty("params")]
         public ProductParametersDto? Params { get; set; }
+
         public string? PriceGroup { get; set; }
 
         [JsonProperty("countInBasket")]

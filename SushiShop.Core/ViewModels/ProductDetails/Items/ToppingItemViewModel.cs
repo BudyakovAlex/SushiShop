@@ -20,7 +20,7 @@ namespace SushiShop.Core.ViewModels.CardProduct.Items
 
         public string Title { get; }
 
-        public long Price { get; }
+        public decimal Price { get; }
 
         public StepperViewModel StepperViewModel { get; }
 

@@ -6,7 +6,7 @@ namespace SushiShop.Core.Data.Models.Menu
     public class Category
     {
         public Category(
-            int id,
+            long id,
             string pageTitle,
             string longTitle,
             string alias,
@@ -31,7 +31,7 @@ namespace SushiShop.Core.Data.Models.Menu
             Children = children;
         }
 
-        public int Id { get; }
+        public long Id { get; }
 
         public string PageTitle { get; }
 

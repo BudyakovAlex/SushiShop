@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Common;
 
@@ -19,18 +20,18 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public long TotalCount { get; set; }
 
         [JsonProperty("totalSum")]
-        public int TotalSum { get; set; }
+        public decimal TotalSum { get; set; }
 
         [JsonProperty("discount")]
-        public long Discount { get; set; }        
+        public decimal Discount { get; set; }        
 
         [JsonProperty("currency")]
-        public CurrencyDto[]? Currency { get; set; }
+        public CurrencyDto? Currency { get; set; }
 
         [JsonProperty("products")]
-        public CartProductDto[]? Products { get; set; }
+        public Dictionary<string, CartProductDto>? Products { get; set; }
 
         [JsonProperty("promocode")]
-        public PromocodeDto[]? Promoсodes { get; set; }
+        public PromocodeDto? Promoсode { get; set; }
     }
 }

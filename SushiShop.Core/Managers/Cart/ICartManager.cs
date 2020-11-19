@@ -1,5 +1,6 @@
 ﻿using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Cart;
+using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Toppings;
 using System;
 using System.Threading.Tasks;
@@ -8,21 +9,21 @@ namespace SushiShop.Core.Managers.Cart
 {
     public interface ICartManager
     {
-        Task<Response<CartProduct?>> UpdateProductInCartAsync(
+        Task<Response<Product?>> UpdateProductInCartAsync(
             string? city,
-            int id,
+            long id,
             Guid? uid,
             int count,
             Topping[] toppings);
 
-        Task<Response<Data.Models.Cart.Cart?>> GetCartAsync(int id, string city);
+        Task<Response<Data.Models.Cart.Cart?>> GetCartAsync(string? city);
 
-        Task<Response<Promocode?>> GetCartPromocodeAsync(int id, string city, string promocode);
+        Task<Response<Promocode?>> GetCartPromocodeAsync(string? city, string promocode);
 
-        Task<Response<Packaging[]>> GetCartPackagingAsync(int id, string city);
+        Task<Response<Product[]?>> GetCartPackagingAsync(string? city);
 
-        Task<Response<Sauces[]?>> GetSaucesAsync(int id, string city, string promocode);
+        Task<Response<Topping[]?>> GetSaucesAsync(string? city);
 
-        Task<Response<Data.Models.Cart.Cart>> ClearCartAsync(int id, string city);
+        Task<Response<Data.Models.Cart.Cart?>> ClearCartAsync(string? city);
     }
 }

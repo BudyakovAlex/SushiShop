@@ -22,7 +22,7 @@ namespace SushiShop.Core.Managers.Products
             this.userSession = userSession;
         }
 
-        public async Task<Response<Product?>> GetProductAsync(int id, string? city)
+        public async Task<Response<Product?>> GetProductAsync(long id, string? city)
         {
             var response = await productsService.GetProductAsync(id, city, userSession.GetCartId(), CancellationToken.None);
             if (response.IsSuccessful)
@@ -35,7 +35,7 @@ namespace SushiShop.Core.Managers.Products
         }
 
         public async Task<Response<Product[]>> GetProductsByCategoryAsync(
-            int? categoryId,
+            long? categoryId,
             string? city,
             StickerType? stickerType)
         {
@@ -49,7 +49,7 @@ namespace SushiShop.Core.Managers.Products
             return new Response<Product[]>(isSuccessful: false, Array.Empty<Product>());
         }
 
-        public async Task<Response<Product[]>> GetRelatedProductsAsync(int id, string? city)
+        public async Task<Response<Product[]>> GetRelatedProductsAsync(long id, string? city)
         {
             var response = await productsService.GetRelatedProductsAsync(id, city, userSession.GetCartId(), CancellationToken.None);
             if (response.IsSuccessful)

@@ -2,17 +2,24 @@
 {
     public class CartTopping
     {
-        public CartTopping(long id, int count, int price, string? pageTitle)
+        public CartTopping(
+            long id,
+            int count,
+            decimal price,
+            decimal amount,
+            string? pageTitle)
         {
             Id = id;
             Count = count;
             Price = price;
+            Amount = amount;
             PageTitle = pageTitle;
         }
 
         public long Id { get; }
         public int Count { get; }
-        public int Price { get; }
+        public decimal Price { get; }
+        public decimal Amount { get; }
         public string? PageTitle { get; }
     }
 }

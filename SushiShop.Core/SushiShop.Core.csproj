@@ -33,4 +33,9 @@
       <AutoGen>True</AutoGen>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Factories\" />
+    <Folder Include="Factories\Cart\" />
+    <Folder Include="ViewModels\Cart\Items\Abstract\" />
+  </ItemGroup>
 </Project>

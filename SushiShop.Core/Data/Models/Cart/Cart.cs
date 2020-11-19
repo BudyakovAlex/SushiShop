@@ -10,11 +10,11 @@ namespace SushiShop.Core.Data.Models.Cart
             string? city, 
             string? priceGroup, 
             long totalCount, 
-            int totalSum,
-            long discount,
-            Currency[]? currency, 
+            decimal totalSum,
+            decimal discount,
+            Currency? currency, 
             CartProduct[]? products, 
-            Promocode[]? promocodes)
+            Promocode? promocode)
         {
             BasketId = basketId;
             City = city;
@@ -24,7 +24,7 @@ namespace SushiShop.Core.Data.Models.Cart
             Discount = discount;
             Currency = currency;
             Products = products;
-            Promocodes = promocodes;
+            Promocode = promocode;
         }
 
         public Guid BasketId { get; }
@@ -35,14 +35,14 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public long TotalCount { get; }
 
-        public int TotalSum { get; }
+        public decimal TotalSum { get; }
 
-        public long Discount { get; }
+        public decimal Discount { get; }
 
-        public Currency[]? Currency { get; }
+        public Currency? Currency { get; }
 
         public CartProduct[]? Products { get; }
 
-        public Promocode[]? Promocodes { get; }
+        public Promocode? Promocode { get; }
     }
 }

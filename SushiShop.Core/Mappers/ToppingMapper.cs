@@ -1,6 +1,8 @@
 ﻿using SushiShop.Core.Data.Dtos.Products;
 using SushiShop.Core.Data.Dtos.Toppings;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Toppings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,7 +17,7 @@ namespace SushiShop.Core.Mappers
                 toppingDto.PageTitle,
                 toppingDto.Price,
                 toppingDto.CountInBasket,
-                toppingDto.ToppingCategory);
+                Enum.Parse<ToppingCategory>(toppingDto.ToppingCategory, ignoreCase: true));
         }
 
         public static UpdateToppingDto Map(this Topping topping)

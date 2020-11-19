@@ -1,13 +1,18 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
+using SushiShop.Core.Data.Models.Toppings;
+using SushiShop.Core.Factories.Cart;
 using SushiShop.Core.Managers.Cart;
+using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cart.Items;
+using SushiShop.Core.ViewModels.ProductDetails;
 
 namespace SushiShop.Core.ViewModels.Cart
 {
@@ -15,20 +20,24 @@ namespace SushiShop.Core.ViewModels.Cart
     {
         private readonly ICartManager cartManager;
         private readonly IUserSession userSession;
+        private readonly ICartItemsViewModelsFactory viewModelsFactory;
 
+        private Topping[]? sauses;
         private Data.Models.Cart.Cart? cart;
 
-        private int id;
         private string? city;
 
-        public CartViewModel(ICartManager cartManager, IUserSession userSession)
+        public CartViewModel(
+            ICartManager cartManager,
+            IUserSession userSession,
+            ICartItemsViewModelsFactory viewModelsFactory)
         {
             this.cartManager = cartManager;
             this.userSession = userSession;
-
+            this.viewModelsFactory = viewModelsFactory;
             Products = new MvxObservableCollection<CartProductItemViewModel>();
-            Sauces = new MvxObservableCollection<CartToppingtItemViewModel>();
-            Packagings = new MvxObservableCollection<CartPackItemViewModel>();
+            Sauces = new MvxObservableCollection<CartToppingItemViewModel>();
+            Packages = new MvxObservableCollection<CartPackItemViewModel>();
 
             CheckoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, CheckoutAsync);
             AddSauceCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddSauceAsync);
@@ -38,48 +47,65 @@ namespace SushiShop.Core.ViewModels.Cart
         public IMvxCommand CheckoutCommand { get; }
 
         public MvxObservableCollection<CartProductItemViewModel> Products { get; }
-        public MvxObservableCollection<CartToppingtItemViewModel> Sauces { get; }
-        public MvxObservableCollection<CartPackItemViewModel> Packagings { get; }
+
+        public MvxObservableCollection<CartToppingItemViewModel> Sauces { get; }
+
+        public MvxObservableCollection<CartPackItemViewModel> Packages { get; }
 
         public string Title => AppStrings.Basket;
+
         public long? CountProductsInCart => cart?.TotalCount;
-        public int? TotalPrice => cart?.TotalSum;
+
+        public decimal? TotalPrice => cart?.TotalSum;
 
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
+            _ = ExecutionStateWrapper.WrapAsync(() => ReloadDataAsync(), awaitWhenBusy: true);  
+        }
 
+        private async Task ReloadDataAsync()
+        {
             city = userSession.GetCity()?.Name;
 
-            var getBasket = cartManager.GetCartAsync(id, city);
-            var packagingCart = cartManager.GetCartPackagingAsync(id, city);
+            var getBasket = cartManager.GetCartAsync(city);
+            var packagingCart = cartManager.GetCartPackagingAsync(city);
+            var getSauces = cartManager.GetSaucesAsync(city);
 
-            await Task.WhenAll(getBasket, packagingCart);
+            await Task.WhenAll(getBasket, packagingCart, getSauces);
 
+            sauses = getSauces.Result.Data;
             cart = getBasket.Result.Data;
-            Products.AddRange(cart.Products.Select(product => new CartProductItemViewModel(cartManager, product, city)).ToList());
 
-            //Packagings = new MvxObservableCollection<CartProductItemViewModel> packagingCart.Result.Data.ToList()
-            //var packViewModels = packagingList.Select(packaging => new ProductItemViewModel(cartManager, packaging, city)).ToList();
+            var allProducts = cart!.Products.Select(product => viewModelsFactory.ProduceProductItemViewModel(cartManager, product, cart.Currency, cart.City)).ToArray();
 
-            //var viewModels = relatedProducts.Select(product => new ProductItemViewModel(cartManager, product, city)).ToList();
-            //RelatedItems.AddRange(viewModels);
-            await RaiseAllPropertiesChanged();
+            var mainProducts = allProducts.OfType<CartProductItemViewModel>().ToList();
+            var toppings = allProducts.OfType<CartToppingItemViewModel>().ToList();
+            var packages = allProducts.OfType<CartPackItemViewModel>().ToList();
+
+            Products.ReplaceWith(mainProducts);
+            Sauces.ReplaceWith(toppings);
+            Packages.ReplaceWith(packages);
+
+            await Task.WhenAll(RaisePropertyChanged(nameof(CountProductsInCart)),
+                RaisePropertyChanged(nameof(TotalPrice)));
         }
 
         private async Task AddSauceAsync()
         {
-            //var navigationParams = new ToppingNavigationParameters(toppings, AppStrings.MakeItTastier);
-            //var result = await NavigationManager.NavigateAsync<ToppingsViewModel, ToppingNavigationParameters, List<Topping>>(navigationParams);
-            //if (result is null)
-            //{
-            //    return;
-            //}
+            var navigationParams = new ToppingNavigationParameters(sauses.ToList(), AppStrings.AddSauce);
+            var result = await NavigationManager.NavigateAsync<ToppingsViewModel, ToppingNavigationParameters, List<Topping>>(navigationParams);
+            if (result is null)
+            {
+                return;
+            }
+
+            //TODO: add send logic here
         }
 
         private Task CheckoutAsync()
         {
-            throw new System.NotImplementedException();
+            return Task.CompletedTask;
         }
     }
 }

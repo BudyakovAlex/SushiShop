@@ -6,7 +6,7 @@ namespace SushiShop.Core.Data.Models.Promotions
     public class Promotion
     {
         public Promotion(
-            int id,
+            long id,
             string pageTitle,
             string longTitle,
             string alias,
@@ -39,7 +39,7 @@ namespace SushiShop.Core.Data.Models.Promotions
             ProductId = productId;
         }
 
-        public int Id { get; }
+        public long Id { get; }
         public string PageTitle { get; }
         public string LongTitle { get; }
         public string Alias { get; }

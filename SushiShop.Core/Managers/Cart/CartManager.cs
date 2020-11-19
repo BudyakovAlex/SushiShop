@@ -1,14 +1,15 @@
 ﻿using SushiShop.Core.Data.Dtos.Products;
 using SushiShop.Core.Data.Http;
+using SushiShop.Core.Data.Models.Cart;
+using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.Mappers;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http.Cart;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using SushiShop.Core.Data.Models.Cart;
-using System.Linq;
 
 namespace SushiShop.Core.Managers.Cart
 {
@@ -23,9 +24,9 @@ namespace SushiShop.Core.Managers.Cart
             this.cartService = cartService;
         }
 
-        public async Task<Response<CartProduct?>> UpdateProductInCartAsync(
+        public async Task<Response<Product?>> UpdateProductInCartAsync(
             string? city,
-            int id,
+            long id,
             Guid? uid,
             int count,
             Topping[] toppings)
@@ -44,15 +45,15 @@ namespace SushiShop.Core.Managers.Cart
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<CartProduct?>(isSuccessful: true, data);
+                return new Response<Product?>(isSuccessful: true, data);
             }
 
-            return new Response<CartProduct?>(isSuccessful: false, null);
+            return new Response<Product?>(isSuccessful: false, null);
         }
 
-        public async Task<Response<Data.Models.Cart.Cart?>> GetCartAsync(int id, string city)
+        public async Task<Response<Data.Models.Cart.Cart?>> GetCartAsync(string? city)
         {
-            var response = await cartService.GetCartAsync(city, CancellationToken.None);
+            var response = await cartService.GetCartAsync(userSession.GetCartId(), city, CancellationToken.None);
             if (!response.IsSuccessful)
             {
                 return new Response<Data.Models.Cart.Cart?>(isSuccessful: false, null);
@@ -62,9 +63,9 @@ namespace SushiShop.Core.Managers.Cart
             return new Response<Data.Models.Cart.Cart?>(isSuccessful: true, data);
         }
 
-        public async Task<Response<Promocode?>> GetCartPromocodeAsync(int id, string city, string promocode)
+        public async Task<Response<Promocode?>> GetCartPromocodeAsync(string? city, string promocode)
         {
-            var response = await cartService.GetCartPromocodeAsync(city, promocode, CancellationToken.None);
+            var response = await cartService.GetCartPromocodeAsync(userSession.GetCartId(), city, promocode, CancellationToken.None);
             if (!response.IsSuccessful)
             {
                 return new Response<Promocode?>(isSuccessful: false, null!);
@@ -74,42 +75,40 @@ namespace SushiShop.Core.Managers.Cart
             return new Response<Promocode?>(isSuccessful: true, data);
         }
 
-        public async Task<Response<Packaging[]>> GetCartPackagingAsync(int id, string city)
+        public async Task<Response<Product[]?>> GetCartPackagingAsync(string? city)
         {
-            var response = await cartService.GetCartPackagingAsync(city, CancellationToken.None);
-
+            var response = await cartService.GetCartPackagingAsync(userSession.GetCartId(), city, CancellationToken.None);
             if (!response.IsSuccessful)
             {
-                return new Response<Packaging[]>(isSuccessful: false, Array.Empty<Packaging>());
+                return new Response<Product[]?>(isSuccessful: false, Array.Empty<Product>());
             }
 
             var data = response.Data!.SuccessData!.Select(package => package.Map()).ToArray();
-            return new Response<Packaging[]>(isSuccessful: true, data);
+            return new Response<Product[]?>(isSuccessful: true, data);
         }
 
-        public async Task<Response<Sauces[]?>> GetSaucesAsync(int id, string city, string promocode)
+        public async Task<Response<Topping[]?>> GetSaucesAsync(string? city)
         {
-            var response = await cartService.GetSaucesAsync(city, CancellationToken.None);
-
+            var response = await cartService.GetSaucesAsync(userSession.GetCartId(), city, CancellationToken.None);
             if (!response.IsSuccessful)
             {
-                return new Response<Sauces[]>(isSuccessful: false, Array.Empty<Sauces>());
+                return new Response<Topping[]?>(isSuccessful: false, Array.Empty<Topping>());
             }
 
             var data = response.Data!.SuccessData!.Select(sauces => sauces.Map()).ToArray();
-            return new Response<Sauces[]>(isSuccessful: true, data!);
+            return new Response<Topping[]?>(isSuccessful: true, data!);
         }
 
-        public async Task<Response<Data.Models.Cart.Cart>> ClearCartAsync(int id, string city)
+        public async Task<Response<Data.Models.Cart.Cart?>> ClearCartAsync(string? city)
         {
-            var response = await cartService.ClearCartAsync(city, CancellationToken.None);
+            var response = await cartService.ClearCartAsync(userSession.GetCartId(), city, CancellationToken.None);
             if (!response.IsSuccessful)
             {
-                return new Response<Data.Models.Cart.Cart>(isSuccessful: false, null!);
+                return new Response<Data.Models.Cart.Cart?>(isSuccessful: false, null!);
             }
 
             var data = response.Data!.SuccessData?.Map();
-            return new Response<Data.Models.Cart.Cart>(isSuccessful: true, data!);
+            return new Response<Data.Models.Cart.Cart?>(isSuccessful: true, data!);
         }
     }
 }
