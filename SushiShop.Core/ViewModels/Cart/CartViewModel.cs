@@ -34,22 +34,14 @@ namespace SushiShop.Core.ViewModels.Cart
         }
 
         public IMvxCommand AddSauceCommand { get; }
-        //public IMvxCommand AddBagCommand { get; }
         public IMvxCommand CheckoutCommand { get; }
 
         public MvxObservableCollection<CartProductItemViewModel> Products { get; }
         public MvxObservableCollection<CartProductItemViewModel> Packagings { get; }
 
         public string Title => AppStrings.Basket;
-        public long CountProductsInCart => cart.TotalSum;
-        public string TotalPrice => cart.TotalSum.ToString();
-
-        
-        //public override void Prepare(CardProductNavigationParameters parameter)
-        //{
-        //    id = parameter.Id;
-        //    city = parameter.City;
-        //}
+        public long? CountProductsInCart => cart?.TotalCount;
+        public int? TotalPrice => cart?.TotalSum;
 
         public override async Task InitializeAsync()
         {
@@ -72,6 +64,7 @@ namespace SushiShop.Core.ViewModels.Cart
             //RelatedItems.AddRange(viewModels);
             await RaiseAllPropertiesChanged();
         }
+
         private async Task AddSauceAsync()
         {
             //var navigationParams = new ToppingNavigationParameters(toppings, AppStrings.MakeItTastier);
