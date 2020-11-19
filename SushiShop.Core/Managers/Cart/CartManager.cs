@@ -86,5 +86,30 @@ namespace SushiShop.Core.Managers.Cart
             var data = response.Data!.SuccessData!.Select(package => package.Map()).ToArray();
             return new Response<Packaging[]>(isSuccessful: true, data);
         }
+
+        public async Task<Response<Sauces[]?>> GetSaucesAsync(int id, string city, string promocode)
+        {
+            var response = await cartService.GetSaucesAsync(city, CancellationToken.None);
+
+            if (!response.IsSuccessful)
+            {
+                return new Response<Sauces[]>(isSuccessful: false, Array.Empty<Sauces>());
+            }
+
+            var data = response.Data!.SuccessData!.Select(sauces => sauces.Map()).ToArray();
+            return new Response<Sauces[]>(isSuccessful: true, data!);
+        }
+
+        public async Task<Response<Data.Models.Cart.Cart>> ClearCartAsync(int id, string city)
+        {
+            var response = await cartService.ClearCartAsync(city, CancellationToken.None);
+            if (!response.IsSuccessful)
+            {
+                return new Response<Data.Models.Cart.Cart>(isSuccessful: false, null!);
+            }
+
+            var data = response.Data!.SuccessData?.Map();
+            return new Response<Data.Models.Cart.Cart>(isSuccessful: true, data!);
+        }
     }
 }

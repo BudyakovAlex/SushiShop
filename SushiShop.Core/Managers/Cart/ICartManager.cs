@@ -20,5 +20,9 @@ namespace SushiShop.Core.Managers.Cart
         Task<Response<Promocode?>> GetCartPromocodeAsync(int id, string city, string promocode);
 
         Task<Response<Packaging[]>> GetCartPackagingAsync(int id, string city);
+
+        Task<Response<Sauces[]?>> GetSaucesAsync(int id, string city, string promocode);
+
+        Task<Response<Data.Models.Cart.Cart>> ClearCartAsync(int id, string city);
     }
 }
