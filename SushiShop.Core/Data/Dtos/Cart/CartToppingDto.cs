@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using System;
 
-namespace SushiShop.Core.Data.Dtos.Products
+namespace SushiShop.Core.Data.Dtos.Cart
 {
-    public class GetToppingDto
+    public class CartToppingDto
     {
         [JsonProperty("id")]
         public long Id { get; set; }

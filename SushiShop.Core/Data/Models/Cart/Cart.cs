@@ -13,8 +13,7 @@ namespace SushiShop.Core.Data.Models.Cart
             long discount,
             Currency[]? currency, 
             CartProduct[]? products, 
-            Promocode[]? promocodes, 
-            Guid? productUid)
+            Promocode[]? promocodes)
         {
             BasketId = basketId;
             City = city;
@@ -25,7 +24,6 @@ namespace SushiShop.Core.Data.Models.Cart
             Currency = currency;
             Products = products;
             Promocodes = promocodes;
-            ProductUid = productUid;
         }
 
         public Guid BasketId { get; }
@@ -45,7 +43,5 @@ namespace SushiShop.Core.Data.Models.Cart
         public CartProduct[]? Products { get; }
 
         public Promocode[]? Promocodes { get; }
-
-        public Guid? ProductUid { get; }
     }
 }

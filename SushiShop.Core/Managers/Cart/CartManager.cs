@@ -1,6 +1,5 @@
 ﻿using SushiShop.Core.Data.Dtos.Products;
 using SushiShop.Core.Data.Http;
-using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.Mappers;
 using SushiShop.Core.Providers;

@@ -6,11 +6,20 @@ namespace SushiShop.Core.Data.Models.Cart
     public class Packaging
     {
         public Packaging(
-            int id, string? pageTitle, string? alias,
-            long parent, DateTime publishDate, DateTime unpublishDate,
-            string? introText, DateTime creationDate, int countInBasket,
-            long price, long oldPrice, Currency? currency,
-            ImageInfo? mainImageInfo, ImageInfo? optionalImageInfo)
+            long id, 
+            string? pageTitle, 
+            string? alias,
+            long parent, 
+            DateTime publishDate, 
+            DateTime unpublishDate,
+            string? introText, 
+            DateTime creationDate, 
+            int countInBasket,
+            long price, 
+            long oldPrice, 
+            Currency? currency,
+            ImageInfo? mainImageInfo,
+            ImageInfo? optionalImageInfo)
         {
             Id = id;
             PageTitle = pageTitle;
@@ -29,7 +38,7 @@ namespace SushiShop.Core.Data.Models.Cart
             OptionalImageInfo = optionalImageInfo;
         }
 
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public string? PageTitle { get; set; }
 

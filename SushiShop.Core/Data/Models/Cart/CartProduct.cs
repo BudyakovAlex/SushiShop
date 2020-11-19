@@ -1,5 +1,4 @@
-﻿using SushiShop.Core.Data.Models.Products;
-using System;
+﻿using System;
 
 namespace SushiShop.Core.Data.Models.Cart
 {
@@ -9,16 +8,16 @@ namespace SushiShop.Core.Data.Models.Cart
             long id,
             int count,
             decimal price,
-            int? amount,
+            decimal? totalPrice,
             string? pageTitle,
             Guid? uid,
             bool? isReadonly,
-            GetTopping[] toppings)
+            CartTopping[] toppings)
         {
             Id = id;
             Count = count;
             Price = price;
-            Amount = amount;
+            TotalPrice = totalPrice;
             PageTitle = pageTitle;
             Uid = uid;
             IsReadonly = isReadonly;
@@ -31,7 +30,7 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public decimal Price { get; }
 
-        public int? Amount { get; }
+        public decimal? TotalPrice { get; }
 
         public string? PageTitle { get; }
 
@@ -39,6 +38,6 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public bool? IsReadonly { get; }
 
-        public GetTopping[] Toppings { get; } = Array.Empty<GetTopping>();
+        public CartTopping[] Toppings { get; } = Array.Empty<CartTopping>();
     }
 }

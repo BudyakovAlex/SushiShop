@@ -1,6 +1,5 @@
 ﻿using System;
 using SushiShop.Core.Data.Models.Common;
-using SushiShop.Core.Data.Models.Menu;
 
 namespace SushiShop.Core.Data.Models.Promotions
 {

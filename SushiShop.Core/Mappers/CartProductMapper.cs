@@ -1,5 +1,6 @@
 ﻿using SushiShop.Core.Data.Dtos.Cart;
 using SushiShop.Core.Data.Models.Cart;
+using System.Linq;
 
 namespace SushiShop.Core.Mappers
 {
@@ -11,11 +12,11 @@ namespace SushiShop.Core.Mappers
                 productDto.Id,
                 productDto.Count,
                 productDto.Price,
-                productDto.Amount,
+                productDto.TotalPrice,
                 productDto.PageTitle!,
                 productDto.Uid,
                 productDto.IsReadonly,
-                null); //TODO: clarify toppings structure
+                productDto.Toppings.Select(topping => topping.Map()).ToArray());
         }
     }
 }

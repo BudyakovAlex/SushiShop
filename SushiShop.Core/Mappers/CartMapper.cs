@@ -16,8 +16,7 @@ namespace SushiShop.Core.Mappers
                 cartDto.Discount,
                 cartDto.Currency?.Select(currency => currency.Map()).ToArray(),
                 cartDto.Products?.Select(product => product.Map()).ToArray(),
-                cartDto.Promoсodes?.Select(promocode => promocode.Map()).ToArray(),
-                cartDto.ProductUid);
+                cartDto.Promoсodes?.Select(promocode => promocode.Map()).ToArray());
         }
     }
 }

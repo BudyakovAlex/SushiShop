@@ -8,7 +8,6 @@ using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cart.Items;
-using SushiShop.Core.ViewModels.Menu.Items;
 
 namespace SushiShop.Core.ViewModels.Cart
 {
