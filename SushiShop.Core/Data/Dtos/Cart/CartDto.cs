@@ -32,8 +32,5 @@ namespace SushiShop.Core.Data.Dtos.Cart
 
         [JsonProperty("promocode")]
         public PromocodeDto[]? Promoсodes { get; set; }
-
-        [JsonProperty("productUid")]
-        public Guid? ProductUid { get; set; }
     }
 }

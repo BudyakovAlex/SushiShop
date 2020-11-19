@@ -24,7 +24,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items
             this.city = city;
 
             //TODO: make it not nullable
-            StepperViewModel = new StepperViewModel(product?.Amount.Value, OnCountChangedAsync);
+            StepperViewModel = new StepperViewModel(product?.Amount, OnCountChangedAsync);
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
 
@@ -32,7 +32,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items
 
         public StepperViewModel StepperViewModel { get; }
 
-        public string? ImageUrl => product?..MainImageInfo?.JpgUrl;
+        public string? ImageUrl => product?.MainImageInfo?.JpgUrl;
 
         private Task ShowDetailsAsync()
         {

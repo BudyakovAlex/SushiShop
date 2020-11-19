@@ -7,7 +7,7 @@ namespace SushiShop.Core.Data.Dtos.Cart
     public class CartProductDto
     {
         [JsonProperty("id")]
-        public Guid Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("count")]
         public int Count { get; set; }

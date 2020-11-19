@@ -6,7 +6,7 @@ namespace SushiShop.Core.Data.Models.Cart
     public class CartProduct
     {
         public CartProduct(
-            Guid id,
+            long id,
             int count,
             decimal price,
             int? amount,
@@ -25,7 +25,7 @@ namespace SushiShop.Core.Data.Models.Cart
             Toppings = toppings;
         }
 
-        public Guid Id { get; }
+        public long Id { get; }
 
         public int Count { get; }
 

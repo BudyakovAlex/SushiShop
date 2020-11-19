@@ -4,7 +4,7 @@ namespace SushiShop.Core.Data.Models.Products
 {
     public class GetTopping
     {
-        public GetTopping(Guid id, int count, int price, string? pageTitle)
+        public GetTopping(long Id, int count, int price, string? pageTitle)
         {
             this.Id = id;
             this.Count = count;
@@ -12,10 +12,9 @@ namespace SushiShop.Core.Data.Models.Products
             this.PageTitle = pageTitle;
         }
 
-        public Guid Id { get; }
+        public long Id { get; }
         public int Count { get; }
         public int Price { get; }
-
         public string? PageTitle { get; }
     }
 }

@@ -14,7 +14,7 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public int? DiscountPercent { get; set; }
 
         [JsonProperty("itemGift")]
-        public string[]? ItemGift { get; set; }
+        public string? Gift { get; set; }
 
         [JsonProperty("description")]
         public string? Description { get; set; }
