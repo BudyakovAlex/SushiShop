@@ -19,7 +19,7 @@ namespace SushiShop.Core.Mappers
                 productDto.Uid,
                 productDto.IsReadOnly,
                 Enum.Parse<ProductType>(productDto.Type, ignoreCase: true),
-                productDto.Toppings!.Values.Select(topping => topping.Map()).ToArray());
+                productDto.Toppings!.Select(topping => topping.Map()).ToArray());
         }
     }
 }

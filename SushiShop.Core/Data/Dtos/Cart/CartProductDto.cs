@@ -31,6 +31,6 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public string? Type { get; set; }
 
         [JsonProperty("toppings")]
-        public Dictionary<string, CartToppingDto>? Toppings { get; set; }
+        public CartToppingDto[]? Toppings { get; set; }
     }
 }
