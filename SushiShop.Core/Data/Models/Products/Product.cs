@@ -1,5 +1,5 @@
-﻿using SushiShop.Core.Data.Models.Common;
-using SushiShop.Core.Data.Models.Menu;
+﻿using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Data.Models.Common;
 using System;
 
 namespace SushiShop.Core.Data.Models.Products
@@ -7,8 +7,8 @@ namespace SushiShop.Core.Data.Models.Products
     public class Product
     {
         public Product(
-            int id,
-            Guid uid,
+            long id,
+            Guid? uid,
             string pageTitle,
             string? alias,
             long parent,
@@ -44,8 +44,8 @@ namespace SushiShop.Core.Data.Models.Products
             CountInBasket = countInBasket;
         }
 
-        public int Id { get; }
-        public Guid Uid { get; set; }
+        public long Id { get; }
+        public Guid? Uid { get; set; }
         public string PageTitle { get; }
         public string? Alias { get; }
         public long Parent { get; }

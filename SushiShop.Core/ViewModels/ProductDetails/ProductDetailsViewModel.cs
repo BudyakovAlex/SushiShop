@@ -41,20 +41,32 @@ namespace SushiShop.Core.ViewModels.ProductDetails
 
         public IMvxCommand AddToCartCommand { get; }
 
+        public bool IsReadOnly { get; private set; }
+
         public string? BackgroungImageUrl => product?.MainImageInfo?.OriginalUrl;
+
         public string Protein => product?.Params?.Proteins ?? string.Empty;
+
         public string Fats => product?.Params?.Fats ?? string.Empty;
+
         public string Carbohydrates => product?.Params?.Carbons ?? string.Empty;
+
         public string Calories => product?.Params?.CalorificValue ?? string.Empty;
+
         public string Title => product?.PageTitle ?? string.Empty;
+
         public string Description => product?.IntroText ?? string.Empty;
+
         public string Weight => product?.Params?.Weight ?? string.Empty;
+
         public string Price => product is null ? string.Empty : $"{product.Price} {product.Currency.Symbol}";
+
         public string? OldPrice => product is null || product.OldPrice == 0
             ? string.Empty
             : $"{product.OldPrice} {product.Currency.Symbol}";
 
         public StepperViewModel StepperViewModel { get; }
+
         public MvxObservableCollection<ProductItemViewModel> RelatedItems { get; }
 
         private bool isHiddenStepper = true;
@@ -68,6 +80,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         {
             id = parameter.Id;
             city = parameter.City;
+            IsReadOnly = parameter.IsReadonly;
         }
 
         public override async Task InitializeAsync()
@@ -113,11 +126,13 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             }
         }
 
-        private async Task OnCountChangedAsync(int count)
+        private async Task OnCountChangedAsync(int previousCount, int newCount)
         {
-            IsHiddenStepper = count == 0;
+            IsHiddenStepper = newCount == 0;
+            var step = newCount - previousCount;
 
-            var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, count, toppings.ToArray());
+            var selectedToppings = toppings.Where(topping => topping.CountInBasket > 0).ToArray();
+            var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, step, selectedToppings);
             if (response.Data is null)
             {
                 return;

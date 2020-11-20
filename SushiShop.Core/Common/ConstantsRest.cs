@@ -13,6 +13,11 @@ namespace SushiShop.Core.Common
             public const string ProductResource = "shop/product";
             public const string RelatedResource = "shop/related";
             public const string CartUpdateResource = "basket/update";
+            public const string CartGetResource = "basket/get";
+            public const string CartPromocodeResource = "basket/promocode";
+            public const string CartPackagingResource = "basket/packaging"; 
+            public const string CartSaucesResource = "basket/sauces";
+            public const string CartClearResource = "basket/clear";
 
             public const string AboutUsAlias = "o-nas";
             public const string PrivacyPolicyAlias = "politika-konfidencialnosti";

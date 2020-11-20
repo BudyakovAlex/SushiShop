@@ -27,7 +27,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
 
         public IMvxCommand ResetCommand { get; }
 
-        public string PageTitle { get; set; }
+        public string? PageTitle { get; private set; }
 
         public override void Prepare(ToppingNavigationParameters parameter)
         {

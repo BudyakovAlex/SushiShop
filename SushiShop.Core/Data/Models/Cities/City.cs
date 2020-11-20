@@ -6,7 +6,7 @@ namespace SushiShop.Core.Data.Models.Cities
     public class City
     {
         public City(
-            int id,
+            long id,
             string name,
             int shopsCount,
             double latitude,
@@ -29,7 +29,7 @@ namespace SushiShop.Core.Data.Models.Cities
             Currency = currency;
         }
 
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public int ShopsCount { get; set; }
         public double Latitude { get; set; }

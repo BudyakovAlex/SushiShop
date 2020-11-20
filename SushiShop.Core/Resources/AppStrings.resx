@@ -186,4 +186,13 @@
   <data name="MakeItTastier" xml:space="preserve">
     <value>Сделать вкуснее</value>
   </data>
+  <data name="Basket" xml:space="preserve">
+    <value>Корзина</value>
+  </data>
+  <data name="AddSauce" xml:space="preserve">
+    <value>Добавить соус</value>
+  </data>
+  <data name="PromocodeApplied" xml:space="preserve">
+    <value>Промокод применен</value>
+  </data>
 </root>
