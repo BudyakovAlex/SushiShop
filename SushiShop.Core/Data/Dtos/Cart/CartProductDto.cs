@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace SushiShop.Core.Data.Dtos.Cart
@@ -14,9 +13,18 @@ namespace SushiShop.Core.Data.Dtos.Cart
 
         [JsonProperty("price")]
         public decimal Price { get; set; }
-        
+
+        [JsonProperty("oldPrice")]
+        public decimal OldPrice { get; set; }
+
         [JsonProperty("amount")]
         public decimal TotalPrice { get; set; }
+
+        [JsonProperty("weight")]
+        public decimal? Weight { get; set; }
+
+        [JsonProperty("volume")]
+        public decimal? Volume { get; set; }
 
         [JsonProperty("pagetitle")]
         public string? PageTitle { get; set; }

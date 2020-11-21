@@ -9,18 +9,19 @@ namespace SushiShop.Core.ViewModels.CardProduct.Items
     {
         private readonly Topping topping;
 
-        public ToppingItemViewModel(Topping topping)
+        public ToppingItemViewModel(Topping topping, string? currency)
         {
             this.topping = topping;
+
             Title = topping.PageTitle ?? string.Empty;
-            Price = topping.Price;
+            Price = $"{topping.Price} {currency}";
 
             StepperViewModel = new StepperViewModel(topping.CountInBasket, OnCountChangedAsync);
         }
 
         public string Title { get; }
 
-        public decimal Price { get; }
+        public string Price { get; }
 
         public StepperViewModel StepperViewModel { get; }
 

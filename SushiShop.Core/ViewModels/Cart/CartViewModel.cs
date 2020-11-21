@@ -1,18 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
+using SushiShop.Core.Data.Http;
+using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.Factories.Cart;
 using SushiShop.Core.Managers.Cart;
+using SushiShop.Core.Messages;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cart.Items;
 using SushiShop.Core.ViewModels.ProductDetails;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Cart
 {
@@ -35,15 +40,18 @@ namespace SushiShop.Core.ViewModels.Cart
             this.cartManager = cartManager;
             this.userSession = userSession;
             this.viewModelsFactory = viewModelsFactory;
+
             Products = new MvxObservableCollection<CartProductItemViewModel>();
             Sauces = new MvxObservableCollection<CartToppingItemViewModel>();
             Packages = new MvxObservableCollection<CartPackItemViewModel>();
 
             CheckoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, CheckoutAsync);
-            AddSauceCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddSauceAsync);
+            AddSaucesCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddSaucesAsync);
+
+            Messenger.Subscribe<RefreshCartMessage>(OnCartChanged).DisposeWith(Disposables);
         }
 
-        public IMvxCommand AddSauceCommand { get; }
+        public IMvxCommand AddSaucesCommand { get; }
         public IMvxCommand CheckoutCommand { get; }
 
         public MvxObservableCollection<CartProductItemViewModel> Products { get; }
@@ -61,10 +69,10 @@ namespace SushiShop.Core.ViewModels.Cart
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
-            _ = ExecutionStateWrapper.WrapAsync(() => ReloadDataAsync(), awaitWhenBusy: true);  
+            _ = ExecutionStateWrapper.WrapAsync(() => RefreshDataAsync(), awaitWhenBusy: true);  
         }
 
-        private async Task ReloadDataAsync()
+        protected override async Task RefreshDataAsync()
         {
             city = userSession.GetCity()?.Name;
 
@@ -83,6 +91,7 @@ namespace SushiShop.Core.ViewModels.Cart
             var toppings = allProducts.OfType<CartToppingItemViewModel>().ToList();
             var packages = allProducts.OfType<CartPackItemViewModel>().ToList();
 
+            //TODO: check how it works with UI if we will have blicks replace with SwitchTo method
             Products.ReplaceWith(mainProducts);
             Sauces.ReplaceWith(toppings);
             Packages.ReplaceWith(packages);
@@ -91,16 +100,32 @@ namespace SushiShop.Core.ViewModels.Cart
                 RaisePropertyChanged(nameof(TotalPrice)));
         }
 
-        private async Task AddSauceAsync()
+        private void OnCartChanged(RefreshCartMessage message)
         {
-            var navigationParams = new ToppingNavigationParameters(sauses.ToList(), AppStrings.AddSauce);
-            var result = await NavigationManager.NavigateAsync<ToppingsViewModel, ToppingNavigationParameters, List<Topping>>(navigationParams);
-            if (result is null)
+            _ = SafeExecutionWrapper.WrapAsync(RefreshDataAsync);
+        }
+
+        private async Task AddSaucesAsync()
+        {
+            var navigationParams = new ToppingNavigationParameters(sauses.ToList(), AppStrings.AddSauce, cart!.Currency?.Symbol);
+            var toppings = await NavigationManager.NavigateAsync<ToppingsViewModel, ToppingNavigationParameters, List<Topping>>(navigationParams);
+            if (toppings is null)
             {
                 return;
             }
 
-            //TODO: add send logic here
+            await Task.WhenAll(ProduceAddToppingsTasks(toppings));
+            await RefreshDataAsync();
+
+            IEnumerable<Task<Response<Product?>>> ProduceAddToppingsTasks(List<Topping> toppings)
+            {
+                foreach (var topping in toppings)
+                {
+                    var existingTopping = Sauces.FirstOrDefault(sauce => sauce.Id == topping.Id);
+                    var count = topping.CountInBasket - existingTopping?.CountInBasket ?? 0;
+                    yield return cartManager.UpdateProductInCartAsync(city, topping.Id, existingTopping?.Uid, count, Array.Empty<Topping>());
+                }
+            }
         }
 
         private Task CheckoutAsync()

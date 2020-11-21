@@ -33,7 +33,8 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         {
             toppings = parameter.Toppings;
             PageTitle = parameter.Title;
-            var viewModels = parameter.Toppings.Select(topping => new ToppingItemViewModel(topping)).ToList();
+
+            var viewModels = parameter.Toppings.Select(topping => new ToppingItemViewModel(topping, parameter.Currency)).ToList();
             Items.AddRange(viewModels);
         }
 
