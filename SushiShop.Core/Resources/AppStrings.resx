@@ -195,4 +195,10 @@
   <data name="PromocodeApplied" xml:space="preserve">
     <value>Промокод применен</value>
   </data>
+  <data name="GramSymbol" xml:space="preserve">
+    <value>г</value>
+  </data>
+  <data name="MillilitersSymbol" xml:space="preserve">
+    <value>мл</value>
+  </data>
 </root>

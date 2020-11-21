@@ -5,6 +5,7 @@ using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Mappers;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
 using System;
 using System.Linq;
@@ -29,10 +30,10 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
             product.ThrowIfNull();
 
             this.cartManager = cartManager;
-            this.Product = product;
             this.currency = currency;
             this.city = city;
 
+            Product = product;
             StepperViewModel = new StepperViewModel(product.Count, OnCountChangedAsync);
         }
 
@@ -40,8 +41,13 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
 
         public string Price => $"{Product!.Price} {currency?.Symbol}";
 
-        //TODO: fix after BE will be updated
-        //public string? OldPrice => product?.OldPrice == 0 ? null : $"{product?.OldPrice} {product!.Currency.Symbol}";
+        public long Id => Product.Id;
+
+        public Guid? Uid => Product.Uid;
+
+        public string? OldPrice => Product.OldPrice == 0 ? null : $"{Product!.OldPrice} {currency?.Symbol}";
+
+        public string Value => GetValue();
 
         public int CountInBasket => Product.Count;
 
@@ -62,6 +68,21 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
 
             Product!.Count = response.Data.CountInBasket;
             await RaisePropertyChanged(nameof(CountInBasket));
+        }
+
+        private string GetValue()
+        {
+            if (Product.Weight.HasValue)
+            {
+                return $"{Product.Weight} {AppStrings.GramSymbol}";
+            }
+
+            if (Product.Volume.HasValue)
+            {
+                return $"{Product.Volume} {AppStrings.MillilitersSymbol}";
+            }
+
+            return string.Empty;
         }
     }
 }

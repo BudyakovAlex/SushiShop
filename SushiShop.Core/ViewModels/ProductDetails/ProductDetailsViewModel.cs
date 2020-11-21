@@ -6,6 +6,7 @@ using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Managers.Products;
+using SushiShop.Core.Messages;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
@@ -16,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.ProductDetails
 {
-    public class ProductDetailsViewModel : BasePageViewModel<CardProductNavigationParameters>
+    public class ProductDetailsViewModel : BasePageViewModel<CardProductNavigationParameters, bool>
     {
         private readonly IProductsManager productsManager;
         private readonly ICartManager cartManager;
@@ -26,6 +27,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
 
         private long id;
         private string? city;
+        private bool hasChanged;
 
         public ProductDetailsViewModel(IProductsManager productsManager, ICartManager cartManager)
         {
@@ -76,6 +78,8 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             set => SetProperty(ref isHiddenStepper, value);
         }
 
+        protected override bool DefaultResult => hasChanged;
+
         public override void Prepare(CardProductNavigationParameters parameter)
         {
             id = parameter.Id;
@@ -96,9 +100,15 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             var relatedProducts = getRelatedProductTask.Result.Data.ToList();
             toppings = product?.Params?.AvailableToppings?.ToList() ?? new List<Topping>();
 
-            var viewModels = relatedProducts.Select(product => new ProductItemViewModel(cartManager, product, city)).ToList();
+            var viewModels = relatedProducts.Select(product => new ProductItemViewModel(cartManager, product, city, RefreshDataAsync)).ToList();
             RelatedItems.AddRange(viewModels);
             await RaiseAllPropertiesChanged();
+        }
+
+        protected override Task RefreshDataAsync()
+        {
+            hasChanged = true;
+            return base.RefreshDataAsync();
         }
 
         private async Task AddToCartAsync()
@@ -110,7 +120,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
                     return;
                 }
                 
-                var navigationParams = new ToppingNavigationParameters(toppings, AppStrings.MakeItTastier);
+                var navigationParams = new ToppingNavigationParameters(toppings, AppStrings.MakeItTastier, product!.Currency.Symbol);
                 var result = await NavigationManager.NavigateAsync<ToppingsViewModel, ToppingNavigationParameters, List<Topping>>(navigationParams);
                 if (result is null)
                 {
@@ -138,6 +148,8 @@ namespace SushiShop.Core.ViewModels.ProductDetails
                 return;
             }
 
+            hasChanged = true;
+            Messenger.Publish(new RefreshCartMessage(this));
             product!.Uid = response.Data.Uid;
         }
     }
