@@ -8,6 +8,6 @@ namespace SushiShop.Core.Managers.Promotions
     {
         Task<Response<Promotion[]>> GetPromotionsAsync(string? city);
 
-        Task<Response<Promotion?>> GetPromotionAsync(string? city, int id);
+        Task<Response<Promotion?>> GetPromotionAsync(string? city, long id);
     }
 }

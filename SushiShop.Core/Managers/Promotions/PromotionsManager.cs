@@ -29,7 +29,7 @@ namespace SushiShop.Core.Managers.Promotions
             return new Response<Promotion[]>(isSuccessful: false, new Promotion[0]);
         }
 
-        public async Task<Response<Promotion?>> GetPromotionAsync(string? city, int id)
+        public async Task<Response<Promotion?>> GetPromotionAsync(string? city, long id)
         {
             var response = await promotionsService.GetPromotionAsync(city, id, CancellationToken.None);
             if (response.IsSuccessful)

@@ -22,6 +22,6 @@ namespace SushiShop.Core.ViewModels.Promotions.Items
         public string ImageUrl => promotion.RectangularImageInfo.JpgUrl;
 
         private Task ShowDetailsAsync() =>
-            NavigationManager.NavigateAsync<PromotionDetailsViewModel, int>(promotion.Id);
+            NavigationManager.NavigateAsync<PromotionDetailsViewModel, long>(promotion.Id);
     }
 }

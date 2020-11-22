@@ -9,14 +9,14 @@ using SushiShop.Core.Resources;
 
 namespace SushiShop.Core.ViewModels.Promotions
 {
-    public class PromotionDetailsViewModel : BasePageViewModel<int>
+    public class PromotionDetailsViewModel : BasePageViewModel<long>
     {
         private static readonly CultureInfo CultureInfo = CultureInfo.GetCultureInfo("ru");
 
         private readonly IPromotionsManager promotionsManager;
         private readonly IUserSession userSession;
 
-        private int id;
+        private long id;
         private Promotion? promotion;
 
         public PromotionDetailsViewModel(IPromotionsManager promotionsManager, IUserSession userSession)
@@ -69,7 +69,7 @@ namespace SushiShop.Core.ViewModels.Promotions
             }
         }
 
-        public override void Prepare(int parameter)
+        public override void Prepare(long parameter)
         {
             id = parameter;
         }
