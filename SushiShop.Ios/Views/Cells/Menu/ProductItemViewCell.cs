@@ -12,7 +12,6 @@ using SushiShop.Core.Extensions;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Common.Styles;
-using SushiShop.Ios.Extensions;
 using UIKit;
 using Xamarin.Essentials;
 
@@ -94,7 +93,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
             bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
             bindingSet.Bind(this).For(v => v.Stickers).To(vm => vm.Stickers);
             bindingSet.Bind(this).For(v => v.OldPrice).To(vm => vm.OldPrice);
-            bindingSet.Bind(TopImageView).For(v => v.ImagePath).To(vm => vm.ImageUrl);
+            bindingSet.Bind(TopImageView).For(v => v.ImageUrl).To(vm => vm.ImageUrl);
             bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.Title);
             bindingSet.Bind(PriceLabel).For(v => v.Text).To(vm => vm.Price);
             bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);

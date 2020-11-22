@@ -2,10 +2,15 @@
 using System.Globalization;
 using System.Threading.Tasks;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+using SushiShop.Core.Common;
 using SushiShop.Core.Data.Models.Promotions;
+using SushiShop.Core.Data.Models.Toppings;
+using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Managers.Promotions;
+using SushiShop.Core.Messages;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
+using SushiShop.Core.ViewModels.Common;
 
 namespace SushiShop.Core.ViewModels.Promotions
 {
@@ -15,59 +20,34 @@ namespace SushiShop.Core.ViewModels.Promotions
 
         private readonly IPromotionsManager promotionsManager;
         private readonly IUserSession userSession;
+        private readonly ICartManager cartManager;
 
         private long id;
         private Promotion? promotion;
 
-        public PromotionDetailsViewModel(IPromotionsManager promotionsManager, IUserSession userSession)
+        public PromotionDetailsViewModel(
+            IPromotionsManager promotionsManager,
+            IUserSession userSession,
+            ICartManager cartManager)
         {
             this.promotionsManager = promotionsManager;
             this.userSession = userSession;
+            this.cartManager = cartManager;
         }
 
-        public string ImageUrl => promotion?.RectangularImageInfo.JpgUrl ?? string.Empty;
+        private StepperViewModel? stepperViewModel;
+        public StepperViewModel? StepperViewModel =>
+            stepperViewModel ??= CreateStepperViewModelOrDefault();
 
-        public string Content => promotion?.Content ?? string.Empty;
+        public string ImageUrl => promotion?.SquareImageInfo.JpgUrl ?? string.Empty;
 
-        public string IntroText => promotion?.IntroText ?? string.Empty;
+        public string HtmlContent => promotion?.Content ?? string.Empty;
 
-        public string DateString
-        {
-            get
-            {
-                if (promotion is null)
-                {
-                    return string.Empty;
-                }
+        public string IntroTitle => promotion?.IntroText ?? string.Empty;
 
-                var startDate = promotion.PublicationStartDate.Date;
-                var endDate = promotion.PublicationEndDate.Date;
-                if (startDate.Year == endDate.Year)
-                {
-                    if (startDate.Month == endDate.Month)
-                    {
-                        return string.Format(
-                            startDate.Day.ToString(),
-                            GetFullDateString(endDate),
-                            AppStrings.FromToDateFormat);
-                    }
-                    else
-                    {
-                        return string.Format(
-                          startDate.ToString("d MMMM", CultureInfo),
-                          GetFullDateString(endDate),
-                          AppStrings.FromToDateFormat);
-                    }
-                }
-                else
-                {
-                    return string.Format(
-                        GetFullDateString(startDate),
-                        GetFullDateString(endDate),
-                        AppStrings.FromToDateFormat);
-                }
-            }
-        }
+        public bool CanAddToCart => promotion?.Product != null;
+
+        public string PublicationDateRangeTitle => GetPublicationDateRangeTitle();
 
         public override void Prepare(long parameter)
         {
@@ -91,7 +71,66 @@ namespace SushiShop.Core.ViewModels.Promotions
             }
         }
 
-        private string GetFullDateString(DateTime dateTime) =>
-            dateTime.ToString("d MMMM yyyy", CultureInfo);
+        private string GetLongDateString(DateTime dateTime) =>
+            dateTime.ToString(Constants.Format.DateTime.LongDate, CultureInfo);
+
+        private async Task OnCountChangedAsync(int previousCount, int newCount)
+        {
+            var step = newCount - previousCount;
+
+            var city = userSession.GetCity();
+            var product = promotion!.Product!;
+            var response = await cartManager.UpdateProductInCartAsync(city?.Name, product.Id, product.Uid, step, Array.Empty<Topping>());
+            if (response.Data is null)
+            {
+                return;
+            }
+
+            Messenger.Publish(new RefreshCartMessage(this));
+            product.Uid = response.Data.Uid;
+        }
+
+        private StepperViewModel? CreateStepperViewModelOrDefault()
+        {
+            var product = promotion?.Product;
+            return product is null
+                ? null
+                : new StepperViewModel(AppStrings.Cart, product.CountInBasket, OnCountChangedAsync);
+        }
+
+        private string GetPublicationDateRangeTitle()
+        {
+            if (promotion is null)
+            {
+                return string.Empty;
+            }
+
+            var startDate = promotion.PublicationStartDate.Date;
+            var endDate = promotion.PublicationEndDate.Date;
+            if (startDate.Year == endDate.Year)
+            {
+                if (startDate.Month == endDate.Month)
+                {
+                    return string.Format(
+                        AppStrings.FromToDateFormat,
+                        startDate.Day.ToString(),
+                        GetLongDateString(endDate));
+                }
+                else
+                {
+                    return string.Format(
+                        AppStrings.FromToDateFormat,
+                        startDate.ToString(Constants.Format.DateTime.ShortDate, CultureInfo),
+                        GetLongDateString(endDate));
+                }
+            }
+            else
+            {
+                return string.Format(
+                    AppStrings.FromToDateFormat,
+                    GetLongDateString(startDate),
+                    GetLongDateString(endDate));
+            }
+        }
     }
 }

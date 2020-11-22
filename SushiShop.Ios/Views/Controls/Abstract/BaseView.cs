@@ -70,11 +70,6 @@ namespace SushiShop.Ios.Views.Controls.Abstract
             get => _viewModel;
             set
             {
-                if (value == null)
-                {
-                    return;
-                }
-
                 _viewModel = value;
                 DataContext = _viewModel;
             }

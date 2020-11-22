@@ -16,10 +16,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 		UIKit.UIButton BackButton { get; set; }
 
 		[Outlet]
+		SushiShop.Ios.Views.Controls.ResizableWebView ContentWebView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel DateLabel { get; set; }
 
 		[Outlet]
-		FFImageLoading.Cross.MvxCachedImageView ImageView { get; set; }
+		SushiShop.Ios.Views.Controls.ScalableImageView ImageView { get; set; }
+
+		[Outlet]
+		UIKit.UILabel IntroLabel { get; set; }
 
 		[Outlet]
 		UIKit.UIView LoadingView { get; set; }
@@ -29,6 +35,31 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ContentWebView != null) {
+				ContentWebView.Dispose ();
+				ContentWebView = null;
+			}
+
+			if (BackButton != null) {
+				BackButton.Dispose ();
+				BackButton = null;
+			}
+
+			if (DateLabel != null) {
+				DateLabel.Dispose ();
+				DateLabel = null;
+			}
+
+			if (ImageView != null) {
+				ImageView.Dispose ();
+				ImageView = null;
+			}
+
+			if (IntroLabel != null) {
+				IntroLabel.Dispose ();
+				IntroLabel = null;
+			}
+
 			if (LoadingView != null) {
 				LoadingView.Dispose ();
 				LoadingView = null;
@@ -37,21 +68,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 			if (StepperView != null) {
 				StepperView.Dispose ();
 				StepperView = null;
-			}
-
-			if (BackButton != null) {
-				BackButton.Dispose ();
-				BackButton = null;
-			}
-
-			if (ImageView != null) {
-				ImageView.Dispose ();
-				ImageView = null;
-			}
-
-			if (DateLabel != null) {
-				DateLabel.Dispose ();
-				DateLabel = null;
 			}
 		}
 	}

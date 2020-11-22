@@ -13,7 +13,7 @@ namespace SushiShop.Ios.Views.Cells.Promotions
 	partial class PromotionItemViewCell
 	{
 		[Outlet]
-		FFImageLoading.Cross.MvxCachedImageView ImageView { get; set; }
+		SushiShop.Ios.Views.Controls.ScalableImageView ImageView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{

@@ -50,7 +50,7 @@ namespace SushiShop.Ios.Views.Cells.Promotions
             var bindingSet = this.CreateBindingSet<PromotionItemViewCell, PromotionItemViewModel>();
 
             bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
-            bindingSet.Bind(ImageView).For(v => v.ImagePath).To(vm => vm.ImageUrl);
+            bindingSet.Bind(ImageView).For(v => v.ImageUrl).To(vm => vm.ImageUrl);
             bindingSet.Apply();
         }
     }

@@ -24,7 +24,6 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 
             BackButton.SetCornerRadius();
 
-            ProductImageView.ContentMode = UIViewContentMode.ScaleAspectFill;
             ProductImageView.SetPlaceholders();
 
             ProductSpecificationsView.SetCornerRadius(4);
@@ -38,7 +37,7 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 
             var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(ProductImageView).For(v => v.ImagePath).To(vm => vm.BackgroungImageUrl);
+            bindingSet.Bind(ProductImageView).For(v => v.ImageUrl).To(vm => vm.BackgroungImageUrl);
             bindingSet.Bind(PriceLabel).For(v => v.Text).To(vm => vm.Price);
             bindingSet.Bind(OldPriceLabel).For(v => v.Text).To(vm => vm.OldPrice);
             bindingSet.Bind(ProductNameLabel).For(v => v.Text).To(vm => vm.Title);
@@ -58,7 +57,7 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
                                                                         vm => vm.IsHiddenStepper,
                                                                         vm => vm.IsReadOnly);
             bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.RelatedItems);
-            bindingSet.Bind(ActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
+            bindingSet.Bind(LoadingView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
 
             bindingSet.Apply();
         }

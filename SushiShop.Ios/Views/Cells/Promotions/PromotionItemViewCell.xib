@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="147" height="114"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-f3-UhQ" customClass="MvxCachedImageView">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-f3-UhQ" customClass="ScalableImageView">
                         <rect key="frame" x="0.0" y="0.0" width="147" height="114"/>
                     </imageView>
                 </subviews>
@@ -29,7 +29,7 @@
             </constraints>
             <size key="customSize" width="147" height="114"/>
             <connections>
-                <outlet property="ImageView" destination="bcK-f3-UhQ" id="Y0C-T2-Q4F"/>
+                <outlet property="ImageView" destination="bcK-f3-UhQ" id="XE6-Et-jYj"/>
             </connections>
             <point key="canvasLocation" x="139.85507246376812" y="22.767857142857142"/>
         </collectionViewCell>

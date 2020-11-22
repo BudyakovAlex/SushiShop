@@ -22,6 +22,6 @@ namespace SushiShop.Core.Mappers
                 dto.SaleSquareImage!.Map(),
                 dto.SaleRectangularImage!.Map(),
                 dto.CityMulti!,
-                dto.SaleProductId);
+                dto.SaleProduct?.Map());
     }
 }

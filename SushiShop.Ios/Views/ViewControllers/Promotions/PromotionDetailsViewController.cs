@@ -3,9 +3,8 @@ using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Promotions;
-using SushiShop.Ios.Common;
 using SushiShop.Ios.Common.Styles;
-using UIKit;
+using SushiShop.Ios.Extensions;
 
 namespace SushiShop.Ios.Views.ViewControllers.Promotions
 {
@@ -28,6 +27,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
         {
             base.InitStylesAndContent();
 
+            BackButton.SetCornerRadius();
             ImageView.SetPlaceholders();
         }
 
@@ -39,7 +39,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 
             bindingSet.Bind(BackButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
             bindingSet.Bind(LoadingView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
-            bindingSet.Bind(ImageView).For(v => v.ImagePath).To(vm => vm.ImageUrl);
+            bindingSet.Bind(ImageView).For(v => v.ImageUrl).To(vm => vm.ImageUrl);
+            bindingSet.Bind(DateLabel).For(v => v.Text).To(vm => vm.PublicationDateRangeTitle);
+            bindingSet.Bind(IntroLabel).For(v => v.Text).To(vm => vm.IntroTitle);
+            bindingSet.Bind(ContentWebView).For(v => v.BindHtmlString()).To(vm => vm.HtmlContent);
+            bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);
+            bindingSet.Bind(StepperView).For(v => v.BindVisible()).To(vm => vm.CanAddToCart);
 
             bindingSet.Apply();
         }

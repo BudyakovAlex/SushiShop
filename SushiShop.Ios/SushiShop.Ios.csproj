@@ -428,6 +428,9 @@
       <DependentUpon>PromotionItemViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Delegates\PromotionsCollectionViewDelegateFlowLayout.cs" />
+    <Compile Include="Views\Controls\ScalableImageView.cs" />
+    <Compile Include="TargetBindings\WKWebViewHtmlStringTargetBinding.cs" />
+    <Compile Include="Views\Controls\ResizableWebView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
