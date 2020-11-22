@@ -8,14 +8,14 @@ namespace SushiShop.Core.Managers.Products
     public interface IProductsManager
     {
         Task<Response<Product[]>> GetProductsByCategoryAsync(
-            int? categoryId,
+            long? categoryId,
             string? city,
             StickerType? stickerType);
 
-        Task<Response<Product?>> GetProductAsync(int id, string? city);
+        Task<Response<Product?>> GetProductAsync(long id, string? city);
 
         Task<Response<Product[]>> GetRelatedProductsAsync(
-            int id,
+            long id,
             string? city);
     }
 }

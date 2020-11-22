@@ -35,13 +35,6 @@ namespace SushiShop.Core.ViewModels.Menu
         public string? Title => category?.PageTitle ?? sticker?.Title;
         public List<string> Filters { get; private set; } = new List<string>();
 
-        private bool isLoading;
-        public bool IsLoading
-        {
-            get => isLoading;
-            private set => SetProperty(ref isLoading, value);
-        }
-
         private int selectedFilterIndex;
         public int SelectedFilterIndex
         {
@@ -66,25 +59,24 @@ namespace SushiShop.Core.ViewModels.Menu
             }
         }
 
-        public override async Task InitializeAsync()
+        public override Task InitializeAsync()
         {
-            IsLoading = true;
+            return Task.WhenAll(base.InitializeAsync(), RefreshDataAsync());
+        }
 
-            await base.InitializeAsync();
-
+        protected override async Task RefreshDataAsync()
+        {
             var city = userSession.GetCity();
             var response = await productsManager.GetProductsByCategoryAsync(category?.Id, city?.Name, sticker?.Type);
             if (response.IsSuccessful)
             {
-                var allItems = response.Data.Select(product => new ProductItemViewModel(cartManager, product, city?.Name)).ToArray();
+                var allItems = response.Data.Select(product => new ProductItemViewModel(cartManager, product, city?.Name, RefreshDataAsync) { ExecutionStateWrapper = ExecutionStateWrapper }).ToArray();
                 var filteredItems = Filters.IsEmpty()
                     ? new FilteredProductsViewModel[] { new FilteredProductsViewModel(allItems) }
                     : Filters.Select((_, index) => ProduceItemsByFilter(allItems, index)).ToArray();
 
                 Items.ReplaceWith(filteredItems);
             }
-
-            IsLoading = false;
         }
 
         private FilteredProductsViewModel ProduceItemsByFilter(ProductItemViewModel[] items, int index)

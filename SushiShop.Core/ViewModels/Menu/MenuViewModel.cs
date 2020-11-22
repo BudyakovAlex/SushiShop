@@ -177,7 +177,7 @@ namespace SushiShop.Core.ViewModels.Menu
 
         private async Task SelectCityAsync()
         {
-            var selectedCityIds = city is null ? Array.Empty<int>() : new[] { city.Id };
+            var selectedCityIds = city is null ? Array.Empty<long>() : new[] { city.Id };
             var navigationParams = new SelectCityNavigationParameters(selectedCityIds);
             var result = await NavigationManager.NavigateAsync<SelectCityViewModel, SelectCityNavigationParameters, List<CityItemViewModel>?>(navigationParams);
             if (result is null)

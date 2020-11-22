@@ -186,6 +186,21 @@
   <data name="MakeItTastier" xml:space="preserve">
     <value>Сделать вкуснее</value>
   </data>
+  <data name="Basket" xml:space="preserve">
+    <value>Корзина</value>
+  </data>
+  <data name="AddSauce" xml:space="preserve">
+    <value>Добавить соус</value>
+  </data>
+  <data name="PromocodeApplied" xml:space="preserve">
+    <value>Промокод применен</value>
+  </data>
+  <data name="GramSymbol" xml:space="preserve">
+    <value>г</value>
+  </data>
+  <data name="MillilitersSymbol" xml:space="preserve">
+    <value>мл</value>
+  </data>
   <data name="FromToDateFormat" xml:space="preserve">
     <value>С {0} по {1}</value>
   </data>

@@ -3,7 +3,7 @@ using SushiShop.Core.Data.Models.Cities;
 
 namespace SushiShop.Core.ViewModels.Cities.Items
 {
-    public class CityItemViewModel : SelectableItemViewModel<int>
+    public class CityItemViewModel : SelectableItemViewModel<long>
     {
         public CityItemViewModel(City city)
             : base(city.Name, city.Id)

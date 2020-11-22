@@ -1,7 +1,6 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.ViewModels.Common;
-using System;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.CardProduct.Items
@@ -10,18 +9,19 @@ namespace SushiShop.Core.ViewModels.CardProduct.Items
     {
         private readonly Topping topping;
 
-        public ToppingItemViewModel(Topping topping)
+        public ToppingItemViewModel(Topping topping, string? currency)
         {
             this.topping = topping;
+
             Title = topping.PageTitle ?? string.Empty;
-            Price = topping.Price;
+            Price = $"{topping.Price} {currency}";
 
             StepperViewModel = new StepperViewModel(topping.CountInBasket, OnCountChangedAsync);
         }
 
         public string Title { get; }
 
-        public long Price { get; }
+        public string Price { get; }
 
         public StepperViewModel StepperViewModel { get; }
 
@@ -30,9 +30,9 @@ namespace SushiShop.Core.ViewModels.CardProduct.Items
             StepperViewModel.Reset();
         }
 
-        private Task OnCountChangedAsync(int count)
+        private Task OnCountChangedAsync(int previousCount, int newCount)
         {
-            topping.CountInBasket = count;
+            topping.CountInBasket = newCount;
             return Task.CompletedTask;
         }
     }

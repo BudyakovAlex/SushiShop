@@ -5,7 +5,7 @@ namespace SushiShop.Core.Data.Dtos.Menu
 {
     public class CategoryDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string? PageTitle { get; set; }
         public string? LongTitle { get; set; }
         public string? Alias { get; set; }

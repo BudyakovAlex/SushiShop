@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Cities
 {
-    public class SelectCityViewModel : SelectablePageItemsViewModel<CityItemViewModel, SelectCityNavigationParameters, int>
+    public class SelectCityViewModel : SelectablePageItemsViewModel<CityItemViewModel, SelectCityNavigationParameters, long>
     {
         private readonly ICitiesManager citiesManager;
 
@@ -21,7 +21,7 @@ namespace SushiShop.Core.ViewModels.Cities
 
         public override string QueryPlaceholder => AppStrings.SearchSity;
 
-        protected override async Task<List<CityItemViewModel>> LoadDataAsync(List<int> selectedItemIds)
+        protected override async Task<List<CityItemViewModel>> LoadDataAsync(List<long> selectedItemIds)
         {
             var response = await citiesManager.GetCitiesAsync();
             var items = response.Data.Select(city => new CityItemViewModel(city)).ToList();

@@ -2,6 +2,7 @@
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Mappers;
+using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http.Products;
 using System;
 using System.Linq;
@@ -13,15 +14,17 @@ namespace SushiShop.Core.Managers.Products
     public class ProductsManager : IProductsManager
     {
         private readonly IProductsService productsService;
+        private readonly IUserSession userSession;
 
-        public ProductsManager(IProductsService productsService)
+        public ProductsManager(IProductsService productsService, IUserSession userSession)
         {
             this.productsService = productsService;
+            this.userSession = userSession;
         }
 
-        public async Task<Response<Product?>> GetProductAsync(int id, string? city)
+        public async Task<Response<Product?>> GetProductAsync(long id, string? city)
         {
-            var response = await productsService.GetProductAsync(id, city, CancellationToken.None);
+            var response = await productsService.GetProductAsync(id, city, userSession.GetCartId(), CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
@@ -32,11 +35,11 @@ namespace SushiShop.Core.Managers.Products
         }
 
         public async Task<Response<Product[]>> GetProductsByCategoryAsync(
-            int? categoryId,
+            long? categoryId,
             string? city,
             StickerType? stickerType)
         {
-            var response = await productsService.GetProductsByCategoryAsync(categoryId, city, stickerType, CancellationToken.None);
+            var response = await productsService.GetProductsByCategoryAsync(categoryId, city, userSession.GetCartId(), stickerType, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData!.Select(product => product.Map()).ToArray();
@@ -46,9 +49,9 @@ namespace SushiShop.Core.Managers.Products
             return new Response<Product[]>(isSuccessful: false, Array.Empty<Product>());
         }
 
-        public async Task<Response<Product[]>> GetRelatedProductsAsync(int id, string? city)
+        public async Task<Response<Product[]>> GetRelatedProductsAsync(long id, string? city)
         {
-            var response = await productsService.GetRelatedProductsAsync(id, city, CancellationToken.None);
+            var response = await productsService.GetRelatedProductsAsync(id, city, userSession.GetCartId(), CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData!.Select(product => product.Map()).ToArray();

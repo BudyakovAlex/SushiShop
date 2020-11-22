@@ -4,7 +4,7 @@ namespace SushiShop.Core.Data.Dtos.Promotions
 {
     public class PromotionDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string? PageTitle { get; set; }
         public string? LongTitle { get; set; }
         public string? Alias { get; set; }

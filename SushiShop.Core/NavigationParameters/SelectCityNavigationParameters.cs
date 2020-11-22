@@ -2,9 +2,9 @@
 
 namespace SushiShop.Core.NavigationParameters
 {
-    public class SelectCityNavigationParameters : SelectablePageNavigationParameters<int>
+    public class SelectCityNavigationParameters : SelectablePageNavigationParameters<long>
     {
-        public SelectCityNavigationParameters(params int[] selectedItemsIds)
+        public SelectCityNavigationParameters(params long[] selectedItemsIds)
             : base(true, true, selectedItemsIds)
         {
         }
