@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Data.Http;
@@ -29,9 +30,9 @@ namespace SushiShop.Core.Managers.Promotions
             return new Response<Promotion[]>(isSuccessful: false, new Promotion[0]);
         }
 
-        public async Task<Response<Promotion?>> GetPromotionAsync(string? city, long id)
+        public async Task<Response<Promotion?>> GetPromotionAsync(string? city, long id, Guid cartId)
         {
-            var response = await promotionsService.GetPromotionAsync(city, id, CancellationToken.None);
+            var response = await promotionsService.GetPromotionAsync(city, id, cartId, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData!.Map();

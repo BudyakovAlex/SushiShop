@@ -63,7 +63,8 @@ namespace SushiShop.Core.ViewModels.Promotions
         private async Task LoadDataAsync()
         {
             var city = userSession.GetCity();
-            var response = await promotionsManager.GetPromotionAsync(city?.Name, id);
+            var cartId = userSession.GetCartId();
+            var response = await promotionsManager.GetPromotionAsync(city?.Name, id, cartId);
             if (response.IsSuccessful)
             {
                 promotion = response.Data;
@@ -116,21 +117,17 @@ namespace SushiShop.Core.ViewModels.Promotions
                         startDate.Day.ToString(),
                         GetLongDateString(endDate));
                 }
-                else
-                {
-                    return string.Format(
-                        AppStrings.FromToDateFormat,
-                        startDate.ToString(Constants.Format.DateTime.ShortDate, CultureInfo),
-                        GetLongDateString(endDate));
-                }
-            }
-            else
-            {
+
                 return string.Format(
                     AppStrings.FromToDateFormat,
-                    GetLongDateString(startDate),
+                    startDate.ToString(Constants.Format.DateTime.ShortDate, CultureInfo),
                     GetLongDateString(endDate));
             }
+
+            return string.Format(
+                AppStrings.FromToDateFormat,
+                GetLongDateString(startDate),
+                GetLongDateString(endDate));
         }
     }
 }

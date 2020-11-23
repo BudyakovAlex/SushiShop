@@ -8,8 +8,6 @@ namespace SushiShop.Ios.Views.Controls
     [Register(nameof(ResizableWebView))]
     public class ResizableWebView : WKWebView, IWKNavigationDelegate
     {
-        private nfloat height;
-
         public ResizableWebView(NSCoder coder)
             : base(coder)
         {
@@ -37,7 +35,7 @@ namespace SushiShop.Ios.Views.Controls
             get
             {
                 var size = base.IntrinsicContentSize;
-                return new CGSize(size.Width, height);
+                return new CGSize(size.Width, ScrollView.ContentSize.Height);
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Common;
@@ -26,9 +27,9 @@ namespace SushiShop.Core.Services.Http.Promotions
                 cancellationToken);
         }
 
-        public async Task<HttpResponse<ResponseDto<PromotionDto>>> GetPromotionAsync(string? city, long id, CancellationToken cancellationToken)
+        public async Task<HttpResponse<ResponseDto<PromotionDto>>> GetPromotionAsync(string? city, long id, Guid cartId, CancellationToken cancellationToken)
         {
-            var body = new { city, id };
+            var body = new { city, id, basketId = cartId };
             return await httpService.ExecuteAsync<ResponseDto<PromotionDto>>(
                 Method.Post,
                 Constants.Rest.GetPromotionResource,

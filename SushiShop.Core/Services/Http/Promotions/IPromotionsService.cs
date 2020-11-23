@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Data.Dtos.Promotions;
@@ -10,6 +11,6 @@ namespace SushiShop.Core.Services.Http.Promotions
     {
         Task<HttpResponse<ResponseDto<Dictionary<string, PromotionDto>>>> GetPromotionsAsync(string? city, CancellationToken cancellationToken);
 
-        Task<HttpResponse<ResponseDto<PromotionDto>>> GetPromotionAsync(string? city, long id, CancellationToken cancellationToken);
+        Task<HttpResponse<ResponseDto<PromotionDto>>> GetPromotionAsync(string? city, long id, Guid cartId, CancellationToken cancellationToken);
     }
 }
