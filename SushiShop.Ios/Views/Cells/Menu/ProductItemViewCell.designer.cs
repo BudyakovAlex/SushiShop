@@ -28,15 +28,10 @@ namespace SushiShop.Ios.Views.Cells.Menu
 		UIKit.UILabel TitleLabel { get; set; }
 
 		[Outlet]
-		FFImageLoading.Cross.MvxCachedImageView TopImageView { get; set; }
+		SushiShop.Ios.Views.Controls.ScalableImageView TopImageView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (StickerStackView != null) {
-				StickerStackView.Dispose ();
-				StickerStackView = null;
-			}
-
 			if (OldPriceLabel != null) {
 				OldPriceLabel.Dispose ();
 				OldPriceLabel = null;
@@ -50,6 +45,11 @@ namespace SushiShop.Ios.Views.Cells.Menu
 			if (StepperView != null) {
 				StepperView.Dispose ();
 				StepperView = null;
+			}
+
+			if (StickerStackView != null) {
+				StickerStackView.Dispose ();
+				StickerStackView = null;
 			}
 
 			if (TitleLabel != null) {

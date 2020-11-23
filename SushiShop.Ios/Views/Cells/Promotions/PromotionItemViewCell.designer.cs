@@ -7,10 +7,10 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace SushiShop.Ios.Views.Cells.Menu
+namespace SushiShop.Ios.Views.Cells.Promotions
 {
-	[Register ("MenuPromotionItemViewCell")]
-	partial class MenuPromotionItemViewCell
+	[Register ("PromotionItemViewCell")]
+	partial class PromotionItemViewCell
 	{
 		[Outlet]
 		SushiShop.Ios.Views.Controls.ScalableImageView ImageView { get; set; }

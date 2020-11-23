@@ -1,6 +1,5 @@
-﻿using SushiShop.Core.Data.Enums;
+﻿using System;
 using SushiShop.Core.Data.Models.Common;
-using System;
 
 namespace SushiShop.Core.Data.Models.Products
 {

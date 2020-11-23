@@ -5,7 +5,6 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.CardProduct.Items;
 using SushiShop.Core.ViewModels.ProductDetails;
 using SushiShop.Ios.Common;
-using SushiShop.Ios.Common.Styles;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Products;
 using UIKit;

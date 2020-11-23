@@ -8,7 +8,6 @@ using MvvmCross.Platforms.Ios.Binding;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Common.Styles;
-using SushiShop.Ios.Extensions;
 using UIKit;
 
 namespace SushiShop.Ios.Views.Cells.Menu
@@ -65,7 +64,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
             var bindingSet = this.CreateBindingSet<CategoryMenuItemViewCell, CategoryMenuItemViewModel>();
 
             bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
-            bindingSet.Bind(ImageView).For(v => v.ImagePath).To(vm => vm.ImageUrl);
+            bindingSet.Bind(ImageView).For(v => v.ImageUrl).To(vm => vm.ImageUrl);
             bindingSet.Bind(Label).For(v => v.Text).To(vm => vm.Title);
 
             bindingSet.Apply();

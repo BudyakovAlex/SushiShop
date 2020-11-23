@@ -62,9 +62,9 @@ namespace SushiShop.Core.ViewModels.Cart
 
         public string Title => AppStrings.Basket;
 
-        public long? CountProductsInCart => cart?.TotalCount;
+        public long CountProductsInCart => cart?.TotalCount ?? 0;
 
-        public decimal? TotalPrice => cart?.TotalSum;
+        public decimal TotalPrice => cart?.TotalSum ?? 0;
 
         public override async Task InitializeAsync()
         {
@@ -96,8 +96,8 @@ namespace SushiShop.Core.ViewModels.Cart
             Sauces.ReplaceWith(toppings);
             Packages.ReplaceWith(packages);
 
-            await Task.WhenAll(RaisePropertyChanged(nameof(CountProductsInCart)),
-                RaisePropertyChanged(nameof(TotalPrice)));
+            _ = RaisePropertyChanged(nameof(CountProductsInCart));
+            _ = RaisePropertyChanged(nameof(TotalPrice));
         }
 
         private void OnCartChanged(RefreshCartMessage message)

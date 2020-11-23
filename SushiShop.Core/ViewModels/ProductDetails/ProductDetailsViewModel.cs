@@ -45,7 +45,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
 
         public bool IsReadOnly { get; private set; }
 
-        public string? BackgroungImageUrl => product?.MainImageInfo?.OriginalUrl;
+        public string? BackgroungImageUrl => product?.MainImageInfo?.JpgUrl;
 
         public string Protein => product?.Params?.Proteins ?? string.Empty;
 
@@ -91,8 +91,8 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         {
             await base.InitializeAsync();
 
-            var getProductTask = productsManager.GetProductAsync((int)id, city);
-            var getRelatedProductTask = productsManager.GetRelatedProductsAsync((int)id, city);
+            var getProductTask = productsManager.GetProductAsync(id, city);
+            var getRelatedProductTask = productsManager.GetRelatedProductsAsync(id, city);
 
             await Task.WhenAll(getProductTask, getRelatedProductTask);
 
