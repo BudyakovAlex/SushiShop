@@ -47,6 +47,8 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
 
         public string? OldPrice => Product.OldPrice == 0 ? null : $"{Product!.OldPrice} {currency?.Symbol}";
 
+        public string? ImageUrl => Product.ImageInfo?.JpgUrl;
+
         public string Value => GetValue();
 
         public int CountInBasket => Product.Count;

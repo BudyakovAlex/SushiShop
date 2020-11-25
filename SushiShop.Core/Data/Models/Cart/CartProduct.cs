@@ -1,4 +1,5 @@
 ﻿using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Data.Models.Common;
 using System;
 
 namespace SushiShop.Core.Data.Models.Cart
@@ -17,7 +18,8 @@ namespace SushiShop.Core.Data.Models.Cart
             Guid? uid,
             bool isReadOnly,
             ProductType type,
-            CartTopping[] toppings)
+            CartTopping[] toppings,
+            ImageInfo? imageInfo)
         {
             Id = id;
             Count = count;
@@ -31,6 +33,7 @@ namespace SushiShop.Core.Data.Models.Cart
             IsReadOnly = isReadOnly;
             Type = type;
             Toppings = toppings;
+            ImageInfo = imageInfo;
         }
 
         public long Id { get; }
@@ -56,5 +59,7 @@ namespace SushiShop.Core.Data.Models.Cart
         public ProductType Type { get; }
 
         public CartTopping[] Toppings { get; } = Array.Empty<CartTopping>();
+
+        public ImageInfo? ImageInfo { get; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using SushiShop.Core.Data.Dtos.Common;
 
 namespace SushiShop.Core.Data.Dtos.Cart
 {
@@ -40,5 +41,8 @@ namespace SushiShop.Core.Data.Dtos.Cart
 
         [JsonProperty("toppings")]
         public CartToppingDto[]? Toppings { get; set; }
+
+        [JsonProperty("image")]
+        public ImageInfoDto? ImageInfo { get; set; }
     }
 }
