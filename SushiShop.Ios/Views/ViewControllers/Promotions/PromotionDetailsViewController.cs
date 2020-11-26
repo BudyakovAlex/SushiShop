@@ -12,7 +12,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
     public partial class PromotionDetailsViewController : BaseViewController<PromotionDetailsViewModel>
     {
         private string htmlContent;
-
         public string HtmlContent
         {
             get => htmlContent;

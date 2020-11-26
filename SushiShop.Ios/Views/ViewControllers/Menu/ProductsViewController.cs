@@ -103,21 +103,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             {
                 ShowsHorizontalScrollIndicator = false,
                 PagingEnabled = true,
-                PrefetchingEnabled = true,
                 BackgroundColor = Colors.Background
             };
 
             source = new ProductsCollectionViewSource(collectionView, () => isAppeared);
             collectionView.Source = source;
-            collectionView.PrefetchDataSource = source;
             collectionView.Delegate = new ProductsCollectionViewDelegateFlowLayout(OnDecelerated);
 
-            source.PrefetchItems(collectionView, new NSIndexPath[]
-            {
-                NSIndexPath.FromRowSection(0, 0),
-                NSIndexPath.FromRowSection(1, 0),
-                NSIndexPath.FromRowSection(2, 0)
-            });
+            source.PreloadCells(3);
 
             stackView.AddArrangedSubview(collectionView);
         }

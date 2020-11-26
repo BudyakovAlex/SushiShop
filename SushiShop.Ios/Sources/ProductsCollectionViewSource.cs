@@ -6,7 +6,7 @@ using UIKit;
 
 namespace SushiShop.Ios.Sources
 {
-    public class ProductsCollectionViewSource : MvxCollectionViewSource, IUICollectionViewDataSourcePrefetching
+    public class ProductsCollectionViewSource : MvxCollectionViewSource
     {
         private readonly Func<bool> listenScrollChanges;
 
@@ -18,11 +18,12 @@ namespace SushiShop.Ios.Sources
             collectionView.RegisterNibForCell(FilteredProductsItemViewCell.Nib, FilteredProductsItemViewCell.Key);
         }
 
-        public void PrefetchItems(UICollectionView collectionView, NSIndexPath[] indexPaths)
+        public void PreloadCells(int count)
         {
-            foreach (var indexPath in indexPaths)
+            for (var i = 0; i < count; i++)
             {
-                _ = collectionView.DequeueReusableCell(FilteredProductsItemViewCell.Key, indexPath);
+                var indexPath = NSIndexPath.FromRowSection(i, 0);
+                _ = CollectionView.DequeueReusableCell(FilteredProductsItemViewCell.Key, indexPath);
             }
         }
 
