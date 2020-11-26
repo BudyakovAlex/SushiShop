@@ -16,7 +16,10 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 		UIKit.UIButton BackButton { get; set; }
 
 		[Outlet]
-		SushiShop.Ios.Views.Controls.ResizableWebView ContentWebView { get; set; }
+		UIKit.UITextView ContentTextView { get; set; }
+
+		[Outlet]
+		UIKit.NSLayoutConstraint ContentTextViewHeightConstraint { get; set; }
 
 		[Outlet]
 		UIKit.UILabel DateLabel { get; set; }
@@ -35,14 +38,19 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (ContentWebView != null) {
-				ContentWebView.Dispose ();
-				ContentWebView = null;
+			if (ContentTextViewHeightConstraint != null) {
+				ContentTextViewHeightConstraint.Dispose ();
+				ContentTextViewHeightConstraint = null;
 			}
 
 			if (BackButton != null) {
 				BackButton.Dispose ();
 				BackButton = null;
+			}
+
+			if (ContentTextView != null) {
+				ContentTextView.Dispose ();
+				ContentTextView = null;
 			}
 
 			if (DateLabel != null) {

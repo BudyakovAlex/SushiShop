@@ -17,7 +17,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PromotionDetailsViewController">
             <connections>
                 <outlet property="BackButton" destination="SXu-7n-vmT" id="V6w-aq-0q0"/>
-                <outlet property="ContentWebView" destination="rxL-Tw-7hC" id="81d-ck-YWF"/>
+                <outlet property="ContentTextView" destination="0Mn-en-brr" id="d6K-Ez-37X"/>
+                <outlet property="ContentTextViewHeightConstraint" destination="QJO-qe-DNG" id="k0f-wA-wg6"/>
                 <outlet property="DateLabel" destination="Zhc-Gb-AXj" id="4u7-IK-Vtb"/>
                 <outlet property="ImageView" destination="Tkv-Ji-bts" id="XaP-VR-F8b"/>
                 <outlet property="IntroLabel" destination="1gP-Rm-adF" id="XMa-Bq-PK9"/>
@@ -35,7 +36,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndD-Qc-ZYe">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="556.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="456.5"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tkv-Ji-bts" customClass="ScalableImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="366.5"/>
@@ -55,33 +56,32 @@
                                     <color key="textColor" red="0.090196078431372548" green="0.094117647058823528" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rxL-Tw-7hC" customClass="ResizableWebView">
-                                    <rect key="frame" x="0.0" y="440.5" width="414" height="100"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mn-en-brr">
+                                    <rect key="frame" x="16" y="440.5" width="382" height="0.0"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="100" placeholder="YES" id="wuy-Um-CuW"/>
+                                        <constraint firstAttribute="height" id="QJO-qe-DNG"/>
                                     </constraints>
-                                    <wkWebViewConfiguration key="configuration">
-                                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                        <wkPreferences key="preferences"/>
-                                    </wkWebViewConfiguration>
-                                </wkWebView>
+                                    <color key="textColor" systemColor="labelColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="rxL-Tw-7hC" secondAttribute="trailing" id="2vr-yN-M28"/>
                                 <constraint firstItem="Zhc-Gb-AXj" firstAttribute="top" secondItem="Tkv-Ji-bts" secondAttribute="bottom" constant="15" id="5EG-kF-nnW"/>
                                 <constraint firstItem="Tkv-Ji-bts" firstAttribute="top" secondItem="ndD-Qc-ZYe" secondAttribute="top" id="6Yg-da-pZ9"/>
                                 <constraint firstItem="Zhc-Gb-AXj" firstAttribute="leading" secondItem="ndD-Qc-ZYe" secondAttribute="leading" constant="18" id="8kP-Zt-tDq"/>
-                                <constraint firstAttribute="bottom" secondItem="rxL-Tw-7hC" secondAttribute="bottom" constant="16" id="AzJ-q7-p1U"/>
-                                <constraint firstItem="rxL-Tw-7hC" firstAttribute="top" secondItem="1gP-Rm-adF" secondAttribute="bottom" constant="10" id="H6J-n7-EsJ"/>
+                                <constraint firstAttribute="trailing" secondItem="0Mn-en-brr" secondAttribute="trailing" constant="16" id="Hcy-TF-c95"/>
+                                <constraint firstAttribute="bottom" secondItem="0Mn-en-brr" secondAttribute="bottom" constant="16" id="HfC-Xn-v6E"/>
                                 <constraint firstItem="Tkv-Ji-bts" firstAttribute="leading" secondItem="ndD-Qc-ZYe" secondAttribute="leading" id="No8-My-6cb"/>
+                                <constraint firstItem="0Mn-en-brr" firstAttribute="leading" secondItem="ndD-Qc-ZYe" secondAttribute="leading" constant="16" id="OeR-6f-pm7"/>
                                 <constraint firstAttribute="trailing" secondItem="Tkv-Ji-bts" secondAttribute="trailing" id="Oyg-ij-hE0"/>
                                 <constraint firstItem="1gP-Rm-adF" firstAttribute="top" secondItem="Zhc-Gb-AXj" secondAttribute="bottom" constant="8" id="Qbm-cH-9e3"/>
-                                <constraint firstItem="rxL-Tw-7hC" firstAttribute="leading" secondItem="ndD-Qc-ZYe" secondAttribute="leading" id="QhV-n5-ZMc"/>
                                 <constraint firstAttribute="trailing" secondItem="1gP-Rm-adF" secondAttribute="trailing" constant="16" id="U7E-fe-gLP"/>
                                 <constraint firstItem="1gP-Rm-adF" firstAttribute="leading" secondItem="ndD-Qc-ZYe" secondAttribute="leading" constant="16" id="cZm-Pn-0yL"/>
                                 <constraint firstAttribute="trailing" secondItem="Zhc-Gb-AXj" secondAttribute="trailing" constant="18" id="cuA-22-VIY"/>
+                                <constraint firstItem="0Mn-en-brr" firstAttribute="top" secondItem="1gP-Rm-adF" secondAttribute="bottom" constant="10" id="lNq-Gd-g4K"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -148,6 +148,9 @@
     </objects>
     <resources>
         <image name="ic_back_white" width="21" height="15"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
