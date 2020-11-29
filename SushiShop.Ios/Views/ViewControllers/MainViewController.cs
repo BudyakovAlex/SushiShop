@@ -45,7 +45,7 @@ namespace SushiShop.Ios.Views.ViewControllers
         private UIViewController SelectedViewController => viewControllers[TabIndex];
 
         private int tabIndex;
-        private int TabIndex
+        public int TabIndex
         {
             get => tabIndex;
             set
