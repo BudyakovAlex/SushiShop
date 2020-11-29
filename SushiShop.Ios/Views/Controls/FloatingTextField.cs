@@ -11,10 +11,12 @@ namespace SushiShop.Ios.Views.Controls
     public class FloatingTextField : UITextField
     {
         private const float ScaleFloatingLabel = 0.8f;
+        private const float ScaledFloatingLabelTranslationX = -8f;
 
         private CALayer bottomLine;
         private UILabel floatingLabel;
-        private nfloat maxLineHeight;
+
+        private float maxLineHeight;
 
         public override string Placeholder
         {
@@ -125,25 +127,29 @@ namespace SushiShop.Ios.Views.Controls
         private void UpdatePlaceholer()
         {
             Animate(
-                0.3f, 0.0f,
-                UIViewAnimationOptions.BeginFromCurrentState | UIViewAnimationOptions.CurveEaseOut,
-                () =>
-                {
-                    var translateX = 0f;
-                    var translateY = 0f;
-                    var scaleX = 1.0f;
-                    var scaleY = 1.0f;
-                    if (!string.IsNullOrEmpty(Text))
-                    {
-                        translateX = (float)-(floatingLabel.Frame.Width * (Text.Length == 1 ? ScaleFloatingLabel : 1f)) * 0.2f;
-                        translateY = (float)-maxLineHeight;
-                        scaleX = ScaleFloatingLabel;
-                        scaleY = ScaleFloatingLabel;
-                    }
-
-                    floatingLabel.Transform = CGAffineTransform.Scale(CGAffineTransform.MakeTranslation(translateX, translateY), scaleX, scaleY);
-                },
+                0.2f,
+                0.0f,
+                UIViewAnimationOptions.BeginFromCurrentState | UIViewAnimationOptions.CurveLinear,
+                AnimateFloatingLabel,
                 () => { });
+        }
+
+        private void AnimateFloatingLabel()
+        {
+            var translateX = 0f;
+            var translateY = 0f;
+            var scaleX = 1.0f;
+            var scaleY = 1.0f;
+
+            if (!string.IsNullOrEmpty(Text))
+            {
+                translateX = Text.Length > 0 ? ScaledFloatingLabelTranslationX : 0;
+                translateY = -maxLineHeight;
+                scaleX = ScaleFloatingLabel;
+                scaleY = ScaleFloatingLabel;
+            }
+
+            floatingLabel.Transform = CGAffineTransform.Scale(CGAffineTransform.MakeTranslation(translateX, translateY), scaleX, scaleY);
         }
 
         private CGRect InsetRect(CGRect rect, UIEdgeInsets insets) =>
@@ -155,7 +161,7 @@ namespace SushiShop.Ios.Views.Controls
 
         private void UpdateMaxLineHeight()
         {
-            maxLineHeight = (nfloat)Math.Max(maxLineHeight, floatingLabel.Font.LineHeight);
+            maxLineHeight = (float)Math.Max(maxLineHeight, floatingLabel.Font.LineHeight);
         }
 
         private void SetFloatingLabelText(string value)

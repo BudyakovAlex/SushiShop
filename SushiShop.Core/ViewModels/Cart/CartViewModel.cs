@@ -67,11 +67,11 @@ namespace SushiShop.Core.ViewModels.Cart
 
         public long CountProductsInCart => cart?.TotalCount ?? 0;
 
-        public decimal TotalPrice => cart?.TotalSum ?? 0;
+        public string TotalPrice => $"{cart?.TotalSum ?? 0} {cart?.Currency!.Symbol}";
 
         public bool IsEmptyBasket => Products.Count == 0;
 
-        private string promocode;
+        private string promocode = string.Empty;
         public string Promocode
         {
             get => promocode;
@@ -153,8 +153,8 @@ namespace SushiShop.Core.ViewModels.Cart
             {
                 return;
             }
-
-            await Task.WhenAll(ProduceAddToppingsTasks(toppings));
+            var selectedToppings = toppings.Where(topping => topping.CountInBasket > 0).ToList();
+            await Task.WhenAll(ProduceAddToppingsTasks(selectedToppings));
             await RefreshDataAsync();
 
             IEnumerable<Task<Response<Product?>>> ProduceAddToppingsTasks(List<Topping> toppings)
@@ -162,7 +162,7 @@ namespace SushiShop.Core.ViewModels.Cart
                 foreach (var topping in toppings)
                 {
                     var existingTopping = Sauces.FirstOrDefault(sauce => sauce.Id == topping.Id);
-                    var count = topping.CountInBasket - existingTopping?.CountInBasket ?? 0;
+                    var count = topping.CountInBasket - (existingTopping?.CountInBasket ?? 0);
                     yield return cartManager.UpdateProductInCartAsync(city, topping.Id, existingTopping?.Uid, count, Array.Empty<Topping>());
                 }
             }

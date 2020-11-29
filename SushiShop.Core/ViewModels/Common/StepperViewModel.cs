@@ -35,7 +35,7 @@ namespace SushiShop.Core.ViewModels.Common
         public int Count
         {
             get => count;
-            private set => SetProperty(ref count, value, () =>
+            set => SetProperty(ref count, value, () =>
             {
                 AddCommand.RaiseCanExecuteChanged();
                 RemoveCommand.RaiseCanExecuteChanged();
