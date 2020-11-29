@@ -6,6 +6,7 @@ using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Mappers;
+using SushiShop.Core.Messages;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
 using System;
@@ -65,14 +66,15 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
             var step = newCount - previousCount;
             if (newCount == 0)
             {
-                if (!await userDialogs.ConfirmAsync(AppStrings.AnswerDeleteItemFromBasket, okText: AppStrings.Yes, cancelText: AppStrings.No))
+                var shouldDelete = await userDialogs.ConfirmAsync(AppStrings.AnswerDeleteItemFromBasket, okText: AppStrings.Yes, cancelText: AppStrings.No);
+                if (!shouldDelete)
                 {
+                    StepperViewModel.Count = previousCount;
                     return;
                 }
             }
 
             var selectedToppings = Product.Toppings.Select(topping => topping.ToProductTopping()).ToArray() ?? Array.Empty<Topping>();
-
             var response = await cartManager.UpdateProductInCartAsync(city, Id, Uid, step, selectedToppings);
             if (response.Data is null)
             {
@@ -82,6 +84,11 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
             Product!.Uid = response.Data.Uid;
             Product!.Count = response.Data.CountInBasket;
             await RaisePropertyChanged(nameof(CountInBasket));
+
+            if (newCount == 0)
+            {
+                Messenger.Publish(new RefreshCartMessage(this));
+            }
         }
 
         private string GetValue()
