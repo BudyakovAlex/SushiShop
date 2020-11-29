@@ -50,14 +50,12 @@ namespace SushiShop.Core.ViewModels.Cart
 
             CheckoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, CheckoutAsync);
             AddSaucesCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddSaucesAsync);
-            GoToMenuCommand = new SafeAsyncCommand(ExecutionStateWrapper, GoToMenuAsync);
 
             Messenger.Subscribe<RefreshCartMessage>(OnCartChanged).DisposeWith(Disposables);
         }
 
         public IMvxCommand AddSaucesCommand { get; }
         public IMvxCommand CheckoutCommand { get; }
-        public IMvxCommand GoToMenuCommand { get; }
 
         public MvxObservableCollection<CartProductItemViewModel> Products { get; }
 
@@ -171,11 +169,6 @@ namespace SushiShop.Core.ViewModels.Cart
         }
 
         private Task CheckoutAsync()
-        {
-            return Task.CompletedTask;
-        }
-
-        private Task GoToMenuAsync()
         {
             return Task.CompletedTask;
         }

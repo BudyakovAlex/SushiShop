@@ -1,4 +1,5 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+﻿using System.Linq;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using CoreGraphics;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
@@ -15,6 +16,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
     [MvxTabPresentation(WrapInNavigationController = true)]
     public partial class CartViewController : BaseViewController<CartViewModel>
     {
+        private const int MainViewTabIndex = 0;
+
         private TableViewSource productsTableViewSource;
         private TableViewSource toppingsTableViewSource;
         private TableViewSource packagesTableViewSource;
@@ -35,6 +38,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             InitializePackagesTableView();
             SetFooterViewForTableViews();
 
+            GoToMenuButton.AddGestureRecognizer(new UITapGestureRecognizer(OnGoToMenuButtonTapped));
+
             PromocodeTextField.Placeholder = AppStrings.Promocode;
         }
 
@@ -53,7 +58,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             bindingSet.Bind(BottomCheckoutView).For(v => v.BindVisibility()).To(vm => vm.IsEmptyBasket);
             bindingSet.Bind(CheckoutButton).For(v => v.BindTap()).To(vm => vm.CheckoutCommand);
             bindingSet.Bind(ContentScrollView).For(v => v.BindVisibility()).To(vm => vm.IsEmptyBasket);
-            bindingSet.Bind(GoToMenuButton).For(v => v.BindTap()).To(vm => vm.GoToMenuCommand);
 
             bindingSet.Apply();
         }
@@ -85,6 +89,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             ProductsTableView.TableFooterView = footerView;
             ToppingsTableView.TableFooterView = footerView;
             PackagesTableView.TableFooterView = new UIView(new CGRect(0, 0, ProductsTableView.Frame.Width, 1)) { BackgroundColor = Colors.Background };
+        }
+
+        private void OnGoToMenuButtonTapped()
+        {
+            if (UIApplication.SharedApplication.Windows.FirstOrDefault()?.RootViewController is MainViewController mainViewController)
+            {
+                mainViewController.TabIndex = MainViewTabIndex;
+            }
         }
     }
 }
