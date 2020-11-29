@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using CoreGraphics;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
@@ -9,18 +8,21 @@ using SushiShop.Core.ViewModels.Cart.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Cart;
+using System.Linq;
 using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Cart
 {
     [MvxTabPresentation(WrapInNavigationController = true)]
-    public partial class CartViewController : BaseViewController<CartViewModel>
+    public partial class CartViewController : BaseViewControllerWithKeyboard<CartViewModel>
     {
         private const int MainViewTabIndex = 0;
 
         private TableViewSource productsTableViewSource;
         private TableViewSource toppingsTableViewSource;
         private TableViewSource packagesTableViewSource;
+
+        protected override bool HandlesKeyboardNotifications => true;
 
         protected override void InitNavigationItem(UINavigationItem navigationItem)
         {

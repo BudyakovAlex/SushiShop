@@ -71,7 +71,7 @@ namespace SushiShop.Core.ViewModels.Cart
 
         public bool IsEmptyBasket => Products.Count == 0;
 
-        private string promocode;
+        private string promocode = string.Empty;
         public string Promocode
         {
             get => promocode;
