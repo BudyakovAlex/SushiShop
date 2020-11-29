@@ -29,7 +29,7 @@ namespace SushiShop.Core.Data.Dtos.Cart
         public CurrencyDto? Currency { get; set; }
 
         [JsonProperty("products")]
-        public Dictionary<string, CartProductDto>? Products { get; set; }
+        public CartProductDto[]? Products { get; set; }
 
         [JsonProperty("promocode")]
         public PromocodeDto? Promoсode { get; set; }

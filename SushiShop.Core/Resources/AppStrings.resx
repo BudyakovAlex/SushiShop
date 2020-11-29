@@ -195,6 +195,9 @@
   <data name="PromocodeApplied" xml:space="preserve">
     <value>Промокод применен</value>
   </data>
+  <data name="Promocode" xml:space="preserve">
+    <value>Промокод</value>
+  </data>
   <data name="GramSymbol" xml:space="preserve">
     <value>г</value>
   </data>
@@ -203,5 +206,11 @@
   </data>
   <data name="FromToDateFormat" xml:space="preserve">
     <value>С {0} по {1}</value>
+  </data>
+  <data name="AnswerDeleteItemFromBasket" xml:space="preserve">
+    <value>Удалить товар из корзины?</value>
+  </data>
+  <data name="CountInPC" xml:space="preserve">
+    <value>шт.</value>
   </data>
 </root>

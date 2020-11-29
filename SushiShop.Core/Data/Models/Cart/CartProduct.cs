@@ -11,8 +11,8 @@ namespace SushiShop.Core.Data.Models.Cart
             int count,
             decimal price,
             decimal oldPrice,
-            decimal? weight,
-            decimal? volume,
+            string? weight,
+            string? volume,
             decimal totalPrice,
             string? pageTitle,
             Guid? uid,
@@ -48,11 +48,11 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public decimal OldPrice { get; }
 
-        public decimal? Weight { get; }
+        public string? Weight { get; }
 
-        public decimal? Volume { get; }
+        public string? Volume { get; }
 
-        public Guid? Uid { get; }
+        public Guid? Uid { get; set; }
 
         public bool IsReadOnly { get; }
 

@@ -3,9 +3,12 @@ using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Http;
+using SushiShop.Core.Data.Models.Cart;
 using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Toppings;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.Factories.Cart;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Messages;
@@ -47,12 +50,14 @@ namespace SushiShop.Core.ViewModels.Cart
 
             CheckoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, CheckoutAsync);
             AddSaucesCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddSaucesAsync);
+            GoToMenuCommand = new SafeAsyncCommand(ExecutionStateWrapper, GoToMenuAsync);
 
             Messenger.Subscribe<RefreshCartMessage>(OnCartChanged).DisposeWith(Disposables);
         }
 
         public IMvxCommand AddSaucesCommand { get; }
         public IMvxCommand CheckoutCommand { get; }
+        public IMvxCommand GoToMenuCommand { get; }
 
         public MvxObservableCollection<CartProductItemViewModel> Products { get; }
 
@@ -66,10 +71,19 @@ namespace SushiShop.Core.ViewModels.Cart
 
         public decimal TotalPrice => cart?.TotalSum ?? 0;
 
+        public bool IsEmptyBasket => Products.Count == 0;
+
+        private string promocode;
+        public string Promocode
+        {
+            get => promocode;
+            set => SetProperty(ref promocode, value);
+        }
+
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
-            _ = ExecutionStateWrapper.WrapAsync(() => RefreshDataAsync(), awaitWhenBusy: true);  
+            _ = ExecutionStateWrapper.WrapAsync(() => RefreshDataAsync(), awaitWhenBusy: true);
         }
 
         protected override async Task RefreshDataAsync()
@@ -85,11 +99,20 @@ namespace SushiShop.Core.ViewModels.Cart
             sauses = getSauces.Result.Data;
             cart = getBasket.Result.Data;
 
-            var allProducts = cart!.Products.Select(product => viewModelsFactory.ProduceProductItemViewModel(cartManager, product, cart.Currency, cart.City)).ToArray();
+            var availablePackages = packagingCart.Result.Data.Select(ProducePackageFromProduct).ToArray();
+            var mergedPackages = cart!.Products.Where(product => product.Type == ProductType.Pack)
+                                               .Union(availablePackages)
+                                               .Select(product => viewModelsFactory.ProduceProductItemViewModel(cartManager, product, cart.Currency, cart.City))
+                                               .DistinctBy(package => package.Id)
+                                               .ToArray();
+
+            var allProducts = cart!.Products.Where(product => product.Type != ProductType.Pack)
+                                            .Select(product => viewModelsFactory.ProduceProductItemViewModel(cartManager, product, cart.Currency, cart.City))
+                                            .ToArray();
 
             var mainProducts = allProducts.OfType<CartProductItemViewModel>().ToList();
             var toppings = allProducts.OfType<CartToppingItemViewModel>().ToList();
-            var packages = allProducts.OfType<CartPackItemViewModel>().ToList();
+            var packages = mergedPackages.OfType<CartPackItemViewModel>().ToList();
 
             //TODO: check how it works with UI if we will have blicks replace with SwitchTo method
             Products.ReplaceWith(mainProducts);
@@ -98,6 +121,25 @@ namespace SushiShop.Core.ViewModels.Cart
 
             _ = RaisePropertyChanged(nameof(CountProductsInCart));
             _ = RaisePropertyChanged(nameof(TotalPrice));
+            _ = RaisePropertyChanged(nameof(IsEmptyBasket));
+        }
+
+        private static CartProduct ProducePackageFromProduct(Product product)
+        {
+            return new CartProduct(
+                product.Id,
+                product.CountInBasket,
+                product.Price,
+                0,
+                product.Params?.Weight,
+                null,
+                0,
+                product.PageTitle,
+                product.Uid,
+                false,
+                ProductType.Pack,
+                Array.Empty<CartTopping>(),
+                product.MainImageInfo);
         }
 
         private void OnCartChanged(RefreshCartMessage message)
@@ -129,6 +171,11 @@ namespace SushiShop.Core.ViewModels.Cart
         }
 
         private Task CheckoutAsync()
+        {
+            return Task.CompletedTask;
+        }
+
+        private Task GoToMenuAsync()
         {
             return Task.CompletedTask;
         }

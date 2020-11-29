@@ -1,4 +1,5 @@
-﻿using BuildApps.Core.Mobile.Common.Extensions;
+﻿using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using SushiShop.Core.Data.Models.Cart;
 using SushiShop.Core.Data.Models.Common;
@@ -16,6 +17,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
     public abstract class BaseCartProductItemViewModel : BaseViewModel
     {
         private readonly ICartManager cartManager;
+        private readonly IUserDialogs userDialogs;
 
         private readonly Currency? currency;
 
@@ -30,6 +32,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
             product.ThrowIfNull();
 
             this.cartManager = cartManager;
+            this.userDialogs = UserDialogs.Instance;
             this.currency = currency;
             this.city = city;
 
@@ -60,28 +63,37 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
         protected async Task OnCountChangedAsync(int previousCount, int newCount)
         {
             var step = newCount - previousCount;
-            var selectedToppings = Product.Toppings.Select(topping => topping.ToProductTopping()).ToArray() ?? Array.Empty<Topping>();
-            var response = await cartManager.UpdateProductInCartAsync(city, Product.Id, Product?.Uid, step, selectedToppings);
+            if (newCount == 0)
+            {
+                if (!await userDialogs.ConfirmAsync(AppStrings.AnswerDeleteItemFromBasket, okText: AppStrings.Yes, cancelText: AppStrings.No))
+                {
+                    return;
+                }
+            }
 
+            var selectedToppings = Product.Toppings.Select(topping => topping.ToProductTopping()).ToArray() ?? Array.Empty<Topping>();
+
+            var response = await cartManager.UpdateProductInCartAsync(city, Id, Uid, step, selectedToppings);
             if (response.Data is null)
             {
                 return;
             }
 
+            Product!.Uid = response.Data.Uid;
             Product!.Count = response.Data.CountInBasket;
             await RaisePropertyChanged(nameof(CountInBasket));
         }
 
         private string GetValue()
         {
-            if (Product.Weight.HasValue)
+            if (Product.Weight != null)
             {
-                return $"{Product.Weight} {AppStrings.GramSymbol}";
+                return Product.Weight;
             }
 
-            if (Product.Volume.HasValue)
+            if (Product.Volume != null)
             {
-                return $"{Product.Volume} {AppStrings.MillilitersSymbol}";
+                return Product.Volume;
             }
 
             return string.Empty;

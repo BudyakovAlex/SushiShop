@@ -10,7 +10,7 @@ namespace SushiShop.Ios.Converters
     {
         protected override NSMutableAttributedString Convert(string value, Type targetType, object parameter, CultureInfo culture)
         {
-            return new NSMutableAttributedString(value, new UIStringAttributes() { StrikethroughStyle = NSUnderlineStyle.Single });
+            return new NSMutableAttributedString(value ?? string.Empty, new UIStringAttributes() { StrikethroughStyle = NSUnderlineStyle.Single });
         }
     }
 }

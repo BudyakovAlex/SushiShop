@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using CoreAnimation;
 using CoreGraphics;
+using Foundation;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using MvvmCross.Platforms.Ios.Views;
 using MvvmCross.ViewModels;
@@ -329,6 +331,7 @@ namespace SushiShop.Ios.Views.ViewControllers
         {
             private UILabel label;
             private UIImageView imageView;
+            private BadgeView badgeView;
 
             public TabItemView(string title, string imageName, Action onTap)
             {
@@ -336,6 +339,7 @@ namespace SushiShop.Ios.Views.ViewControllers
 
                 InitializeLabel(title);
                 InitializeImageView(imageName);
+                InitializeBadgeLabel();
 
                 IsSelected = false;
             }
@@ -355,6 +359,16 @@ namespace SushiShop.Ios.Views.ViewControllers
                     {
                         label.TextColor = imageView.TintColor = Colors.FigmaBlack;
                     }
+                }
+            }
+
+            public string BadgeText
+            {
+                get => badgeView.Text;
+                set
+                {
+                    badgeView.Text = value;
+                    AnimateBadgeViewVisibility();
                 }
             }
 
@@ -389,6 +403,105 @@ namespace SushiShop.Ios.Views.ViewControllers
                     imageView.CenterXAnchor.ConstraintEqualTo(CenterXAnchor),
                     imageView.CenterYAnchor.ConstraintEqualTo(CenterYAnchor, -4f)
                 });
+            }
+
+            private void InitializeBadgeLabel()
+            {
+                badgeView = new BadgeView();
+                badgeView.TranslatesAutoresizingMaskIntoConstraints = false;
+
+                AddSubview(badgeView);
+
+                AnimateBadgeViewVisibility();
+
+                NSLayoutConstraint.ActivateConstraints(new[]
+                {
+                    badgeView.CenterXAnchor.ConstraintEqualTo(imageView.RightAnchor),
+                    badgeView.CenterYAnchor.ConstraintEqualTo(imageView.TopAnchor)
+                });
+            }
+
+            private void AnimateBadgeViewVisibility()
+            {
+                Animate(0.2f, () => badgeView.Alpha = string.IsNullOrWhiteSpace(BadgeText) ? 0f : 1f);
+            }
+
+            private class BadgeView : UIView
+            {
+                private UILabel label;
+                private CALayer badgeBackground;
+
+                public string Text
+                {
+                    get => label.Text;
+                    set
+                    {
+                        label.Text = value;
+                        label.SizeToFit();
+                        var size = Math.Min(Math.Max(label.Frame.Height, label.Frame.Width) + 2, 14);
+                        badgeBackground.Frame = new CGRect(-(size - label.Frame.Width) / 2.0f, -(size - label.Frame.Height) / 2.0f, size, size);
+                        badgeBackground.CornerRadius = (nfloat)(size / 2.0f);
+                    }
+                }
+
+                public BadgeView()
+                {
+                    Initialze();
+                }
+
+                public BadgeView(NSCoder coder) : base(coder)
+                {
+                    Initialze();
+                }
+
+                public BadgeView(CGRect frame) : base(frame)
+                {
+                    Initialze();
+                }
+
+                protected BadgeView(NSObjectFlag t) : base(t)
+                {
+                    Initialze();
+                }
+
+                protected internal BadgeView(IntPtr handle) : base(handle)
+                {
+                }
+
+                public override void AwakeFromNib()
+                {
+                    base.AwakeFromNib();
+                    Initialze();
+                }
+
+                private void Initialze()
+                {
+                    label = new UILabel
+                    {
+                        TranslatesAutoresizingMaskIntoConstraints = false,
+                        Font = Font.Create(FontStyle.Medium, 9f),
+                        TextAlignment = UITextAlignment.Center,
+                        TextColor = UIColor.White
+                    };
+
+                    badgeBackground = new CALayer
+                    {
+                        BackgroundColor = Colors.Orange2.CGColor
+                    };
+
+                    Layer.InsertSublayer(badgeBackground, 0);
+                    AddSubview(label);
+
+                    NSLayoutConstraint.ActivateConstraints(new[]
+                    {
+                        label.CenterXAnchor.ConstraintEqualTo(CenterXAnchor),
+                        label.CenterYAnchor.ConstraintEqualTo(CenterYAnchor),
+                        label.LeftAnchor.ConstraintEqualTo(LeftAnchor),
+                        label.TopAnchor.ConstraintEqualTo(TopAnchor),
+                        label.RightAnchor.ConstraintEqualTo(RightAnchor),
+                        label.BottomAnchor.ConstraintEqualTo(BottomAnchor),
+                    });
+                }
             }
         }
     }
