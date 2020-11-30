@@ -1,4 +1,5 @@
-﻿using BuildApps.Core.Mobile.Common.Extensions;
+﻿using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
@@ -29,6 +30,7 @@ namespace SushiShop.Core.ViewModels.Cart
         private readonly ICartManager cartManager;
         private readonly IUserSession userSession;
         private readonly ICartItemsViewModelsFactory viewModelsFactory;
+        private readonly IUserDialogs userDialogs;
 
         private Topping[]? sauses;
         private Data.Models.Cart.Cart? cart;
@@ -43,6 +45,7 @@ namespace SushiShop.Core.ViewModels.Cart
             this.cartManager = cartManager;
             this.userSession = userSession;
             this.viewModelsFactory = viewModelsFactory;
+            this.userDialogs = UserDialogs.Instance;
 
             Products = new MvxObservableCollection<CartProductItemViewModel>();
             Sauces = new MvxObservableCollection<CartToppingItemViewModel>();
@@ -50,12 +53,14 @@ namespace SushiShop.Core.ViewModels.Cart
 
             CheckoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, CheckoutAsync);
             AddSaucesCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddSaucesAsync);
+            ApplyPromocodeCommand = new SafeAsyncCommand(ExecutionStateWrapper, ApplyPromocodeAsync);
 
             Messenger.Subscribe<RefreshCartMessage>(OnCartChanged).DisposeWith(Disposables);
         }
 
         public IMvxCommand AddSaucesCommand { get; }
         public IMvxCommand CheckoutCommand { get; }
+        public IMvxCommand ApplyPromocodeCommand { get; }
 
         public MvxObservableCollection<CartProductItemViewModel> Products { get; }
 
@@ -173,6 +178,23 @@ namespace SushiShop.Core.ViewModels.Cart
                     yield return cartManager.UpdateProductInCartAsync(city, topping.Id, existingTopping?.Uid, count, Array.Empty<Topping>());
                 }
             }
+        }
+
+        private async Task ApplyPromocodeAsync()
+        {
+            if (Promocode.IsNullOrEmpty())
+            {
+                return;
+            }
+
+            var response = await cartManager.GetCartPromocodeAsync(city, Promocode);
+            if (!response.IsSuccessful)
+            {
+                return;   
+            }
+
+            await userDialogs.AlertAsync(AppStrings.PromocodeApplied);
+            await RefreshDataAsync();
         }
 
         private Task CheckoutAsync()
