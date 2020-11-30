@@ -66,8 +66,9 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
             var step = newCount - previousCount;
             if (newCount == 0)
             {
-                var shouldDelete = await userDialogs.ConfirmAsync(AppStrings.AnswerDeleteItemFromBasket, okText: AppStrings.Yes, cancelText: AppStrings.No);
-                if (!shouldDelete)
+                //HACK: to avoid design issue
+                var shouldDelete = await userDialogs.ConfirmAsync(string.Empty, AppStrings.AnswerDeleteItemFromBasket, cancelText: AppStrings.Yes, okText: AppStrings.No);
+                if (shouldDelete)
                 {
                     StepperViewModel.Count = previousCount;
                     return;
