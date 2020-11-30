@@ -75,6 +75,23 @@ namespace SushiShop.Ios.Views.ViewControllers
             _ = InitializeTabsAsync();
         }
 
+        protected override void Bind()
+        {
+            base.Bind();
+
+            var tab = tabs?.ElementAtOrDefault(2);
+            if (tab == null)
+            {
+                return;
+            }
+
+            var bindingSet = CreateBindingSet();
+
+            bindingSet.Bind(tab).For(v => v.BadgeCount).To(v => v.CartItemsTotalCount);
+
+            bindingSet.Apply();
+        }
+
         public void ShowTabView()
         {
             if (!isTabViewHidden)
@@ -122,6 +139,8 @@ namespace SushiShop.Ios.Views.ViewControllers
                 .ToArray();
 
             Select(0);
+
+            Bind();
         }
 
         private void InitTabView()
@@ -362,7 +381,7 @@ namespace SushiShop.Ios.Views.ViewControllers
                 }
             }
 
-            public string BadgeText
+            public long BadgeCount
             {
                 get => badgeView.Text;
                 set
@@ -423,7 +442,7 @@ namespace SushiShop.Ios.Views.ViewControllers
 
             private void AnimateBadgeViewVisibility()
             {
-                Animate(0.2f, () => badgeView.Alpha = string.IsNullOrWhiteSpace(BadgeText) ? 0f : 1f);
+                Animate(0.2f, () => badgeView.Alpha = BadgeCount == 0 ? 0f : 1f);
             }
 
             private class BadgeView : UIView
@@ -431,12 +450,14 @@ namespace SushiShop.Ios.Views.ViewControllers
                 private UILabel label;
                 private CALayer badgeBackground;
 
-                public string Text
+                private long text;
+                public long Text
                 {
-                    get => label.Text;
+                    get => text;
                     set
                     {
-                        label.Text = value;
+                        text = value;
+                        label.Text = value.ToString();
                         label.SizeToFit();
                         var size = Math.Min(Math.Max(label.Frame.Height, label.Frame.Width) + 2, 14);
                         badgeBackground.Frame = new CGRect(-(size - label.Frame.Width) / 2.0f, -(size - label.Frame.Height) / 2.0f, size, size);

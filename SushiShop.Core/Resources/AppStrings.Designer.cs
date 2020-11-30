@@ -238,5 +238,11 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("CountInPC", resourceCulture);
             }
         }
+        
+        public static string Done {
+            get {
+                return ResourceManager.GetString("Done", resourceCulture);
+            }
+        }
     }
 }

@@ -69,7 +69,7 @@ namespace SushiShop.Core.ViewModels.Cart
 
         public string TotalPrice => $"{cart?.TotalSum ?? 0} {cart?.Currency!.Symbol}";
 
-        public bool IsEmptyBasket => Products.Count == 0;
+        public bool IsEmptyBasket => cart?.Products?.Length == 0;
 
         private string promocode = string.Empty;
         public string Promocode
@@ -81,7 +81,7 @@ namespace SushiShop.Core.ViewModels.Cart
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
-            _ = ExecutionStateWrapper.WrapAsync(() => RefreshDataAsync(), awaitWhenBusy: true);
+            _ = ExecutionStateWrapper.WrapAsync(RefreshDataAsync, awaitWhenBusy: true);
         }
 
         protected override async Task RefreshDataAsync()
@@ -142,6 +142,11 @@ namespace SushiShop.Core.ViewModels.Cart
 
         private void OnCartChanged(RefreshCartMessage message)
         {
+            if (message.Sender == this)
+            {
+                return;
+            }
+
             _ = SafeExecutionWrapper.WrapAsync(RefreshDataAsync);
         }
 
@@ -153,9 +158,11 @@ namespace SushiShop.Core.ViewModels.Cart
             {
                 return;
             }
+
             var selectedToppings = toppings.Where(topping => topping.CountInBasket > 0).ToList();
             await Task.WhenAll(ProduceAddToppingsTasks(selectedToppings));
             await RefreshDataAsync();
+            Messenger.Publish(new RefreshCartMessage(this));
 
             IEnumerable<Task<Response<Product?>>> ProduceAddToppingsTasks(List<Topping> toppings)
             {

@@ -49,7 +49,7 @@ namespace SushiShop.Ios.Views.Cells.Cart
             bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
             bindingSet.Bind(ToppingsStackView).For(v => v.ItemsSource).To(vm => vm.Toppings);
             bindingSet.Bind(ToppingsStackView).For(v => v.BindVisibility()).To(vm => vm.Toppings.Count)
-                .WithConversion<CountItemsToBoolVisibilityConverter>();
+                .WithConversion<AmountToBoolVisibilityConverter>();
 
             bindingSet.Apply();
         }

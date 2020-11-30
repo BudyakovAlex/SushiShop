@@ -2,12 +2,14 @@
 using CoreGraphics;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
+using SushiShop.Core.Converters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cart;
 using SushiShop.Core.ViewModels.Cart.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Cart;
+using SushiShop.Ios.Views.Controls;
 using System.Linq;
 using UIKit;
 
@@ -21,8 +23,25 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
         private TableViewSource productsTableViewSource;
         private TableViewSource toppingsTableViewSource;
         private TableViewSource packagesTableViewSource;
+        private UIView footerView;
 
         protected override bool HandlesKeyboardNotifications => true;
+
+        private bool isHideFooterView;
+        public bool IsHideFooterView
+        {
+            get => isHideFooterView;
+            set
+            {
+                if (value == isHideFooterView)
+                {
+                    return;
+                }
+
+                isHideFooterView = value;
+                ProductsTableView.TableFooterView = isHideFooterView ? null : footerView;
+            }
+        }
 
         protected override void InitNavigationItem(UINavigationItem navigationItem)
         {
@@ -43,6 +62,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             GoToMenuButton.AddGestureRecognizer(new UITapGestureRecognizer(OnGoToMenuButtonTapped));
 
             PromocodeTextField.Placeholder = AppStrings.Promocode;
+            PromocodeTextField.InputAccessoryView = new DoneAccessoryView(View, () => { });
         }
 
         protected override void Bind()
@@ -60,6 +80,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             bindingSet.Bind(BottomCheckoutView).For(v => v.BindVisibility()).To(vm => vm.IsEmptyBasket);
             bindingSet.Bind(CheckoutButton).For(v => v.BindTap()).To(vm => vm.CheckoutCommand);
             bindingSet.Bind(ContentScrollView).For(v => v.BindVisibility()).To(vm => vm.IsEmptyBasket);
+            bindingSet.Bind(this).For(v => v.IsHideFooterView).To(vm => vm.Sauces.Count)
+               .WithConversion<AmountToBoolInvertVisibilityConverter>();
 
             bindingSet.Apply();
         }
@@ -87,8 +109,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
 
         private void SetFooterViewForTableViews()
         {
-            var footerView = new UIView(new CGRect(0, 0, ProductsTableView.Frame.Width, 1)) { BackgroundColor = UIColor.White };
-            ProductsTableView.TableFooterView = footerView;
+            footerView = new UIView(new CGRect(0, 0, ProductsTableView.Frame.Width, 1)) { BackgroundColor = UIColor.White };
             ToppingsTableView.TableFooterView = footerView;
             PackagesTableView.TableFooterView = new UIView(new CGRect(0, 0, ProductsTableView.Frame.Width, 1)) { BackgroundColor = Colors.Background };
         }

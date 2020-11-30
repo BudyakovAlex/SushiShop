@@ -4,7 +4,7 @@ using MvvmCross.Converters;
 
 namespace SushiShop.Core.Converters
 {
-    public class CountItemsToBoolVisibilityConverter : MvxValueConverter<int, bool>
+    public class AmountToBoolVisibilityConverter : MvxValueConverter<int, bool>
     {
         protected override bool Convert(int value, Type targetType, object parameter, CultureInfo culture)
         {

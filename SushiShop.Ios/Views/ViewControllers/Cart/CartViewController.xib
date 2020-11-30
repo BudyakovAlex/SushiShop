@@ -82,7 +82,7 @@
                     </state>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNP-TF-CN4">
-                    <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                    <rect key="frame" x="0.0" y="44" width="390" height="614"/>
                     <subviews>
                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bq6-6R-GOr">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="480"/>
@@ -235,9 +235,9 @@
                 <constraint firstItem="czj-bg-gex" firstAttribute="centerX" secondItem="Axo-3o-aMt" secondAttribute="centerX" id="6hW-rV-qeV"/>
                 <constraint firstItem="Bq6-6R-GOr" firstAttribute="width" secondItem="Axo-3o-aMt" secondAttribute="width" id="6q1-hq-sei"/>
                 <constraint firstItem="Axo-3o-aMt" firstAttribute="trailing" secondItem="idW-uc-fmo" secondAttribute="trailing" constant="16" id="Byu-2S-YcK"/>
-                <constraint firstItem="Axo-3o-aMt" firstAttribute="bottom" secondItem="SNP-TF-CN4" secondAttribute="bottom" id="FVo-nw-9K3"/>
                 <constraint firstItem="czj-bg-gex" firstAttribute="centerY" secondItem="Axo-3o-aMt" secondAttribute="centerY" id="GPt-Qe-pB2"/>
                 <constraint firstAttribute="trailing" secondItem="SNP-TF-CN4" secondAttribute="trailing" id="Ghj-UP-e7j"/>
+                <constraint firstItem="Axo-3o-aMt" firstAttribute="bottom" secondItem="SNP-TF-CN4" secondAttribute="bottom" id="KJ5-ov-P3A"/>
                 <constraint firstItem="Axo-3o-aMt" firstAttribute="bottom" secondItem="cJN-yy-QZl" secondAttribute="bottom" id="LjM-gZ-dmK"/>
                 <constraint firstItem="cJN-yy-QZl" firstAttribute="leading" secondItem="Axo-3o-aMt" secondAttribute="leading" id="NUq-EL-SGP"/>
                 <constraint firstItem="Axo-3o-aMt" firstAttribute="trailing" secondItem="cJN-yy-QZl" secondAttribute="trailing" id="PqH-iN-AuF"/>

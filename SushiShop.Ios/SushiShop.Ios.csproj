@@ -465,6 +465,7 @@
     <Compile Include="Views\Cells\Cart\CartProductToppingViewCell.designer.cs">
       <DependentUpon>Views\Cells\Cart\CartProductToppingViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\DoneAccessoryView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
