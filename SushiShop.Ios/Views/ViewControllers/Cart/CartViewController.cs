@@ -62,7 +62,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             GoToMenuButton.AddGestureRecognizer(new UITapGestureRecognizer(OnGoToMenuButtonTapped));
 
             PromocodeTextField.Placeholder = AppStrings.Promocode;
-            PromocodeTextField.InputAccessoryView = new DoneAccessoryView(View, () => { });
+            PromocodeTextField.InputAccessoryView = new DoneAccessoryView(View, () => ViewModel?.ApplyPromocodeCommand?.Execute());
         }
 
         protected override void Bind()
