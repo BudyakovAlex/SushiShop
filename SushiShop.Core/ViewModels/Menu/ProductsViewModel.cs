@@ -4,6 +4,7 @@ using SushiShop.Core.Data.Models.Menu;
 using SushiShop.Core.Data.Models.Stickers;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Managers.Products;
+using SushiShop.Core.Messages;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
@@ -30,6 +31,8 @@ namespace SushiShop.Core.ViewModels.Menu
             this.productsManager = productsManager;
             this.cartManager = cartManager;
             this.userSession = userSession;
+
+            Messenger.Subscribe<CartProductChangedMessage>((msg) => _ = RefreshDataAsync()).DisposeWith(Disposables);
         }
 
         public string? Title => category?.PageTitle ?? sticker?.Title;

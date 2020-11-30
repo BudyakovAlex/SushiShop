@@ -89,6 +89,8 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
             {
                 Messenger.Publish(new RefreshCartMessage(this));
             }
+
+            Messenger.Publish(new CartProductChangedMessage(this));
         }
 
         private string GetValue()
