@@ -20,9 +20,10 @@
                 <outlet property="ContentTextView" destination="0Mn-en-brr" id="d6K-Ez-37X"/>
                 <outlet property="ContentTextViewHeightConstraint" destination="QJO-qe-DNG" id="k0f-wA-wg6"/>
                 <outlet property="DateLabel" destination="Zhc-Gb-AXj" id="4u7-IK-Vtb"/>
+                <outlet property="DateLabelBottomConstraint" destination="Qbm-cH-9e3" id="enw-1s-Zwo"/>
                 <outlet property="ImageView" destination="Tkv-Ji-bts" id="XaP-VR-F8b"/>
-                <outlet property="IntroLabel" destination="1gP-Rm-adF" id="XMa-Bq-PK9"/>
                 <outlet property="LoadingView" destination="7EH-We-4zY" id="1NH-39-reh"/>
+                <outlet property="PageTitleLabel" destination="1gP-Rm-adF" id="hVF-JD-Qhr"/>
                 <outlet property="StepperView" destination="l20-6t-Ikh" id="tvv-fG-EQ8"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
@@ -36,7 +37,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndD-Qc-ZYe">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="456.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="522.5"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tkv-Ji-bts" customClass="ScalableImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="366.5"/>
@@ -73,7 +74,7 @@
                                 <constraint firstItem="Tkv-Ji-bts" firstAttribute="top" secondItem="ndD-Qc-ZYe" secondAttribute="top" id="6Yg-da-pZ9"/>
                                 <constraint firstItem="Zhc-Gb-AXj" firstAttribute="leading" secondItem="ndD-Qc-ZYe" secondAttribute="leading" constant="18" id="8kP-Zt-tDq"/>
                                 <constraint firstAttribute="trailing" secondItem="0Mn-en-brr" secondAttribute="trailing" constant="16" id="Hcy-TF-c95"/>
-                                <constraint firstAttribute="bottom" secondItem="0Mn-en-brr" secondAttribute="bottom" constant="16" id="HfC-Xn-v6E"/>
+                                <constraint firstAttribute="bottom" secondItem="0Mn-en-brr" secondAttribute="bottom" constant="82" id="HfC-Xn-v6E"/>
                                 <constraint firstItem="Tkv-Ji-bts" firstAttribute="leading" secondItem="ndD-Qc-ZYe" secondAttribute="leading" id="No8-My-6cb"/>
                                 <constraint firstItem="0Mn-en-brr" firstAttribute="leading" secondItem="ndD-Qc-ZYe" secondAttribute="leading" constant="16" id="OeR-6f-pm7"/>
                                 <constraint firstAttribute="trailing" secondItem="Tkv-Ji-bts" secondAttribute="trailing" id="Oyg-ij-hE0"/>

@@ -25,24 +25,22 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 		UIKit.UILabel DateLabel { get; set; }
 
 		[Outlet]
+		UIKit.NSLayoutConstraint DateLabelBottomConstraint { get; set; }
+
+		[Outlet]
 		SushiShop.Ios.Views.Controls.ScalableImageView ImageView { get; set; }
 
 		[Outlet]
-		UIKit.UILabel IntroLabel { get; set; }
+		UIKit.UIView LoadingView { get; set; }
 
 		[Outlet]
-		UIKit.UIView LoadingView { get; set; }
+		UIKit.UILabel PageTitleLabel { get; set; }
 
 		[Outlet]
 		SushiShop.Ios.Views.Controls.Stepper.BigStepperView StepperView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (ContentTextViewHeightConstraint != null) {
-				ContentTextViewHeightConstraint.Dispose ();
-				ContentTextViewHeightConstraint = null;
-			}
-
 			if (BackButton != null) {
 				BackButton.Dispose ();
 				BackButton = null;
@@ -53,9 +51,19 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 				ContentTextView = null;
 			}
 
+			if (ContentTextViewHeightConstraint != null) {
+				ContentTextViewHeightConstraint.Dispose ();
+				ContentTextViewHeightConstraint = null;
+			}
+
 			if (DateLabel != null) {
 				DateLabel.Dispose ();
 				DateLabel = null;
+			}
+
+			if (DateLabelBottomConstraint != null) {
+				DateLabelBottomConstraint.Dispose ();
+				DateLabelBottomConstraint = null;
 			}
 
 			if (ImageView != null) {
@@ -63,9 +71,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 				ImageView = null;
 			}
 
-			if (IntroLabel != null) {
-				IntroLabel.Dispose ();
-				IntroLabel = null;
+			if (PageTitleLabel != null) {
+				PageTitleLabel.Dispose ();
+				PageTitleLabel = null;
 			}
 
 			if (LoadingView != null) {

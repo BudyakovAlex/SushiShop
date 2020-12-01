@@ -207,6 +207,9 @@
   <data name="FromToDateFormat" xml:space="preserve">
     <value>С {0} по {1}</value>
   </data>
+  <data name="FromDateFormat" xml:space="preserve">
+    <value>С {0}</value>
+  </data>
   <data name="AnswerDeleteItemFromBasket" xml:space="preserve">
     <value>Удалить товар из корзины?</value>
   </data>
