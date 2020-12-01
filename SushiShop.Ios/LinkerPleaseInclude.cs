@@ -24,6 +24,8 @@ namespace SushiShop.Ios
             textField.Text = textField.Text + string.Empty;
             textField.Placeholder = textField.Placeholder + string.Empty;
             textField.EditingChanged += (sender, args) => { textField.Text = string.Empty; };
+            textField.ValueChanged += (sender, args) => { textField.Text = string.Empty; };
+            textField.EditingDidEnd += (sender, args) => { textField.Text = string.Empty; };
         }
 
         public void Include(UITextView textView)
