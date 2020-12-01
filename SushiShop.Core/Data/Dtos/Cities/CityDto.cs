@@ -5,7 +5,7 @@ namespace SushiShop.Core.Data.Dtos.Cities
 {
     public class CityDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string? City { get; set; }
         [JsonProperty("shops_count")]
         public int ShopsCount { get; set; }

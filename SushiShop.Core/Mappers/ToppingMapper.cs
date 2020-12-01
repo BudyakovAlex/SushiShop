@@ -1,5 +1,8 @@
-﻿using SushiShop.Core.Data.Dtos.Toppings;
+﻿using SushiShop.Core.Data.Dtos.Products;
+using SushiShop.Core.Data.Dtos.Toppings;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Toppings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,12 +16,27 @@ namespace SushiShop.Core.Mappers
                 toppingDto.Id,
                 toppingDto.PageTitle,
                 toppingDto.Price,
-                toppingDto.CountInBasket);
+                toppingDto.CountInBasket,
+                Enum.Parse<ToppingCategory>(toppingDto.ToppingCategory, ignoreCase: true));
+        }
+
+        public static UpdateToppingDto Map(this Topping topping)
+        {
+            return new UpdateToppingDto
+            {
+                Count = topping.CountInBasket,
+                Id = topping.Id
+            };
         }
 
         public static Topping[] Map(this Dictionary<string, ToppingDto> toppings)
         {
             return toppings.Select(kv => kv.Value.Map()).ToArray();
+        }
+
+        public static UpdateToppingDto[] Map(this Topping[] toppingsDtos)
+        {
+            return toppingsDtos.Select(dto => dto.Map()).ToArray();
         }
     }
 }

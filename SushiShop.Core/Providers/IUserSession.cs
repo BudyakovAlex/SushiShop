@@ -1,4 +1,5 @@
 ﻿using SushiShop.Core.Data.Models.Cities;
+using System;
 
 namespace SushiShop.Core.Providers
 {
@@ -7,5 +8,9 @@ namespace SushiShop.Core.Providers
         City? GetCity();
 
         void SetCity(City city);
+
+        Guid GetCartId();
+
+        void SetCartId(Guid id);
     }
 }

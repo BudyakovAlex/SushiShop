@@ -13,9 +13,6 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 	partial class ProductDetailsViewController
 	{
 		[Outlet]
-		UIKit.UIActivityIndicatorView ActivityIndicator { get; set; }
-
-		[Outlet]
 		UIKit.UIButton AddToCartButton { get; set; }
 
 		[Outlet]
@@ -34,6 +31,9 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 		UIKit.UILabel FatsValueLabel { get; set; }
 
 		[Outlet]
+		UIKit.UIView LoadingView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel OldPriceLabel { get; set; }
 
 		[Outlet]
@@ -43,7 +43,7 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 		UIKit.UILabel ProductDescriptionLabel { get; set; }
 
 		[Outlet]
-		FFImageLoading.Cross.MvxCachedImageView ProductImageView { get; set; }
+		SushiShop.Ios.Views.Controls.ScalableImageView ProductImageView { get; set; }
 
 		[Outlet]
 		UIKit.UILabel ProductNameLabel { get; set; }
@@ -62,9 +62,9 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (ActivityIndicator != null) {
-				ActivityIndicator.Dispose ();
-				ActivityIndicator = null;
+			if (LoadingView != null) {
+				LoadingView.Dispose ();
+				LoadingView = null;
 			}
 
 			if (AddToCartButton != null) {
@@ -122,6 +122,11 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 				ProductNameLabel = null;
 			}
 
+			if (ProductSpecificationsView != null) {
+				ProductSpecificationsView.Dispose ();
+				ProductSpecificationsView = null;
+			}
+
 			if (ProteinsValueLabel != null) {
 				ProteinsValueLabel.Dispose ();
 				ProteinsValueLabel = null;
@@ -135,11 +140,6 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 			if (WeightLabel != null) {
 				WeightLabel.Dispose ();
 				WeightLabel = null;
-			}
-
-			if (ProductSpecificationsView != null) {
-				ProductSpecificationsView.Dispose ();
-				ProductSpecificationsView = null;
 			}
 		}
 	}

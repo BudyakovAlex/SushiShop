@@ -184,5 +184,65 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("MakeItTastier", resourceCulture);
             }
         }
+        
+        public static string Basket {
+            get {
+                return ResourceManager.GetString("Basket", resourceCulture);
+            }
+        }
+        
+        public static string AddSauce {
+            get {
+                return ResourceManager.GetString("AddSauce", resourceCulture);
+            }
+        }
+        
+        public static string PromocodeApplied {
+            get {
+                return ResourceManager.GetString("PromocodeApplied", resourceCulture);
+            }
+        }
+        
+        public static string Promocode {
+            get {
+                return ResourceManager.GetString("Promocode", resourceCulture);
+            }
+        }
+        
+        public static string GramSymbol {
+            get {
+                return ResourceManager.GetString("GramSymbol", resourceCulture);
+            }
+        }
+        
+        public static string MillilitersSymbol {
+            get {
+                return ResourceManager.GetString("MillilitersSymbol", resourceCulture);
+            }
+        }
+        
+        public static string FromToDateFormat {
+            get {
+                return ResourceManager.GetString("FromToDateFormat", resourceCulture);
+            }
+        }
+        
+        public static string AnswerDeleteItemFromBasket {
+            get {
+                return ResourceManager.GetString("AnswerDeleteItemFromBasket", resourceCulture);
+            }
+        }
+        
+        public static string CountInPC {
+            get {
+                return ResourceManager.GetString("CountInPC", resourceCulture);
+            }
+        }
+        
+        public static string Done {
+            get {
+                return ResourceManager.GetString("Done", resourceCulture);
+            }
+        }
     }
 }

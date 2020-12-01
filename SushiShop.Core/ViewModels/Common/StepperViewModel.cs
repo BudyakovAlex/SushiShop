@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 
@@ -8,20 +9,20 @@ namespace SushiShop.Core.ViewModels.Common
     {
         private const int MaxCount = 99;
 
-        private readonly Action<int> onCountChanged;
+        private readonly Func<int, int, Task> onCountChangedFunc;
 
-        public StepperViewModel(string? title, int count, Action<int> onCountChanged)
+        public StepperViewModel(string? title, int count, Func<int, int, Task> onCountChangedFunc)
         {
             Title = title;
             this.count = count;
-            this.onCountChanged = onCountChanged;
+            this.onCountChangedFunc = onCountChangedFunc;
 
-            AddCommand = new MvxCommand(Add, () => Count < MaxCount);
-            RemoveCommand = new MvxCommand(Remove, () => Count > 0);
+            AddCommand = new MvxAsyncCommand(AddAsync, () => Count < MaxCount);
+            RemoveCommand = new MvxAsyncCommand(RemoveAsync, () => Count > 0);
         }
 
-        public StepperViewModel(int count, Action<int> onCountChanged)
-            : this(title: null, count, onCountChanged)
+        public StepperViewModel(int count, Func<int, int, Task> onCountChangedFunc)
+            : this(title: null, count, onCountChangedFunc)
         {
         }
 
@@ -34,11 +35,10 @@ namespace SushiShop.Core.ViewModels.Common
         public int Count
         {
             get => count;
-            private set => SetProperty(ref count, value, () =>
+            set => SetProperty(ref count, value, () =>
             {
                 AddCommand.RaiseCanExecuteChanged();
                 RemoveCommand.RaiseCanExecuteChanged();
-                onCountChanged(count);
             });
         }
 
@@ -47,8 +47,20 @@ namespace SushiShop.Core.ViewModels.Common
             Count = 0;
         }
 
-        private void Add() => ++Count;
+        private Task AddAsync()
+        {
+            var previousValue = count;
+            ++Count;
 
-        private void Remove() => --Count;
+            return onCountChangedFunc?.Invoke(previousValue, Count) ?? Task.CompletedTask;
+        }
+
+        private Task RemoveAsync()
+        {
+            var previousValue = Count;
+            --Count;
+
+            return onCountChangedFunc?.Invoke(previousValue, Count) ?? Task.CompletedTask;
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
 	partial class CategoryMenuItemViewCell
 	{
 		[Outlet]
-		FFImageLoading.Cross.MvxCachedImageView ImageView { get; set; }
+		SushiShop.Ios.Views.Controls.ScalableImageView ImageView { get; set; }
 
 		[Outlet]
 		UIKit.UILabel Label { get; set; }

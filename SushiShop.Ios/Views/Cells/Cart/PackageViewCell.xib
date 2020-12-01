@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Bold.otf">
+            <string>SFProDisplay-Bold</string>
+        </array>
+        <array key="SF-Pro-Display-Regular.otf">
+            <string>SFProDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="54" id="cxk-wN-pdQ" customClass="PackageViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 P" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHW-7k-n2G">
+                        <rect key="frame" x="217" y="16.5" width="45" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="Bnw-EZ-9Jr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
+                        <color key="textColor" red="0.090196078430000007" green="0.094117647060000004" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2R-rM-VLV" customClass="SmallStepperView">
+                        <rect key="frame" x="272" y="9" width="32" height="32"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="OR8-1j-eUJ"/>
+                            <constraint firstAttribute="height" constant="32" id="dKB-9X-WLh"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Большой крафтовый пакет" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7D-tZ-lpf">
+                        <rect key="frame" x="16" y="16" width="187.5" height="19.5"/>
+                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                        <color key="textColor" red="0.090196078430000007" green="0.094117647060000004" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="a7D-tZ-lpf" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="1aD-Kg-gaD"/>
+                    <constraint firstItem="tHW-7k-n2G" firstAttribute="centerY" secondItem="YTl-1W-gDM" secondAttribute="centerY" id="BvO-Hd-j3G"/>
+                    <constraint firstItem="a7D-tZ-lpf" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="16" id="MZQ-qe-AyU"/>
+                    <constraint firstItem="tHW-7k-n2G" firstAttribute="leading" secondItem="a7D-tZ-lpf" secondAttribute="trailing" priority="1" id="Skd-JR-08u"/>
+                    <constraint firstAttribute="trailing" secondItem="q2R-rM-VLV" secondAttribute="trailing" constant="16" id="XvO-rm-YLa"/>
+                    <constraint firstItem="q2R-rM-VLV" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="9" id="ZtM-mp-FfM"/>
+                    <constraint firstItem="q2R-rM-VLV" firstAttribute="leading" secondItem="tHW-7k-n2G" secondAttribute="trailing" constant="10" id="iEh-1I-OkJ"/>
+                    <constraint firstAttribute="bottom" secondItem="a7D-tZ-lpf" secondAttribute="bottom" constant="16" id="isY-ml-tFJ"/>
+                    <constraint firstAttribute="bottom" secondItem="q2R-rM-VLV" secondAttribute="bottom" constant="9" id="pB6-if-elF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="CountStepperView" destination="q2R-rM-VLV" id="FaX-o9-NNz"/>
+                <outlet property="PriceLabel" destination="tHW-7k-n2G" id="5n2-Ik-CXE"/>
+                <outlet property="TitleLabel" destination="a7D-tZ-lpf" id="fNM-4h-8Tq"/>
+            </connections>
+            <point key="canvasLocation" x="23.188405797101453" y="58.928571428571423"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

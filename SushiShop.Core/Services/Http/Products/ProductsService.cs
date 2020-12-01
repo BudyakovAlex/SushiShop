@@ -2,6 +2,7 @@
 using SushiShop.Core.Data.Dtos.Products;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Http;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,13 +18,15 @@ namespace SushiShop.Core.Services.Http.Products
         }
 
         public Task<HttpResponse<ResponseDto<ProductDto>>> GetProductAsync(
-            int id,
+            long id,
             string? city,
+            Guid? basketId,
             CancellationToken cancellationToken)
         {
             var body = new
             {
                 id,
+                basketId,
                 city
             };
 
@@ -35,8 +38,9 @@ namespace SushiShop.Core.Services.Http.Products
         }
 
         public Task<HttpResponse<ResponseDto<ProductDto[]>>> GetProductsByCategoryAsync(
-            int? categoryId,
+            long? categoryId,
             string? city,
+            Guid? basketId,
             StickerType? stickerType,
             CancellationToken cancellationToken)
         {
@@ -44,6 +48,7 @@ namespace SushiShop.Core.Services.Http.Products
             {
                 cid = categoryId,
                 city,
+                basketId,
                 sticker = stickerType?.ToString().ToLower() ?? null
             };
 
@@ -54,12 +59,17 @@ namespace SushiShop.Core.Services.Http.Products
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<ProductDto[]>>> GetRelatedProductsAsync(int id, string? city, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ProductDto[]>>> GetRelatedProductsAsync(
+            long id,
+            string? city,
+            Guid? basketId,
+            CancellationToken cancellationToken)
         {
             var body = new
             {
                 id,
                 city,
+                basketId,
             };
 
             return httpService.ExecuteAsync<ResponseDto<ProductDto[]>>(

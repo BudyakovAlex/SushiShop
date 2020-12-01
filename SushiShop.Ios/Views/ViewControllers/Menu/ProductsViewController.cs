@@ -64,7 +64,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             bindingSet.Bind(filterTabView).For(v => v.SelectedIndex).To(vm => vm.SelectedFilterIndex);
             bindingSet.Bind(filterTabView).For(v => v.BindVisible()).To(vm => vm.IsFiltersVisible);
             bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.Items);
-            bindingSet.Bind(loadingIndicator).For(v => v.BindVisible()).To(vm => vm.IsLoading);
+            bindingSet.Bind(loadingIndicator).For(v => v.BindVisible()).To(vm => vm.ExecutionStateWrapper.IsBusy);
 
             bindingSet.Apply();
         }
@@ -109,6 +109,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             source = new ProductsCollectionViewSource(collectionView, () => isAppeared);
             collectionView.Source = source;
             collectionView.Delegate = new ProductsCollectionViewDelegateFlowLayout(OnDecelerated);
+
+            source.PreloadCells(3);
 
             stackView.AddArrangedSubview(collectionView);
         }

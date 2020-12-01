@@ -1,10 +1,11 @@
 ﻿using SushiShop.Core.Data.Dtos.Common;
+using SushiShop.Core.Data.Dtos.Products;
 
 namespace SushiShop.Core.Data.Dtos.Promotions
 {
     public class PromotionDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string? PageTitle { get; set; }
         public string? LongTitle { get; set; }
         public string? Alias { get; set; }
@@ -18,6 +19,6 @@ namespace SushiShop.Core.Data.Dtos.Promotions
         public ImageInfoDto? SaleSquareImage { get; set; }
         public ImageInfoDto? SaleRectangularImage { get; set; }
         public string[]? CityMulti { get; set; }
-        public object? SaleProductId { get; set; }
+        public ProductDto? SaleProduct { get; set; }
     }
 }

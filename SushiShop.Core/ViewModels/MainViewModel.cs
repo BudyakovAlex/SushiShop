@@ -1,5 +1,9 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using SushiShop.Core.Managers.Cart;
+using SushiShop.Core.Messages;
+using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cart;
 using SushiShop.Core.ViewModels.Info;
@@ -12,9 +16,25 @@ namespace SushiShop.Core.ViewModels
 {
     public class MainViewModel : BasePageViewModel
     {
-        public MainViewModel()
+        private readonly ICartManager cartManager;
+        private readonly IUserSession userSession;
+
+        public MainViewModel(
+            ICartManager cartManager,
+            IUserSession userSession)
         {
+            this.cartManager = cartManager;
+            this.userSession = userSession;
+
             LoadTabsCommand = new MvxAsyncCommand(LoadTabsAsync);
+            Messenger.Subscribe<RefreshCartMessage>(OnCartChanged).DisposeWith(Disposables);
+        }
+
+        private long cartItemsTotalCount;
+        public long CartItemsTotalCount
+        {
+            get => cartItemsTotalCount;
+            set => SetProperty(ref cartItemsTotalCount, value);
         }
 
         public IMvxAsyncCommand LoadTabsCommand { get; }
@@ -28,6 +48,23 @@ namespace SushiShop.Core.ViewModels
             AppStrings.Info
         };
 
+        public async override Task InitializeAsync()
+        {
+            await base.InitializeAsync();
+            _ = ExecutionStateWrapper.WrapAsync(RefreshDataAsync, awaitWhenBusy: true);
+        }
+
+        protected async override Task RefreshDataAsync()
+        {
+            var cart = await cartManager.GetCartAsync(userSession.GetCity()?.Name);
+            if (!cart.IsSuccessful)
+            {
+                return;
+            }
+
+            CartItemsTotalCount = cart.Data?.TotalCount ?? 0;
+        }
+
         private async Task LoadTabsAsync()
         {
             await Task.WhenAll(
@@ -36,6 +73,11 @@ namespace SushiShop.Core.ViewModels
                 NavigationManager.NavigateAsync<CartViewModel>(),
                 NavigationManager.NavigateAsync<ProfileViewModel>(),
                 NavigationManager.NavigateAsync<InfoViewModel>());
+        }
+
+        private void OnCartChanged(RefreshCartMessage message)
+        {
+            _ = SafeExecutionWrapper.WrapAsync(RefreshDataAsync);
         }
     }
 }

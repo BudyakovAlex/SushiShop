@@ -30,7 +30,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
             base.Bind();
 
             var bindingSet = this.CreateBindingSet<MenuPromotionItemViewCell, MenuPromotionItemViewModel>();
-            bindingSet.Bind(ImageView).For(v => v.ImagePath).To(vm => vm.ImageUrl);
+            bindingSet.Bind(ImageView).For(v => v.ImageUrl).To(vm => vm.ImageUrl);
             bindingSet.Apply();
         }
     }

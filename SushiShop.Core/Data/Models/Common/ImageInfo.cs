@@ -1,4 +1,4 @@
-﻿namespace SushiShop.Core.Data.Models.Menu
+﻿namespace SushiShop.Core.Data.Models.Common
 {
     public class ImageInfo
     {

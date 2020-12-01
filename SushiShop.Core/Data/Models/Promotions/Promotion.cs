@@ -1,12 +1,13 @@
 ﻿using System;
-using SushiShop.Core.Data.Models.Menu;
+using SushiShop.Core.Data.Models.Common;
+using SushiShop.Core.Data.Models.Products;
 
 namespace SushiShop.Core.Data.Models.Promotions
 {
     public class Promotion
     {
         public Promotion(
-            int id,
+            long id,
             string pageTitle,
             string longTitle,
             string alias,
@@ -20,7 +21,7 @@ namespace SushiShop.Core.Data.Models.Promotions
             ImageInfo squareImageInfo,
             ImageInfo rectangularImageInfo,
             string[] cities,
-            object? productId)
+            Product? product)
         {
             Id = id;
             PageTitle = pageTitle;
@@ -36,10 +37,10 @@ namespace SushiShop.Core.Data.Models.Promotions
             SquareImageInfo = squareImageInfo;
             RectangularImageInfo = rectangularImageInfo;
             Cities = cities;
-            ProductId = productId;
+            Product = product;
         }
 
-        public int Id { get; }
+        public long Id { get; }
         public string PageTitle { get; }
         public string LongTitle { get; }
         public string Alias { get; }
@@ -53,6 +54,6 @@ namespace SushiShop.Core.Data.Models.Promotions
         public ImageInfo SquareImageInfo { get; }
         public ImageInfo RectangularImageInfo { get; }
         public string[] Cities { get; }
-        public object? ProductId { get; }
+        public Product? Product { get; }
     }
 }

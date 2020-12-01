@@ -5,6 +5,7 @@
         Hit,
         Hot,
         New,
-        Vegan
+        Vegan,
+        Seasons
     }
 }

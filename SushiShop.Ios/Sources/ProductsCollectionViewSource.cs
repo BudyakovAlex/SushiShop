@@ -18,6 +18,15 @@ namespace SushiShop.Ios.Sources
             collectionView.RegisterNibForCell(FilteredProductsItemViewCell.Nib, FilteredProductsItemViewCell.Key);
         }
 
+        public void PreloadCells(int count)
+        {
+            for (var i = 0; i < count; i++)
+            {
+                var indexPath = NSIndexPath.FromRowSection(i, 0);
+                _ = CollectionView.DequeueReusableCell(FilteredProductsItemViewCell.Key, indexPath);
+            }
+        }
+
         protected override UICollectionViewCell GetOrCreateCellFor(UICollectionView collectionView, NSIndexPath indexPath, object item)
         {
             var cell = (FilteredProductsItemViewCell) collectionView.DequeueReusableCell(FilteredProductsItemViewCell.Key, indexPath);

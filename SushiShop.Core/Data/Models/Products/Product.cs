@@ -1,13 +1,13 @@
-﻿using SushiShop.Core.Data.Models.Common;
-using SushiShop.Core.Data.Models.Menu;
-using System;
+﻿using System;
+using SushiShop.Core.Data.Models.Common;
 
 namespace SushiShop.Core.Data.Models.Products
 {
     public class Product
     {
         public Product(
-            int id,
+            long id,
+            Guid? uid,
             string pageTitle,
             string? alias,
             long parent,
@@ -25,6 +25,7 @@ namespace SushiShop.Core.Data.Models.Products
             int countInBasket)
         {
             Id = id;
+            Uid = uid;
             PageTitle = pageTitle;
             Alias = alias;
             Parent = parent;
@@ -42,7 +43,8 @@ namespace SushiShop.Core.Data.Models.Products
             CountInBasket = countInBasket;
         }
 
-        public int Id { get; }
+        public long Id { get; }
+        public Guid? Uid { get; set; }
         public string PageTitle { get; }
         public string? Alias { get; }
         public long Parent { get; }

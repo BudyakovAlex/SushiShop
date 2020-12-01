@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Bold.otf">
+            <string>SFProDisplay-Bold</string>
+        </array>
+        <array key="SF-Pro-Display-Medium.otf">
+            <string>SFProDisplay-Medium</string>
+        </array>
+        <array key="SF-Pro-Display-Regular.otf">
+            <string>SFProDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="142" id="cxk-wN-pdQ" customClass="CartProductViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="467" height="142"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="467" height="142"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hYt-KN-Z5z">
+                        <rect key="frame" x="16" y="10" width="435" height="119"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAR-h3-yXO">
+                                <rect key="frame" x="0.0" y="0.0" width="435" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MvxCachedImageView" translatesAutoresizingMaskIntoConstraints="NO" id="1dR-4T-hR1" customClass="MvxCachedImageView">
+                                        <rect key="frame" x="0.0" y="0.0" width="68" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="ear-SV-hcv"/>
+                                            <constraint firstAttribute="width" constant="68" id="sc7-fG-c8M"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="749" text="Набор запеченый Калифорния" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kk8-el-aea">
+                                        <rect key="frame" x="78" y="0.0" width="217.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                        <color key="textColor" red="0.090196078431372548" green="0.094117647058823528" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="250г" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A76-De-s5v">
+                                        <rect key="frame" x="78" y="45.5" width="27" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="12"/>
+                                        <color key="textColor" red="0.72941176470588232" green="0.72941176470588232" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1270 P" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-8c-DUQ">
+                                        <rect key="frame" x="382" y="0.0" width="53" height="19"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="17"/>
+                                        <color key="textColor" red="0.090196078430000007" green="0.094117647060000004" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eAZ-na-ZBW" customClass="SmallStepperView">
+                                        <rect key="frame" x="403" y="28" width="32" height="32"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="2Et-7u-qYg"/>
+                                            <constraint firstAttribute="width" constant="32" id="INj-IH-ETU"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1770 P" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PL7-KI-gZe">
+                                        <rect key="frame" x="336" y="4.5" width="36" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="12"/>
+                                        <color key="textColor" red="0.72941176470000002" green="0.72941176470000002" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="A76-De-s5v" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kk8-el-aea" secondAttribute="bottom" id="6tt-mZ-Ge2"/>
+                                    <constraint firstItem="1dR-4T-hR1" firstAttribute="top" secondItem="zAR-h3-yXO" secondAttribute="top" id="7Dm-dn-luH"/>
+                                    <constraint firstAttribute="bottom" secondItem="eAZ-na-ZBW" secondAttribute="bottom" id="Ax9-La-ESs"/>
+                                    <constraint firstItem="eAZ-na-ZBW" firstAttribute="top" secondItem="fSQ-8c-DUQ" secondAttribute="bottom" constant="9" id="G6b-Pp-iJv"/>
+                                    <constraint firstAttribute="bottom" secondItem="1dR-4T-hR1" secondAttribute="bottom" id="GpG-IB-YVX"/>
+                                    <constraint firstAttribute="trailing" secondItem="eAZ-na-ZBW" secondAttribute="trailing" id="KVF-pS-Eea"/>
+                                    <constraint firstItem="PL7-KI-gZe" firstAttribute="bottom" secondItem="fSQ-8c-DUQ" secondAttribute="bottom" id="LfJ-Kk-9xj"/>
+                                    <constraint firstAttribute="trailing" secondItem="fSQ-8c-DUQ" secondAttribute="trailing" id="Mnk-KT-EjA"/>
+                                    <constraint firstItem="kk8-el-aea" firstAttribute="leading" secondItem="1dR-4T-hR1" secondAttribute="trailing" constant="10" id="c3d-Fq-lZM"/>
+                                    <constraint firstItem="A76-De-s5v" firstAttribute="bottom" secondItem="1dR-4T-hR1" secondAttribute="bottom" id="ffU-yf-m2T"/>
+                                    <constraint firstItem="fSQ-8c-DUQ" firstAttribute="leading" secondItem="PL7-KI-gZe" secondAttribute="trailing" constant="10" id="m9h-n5-Fs3"/>
+                                    <constraint firstItem="kk8-el-aea" firstAttribute="top" secondItem="zAR-h3-yXO" secondAttribute="top" id="mT2-Qs-WrA"/>
+                                    <constraint firstItem="fSQ-8c-DUQ" firstAttribute="top" secondItem="zAR-h3-yXO" secondAttribute="top" id="oGo-Lw-NWl"/>
+                                    <constraint firstItem="PL7-KI-gZe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kk8-el-aea" secondAttribute="trailing" constant="10" id="oMY-5w-SO1"/>
+                                    <constraint firstItem="A76-De-s5v" firstAttribute="leading" secondItem="1dR-4T-hR1" secondAttribute="trailing" constant="10" id="vEk-ul-EGf"/>
+                                    <constraint firstItem="1dR-4T-hR1" firstAttribute="leading" secondItem="zAR-h3-yXO" secondAttribute="leading" id="xZV-fj-vbt"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dfs-Pm-Zx1" customClass="MvxStackView">
+                                <rect key="frame" x="0.0" y="74" width="435" height="45"/>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="hYt-KN-Z5z" secondAttribute="trailing" constant="16" id="I8M-jb-gl5"/>
+                    <constraint firstAttribute="bottom" secondItem="hYt-KN-Z5z" secondAttribute="bottom" constant="13" id="R8F-eT-EEm"/>
+                    <constraint firstItem="hYt-KN-Z5z" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="10" id="VMe-ah-M9Q"/>
+                    <constraint firstItem="hYt-KN-Z5z" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="qUY-bk-cdc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="CountStepperView" destination="eAZ-na-ZBW" id="Few-ot-LOk"/>
+                <outlet property="OldPriceLabel" destination="PL7-KI-gZe" id="5qp-E4-gr9"/>
+                <outlet property="PriceLabel" destination="fSQ-8c-DUQ" id="4va-Uk-vwn"/>
+                <outlet property="ProductImage" destination="1dR-4T-hR1" id="Exs-6r-PMd"/>
+                <outlet property="TitleLabel" destination="kk8-el-aea" id="KPF-6a-1Je"/>
+                <outlet property="ToppingsStackView" destination="dfs-Pm-Zx1" id="3b7-j5-i6b"/>
+                <outlet property="WeightLabel" destination="A76-De-s5v" id="gWP-la-ejM"/>
+            </connections>
+            <point key="canvasLocation" x="-212.31884057971016" y="26.785714285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="MvxCachedImageView" width="128" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

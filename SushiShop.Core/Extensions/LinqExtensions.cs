@@ -1,6 +1,9 @@
-﻿using System;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
+using SushiShop.Core.Common.Comparers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SushiShop.Core.Extensions
 {
@@ -52,6 +55,30 @@ namespace SushiShop.Core.Extensions
             {
                 action(item);
                 yield return item;
+            }
+        }
+
+        public static IEnumerable<T> ExceptBy<T>(this IEnumerable<T> first, IEnumerable<T> second, Func<T, T, bool> comparerFunc)
+        {
+            return first.Except(second, new DelegateEqualityComparer<T>(comparerFunc, null));
+        }
+
+        public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+        {
+            return source.DistinctBy(keySelector, null);
+        }
+
+        public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source,
+                                                                     Func<TSource, TKey> keySelector,
+                                                                     IEqualityComparer<TKey>? comparer)
+        {
+            var knownKeys = new HashSet<TKey>(comparer);
+            foreach (var element in source)
+            {
+                if (knownKeys.Add(keySelector(element)))
+                {
+                    yield return element;
+                }
             }
         }
     }

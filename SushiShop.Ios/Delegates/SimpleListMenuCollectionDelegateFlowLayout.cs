@@ -12,7 +12,7 @@ namespace SushiShop.Ios.Delegates
     public class SimpleListMenuCollectionDelegateFlowLayout : UICollectionViewDelegateFlowLayout
     {
         private const int SimpleCellHeight = 48;
-        private const int GroupsCellHeight = 244;
+        private const int GroupsCellItemHeight = 61;
 
         private readonly MvxCollectionViewSource collectionViewSource;
 
@@ -43,7 +43,7 @@ namespace SushiShop.Ios.Delegates
             {
                 MenuActionItemViewModel _ => new CGSize(collectionView.Frame.Width / 2, SimpleCellHeight),
                 CategoryMenuItemViewModel _ => new CGSize(collectionView.Frame.Width / 2, SimpleCellHeight),
-                GroupsMenuItemViewModel _ => new CGSize(collectionView.Frame.Width, GroupsCellHeight),
+                GroupsMenuItemViewModel groupsMenuItemViewModel => new CGSize(collectionView.Frame.Width, GroupsCellItemHeight * groupsMenuItemViewModel.Items.Count),
                 _ => base.GetSizeForItem(collectionView, layout, indexPath)
             };
         }

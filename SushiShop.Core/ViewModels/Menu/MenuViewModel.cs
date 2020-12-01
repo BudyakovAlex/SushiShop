@@ -89,13 +89,13 @@ namespace SushiShop.Core.ViewModels.Menu
                 .ToArray();
 
             var promotionItems = promotionsTask.Result.Data
-                .Select(promotion => new MenuPromotionItemViewModel(promotion))
+                .Select(promotion => new MenuPromotionItemViewModel(promotion) { ExecutionStateWrapper = ExecutionStateWrapper })
                 .ToArray();
 
             Items.Clear();
             SimpleItems.Clear();
 
-            Items.Add(new MenuPromotionListItemViewModel(promotionItems));
+            Items.Add(new MenuPromotionListItemViewModel(promotionItems) { ExecutionStateWrapper = ExecutionStateWrapper });
             Items.AddRange(categoryItems);
 
             var groupMenuItemViewModels = menuTask.Result.Data.Stickers
@@ -177,7 +177,7 @@ namespace SushiShop.Core.ViewModels.Menu
 
         private async Task SelectCityAsync()
         {
-            var selectedCityIds = city is null ? Array.Empty<int>() : new[] { city.Id };
+            var selectedCityIds = city is null ? Array.Empty<long>() : new[] { city.Id };
             var navigationParams = new SelectCityNavigationParameters(selectedCityIds);
             var result = await NavigationManager.NavigateAsync<SelectCityViewModel, SelectCityNavigationParameters, List<CityItemViewModel>?>(navigationParams);
             if (result is null)

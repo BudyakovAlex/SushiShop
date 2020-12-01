@@ -2,14 +2,17 @@
 {
     public class CardProductNavigationParameters
     {
-        public CardProductNavigationParameters(int id, string? city)
+        public CardProductNavigationParameters(long id, string? city, bool isReadonly = false)
         {
             Id = id;
             City = city;
+            IsReadonly = isReadonly;
         }
 
-        public int Id { get; }
+        public long Id { get; }
 
         public string? City { get; }
+
+        public bool IsReadonly { get; }
     }
 }
