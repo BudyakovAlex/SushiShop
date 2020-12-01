@@ -138,7 +138,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
                 imageview = new MvxCachedImageView();
                 imageview.TranslatesAutoresizingMaskIntoConstraints = false;
                 imageview.TintColor = Colors.White;
-                imageview.Transformations.Add(new TintTransformation(255, 255, 255, 255));
+                imageview.Transformations.Add(new TintTransformation(255, 255, 255, 255) { EnableSolidColor = true });
                 imageview.ContentMode = UIViewContentMode.ScaleAspectFit;
                 imageview.ImagePath = imageUrl;
 
