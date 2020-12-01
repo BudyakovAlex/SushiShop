@@ -35,7 +35,7 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public long TotalCount { get; }
 
-        public decimal TotalSum { get; }
+        public decimal TotalSum { get; set; }
 
         public decimal Discount { get; }
 

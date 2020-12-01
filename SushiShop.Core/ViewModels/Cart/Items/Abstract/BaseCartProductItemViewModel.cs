@@ -1,6 +1,7 @@
 ﻿using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cart;
 using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Data.Models.Toppings;
@@ -43,7 +44,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
 
         public string? Title => Product.PageTitle;
 
-        public string Price => $"{Product!.Price} {currency?.Symbol}";
+        public string Price => $"{Product!.TotalPrice} {currency?.Symbol}";
 
         public long Id => Product.Id;
 
@@ -84,14 +85,21 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
 
             Product!.Uid = response.Data.Uid;
             Product!.Count = response.Data.CountInBasket;
-            await RaisePropertyChanged(nameof(CountInBasket));
+
+            var isCountIncremented = newCount > previousCount;
+            Product!.TotalPrice = isCountIncremented
+                ? Product!.TotalPrice + Product.Price
+                : Product!.TotalPrice - Product.Price;
+
+            await Task.WhenAll(RaisePropertyChanged(nameof(CountInBasket)), RaisePropertyChanged(nameof(Price)));
 
             if (newCount == 0)
             {
                 Messenger.Publish(new RefreshCartMessage(this));
             }
 
-            Messenger.Publish(new CartProductChangedMessage(this));
+            var action = isCountIncremented ? ProductChangeAction.Add : ProductChangeAction.Remove;
+            Messenger.Publish(new CartProductChangedMessage(this, action, Product));
         }
 
         private string GetValue()
