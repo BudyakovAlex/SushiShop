@@ -49,7 +49,7 @@ namespace SushiShop.Core.ViewModels.Promotions
 
         public string PublicationDateTitle => GetPublicationDateTitle();
 
-        public bool HasPublicationDate => promotion?.PublicationStartDate != null || promotion?.PublicationEndDate != null;
+        public bool HasPublicationDate => promotion?.PublicationStartDate != null;
 
         public override void Prepare(long parameter)
         {
