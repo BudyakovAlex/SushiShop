@@ -9,6 +9,7 @@ using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.Managers.Menu;
 using SushiShop.Core.Managers.Promotions;
+using SushiShop.Core.Messages;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
@@ -168,6 +169,7 @@ namespace SushiShop.Core.ViewModels.Menu
                 await RaisePropertyChanged(nameof(CityName));
 
                 _ = ReloadDataAsync();
+                Messenger.Publish(new RefreshCartMessage(this));
             }
             catch (Exception ex)
             {
@@ -189,6 +191,8 @@ namespace SushiShop.Core.ViewModels.Menu
             userSession.SetCity(city);
             await RaisePropertyChanged(nameof(CityName));
             await ReloadDataAsync();
+
+            Messenger.Publish(new RefreshCartMessage(this));
         }
     }
 }
