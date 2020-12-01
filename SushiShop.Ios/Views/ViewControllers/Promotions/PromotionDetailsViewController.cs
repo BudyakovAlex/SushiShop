@@ -11,6 +11,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
     [MvxChildPresentation]
     public partial class PromotionDetailsViewController : BaseViewController<PromotionDetailsViewModel>
     {
+        public const float DateLabelBottomMargin = 8f;
+
         private string htmlContent;
         public string HtmlContent
         {
@@ -19,6 +21,18 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
             {
                 htmlContent = value;
                 HtmlContentChanged(htmlContent);
+            }
+        }
+
+        private bool hasPublicationDate;
+        public bool HasPublicationDate
+        {
+            get => hasPublicationDate;
+            set
+            {
+                hasPublicationDate = value;
+                DateLabel.Hidden = !hasPublicationDate;
+                DateLabelBottomConstraint.Constant = !hasPublicationDate ? 0f : DateLabelBottomMargin;
             }
         }
 
@@ -48,12 +62,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 
             var bindingSet = this.CreateBindingSet<PromotionDetailsViewController, PromotionDetailsViewModel>();
 
+            bindingSet.Bind(this).For(v => v.HtmlContent).To(vm => vm.HtmlContent);
+            bindingSet.Bind(this).For(v => v.HasPublicationDate).To(vm => vm.HasPublicationDate);
             bindingSet.Bind(BackButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
             bindingSet.Bind(LoadingView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
             bindingSet.Bind(ImageView).For(v => v.ImageUrl).To(vm => vm.ImageUrl);
-            bindingSet.Bind(DateLabel).For(v => v.Text).To(vm => vm.PublicationDateRangeTitle);
-            bindingSet.Bind(IntroLabel).For(v => v.Text).To(vm => vm.IntroTitle);
-            bindingSet.Bind(this).For(v => v.HtmlContent).To(vm => vm.HtmlContent);
+            bindingSet.Bind(DateLabel).For(v => v.Text).To(vm => vm.PublicationDateTitle);
+            bindingSet.Bind(PageTitleLabel).For(v => v.Text).To(vm => vm.PageTitle);
             bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);
             bindingSet.Bind(StepperView).For(v => v.BindVisible()).To(vm => vm.CanAddToCart);
 

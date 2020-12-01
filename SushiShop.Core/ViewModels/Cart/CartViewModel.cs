@@ -56,6 +56,7 @@ namespace SushiShop.Core.ViewModels.Cart
             ApplyPromocodeCommand = new SafeAsyncCommand(ExecutionStateWrapper, ApplyPromocodeAsync);
 
             Messenger.Subscribe<RefreshCartMessage>(OnCartChanged).DisposeWith(Disposables);
+            Messenger.Subscribe<CartProductChangedMessage>(OnCartProductChanged).DisposeWith(Disposables);
         }
 
         public IMvxCommand AddSaucesCommand { get; }
@@ -195,6 +196,21 @@ namespace SushiShop.Core.ViewModels.Cart
 
             await userDialogs.AlertAsync(AppStrings.PromocodeApplied);
             await RefreshDataAsync();
+        }
+
+        private void OnCartProductChanged(CartProductChangedMessage message)
+        {
+            switch (message.ProductChangeAction)
+            {
+                case ProductChangeAction.Add:
+                    cart!.TotalSum = cart!.TotalSum + message.CartProduct.Price;
+                    break;
+                case ProductChangeAction.Remove:
+                    cart!.TotalSum = cart!.TotalSum - message.CartProduct.Price;
+                    break;
+            }
+
+            RaisePropertyChanged(nameof(TotalPrice));
         }
 
         private Task CheckoutAsync()

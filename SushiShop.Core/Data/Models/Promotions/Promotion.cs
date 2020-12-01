@@ -13,8 +13,8 @@ namespace SushiShop.Core.Data.Models.Promotions
             string alias,
             string introText,
             string content,
-            DateTimeOffset publicationStartDate,
-            DateTimeOffset publicationEndDate,
+            DateTimeOffset? publicationStartDate,
+            DateTimeOffset? publicationEndDate,
             DateTimeOffset createdOn,
             string url,
             string? showOnHome,
@@ -46,8 +46,8 @@ namespace SushiShop.Core.Data.Models.Promotions
         public string Alias { get; }
         public string IntroText { get; }
         public string Content { get; }
-        public DateTimeOffset PublicationStartDate { get; }
-        public DateTimeOffset PublicationEndDate { get; }
+        public DateTimeOffset? PublicationStartDate { get; }
+        public DateTimeOffset? PublicationEndDate { get; }
         public DateTimeOffset CreatedOn { get; }
         public string Url { get; }
         public string? ShowOnHome { get; }

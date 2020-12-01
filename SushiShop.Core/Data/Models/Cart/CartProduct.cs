@@ -42,7 +42,7 @@ namespace SushiShop.Core.Data.Models.Cart
 
         public decimal Price { get; }
 
-        public decimal TotalPrice { get; }
+        public decimal TotalPrice { get; set; }
 
         public string? PageTitle { get; }
 
