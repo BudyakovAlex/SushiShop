@@ -41,13 +41,15 @@ namespace SushiShop.Core.ViewModels.Promotions
 
         public string ImageUrl => promotion?.SquareImageInfo.JpgUrl ?? string.Empty;
 
-        public string HtmlContent => promotion?.Content ?? string.Empty;
+        public string PageTitle => promotion?.PageTitle ?? promotion?.LongTitle ?? string.Empty;
 
-        public string IntroTitle => promotion?.IntroText ?? string.Empty;
+        public string HtmlContent => promotion?.Content ?? string.Empty;
 
         public bool CanAddToCart => promotion?.Product != null;
 
-        public string PublicationDateRangeTitle => GetPublicationDateRangeTitle();
+        public string PublicationDateTitle => GetPublicationDateTitle();
+
+        public bool HasPublicationDate => promotion?.PublicationStartDate != null || promotion?.PublicationEndDate != null;
 
         public override void Prepare(long parameter)
         {
@@ -99,15 +101,22 @@ namespace SushiShop.Core.ViewModels.Promotions
                 : new StepperViewModel(AppStrings.Cart, product.CountInBasket, OnCountChangedAsync);
         }
 
-        private string GetPublicationDateRangeTitle()
+        private string GetPublicationDateTitle()
         {
-            if (promotion is null)
+            if (promotion?.PublicationStartDate is null)
             {
                 return string.Empty;
             }
 
-            var startDate = promotion.PublicationStartDate.Date;
-            var endDate = promotion.PublicationEndDate.Date;
+            if (promotion.PublicationEndDate is null)
+            {
+                return string.Format(
+                    AppStrings.FromDateFormat,
+                    GetLongDateString(promotion.PublicationStartDate.Value.Date));
+            }
+
+            var startDate = promotion.PublicationStartDate.Value.Date;
+            var endDate = promotion.PublicationEndDate.Value.Date;
             if (startDate.Year == endDate.Year)
             {
                 if (startDate.Month == endDate.Month)

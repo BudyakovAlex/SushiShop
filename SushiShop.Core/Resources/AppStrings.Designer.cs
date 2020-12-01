@@ -227,6 +227,12 @@ namespace SushiShop.Core.Resources {
             }
         }
         
+        public static string FromDateFormat {
+            get {
+                return ResourceManager.GetString("FromDateFormat", resourceCulture);
+            }
+        }
+        
         public static string AnswerDeleteItemFromBasket {
             get {
                 return ResourceManager.GetString("AnswerDeleteItemFromBasket", resourceCulture);

@@ -14,8 +14,8 @@ namespace SushiShop.Core.Mappers
                 dto.Alias!,
                 dto.IntroText!,
                 dto.Content!,
-                DateTimeOffset.FromUnixTimeSeconds(dto.PubDate),
-                DateTimeOffset.FromUnixTimeSeconds(dto.UnpubDate),
+                ToNullableDateTimeOffset(dto.PubDate),
+                ToNullableDateTimeOffset(dto.UnpubDate),
                 DateTimeOffset.FromUnixTimeSeconds(dto.CreatedOn),
                 dto.Url!,
                 dto.SaleShowOnHome,
@@ -23,5 +23,15 @@ namespace SushiShop.Core.Mappers
                 dto.SaleRectangularImage!.Map(),
                 dto.CityMulti!,
                 dto.SaleProduct?.Map());
+
+        public static DateTimeOffset? ToNullableDateTimeOffset(int unixTimeSeconds)
+        {
+            if (unixTimeSeconds == 0)
+            {
+                return null;
+            }
+
+            return DateTimeOffset.FromUnixTimeSeconds(unixTimeSeconds);
+        }
     }
 }
