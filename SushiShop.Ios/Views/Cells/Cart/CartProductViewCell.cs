@@ -46,6 +46,7 @@ namespace SushiShop.Ios.Views.Cells.Cart
             bindingSet.Bind(PriceLabel).For(v => v.Text).To(vm => vm.Price);
             bindingSet.Bind(WeightLabel).For(v => v.Text).To(vm => vm.Value);
             bindingSet.Bind(CountStepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);
+            bindingSet.Bind(CountStepperView).For(v => v.BindHidden()).To(vm => vm.IsReadOnly);
             bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
             bindingSet.Bind(ToppingsStackView).For(v => v.ItemsSource).To(vm => vm.Toppings);
             bindingSet.Bind(ToppingsStackView).For(v => v.BindVisibility()).To(vm => vm.Toppings.Count)

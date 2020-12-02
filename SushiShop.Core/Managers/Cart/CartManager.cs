@@ -68,7 +68,7 @@ namespace SushiShop.Core.Managers.Cart
             var response = await cartService.GetCartPromocodeAsync(userSession.GetCartId(), city, promocode, CancellationToken.None);
             if (!response.IsSuccessful)
             {
-                return new Response<Promocode?>(isSuccessful: false, null!);
+                return new Response<Promocode?>(isSuccessful: false, null!, response.Data?.Errors ?? Array.Empty<string>());
             }
 
             var data = response.Data!.SuccessData?.Map();

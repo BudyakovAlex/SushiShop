@@ -102,6 +102,7 @@ namespace SushiShop.Core.ViewModels.Cart
 
             sauses = getSauces.Result.Data;
             cart = getBasket.Result.Data;
+            Promocode = cart!.Promocode?.Code ?? string.Empty;
 
             var availablePackages = packagingCart.Result.Data.Select(ProducePackageFromProduct).ToArray();
             var mergedPackages = cart!.Products.Where(product => product.Type == ProductType.Pack)
@@ -191,6 +192,13 @@ namespace SushiShop.Core.ViewModels.Cart
             var response = await cartManager.GetCartPromocodeAsync(city, Promocode);
             if (!response.IsSuccessful)
             {
+                var error = response.Errors.FirstOrDefault();
+                if (error.IsNullOrEmpty())
+                {
+                    return;
+                }
+
+                await userDialogs.AlertAsync(error);
                 return;   
             }
 
