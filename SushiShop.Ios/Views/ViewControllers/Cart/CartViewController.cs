@@ -86,6 +86,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             bindingSet.Apply();
         }
 
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+
+            UIApplication.SharedApplication.KeyWindow.EndEditing(true);
+        }
+
         private void InitializeProductsTableView()
         {
             productsTableViewSource = new TableViewSource(ProductsTableView)
@@ -105,6 +112,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             packagesTableViewSource = new TableViewSource(PackagesTableView)
                 .Register<CartPackItemViewModel>(PackageViewCell.Nib, PackageViewCell.Key);
             PackagesTableView.Source = packagesTableViewSource;
+            PackagesTableView.RowHeight = UITableView.AutomaticDimension;
+            PackagesTableView.EstimatedRowHeight = UITableView.AutomaticDimension;
         }
 
         private void SetFooterViewForTableViews()
