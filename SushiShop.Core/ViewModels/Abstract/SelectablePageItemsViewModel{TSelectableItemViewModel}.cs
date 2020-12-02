@@ -2,6 +2,7 @@
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Simple;
 using MvvmCross.Commands;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.NavigationParameters.Abstract;
 using System.Collections.Generic;
 using System.Linq;
@@ -97,9 +98,13 @@ namespace SushiShop.Core.ViewModels.Abstract
                 return Task.CompletedTask;
             }
 
-            var searchedItems = OriginalSource.Where(item => item.Text.ToLower().Contains(Query.ToLower()));
+            var itemsWithQueryOnStart = OriginalSource.Where(item => item.Text.ToLower().StartsWith(Query.ToLower())).ToList();
+            var itemsWithQueryInMiddle = OriginalSource.Where(item => item.Text.ToLower().Contains(Query.ToLower())).ToList();
 
-            Items.ReplaceWith(searchedItems);
+            var mergedItems = itemsWithQueryOnStart.Union(itemsWithQueryInMiddle)
+                                                   .DistinctBy(item => item.Text)
+                                                   .ToList();
+            Items.ReplaceWith(mergedItems);
             return Task.CompletedTask;
         }
 
