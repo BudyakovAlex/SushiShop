@@ -28,6 +28,7 @@ namespace SushiShop.Core.ViewModels.CardProduct.Items
         public void Reset()
         {
             StepperViewModel.Reset();
+            topping.CountInBasket = 0;
         }
 
         private Task OnCountChangedAsync(int previousCount, int newCount)

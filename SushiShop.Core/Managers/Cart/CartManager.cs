@@ -68,11 +68,11 @@ namespace SushiShop.Core.Managers.Cart
             var response = await cartService.GetCartPromocodeAsync(userSession.GetCartId(), city, promocode, CancellationToken.None);
             if (!response.IsSuccessful)
             {
-                return new Response<Promocode?>(isSuccessful: false, null!);
+                return new Response<Promocode?>(isSuccessful: false, null!, response.Data?.Errors ?? Array.Empty<string>());
             }
 
             var data = response.Data!.SuccessData?.Map();
-            return new Response<Promocode?>(isSuccessful: true, data);
+            return new Response<Promocode?>(isSuccessful: true, data, response.Data?.Errors ?? Array.Empty<string>());
         }
 
         public async Task<Response<Product[]?>> GetCartPackagingAsync(string? city)

@@ -18,44 +18,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="cxk-wN-pdQ" customClass="CartToppingViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="284" height="68"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="116" id="cxk-wN-pdQ" customClass="CartToppingViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
-                <rect key="frame" x="0.0" y="0.0" width="284" height="68"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="Чили сладкий (30г)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-WZ-qXv">
-                        <rect key="frame" x="16" y="15" width="147.5" height="38"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1000" text="Соус сливочный терияки (30г)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-WZ-qXv">
+                        <rect key="frame" x="16" y="15" width="191" height="86"/>
                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="17"/>
                         <color key="textColor" red="0.090196078430000007" green="0.094117647060000004" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 P" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLA-ma-HT4">
+                        <rect key="frame" x="226" y="48" width="36" height="20"/>
+                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="17"/>
+                        <color key="textColor" red="0.090196078430000007" green="0.094117647060000004" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsg-JL-6gI" customClass="SmallStepperView">
-                        <rect key="frame" x="236" y="9" width="32" height="32"/>
+                        <rect key="frame" x="272" y="42" width="32" height="32"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="2or-ZQ-6Qj"/>
                             <constraint firstAttribute="width" constant="32" id="VKg-6q-6Kf"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 P" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLA-ma-HT4">
-                        <rect key="frame" x="190" y="15" width="36" height="20"/>
-                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="17"/>
-                        <color key="textColor" red="0.090196078430000007" green="0.094117647060000004" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="c7w-WZ-qXv" secondAttribute="bottom" constant="15" id="2wI-w3-lTu"/>
                     <constraint firstItem="gsg-JL-6gI" firstAttribute="leading" secondItem="rLA-ma-HT4" secondAttribute="trailing" constant="10" id="58A-xE-Et2"/>
                     <constraint firstAttribute="trailing" secondItem="gsg-JL-6gI" secondAttribute="trailing" constant="16" id="HDJ-xz-JBf"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gsg-JL-6gI" secondAttribute="bottom" constant="9" id="JLs-t8-lv1"/>
                     <constraint firstItem="rLA-ma-HT4" firstAttribute="centerY" secondItem="gsg-JL-6gI" secondAttribute="centerY" id="NeM-br-JIv"/>
+                    <constraint firstItem="rLA-ma-HT4" firstAttribute="centerY" secondItem="c7w-WZ-qXv" secondAttribute="centerY" id="UHX-wh-kd1"/>
                     <constraint firstItem="c7w-WZ-qXv" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="USe-bI-BD0"/>
                     <constraint firstItem="c7w-WZ-qXv" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="15" id="dzZ-4Y-4ZL"/>
                     <constraint firstItem="rLA-ma-HT4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c7w-WZ-qXv" secondAttribute="trailing" constant="10" id="it0-za-DQq"/>
-                    <constraint firstItem="gsg-JL-6gI" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="9" id="v8g-CT-1aN"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -63,7 +62,7 @@
                 <outlet property="PriceLabel" destination="rLA-ma-HT4" id="IFf-R7-d76"/>
                 <outlet property="TitleLabel" destination="c7w-WZ-qXv" id="Z7y-HE-hst"/>
             </connections>
-            <point key="canvasLocation" x="92.753623188405811" y="3.3482142857142856"/>
+            <point key="canvasLocation" x="118.84057971014494" y="19.419642857142858"/>
         </tableViewCell>
     </objects>
     <resources>

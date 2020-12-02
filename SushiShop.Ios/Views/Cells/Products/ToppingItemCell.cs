@@ -22,11 +22,6 @@ namespace SushiShop.Ios.Views.Cells.Products
             // Note: this .ctor should not contain any initialization logic.
         }
 
-        protected override void Initialize()
-        {
-            base.Initialize();
-        }
-
         protected override void Bind()
         {
             base.Bind();

@@ -58,6 +58,8 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
 
         public int CountInBasket => Product.Count;
 
+        public bool IsReadOnly => Product.IsReadOnly;
+
         public StepperViewModel StepperViewModel { get; }
 
         protected CartProduct Product { get; }

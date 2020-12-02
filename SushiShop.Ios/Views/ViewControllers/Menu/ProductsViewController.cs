@@ -17,7 +17,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
     [MvxChildPresentation]
     public partial class ProductsViewController : BaseViewController<ProductsViewModel>
     {
-        private MainViewController rootViewController = (MainViewController) UIApplication.SharedApplication.KeyWindow.RootViewController;
+        private MainViewController rootViewController = UIApplication.SharedApplication.KeyWindow.RootViewController as MainViewController;
 
         private UIStackView stackView;
         private ScrollableTabView filterTabView;
@@ -30,6 +30,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
+            NavigationController.InteractivePopGestureRecognizer.Enabled = false;
             isAppeared = true;
         }
 
@@ -38,7 +39,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             base.ViewWillDisappear(animated);
 
             isAppeared = false;
-            rootViewController.ShowTabView();
+            rootViewController?.ShowTabView();
         }
 
         protected override void InitStylesAndContent()
@@ -135,7 +136,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             var indexPath = NSIndexPath.FromRowSection(filterTabView.SelectedIndex, 0);
             collectionView.ScrollToItem(indexPath, UICollectionViewScrollPosition.CenteredHorizontally, true);
 
-            rootViewController.ShowTabView();
+            rootViewController?.ShowTabView();
         }
 
         private void OnDecelerated()
@@ -144,7 +145,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             if (indexPath != null && filterTabView.SelectedIndex != indexPath.Row)
             {
                 filterTabView.SelectedIndex = indexPath.Row;
-                rootViewController.ShowTabView();
+                rootViewController?.ShowTabView();
             }
         }
     }
