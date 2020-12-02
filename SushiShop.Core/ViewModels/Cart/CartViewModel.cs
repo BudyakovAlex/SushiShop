@@ -190,7 +190,7 @@ namespace SushiShop.Core.ViewModels.Cart
             }
 
             var response = await cartManager.GetCartPromocodeAsync(city, Promocode);
-            if (!response.IsSuccessful)
+            if (response.Data is null)
             {
                 var error = response.Errors.FirstOrDefault();
                 if (error.IsNullOrEmpty())
