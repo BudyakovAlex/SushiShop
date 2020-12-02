@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using CoreAnimation;
 using CoreGraphics;
 using Foundation;
@@ -52,6 +53,7 @@ namespace SushiShop.Ios.Views.ViewControllers
             {
                 if (tabIndex == value)
                 {
+                    CloseTopViewControllerIfNeeded();
                     return;
                 }
 
@@ -252,6 +254,17 @@ namespace SushiShop.Ios.Views.ViewControllers
         private void UpdateFrameY(UIView view, nfloat y)
         {
             view.Frame = new CGRect(view.Frame.X, y, view.Frame.Width, view.Frame.Height);
+        }
+
+        private void CloseTopViewControllerIfNeeded()
+        {
+            var viewControllers = SelectedViewController.ChildViewControllers;
+            if (viewControllers.Length > 1)
+            {
+                var mvxView = (IMvxIosView) viewControllers.Last();
+                var viewModel = (BasePageViewModel) mvxView.ViewModel;
+                viewModel.PlatformCloseCommand.Execute(null);
+            }
         }
 
         private void RemoveViewController(UIViewController viewController)
