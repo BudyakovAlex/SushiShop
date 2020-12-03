@@ -27,7 +27,8 @@ namespace SushiShop.Core.ViewModels
             this.userSession = userSession;
 
             LoadTabsCommand = new MvxAsyncCommand(LoadTabsAsync);
-            Messenger.Subscribe<RefreshCartMessage>(OnCartChanged).DisposeWith(Disposables);
+            Messenger.Subscribe<RefreshCartMessage>((msg) => OnCartChanged()).DisposeWith(Disposables);
+            Messenger.Subscribe<CartProductChangedMessage>((msg) => OnCartChanged()).DisposeWith(Disposables);
         }
 
         private long cartItemsTotalCount;
@@ -75,7 +76,7 @@ namespace SushiShop.Core.ViewModels
                 NavigationManager.NavigateAsync<InfoViewModel>());
         }
 
-        private void OnCartChanged(RefreshCartMessage message)
+        private void OnCartChanged()
         {
             _ = SafeExecutionWrapper.WrapAsync(RefreshDataAsync);
         }
