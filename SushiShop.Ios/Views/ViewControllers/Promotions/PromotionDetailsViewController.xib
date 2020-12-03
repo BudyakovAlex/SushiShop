@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="BackButton" destination="SXu-7n-vmT" id="V6w-aq-0q0"/>
                 <outlet property="ContentTextView" destination="0Mn-en-brr" id="d6K-Ez-37X"/>
+                <outlet property="ContentTextViewBottomConstraint" destination="HfC-Xn-v6E" id="PBE-bg-3RH"/>
                 <outlet property="ContentTextViewHeightConstraint" destination="QJO-qe-DNG" id="k0f-wA-wg6"/>
                 <outlet property="DateLabel" destination="Zhc-Gb-AXj" id="4u7-IK-Vtb"/>
                 <outlet property="DateLabelBottomConstraint" destination="Qbm-cH-9e3" id="enw-1s-Zwo"/>
@@ -37,7 +38,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndD-Qc-ZYe">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="522.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="456.5"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tkv-Ji-bts" customClass="ScalableImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="366.5"/>
@@ -45,13 +46,13 @@
                                         <constraint firstAttribute="width" secondItem="Tkv-Ji-bts" secondAttribute="height" multiplier="113:100" id="PLK-YJ-DOF"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhc-Gb-AXj">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="С 1 по 21 января 2021" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhc-Gb-AXj">
                                     <rect key="frame" x="18" y="381.5" width="378" height="17"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                     <color key="textColor" red="0.63529411764705879" green="0.63529411764705879" blue="0.67843137254901964" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gP-Rm-adF">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Ролл месяца Космос" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gP-Rm-adF">
                                     <rect key="frame" x="16" y="406.5" width="382" height="24"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="20"/>
                                     <color key="textColor" red="0.090196078431372548" green="0.094117647058823528" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -74,7 +75,7 @@
                                 <constraint firstItem="Tkv-Ji-bts" firstAttribute="top" secondItem="ndD-Qc-ZYe" secondAttribute="top" id="6Yg-da-pZ9"/>
                                 <constraint firstItem="Zhc-Gb-AXj" firstAttribute="leading" secondItem="ndD-Qc-ZYe" secondAttribute="leading" constant="18" id="8kP-Zt-tDq"/>
                                 <constraint firstAttribute="trailing" secondItem="0Mn-en-brr" secondAttribute="trailing" constant="16" id="Hcy-TF-c95"/>
-                                <constraint firstAttribute="bottom" secondItem="0Mn-en-brr" secondAttribute="bottom" constant="82" id="HfC-Xn-v6E"/>
+                                <constraint firstAttribute="bottom" secondItem="0Mn-en-brr" secondAttribute="bottom" constant="16" id="HfC-Xn-v6E"/>
                                 <constraint firstItem="Tkv-Ji-bts" firstAttribute="leading" secondItem="ndD-Qc-ZYe" secondAttribute="leading" id="No8-My-6cb"/>
                                 <constraint firstItem="0Mn-en-brr" firstAttribute="leading" secondItem="ndD-Qc-ZYe" secondAttribute="leading" constant="16" id="OeR-6f-pm7"/>
                                 <constraint firstAttribute="trailing" secondItem="Tkv-Ji-bts" secondAttribute="trailing" id="Oyg-ij-hE0"/>

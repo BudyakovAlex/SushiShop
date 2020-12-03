@@ -19,6 +19,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 		UIKit.UITextView ContentTextView { get; set; }
 
 		[Outlet]
+		UIKit.NSLayoutConstraint ContentTextViewBottomConstraint { get; set; }
+
+		[Outlet]
 		UIKit.NSLayoutConstraint ContentTextViewHeightConstraint { get; set; }
 
 		[Outlet]
@@ -71,19 +74,24 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 				ImageView = null;
 			}
 
-			if (PageTitleLabel != null) {
-				PageTitleLabel.Dispose ();
-				PageTitleLabel = null;
-			}
-
 			if (LoadingView != null) {
 				LoadingView.Dispose ();
 				LoadingView = null;
 			}
 
+			if (PageTitleLabel != null) {
+				PageTitleLabel.Dispose ();
+				PageTitleLabel = null;
+			}
+
 			if (StepperView != null) {
 				StepperView.Dispose ();
 				StepperView = null;
+			}
+
+			if (ContentTextViewBottomConstraint != null) {
+				ContentTextViewBottomConstraint.Dispose ();
+				ContentTextViewBottomConstraint = null;
 			}
 		}
 	}

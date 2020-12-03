@@ -1,4 +1,6 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+﻿using System;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using CoreGraphics;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
@@ -11,8 +13,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
     [MvxChildPresentation]
     public partial class PromotionDetailsViewController : BaseViewController<PromotionDetailsViewModel>
     {
-        public const float DateLabelBottomMargin = 8f;
-
         private string htmlContent;
         public string HtmlContent
         {
@@ -31,8 +31,22 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
             set
             {
                 hasPublicationDate = value;
+
                 DateLabel.Hidden = !hasPublicationDate;
-                DateLabelBottomConstraint.Constant = !hasPublicationDate ? 0f : DateLabelBottomMargin;
+                DateLabelBottomConstraint.Constant = hasPublicationDate ? 8f : 0f;
+            }
+        }
+
+        private bool canAddToCart;
+        public bool CanAddToCart
+        {
+            get => canAddToCart;
+            set
+            {
+                canAddToCart = value;
+
+                StepperView.Hidden = !canAddToCart;
+                ContentTextViewBottomConstraint.Constant = canAddToCart ? 80f : 16f;
             }
         }
 
@@ -64,13 +78,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 
             bindingSet.Bind(this).For(v => v.HtmlContent).To(vm => vm.HtmlContent);
             bindingSet.Bind(this).For(v => v.HasPublicationDate).To(vm => vm.HasPublicationDate);
+            bindingSet.Bind(this).For(v => v.CanAddToCart).To(vm => vm.CanAddToCart);
             bindingSet.Bind(BackButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
             bindingSet.Bind(LoadingView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
             bindingSet.Bind(ImageView).For(v => v.ImageUrl).To(vm => vm.ImageUrl);
             bindingSet.Bind(DateLabel).For(v => v.Text).To(vm => vm.PublicationDateTitle);
             bindingSet.Bind(PageTitleLabel).For(v => v.Text).To(vm => vm.PageTitle);
             bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);
-            bindingSet.Bind(StepperView).For(v => v.BindVisible()).To(vm => vm.CanAddToCart);
 
             bindingSet.Apply();
         }
@@ -92,7 +106,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
                 if (error is null)
                 {
                     ContentTextView.AttributedText = attributedString;
-                    ContentTextViewHeightConstraint.Constant = attributedString.Size.Height;
+
+                    var size = ContentTextView.SizeThatFits(new CGSize(ContentTextView.Bounds.Width, nfloat.MaxValue));
+                    ContentTextViewHeightConstraint.Constant = size.Height;
 
                     return;
                 }
