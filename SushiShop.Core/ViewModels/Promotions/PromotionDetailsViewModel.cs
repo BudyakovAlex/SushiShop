@@ -98,7 +98,7 @@ namespace SushiShop.Core.ViewModels.Promotions
             var product = promotion?.Product;
             return product is null
                 ? null
-                : new StepperViewModel(AppStrings.Cart, product.CountInBasket, OnCountChangedAsync);
+                : new StepperViewModel(AppStrings.AddToCart, product.CountInBasket, OnCountChangedAsync);
         }
 
         private string GetPublicationDateTitle()

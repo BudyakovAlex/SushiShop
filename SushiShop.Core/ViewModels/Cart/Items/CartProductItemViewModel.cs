@@ -31,6 +31,11 @@ namespace SushiShop.Core.ViewModels.Cart.Items
 
         private Task ShowDetailsAsync()
         {
+            if (Product.IsReadOnly)
+            {
+                return Task.CompletedTask;
+            }
+
             var parameters = new CardProductNavigationParameters(Product.Id, null, Product.IsReadOnly);
             return NavigationManager.NavigateAsync<ProductDetailsViewModel, CardProductNavigationParameters>(parameters);
         }

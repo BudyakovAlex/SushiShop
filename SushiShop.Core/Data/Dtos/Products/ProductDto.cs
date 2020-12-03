@@ -55,5 +55,8 @@ namespace SushiShop.Core.Data.Dtos.Products
 
         [JsonProperty("itemImage2")]
         public ImageInfoDto? OptionalImageInfo { get; set; }
+
+        [JsonProperty("needRefreshBasket")]
+        public bool IsRefreshNeeded { get; set; }
     }
 }

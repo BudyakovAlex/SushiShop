@@ -72,6 +72,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
             var response = await cartManager.UpdateProductInCartAsync(city, product!.Id, product?.Uid, step, Array.Empty<Topping>());
             if (response.Data is null)
             {
+                StepperViewModel.Count = previousCount;
                 return;
             }
 

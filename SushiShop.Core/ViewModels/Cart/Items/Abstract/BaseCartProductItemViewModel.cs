@@ -82,6 +82,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
             var response = await cartManager.UpdateProductInCartAsync(city, Id, Uid, step, selectedToppings);
             if (response.Data is null)
             {
+                StepperViewModel.Count = previousCount;
                 return;
             }
 
@@ -95,9 +96,10 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
 
             await Task.WhenAll(RaisePropertyChanged(nameof(CountInBasket)), RaisePropertyChanged(nameof(Price)));
 
-            if (newCount == 0)
+            if (newCount == 0 || response.Data.IsRefreshNeeded)
             {
                 Messenger.Publish(new RefreshCartMessage(this));
+                return;
             }
 
             var action = isCountIncremented ? ProductChangeAction.Add : ProductChangeAction.Remove;

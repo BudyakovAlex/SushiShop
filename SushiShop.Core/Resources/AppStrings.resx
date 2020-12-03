@@ -129,6 +129,9 @@
   <data name="Cart" xml:space="preserve">
     <value>Корзина</value>
   </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>В корзину</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Профиль</value>
   </data>

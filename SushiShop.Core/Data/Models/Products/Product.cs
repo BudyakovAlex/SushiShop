@@ -22,7 +22,8 @@ namespace SushiShop.Core.Data.Models.Products
             long oldPrice,
             ImageInfo? mainImageInfo,
             ImageInfo? optionalImageInfo,
-            int countInBasket)
+            int countInBasket,
+            bool isRefreshNeeded)
         {
             Id = id;
             Uid = uid;
@@ -41,6 +42,7 @@ namespace SushiShop.Core.Data.Models.Products
             MainImageInfo = mainImageInfo;
             OptionalImageInfo = optionalImageInfo;
             CountInBasket = countInBasket;
+            IsRefreshNeeded = isRefreshNeeded;
         }
 
         public long Id { get; }
@@ -60,5 +62,6 @@ namespace SushiShop.Core.Data.Models.Products
         public ImageInfo? MainImageInfo { get; }
         public ImageInfo? OptionalImageInfo { get; }
         public int CountInBasket { get; }
+        public bool IsRefreshNeeded { get; }
     }
 }

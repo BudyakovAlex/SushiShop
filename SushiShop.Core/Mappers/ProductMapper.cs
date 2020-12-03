@@ -25,7 +25,8 @@ namespace SushiShop.Core.Mappers
                 productDto.OldPrice,
                 productDto.MainImageInfo!.Map(),
                 productDto.OptionalImageInfo!.Map(),
-                productDto.CountInBasket);
+                productDto.CountInBasket,
+                productDto.IsRefreshNeeded);
         }
     }
 }

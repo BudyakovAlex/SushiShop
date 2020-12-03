@@ -71,6 +71,12 @@ namespace SushiShop.Core.Resources {
             }
         }
         
+        public static string AddToCart {
+            get {
+                return ResourceManager.GetString("AddToCart", resourceCulture);
+            }
+        }
+        
         public static string Profile {
             get {
                 return ResourceManager.GetString("Profile", resourceCulture);
