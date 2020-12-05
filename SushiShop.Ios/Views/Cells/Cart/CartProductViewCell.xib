@@ -29,7 +29,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hYt-KN-Z5z">
-                        <rect key="frame" x="16" y="10" width="435" height="119"/>
+                        <rect key="frame" x="16" y="13" width="435" height="116"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAR-h3-yXO">
                                 <rect key="frame" x="0.0" y="0.0" width="435" height="60"/>
@@ -85,17 +85,18 @@
                                     <constraint firstItem="PL7-KI-gZe" firstAttribute="bottom" secondItem="fSQ-8c-DUQ" secondAttribute="bottom" id="LfJ-Kk-9xj"/>
                                     <constraint firstAttribute="trailing" secondItem="fSQ-8c-DUQ" secondAttribute="trailing" id="Mnk-KT-EjA"/>
                                     <constraint firstItem="kk8-el-aea" firstAttribute="leading" secondItem="1dR-4T-hR1" secondAttribute="trailing" constant="10" id="c3d-Fq-lZM"/>
+                                    <constraint firstItem="eAZ-na-ZBW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kk8-el-aea" secondAttribute="trailing" constant="10" id="clk-OI-O0j"/>
                                     <constraint firstItem="A76-De-s5v" firstAttribute="bottom" secondItem="1dR-4T-hR1" secondAttribute="bottom" id="ffU-yf-m2T"/>
                                     <constraint firstItem="fSQ-8c-DUQ" firstAttribute="leading" secondItem="PL7-KI-gZe" secondAttribute="trailing" constant="10" id="m9h-n5-Fs3"/>
                                     <constraint firstItem="kk8-el-aea" firstAttribute="top" secondItem="zAR-h3-yXO" secondAttribute="top" id="mT2-Qs-WrA"/>
                                     <constraint firstItem="fSQ-8c-DUQ" firstAttribute="top" secondItem="zAR-h3-yXO" secondAttribute="top" id="oGo-Lw-NWl"/>
-                                    <constraint firstItem="PL7-KI-gZe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kk8-el-aea" secondAttribute="trailing" constant="10" id="oMY-5w-SO1"/>
+                                    <constraint firstItem="PL7-KI-gZe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kk8-el-aea" secondAttribute="trailing" priority="999" constant="10" id="oMY-5w-SO1"/>
                                     <constraint firstItem="A76-De-s5v" firstAttribute="leading" secondItem="1dR-4T-hR1" secondAttribute="trailing" constant="10" id="vEk-ul-EGf"/>
                                     <constraint firstItem="1dR-4T-hR1" firstAttribute="leading" secondItem="zAR-h3-yXO" secondAttribute="leading" id="xZV-fj-vbt"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dfs-Pm-Zx1" customClass="MvxStackView">
-                                <rect key="frame" x="0.0" y="74" width="435" height="45"/>
+                                <rect key="frame" x="0.0" y="74" width="435" height="42"/>
                             </stackView>
                         </subviews>
                     </stackView>
@@ -103,7 +104,7 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="hYt-KN-Z5z" secondAttribute="trailing" constant="16" id="I8M-jb-gl5"/>
                     <constraint firstAttribute="bottom" secondItem="hYt-KN-Z5z" secondAttribute="bottom" constant="13" id="R8F-eT-EEm"/>
-                    <constraint firstItem="hYt-KN-Z5z" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="10" id="VMe-ah-M9Q"/>
+                    <constraint firstItem="hYt-KN-Z5z" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="13" id="VMe-ah-M9Q"/>
                     <constraint firstItem="hYt-KN-Z5z" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="qUY-bk-cdc"/>
                 </constraints>
             </tableViewCellContentView>

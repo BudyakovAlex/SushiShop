@@ -1,4 +1,5 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using CoreFoundation;
 using CoreGraphics;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
@@ -33,11 +34,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             get => isHideFooterView;
             set
             {
-                if (value == isHideFooterView)
-                {
-                    return;
-                }
-
                 isHideFooterView = value;
                 ProductsTableView.TableFooterView = isHideFooterView ? null : footerView;
             }
@@ -112,8 +108,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             packagesTableViewSource = new TableViewSource(PackagesTableView)
                 .Register<CartPackItemViewModel>(PackageViewCell.Nib, PackageViewCell.Key);
             PackagesTableView.Source = packagesTableViewSource;
-            PackagesTableView.RowHeight = UITableView.AutomaticDimension;
-            PackagesTableView.EstimatedRowHeight = UITableView.AutomaticDimension;
         }
 
         private void SetFooterViewForTableViews()

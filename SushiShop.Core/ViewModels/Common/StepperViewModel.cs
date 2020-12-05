@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using MvvmCross.ViewModels;
 
 namespace SushiShop.Core.ViewModels.Common
 {
@@ -16,6 +17,8 @@ namespace SushiShop.Core.ViewModels.Common
             Title = title;
             this.count = count;
             this.onCountChangedFunc = onCountChangedFunc;
+
+            Interaction = new MvxInteraction();
 
             AddCommand = new MvxAsyncCommand(AddAsync, () => Count < MaxCount);
             RemoveCommand = new MvxAsyncCommand(RemoveAsync, () => Count > 0);
@@ -42,15 +45,19 @@ namespace SushiShop.Core.ViewModels.Common
             });
         }
 
+        public MvxInteraction Interaction { get; private set; }
+
         public void Reset()
         {
             Count = 0;
+            Interaction.Raise();
         }
 
         private Task AddAsync()
         {
             var previousValue = count;
             ++Count;
+            Interaction.Raise();
 
             return onCountChangedFunc?.Invoke(previousValue, Count) ?? Task.CompletedTask;
         }
@@ -59,6 +66,7 @@ namespace SushiShop.Core.ViewModels.Common
         {
             var previousValue = Count;
             --Count;
+            Interaction.Raise();
 
             return onCountChangedFunc?.Invoke(previousValue, Count) ?? Task.CompletedTask;
         }

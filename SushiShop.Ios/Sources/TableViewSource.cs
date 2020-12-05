@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+using CoreFoundation;
 using Foundation;
 using MvvmCross.Platforms.Ios.Binding.Views;
+using SushiShop.Ios.Views.Cells.Interfaces;
 using UIKit;
 
 namespace SushiShop.Ios.Sources
@@ -27,7 +29,13 @@ namespace SushiShop.Ios.Sources
         protected override UITableViewCell GetOrCreateCellFor(UITableView tableView, NSIndexPath indexPath, object item)
         {
             var reuseIdentifier = GetReuseIdentifier(item);
-            return tableView.DequeueReusableCell(reuseIdentifier, indexPath);
+            var cell = tableView.DequeueReusableCell(reuseIdentifier, indexPath);
+            if (cell is IUpdatableViewCell updatedCell)
+            {
+                updatedCell.RefreshLayoutAction = ReloadCellOfTableView;
+            }
+
+            return cell;
         }
 
         private NSString GetReuseIdentifier(object item)
@@ -40,6 +48,20 @@ namespace SushiShop.Ios.Sources
 
             throw new KeyNotFoundException(
                 $"Failed to get a reuse identifier for {itemType}, please make sure to register it.");
+        }
+
+        private void ReloadCellOfTableView(UIView cell)
+        {
+            DispatchQueue.MainQueue.DispatchAsync(() =>
+            {
+                var indexPath = TableView?.IndexPathForCell((UITableViewCell)cell);
+                if (indexPath == null)
+                {
+                    return;
+                }
+
+                TableView.ReloadRows(new[] { indexPath }, UITableViewRowAnimation.Fade);
+            });
         }
     }
 }
