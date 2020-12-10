@@ -2,6 +2,8 @@
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Common;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Messages;
+using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Orders.Items;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,10 +13,12 @@ namespace SushiShop.Core.ViewModels.Orders
     public class MyOrdersViewModel : BaseItemsPageViewModel<OrderItemViewModel>
     {
         private readonly IOrdersManager ordersManager;
+        private readonly IUserSession userSession;
 
-        public MyOrdersViewModel(IOrdersManager ordersManager)
+        public MyOrdersViewModel(IOrdersManager ordersManager, IUserSession userSession)
         {
             this.ordersManager = ordersManager;
+            this.userSession = userSession;
 
             Pagination = new PaginationViewModel(LoadMoreItemsAsync, Constants.Common.DefaultPaginationSize);
         }
@@ -44,9 +48,18 @@ namespace SushiShop.Core.ViewModels.Orders
 
             Pagination.SetTotalItemsCount(response.Data.TotalCount);
 
-            var viewModels = response.Data.Data.Select(item => new OrderItemViewModel(item)).ToList();
+            var viewModels = response.Data.Data.Select(item => new OrderItemViewModel(item, RepeatOrderAsync)).ToList();
             Items.AddRange(viewModels);
             return response.Data.CurrentLimit;
+        }
+
+        private async Task RepeatOrderAsync(long id)
+        {
+            var city = userSession.GetCity();
+            await ordersManager.RepeatOrderAsync(id, city?.Name);
+            Messenger.Publish(new RefreshCartMessage(this));
+
+            await RefreshDataAsync();
         }
     }
 }

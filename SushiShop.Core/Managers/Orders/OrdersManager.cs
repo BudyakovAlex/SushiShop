@@ -44,7 +44,7 @@ namespace SushiShop.Core.Managers.Orders
             return new Response<Order?>(isSuccessful: false, null);
         }
 
-        public async Task<Response<Data.Models.Cart.Cart?>> RepeatOrderAsync(long id, string city)
+        public async Task<Response<Data.Models.Cart.Cart?>> RepeatOrderAsync(long id, string? city)
         {
             var response = await ordersService.RepeatOrderAsync(id, userSession.GetCartId(), city, CancellationToken.None);
             if (!response.IsSuccessful)

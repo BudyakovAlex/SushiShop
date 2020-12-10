@@ -12,17 +12,17 @@ namespace SushiShop.Core.ViewModels.Orders.Items
         private readonly Order order;
         private readonly Func<long, Task> retryOrderFunc;
 
-        public OrderItemViewModel(Order order, Func<long, Task> retryOrderFunc)
+        public OrderItemViewModel(Order order, Func<long, Task> repeatOrderFunc)
         {
             this.order = order;
-            this.retryOrderFunc = retryOrderFunc;
+            this.retryOrderFunc = repeatOrderFunc;
 
-            RetryOrderCommand = new SafeAsyncCommand(ExecutionStateWrapper, RetryOrderAsync);
+            RepeatOrderCommand = new SafeAsyncCommand(ExecutionStateWrapper, RepeatOrderAsync);
         }
 
-        public IMvxCommand RetryOrderCommand { get; }
+        public IMvxCommand RepeatOrderCommand { get; }
 
-        private Task RetryOrderAsync()
+        private Task RepeatOrderAsync()
         {
             return retryOrderFunc!.Invoke(order.Id);
         }

@@ -50,7 +50,7 @@ namespace SushiShop.Core.Services.Http.Orders
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<CartDto>>> RepeatOrderAsync(long id, Guid basketId, string city, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<CartDto>>> RepeatOrderAsync(long id, Guid basketId, string? city, CancellationToken cancellationToken)
         {
             var body = new
             {
