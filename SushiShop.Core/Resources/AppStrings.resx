@@ -225,4 +225,7 @@
   <data name="PromocodeApplied" xml:space="preserve">
     <value>Промокод применен</value>
   </data>
+  <data name="OrderTemplate" xml:space="preserve">
+    <value>Заказ №{0}</value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
 ﻿using SushiShop.Core.Data.Models.Cart;
+using SushiShop.Core.Data.Models.Common;
 using System;
 
 namespace SushiShop.Core.Data.Models.Orders
@@ -30,6 +31,7 @@ namespace SushiShop.Core.Data.Models.Orders
             string? paymentMethodTitle,
             OrderDelivery? delivery,
             PickupPoint? pickupPoint,
+            Currency? currency,
             CartProduct[]? products,
             string? paymentLink,
             bool canRepeat,
@@ -64,6 +66,7 @@ namespace SushiShop.Core.Data.Models.Orders
             PaymentMethodTitle = paymentMethodTitle;
             Delivery = delivery;
             PickupPoint = pickupPoint;
+            Currency = currency;
             Products = products;
             PaymentLink = paymentLink;
             CanRepeat = canRepeat;
@@ -122,6 +125,8 @@ namespace SushiShop.Core.Data.Models.Orders
         public OrderDelivery? Delivery { get; }
 
         public PickupPoint? PickupPoint { get; }
+
+        public Currency? Currency { get; }
 
         public CartProduct[]? Products { get; }
 

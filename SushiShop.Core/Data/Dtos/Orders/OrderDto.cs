@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Cart;
+using SushiShop.Core.Data.Dtos.Common;
 
 namespace SushiShop.Core.Data.Dtos.Orders
 {
@@ -76,6 +77,9 @@ namespace SushiShop.Core.Data.Dtos.Orders
 
         [JsonProperty("pickupPoint")]
         public PickupPointDto? PickupPoint { get; set; }
+
+        [JsonProperty("currency")]
+        public CurrencyDto? Currency { get; set; }
 
         [JsonProperty("products")]
         public CartProductDto[]? Products { get; set; }

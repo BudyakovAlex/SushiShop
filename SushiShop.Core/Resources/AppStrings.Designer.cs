@@ -256,5 +256,11 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("Done", resourceCulture);
             }
         }
+        
+        public static string OrderTemplate {
+            get {
+                return ResourceManager.GetString("OrderTemplate", resourceCulture);
+            }
+        }
     }
 }

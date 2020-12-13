@@ -34,6 +34,7 @@ namespace SushiShop.Core.Mappers
                 orderDto.PaymentMethodTitle,
                 orderDto.Delivery?.Map(),
                 orderDto.PickupPoint?.Map(),
+                orderDto.Currency?.Map(),
                 orderDto!.Products!.Select(product => product.Map()).ToArray(),
                 orderDto.PaymentLink,
                 orderDto.CanRepeat,

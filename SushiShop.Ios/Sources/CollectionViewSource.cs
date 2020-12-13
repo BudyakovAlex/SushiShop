@@ -9,7 +9,7 @@ namespace SushiShop.Ios.Sources
 {
     public class CollectionViewSource : MvxCollectionViewSource
     {
-        private readonly Dictionary<Type, NSString> _reuseIdentifierDictionary = new Dictionary<Type, NSString>();
+        private readonly Dictionary<Type, NSString> reuseIdentifierDictionary = new Dictionary<Type, NSString>();
 
         public CollectionViewSource(UICollectionView collectionView)
             : base(collectionView)
@@ -19,7 +19,7 @@ namespace SushiShop.Ios.Sources
         public CollectionViewSource Register<TViewModel>(UINib nib, NSString reuseIdentifier)
             where TViewModel : BaseViewModel
         {
-            _reuseIdentifierDictionary.Add(typeof(TViewModel), reuseIdentifier);
+            reuseIdentifierDictionary.Add(typeof(TViewModel), reuseIdentifier);
             CollectionView.RegisterNibForCell(nib, reuseIdentifier);
 
             return this;
@@ -34,7 +34,7 @@ namespace SushiShop.Ios.Sources
         private NSString GetReuseIdentifier(object item)
         {
             var itemType = item.GetType();
-            if (_reuseIdentifierDictionary.TryGetValue(itemType, out var reuseIdentifier))
+            if (reuseIdentifierDictionary.TryGetValue(itemType, out var reuseIdentifier))
             {
                 return reuseIdentifier;
             }
