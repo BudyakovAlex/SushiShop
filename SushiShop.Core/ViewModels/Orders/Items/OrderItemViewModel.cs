@@ -37,7 +37,7 @@ namespace SushiShop.Core.ViewModels.Orders.Items
 
         private Task RepeatOrderAsync()
         {
-            return repeatOrderFunc!.Invoke(order.Id);
+            return repeatOrderFunc.Invoke(order.Id);
         }
     }
 }
