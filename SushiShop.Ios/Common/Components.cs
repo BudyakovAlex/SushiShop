@@ -14,6 +14,16 @@ namespace SushiShop.Ios.Common
             return button;
         }
 
+        public static UIButton CreateDefaultBarButtonText(string title)
+        {
+            var button = new UIButton();
+            button.Font = Font.Create(Core.Data.Enums.FontStyle.Medium, 14);
+            button.SetTitleColor(Colors.Orange2, UIControlState.Normal);
+            button.SetTitle(title, UIControlState.Normal);
+
+            return button;
+        }
+
         public static UIBarButtonItem CreateBarButtonItem(string imageName) =>
             new UIBarButtonItem(UIImage.FromBundle(imageName), UIBarButtonItemStyle.Plain, null);
 

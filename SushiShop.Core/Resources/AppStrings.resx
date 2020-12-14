@@ -225,4 +225,52 @@
   <data name="PromocodeApplied" xml:space="preserve">
     <value>Промокод применен</value>
   </data>
+  <data name="ProfileLoginPlaceholder" xml:space="preserve">
+    <value>Телефон или email</value>
+  </data>
+  <data name="AcceptPhoneTitle" xml:space="preserve">
+    <value>Подтверждение</value>
+  </data>
+  <data name="LastFourDigits" xml:space="preserve">
+    <value>Последние 4 цифры</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Личные данные</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Пол</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Дата рождения</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="NameAndSurnameRequired" xml:space="preserve">
+    <value>Имя фамилия*</value>
+  </data>
+  <data name="DateOfBirthRequired" xml:space="preserve">
+    <value>Дата рождения*</value>
+  </data>
+  <data name="PhoneRequired" xml:space="preserve">
+    <value>Телефон*</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Email*</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Нажимая кнопку “Зарегистрироваться”, Я соглашаюсь с условием политики конфиденциальности</value>
+  </data>
 </root>
