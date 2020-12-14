@@ -231,6 +231,16 @@
     <ImageAsset Include="Assets.xcassets\ic_plus_cart_sause.imageset\Combined Shape.pdf" />
     <ImageAsset Include="Assets.xcassets\ic_right_arrow.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ic_right_arrow.imageset\Arrow.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_logout.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_logout.imageset\Group 5.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_user_default.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_user_default.imageset\Group 174.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_one.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_one.imageset\ic_bonus_one.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_two.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_two.imageset\ic_bonus_two.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_three.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_three.imageset\ic_bonus_three.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -281,6 +291,11 @@
         <Folder Include="Assets.xcassets\ic_plus_cart_sause.imageset\" />
         <Folder Include="Assets.xcassets\ic_right_arrow.imageset\" />
         <Folder Include="Views\Cells\Interfaces\" />
+        <Folder Include="Assets.xcassets\ic_logout.imageset\" />
+        <Folder Include="Assets.xcassets\ic_user_default.imageset\" />
+        <Folder Include="Assets.xcassets\ic_bonus_one.imageset\" />
+        <Folder Include="Assets.xcassets\ic_bonus_two.imageset\" />
+        <Folder Include="Assets.xcassets\ic_bonus_three.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -311,6 +326,10 @@
     <InterfaceDefinition Include="Views\Cells\Promotions\PromotionItemViewCell.xib" />
     <InterfaceDefinition Include="Views\Cells\Cart\CartToppingViewCell.xib" />
     <InterfaceDefinition Include="Views\Cells\Cart\CartProductToppingViewCell.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Profile\AcceptPhoneViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Profile\RegistrationViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Profile\PersonalDataViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Profile\BonusProgramViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -471,6 +490,24 @@
     </Compile>
     <Compile Include="Views\Controls\DoneAccessoryView.cs" />
     <Compile Include="Views\Cells\Interfaces\IUpdatableViewCell.cs" />
+    <Compile Include="Views\ViewControllers\Profile\AcceptPhoneViewController.cs" />
+    <Compile Include="Views\ViewControllers\Profile\AcceptPhoneViewController.designer.cs">
+      <DependentUpon>AcceptPhoneViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Profile\RegistrationViewController.cs" />
+    <Compile Include="Views\ViewControllers\Profile\RegistrationViewController.designer.cs">
+      <DependentUpon>RegistrationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Profile\PersonalDataViewController.cs" />
+    <Compile Include="Views\ViewControllers\Profile\PersonalDataViewController.designer.cs">
+      <DependentUpon>PersonalDataViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Profile\BonusProgramViewController.cs" />
+    <Compile Include="Views\ViewControllers\Profile\BonusProgramViewController.designer.cs">
+      <DependentUpon>BonusProgramViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\HtmlTextToAttributedStringConverter.cs" />
+    <Compile Include="Extensions\UITapGestureExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

@@ -19,5 +19,7 @@
         public const string Plus = "ic_plus";
 
         public const string DefaultPlaceholder = "ic_default";
+
+        public const string Logout = "ic_logout";
     }
 }

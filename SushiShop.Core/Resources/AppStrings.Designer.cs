@@ -262,5 +262,95 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("OrderTemplate", resourceCulture);
             }
         }
+        
+        public static string ProfileLoginPlaceholder {
+            get {
+                return ResourceManager.GetString("ProfileLoginPlaceholder", resourceCulture);
+            }
+        }
+        
+        public static string AcceptPhoneTitle {
+            get {
+                return ResourceManager.GetString("AcceptPhoneTitle", resourceCulture);
+            }
+        }
+        
+        public static string LastFourDigits {
+            get {
+                return ResourceManager.GetString("LastFourDigits", resourceCulture);
+            }
+        }
+        
+        public static string PersonalData {
+            get {
+                return ResourceManager.GetString("PersonalData", resourceCulture);
+            }
+        }
+        
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        public static string Gender {
+            get {
+                return ResourceManager.GetString("Gender", resourceCulture);
+            }
+        }
+        
+        public static string DateOfBirth {
+            get {
+                return ResourceManager.GetString("DateOfBirth", resourceCulture);
+            }
+        }
+        
+        public static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        public static string Registration {
+            get {
+                return ResourceManager.GetString("Registration", resourceCulture);
+            }
+        }
+        
+        public static string NameAndSurnameRequired {
+            get {
+                return ResourceManager.GetString("NameAndSurnameRequired", resourceCulture);
+            }
+        }
+        
+        public static string DateOfBirthRequired {
+            get {
+                return ResourceManager.GetString("DateOfBirthRequired", resourceCulture);
+            }
+        }
+        
+        public static string PhoneRequired {
+            get {
+                return ResourceManager.GetString("PhoneRequired", resourceCulture);
+            }
+        }
+        
+        public static string EmailRequired {
+            get {
+                return ResourceManager.GetString("EmailRequired", resourceCulture);
+            }
+        }
     }
 }
