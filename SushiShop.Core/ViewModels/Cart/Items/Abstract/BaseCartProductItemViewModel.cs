@@ -5,6 +5,7 @@ using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cart;
 using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Data.Models.Toppings;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Mappers;
 using SushiShop.Core.Messages;
@@ -54,7 +55,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
 
         public string? ImageUrl => Product.ImageInfo?.JpgUrl;
 
-        public string Value => GetValue();
+        public string Value => Product.GetValue();
 
         public int CountInBasket => Product.Count;
 
@@ -104,21 +105,6 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
 
             var action = isCountIncremented ? ProductChangeAction.Add : ProductChangeAction.Remove;
             Messenger.Publish(new CartProductChangedMessage(this, action, Product));
-        }
-
-        private string GetValue()
-        {
-            if (Product.Weight != null)
-            {
-                return Product.Weight;
-            }
-
-            if (Product.Volume != null)
-            {
-                return Product.Volume;
-            }
-
-            return string.Empty;
         }
     }
 }

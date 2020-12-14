@@ -24,6 +24,10 @@ namespace SushiShop.Core.Common
             public const string PrivacyPolicyAlias = "politika-konfidencialnosti";
             public const string UserAgreementAlias = "polzovatelskoe-soglashenie";
             public const string PublicOfferAlias = "publichnaya-oferta";
+
+            public const string ProfileGetOrders = "profile/get-orders";
+            public const string ProfileGetOrderDetails = "profile/get-order-details";
+            public const string ProfileRepearOrder = "profile/repeat-order";
         }
     }
 }

@@ -257,6 +257,12 @@ namespace SushiShop.Core.Resources {
             }
         }
         
+        public static string OrderTemplate {
+            get {
+                return ResourceManager.GetString("OrderTemplate", resourceCulture);
+            }
+        }
+        
         public static string ProfileLoginPlaceholder {
             get {
                 return ResourceManager.GetString("ProfileLoginPlaceholder", resourceCulture);

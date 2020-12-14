@@ -33,4 +33,14 @@
       <AutoGen>True</AutoGen>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\Orders\" />
+    <Folder Include="ViewModels\Orders\Items\" />
+    <Folder Include="Managers\Orders\" />
+    <Folder Include="Services\Http\Orders\" />
+    <Folder Include="Data\Dtos\Orders\" />
+    <Folder Include="Data\Models\Orders\" />
+    <Folder Include="Data\Dtos\Pagination\" />
+    <Folder Include="Data\Models\Pagination\" />
+  </ItemGroup>
 </Project>

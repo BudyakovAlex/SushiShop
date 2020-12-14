@@ -1,0 +1,65 @@
+﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
+using SushiShop.Core.Common;
+using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Messages;
+using SushiShop.Core.Providers;
+using SushiShop.Core.ViewModels.Orders.Items;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace SushiShop.Core.ViewModels.Orders
+{
+    public class MyOrdersViewModel : BaseItemsPageViewModel<OrderItemViewModel>
+    {
+        private readonly IOrdersManager ordersManager;
+        private readonly IUserSession userSession;
+
+        public MyOrdersViewModel(IOrdersManager ordersManager, IUserSession userSession)
+        {
+            this.ordersManager = ordersManager;
+            this.userSession = userSession;
+
+            Pagination = new PaginationViewModel(LoadMoreItemsAsync, Constants.Common.DefaultPaginationSize);
+        }
+
+        public PaginationViewModel Pagination { get; }
+
+        public override async Task InitializeAsync()
+        {
+            await base.InitializeAsync();
+
+            _ = RefreshDataAsync();
+        }
+
+        protected override Task RefreshDataAsync()
+        {
+            Pagination.Reset();
+            return LoadMoreItemsAsync(0, Constants.Common.DefaultPaginationSize);
+        }
+
+        private async Task<int> LoadMoreItemsAsync(int paginationIndex, int paginationSize)
+        {
+            var response = await ordersManager.GetMyOrdersAsync(paginationIndex, paginationSize).ConfigureAwait(false);
+            if (!response.IsSuccessful)
+            {
+                return 0;
+            }
+
+            Pagination.SetTotalItemsCount(response.Data.TotalCount);
+
+            var viewModels = response.Data.Data.Select(item => new OrderItemViewModel(item, RepeatOrderAsync)).ToList();
+            Items.AddRange(viewModels);
+            return response.Data.CurrentLimit;
+        }
+
+        private async Task RepeatOrderAsync(long id)
+        {
+            var city = userSession.GetCity();
+            await ordersManager.RepeatOrderAsync(id, city?.Name);
+            Messenger.Publish(new RefreshCartMessage(this));
+
+            await RefreshDataAsync();
+        }
+    }
+}
