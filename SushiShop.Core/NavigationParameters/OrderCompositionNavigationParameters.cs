@@ -5,14 +5,14 @@ namespace SushiShop.Core.NavigationParameters
 {
     public class OrderCompositionNavigationParameters
     {
-        public OrderCompositionNavigationParameters(CartProduct[] products, Currency currency)
+        public OrderCompositionNavigationParameters(CartProduct[]? products, Currency? currency)
         {
             Products = products;
             Currency = currency;
         }
 
-        public CartProduct[] Products { get; }
+        public CartProduct[]? Products { get; }
 
-        public Currency Currency { get; }
+        public Currency? Currency { get; }
     }
 }

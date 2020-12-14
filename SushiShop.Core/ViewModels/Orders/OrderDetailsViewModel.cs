@@ -6,6 +6,7 @@ using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Messages;
+using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using System.Threading.Tasks;
@@ -98,7 +99,13 @@ namespace SushiShop.Core.ViewModels.Orders
 
         private Task ShowOrderCompositionAsync()
         {
-            return NavigationManager.NavigateAsync<OrderCompositionViewModel>();
+            if (order is null)
+            {
+                return Task.CompletedTask;
+            }
+
+            var navigationParameners = new OrderCompositionNavigationParameters(order.Products, order.Currency);
+            return NavigationManager.NavigateAsync<OrderCompositionViewModel, OrderCompositionNavigationParameters>(navigationParameners);
         }
     }
 }
