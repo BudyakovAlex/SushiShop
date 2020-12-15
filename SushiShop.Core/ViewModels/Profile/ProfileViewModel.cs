@@ -34,8 +34,29 @@ namespace SushiShop.Core.ViewModels.Profile
         }
 
         // TODO: Change this code.
-        public string UserName => "Александр";
-        public string Score => 2020 + " баллов";
+        //public string UserName => "Александр";
+        //public string Score => 2020 + " баллов";
+
+        private string avatar;
+        public string Avatar
+        {
+            get => avatar;
+            set => SetProperty(ref avatar, value);
+        }
+
+        private string username;
+        public string Username
+        {
+            get => username;
+            set => SetProperty(ref username, value);
+        }
+
+        private string score;
+        public string Score
+        {
+            get => score;
+            set => SetProperty(ref score, value);
+        }
 
         public IMvxCommand LogoutCommand { get; }
 

@@ -5,14 +5,17 @@ namespace SushiShop.Core.Common
         public static class Rest
         {
             public const string CitiesResource = "cities";
-            public const string MenuResource = "shop/menu";
             public const string JobResource = "content/job";
             public const string FranchiseResource = "franchise/getbutton";
+
             public const string PromotionsResource = "sales/list";
             public const string GetPromotionResource = "sales/get";
+
+            public const string MenuResource = "shop/menu";
             public const string CategoryProductsResource = "shop/category";
             public const string ProductResource = "shop/product";
             public const string RelatedResource = "shop/related";
+
             public const string CartUpdateResource = "basket/update";
             public const string CartGetResource = "basket/get";
             public const string CartPromocodeResource = "basket/promocode";
@@ -28,6 +31,15 @@ namespace SushiShop.Core.Common
             public const string ProfileGetOrders = "profile/get-orders";
             public const string ProfileGetOrderDetails = "profile/get-order-details";
             public const string ProfileRepearOrder = "profile/repeat-order";
+
+            public const string ProfileCheckLogin = "profile/check-login";
+            public const string ProfileAuth = "profile/auth";
+            public const string ProfileRegistration = "profile/registration";
+            public const string ProfileGetPersonalData = "profile/get-personal-data";
+            public const string ProfileGetDiscount = "profile/get-discount"; 
+            public const string ProfileSave = "profile/save";
+            public const string ProfileUploadPhoto = "profile/upload-photo";
+            public const string ProfileFeedback = "profile/feedback";
         }
     }
 }
