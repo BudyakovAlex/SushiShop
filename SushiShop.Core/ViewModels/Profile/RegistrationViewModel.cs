@@ -48,11 +48,11 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref acceptPushNotifications, value);
         }
 
-        private bool acceptEmalhNotifications;
+        private bool acceptEmailNotifications;
         public bool AcceptEmailNotifications
         {
-            get => acceptEmalhNotifications;
-            set => SetProperty(ref acceptEmalhNotifications, value);
+            get => acceptEmailNotifications;
+            set => SetProperty(ref acceptEmailNotifications, value);
         }
 
         private bool acceptSmshNotifications;

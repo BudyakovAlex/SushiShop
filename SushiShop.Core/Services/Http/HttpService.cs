@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +19,32 @@ namespace SushiShop.Core.Services.Http
             client = new HttpClient();
             client.BaseAddress = new Uri(BaseUrl);
             client.Timeout = TimeSpan.FromMinutes(5);
+        }
+
+        public async Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, object body, string[]? files, CancellationToken cancellationToken) where T : class
+        {
+            var content = Json.Serialize(body);
+            var multiprtContent = new MultipartContent
+            {
+                new StringContent(content)
+            };
+
+            if (files != null)
+            {
+                foreach (var file in files)
+                {
+                    using var fs = new FileStream(file, FileMode.Open, FileAccess.Read);
+                    multiprtContent.Add(new StreamContent(fs));
+                }
+            }
+
+            var request = new HttpRequestMessage(ToHttpMethod(method), url)
+            {
+                Content = new StringContent(content)
+            };
+
+            var response = await ExecuteAsync(request, cancellationToken);
+            return Deserialize<T>(response);
         }
 
         public async Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, string content, CancellationToken cancellationToken) where T : class
