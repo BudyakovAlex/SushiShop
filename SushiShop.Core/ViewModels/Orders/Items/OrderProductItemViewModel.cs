@@ -2,6 +2,7 @@
 using SushiShop.Core.Data.Models.Cart;
 using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Extensions;
+using SushiShop.Core.Resources;
 
 namespace SushiShop.Core.ViewModels.Orders.Items
 {
@@ -26,6 +27,6 @@ namespace SushiShop.Core.ViewModels.Orders.Items
 
         public string Value => product.GetValue();
 
-        public int CountInBasket => product.Count;
+        public string Count => $"{product.Count} {AppStrings.CountInPC}";
     }
 }

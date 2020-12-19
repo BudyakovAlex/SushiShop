@@ -339,6 +339,7 @@
     <InterfaceDefinition Include="Views\Cells\Orders\OrderItemViewCell.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Orders\OrderDetailsViewController.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Orders\OrderCompositionViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\Orders\OrderProductItemViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -532,6 +533,10 @@
     <Compile Include="Views\ViewControllers\Orders\OrderCompositionViewController.cs" />
     <Compile Include="Views\ViewControllers\Orders\OrderCompositionViewController.designer.cs">
       <DependentUpon>OrderCompositionViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Orders\OrderProductItemViewCell.cs" />
+    <Compile Include="Views\Cells\Orders\OrderProductItemViewCell.designer.cs">
+      <DependentUpon>OrderProductItemViewCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,4 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
-using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Orders;
@@ -26,7 +25,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
         {
             base.Bind();
 
-            var bindingSet = this.CreateBindingSet<MyOrdersViewController, MyOrdersViewModel>();
+            var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(this).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
