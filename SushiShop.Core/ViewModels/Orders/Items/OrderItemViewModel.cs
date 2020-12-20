@@ -19,7 +19,12 @@ namespace SushiShop.Core.ViewModels.Orders.Items
             this.repeatOrderFunc = repeatOrderFunc;
 
             RepeatOrderCommand = new SafeAsyncCommand(ExecutionStateWrapper, RepeatOrderAsync);
+            ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
+
+        public IMvxCommand RepeatOrderCommand { get; }
+
+        public IMvxCommand ShowDetailsCommand { get; }
 
         public string OrderDateTime => order.OrderDateTime.ToString(Constants.Format.DateTime.DateWithTime);
 
@@ -33,11 +38,14 @@ namespace SushiShop.Core.ViewModels.Orders.Items
 
         public string? OrderNumber => $"№{order.Id}";
 
-        public IMvxCommand RepeatOrderCommand { get; }
-
         private Task RepeatOrderAsync()
         {
             return repeatOrderFunc.Invoke(order.Id);
+        }
+
+        private Task ShowDetailsAsync()
+        {
+            return NavigationManager.NavigateAsync<OrderDetailsViewModel, long>(order.Id);
         }
     }
 }

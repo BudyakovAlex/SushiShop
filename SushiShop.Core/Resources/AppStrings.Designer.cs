@@ -352,5 +352,59 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("EmailRequired", resourceCulture);
             }
         }
+        
+        public static string MyOrders {
+            get {
+                return ResourceManager.GetString("MyOrders", resourceCulture);
+            }
+        }
+        
+        public static string Repeat {
+            get {
+                return ResourceManager.GetString("Repeat", resourceCulture);
+            }
+        }
+        
+        public static string RepeatOrder {
+            get {
+                return ResourceManager.GetString("RepeatOrder", resourceCulture);
+            }
+        }
+        
+        public static string OrderComposition {
+            get {
+                return ResourceManager.GetString("OrderComposition", resourceCulture);
+            }
+        }
+        
+        public static string Products {
+            get {
+                return ResourceManager.GetString("Products", resourceCulture);
+            }
+        }
+        
+        public static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        public static string PreferredDeliveryTime {
+            get {
+                return ResourceManager.GetString("PreferredDeliveryTime", resourceCulture);
+            }
+        }
+        
+        public static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        public static string ReceiveMethod {
+            get {
+                return ResourceManager.GetString("ReceiveMethod", resourceCulture);
+            }
+        }
     }
 }
