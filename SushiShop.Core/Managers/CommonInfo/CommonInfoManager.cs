@@ -1,7 +1,8 @@
 ﻿using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Franchise;
 using SushiShop.Core.Data.Models.Vacancy;
-using SushiShop.Core.Mappers;
+using SushiShop.Core.Mappers.Vacancy;
+using SushiShop.Core.Mappers.Franchise;
 using SushiShop.Core.Services.Http.CommonInfo;
 using System.Threading;
 using System.Threading.Tasks;
