@@ -1,8 +1,5 @@
 ﻿using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Common;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SushiShop.Core.Data.Models.Profile
 {

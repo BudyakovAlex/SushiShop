@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SushiShop.Core.Data.Models.Profile
+﻿namespace SushiShop.Core.Data.Models.Profile
 {
-    class RegistrationProfile
+    internal class RegistrationProfile
     {
         public RegistrationProfile(string? message, string? phone)
         {

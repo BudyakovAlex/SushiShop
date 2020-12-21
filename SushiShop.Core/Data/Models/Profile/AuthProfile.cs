@@ -1,7 +1,4 @@
 ﻿using SushiShop.Core.Data.Dtos.Profile;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SushiShop.Core.Data.Models.Profile
 {

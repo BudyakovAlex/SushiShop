@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SushiShop.Core.Data.Models.Profile
+﻿namespace SushiShop.Core.Data.Models.Profile
 {
     public class LoginProfile
     {

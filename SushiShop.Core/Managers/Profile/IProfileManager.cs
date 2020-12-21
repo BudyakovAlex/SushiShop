@@ -11,12 +11,12 @@ namespace SushiShop.Core.Managers.Profile
     {
         Task<Response<LoginProfile>> CheckLoginAsync(string login, bool? sendCode);
 
-        Task<Response<AuthProfile[]>> AuthAsync(string login, string pass);
+        Task<Response<AuthProfile>> AuthAsync(string login, string pass);
 
         Task<Response<RegistrationProfile>> RegistrationAsync(RegistrationData registrationData);
 
-        Task<Response<PersonalData[]>> GetPersonalDataAsync();
+        Task<Response<PersonalData>> GetPersonalDataAsync();
 
-        Task<Response<ProfileDiscount[]>> GetDiscountAsync();
+        Task<Response<ProfileDiscount>> GetDiscountAsync();
     }
 }

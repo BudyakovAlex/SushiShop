@@ -1,11 +1,8 @@
 ﻿using SushiShop.Core.Data.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SushiShop.Core.Data.Models.Profile
 {
-    class RegistrationData
+    internal class RegistrationData
     {
         public RegistrationData(string? email,
                                 string? phone,
