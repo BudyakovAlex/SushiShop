@@ -1,9 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Common;
 using SushiShop.Core.Data.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SushiShop.Core.Data.Dtos.Profile
 {
