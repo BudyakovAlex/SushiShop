@@ -2,7 +2,7 @@
 
 namespace SushiShop.Core.Data.Dtos.Profile
 {
-    public class AuthDto
+    public class AuthProfileDto
     {
         [JsonProperty("isValidUser")]
         public bool AuthByEmail { get; set; }

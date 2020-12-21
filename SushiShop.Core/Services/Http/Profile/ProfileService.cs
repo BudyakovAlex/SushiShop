@@ -17,29 +17,29 @@ namespace SushiShop.Core.Services.Http.Profile
             this.httpService = httpService;
         }
 
-        public Task<HttpResponse<ResponseDto<CheckLoginDto[]>>> CheckLoginAsync(string login, bool? sendCode, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<LoginProfileDto[]>>> CheckLoginAsync(string login, bool? sendCode, CancellationToken cancellationToken)
         {
             var body = new { Login = login, SendCode = sendCode };
-            return httpService.ExecuteAsync<ResponseDto<CheckLoginDto[]>>(
+            return httpService.ExecuteAsync<ResponseDto<LoginProfileDto[]>>(
                 Method.Post,
                 Constants.Rest.ProfileCheckLogin,
                 body,
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<AuthDto[]>>> AuthAsync(string login, string pass, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<AuthProfileDto[]>>> AuthAsync(string login, string pass, CancellationToken cancellationToken)
         {
             var body = new { Login = login, Pass = pass };
-            return httpService.ExecuteAsync<ResponseDto<AuthDto[]>>(
+            return httpService.ExecuteAsync<ResponseDto<AuthProfileDto[]>>(
                 Method.Post,
                 Constants.Rest.ProfileAuth,
                 body,
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<RegistrationDto>>> RegistrationAsync(RegistrationDataDto registrationData, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<RegistrationProfileDto>>> RegistrationAsync(RegistrationDataDto registrationData, CancellationToken cancellationToken)
         {
-            return httpService.ExecuteAsync<ResponseDto<RegistrationDto>>(
+            return httpService.ExecuteAsync<ResponseDto<RegistrationProfileDto>>(
                 Method.Post,
                 Constants.Rest.ProfileRegistration,
                 registrationData,
@@ -54,9 +54,9 @@ namespace SushiShop.Core.Services.Http.Profile
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<DiscountDto[]>>> GetDiscountAsync(CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ProfileDiscountDto[]>>> GetDiscountAsync(CancellationToken cancellationToken)
         {
-            return httpService.ExecuteAsync<ResponseDto<DiscountDto[]>>(
+            return httpService.ExecuteAsync<ResponseDto<ProfileDiscountDto[]>>(
                 Method.Post,
                 Constants.Rest.ProfileGetDiscount,
                 cancellationToken);

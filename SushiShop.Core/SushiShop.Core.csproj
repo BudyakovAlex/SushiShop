@@ -35,8 +35,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\Models\Profile\" />
-    <Folder Include="Managers\Profile\" />
     <Folder Include="ViewModels\Orders\" />
     <Folder Include="ViewModels\Orders\Items\" />
     <Folder Include="Managers\Orders\" />

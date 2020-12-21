@@ -2,7 +2,7 @@
 
 namespace SushiShop.Core.Data.Dtos.Profile
 {
-    public class RegistrationDto
+    public class RegistrationProfileDto
     {
         [JsonProperty("message")]
         public string? Message { get; set; }
