@@ -10,6 +10,11 @@ namespace SushiShop.Core.Services.Http.Profile
         Task<HttpResponse<ResponseDto<CheckLoginDto[]>>> CheckLoginAsync(string login, bool? sendCode, CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<AuthDto[]>>> AuthAsync(string login, string pass, CancellationToken cancellationToken);
+                
+        Task<HttpResponse<ResponseDto<RegistrationDto>>> RegistrationAsync(RegistrationDataDto registrationData, CancellationToken cancellationToken);
 
+        Task<HttpResponse<ResponseDto<PersonalDataDto[]>>> GetPersonalDataAsync(CancellationToken cancellationToken);
+
+        Task<HttpResponse<ResponseDto<DiscountDto[]>>> GetDiscountAsync(CancellationToken cancellationToken);      
     }
 }

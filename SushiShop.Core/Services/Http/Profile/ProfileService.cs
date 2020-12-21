@@ -27,14 +27,38 @@ namespace SushiShop.Core.Services.Http.Profile
                 cancellationToken);
         }
 
-
-        public Task<HttpResponse<ResponseDto<MenuDto>>> GetMenuAsync(string? city, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<AuthDto[]>>> AuthAsync(string login, string pass, CancellationToken cancellationToken)
         {
-            var body = new { City = city };
-            return httpService.ExecuteAsync<ResponseDto<MenuDto>>(
+            var body = new { Login = login, Pass = pass };
+            return httpService.ExecuteAsync<ResponseDto<AuthDto[]>>(
+                Method.Post,
+                Constants.Rest.ProfileAuth,
+                body,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<RegistrationDto>>> RegistrationAsync(RegistrationDataDto registrationData, CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<RegistrationDto>>(
                 Method.Post,
                 Constants.Rest.ProfileRegistration,
-                body,
+                registrationData,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<PersonalDataDto[]>>> GetPersonalDataAsync(CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<PersonalDataDto[]>>(
+                Method.Post,
+                Constants.Rest.ProfileGetPersonalData,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<DiscountDto[]>>> GetDiscountAsync(CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<DiscountDto[]>>(
+                Method.Post,
+                Constants.Rest.ProfileGetDiscount,
                 cancellationToken);
         }
     }
