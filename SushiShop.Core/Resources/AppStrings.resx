@@ -276,4 +276,31 @@
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Нажимая кнопку “Зарегистрироваться”, Я соглашаюсь с условием политики конфиденциальности</value>
   </data>
+  <data name="MyOrders" xml:space="preserve">
+    <value>Мои заказы</value>
+  </data>
+  <data name="Repeat" xml:space="preserve">
+    <value>Повторить</value>
+  </data>
+  <data name="RepeatOrder" xml:space="preserve">
+    <value>Повторить заказ</value>
+  </data>
+  <data name="OrderComposition" xml:space="preserve">
+    <value>Состав заказа</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Товары</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Итого</value>
+  </data>
+  <data name="PreferredDeliveryTime" xml:space="preserve">
+    <value>Желаемое время получения</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="ReceiveMethod" xml:space="preserve">
+    <value>Способ получения</value>
+  </data> 
 </root>

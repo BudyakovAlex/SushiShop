@@ -2,6 +2,7 @@
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using SushiShop.Core.ViewModels.Orders;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
@@ -98,7 +99,7 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private Task ShowMyOrdersViewAsync()
         {
-            return Task.CompletedTask;
+            return NavigationManager.NavigateAsync<MyOrdersViewModel>();
         }
 
         private Task ShowFeedbackViewAsync()

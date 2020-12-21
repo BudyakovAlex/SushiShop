@@ -35,7 +35,13 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public string? OrderDateTime => order?.OrderDateTime.ToString(Constants.Format.DateTime.DateWithTime);
 
-        public string? TotalPrice => $"{order?.Total} {order?.Currency?.Symbol}";
+        public string? PreferredDeliveryTimeTitle => AppStrings.PreferredDeliveryTime;
+
+        public string? PreferredDeliveryTimeValue => order?.PreferredDeliveryTime.ToString(Constants.Format.DateTime.DateWithTime);
+
+        public string? TotalPriceTitle => $"{AppStrings.Total}:";
+
+        public string? TotalPriceValue => $"{order?.Total} {order?.Currency?.Symbol}";
 
         public bool CanRepeat => order?.CanRepeat ?? false;
 
@@ -45,13 +51,31 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public string? OrderNumber => $"№{order?.Id}";
 
-        public string? Price => $"{order?.Price} {order?.Currency?.Symbol}";
+        public string? PriceTitle => AppStrings.Products;
+
+        public string? PriceValue => $"{order?.Price} {order?.Currency?.Symbol}";
+
+        public string? DeliveryAddressTitle => AppStrings.Address;
 
         public string? DeliveryAddress => order?.DeliveryAddress;
 
         public string? Phones => order?.PickupPoint?.GetPhonesStringPresentation();
 
         public string? WorkingTime => order?.PickupPoint?.GetWorkingTimeStringPresentation();
+
+        public string ReceiveMethodTitle => AppStrings.ReceiveMethod;
+
+        // TODO: unhardcode
+        public string ReceiveMethodValue => "Магазин";
+
+        public string ShowOrderCompositionTitle => AppStrings.OrderComposition;
+
+        public string RepeatOrderTitle => AppStrings.RepeatOrder;
+
+        public string ReceiveTitle => $"{ReceiveMethod}:";
+
+        // TODO: unhardcode
+        public string ReceiveValue => "Бесплатно";
 
         public IMvxCommand RepeatOrderCommand { get; }
 

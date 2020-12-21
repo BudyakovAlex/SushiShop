@@ -1,12 +1,13 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Common;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Messages;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders.Items;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Orders
 {
@@ -24,6 +25,8 @@ namespace SushiShop.Core.ViewModels.Orders
         }
 
         public PaginationViewModel Pagination { get; }
+
+        public string Title => AppStrings.MyOrders;
 
         public override async Task InitializeAsync()
         {
