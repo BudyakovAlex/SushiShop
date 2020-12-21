@@ -7,12 +7,12 @@ namespace SushiShop.Core.Mappers.Profile
     {
         public static LoginProfile Map(this LoginProfileDto loginProfileDto)
         {
-            return new LoginProfile(loginProfileDto.AuthByEmail,
-                                    loginProfileDto.AuthByPhone,
+            return new LoginProfile(loginProfileDto.IsAuthByEmail,
+                                    loginProfileDto.IsAuthByPhone,
                                     loginProfileDto.IsEmail,
                                     loginProfileDto.IsPhone,
                                     loginProfileDto.Message,
-                                    loginProfileDto.NeedRegistration,
+                                    loginProfileDto.IsNeedRegistration,
                                     loginProfileDto.Phone);
         }
     }

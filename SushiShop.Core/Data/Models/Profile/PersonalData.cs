@@ -5,24 +5,26 @@ namespace SushiShop.Core.Data.Models.Profile
 {
     public class PersonalData
     {
-        public PersonalData(string? dateOfBirth,
-                            string? dateOfBirthFormated,
-                            bool detaOfBirthReadonly,
-                            string? email,
-                            string? subscribeSales,
-                            string? firstName,
-                            string? lastName,
-                            string? fullName,
-                            GenderType? gender,
-                            string? phone,
-                            bool allowNotification,
-                            bool allowPush,
-                            ImageInfo? photo,
-                            int userId)
+        public PersonalData(
+            int userId,
+            string? dateOfBirth,
+            string? dateOfBirthFormated,
+            bool canChangeDateOfBirth,
+            string? email,
+            string? subscribeSales,
+            string? firstName,
+            string? lastName,
+            string? fullName,
+            GenderType? gender,
+            string? phone,
+            bool isAllowNotification,
+            bool isAllowPush,
+            ImageInfo? photo)
         {
+            UserId = userId;
             DateOfBirth = dateOfBirth;
             DateOfBirthFormated = dateOfBirthFormated;
-            DetaOfBirthReadonly = detaOfBirthReadonly;
+            CanChangeDateOfBirth = canChangeDateOfBirth;
             Email = email;
             SubscribeSales = subscribeSales;
             FirstName = firstName;
@@ -30,17 +32,18 @@ namespace SushiShop.Core.Data.Models.Profile
             FullName = fullName;
             Gender = gender;
             Phone = phone;
-            AllowNotification = allowNotification;
-            AllowPush = allowPush;
+            IsAllowNotification = isAllowNotification;
+            IsAllowPush = isAllowPush;
             Photo = photo;
-            UserId = userId;
         }
+
+        public int UserId { get; set; }
 
         public string? DateOfBirth { get; set; }
 
         public string? DateOfBirthFormated { get; set; }
 
-        public bool DetaOfBirthReadonly { get; set; }
+        public bool CanChangeDateOfBirth { get; set; }
 
         public string? Email { get; set; }
 
@@ -56,12 +59,10 @@ namespace SushiShop.Core.Data.Models.Profile
 
         public string? Phone { get; set; }
 
-        public bool AllowNotification { get; set; }
+        public bool IsAllowNotification { get; set; }
 
-        public bool AllowPush { get; set; }
+        public bool IsAllowPush { get; set; }
 
         public ImageInfo? Photo { get; set; }
-
-        public int UserId { get; set; }
     }
 }

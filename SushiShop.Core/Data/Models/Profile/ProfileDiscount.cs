@@ -2,12 +2,13 @@
 {
     public class ProfileDiscount
     {
-        public ProfileDiscount(string? title,
-                               string? phone,
-                               int balanceToNextLevel,
-                               int discount,
-                               int certificate,
-                               int bonuses)
+        public ProfileDiscount(
+            string? title,
+            string? phone,
+            int balanceToNextLevel,
+            int discount,
+            int certificate,
+            int bonuses)
         {
             Title = title;
             Phone = phone;

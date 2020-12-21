@@ -10,7 +10,7 @@ namespace SushiShop.Core.Mappers.Profile
         {
             return new PersonalData(personalDataDto.DateOfBirth,
                                     personalDataDto.DateOfBirthFormated,
-                                    personalDataDto.DetaOfBirthReadonly,
+                                    personalDataDto.CanChangeDateOfBirth,
                                     personalDataDto.Email,
                                     personalDataDto.SubscribeSales,
                                     personalDataDto.FirstName,
@@ -18,8 +18,8 @@ namespace SushiShop.Core.Mappers.Profile
                                     personalDataDto.FullName,
                                     personalDataDto.Gender,
                                     personalDataDto.Phone,
-                                    personalDataDto.AllowNotification,
-                                    personalDataDto.AllowPush,
+                                    personalDataDto.IsAllowNotification,
+                                    personalDataDto.IsAllowPush,
                                     personalDataDto.Photo?.Map(),
                                     personalDataDto.UserId);
         }

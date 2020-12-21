@@ -6,14 +6,17 @@ namespace SushiShop.Core.Data.Dtos.Profile
 {
     public class PersonalDataDto
     {
+        [JsonProperty("userId")]
+        public int UserId { get; set; }
+
         [JsonProperty("dateOfBirth")]
         public string? DateOfBirth { get; set; }
 
         [JsonProperty("dateOfBirthFormated")]
         public string? DateOfBirthFormated { get; set; }
 
-        [JsonProperty("detaOfBirthReadonly")]
-        public bool DetaOfBirthReadonly { get; set; }
+        [JsonProperty("dateOfBirthReadonly")]
+        public bool CanChangeDateOfBirth { get; set; }
 
         [JsonProperty("email")]
         public string? Email { get; set; }
@@ -37,15 +40,12 @@ namespace SushiShop.Core.Data.Dtos.Profile
         public string? Phone { get; set; }
 
         [JsonProperty("allowNotification")]
-        public bool AllowNotification { get; set; }
+        public bool IsAllowNotification { get; set; }
 
         [JsonProperty("allowPush")]
-        public bool AllowPush { get; set; }
+        public bool IsAllowPush { get; set; }
 
         [JsonProperty("photo")]
         public ImageInfoDto? Photo { get; set; }
-
-        [JsonProperty("userId")]
-        public int UserId { get; set; }
     }
 }

@@ -2,10 +2,10 @@
 
 namespace SushiShop.Core.Data.Dtos.Profile
 {
-    public class AuthProfileDto
+    public class AuthorizationDataDto
     {
         [JsonProperty("isValidUser")]
-        public bool AuthByEmail { get; set; }
+        public bool IsValidUser { get; set; }
 
         [JsonProperty("token")]
         public TokenDto? Token { get; set; }

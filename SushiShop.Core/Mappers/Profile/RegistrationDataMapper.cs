@@ -14,9 +14,9 @@ namespace SushiShop.Core.Mappers.Profile
                                         registrationDataDto.LastName,
                                         registrationDataDto.FullName,
                                         registrationDataDto.Gender,
-                                        registrationDataDto.AllowSubscribe,
-                                        registrationDataDto.AllowNotificarions,
-                                        registrationDataDto.AllowPush);
+                                        registrationDataDto.IsAllowSubscribe,
+                                        registrationDataDto.IsAllowNotificarions,
+                                        registrationDataDto.IsAllowPush);
         }
     }
 }

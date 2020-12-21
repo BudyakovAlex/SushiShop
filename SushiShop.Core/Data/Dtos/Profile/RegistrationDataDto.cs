@@ -27,12 +27,12 @@ namespace SushiShop.Core.Data.Dtos.Profile
         public GenderType? Gender { get; set; }
 
         [JsonProperty("allowSubscribe")]
-        public bool AllowSubscribe { get; set; }
+        public bool IsAllowSubscribe { get; set; }
 
         [JsonProperty("allowNotificarions")]
-        public bool AllowNotificarions { get; set; }
+        public bool IsAllowNotificarions { get; set; }
 
         [JsonProperty("allowPush")]
-        public bool AllowPush { get; set; }
+        public bool IsAllowPush { get; set; }
     }
 }

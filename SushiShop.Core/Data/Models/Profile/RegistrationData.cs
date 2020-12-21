@@ -4,16 +4,17 @@ namespace SushiShop.Core.Data.Models.Profile
 {
     public class RegistrationData
     {
-        public RegistrationData(string? email,
-                                string? phone,
-                                string? dateOfBirth,
-                                string? firstName,
-                                string? lastName,
-                                string? fullName,
-                                GenderType? gender,
-                                bool allowSubscribe,
-                                bool allowNotificarions,
-                                bool allowPush)
+        public RegistrationData(
+            string? email,
+            string? phone,
+            string? dateOfBirth,
+            string? firstName,
+            string? lastName,
+            string? fullName,
+            GenderType? gender,
+            bool allowSubscribe,
+            bool allowNotificarions,
+            bool allowPush)
         {
             Email = email;
             Phone = phone;

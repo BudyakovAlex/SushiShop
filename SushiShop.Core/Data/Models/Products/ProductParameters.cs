@@ -5,14 +5,15 @@ namespace SushiShop.Core.Data.Models.Products
 {
     public class ProductParameters
     {
-        public ProductParameters(StickerParams[]? stickers,
-                                 Topping[]? availableToppings,
-                                 string? proteins,
-                                 string? fats,
-                                 string? carbons,
-                                 string? calorificValue,
-                                 string? weight,
-                                 string? volume)
+        public ProductParameters(
+            StickerParams[]? stickers,
+            Topping[]? availableToppings,
+            string? proteins,
+            string? fats,
+            string? carbons,
+            string? calorificValue,
+            string? weight,
+            string? volume)
         {
             Stickers = stickers;
             AvailableToppings = availableToppings;

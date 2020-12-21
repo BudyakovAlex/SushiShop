@@ -26,19 +26,19 @@ namespace SushiShop.Core.Services.Http.Profile
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<AuthProfileDto>>> AuthAsync(string login, string pass, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<AuthorizationDataDto>>> AuthAsync(string login, string pass, CancellationToken cancellationToken)
         {
             var body = new { Login = login, Pass = pass };
-            return httpService.ExecuteAsync<ResponseDto<AuthProfileDto>>(
+            return httpService.ExecuteAsync<ResponseDto<AuthorizationDataDto>>(
                 Method.Post,
                 Constants.Rest.ProfileAuth,
                 body,
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<RegistrationProfileDto>>> RegistrationAsync(RegistrationDataDto registrationDataDto, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ProfileRegistrationDto>>> RegistrationAsync(RegistrationDataDto registrationDataDto, CancellationToken cancellationToken)
         {
-            return httpService.ExecuteAsync<ResponseDto<RegistrationProfileDto>>(
+            return httpService.ExecuteAsync<ResponseDto<ProfileRegistrationDto>>(
                 Method.Post,
                 Constants.Rest.ProfileRegistration,
                 registrationDataDto,

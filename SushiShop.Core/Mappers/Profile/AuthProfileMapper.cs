@@ -5,9 +5,9 @@ namespace SushiShop.Core.Mappers.Profile
 {
     public static class AuthProfileMapper
     {
-        public static AuthProfile Map(this AuthProfileDto authProfileDto)
+        public static AuthorizationData Map(this AuthorizationDataDto authProfileDto)
         {
-            return new AuthProfile(authProfileDto.AuthByEmail,
+            return new AuthorizationData(authProfileDto.IsValidUser,
                                    authProfileDto.Token,
                                    authProfileDto.UserId);
         }

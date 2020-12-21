@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace SushiShop.Core.Data.Dtos.Profile
 {
@@ -14,9 +15,9 @@ namespace SushiShop.Core.Data.Dtos.Profile
         public string? HeaderPreffix { get; set; }
 
         [JsonProperty("expired")]
-        public int Expired { get; set; }
+        public DateTime Expired { get; set; }
 
         [JsonProperty("expiredAtDateTime")]
-        public string? ExpiredAtDateTime { get; set; }
+        public DateTime ExpiredAtDateTime { get; set; }
     }
 }

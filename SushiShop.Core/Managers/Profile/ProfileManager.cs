@@ -32,16 +32,16 @@ namespace SushiShop.Core.Managers.Profile
             return new Response<LoginProfile>(isSuccessful: false, null);
         }
 
-        public async Task<Response<AuthProfile>> AuthAsync(string login, string pass)
+        public async Task<Response<AuthorizationData>> AuthAsync(string login, string pass)
         {
             var response = await profileService.AuthAsync(login, pass, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<AuthProfile>(isSuccessful: true, data);
+                return new Response<AuthorizationData>(isSuccessful: true, data);
             }
 
-            return new Response<AuthProfile>(isSuccessful: false, null);
+            return new Response<AuthorizationData>(isSuccessful: false, null);
         }
 
         public async Task<Response<RegistrationProfile>> RegistrationAsync(RegistrationDataDto registrationDataDto)

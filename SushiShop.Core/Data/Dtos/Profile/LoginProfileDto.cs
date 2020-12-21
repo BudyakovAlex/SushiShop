@@ -5,10 +5,10 @@ namespace SushiShop.Core.Data.Dtos.Profile
     public class LoginProfileDto
     {
         [JsonProperty("authByEmail")]
-        public bool AuthByEmail { get; set; }
+        public bool IsAuthByEmail { get; set; }
 
         [JsonProperty("authByPhone")]
-        public bool AuthByPhone { get; set; }
+        public bool IsAuthByPhone { get; set; }
 
         [JsonProperty("isEmail")]
         public bool IsEmail { get; set; }
@@ -20,7 +20,7 @@ namespace SushiShop.Core.Data.Dtos.Profile
         public string? Message { get; set; }
 
         [JsonProperty("needRegistration")]
-        public bool NeedRegistration { get; set; }
+        public bool IsNeedRegistration { get; set; }
 
         [JsonProperty("phone")]
         public string? Phone { get; set; }
