@@ -25,8 +25,8 @@ namespace SushiShop.Core.ViewModels.Menu
         private Sticker? sticker;
 
         public ProductsViewModel(IProductsManager productsManager,
-            ICartManager cartManager,
-            IUserSession userSession)
+                                 ICartManager cartManager,
+                                 IUserSession userSession)
         {
             this.productsManager = productsManager;
             this.cartManager = cartManager;

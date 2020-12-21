@@ -1,14 +1,21 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Managers.Profile;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
     public class PersonalDataViewModel : BasePageViewModel
     {
-        public PersonalDataViewModel()
+        private readonly IProfileManager profileManager;
+
+        public PersonalDataViewModel(IProfileManager profileManager)
         {
+            this.profileManager = profileManager;
+
             SaveCommand = new SafeAsyncCommand(ExecutionStateWrapper, SaveAsync);
         }
 
@@ -19,15 +26,15 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref name, value);
         }
 
-        private string gender = "Мужской";
-        public string Gender
+        private GenderType gender = GenderType.Male;
+        public GenderType Gender
         {
             get => gender;
             set => SetProperty(ref gender, value);
         }
 
-        private string dateOfBirdth = "29.02.1982";
-        public string DateOfBirdth
+        private DateTime dateOfBirdth = new DateTime(1982,2, 29);
+        public DateTime DateOfBirdth
         {
             get => dateOfBirdth;
             set => SetProperty(ref dateOfBirdth, value);

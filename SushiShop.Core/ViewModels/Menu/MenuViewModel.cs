@@ -34,11 +34,10 @@ namespace SushiShop.Core.ViewModels.Menu
 
         private City? city;
 
-        public MenuViewModel(
-            IMenuManager menuManager,
-            IPromotionsManager promotionsManager,
-            ICitiesManager citiesManager,
-            IUserSession userSession)
+        public MenuViewModel(IMenuManager menuManager,
+                             IPromotionsManager promotionsManager,
+                             ICitiesManager citiesManager,
+                             IUserSession userSession)
         {
             this.menuManager = menuManager;
             this.promotionsManager = promotionsManager;

@@ -2,16 +2,21 @@
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.ViewModels.Orders;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
     public class ProfileViewModel : BasePageViewModel
     {
-        public ProfileViewModel()
+        private readonly IProfileManager profileManager;
+
+        public ProfileViewModel(IProfileManager profileManager)
         {
-            LoginCommand = new SafeAsyncCommand(ExecutionStateWrapper, LoginAsync);
-            RegistrationCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegistrationAsync);
+            this.profileManager = profileManager;
+
+            //LoginCommand = new SafeAsyncCommand(ExecutionStateWrapper, LoginAsync);
+            //RegistrationCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegistrationAsync);
             LogoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, LogoutAsync);
             ShowPersonalDataViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPersonalDataViewAsync);
             ShowMyOrdersViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowMyOrdersViewAsync);
@@ -33,10 +38,6 @@ namespace SushiShop.Core.ViewModels.Profile
             get => isLogged;
             set => SetProperty(ref isLogged, value);
         }
-
-        // TODO: Change this code.
-        //public string UserName => "Александр";
-        //public string Score => 2020 + " баллов";
 
         private string avatar;
         public string Avatar
@@ -61,9 +62,9 @@ namespace SushiShop.Core.ViewModels.Profile
 
         public IMvxCommand LogoutCommand { get; }
 
-        public IMvxCommand LoginCommand { get; }
+        //public IMvxCommand LoginCommand { get; }
 
-        public IMvxCommand RegistrationCommand { get; }
+        //public IMvxCommand RegistrationCommand { get; }
 
         public IMvxCommand ShowPersonalDataViewCommand { get; }
 
@@ -75,16 +76,16 @@ namespace SushiShop.Core.ViewModels.Profile
 
         public IMvxCommand ChooseNewImageCommand { get; }
 
-        private Task LoginAsync()
-        {
-            IsLogged = true;
-            return NavigationManager.NavigateAsync<AcceptPhoneViewModel>();
-        }
+        //private Task LoginAsync()
+        //{
+        //    IsLogged = true;
+        //    return NavigationManager.NavigateAsync<AcceptPhoneViewModel>();
+        //}
 
-        private Task RegistrationAsync()
-        {
-            return NavigationManager.NavigateAsync<RegistrationViewModel>();
-        }
+        //private Task RegistrationAsync()
+        //{
+        //    return NavigationManager.NavigateAsync<RegistrationViewModel>();
+        //}
 
         private Task LogoutAsync()
         {

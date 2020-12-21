@@ -2,29 +2,34 @@
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using SushiShop.Core.Managers.Profile;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
     public class RegistrationViewModel : BasePageViewModel
     {
-        public RegistrationViewModel()
+        private readonly IProfileManager profileManager;
+
+        public RegistrationViewModel(IProfileManager profileManager)
         {
+            this.profileManager = profileManager;
+
             RegisterCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegisterAsync);
             ShowPrivacyPolicyCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPrivacyPolicyAsync);
         }
 
-        private string name;
-        public string Name
+        private string fullname;
+        public string FullName
         {
-            get => name;
-            set => SetProperty(ref name, value);
+            get => fullname;
+            set => SetProperty(ref fullname, value);
         }
 
         private string dateOfBirth;
         public string DateOfBirth
         {
             get => dateOfBirth;
-            set => SetProperty(ref name, value);
+            set => SetProperty(ref dateOfBirth, value);
         }
 
         private string phone;
