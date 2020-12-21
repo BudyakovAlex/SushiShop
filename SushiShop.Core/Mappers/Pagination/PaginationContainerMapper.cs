@@ -14,10 +14,11 @@ namespace SushiShop.Core.Mappers.Pagination
             var dtos = paginationContainerDto!.Data ?? Array.Empty<TDto>();
             var businessObjects = dtos.Select(transformFunc).ToArray();
 
-            return new PaginationContainer<TBusinessObject>(paginationContainerDto!.CurrentLimit,
-                                                            paginationContainerDto!.CurrentOffset,
-                                                            paginationContainerDto!.TotalCount,
-                                                            businessObjects);
+            return new PaginationContainer<TBusinessObject>(
+                paginationContainerDto!.CurrentLimit,
+                paginationContainerDto!.CurrentOffset,
+                paginationContainerDto!.TotalCount,
+                businessObjects);
         }
     }
 }

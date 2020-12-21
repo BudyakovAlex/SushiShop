@@ -19,35 +19,35 @@ namespace SushiShop.Core.ViewModels.Profile
             SaveCommand = new SafeAsyncCommand(ExecutionStateWrapper, SaveAsync);
         }
 
-        private string name = "Александр";
+        private string name;
         public string Name
         {
             get => name;
             set => SetProperty(ref name, value);
         }
 
-        private GenderType gender = GenderType.Male;
+        private GenderType gender = GenderType.None;
         public GenderType Gender
         {
             get => gender;
             set => SetProperty(ref gender, value);
         }
 
-        private DateTime dateOfBirdth = new DateTime(1982,2, 29);
+        private DateTime dateOfBirdth = DateTime.MinValue;
         public DateTime DateOfBirdth
         {
             get => dateOfBirdth;
             set => SetProperty(ref dateOfBirdth, value);
         }
 
-        private string phone = "+7(921) 345-87-76";
+        private string phone;
         public string Phone
         {
             get => phone;
             set => SetProperty(ref phone, value);
         }
 
-        private string email = "alex@gmail.com";
+        private string email;
         public string Email
         {
             get => email;

@@ -2,7 +2,6 @@
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Profile;
 using SushiShop.Core.Mappers.Profile;
-using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http.Profile;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,17 +11,15 @@ namespace SushiShop.Core.Managers.Profile
     public class ProfileManager : IProfileManager
     {
         private readonly IProfileService profileService;
-        private readonly IUserSession userSession;
 
-        public ProfileManager(IProfileService profileService, IUserSession userSession)
+        public ProfileManager(IProfileService profileService)
         {
             this.profileService = profileService;
-            this.userSession = userSession;
         }
 
-        public async Task<Response<LoginProfile>> CheckLoginAsync(string login, bool? sendCode)
+        public async Task<Response<LoginProfile>> CheckIsLoginAvailableAsync(string login, bool? sendCode)
         {
-            var response = await profileService.CheckLoginAsync(login, sendCode, CancellationToken.None);
+            var response = await profileService.CheckIsLoginAvailableAsync(login, sendCode, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
@@ -32,9 +29,9 @@ namespace SushiShop.Core.Managers.Profile
             return new Response<LoginProfile>(isSuccessful: false, null);
         }
 
-        public async Task<Response<AuthorizationData>> AuthAsync(string login, string pass)
+        public async Task<Response<AuthorizationData>> AuthorizeAsync(string login, string pass)
         {
-            var response = await profileService.AuthAsync(login, pass, CancellationToken.None);
+            var response = await profileService.AuthorizeAsync(login, pass, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();

@@ -7,9 +7,9 @@ namespace SushiShop.Core.Services.Http.Profile
 {
     public interface IProfileService
     {
-        Task<HttpResponse<ResponseDto<LoginProfileDto>>> CheckLoginAsync(string login, bool? sendCode, CancellationToken cancellationToken);
+        Task<HttpResponse<ResponseDto<LoginProfileDto>>> CheckIsLoginAvailableAsync(string login, bool? sendCode, CancellationToken cancellationToken);
 
-        Task<HttpResponse<ResponseDto<AuthorizationDataDto>>> AuthAsync(string login, string pass, CancellationToken cancellationToken);
+        Task<HttpResponse<ResponseDto<AuthorizationDataDto>>> AuthorizeAsync(string login, string pass, CancellationToken cancellationToken);
                 
         Task<HttpResponse<ResponseDto<ProfileRegistrationDto>>> RegistrationAsync(RegistrationDataDto registrationDataDto, CancellationToken cancellationToken);
 

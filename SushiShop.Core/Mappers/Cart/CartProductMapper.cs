@@ -11,19 +11,20 @@ namespace SushiShop.Core.Mappers.Cart
     {
         public static CartProduct Map(this CartProductDto productDto)
         {
-            return new CartProduct(productDto.Id,
-                                   productDto.Count,
-                                   productDto.Price,
-                                   productDto.OldPrice,
-                                   productDto.Weight,
-                                   productDto.Volume,
-                                   productDto.TotalPrice,
-                                   productDto.PageTitle!,
-                                   productDto.Uid,
-                                   productDto.IsReadOnly,
-                                   Enum.Parse<ProductType>(productDto.Type, ignoreCase: true),
-                                   productDto.Toppings!.Select(topping => topping.Map()).ToArray(),
-                                   productDto.ImageInfo?.Map());
+            return new CartProduct(
+                productDto.Id,
+                productDto.Count,
+                productDto.Price,
+                productDto.OldPrice,
+                productDto.Weight,
+                productDto.Volume,
+                productDto.TotalPrice,
+                productDto.PageTitle!,
+                productDto.Uid,
+                productDto.IsReadOnly,
+                Enum.Parse<ProductType>(productDto.Type, ignoreCase: true),
+                productDto.Toppings!.Select(topping => topping.Map()).ToArray(),
+                productDto.ImageInfo?.Map());
         }
     }
 }

@@ -8,8 +8,7 @@ namespace SushiShop.Core.Mappers.Orders
     {
         public static OrderDelivery Map(this OrderDeliveryDto dto)
         {
-            return new OrderDelivery(dto.Address,
-                                     dto.Coordinates?.Map());
+            return new OrderDelivery(dto.Address, dto.Coordinates?.Map());
         }
     }
 }

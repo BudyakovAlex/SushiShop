@@ -16,7 +16,7 @@ namespace SushiShop.Core.Services.Http.Profile
             this.httpService = httpService;
         }
 
-        public Task<HttpResponse<ResponseDto<LoginProfileDto>>> CheckLoginAsync(string login, bool? sendCode, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<LoginProfileDto>>> CheckIsLoginAvailableAsync(string login, bool? sendCode, CancellationToken cancellationToken)
         {
             var body = new { Login = login, SendCode = sendCode };
             return httpService.ExecuteAsync<ResponseDto<LoginProfileDto>>(
@@ -26,7 +26,7 @@ namespace SushiShop.Core.Services.Http.Profile
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<AuthorizationDataDto>>> AuthAsync(string login, string pass, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<AuthorizationDataDto>>> AuthorizeAsync(string login, string pass, CancellationToken cancellationToken)
         {
             var body = new { Login = login, Pass = pass };
             return httpService.ExecuteAsync<ResponseDto<AuthorizationDataDto>>(

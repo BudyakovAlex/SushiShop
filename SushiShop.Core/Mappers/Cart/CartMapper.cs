@@ -9,15 +9,16 @@ namespace SushiShop.Core.Mappers.Cart
     {
         public static Model.Cart Map(this CartDto cartDto)
         {
-            return new Model.Cart(cartDto.BasketId,
-                                  cartDto.City,
-                                  cartDto.PriceGroup,
-                                  cartDto.TotalCount,
-                                  cartDto.TotalSum,
-                                  cartDto.Discount,
-                                  cartDto.Currency!.Map(),
-                                  cartDto.Products!.Select(product => product.Map()).ToArray(),
-                                  cartDto.Promoсode!.Map());
+            return new Model.Cart(
+                cartDto.BasketId,
+                cartDto.City,
+                cartDto.PriceGroup,
+                cartDto.TotalCount,
+                cartDto.TotalSum,
+                cartDto.Discount,
+                cartDto.Currency!.Map(),
+                cartDto.Products!.Select(product => product.Map()).ToArray(),
+                cartDto.Promoсode!.Map());
         }
     }
 }

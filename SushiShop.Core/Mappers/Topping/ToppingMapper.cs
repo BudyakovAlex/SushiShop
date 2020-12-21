@@ -12,11 +12,12 @@ namespace SushiShop.Core.Mappers.Topping
     {
         public static Model.Topping Map(this ToppingDto toppingDto)
         {
-            return new Model.Topping(toppingDto.Id,
-                                     toppingDto.PageTitle,
-                                     toppingDto.Price,
-                                     toppingDto.CountInBasket,
-                                     Enum.Parse<ToppingCategory>(toppingDto.ToppingCategory, ignoreCase: true));
+            return new Model.Topping(
+                toppingDto.Id,
+                toppingDto.PageTitle,
+                toppingDto.Price,
+                toppingDto.CountInBasket,
+                Enum.Parse<ToppingCategory>(toppingDto.ToppingCategory, ignoreCase: true));
         }
 
         public static UpdateToppingDto Map(this Model.Topping topping)

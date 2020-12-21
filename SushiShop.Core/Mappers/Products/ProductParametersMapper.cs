@@ -21,14 +21,15 @@ namespace SushiShop.Core.Mappers.Products
                     ColorConverters.FromHex(kv.Value.StickerBg)))
                 .ToArray();
 
-            return new ProductParameters(stickers,
-                                         parametersDto.AvailableToppings?.Map(),
-                                         parametersDto.Proteins,
-                                         parametersDto.Fats,
-                                         parametersDto.Carbons,
-                                         parametersDto.CalorificValue,
-                                         parametersDto.Weight,
-                                         parametersDto.Volume);
+            return new ProductParameters(
+                stickers,
+                parametersDto.AvailableToppings?.Map(),
+                parametersDto.Proteins,
+                parametersDto.Fats,
+                parametersDto.Carbons,
+                parametersDto.CalorificValue,
+                parametersDto.Weight,
+                parametersDto.Volume);
         }
     }
 }

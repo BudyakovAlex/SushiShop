@@ -10,10 +10,11 @@ namespace SushiShop.Core.Mappers.Stickers
     public static class StickerMapper
     {
         public static Sticker Map(this StickerDto dto, string stickerType) =>
-            new Sticker(Enum.Parse<StickerType>(stickerType, ignoreCase: true),
-                        dto.Title!,
-                        dto.ItemsCount,
-                        dto.Image!);
+            new Sticker(
+                Enum.Parse<StickerType>(stickerType, ignoreCase: true),
+                dto.Title!,
+                dto.ItemsCount,
+                dto.Image!);
 
         public static Sticker[] Map(this Dictionary<string, StickerDto> stickers)
         {

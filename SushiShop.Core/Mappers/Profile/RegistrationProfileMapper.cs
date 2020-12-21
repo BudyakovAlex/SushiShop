@@ -7,8 +7,9 @@ namespace SushiShop.Core.Mappers.Profile
     {
         public static RegistrationProfile Map(this ProfileRegistrationDto registrationProfileDto)
         {
-            return new RegistrationProfile(registrationProfileDto.Message,
-                                           registrationProfileDto.Phone);
+            return new RegistrationProfile(
+                registrationProfileDto.Message,
+                registrationProfileDto.Phone);
         }
     }
 }

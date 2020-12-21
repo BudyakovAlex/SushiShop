@@ -3,13 +3,14 @@ using SushiShop.Core.Data.Models.Profile;
 
 namespace SushiShop.Core.Mappers.Profile
 {
-    public static class AuthProfileMapper
+    public static class AuthorizationMapper
     {
         public static AuthorizationData Map(this AuthorizationDataDto authProfileDto)
         {
-            return new AuthorizationData(authProfileDto.IsValidUser,
-                                   authProfileDto.Token,
-                                   authProfileDto.UserId);
+            return new AuthorizationData(
+                authProfileDto.UserId,
+                authProfileDto.IsValidUser,
+                authProfileDto.Token);
         }
     }
 }

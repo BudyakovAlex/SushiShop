@@ -8,11 +8,12 @@ namespace SushiShop.Core.Mappers.Orders
     {
         public static PickupPoint Map(this PickupPointDto dto)
         {
-            return new PickupPoint(dto.Address,
-                                   dto.Phones,
-                                   dto.WorktimeState,
-                                   dto.Worktime,
-                                   dto.Coordinates?.Map());
+            return new PickupPoint(
+                dto.Address,
+                dto.Phones,
+                dto.WorktimeState,
+                dto.Worktime,
+                dto.Coordinates?.Map());
         }
     }
 }

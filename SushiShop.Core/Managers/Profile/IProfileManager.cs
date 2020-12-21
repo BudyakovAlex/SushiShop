@@ -7,9 +7,9 @@ namespace SushiShop.Core.Managers.Profile
 {
     public interface IProfileManager
     {
-        Task<Response<LoginProfile>> CheckLoginAsync(string login, bool? sendCode);
+        Task<Response<LoginProfile>> CheckIsLoginAvailableAsync(string login, bool? sendCode);
 
-        Task<Response<AuthorizationData>> AuthAsync(string login, string pass);
+        Task<Response<AuthorizationData>> AuthorizeAsync(string login, string pass);
 
         Task<Response<RegistrationProfile>> RegistrationAsync(RegistrationDataDto registrationDataDto);
 
