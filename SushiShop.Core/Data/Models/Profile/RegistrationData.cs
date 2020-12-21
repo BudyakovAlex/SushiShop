@@ -2,7 +2,7 @@
 
 namespace SushiShop.Core.Data.Models.Profile
 {
-    internal class RegistrationData
+    public class RegistrationData
     {
         public RegistrationData(string? email,
                                 string? phone,

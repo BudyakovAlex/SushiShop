@@ -1,8 +1,6 @@
-﻿using SushiShop.Core.Data.Http;
+﻿using SushiShop.Core.Data.Dtos.Profile;
+using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Profile;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.Managers.Profile
@@ -13,7 +11,7 @@ namespace SushiShop.Core.Managers.Profile
 
         Task<Response<AuthProfile>> AuthAsync(string login, string pass);
 
-        Task<Response<RegistrationProfile>> RegistrationAsync(RegistrationData registrationData);
+        Task<Response<RegistrationProfile>> RegistrationAsync(RegistrationDataDto registrationDataDto);
 
         Task<Response<PersonalData>> GetPersonalDataAsync();
 

@@ -3,12 +3,12 @@
     public class LoginProfile
     {
         public LoginProfile(bool authByEmail,
-                     bool authByPhone,
-                     bool isEmail,
-                     bool isPhone,
-                     string? message,
-                     bool needRegistration,
-                     string? phone)
+                            bool authByPhone,
+                            bool isEmail,
+                            bool isPhone,
+                            string? message,
+                            bool needRegistration,
+                            string? phone)
         {
             AuthByEmail = authByEmail;
             AuthByPhone = authByPhone;

@@ -43,7 +43,7 @@ namespace SushiShop.Core.Data.Dtos.Profile
         public bool AllowPush { get; set; }
 
         [JsonProperty("photo")]
-        public ImageInfoDto? AllowSubscribe { get; set; }
+        public ImageInfoDto? Photo { get; set; }
 
         [JsonProperty("userId")]
         public int UserId { get; set; }

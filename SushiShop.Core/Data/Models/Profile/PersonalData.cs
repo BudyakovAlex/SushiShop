@@ -17,7 +17,7 @@ namespace SushiShop.Core.Data.Models.Profile
                             string? phone,
                             bool allowNotification,
                             bool allowPush,
-                            ImageInfo? allowSubscribe,
+                            ImageInfo? photo,
                             int userId)
         {
             DateOfBirth = dateOfBirth;
@@ -32,7 +32,7 @@ namespace SushiShop.Core.Data.Models.Profile
             Phone = phone;
             AllowNotification = allowNotification;
             AllowPush = allowPush;
-            AllowSubscribe = allowSubscribe;
+            Photo = photo;
             UserId = userId;
         }
 
@@ -60,7 +60,7 @@ namespace SushiShop.Core.Data.Models.Profile
 
         public bool AllowPush { get; set; }
 
-        public ImageInfo? AllowSubscribe { get; set; }
+        public ImageInfo? Photo { get; set; }
 
         public int UserId { get; set; }
     }

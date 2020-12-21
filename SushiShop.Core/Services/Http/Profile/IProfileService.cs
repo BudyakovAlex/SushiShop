@@ -11,7 +11,7 @@ namespace SushiShop.Core.Services.Http.Profile
 
         Task<HttpResponse<ResponseDto<AuthProfileDto>>> AuthAsync(string login, string pass, CancellationToken cancellationToken);
                 
-        Task<HttpResponse<ResponseDto<RegistrationProfileDto>>> RegistrationAsync(RegistrationDataDto registrationData, CancellationToken cancellationToken);
+        Task<HttpResponse<ResponseDto<RegistrationProfileDto>>> RegistrationAsync(RegistrationDataDto registrationDataDto, CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<PersonalDataDto>>> GetPersonalDataAsync(CancellationToken cancellationToken);
 
