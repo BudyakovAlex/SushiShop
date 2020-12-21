@@ -5,25 +5,24 @@ namespace SushiShop.Core.Data.Models.Products
 {
     public class Product
     {
-        public Product(
-            long id,
-            Guid? uid,
-            string pageTitle,
-            string? alias,
-            long parent,
-            DateTimeOffset publishDate,
-            DateTimeOffset unpublishDate,
-            string? introText,
-            DateTimeOffset creationDate,
-            ProductParameters? @params,
-            string? priceGroup,
-            Currency currency,
-            long price,
-            long oldPrice,
-            ImageInfo? mainImageInfo,
-            ImageInfo? optionalImageInfo,
-            int countInBasket,
-            bool isRefreshNeeded)
+        public Product(long id,
+                       Guid? uid,
+                       string pageTitle,
+                       string? alias,
+                       long parent,
+                       DateTimeOffset publishDate,
+                       DateTimeOffset unpublishDate,
+                       string? introText,
+                       DateTimeOffset creationDate,
+                       ProductParameters? @params,
+                       string? priceGroup,
+                       Currency currency,
+                       long price,
+                       long oldPrice,
+                       ImageInfo? mainImageInfo,
+                       ImageInfo? optionalImageInfo,
+                       int countInBasket,
+                       bool isRefreshNeeded)
         {
             Id = id;
             Uid = uid;
