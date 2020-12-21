@@ -1,10 +1,10 @@
-﻿using SushiShop.Core.Data.Dtos.Profile;
+﻿using SushiShop.Core.Data.Models.Profile;
 using SushiShop.Core.Data.Http;
-using SushiShop.Core.Data.Models.Profile;
 using SushiShop.Core.Mappers.Profile;
 using SushiShop.Core.Services.Http.Profile;
 using System.Threading;
 using System.Threading.Tasks;
+using SushiShop.Core.Data.Dtos.Profile;
 
 namespace SushiShop.Core.Managers.Profile
 {
@@ -17,16 +17,16 @@ namespace SushiShop.Core.Managers.Profile
             this.profileService = profileService;
         }
 
-        public async Task<Response<LoginProfile>> CheckIsLoginAvailableAsync(string login, bool? sendCode)
+        public async Task<Response<Data.Models.Profile.Profile>> CheckIsLoginAvailableAsync(string login, bool? sendCode)
         {
             var response = await profileService.CheckIsLoginAvailableAsync(login, sendCode, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<LoginProfile>(isSuccessful: true, data);
+                return new Response<Data.Models.Profile.Profile>(isSuccessful: true, data);
             }
 
-            return new Response<LoginProfile>(isSuccessful: false, null);
+            return new Response<Data.Models.Profile.Profile>(isSuccessful: false, null);
         }
 
         public async Task<Response<AuthorizationData>> AuthorizeAsync(string login, string pass)
@@ -41,16 +41,16 @@ namespace SushiShop.Core.Managers.Profile
             return new Response<AuthorizationData>(isSuccessful: false, null);
         }
 
-        public async Task<Response<RegistrationProfile>> RegistrationAsync(RegistrationDataDto registrationDataDto)
+        public async Task<Response<ProfileRegistration>> RegistrationAsync(ProfileDto profileDto)
         {
-            var response = await profileService.RegistrationAsync(registrationDataDto, CancellationToken.None);
+            var response = await profileService.RegistrationAsync(profileDto, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<RegistrationProfile>(isSuccessful: true, data);
+                return new Response<ProfileRegistration>(isSuccessful: true, data);
             }
 
-            return new Response<RegistrationProfile>(isSuccessful: false, null);
+            return new Response<ProfileRegistration>(isSuccessful: false, null);
         }
 
         public async Task<Response<PersonalData>> GetPersonalDataAsync()

@@ -9,20 +9,22 @@ namespace SushiShop.Core.Mappers.Profile
         public static PersonalData Map(this PersonalDataDto personalDataDto)
         {
             return new PersonalData(
-                personalDataDto.DateOfBirth,
-                personalDataDto.DateOfBirthFormated,
-                personalDataDto.CanChangeDateOfBirth,
+                personalDataDto.UserId,
                 personalDataDto.Email,
-                personalDataDto.SubscribeSales,
+                personalDataDto.Phone,
+                personalDataDto.DateOfBirth,
                 personalDataDto.FirstName,
                 personalDataDto.LastName,
                 personalDataDto.FullName,
                 personalDataDto.Gender,
-                personalDataDto.Phone,
-                personalDataDto.IsAllowNotification,
+                personalDataDto.IsAllowSubscribe,
+                personalDataDto.IsAllowNotifications,
                 personalDataDto.IsAllowPush,
-                personalDataDto.Photo?.Map(),
-                personalDataDto.UserId);
+                personalDataDto.IsNeedRegistration,
+                personalDataDto.DateOfBirthFormated,
+                personalDataDto.CanChangeDateOfBirth,
+                personalDataDto.SubscribeSales,
+                personalDataDto.Photo?.Map());
         }
     }
 }

@@ -1,20 +1,22 @@
 ﻿using SushiShop.Core.Data.Enums;
+using System;
 
 namespace SushiShop.Core.Data.Models.Profile
 {
-    public class RegistrationData
+    public class Profile
     {
-        public RegistrationData(
+        public Profile(
             string? email,
             string? phone,
-            string? dateOfBirth,
+            DateTime dateOfBirth,
             string? firstName,
             string? lastName,
             string? fullName,
             GenderType? gender,
-            bool allowSubscribe,
-            bool allowNotificarions,
-            bool allowPush)
+            bool isAllowSubscribe,
+            bool isAllowNotifications,
+            bool isAllowPush,
+            bool isNeedRegistration)
         {
             Email = email;
             Phone = phone;
@@ -23,16 +25,17 @@ namespace SushiShop.Core.Data.Models.Profile
             LastName = lastName;
             FullName = fullName;
             Gender = gender;
-            AllowSubscribe = allowSubscribe;
-            AllowNotificarions = allowNotificarions;
-            AllowPush = allowPush;
+            IsAllowSubscribe = isAllowSubscribe;
+            IsAllowNotifications = isAllowNotifications;
+            IsAllowPush = isAllowPush;
+            IsNeedRegistration = isNeedRegistration;
         }
 
         public string? Email { get; set; }
 
         public string? Phone { get; set; }
 
-        public string? DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         public string? FirstName { get; set; }
 
@@ -42,10 +45,12 @@ namespace SushiShop.Core.Data.Models.Profile
 
         public GenderType? Gender { get; set; }
 
-        public bool AllowSubscribe { get; set; }
+        public bool IsAllowSubscribe { get; set; }
 
-        public bool AllowNotificarions { get; set; }
+        public bool IsAllowNotifications { get; set; }
 
-        public bool AllowPush { get; set; }
+        public bool IsAllowPush { get; set; }
+
+        public bool IsNeedRegistration { get; set; }
     }
 }

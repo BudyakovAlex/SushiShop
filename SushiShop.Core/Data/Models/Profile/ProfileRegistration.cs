@@ -1,8 +1,8 @@
 ﻿namespace SushiShop.Core.Data.Models.Profile
 {
-    public class RegistrationProfile
+    public class ProfileRegistration
     {
-        public RegistrationProfile(string? message, string? phone)
+        public ProfileRegistration(string? message, string? phone)
         {
             Message = message;
             Phone = phone;

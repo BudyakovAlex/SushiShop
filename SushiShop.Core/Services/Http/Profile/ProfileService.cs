@@ -16,10 +16,10 @@ namespace SushiShop.Core.Services.Http.Profile
             this.httpService = httpService;
         }
 
-        public Task<HttpResponse<ResponseDto<LoginProfileDto>>> CheckIsLoginAvailableAsync(string login, bool? sendCode, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ProfileDto>>> CheckIsLoginAvailableAsync(string login, bool? sendCode, CancellationToken cancellationToken)
         {
             var body = new { Login = login, SendCode = sendCode };
-            return httpService.ExecuteAsync<ResponseDto<LoginProfileDto>>(
+            return httpService.ExecuteAsync<ResponseDto<ProfileDto>>(
                 Method.Post,
                 Constants.Rest.ProfileCheckLogin,
                 body,
@@ -36,12 +36,12 @@ namespace SushiShop.Core.Services.Http.Profile
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<ProfileRegistrationDto>>> RegistrationAsync(RegistrationDataDto registrationDataDto, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ProfileRegistrationDto>>> RegistrationAsync(ProfileDto profileDto, CancellationToken cancellationToken)
         {
             return httpService.ExecuteAsync<ResponseDto<ProfileRegistrationDto>>(
                 Method.Post,
                 Constants.Rest.ProfileRegistration,
-                registrationDataDto,
+                profileDto,
                 cancellationToken);
         }
 

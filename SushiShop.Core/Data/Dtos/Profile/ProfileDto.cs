@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
 using SushiShop.Core.Data.Enums;
+using System;
 
 namespace SushiShop.Core.Data.Dtos.Profile
 {
-    public class RegistrationDataDto
+    public class ProfileDto
     {
         [JsonProperty("email")]
         public string? Email { get; set; }
@@ -12,7 +13,7 @@ namespace SushiShop.Core.Data.Dtos.Profile
         public string? Phone { get; set; }
 
         [JsonProperty("dateOfBirth")]
-        public string? DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [JsonProperty("firstName")]
         public string? FirstName { get; set; }
@@ -29,10 +30,13 @@ namespace SushiShop.Core.Data.Dtos.Profile
         [JsonProperty("allowSubscribe")]
         public bool IsAllowSubscribe { get; set; }
 
-        [JsonProperty("allowNotificarions")]
-        public bool IsAllowNotificarions { get; set; }
+        [JsonProperty("allowNotifications")]
+        public bool IsAllowNotifications { get; set; }
 
         [JsonProperty("allowPush")]
         public bool IsAllowPush { get; set; }
+
+        [JsonProperty("needRegistration")]
+        public bool IsNeedRegistration { get; set; }
     }
 }
