@@ -1,13 +1,16 @@
-﻿using BuildApps.Core.Mobile.Common.Extensions;
+﻿using System;
+using BuildApps.Core.Mobile.Common.Extensions;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Models.Cities;
-using System;
+using SushiShop.Core.Data.Models.Profile;
 using Xamarin.Essentials;
 
 namespace SushiShop.Core.Providers
 {
     public class UserSession : IUserSession
     {
+        private Token? token;
+
         public Guid GetCartId()
         {
             var defaultGuid = Guid.NewGuid();
@@ -42,6 +45,33 @@ namespace SushiShop.Core.Providers
         {
             var cityJson = Json.Serialize(city);
             Preferences.Set(Constants.Menu.PreferencesCityKey, cityJson);
+        }
+
+        public Token? GetToken()
+        {
+            if (token is null)
+            {
+                return null;
+            }
+
+            var value = Preferences.Get(Constants.Preferences.TokenKey, null);
+            if (value is null)
+            {
+                return null;
+            }
+
+            var newToken = Json.ForceDeserialize<Token>(value);
+            token = newToken;
+
+            return newToken;
+        }
+
+        public void SetToken(Token token)
+        {
+            this.token = token;
+
+            var value = Json.Serialize(token);
+            Preferences.Set(Constants.Preferences.TokenKey, value);
         }
     }
 }

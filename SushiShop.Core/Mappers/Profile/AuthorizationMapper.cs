@@ -10,7 +10,7 @@ namespace SushiShop.Core.Mappers.Profile
             return new AuthorizationData(
                 authProfileDto.UserId,
                 authProfileDto.IsValidUser,
-                authProfileDto.Token);
+                authProfileDto.Token?.Map());
         }
     }
 }

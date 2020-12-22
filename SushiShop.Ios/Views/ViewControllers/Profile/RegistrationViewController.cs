@@ -54,7 +54,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             bindingSet.Bind(backButton).For(v => v.BindTap()).To(vm => vm.CloseCommand);
             bindingSet.Bind(RegisterButton).For(v => v.BindTap()).To(vm => vm.RegisterCommand);
-            bindingSet.Bind(NameTextField).For(v => v.Text).To(vm => vm.Name);
+            bindingSet.Bind(NameTextField).For(v => v.Text).To(vm => vm.FullName);
             bindingSet.Bind(DateOfBirthTextField).For(v => v.Text).To(vm => vm.DateOfBirth);
             bindingSet.Bind(PhoneTextField).For(v => v.Text).To(vm => vm.Phone);
             bindingSet.Bind(EmailTextField).For(v => v.Text).To(vm => vm.Email);

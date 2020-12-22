@@ -8,6 +8,9 @@ namespace SushiShop.Core.Common
         public static string Serialize<T>(T value) =>
             JsonConvert.SerializeObject(value);
 
+        public static T ForceDeserialize<T>(string value) =>
+            JsonConvert.DeserializeObject<T>(value);
+
         public static (T? data, Exception? exception) Deserialize<T>(string? value)
             where T : class
         {
