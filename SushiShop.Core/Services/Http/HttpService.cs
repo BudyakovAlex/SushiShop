@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Http;
+using SushiShop.Core.Providers;
 
 namespace SushiShop.Core.Services.Http
 {
@@ -12,19 +13,36 @@ namespace SushiShop.Core.Services.Http
     {
         private const string BaseUrl = "https://sushishop.ru/api/";
 
+        private readonly IUserSession userSession;
         private readonly HttpClient client;
 
-        public HttpService()
+        public HttpService(IUserSession userSession)
         {
+            this.userSession = userSession;
+
             client = new HttpClient();
             client.BaseAddress = new Uri(BaseUrl);
             client.Timeout = TimeSpan.FromMinutes(5);
         }
 
-        public async Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, object body, string[]? files, CancellationToken cancellationToken) where T : class
+        public Task<HttpResponse<T>> ExecuteAnonymouslyAsync<T>(Method method, string url, object? content, CancellationToken cancellationToken) where T : class
+        {
+            var request = CreateRequestMessage(method, url, content);
+            return ExecuteAsync<T>(request, cancellationToken);
+        }
+
+        public Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, object? content, CancellationToken cancellationToken) where T : class
+        {
+            var request = CreateRequestMessage(method, url, content);
+            AddTokenIfPossible(request);
+
+            return ExecuteAsync<T>(request, cancellationToken);
+        }
+
+        public Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, object body, string[]? files, CancellationToken cancellationToken) where T : class
         {
             var content = Json.Serialize(body);
-            var multiprtContent = new MultipartContent
+            var multipartContent = new MultipartContent
             {
                 new StringContent(content)
             };
@@ -34,7 +52,7 @@ namespace SushiShop.Core.Services.Http
                 foreach (var file in files)
                 {
                     using var fs = new FileStream(file, FileMode.Open, FileAccess.Read);
-                    multiprtContent.Add(new StreamContent(fs));
+                    multipartContent.Add(new StreamContent(fs));
                 }
             }
 
@@ -43,43 +61,14 @@ namespace SushiShop.Core.Services.Http
                 Content = new StringContent(content)
             };
 
+            return ExecuteAsync<T>(request, cancellationToken);
+        }
+
+        private async Task<HttpResponse<T>> ExecuteAsync<T>(HttpRequestMessage request, CancellationToken cancellationToken)
+            where T : class
+        {
             var response = await ExecuteAsync(request, cancellationToken);
             return Deserialize<T>(response);
-        }
-
-        public async Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, string content, CancellationToken cancellationToken) where T : class
-        {
-            var response = await ExecuteAsync(method, url, content, cancellationToken);
-            return Deserialize<T>(response);
-        }
-
-        public async Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, object body, CancellationToken cancellationToken) where T : class
-        {
-            var content = Json.Serialize(body);
-            var response = await ExecuteAsync(method, url, content, cancellationToken);
-            return Deserialize<T>(response);
-        }
-
-        public async Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, CancellationToken cancellationToken) where T : class
-        {
-            var response = await ExecuteAsync(method, url, cancellationToken);
-            return Deserialize<T>(response);
-        }
-
-        public Task<HttpResponse> ExecuteAsync(Method method, string url, string content, CancellationToken cancellationToken)
-        {
-            var request = new HttpRequestMessage(ToHttpMethod(method), url)
-            {
-                Content = new StringContent(content)
-            };
-
-            return ExecuteAsync(request, cancellationToken);
-        }
-
-        public Task<HttpResponse> ExecuteAsync(Method method, string url, CancellationToken cancellationToken)
-        {
-            var request = new HttpRequestMessage(ToHttpMethod(method), url);
-            return ExecuteAsync(request, cancellationToken);
         }
 
         private async Task<HttpResponse> ExecuteAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -134,6 +123,35 @@ namespace SushiShop.Core.Services.Http
                 default:
                     return HttpResponse<T>.Error(response.Exception, response.StatusCode);
             }
+        }
+
+        private void AddTokenIfPossible(HttpRequestMessage requestMessage)
+        {
+            var token = userSession.GetToken();
+            if (token != null)
+            {
+                requestMessage.Headers.Add(token.Header, $"{token.HeaderPreffix}{token.AccessToken}");
+            }
+        }
+
+        private HttpRequestMessage CreateRequestMessage(Method method, string url, object? content)
+        {
+            var httpMethod = ToHttpMethod(method);
+            var request = new HttpRequestMessage(httpMethod, url);
+
+            switch (content)
+            {
+                case string str:
+                    request.Content = new StringContent(str);
+                    break;
+
+                case object obj:
+                    var value = Json.Serialize(obj);
+                    request.Content = new StringContent(value);
+                    break;
+            }
+
+            return request;
         }
 
         private HttpMethod ToHttpMethod(Method method) => method switch

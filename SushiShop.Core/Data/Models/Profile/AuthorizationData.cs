@@ -1,20 +1,18 @@
-﻿using SushiShop.Core.Data.Dtos.Profile;
-
-namespace SushiShop.Core.Data.Models.Profile
+﻿namespace SushiShop.Core.Data.Models.Profile
 {
     public class AuthorizationData
     {
-        public AuthorizationData(int userId, bool isValidUser, TokenDto? token)
+        public AuthorizationData(int userId, bool isValidUser, Token? token)
         {
             UserId = userId;
             IsValidUser = isValidUser;
             Token = token;
         }
 
-        public int UserId { get; set; }
+        public int UserId { get; }
 
-        public bool IsValidUser { get; set; }
+        public bool IsValidUser { get; }
 
-        public TokenDto? Token { get; set; }
+        public Token? Token { get; }
     }
 }

@@ -21,6 +21,7 @@ namespace SushiShop.Core.Services.Http.CommonInfo
             return httpService.ExecuteAsync<ResponseDto<FranchiseDto>>(
                 Method.Post,
                 Constants.Rest.FranchiseResource,
+                null,
                 cancellationToken);
         }
 
@@ -29,6 +30,7 @@ namespace SushiShop.Core.Services.Http.CommonInfo
             return httpService.ExecuteAsync<ResponseDto<VacancyDto>>(
                 Method.Post,
                 Constants.Rest.JobResource,
+                null,
                 cancellationToken);
         }
     }

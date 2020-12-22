@@ -4,7 +4,6 @@ using SushiShop.Core.Common;
 using SushiShop.Core.Data.Dtos.Profile;
 using SushiShop.Core.Data.Http;
 
-
 namespace SushiShop.Core.Services.Http.Profile
 {
     public class ProfileService : IProfileService
@@ -50,6 +49,7 @@ namespace SushiShop.Core.Services.Http.Profile
             return httpService.ExecuteAsync<ResponseDto<PersonalDataDto>>(
                 Method.Post,
                 Constants.Rest.ProfileGetPersonalData,
+                null,
                 cancellationToken);
         }
 
@@ -58,6 +58,7 @@ namespace SushiShop.Core.Services.Http.Profile
             return httpService.ExecuteAsync<ResponseDto<ProfileDiscountDto>>(
                 Method.Post,
                 Constants.Rest.ProfileGetDiscount,
+                null,
                 cancellationToken);
         }
     }
