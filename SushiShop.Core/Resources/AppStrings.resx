@@ -302,5 +302,17 @@
   </data>
   <data name="ReceiveMethod" xml:space="preserve">
     <value>Способ получения</value>
-  </data> 
+  </data>
+  <data name="EnterPhoneOrEmail" xml:space="preserve">
+    <value>Введите телефон или Email</value>
+  </data>
+  <data name="IncorrectData" xml:space="preserve">
+    <value>Неверные данные</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+  </data>
 </root>
