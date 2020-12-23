@@ -2,7 +2,7 @@
 {
     public class AuthorizationData
     {
-        public AuthorizationData(int userId, bool isValidUser, Token? token)
+        public AuthorizationData(int userId, bool isValidUser, Token token)
         {
             UserId = userId;
             IsValidUser = isValidUser;
@@ -13,6 +13,6 @@
 
         public bool IsValidUser { get; }
 
-        public Token? Token { get; }
+        public Token Token { get; }
     }
 }

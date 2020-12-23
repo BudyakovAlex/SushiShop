@@ -11,6 +11,6 @@ namespace SushiShop.Core.Data.Dtos.Profile
         public bool IsValidUser { get; set; }
 
         [JsonProperty("token")]
-        public TokenDto? Token { get; set; }
+        public TokenDto Token { get; set; }
     }
 }
