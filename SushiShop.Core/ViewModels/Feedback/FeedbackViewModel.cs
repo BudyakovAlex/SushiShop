@@ -34,7 +34,7 @@ namespace SushiShop.Core.ViewModels.Feedback
             SendFeedbackCommand = new SafeAsyncCommand(
                 ExecutionStateWrapper,
                 SendFeedbackAsync,
-                () => OrderNumber.IsNotNullNorEmpty() && Question.IsNotNullNorEmpty());
+                () => !IsOrderNumberEmpty && !IsQuestionEmpty);
 
             PickPhotoCommand = new SafeAsyncCommand(new ExecutionStateWrapper(), PickPhotoAsync);
             TakePhotoCommand = new SafeAsyncCommand(new ExecutionStateWrapper(), TakePhotoAsync);
@@ -47,29 +47,65 @@ namespace SushiShop.Core.ViewModels.Feedback
         public MvxObservableCollection<FeedbackPhotoItemViewModel> Photos { get; }
 
         public string Title => AppStrings.Feedback;
-        public string OrderNumberTitle => AppStrings.OrderNumber;
-        public string QuestionTitle => AppStrings.Question;
         public string SendFeedbackTitle => AppStrings.Send;
         public string UploadPhotosTitle => AppStrings.UploadPhotos;
 
         public bool HasPhotos => Photos.IsNotEmpty();
 
+        public string OrderNumberPlaceholder => IsOrderNumberEmpty ? $"{AppStrings.OrderNumber}*" : AppStrings.OrderNumber;
+
+        public string QuestionPlaceholder => IsQuestionEmpty ? $"{AppStrings.Question}*" : AppStrings.Question;
+
         private string? orderNumber;
         public string? OrderNumber
         {
             get => orderNumber;
-            set => SetProperty(ref orderNumber, value, SendFeedbackCommand.RaiseCanExecuteChanged);
+            set => SetProperty(ref orderNumber, value, () => IsOrderNumberEmpty = string.IsNullOrEmpty(orderNumber));
         }
 
         private string? question;
         public string? Question
         {
             get => question;
-            set => SetProperty(ref question, value, SendFeedbackCommand.RaiseCanExecuteChanged);
+            set => SetProperty(ref question, value, () => IsQuestionEmpty = string.IsNullOrEmpty(question));
         }
 
         private IMvxAsyncCommand PickPhotoCommand { get; }
         private IMvxAsyncCommand TakePhotoCommand { get; }
+
+        private bool isOrderNumberEmpty = true;
+        private bool IsOrderNumberEmpty
+        {
+            get => isOrderNumberEmpty;
+            set
+            {
+                if (isOrderNumberEmpty == value)
+                {
+                    return;
+                }
+
+                isOrderNumberEmpty = value;
+                RaisePropertyChanged(nameof(OrderNumberPlaceholder));
+                SendFeedbackCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        private bool isQuestionEmpty = true;
+        private bool IsQuestionEmpty
+        {
+            get => isQuestionEmpty;
+            set
+            {
+                if (isQuestionEmpty == value)
+                {
+                    return;
+                }
+
+                isQuestionEmpty = value;
+                RaisePropertyChanged(nameof(QuestionPlaceholder));
+                SendFeedbackCommand.RaiseCanExecuteChanged();
+            }
+        }
 
         private async Task SendFeedbackAsync()
         {

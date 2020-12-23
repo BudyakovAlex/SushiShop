@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +23,7 @@
                 <outlet property="OrderNumberTextField" destination="uqJ-mG-ZEw" id="LaU-3L-7aW"/>
                 <outlet property="PhotosCollectionView" destination="fU1-jB-WHs" id="ZwR-CT-IxI"/>
                 <outlet property="PhotosCollectionViewHeightConstraint" destination="IxK-dY-n7q" id="POp-Bk-wN3"/>
-                <outlet property="QuestionTextField" destination="cpc-Tn-Avs" id="hVf-ov-fLo"/>
+                <outlet property="QuestionTextView" destination="BjQ-HP-P1m" id="3sZ-5a-AYn"/>
                 <outlet property="ScrollView" destination="DT3-HS-0TG" id="C2N-Yb-gHd"/>
                 <outlet property="ScrollViewBottomConstraint" destination="ZM0-oC-Rmz" id="GnN-6C-o92"/>
                 <outlet property="SendButton" destination="mDh-vN-uFg" id="yYB-GA-EKU"/>
@@ -41,7 +41,7 @@
                     <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBz-eM-M2Y">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="178"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="168.5"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uqJ-mG-ZEw" customClass="FloatingTextField">
                                     <rect key="frame" x="16" y="16" width="382" height="21"/>
@@ -49,21 +49,22 @@
                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpc-Tn-Avs" customClass="FloatingTextField">
-                                    <rect key="frame" x="16" y="67" width="382" height="21"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BjQ-HP-P1m" customClass="FloatingTextView">
+                                    <rect key="frame" x="16" y="61" width="382" height="35.5"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <color key="textColor" red="0.14117647058823529" green="0.14509803921568626" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3W-KA-5io">
-                                    <rect key="frame" x="0.0" y="118" width="414" height="10"/>
+                                    <rect key="frame" x="0.0" y="108.5" width="414" height="10"/>
                                     <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="FhG-Xz-h6c"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zs4-fg-Irf">
-                                    <rect key="frame" x="0.0" y="128" width="414" height="50"/>
+                                    <rect key="frame" x="0.0" y="118.5" width="414" height="50"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" text="Загрузить фотографии" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjf-k9-Fcd">
                                             <rect key="frame" x="16" y="15" width="360.5" height="20"/>
@@ -96,7 +97,7 @@
                                     </constraints>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fU1-jB-WHs">
-                                    <rect key="frame" x="0.0" y="178" width="414" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="168.5" width="414" height="0.0"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" id="IxK-dY-n7q"/>
@@ -111,19 +112,19 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="cpc-Tn-Avs" secondAttribute="trailing" constant="16" id="8MK-CX-9wy"/>
-                                <constraint firstItem="Y3W-KA-5io" firstAttribute="top" secondItem="cpc-Tn-Avs" secondAttribute="bottom" constant="30" id="GFu-vc-O9C"/>
                                 <constraint firstItem="fU1-jB-WHs" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" id="JIC-Gt-oco"/>
                                 <constraint firstAttribute="trailing" secondItem="fU1-jB-WHs" secondAttribute="trailing" id="LWG-xk-aAq"/>
                                 <constraint firstItem="zs4-fg-Irf" firstAttribute="top" secondItem="Y3W-KA-5io" secondAttribute="bottom" id="PqN-L1-Gar"/>
                                 <constraint firstItem="uqJ-mG-ZEw" firstAttribute="top" secondItem="bBz-eM-M2Y" secondAttribute="top" constant="16" id="Qwa-Ed-7cK"/>
                                 <constraint firstAttribute="trailing" secondItem="zs4-fg-Irf" secondAttribute="trailing" id="SaZ-fI-0Tc"/>
-                                <constraint firstItem="cpc-Tn-Avs" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" constant="16" id="VBM-Gq-fUt"/>
-                                <constraint firstItem="cpc-Tn-Avs" firstAttribute="top" secondItem="uqJ-mG-ZEw" secondAttribute="bottom" constant="30" id="Yol-up-C2b"/>
+                                <constraint firstItem="BjQ-HP-P1m" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" constant="16" id="Thw-ag-0Tp"/>
+                                <constraint firstItem="Y3W-KA-5io" firstAttribute="top" secondItem="BjQ-HP-P1m" secondAttribute="bottom" constant="12" id="UEd-aK-nlu"/>
                                 <constraint firstAttribute="trailing" secondItem="uqJ-mG-ZEw" secondAttribute="trailing" constant="16" id="bIn-kK-j1u"/>
                                 <constraint firstItem="fU1-jB-WHs" firstAttribute="top" secondItem="zs4-fg-Irf" secondAttribute="bottom" id="bRu-TI-K27"/>
                                 <constraint firstAttribute="trailing" secondItem="Y3W-KA-5io" secondAttribute="trailing" id="eAv-UT-yIc"/>
                                 <constraint firstItem="zs4-fg-Irf" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" id="f4t-Ta-SUV"/>
+                                <constraint firstAttribute="trailing" secondItem="BjQ-HP-P1m" secondAttribute="trailing" constant="16" id="idk-Nr-yzb"/>
+                                <constraint firstItem="BjQ-HP-P1m" firstAttribute="top" secondItem="uqJ-mG-ZEw" secondAttribute="bottom" constant="24" id="m4n-qg-f1u"/>
                                 <constraint firstItem="uqJ-mG-ZEw" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" constant="16" id="mfG-IK-GcN"/>
                                 <constraint firstAttribute="bottom" secondItem="fU1-jB-WHs" secondAttribute="bottom" id="o7R-IP-R5F"/>
                                 <constraint firstItem="Y3W-KA-5io" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" id="yXi-nC-iw2"/>

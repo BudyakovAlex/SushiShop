@@ -25,7 +25,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 		UIKit.NSLayoutConstraint PhotosCollectionViewHeightConstraint { get; set; }
 
 		[Outlet]
-		SushiShop.Ios.Views.Controls.FloatingTextField QuestionTextField { get; set; }
+		SushiShop.Ios.Views.Controls.FloatingTextView QuestionTextView { get; set; }
 
 		[Outlet]
 		UIKit.UIScrollView ScrollView { get; set; }
@@ -64,9 +64,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 				PhotosCollectionViewHeightConstraint = null;
 			}
 
-			if (QuestionTextField != null) {
-				QuestionTextField.Dispose ();
-				QuestionTextField = null;
+			if (QuestionTextView != null) {
+				QuestionTextView.Dispose ();
+				QuestionTextView = null;
 			}
 
 			if (ScrollView != null) {
