@@ -5,7 +5,6 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Managers.Profile;
-using SushiShop.Core.NavigationParameters;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -122,10 +121,7 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            await RefreshDataAsync();
-
-            var navigationParameters = new RegistrationNavigationParameters(response.Data.Phone);
-            await NavigationManager.NavigateAsync<ConfirmCodeViewModel, RegistrationNavigationParameters>(navigationParameters);
+            await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string>(Phone!);
         }
 
         private Task ShowPrivacyPolicyAsync()

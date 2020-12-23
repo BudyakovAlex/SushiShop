@@ -4,13 +4,12 @@ using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Managers.Profile;
-using SushiShop.Core.NavigationParameters;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
-    public class ConfirmCodeViewModel : BasePageViewModel<RegistrationNavigationParameters>
+    public class ConfirmCodeViewModel : BasePageViewModel<string>
     {
         private readonly IProfileManager profileManager;
         private readonly IUserDialogs userDialogs;
@@ -36,9 +35,9 @@ namespace SushiShop.Core.ViewModels.Profile
 
         public IMvxCommand ContinueCommand { get; }
 
-        public override void Prepare(RegistrationNavigationParameters parameter)
+        public override void Prepare(string parameter)
         {
-            login = parameter.Login;
+            login = parameter;
         }
 
         private async Task ContinueAsync()

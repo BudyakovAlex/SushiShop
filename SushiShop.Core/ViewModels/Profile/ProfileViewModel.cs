@@ -8,6 +8,7 @@ using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Core.ViewModels.Orders;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,11 +18,16 @@ namespace SushiShop.Core.ViewModels.Profile
     {
         private readonly IProfileManager profileManager;
         private readonly IUserSession userSession;
+        private readonly IUserDialogs userDialogs;
 
-        public ProfileViewModel(IProfileManager profileManager, IUserSession userSession)
+        public ProfileViewModel(
+            IProfileManager profileManager,
+            IUserSession userSession,
+            IUserDialogs userDialogs)
         {
             this.profileManager = profileManager;
             this.userSession = userSession;
+            this.userDialogs = userDialogs;
 
             LogoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, LogoutAsync);
             ShowEditProfileCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowEditProfileAsync);
@@ -29,6 +35,15 @@ namespace SushiShop.Core.ViewModels.Profile
             ShowFeedbackCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowFeedbackAsync);
             ShowBonusProgramCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowBonusProgramAsync);
             ChooseNewImageCommand = new SafeAsyncCommand(ExecutionStateWrapper, ChooseNewImageAsync);
+            LoginCommand = new SafeAsyncCommand(ExecutionStateWrapper, LoginAsync, () => PhoneOrEmail.IsNotNullNorEmpty());
+            RegisterCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegisterAsync);
+        }
+
+        private string? phoneOrEmail;
+        public string? PhoneOrEmail
+        {
+            get => phoneOrEmail;
+            set => SetProperty(ref phoneOrEmail, value, LoginCommand.RaiseCanExecuteChanged);
         }
 
         private string? login;
@@ -38,11 +53,11 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref login, value);
         }
 
-        private bool isLogged;
-        public bool IsLogged
+        private bool isAuthorized;
+        public bool IsAuthorized
         {
-            get => isLogged;
-            set => SetProperty(ref isLogged, value);
+            get => isAuthorized;
+            set => SetProperty(ref isAuthorized, value);
         }
 
         private string? avatar;
@@ -78,11 +93,19 @@ namespace SushiShop.Core.ViewModels.Profile
 
         public IMvxCommand ChooseNewImageCommand { get; }
 
+        public IMvxCommand LoginCommand { get; }
+
+        public IMvxCommand RegisterCommand { get; }
+
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
 
-            _ = RefreshDataAsync();
+            var token = userSession.GetToken();
+            var isUserAuthorized = token != null && token.ExpiresAt > DateTime.Now;
+            IsAuthorized = isUserAuthorized;
+
+            _ = SafeExecutionWrapper.WrapAsync(RefreshDataAsync);
         }
 
         protected override async Task RefreshDataAsync()
@@ -112,7 +135,7 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task LogoutAsync()
         {
-            IsLogged = false;
+            IsAuthorized = false;
 
             var confirmationTask = UserDialogs.Instance.ConfirmAsync(string.Empty, AppStrings.SignOutOfYourProfile, okText: AppStrings.No, cancelText: AppStrings.Yes);
             await Task.WhenAll(confirmationTask);
@@ -156,6 +179,29 @@ namespace SushiShop.Core.ViewModels.Profile
         private Task ChooseNewImageAsync()
         {
             return Task.CompletedTask;
+        }
+
+        private async Task LoginAsync()
+        {
+            var response = await profileManager.CheckIsLoginAvailableAsync(PhoneOrEmail, null);
+            if (response.Data is null)
+            {
+                var error = response.Errors.FirstOrDefault();
+                if (error.IsNullOrEmpty())
+                {
+                    return;
+                }
+
+                await userDialogs.AlertAsync(error);
+                return;
+            }
+
+            await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string>(PhoneOrEmail!);
+        }
+
+        private Task RegisterAsync()
+        {
+            return NavigationManager.NavigateAsync<RegistrationViewModel>();
         }
     }
 }
