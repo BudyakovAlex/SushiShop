@@ -9,8 +9,8 @@ using System.CodeDom.Compiler;
 
 namespace SushiShop.Ios.Views.ViewControllers.Profile
 {
-	[Register ("AcceptPhoneViewController")]
-	partial class AcceptPhoneViewController
+	[Register ("ConfirmCodeViewController")]
+	partial class ConfirmCodeViewController
 	{
 		[Outlet]
 		SushiShop.Ios.Views.Controls.FloatingTextField CodeTextField { get; set; }

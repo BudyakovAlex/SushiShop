@@ -9,8 +9,8 @@ using System.CodeDom.Compiler;
 
 namespace SushiShop.Ios.Views.ViewControllers.Profile
 {
-	[Register ("PersonalDataViewController")]
-	partial class PersonalDataViewController
+	[Register ("EditProfileViewController")]
+	partial class EditProfileViewController
 	{
 		[Outlet]
 		SushiShop.Ios.Views.Controls.FloatingTextField DateOfBirdthtextField { get; set; }

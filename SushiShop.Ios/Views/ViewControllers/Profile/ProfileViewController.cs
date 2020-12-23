@@ -51,7 +51,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(MyOrdersView).For(v => v.BindTap()).To(vm => vm.ShowMyOrdersCommand);
             bindingSet.Bind(FeedbackView).For(v => v.BindTap()).To(vm => vm.ShowFeedbackCommand);
             bindingSet.Bind(UserImage).For(v => v.BindTap()).To(vm => vm.ChooseNewImageCommand);
-            bindingSet.Bind(UserNameLabel).For(v => v.Text).To(vm => vm.UserName);
+            bindingSet.Bind(UserNameLabel).For(v => v.Text).To(vm => vm.Login);
             bindingSet.Bind(ScoreButton.TitleLabel).For(v => v.Text).To(vm => vm.Score);
 
             bindingSet.Apply();

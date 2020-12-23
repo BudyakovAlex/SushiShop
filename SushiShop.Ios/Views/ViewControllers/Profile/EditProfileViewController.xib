@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonalDataViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditProfileViewController">
             <connections>
                 <outlet property="DateOfBirdthtextField" destination="rGn-TT-uqB" id="hSC-Vs-AQt"/>
                 <outlet property="EmailTextField" destination="HRy-cc-tiA" id="ojt-3Z-MAK"/>

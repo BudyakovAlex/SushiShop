@@ -13,7 +13,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
         WrapInNavigationController = true,
         Animated = true,
         ModalPresentationStyle = UIModalPresentationStyle.OverFullScreen)]
-    public partial class AcceptPhoneViewController : BaseViewController<ConfirmCodeViewModel>
+    public partial class ConfirmCodeViewController : BaseViewController<ConfirmCodeViewModel>
     {
         private UIButton backButton;
 

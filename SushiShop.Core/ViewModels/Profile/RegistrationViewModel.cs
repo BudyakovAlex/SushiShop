@@ -87,9 +87,9 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task RegisterAsync()
         {
-            if (FullName.IsNullOrEmpty() &&
-                DateOfBirth.Equals(default) &&
-                Phone.IsNullOrEmpty() &&
+            if (FullName.IsNullOrEmpty() ||
+                DateOfBirth.Equals(default) ||
+                Phone.IsNullOrEmpty() ||
                 Email.IsNullOrEmpty())
             {
                 return;

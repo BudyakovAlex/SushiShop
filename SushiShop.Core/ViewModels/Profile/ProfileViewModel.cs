@@ -36,7 +36,7 @@ namespace SushiShop.Core.ViewModels.Profile
             ShowBonusProgramCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowBonusProgramAsync);
             ChooseNewImageCommand = new SafeAsyncCommand(ExecutionStateWrapper, ChooseNewImageAsync);
             LoginCommand = new SafeAsyncCommand(ExecutionStateWrapper, LoginAsync, () => PhoneOrEmail.IsNotNullNorEmpty());
-            RegisterCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegisterAsync);
+            RegistrationCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegistrationAsync);
         }
 
         private string? phoneOrEmail;
@@ -95,7 +95,7 @@ namespace SushiShop.Core.ViewModels.Profile
 
         public IMvxCommand LoginCommand { get; }
 
-        public IMvxCommand RegisterCommand { get; }
+        public IMvxCommand RegistrationCommand { get; }
 
         public override async Task InitializeAsync()
         {
@@ -199,7 +199,7 @@ namespace SushiShop.Core.ViewModels.Profile
             await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string>(PhoneOrEmail!);
         }
 
-        private Task RegisterAsync()
+        private Task RegistrationAsync()
         {
             return NavigationManager.NavigateAsync<RegistrationViewModel>();
         }
