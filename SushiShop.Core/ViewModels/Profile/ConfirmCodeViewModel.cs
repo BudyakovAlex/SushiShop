@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
-    public class ConfirmCodeViewModel : BasePageViewModel<string>
+    public class ConfirmCodeViewModel : BasePageViewModel<string, bool>
     {
         private readonly IProfileManager profileManager;
         private readonly IUserDialogs userDialogs;
@@ -54,8 +54,8 @@ namespace SushiShop.Core.ViewModels.Profile
                 await userDialogs.AlertAsync(error);
                 return;
             }
-            
-            await NavigationManager.NavigateAsync<ProfileViewModel>();
+
+            await NavigationManager.CloseAsync(this, true);
         }
     }
 }

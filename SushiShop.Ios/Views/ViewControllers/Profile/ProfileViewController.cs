@@ -42,7 +42,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             bindingSet.Bind(LoginButton).For(v => v.BindTap()).To(vm => vm.LoginCommand);
             bindingSet.Bind(RegisterButton).For(v => v.BindTap()).To(vm => vm.RegistrationCommand);
-            bindingSet.Bind(EmailLoginTextField).For(v => v.Text).To(vm => vm.Login);
+            bindingSet.Bind(EmailLoginTextField).For(v => v.Text).To(vm => vm.PhoneOrEmail);
             bindingSet.Bind(logoutButton).For(v => v.BindTap()).To(vm => vm.LogoutCommand);
             bindingSet.Bind(logoutButton).For(v => v.BindVisible()).To(vm => vm.IsAuthorized);
             bindingSet.Bind(ProfileView).For(v => v.BindVisible()).To(vm => vm.IsAuthorized);

@@ -101,16 +101,20 @@ namespace SushiShop.Core.ViewModels.Profile
         {
             await base.InitializeAsync();
 
-            var token = userSession.GetToken();
-            var isUserAuthorized = token != null && token.ExpiresAt > DateTime.Now;
-            IsAuthorized = isUserAuthorized;
-
             _ = SafeExecutionWrapper.WrapAsync(RefreshDataAsync);
         }
 
         protected override async Task RefreshDataAsync()
         {
             await base.RefreshDataAsync();
+
+            var token = userSession.GetToken();
+            var isUserAuthorized = token != null && token.ExpiresAt > DateTime.Now;
+            IsAuthorized = isUserAuthorized;
+            if (!IsAuthorized)
+            {
+                return;
+            }
 
             var getDiscountTask = profileManager.GetDiscountAsync();
             var getProfileTask = profileManager.GetProfileAsync();
@@ -196,12 +200,24 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string>(PhoneOrEmail!);
+            var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string>(PhoneOrEmail!);
+            if (!isConfirmed)
+            {
+                return;
+            }
+
+            await RefreshDataAsync();
         }
 
-        private Task RegistrationAsync()
+        private async Task RegistrationAsync()
         {
-            return NavigationManager.NavigateAsync<RegistrationViewModel>();
+            var isRegistered = await NavigationManager.NavigateAsync<RegistrationViewModel>();
+            if (!isRegistered)
+            {
+                return;
+            }
+
+            await RefreshDataAsync();
         }
     }
 }

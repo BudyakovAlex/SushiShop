@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
-    public class RegistrationViewModel : BasePageViewModel
+    public class RegistrationViewModel : BasePageViewModelResult<bool>
     {
         private readonly IProfileManager profileManager;
         private readonly IUserDialogs userDialogs;
@@ -121,7 +121,13 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string>(Phone!);
+            var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string>(Phone!);
+            if (!isConfirmed)
+            {
+                return;
+            }
+
+            await NavigationManager.CloseAsync(this, true);
         }
 
         private Task ShowPrivacyPolicyAsync()
