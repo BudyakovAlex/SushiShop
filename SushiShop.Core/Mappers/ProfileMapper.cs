@@ -1,14 +1,13 @@
 ﻿using SushiShop.Core.Data.Dtos.Profile;
 using SushiShop.Core.Data.Models.Profile;
-using Model = SushiShop.Core.Data.Models.Profile;
 
 namespace SushiShop.Core.Mappers
 {
     public static class ProfileMapper
     {
-        public static Model.BaseProfile Map(this BaseProfileDto profileDto)
+        public static BaseProfile Map(this BaseProfileDto profileDto)
         {
-            return new Model.BaseProfile(
+            return new BaseProfile(
                 profileDto.Email,
                 profileDto.Phone,
                 profileDto.DateOfBirth,

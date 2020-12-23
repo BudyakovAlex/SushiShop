@@ -8,7 +8,8 @@ namespace SushiShop.Core.Mappers
     {
         public static Cart Map(this CartDto cartDto)
         {
-            return new Cart(cartDto.BasketId,
+            return new Cart(
+                cartDto.BasketId,
                 cartDto.City,
                 cartDto.PriceGroup,
                 cartDto.TotalCount,
