@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Acr.UserDialogs;
+﻿using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.NavigationParameters;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
@@ -25,11 +25,11 @@ namespace SushiShop.Core.ViewModels.Profile
             ShowPrivacyPolicyCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPrivacyPolicyAsync);
         }
 
-        private string fullName;
+        private string fullname;
         public string FullName
         {
-            get => fullName;
-            set => SetProperty(ref fullName, value);
+            get => fullname;
+            set => SetProperty(ref fullname, value);
         }
 
         private DateTime dateOfBirth;
@@ -88,7 +88,7 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            var profile = new Data.Models.Profile.Profile(FullName, DateOfBirth, Phone, Email);
+            var profile = new Data.Models.Profile.BaseProfile(FullName, DateOfBirth, Phone, Email);
 
             var response = await profileManager.RegistrationAsync(profile);
             if (response.Data is null)
@@ -98,7 +98,6 @@ namespace SushiShop.Core.ViewModels.Profile
                 {
                     return;
                 }
-
                 await userDialogs.AlertAsync(error);
                 return;
             }
@@ -106,7 +105,6 @@ namespace SushiShop.Core.ViewModels.Profile
             await RefreshDataAsync();
             var param = new RegistrationNavigationParameters(response.Data.Phone);
             _ = NavigationManager.NavigateAsync<AcceptPhoneViewModel, RegistrationNavigationParameters>(param);
-
         }
 
         private Task ShowPrivacyPolicyAsync()

@@ -17,16 +17,16 @@ namespace SushiShop.Core.Managers.Profile
             this.profileService = profileService;
         }
 
-        public async Task<Response<Data.Models.Profile.Profile>> CheckIsLoginAvailableAsync(string login, bool? sendCode)
+        public async Task<Response<BaseProfile>> CheckIsLoginAvailableAsync(string login, bool? sendCode)
         {
             var response = await profileService.CheckIsLoginAvailableAsync(login, sendCode, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<Data.Models.Profile.Profile>(isSuccessful: true, data);
+                return new Response<BaseProfile>(isSuccessful: true, data);
             }
 
-            return new Response<Data.Models.Profile.Profile>(isSuccessful: false, null);
+            return new Response<BaseProfile>(isSuccessful: false, null);
         }
 
         public async Task<Response<AuthorizationData>> AuthorizeAsync(string login, string pass)
@@ -41,43 +41,28 @@ namespace SushiShop.Core.Managers.Profile
             return new Response<AuthorizationData>(isSuccessful: false, null);
         }
 
-        public async Task<Response<ProfileRegistration>> RegistrationAsync(Data.Models.Profile.Profile profile)
+        public async Task<Response<ConfirmationResult>> RegistrationAsync(BaseProfile profile)
         {
-            var profileDto = new ProfileDto
-            {
-                Email = profile.Email,
-                Phone = profile.Phone,
-                DateOfBirth = profile.DateOfBirth,
-                FirstName = profile.FirstName,
-                LastName = profile.LastName,
-                FullName = profile.FullName,
-                Gender = profile.Gender,
-                IsAllowSubscribe = profile.IsAllowSubscribe,
-                IsAllowNotifications = profile.IsAllowNotifications,
-                IsAllowPush = profile.IsAllowPush,
-                IsNeedRegistration = profile.IsNeedRegistration
-            };
-
-            var response = await profileService.RegistrationAsync(profileDto, CancellationToken.None);
+            var response = await profileService.RegistrationAsync(profile.Map(), CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<ProfileRegistration>(isSuccessful: true, data);
+                return new Response<ConfirmationResult>(isSuccessful: true, data);
             }
 
-            return new Response<ProfileRegistration>(isSuccessful: false, null);
+            return new Response<ConfirmationResult>(isSuccessful: false, null);
         }
 
-        public async Task<Response<PersonalData>> GetPersonalDataAsync()
+        public async Task<Response<Data.Models.Profile.Profile>> GetProfileAsync()
         {
-            var response = await profileService.GetPersonalDataAsync(CancellationToken.None);
+            var response = await profileService.GetProfileAsync(CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<PersonalData>(isSuccessful: true, data);
+                return new Response<Data.Models.Profile.Profile>(isSuccessful: true, data);
             }
 
-            return new Response<PersonalData>(isSuccessful: false, null);
+            return new Response<Data.Models.Profile.Profile>(isSuccessful: false, null);
         }
 
         public async Task<Response<ProfileDiscount>> GetDiscountAsync()
@@ -92,31 +77,16 @@ namespace SushiShop.Core.Managers.Profile
             return new Response<ProfileDiscount>(isSuccessful: false, null);
         }
 
-        public async Task<Response<PersonalData>> SavePersonalDataAsync(Data.Models.Profile.Profile profile)
+        public async Task<Response<Data.Models.Profile.Profile>> SavePersonalDataAsync(BaseProfile profile)
         {
-            var profileDto = new ProfileDto
-            {
-                Email = profile.Email,
-                Phone = profile.Phone,
-                DateOfBirth = profile.DateOfBirth,
-                FirstName = profile.FirstName,
-                LastName = profile.LastName,
-                FullName = profile.FullName,
-                Gender = profile.Gender,
-                IsAllowSubscribe = profile.IsAllowSubscribe,
-                IsAllowNotifications = profile.IsAllowNotifications,
-                IsAllowPush = profile.IsAllowPush,
-                IsNeedRegistration = profile.IsNeedRegistration
-            };
-
-            var response = await profileService.SavePersonalDataAsync(profileDto, CancellationToken.None);
+            var response = await profileService.SavePersonalDataAsync(profile.Map(), CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<PersonalData>(isSuccessful: true, data);
+                return new Response<Data.Models.Profile.Profile>(isSuccessful: true, data);
             }
 
-            return new Response<PersonalData>(isSuccessful: false, null);
+            return new Response<Data.Models.Profile.Profile>(isSuccessful: false, null);
         }
     }
 }

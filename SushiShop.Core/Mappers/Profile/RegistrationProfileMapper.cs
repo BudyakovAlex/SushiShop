@@ -5,9 +5,9 @@ namespace SushiShop.Core.Mappers.Profile
 {
     public static class RegistrationProfileMapper
     {
-        public static ProfileRegistration Map(this ProfileRegistrationDto registrationProfileDto)
+        public static ConfirmationResult Map(this ConfirmationResultDto registrationProfileDto)
         {
-            return new ProfileRegistration(
+            return new ConfirmationResult(
                 registrationProfileDto.Message,
                 registrationProfileDto.Phone);
         }

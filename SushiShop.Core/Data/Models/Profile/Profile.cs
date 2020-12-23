@@ -1,23 +1,13 @@
 ﻿using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Data.Models.Common;
 using System;
 
 namespace SushiShop.Core.Data.Models.Profile
 {
-    public class Profile
+    public class Profile : BaseProfile
     {
         public Profile(
-            string fullname,
-            DateTime dateOfBirth,
-            string phone,
-            string email)
-        {
-            FullName = fullname;
-            DateOfBirth = dateOfBirth;
-            Phone = phone;
-            Email = email;
-        }
-
-        public Profile(
+            int userId,
             string? email,
             string? phone,
             DateTime dateOfBirth,
@@ -28,41 +18,38 @@ namespace SushiShop.Core.Data.Models.Profile
             bool isAllowSubscribe,
             bool isAllowNotifications,
             bool isAllowPush,
-            bool isNeedRegistration)
+            bool isNeedRegistration,
+            DateTime dateOfBirthFormated,
+            bool canChangeDateOfBirth,
+            string? subscribeSales,
+            ImageInfo? photo)
+            : base(email,
+                  phone,
+                  dateOfBirth,
+                  firstName,
+                  lastName,
+                  fullName,
+                  gender,
+                  isAllowSubscribe,
+                  isAllowNotifications,
+                  isAllowPush,
+                  isNeedRegistration)
         {
-            Email = email;
-            Phone = phone;
-            DateOfBirth = dateOfBirth;
-            FirstName = firstName;
-            LastName = lastName;
-            FullName = fullName;
-            Gender = gender;
-            IsAllowSubscribe = isAllowSubscribe;
-            IsAllowNotifications = isAllowNotifications;
-            IsAllowPush = isAllowPush;
-            IsNeedRegistration = isNeedRegistration;
+            UserId = userId;
+            DateOfBirthFormated = dateOfBirthFormated;
+            CanChangeDateOfBirth = canChangeDateOfBirth;
+            SubscribeSales = subscribeSales;
+            Photo = photo;
         }
 
-        public string? Email { get; set; }
+        public int UserId { get; }
 
-        public string? Phone { get; set; }
+        public DateTime DateOfBirthFormated { get; }
 
-        public DateTime DateOfBirth { get; set; }
+        public bool CanChangeDateOfBirth { get; }
 
-        public string? FirstName { get; set; }
+        public string? SubscribeSales { get; }
 
-        public string? LastName { get; set; }
-
-        public string? FullName { get; set; }
-
-        public GenderType? Gender { get; set; }
-
-        public bool IsAllowSubscribe { get; set; }
-
-        public bool IsAllowNotifications { get; set; }
-
-        public bool IsAllowPush { get; set; }
-
-        public bool IsNeedRegistration { get; set; }
+        public ImageInfo? Photo { get; }
     }
 }

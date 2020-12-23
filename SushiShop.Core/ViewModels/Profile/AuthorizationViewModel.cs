@@ -55,7 +55,6 @@ namespace SushiShop.Core.ViewModels.Profile
                 {
                     return;
                 }
-
                 await userDialogs.AlertAsync(error);
                 return;
             }

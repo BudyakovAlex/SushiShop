@@ -1,23 +1,22 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Managers.Profile;
+using System;
 using System.Linq;
-using BuildApps.Core.Mobile.Common.Extensions;
-using Acr.UserDialogs;
-using SushiShop.Core.Data.Models.Profile;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
-    public class PersonalDataViewModel : BasePageViewModel
+    public class EditProfileViewModel : BasePageViewModel
     {
         private readonly IProfileManager profileManager;
         private readonly IUserDialogs userDialogs;
 
-        public PersonalDataViewModel(IProfileManager profileManager)
+        public EditProfileViewModel(IProfileManager profileManager)
         {
             this.profileManager = profileManager;
             this.userDialogs = UserDialogs.Instance;
@@ -92,19 +91,19 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task SaveAsync()
         {
-            var responsePersonalData = await profileManager.GetPersonalDataAsync();
-            var personalData = new PersonalData(
+            var responsePersonalData = await profileManager.GetProfileAsync();
+            var personalData = new Data.Models.Profile.Profile(
                 responsePersonalData.Data.UserId,
-                Email,
-                Phone,
-                DateOfBirdth,
-                FirstName,
-                LastName,
-                $"{FirstName} {LastName}",
-                Gender,
-                IsAllowSubscribe,
-                IsAllowNotifications,
-                IsAllowPush,
+                this.Email,
+                this.Phone,
+                this.DateOfBirdth,
+                this.FirstName,
+                this.LastName,
+                $"{this.FirstName} {this.LastName}",
+                this.Gender,
+                this.IsAllowSubscribe,
+                this.IsAllowNotifications,
+                this.IsAllowPush,
                 responsePersonalData.Data.IsNeedRegistration,
                 responsePersonalData.Data.DateOfBirthFormated,
                 responsePersonalData.Data.CanChangeDateOfBirth,
@@ -119,7 +118,6 @@ namespace SushiShop.Core.ViewModels.Profile
                 {
                     return;
                 }
-
                 await userDialogs.AlertAsync(error);
                 return;
             }

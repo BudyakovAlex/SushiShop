@@ -18,16 +18,16 @@
             Bonuses = bonuses;
         }
 
-        public string? Title { get; set; }
+        public string? Title { get; }
 
-        public string? Phone { get; set; }
+        public string? Phone { get; }
 
-        public int BalanceToNextLevel { get; set; }
+        public int BalanceToNextLevel { get; }
 
-        public int Discount { get; set; }
+        public int Discount { get; }
 
-        public int Certificate { get; set; }
+        public int Certificate { get; }
 
-        public int Bonuses { get; set; }
+        public int Bonuses { get; }
     }
 }

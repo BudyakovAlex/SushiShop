@@ -22,10 +22,30 @@ namespace SushiShop.Core.ViewModels.Profile
             this.userDialogs = UserDialogs.Instance;
         }
 
+        private string title;
+        public string Title
+        {
+            get => title;
+            set => SetProperty(ref title, value);
+        }
+
+        private string introText;
+        public string IntroText
+        {
+            get => introText;
+            set => SetProperty(ref introText, value);
+        }
+
+        private string content;
+        public string Content
+        {
+            get => content;
+            set => SetProperty(ref content, value);
+        }
+
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
-
             var city = userSession.GetCity()?.Name;
             var response = await commonInfoManager.GetContentAsync(Rest.BonusPolicyResource, int.MinValue, city);
 
@@ -36,7 +56,6 @@ namespace SushiShop.Core.ViewModels.Profile
                 {
                     return;
                 }
-
                 await userDialogs.AlertAsync(error);
                 return;
             }
@@ -44,30 +63,6 @@ namespace SushiShop.Core.ViewModels.Profile
             Title = response.Data?.Title;
             IntroText = response.Data?.IntroText;
             Content = response.Data?.MainText;
-        }
-
-        private string title;
-
-        public string Title
-        {
-            get => title;
-            set => SetProperty(ref title, value);
-        }
-
-        private string introText;
-
-        public string IntroText
-        {
-            get => introText;
-            set => SetProperty(ref introText, value);
-        }
-
-        private string content;
-
-        public string Content
-        {
-            get => content;
-            set => SetProperty(ref content, value);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Acr.UserDialogs;
+﻿using Acr.UserDialogs;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
@@ -7,6 +6,7 @@ using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Core.ViewModels.Orders;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
@@ -92,7 +92,7 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private Task ShowPersonalDataViewAsync()
         {
-            return NavigationManager.NavigateAsync<PersonalDataViewModel>();
+            return NavigationManager.NavigateAsync<EditProfileViewModel>();
         }
 
         private Task ShowMyOrdersViewAsync()
