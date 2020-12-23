@@ -13,6 +13,6 @@
 
         public bool IsValidUser { get; }
 
-        public Token Token { get; }
+        public Token? Token { get; }
     }
 }
