@@ -1,14 +1,12 @@
-﻿using SushiShop.Core.Data.Dtos.Products;
+﻿using System;
+using System.Linq;
+using SushiShop.Core.Data.Dtos.Products;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Products;
 using SushiShop.Core.Data.Models.Stickers;
-using SushiShop.Core.Mappers.Common;
-using SushiShop.Core.Mappers.Topping;
-using System;
-using System.Linq;
 using Xamarin.Essentials;
 
-namespace SushiShop.Core.Mappers.Products
+namespace SushiShop.Core.Mappers
 {
     public static class ProductParametersMapper
     {

@@ -1,9 +1,8 @@
-﻿using SushiShop.Core.Data.Dtos.Menu;
+﻿using System;
+using SushiShop.Core.Data.Dtos.Menu;
 using SushiShop.Core.Data.Models.Menu;
-using SushiShop.Core.Mappers.Common;
-using System;
 
-namespace SushiShop.Core.Mappers.Menu
+namespace SushiShop.Core.Mappers
 {
     public static class CategoryMapper
     {

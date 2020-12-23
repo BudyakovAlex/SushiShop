@@ -1,16 +1,14 @@
 ﻿using SushiShop.Core.Data.Dtos.Cart;
-using SushiShop.Core.Mappers.Common;
+using SushiShop.Core.Data.Models.Cart;
 using System.Linq;
-using Model = SushiShop.Core.Data.Models.Cart;
 
-namespace SushiShop.Core.Mappers.Cart
+namespace SushiShop.Core.Mappers
 {
     public static class CartMapper
     {
-        public static Model.Cart Map(this CartDto cartDto)
+        public static Cart Map(this CartDto cartDto)
         {
-            return new Model.Cart(
-                cartDto.BasketId,
+            return new Cart(cartDto.BasketId,
                 cartDto.City,
                 cartDto.PriceGroup,
                 cartDto.TotalCount,

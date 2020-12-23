@@ -3,7 +3,7 @@ using SushiShop.Core.Data.Models.Pagination;
 using System;
 using System.Linq;
 
-namespace SushiShop.Core.Mappers.Pagination
+namespace SushiShop.Core.Mappers
 {
     public static class PaginationContainerMapper
     {

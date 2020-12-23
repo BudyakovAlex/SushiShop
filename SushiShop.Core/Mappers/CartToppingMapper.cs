@@ -1,9 +1,9 @@
 ﻿using SushiShop.Core.Data.Dtos.Cart;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cart;
-using Model = SushiShop.Core.Data.Models.Toppings;
+using SushiShop.Core.Data.Models.Toppings;
 
-namespace SushiShop.Core.Mappers.Cart
+namespace SushiShop.Core.Mappers
 {
     public static class CartToppingMapper
     {
@@ -17,9 +17,9 @@ namespace SushiShop.Core.Mappers.Cart
                 cartToppingDto.PageTitle);
         }
 
-        public static Model.Topping ToProductTopping(this CartTopping cartTopping)
+        public static Topping ToProductTopping(this CartTopping cartTopping)
         {
-            return new Model.Topping(
+            return new Topping(
                 cartTopping.Id,
                 cartTopping.PageTitle,
                 cartTopping.Price,

@@ -1,11 +1,11 @@
-﻿using SushiShop.Core.Data.Dtos.Stickers;
-using SushiShop.Core.Data.Enums;
-using SushiShop.Core.Data.Models.Stickers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SushiShop.Core.Data.Dtos.Stickers;
+using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Data.Models.Stickers;
 
-namespace SushiShop.Core.Mappers.Stickers
+namespace SushiShop.Core.Mappers
 {
     public static class StickerMapper
     {

@@ -1,18 +1,18 @@
 ﻿using SushiShop.Core.Data.Dtos.Products;
 using SushiShop.Core.Data.Dtos.Toppings;
 using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Data.Models.Toppings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Model = SushiShop.Core.Data.Models.Toppings;
 
-namespace SushiShop.Core.Mappers.Topping
+namespace SushiShop.Core.Mappers
 {
     public static class ToppingMapper
     {
-        public static Model.Topping Map(this ToppingDto toppingDto)
+        public static Topping Map(this ToppingDto toppingDto)
         {
-            return new Model.Topping(
+            return new Topping(
                 toppingDto.Id,
                 toppingDto.PageTitle,
                 toppingDto.Price,
@@ -20,7 +20,7 @@ namespace SushiShop.Core.Mappers.Topping
                 Enum.Parse<ToppingCategory>(toppingDto.ToppingCategory, ignoreCase: true));
         }
 
-        public static UpdateToppingDto Map(this Model.Topping topping)
+        public static UpdateToppingDto Map(this Topping topping)
         {
             return new UpdateToppingDto
             {
@@ -29,12 +29,12 @@ namespace SushiShop.Core.Mappers.Topping
             };
         }
 
-        public static Model.Topping[] Map(this Dictionary<string, ToppingDto> toppings)
+        public static Topping[] Map(this Dictionary<string, ToppingDto> toppings)
         {
             return toppings.Select(kv => kv.Value.Map()).ToArray();
         }
 
-        public static UpdateToppingDto[] Map(this Model.Topping[] toppingsDtos)
+        public static UpdateToppingDto[] Map(this Topping[] toppingsDtos)
         {
             return toppingsDtos.Select(dto => dto.Map()).ToArray();
         }

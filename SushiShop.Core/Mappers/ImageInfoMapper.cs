@@ -1,7 +1,7 @@
 ﻿using SushiShop.Core.Data.Dtos.Common;
 using SushiShop.Core.Data.Models.Common;
 
-namespace SushiShop.Core.Mappers.Common
+namespace SushiShop.Core.Mappers
 {
     public static class ImageInfoMapper
     {

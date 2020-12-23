@@ -1,15 +1,14 @@
 ﻿using SushiShop.Core.Data.Dtos.Products;
-using SushiShop.Core.Mappers.Common;
+using SushiShop.Core.Data.Models.Products;
 using System;
-using Model = SushiShop.Core.Data.Models;
 
-namespace SushiShop.Core.Mappers.Products
+namespace SushiShop.Core.Mappers
 {
     public static class ProductMapper
     {
-        public static Model.Products.Product Map(this ProductDto productDto)
+        public static Product Map(this ProductDto productDto)
         {
-            return new Model.Products.Product(
+            return new Product(
                 productDto.Id,
                 productDto.Uid,
                 productDto.PageTitle!,

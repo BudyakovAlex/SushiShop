@@ -1,11 +1,9 @@
 ﻿using SushiShop.Core.Data.Dtos.Orders;
 using SushiShop.Core.Data.Models.Orders;
-using SushiShop.Core.Mappers.Cart;
-using SushiShop.Core.Mappers.Common;
 using System;
 using System.Linq;
 
-namespace SushiShop.Core.Mappers.Orders
+namespace SushiShop.Core.Mappers
 {
     public static class OrderMapper
     {

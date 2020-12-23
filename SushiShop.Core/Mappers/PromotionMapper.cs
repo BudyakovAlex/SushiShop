@@ -1,10 +1,8 @@
-﻿using SushiShop.Core.Data.Dtos.Promotions;
+﻿using System;
+using SushiShop.Core.Data.Dtos.Promotions;
 using SushiShop.Core.Data.Models.Promotions;
-using SushiShop.Core.Mappers.Common;
-using SushiShop.Core.Mappers.Products;
-using System;
 
-namespace SushiShop.Core.Mappers.Promotions
+namespace SushiShop.Core.Mappers
 {
     public static class PromotionMapper
     {

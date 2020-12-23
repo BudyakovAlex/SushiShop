@@ -1,10 +1,9 @@
-﻿using SushiShop.Core.Data.Dtos.Cities;
+﻿using System;
+using SushiShop.Core.Data.Dtos.Cities;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cities;
-using SushiShop.Core.Mappers.Common;
-using System;
 
-namespace SushiShop.Core.Mappers.Cities
+namespace SushiShop.Core.Mappers
 {
     public static class CityMapper
     {

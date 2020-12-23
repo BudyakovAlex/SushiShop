@@ -1,7 +1,7 @@
 ﻿using SushiShop.Core.Data.Dtos.Cart;
 using SushiShop.Core.Data.Models.Cart;
 
-namespace SushiShop.Core.Mappers.Cart
+namespace SushiShop.Core.Mappers
 {
     public static class PromoCodeMapper
     {

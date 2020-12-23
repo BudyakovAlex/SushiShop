@@ -1,11 +1,10 @@
 ﻿using SushiShop.Core.Data.Dtos.Cart;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cart;
-using SushiShop.Core.Mappers.Common;
 using System;
 using System.Linq;
 
-namespace SushiShop.Core.Mappers.Cart
+namespace SushiShop.Core.Mappers
 {
     public static class CartProductMapper
     {
