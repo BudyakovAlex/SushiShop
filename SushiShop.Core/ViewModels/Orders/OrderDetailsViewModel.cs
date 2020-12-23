@@ -66,7 +66,7 @@ namespace SushiShop.Core.ViewModels.Orders
         public string ReceiveMethodTitle => AppStrings.ReceiveMethod;
 
         // TODO: unhardcode
-        public string ReceiveMethodValue => "Магазин";
+        public string ReceiveMethodValue =>  "Магазин";
 
         public string ShowOrderCompositionTitle => AppStrings.OrderComposition;
 
@@ -104,6 +104,7 @@ namespace SushiShop.Core.ViewModels.Orders
             }
 
             order = response.Data;
+            await RaiseAllPropertiesChanged();
         }
 
         private async Task RepeatOrderAsync()

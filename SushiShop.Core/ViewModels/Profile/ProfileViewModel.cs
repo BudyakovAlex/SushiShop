@@ -46,13 +46,6 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref phoneOrEmail, value, LoginCommand.RaiseCanExecuteChanged);
         }
 
-        private string? login;
-        public string? Login
-        {
-            get => login;
-            set => SetProperty(ref login, value);
-        }
-
         private bool isAuthorized;
         public bool IsAuthorized
         {
@@ -131,8 +124,7 @@ namespace SushiShop.Core.ViewModels.Profile
             }
 
             var profile = getProfileTask.Result.Data!;
-            Username = profile.FirstName;
-            Login = profile.Email ?? profile.Phone;
+            Username = profile.FullName;
             Avatar = profile.Photo?.JpgUrl;
             Score = getDiscountTask.Result.Data!.Bonuses;
         }
