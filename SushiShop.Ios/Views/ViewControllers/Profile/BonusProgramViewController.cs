@@ -67,7 +67,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(ContentLabel).For(v => v.AttributedText).To(vm => vm.Descriptiom)
+            bindingSet.Bind(ContentLabel).For(v => v.AttributedText).To(vm => vm.Content)
                 .WithConversion<HtmlTextToAttributedStringConverter>();
 
             bindingSet.Apply();
