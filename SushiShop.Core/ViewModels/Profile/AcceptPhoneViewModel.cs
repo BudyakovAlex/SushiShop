@@ -24,8 +24,8 @@ namespace SushiShop.Core.ViewModels.Profile
             ContinueCommand = new SafeAsyncCommand(ExecutionStateWrapper, ContinueAsync);
         }
 
-        private string code;
-        public string Code
+        private string? code;
+        public string? Code
         {
             get => code;
             set => SetProperty(ref code, value);

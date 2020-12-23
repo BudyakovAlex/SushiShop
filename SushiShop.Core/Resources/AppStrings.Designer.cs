@@ -407,33 +407,65 @@ namespace SushiShop.Core.Resources {
             }
         }
         
-        public static string EnterPhoneOrEmail {
+        public static string Feedback {
             get {
-                return ResourceManager.GetString("EnterPhoneOrEmail", resourceCulture);
+                return ResourceManager.GetString("Feedback", resourceCulture);
             }
         }
         
-        public static string IncorrectData {
+        public static string OrderNumber {
             get {
-                return ResourceManager.GetString("IncorrectData", resourceCulture);
+                return ResourceManager.GetString("OrderNumber", resourceCulture);
             }
         }
         
-        public static string SignIn {
+        public static string Question {
             get {
-                return ResourceManager.GetString("SignIn", resourceCulture);
+                return ResourceManager.GetString("Question", resourceCulture);
             }
         }
         
-        public static string SignUp {
+        public static string Send {
             get {
-                return ResourceManager.GetString("SignUp", resourceCulture);
+                return ResourceManager.GetString("Send", resourceCulture);
             }
         }
-        
-        public static string SignOutOfYourProfile {
-            get {
+
+        public static string SignOutOfYourProfile
+        {
+            get
+            {
                 return ResourceManager.GetString("SignOutOfYourProfile", resourceCulture);
+            }
+        }
+
+        public static string UploadPhotos {
+            get {
+                return ResourceManager.GetString("UploadPhotos", resourceCulture);
+            }
+        }
+        
+        public static string Photo {
+            get {
+                return ResourceManager.GetString("Photo", resourceCulture);
+            }
+        }
+        
+        public static string TakePhoto {
+            get {
+                return ResourceManager.GetString("TakePhoto", resourceCulture);
+            }
+        }
+        
+        public static string UploadFromGallery {
+            get {
+                return ResourceManager.GetString("UploadFromGallery", resourceCulture);
+            }
+        }
+        
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
     }

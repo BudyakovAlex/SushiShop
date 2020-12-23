@@ -22,7 +22,7 @@ namespace SushiShop.Ios.Views.ViewControllers
     [MvxRootPresentation(WrapInNavigationController = false)]
     public partial class MainViewController : BaseViewController<MainViewModel>, IMvxTabBarViewController
     {
-        private const float TabHeight = 50f;
+        public const float TabHeight = 50f;
 
         private static readonly nfloat TabViewHeight = TabHeight + UIApplication.SharedApplication.KeyWindow.SafeAreaInsets.Bottom;
         private static readonly string[] TabImageNames = new string[]

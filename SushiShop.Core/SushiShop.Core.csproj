@@ -45,5 +45,7 @@
     <Folder Include="Data\Models\Pagination\" />
     <Folder Include="ViewModels\Feedback\Items\" />
     <Folder Include="Services\Http\Feedback\" />
+    <Folder Include="Plugins\" />
+    <Folder Include="Data\Models\Plugins\" />
   </ItemGroup>
 </Project>

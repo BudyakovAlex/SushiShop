@@ -1,7 +1,10 @@
-﻿using MvvmCross.Binding.Bindings.Target.Construction;
+﻿using BuildApps.Core.Mobile.MvvmCross.IoC;
+using MvvmCross.Binding.Bindings.Target.Construction;
 using MvvmCross.Platforms.Ios.Core;
 using SushiShop.Core;
+using SushiShop.Core.Plugins;
 using SushiShop.Ios.Common;
+using SushiShop.Ios.Plugins;
 using SushiShop.Ios.TargetBindings;
 using UIKit;
 using WebKit;
@@ -10,6 +13,15 @@ namespace SushiShop.Ios
 {
     public class Setup : MvxIosSetup<App>
     {
+        protected override void InitializeLastChance()
+        {
+            base.InitializeLastChance();
+
+            var container = CompositionRoot.Container;
+
+            container.RegisterSingleton<IDialog, Dialog>();
+        }
+
         protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)
         {
             base.FillTargetFactories(registry);
