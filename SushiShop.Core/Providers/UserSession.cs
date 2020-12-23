@@ -89,7 +89,7 @@ namespace SushiShop.Core.Providers
             return newToken;
         }
 
-        public void SetToken(Token token)
+        public void SetToken(Token? token)
         {
             this.token = token;
 

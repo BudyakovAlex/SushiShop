@@ -23,8 +23,8 @@ namespace SushiShop.Core.ViewModels.Profile
             SignUpCommand = new SafeAsyncCommand(ExecutionStateWrapper, SignUpAsync);
         }
 
-        private string phoneOrEmail;
-        public string PhoneOrEmail
+        private string? phoneOrEmail;
+        public string? PhoneOrEmail
         {
             get => phoneOrEmail;
             set => SetProperty(ref phoneOrEmail, value);

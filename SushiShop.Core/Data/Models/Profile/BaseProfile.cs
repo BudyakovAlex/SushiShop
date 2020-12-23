@@ -6,10 +6,10 @@ namespace SushiShop.Core.Data.Models.Profile
     public class BaseProfile
     {
         public BaseProfile(
-            string fullname,
+            string? fullname,
             DateTime dateOfBirth,
-            string phone,
-            string email)
+            string? phone,
+            string? email)
         {
             FullName = fullname;
             DateOfBirth = dateOfBirth;

@@ -4,6 +4,7 @@ using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Managers.Profile;
+using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Core.ViewModels.Orders;
@@ -15,21 +16,23 @@ namespace SushiShop.Core.ViewModels.Profile
     public class ProfileViewModel : BasePageViewModel
     {
         private readonly IProfileManager profileManager;
+        private readonly IUserSession userSession;
 
-        public ProfileViewModel(IProfileManager profileManager)
+        public ProfileViewModel(IProfileManager profileManager, IUserSession userSession)
         {
             this.profileManager = profileManager;
+            this.userSession = userSession;
 
             LogoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, LogoutAsync);
-            ShowPersonalDataViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPersonalDataViewAsync);
-            ShowMyOrdersViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowMyOrdersViewAsync);
-            ShowFeedbackViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowFeedbackViewAsync);
-            ShowScoreViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowScoreViewAsync);
+            ShowEditProfileCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowEditProfileAsync);
+            ShowMyOrdersCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowMyOrdersAsync);
+            ShowFeedbackCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowFeedbackAsync);
+            ShowBonusProgramCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowBonusProgramAsync);
             ChooseNewImageCommand = new SafeAsyncCommand(ExecutionStateWrapper, ChooseNewImageAsync);
         }
 
-        private string login;
-        public string Login
+        private string? login;
+        public string? Login
         {
             get => login;
             set => SetProperty(ref login, value);
@@ -42,15 +45,15 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref isLogged, value);
         }
 
-        private string avatar;
-        public string Avatar
+        private string? avatar;
+        public string? Avatar
         {
             get => avatar;
             set => SetProperty(ref avatar, value);
         }
 
-        private string username;
-        public string Username
+        private string? username;
+        public string? Username
         {
             get => username;
             set => SetProperty(ref username, value);
@@ -65,30 +68,38 @@ namespace SushiShop.Core.ViewModels.Profile
 
         public IMvxCommand LogoutCommand { get; }
 
-        public IMvxCommand ShowPersonalDataViewCommand { get; }
+        public IMvxCommand ShowEditProfileCommand { get; }
 
-        public IMvxCommand ShowMyOrdersViewCommand { get; }
+        public IMvxCommand ShowMyOrdersCommand { get; }
 
-        public IMvxCommand ShowFeedbackViewCommand { get; }
+        public IMvxCommand ShowFeedbackCommand { get; }
 
-        public IMvxCommand ShowScoreViewCommand { get; }
+        public IMvxCommand ShowBonusProgramCommand { get; }
 
         public IMvxCommand ChooseNewImageCommand { get; }
 
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
-            var response = await profileManager.GetDiscountAsync();
-            if (response.Data is null)
+            var getDiscountTask = profileManager.GetDiscountAsync();
+            var getProfileTask =  profileManager.GetProfileAsync();
+
+            await Task.WhenAll(getDiscountTask, getProfileTask);
+
+            if (getProfileTask.Result.Data is null || getDiscountTask.Result.Data is null)
             {
-                var error = response.Errors.FirstOrDefault();
+                var error = getProfileTask.Result.Errors.FirstOrDefault();
                 if (error.IsNullOrEmpty())
                 {
                     return;
                 }
             }
 
-            Score = response.Data.Bonuses;
+            var profile = getProfileTask.Result.Data!;
+            Username = profile.FirstName;
+            Login = profile.Email ?? profile.Phone;
+            Avatar = profile.Photo?.JpgUrl;
+            Score = getDiscountTask.Result.Data!.Bonuses;
         }
 
         private async Task LogoutAsync()
@@ -105,25 +116,25 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            _ = Task.CompletedTask;
+            userSession.SetToken(null);
         }
 
-        private Task ShowPersonalDataViewAsync()
+        private Task ShowEditProfileAsync()
         {
             return NavigationManager.NavigateAsync<EditProfileViewModel>();
         }
 
-        private Task ShowMyOrdersViewAsync()
+        private Task ShowMyOrdersAsync()
         {
             return NavigationManager.NavigateAsync<MyOrdersViewModel>();
         }
 
-        private Task ShowFeedbackViewAsync()
+        private Task ShowFeedbackAsync()
         {
             return NavigationManager.NavigateAsync<FeedbackViewModel>();
         }
 
-        private Task ShowScoreViewAsync()
+        private Task ShowBonusProgramAsync()
         {
             return NavigationManager.NavigateAsync<BonusProgramViewModel>();
         }

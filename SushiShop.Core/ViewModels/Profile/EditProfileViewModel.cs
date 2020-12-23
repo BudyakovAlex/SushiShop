@@ -16,25 +16,25 @@ namespace SushiShop.Core.ViewModels.Profile
         private readonly IProfileManager profileManager;
         private readonly IUserDialogs userDialogs;
 
-        private Data.Models.Profile.Profile profile;
+        private Data.Models.Profile.Profile? profile;
 
-        public EditProfileViewModel(IProfileManager profileManager)
+        public EditProfileViewModel(IProfileManager profileManager, IUserDialogs userDialogs)
         {
             this.profileManager = profileManager;
-            this.userDialogs = UserDialogs.Instance;
+            this.userDialogs = userDialogs;
 
             SaveCommand = new SafeAsyncCommand(ExecutionStateWrapper, SaveAsync);
         }
 
-        private string firstName;
-        public string FirstName
+        private string? firstName;
+        public string? FirstName
         {
             get => firstName;
             set => SetProperty(ref firstName, value);
         }
 
-        private string lastName;
-        public string LastName
+        private string? lastName;
+        public string? LastName
         {
             get => lastName;
             set => SetProperty(ref lastName, value);
@@ -47,22 +47,22 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref gender, value);
         }
 
-        private DateTime dateOfBirdth = DateTime.MinValue;
+        private DateTime dateOfBirdth;
         public DateTime DateOfBirdth
         {
             get => dateOfBirdth;
             set => SetProperty(ref dateOfBirdth, value);
         }
 
-        private string phone;
-        public string Phone
+        private string? phone;
+        public string? Phone
         {
             get => phone;
             set => SetProperty(ref phone, value);
         }
 
-        private string email;
-        public string Email
+        private string? email;
+        public string? Email
         {
             get => email;
             set => SetProperty(ref email, value);
@@ -94,9 +94,10 @@ namespace SushiShop.Core.ViewModels.Profile
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
-            var responseProfile = await profileManager.GetProfileAsync();
-            profile = responseProfile.Data;
 
+            var responseProfile = await profileManager.GetProfileAsync();
+
+            profile = responseProfile.Data;
             FirstName = profile.FirstName;
             LastName = profile.LastName;
             Gender = profile.Gender;
@@ -110,18 +111,23 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task SaveAsync()
         {
+            if (profile is null)
+            {
+                return;
+            }
+
             var userData = new Data.Models.Profile.Profile(
                 profile.UserId,
-                this.Email,
-                this.Phone,
-                this.DateOfBirdth,
-                this.FirstName,
-                this.LastName,
-                $"{this.FirstName} {this.LastName}",
-                this.Gender,
-                this.IsAllowSubscribe,
-                this.IsAllowNotifications,
-                this.IsAllowPush,
+                Email,
+                Phone,
+                DateOfBirdth,
+                FirstName,
+                LastName,
+                $"{FirstName} {LastName}",
+                Gender,
+                IsAllowSubscribe,
+                IsAllowNotifications,
+                IsAllowPush,
                 profile.IsNeedRegistration,
                 profile.DateOfBirthFormated,
                 profile.CanChangeDateOfBirth,

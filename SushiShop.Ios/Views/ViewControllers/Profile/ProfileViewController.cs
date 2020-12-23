@@ -46,10 +46,10 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(logoutButton).For(v => v.BindTap()).To(vm => vm.LogoutCommand);
             bindingSet.Bind(logoutButton).For(v => v.BindVisible()).To(vm => vm.IsLogged);
             bindingSet.Bind(ProfileView).For(v => v.BindVisible()).To(vm => vm.IsLogged);
-            bindingSet.Bind(ScoreButton).For(v => v.BindTap()).To(vm => vm.ShowScoreViewCommand);
-            bindingSet.Bind(PersonalDataView).For(v => v.BindTap()).To(vm => vm.ShowPersonalDataViewCommand);
-            bindingSet.Bind(MyOrdersView).For(v => v.BindTap()).To(vm => vm.ShowMyOrdersViewCommand);
-            bindingSet.Bind(FeedbackView).For(v => v.BindTap()).To(vm => vm.ShowFeedbackViewCommand);
+            bindingSet.Bind(ScoreButton).For(v => v.BindTap()).To(vm => vm.ShowBonusProgramCommand);
+            bindingSet.Bind(PersonalDataView).For(v => v.BindTap()).To(vm => vm.ShowEditProfileCommand);
+            bindingSet.Bind(MyOrdersView).For(v => v.BindTap()).To(vm => vm.ShowMyOrdersCommand);
+            bindingSet.Bind(FeedbackView).For(v => v.BindTap()).To(vm => vm.ShowFeedbackCommand);
             bindingSet.Bind(UserImage).For(v => v.BindTap()).To(vm => vm.ChooseNewImageCommand);
             bindingSet.Bind(UserNameLabel).For(v => v.Text).To(vm => vm.UserName);
             bindingSet.Bind(ScoreButton.TitleLabel).For(v => v.Text).To(vm => vm.Score);

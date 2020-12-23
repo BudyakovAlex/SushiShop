@@ -25,8 +25,8 @@ namespace SushiShop.Core.ViewModels.Profile
             ShowPrivacyPolicyCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPrivacyPolicyAsync);
         }
 
-        private string fullName;
-        public string FullName
+        private string? fullName;
+        public string? FullName
         {
             get => fullName;
             set => SetProperty(ref fullName, value);
@@ -39,15 +39,15 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref dateOfBirth, value);
         }
 
-        private string phone;
-        public string Phone
+        private string? phone;
+        public string? Phone
         {
             get => phone;
             set => SetProperty(ref phone, value);
         }
 
-        private string email;
-        public string Email
+        private string? email;
+        public string? Email
         {
             get => email;
             set => SetProperty(ref email, value);
@@ -81,7 +81,7 @@ namespace SushiShop.Core.ViewModels.Profile
         private async Task RegisterAsync()
         {
             if (FullName.IsNullOrEmpty() &&
-                DateOfBirth != null &&
+                DateOfBirth.Equals(default) &&
                 Phone.IsNullOrEmpty() &&
                 Email.IsNullOrEmpty())
             {
@@ -98,13 +98,15 @@ namespace SushiShop.Core.ViewModels.Profile
                 {
                     return;
                 }
+
                 await userDialogs.AlertAsync(error);
                 return;
             }
 
             await RefreshDataAsync();
-            var param = new RegistrationNavigationParameters(response.Data.Phone);
-            _ = NavigationManager.NavigateAsync<AcceptPhoneViewModel, RegistrationNavigationParameters>(param);
+
+            var navigationParameters = new RegistrationNavigationParameters(response.Data.Phone);
+            await NavigationManager.NavigateAsync<AcceptPhoneViewModel, RegistrationNavigationParameters>(navigationParameters);
         }
 
         private Task ShowPrivacyPolicyAsync()
