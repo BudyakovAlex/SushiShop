@@ -6,6 +6,18 @@ namespace SushiShop.Core.Data.Models.Profile
     public class Profile
     {
         public Profile(
+            string fullname,
+            DateTime dateOfBirth,
+            string phone,
+            string email)
+        {
+            FullName = fullname;
+            DateOfBirth = dateOfBirth;
+            Phone = phone;
+            Email = email;
+        }
+
+        public Profile(
             string? email,
             string? phone,
             DateTime dateOfBirth,

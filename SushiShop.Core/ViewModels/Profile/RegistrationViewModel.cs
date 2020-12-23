@@ -1,4 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
@@ -9,10 +13,12 @@ namespace SushiShop.Core.ViewModels.Profile
     public class RegistrationViewModel : BasePageViewModel
     {
         private readonly IProfileManager profileManager;
+        private readonly IUserDialogs userDialogs;
 
         public RegistrationViewModel(IProfileManager profileManager)
         {
             this.profileManager = profileManager;
+            this.userDialogs = UserDialogs.Instance;
 
             RegisterCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegisterAsync);
             ShowPrivacyPolicyCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPrivacyPolicyAsync);
@@ -25,8 +31,8 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref fullName, value);
         }
 
-        private string dateOfBirth;
-        public string DateOfBirth
+        private DateTime dateOfBirth;
+        public DateTime DateOfBirth
         {
             get => dateOfBirth;
             set => SetProperty(ref dateOfBirth, value);
@@ -46,34 +52,58 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref email, value);
         }
 
-        private bool acceptPushNotifications;
-        public bool AcceptPushNotifications
+        private bool isAcceptPushNotifications;
+        public bool IsAcceptPushNotifications
         {
-            get => acceptPushNotifications;
-            set => SetProperty(ref acceptPushNotifications, value);
+            get => isAcceptPushNotifications;
+            set => SetProperty(ref isAcceptPushNotifications, value);
         }
 
-        private bool acceptEmailNotifications;
-        public bool AcceptEmailNotifications
+        private bool isAcceptEmailNotifications;
+        public bool IsAcceptEmailNotifications
         {
-            get => acceptEmailNotifications;
-            set => SetProperty(ref acceptEmailNotifications, value);
+            get => isAcceptEmailNotifications;
+            set => SetProperty(ref isAcceptEmailNotifications, value);
         }
 
-        private bool acceptSmshNotifications;
-        public bool AcceptSmsNotifications
+        private bool isAcceptSmshNotifications;
+        public bool IsAcceptSmsNotifications
         {
-            get => acceptSmshNotifications;
-            set => SetProperty(ref acceptSmshNotifications, value);
+            get => isAcceptSmshNotifications;
+            set => SetProperty(ref isAcceptSmshNotifications, value);
         }
 
         public IMvxCommand RegisterCommand { get; }
 
         public IMvxCommand ShowPrivacyPolicyCommand { get; }
 
-        private Task RegisterAsync()
+        private async Task RegisterAsync()
         {
-            return NavigationManager.NavigateAsync<AcceptPhoneViewModel>();
+            if (FullName.IsNullOrEmpty() &&
+                DateOfBirth != null &&
+                Phone.IsNullOrEmpty() &&
+                Email.IsNullOrEmpty())
+            {
+                return;
+            }
+
+            var profile = new Data.Models.Profile.Profile(FullName, DateOfBirth, Phone, Email);
+
+            var response = await profileManager.RegistrationAsync(profile);
+            if (response.Data is null)
+            {
+                var error = response.Errors.FirstOrDefault();
+                if (error.IsNullOrEmpty())
+                {
+                    return;
+                }
+
+                await userDialogs.AlertAsync(error);
+                return;
+            }
+
+            await RefreshDataAsync();
+            _ = NavigationManager.NavigateAsync<AcceptPhoneViewModel>();
         }
 
         private Task ShowPrivacyPolicyAsync()

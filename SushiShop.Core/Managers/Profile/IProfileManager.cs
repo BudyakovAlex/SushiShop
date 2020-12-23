@@ -10,7 +10,7 @@ namespace SushiShop.Core.Managers.Profile
 
         Task<Response<AuthorizationData>> AuthorizeAsync(string login, string pass);
 
-        Task<Response<ProfileRegistration>> RegistrationAsync(Data.Dtos.Profile.ProfileDto profileDto);
+        Task<Response<ProfileRegistration>> RegistrationAsync(Data.Models.Profile.Profile profile);
 
         Task<Response<PersonalData>> GetPersonalDataAsync();
 

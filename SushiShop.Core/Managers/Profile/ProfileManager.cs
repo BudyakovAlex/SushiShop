@@ -41,8 +41,23 @@ namespace SushiShop.Core.Managers.Profile
             return new Response<AuthorizationData>(isSuccessful: false, null);
         }
 
-        public async Task<Response<ProfileRegistration>> RegistrationAsync(ProfileDto profileDto)
+        public async Task<Response<ProfileRegistration>> RegistrationAsync(Data.Models.Profile.Profile profile)
         {
+            var profileDto = new ProfileDto
+            {
+                Email = profile.Email,
+                Phone = profile.Phone,
+                DateOfBirth = profile.DateOfBirth,
+                FirstName = profile.FirstName,
+                LastName = profile.LastName,
+                FullName = profile.FullName,
+                Gender = profile.Gender,
+                IsAllowSubscribe = profile.IsAllowSubscribe,
+                IsAllowNotifications = profile.IsAllowNotifications,
+                IsAllowPush = profile.IsAllowPush,
+                IsNeedRegistration = profile.IsNeedRegistration
+            };
+
             var response = await profileService.RegistrationAsync(profileDto, CancellationToken.None);
             if (response.IsSuccessful)
             {
