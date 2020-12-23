@@ -1,3 +1,4 @@
+using Plugin.Media;
 using SushiShop.Core.Factories.Cart;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Managers.Cities;
@@ -22,10 +23,6 @@ namespace SushiShop.Core.IoC
 {
     public class CompositionRoot : BuildApps.Core.Mobile.MvvmCross.IoC.CompositionRoot
     {
-        public CompositionRoot()
-        {
-        }
-
         protected override void RegisterManagers()
         {
             Container.RegisterSingleton<ICitiesManager, CitiesManager>();
@@ -60,7 +57,9 @@ namespace SushiShop.Core.IoC
         protected override void RegisterDependencies()
         {
             base.RegisterDependencies();
+
             Container.RegisterSingleton<IUserSession, UserSession>();
+            Container.RegisterSingleton(() => CrossMedia.Current);
         }
     }
 }

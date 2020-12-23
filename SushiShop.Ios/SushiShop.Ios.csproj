@@ -244,6 +244,8 @@
     <ImageAsset Include="Assets.xcassets\ic_bonus_two.imageset\ic_bonus_two.pdf" />
     <ImageAsset Include="Assets.xcassets\ic_bonus_three.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ic_bonus_three.imageset\ic_bonus_three.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_close_rounded.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_close_rounded.imageset\ic_close_rounded.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -301,6 +303,11 @@
         <Folder Include="Assets.xcassets\ic_bonus_three.imageset\" />
         <Folder Include="Views\ViewControllers\Orders\" />
         <Folder Include="Views\Cells\Orders\" />
+        <Folder Include="Views\ViewControllers\Feedback\" />
+        <Folder Include="Views\Cells\Feedback\" />
+        <Folder Include="Assets.xcassets\ic_close_rounded.imageset\" />
+        <Folder Include="Plugins\" />
+        <Folder Include="Views\ViewControllers\Common\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -340,6 +347,9 @@
     <InterfaceDefinition Include="Views\ViewControllers\Orders\OrderDetailsViewController.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Orders\OrderCompositionViewController.xib" />
     <InterfaceDefinition Include="Views\Cells\Orders\OrderProductItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Feedback\FeedbackViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\Feedback\FeedbackPhotoItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Common\PhotoDetailsViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -537,6 +547,21 @@
     <Compile Include="Views\Cells\Orders\OrderProductItemViewCell.cs" />
     <Compile Include="Views\Cells\Orders\OrderProductItemViewCell.designer.cs">
       <DependentUpon>OrderProductItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Feedback\FeedbackViewController.cs" />
+    <Compile Include="Views\ViewControllers\Feedback\FeedbackViewController.designer.cs">
+      <DependentUpon>FeedbackViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Feedback\FeedbackPhotoItemViewCell.cs" />
+    <Compile Include="Views\Cells\Feedback\FeedbackPhotoItemViewCell.designer.cs">
+      <DependentUpon>FeedbackPhotoItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delegates\FeedbackPhotosCollectionViewDelegateFlowLayout.cs" />
+    <Compile Include="Plugins\Dialog.cs" />
+    <Compile Include="Extensions\WindowExtensions.cs" />
+    <Compile Include="Views\ViewControllers\Common\PhotoDetailsViewController.cs" />
+    <Compile Include="Views\ViewControllers\Common\PhotoDetailsViewController.designer.cs">
+      <DependentUpon>PhotoDetailsViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

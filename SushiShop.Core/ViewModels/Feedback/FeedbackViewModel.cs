@@ -1,25 +1,33 @@
-﻿using Acr.UserDialogs;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.Common.Wrappers;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
-using Plugin.Media;
 using Plugin.Media.Abstractions;
+using SushiShop.Core.Data.Models.Plugins;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Feedback;
+using SushiShop.Core.Plugins;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Feedback.Items;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Feedback
 {
     public class FeedbackViewModel : BasePageViewModel
     {
         private readonly IFeedbackManager feedbackManager;
+        private readonly IDialog dialog;
+        private readonly IMedia media;
 
-        public FeedbackViewModel(IFeedbackManager feedbackManager)
+        public FeedbackViewModel(IFeedbackManager feedbackManager, IDialog dialog, IMedia media)
         {
             this.feedbackManager = feedbackManager;
+            this.dialog = dialog;
+            this.media = media;
 
             Photos = new MvxObservableCollection<FeedbackPhotoItemViewModel>();
 
@@ -28,17 +36,23 @@ namespace SushiShop.Core.ViewModels.Feedback
                 SendFeedbackAsync,
                 () => OrderNumber.IsNotNullNorEmpty() && Question.IsNotNullNorEmpty());
 
-            PickPhotoCommand = new SafeAsyncCommand(ExecutionStateWrapper, PickPhotoAsync);
-            TakePhotoCommand = new SafeAsyncCommand(ExecutionStateWrapper, TakePhotoAsync);
+            PickPhotoCommand = new SafeAsyncCommand(new ExecutionStateWrapper(), PickPhotoAsync);
+            TakePhotoCommand = new SafeAsyncCommand(new ExecutionStateWrapper(), TakePhotoAsync);
+            UploadPhotosCommand = new SafeAsyncCommand(new ExecutionStateWrapper(), UploadPhotosAsync);
         }
+
+        public IMvxAsyncCommand SendFeedbackCommand { get; }
+        public IMvxAsyncCommand UploadPhotosCommand { get; }
 
         public MvxObservableCollection<FeedbackPhotoItemViewModel> Photos { get; }
 
-        public IMvxCommand SendFeedbackCommand { get; }
+        public string Title => AppStrings.Feedback;
+        public string OrderNumberTitle => AppStrings.OrderNumber;
+        public string QuestionTitle => AppStrings.Question;
+        public string SendFeedbackTitle => AppStrings.Send;
+        public string UploadPhotosTitle => AppStrings.UploadPhotos;
 
-        public IMvxCommand PickPhotoCommand { get; }
-
-        public IMvxCommand TakePhotoCommand { get; }
+        public bool HasPhotos => Photos.IsNotEmpty();
 
         private string? orderNumber;
         public string? OrderNumber
@@ -54,9 +68,12 @@ namespace SushiShop.Core.ViewModels.Feedback
             set => SetProperty(ref question, value, SendFeedbackCommand.RaiseCanExecuteChanged);
         }
 
+        private IMvxAsyncCommand PickPhotoCommand { get; }
+        private IMvxAsyncCommand TakePhotoCommand { get; }
+
         private async Task SendFeedbackAsync()
         {
-            var photos = Photos.Select(photo => photo.ImageUrl).ToArray();
+            var photos = Photos.Select(photo => photo.ImagePath).ToArray();
             var response = await feedbackManager.SendFeedbackAsync(OrderNumber, Question, photos);
             if (!response.IsSuccessful)
             {
@@ -73,37 +90,49 @@ namespace SushiShop.Core.ViewModels.Feedback
 
         private async Task PickPhotoAsync()
         {
-            if (!CrossMedia.Current.IsPickPhotoSupported)
-            {
-                return;
-            }
-
-            var mediaFile = await CrossMedia.Current.PickPhotoAsync();
+            var mediaFile = await media.PickPhotoOrDefaultAsync();
             if (mediaFile is null)
             {
                 return;
             }
 
-            Photos.Add(ProduceFeedbackPhotoViewModel(mediaFile.Path));
+            AddPhoto(mediaFile.Path);
         }
 
         private async Task TakePhotoAsync()
         {
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-            {
-                return;
-            }
-
-            var mediaFile = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions());
+            var mediaFile = await media.TakePhotoOrDefaultAsync();
             if (mediaFile is null)
             {
                 return;
             }
 
-            Photos.Add(ProduceFeedbackPhotoViewModel(mediaFile.Path));
+            AddPhoto(mediaFile.Path);
         }
 
-        private FeedbackPhotoItemViewModel ProduceFeedbackPhotoViewModel(string imageUrl)
-            => new FeedbackPhotoItemViewModel(imageUrl, (vm) => Photos.Remove(vm));
+        private Task UploadPhotosAsync()
+        {
+            return dialog.ShowActionSheetAsync(
+                null,
+                null,
+                AppStrings.Cancel,
+                new DialogAction(AppStrings.TakePhoto, TakePhotoCommand),
+                new DialogAction(AppStrings.UploadFromGallery, PickPhotoCommand));
+        }
+
+        private FeedbackPhotoItemViewModel ProduceFeedbackPhotoViewModel(string imageUrl) =>
+            new FeedbackPhotoItemViewModel(imageUrl, RemovePhotoItem);
+
+        private void RemovePhotoItem(FeedbackPhotoItemViewModel item)
+        {
+            Photos.Remove(item);
+            RaisePropertyChanged(nameof(HasPhotos));
+        }
+
+        private void AddPhoto(string imagePath)
+        {
+            Photos.Add(ProduceFeedbackPhotoViewModel(imagePath));
+            RaisePropertyChanged(nameof(HasPhotos));
+        }
     }
 }

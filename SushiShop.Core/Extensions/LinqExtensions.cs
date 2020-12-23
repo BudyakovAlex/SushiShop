@@ -1,9 +1,8 @@
-﻿using BuildApps.Core.Mobile.Common.Extensions;
-using SushiShop.Core.Common.Comparers;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SushiShop.Core.Common.Comparers;
 
 namespace SushiShop.Core.Extensions
 {

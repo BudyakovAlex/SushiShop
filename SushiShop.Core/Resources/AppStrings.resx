@@ -302,5 +302,32 @@
   </data>
   <data name="ReceiveMethod" xml:space="preserve">
     <value>Способ получения</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Обратная связь</value>
+  </data>
+  <data name="OrderNumber" xml:space="preserve">
+    <value>Номер заказа</value>
+  </data> 
+  <data name="Question" xml:space="preserve">
+    <value>Вопрос</value>
+  </data> 
+  <data name="Send" xml:space="preserve">
+    <value>Отправить</value>
+  </data>
+  <data name="UploadPhotos" xml:space="preserve">
+    <value>Загрузить фотографии</value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>Фото</value>
+  </data>
+  <data name="TakePhoto" xml:space="preserve">
+    <value>Сделать фото</value>
+  </data>
+  <data name="UploadFromGallery" xml:space="preserve">
+    <value>Загрузить из галереи</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отменить</value>
   </data> 
 </root>

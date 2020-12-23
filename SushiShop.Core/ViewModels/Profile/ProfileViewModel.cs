@@ -2,6 +2,7 @@
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Core.ViewModels.Orders;
 
 namespace SushiShop.Core.ViewModels.Profile
@@ -20,8 +21,8 @@ namespace SushiShop.Core.ViewModels.Profile
             ChooseNewImageCommand = new SafeAsyncCommand(ExecutionStateWrapper, ChooseNewImageAsync);
         }
 
-        private string login;
-        public string Login
+        private string? login;
+        public string? Login
         {
             get => login;
             set => SetProperty(ref login, value);
@@ -83,7 +84,7 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private Task ShowFeedbackViewAsync()
         {
-            return Task.CompletedTask;
+            return NavigationManager.NavigateAsync<FeedbackViewModel>();
         }
 
         private Task ShowScoreViewAsync()

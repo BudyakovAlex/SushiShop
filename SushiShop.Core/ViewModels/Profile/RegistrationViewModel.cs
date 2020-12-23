@@ -13,29 +13,29 @@ namespace SushiShop.Core.ViewModels.Profile
             ShowPrivacyPolicyCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPrivacyPolicyAsync);
         }
 
-        private string name;
-        public string Name
+        private string? name;
+        public string? Name
         {
             get => name;
             set => SetProperty(ref name, value);
         }
 
-        private string dateOfBirth;
-        public string DateOfBirth
+        private string? dateOfBirth;
+        public string? DateOfBirth
         {
             get => dateOfBirth;
             set => SetProperty(ref name, value);
         }
 
-        private string phone;
-        public string Phone
+        private string? phone;
+        public string? Phone
         {
             get => phone;
             set => SetProperty(ref phone, value);
         }
 
-        private string email;
-        public string Email
+        private string? email;
+        public string? Email
         {
             get => email;
             set => SetProperty(ref email, value);
