@@ -16,7 +16,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 		UIKit.UILabel ContentLabel { get; set; }
 
 		[Outlet]
-		UIKit.UIScrollView ParentScrollView { get; set; }
+		UIKit.UIScrollView ContentScrollView { get; set; }
 
 		[Outlet]
 		UIKit.UIView RoundedContentView { get; set; }
@@ -41,9 +41,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				ScrollViewContentView = null;
 			}
 
-			if (ParentScrollView != null) {
-				ParentScrollView.Dispose ();
-				ParentScrollView = null;
+			if (ContentScrollView != null) {
+				ContentScrollView.Dispose ();
+				ContentScrollView = null;
 			}
 		}
 	}

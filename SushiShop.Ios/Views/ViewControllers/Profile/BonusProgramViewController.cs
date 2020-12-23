@@ -3,6 +3,7 @@ using System.Reactive.Disposables;
 using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using CoreAnimation;
+using Foundation;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Ios.Converters;
@@ -12,13 +13,26 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 {
     [MvxModalPresentation(
         Animated = true,
-        ModalPresentationStyle = UIModalPresentationStyle.OverFullScreen)]
+        ModalPresentationStyle = UIModalPresentationStyle.OverFullScreen,
+        ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve)]
     public partial class BonusProgramViewController : BaseViewController<BonusProgramViewModel>
     {
         private nfloat startContentOffsetY;
         private bool isAtTop = true;
         private bool isFirstStart = true;
         private CompositeDisposable disposables;
+
+        public NSAttributedString Content
+        {
+            get => ContentLabel?.AttributedText;
+            set
+            {
+                ContentLabel.AttributedText = value;
+                ContentLabel.SizeToFit();
+
+                ContentScrollView.ContentSize = ContentLabel.Frame.Size;
+            }
+        }
 
         public BonusProgramViewController()
         {
@@ -32,33 +46,28 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             RoundedContentView.Layer.MaskedCorners = CACornerMask.MinXMinYCorner | CACornerMask.MaxXMinYCorner;
             RoundedContentView.Layer.CornerRadius = 16f;
 
-            ParentScrollView.SubscribeToEvent(
+           ContentScrollView.SubscribeToEvent(
                 OnParentScrollViewDraggingStarted,
                 (scrollView, handler) => scrollView.DraggingStarted += handler,
                 (scrollView, handler) => scrollView.DraggingStarted -= handler)
                 .DisposeWith(disposables);
-            ParentScrollView.SubscribeToEvent<UIScrollView, DraggingEventArgs>(
+            ContentScrollView.SubscribeToEvent<UIScrollView, DraggingEventArgs>(
                 OnParentScrollViewDraggingEnded,
                 (scrollView, handler) => scrollView.DraggingEnded += handler,
                 (scrollView, handler) => scrollView.DraggingEnded -= handler)
                 .DisposeWith(disposables);
-            ParentScrollView.SubscribeToEvent(
+            ContentScrollView.SubscribeToEvent(
                 OnParentScrollViewDecelerationEnded,
                 (scrollView, handler) => scrollView.DecelerationEnded += handler,
                 (scrollView, handler) => scrollView.DecelerationEnded -= handler)
                 .DisposeWith(disposables);
-            ParentScrollView.SubscribeToEvent(
+            ContentScrollView.SubscribeToEvent(
                 OnParentScrollViewScrolled,
                 (scrollView, handler) => scrollView.Scrolled += handler,
                 (scrollView, handler) => scrollView.Scrolled -= handler)
                 .DisposeWith(disposables);
-            var closeTapGesture =
-                new UITapGestureRecognizer(() => ViewModel?.PlatformCloseCommand?.Execute(null))
-                {
-                    ShouldReceiveTouch = CloseTapGestureShouldReceiveTouch
-                }
-                .DisposeWith(disposables);
-            ScrollViewContentView.AddGestureRecognizer(closeTapGesture);
+
+            AddGestureRecognizers();
         }
 
         protected override void Bind()
@@ -67,10 +76,24 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(ContentLabel).For(v => v.AttributedText).To(vm => vm.Descriptiom)
+            bindingSet.Bind(this).For(v => v.Content).To(vm => vm.Descriptiom)
                 .WithConversion<HtmlTextToAttributedStringConverter>();
 
             bindingSet.Apply();
+        }
+
+        private void AddGestureRecognizers()
+        {
+            var closeTapGesture = new UITapGestureRecognizer(() => ViewModel?.PlatformCloseCommand?.Execute(null))
+            {
+                ShouldReceiveTouch = CloseTapGestureShouldReceiveTouch
+            };
+            View.AddGestureRecognizer(closeTapGesture);
+            var closeSwipeGesture = new UISwipeGestureRecognizer(() => ViewModel?.PlatformCloseCommand?.Execute(null))
+            {
+                Direction = UISwipeGestureRecognizerDirection.Down
+            };
+            View.AddGestureRecognizer(closeSwipeGesture);
         }
 
         private void OnParentScrollViewScrolled(object sender, EventArgs e)
@@ -81,7 +104,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
                 return;
             }
 
-            if (startContentOffsetY >= ParentScrollView.ContentOffset.Y)
+            if (startContentOffsetY >= ContentScrollView.ContentOffset.Y)
             {
                 return;
             }
@@ -91,7 +114,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
         private void OnParentScrollViewDecelerationEnded(object sender, EventArgs e)
         {
-            if (ParentScrollView.ContentOffset.Y <= 0)
+            if (ContentScrollView.ContentOffset.Y <= 0)
             {
                 isAtTop = true;
             }
@@ -99,7 +122,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
         private void OnParentScrollViewDraggingEnded(object sender, DraggingEventArgs e)
         {
-            if (startContentOffsetY >= ParentScrollView.ContentOffset.Y && isAtTop)
+            if (startContentOffsetY >= ContentScrollView.ContentOffset.Y && isAtTop)
             {
                 ViewModel?.PlatformCloseCommand?.Execute(null);
             }
@@ -107,7 +130,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
         private void OnParentScrollViewDraggingStarted(object sender, System.EventArgs e)
         {
-            startContentOffsetY = ParentScrollView.ContentOffset.Y;
+            startContentOffsetY = ContentScrollView.ContentOffset.Y;
         }
 
         private bool CloseTapGestureShouldReceiveTouch(UIGestureRecognizer gesture, UITouch touch)
