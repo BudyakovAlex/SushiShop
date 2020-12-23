@@ -25,13 +25,15 @@ namespace SushiShop.Core.Services.Http
             client.Timeout = TimeSpan.FromMinutes(5);
         }
 
-        public Task<HttpResponse<T>> ExecuteAnonymouslyAsync<T>(Method method, string url, object? content, CancellationToken cancellationToken) where T : class
+        public Task<HttpResponse<T>> ExecuteAnonymouslyAsync<T>(Method method, string url, object? content, CancellationToken cancellationToken)
+            where T : class
         {
             var request = CreateRequestMessage(method, url, content);
             return ExecuteAsync<T>(request, cancellationToken);
         }
 
-        public Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, object? content, CancellationToken cancellationToken) where T : class
+        public Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, object? content, CancellationToken cancellationToken)
+            where T : class
         {
             var request = CreateRequestMessage(method, url, content);
             AddAuthorizationHeaderIfExists(request);
@@ -39,7 +41,8 @@ namespace SushiShop.Core.Services.Http
             return ExecuteAsync<T>(request, cancellationToken);
         }
 
-        public Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, object body, string[]? files, CancellationToken cancellationToken) where T : class
+        public Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, object body, string[]? files, CancellationToken cancellationToken)
+            where T : class
         {
             var content = Json.Serialize(body);
             var multipartContent = new MultipartContent
@@ -56,10 +59,8 @@ namespace SushiShop.Core.Services.Http
                 }
             }
 
-            var request = new HttpRequestMessage(ToHttpMethod(method), url)
-            {
-                Content = new StringContent(content)
-            };
+            var request = CreateRequestMessage(method, url);
+            request.Content = multipartContent;
 
             return ExecuteAsync<T>(request, cancellationToken);
         }
@@ -134,7 +135,7 @@ namespace SushiShop.Core.Services.Http
             }
         }
 
-        private HttpRequestMessage CreateRequestMessage(Method method, string url, object? content)
+        private HttpRequestMessage CreateRequestMessage(Method method, string url, object? content = null)
         {
             var httpMethod = ToHttpMethod(method);
             var request = new HttpRequestMessage(httpMethod, url);
@@ -152,13 +153,13 @@ namespace SushiShop.Core.Services.Http
             }
 
             return request;
-        }
 
-        private HttpMethod ToHttpMethod(Method method) => method switch
-        {
-            Method.Get => HttpMethod.Get,
-            Method.Post => HttpMethod.Post,
-            _ => throw new ArgumentOutOfRangeException(),
-        };
+            static HttpMethod ToHttpMethod(Method method) => method switch
+            {
+                Method.Get => HttpMethod.Get,
+                Method.Post => HttpMethod.Post,
+                _ => throw new ArgumentOutOfRangeException(),
+            };
+        }
     }
 }
