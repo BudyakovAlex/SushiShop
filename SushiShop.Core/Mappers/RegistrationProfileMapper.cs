@@ -1,7 +1,7 @@
 ﻿using SushiShop.Core.Data.Dtos.Profile;
 using SushiShop.Core.Data.Models.Profile;
 
-namespace SushiShop.Core.Mappers.Profile
+namespace SushiShop.Core.Mappers
 {
     public static class RegistrationProfileMapper
     {
