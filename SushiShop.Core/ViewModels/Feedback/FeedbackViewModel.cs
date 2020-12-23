@@ -47,25 +47,35 @@ namespace SushiShop.Core.ViewModels.Feedback
         public MvxObservableCollection<FeedbackPhotoItemViewModel> Photos { get; }
 
         public string Title => AppStrings.Feedback;
-        public string OrderNumberTitle => AppStrings.OrderNumber;
-        public string QuestionTitle => AppStrings.Question;
         public string SendFeedbackTitle => AppStrings.Send;
         public string UploadPhotosTitle => AppStrings.UploadPhotos;
 
         public bool HasPhotos => Photos.IsNotEmpty();
 
+        public string OrderNumberPlaceholder => string.IsNullOrEmpty(OrderNumber) ? $"{AppStrings.OrderNumber}*" : AppStrings.OrderNumber;
+
+        public string QuestionPlaceholder => string.IsNullOrEmpty(Question) ? $"{AppStrings.Question}*" : AppStrings.Question;
+
         private string? orderNumber;
         public string? OrderNumber
         {
             get => orderNumber;
-            set => SetProperty(ref orderNumber, value, SendFeedbackCommand.RaiseCanExecuteChanged);
+            set => SetProperty(ref orderNumber, value, () =>
+            {
+                RaisePropertyChanged(nameof(OrderNumberPlaceholder));
+                SendFeedbackCommand.RaiseCanExecuteChanged();
+            });
         }
 
         private string? question;
         public string? Question
         {
             get => question;
-            set => SetProperty(ref question, value, SendFeedbackCommand.RaiseCanExecuteChanged);
+            set => SetProperty(ref question, value, () =>
+            {
+                RaisePropertyChanged(nameof(QuestionPlaceholder));
+                SendFeedbackCommand.RaiseCanExecuteChanged();
+            });
         }
 
         private IMvxAsyncCommand PickPhotoCommand { get; }
