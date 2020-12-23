@@ -63,7 +63,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 
             InitializeScrollView();
             InitializeOrderNumberTextField();
-            InitializeQuestionTextField();
             InitializeCollectionView();
         }
 
@@ -75,10 +74,10 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 
             bindingSet.Bind(this).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(this).For(v => v.HasPhotos).To(vm => vm.HasPhotos);
-            bindingSet.Bind(OrderNumberTextField).For(v => v.Placeholder).To(vm => vm.OrderNumberTitle);
+            bindingSet.Bind(OrderNumberTextField).For(v => v.Placeholder).To(vm => vm.OrderNumberPlaceholder);
             bindingSet.Bind(OrderNumberTextField).For(v => v.Text).To(vm => vm.OrderNumber);
-            bindingSet.Bind(QuestionTextField).For(v => v.Placeholder).To(vm => vm.QuestionTitle);
-            bindingSet.Bind(QuestionTextField).For(v => v.Text).To(vm => vm.Question);
+            bindingSet.Bind(QuestionTextView).For(v => v.Placeholder).To(vm => vm.QuestionPlaceholder);
+            bindingSet.Bind(QuestionTextView).For(v => v.Text).To(vm => vm.Question);
             bindingSet.Bind(UploadPhotosView).For(v => v.BindTap()).To(vm => vm.UploadPhotosCommand);
             bindingSet.Bind(UploadPhotosLabel).For(v => v.Text).To(vm => vm.UploadPhotosTitle);
             bindingSet.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Photos);
@@ -100,12 +99,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
             OrderNumberTextField.ShouldReturn = OnOrderNumberTextFieldShouldReturn;
         }
 
-        private void InitializeQuestionTextField()
-        {
-            QuestionTextField.ReturnKeyType = UIReturnKeyType.Done;
-            QuestionTextField.ShouldReturn = OnQuestionTextFieldShouldReturn;
-        }
-
         private void InitializeCollectionView()
         {
             _source = new CollectionViewSource(PhotosCollectionView)
@@ -122,13 +115,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 
         private bool OnOrderNumberTextFieldShouldReturn(UITextField _)
         {
-            QuestionTextField.BecomeFirstResponder();
-            return true;
-        }
-
-        private bool OnQuestionTextFieldShouldReturn(UITextField textField)
-        {
-            textField.ResignFirstResponder();
+            QuestionTextView.BecomeFirstResponder();
             return true;
         }
 

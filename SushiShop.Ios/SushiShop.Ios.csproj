@@ -563,6 +563,9 @@
     <Compile Include="Views\ViewControllers\Common\PhotoDetailsViewController.designer.cs">
       <DependentUpon>PhotoDetailsViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\FloatingTextView.cs" />
+    <Compile Include="Views\Controls\Abstract\BaseTextView.cs" />
+    <Compile Include="Extensions\ViewExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
