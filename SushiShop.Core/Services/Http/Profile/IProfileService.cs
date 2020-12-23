@@ -7,7 +7,7 @@ namespace SushiShop.Core.Services.Http.Profile
 {
     public interface IProfileService
     {
-        Task<HttpResponse<ResponseDto<BaseProfileDto>>> CheckIsLoginAvailableAsync(string login, bool? sendCode, CancellationToken cancellationToken);
+        Task<HttpResponse<ResponseDto<BaseProfileDto>>> CheckIsLoginAvailableAsync(string login, bool? shouldSendCode, CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<AuthorizationDataDto>>> AuthorizeAsync(string login, string pass, CancellationToken cancellationToken);
 
@@ -17,6 +17,6 @@ namespace SushiShop.Core.Services.Http.Profile
 
         Task<HttpResponse<ResponseDto<ProfileDiscountDto>>> GetDiscountAsync(CancellationToken cancellationToken);
         
-        Task<HttpResponse<ResponseDto<ProfileDto>>> SavePersonalDataAsync(BaseProfileDto profileDto,CancellationToken cancellationToken);
+        Task<HttpResponse<ResponseDto<ProfileDto>>> SaveProfileAsync(BaseProfileDto profileDto, CancellationToken cancellationToken);
     }
 }

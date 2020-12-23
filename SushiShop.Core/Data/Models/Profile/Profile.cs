@@ -14,7 +14,7 @@ namespace SushiShop.Core.Data.Models.Profile
             string? firstName,
             string? lastName,
             string? fullName,
-            GenderType? gender,
+            GenderType gender,
             bool isAllowSubscribe,
             bool isAllowNotifications,
             bool isAllowPush,

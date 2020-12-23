@@ -24,7 +24,7 @@ namespace SushiShop.Core.Data.Models.Profile
             string? firstName,
             string? lastName,
             string? fullName,
-            GenderType? gender,
+            GenderType gender,
             bool isAllowSubscribe,
             bool isAllowNotifications,
             bool isAllowPush,
@@ -55,7 +55,7 @@ namespace SushiShop.Core.Data.Models.Profile
 
         public string? FullName { get; }
 
-        public GenderType? Gender { get; }
+        public GenderType Gender { get; }
 
         public bool IsAllowSubscribe { get; }
 

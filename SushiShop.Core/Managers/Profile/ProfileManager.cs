@@ -1,7 +1,7 @@
-﻿using SushiShop.Core.Data.Dtos.Profile;
-using SushiShop.Core.Data.Http;
+﻿using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Profile;
 using SushiShop.Core.Mappers;
+using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http.Profile;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,15 +11,17 @@ namespace SushiShop.Core.Managers.Profile
     public class ProfileManager : IProfileManager
     {
         private readonly IProfileService profileService;
+        private readonly IUserSession userSession;
 
         public ProfileManager(IProfileService profileService)
         {
             this.profileService = profileService;
+            this.userSession = userSession;
         }
 
-        public async Task<Response<BaseProfile>> CheckIsLoginAvailableAsync(string login, bool? sendCode)
+        public async Task<Response<BaseProfile>> CheckIsLoginAvailableAsync(string login, bool? shouldSendCode)
         {
-            var response = await profileService.CheckIsLoginAvailableAsync(login, sendCode, CancellationToken.None);
+            var response = await profileService.CheckIsLoginAvailableAsync(login, shouldSendCode, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
@@ -35,6 +37,7 @@ namespace SushiShop.Core.Managers.Profile
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
+                userSession.SetToken(data.Token);
                 return new Response<AuthorizationData>(isSuccessful: true, data);
             }
 
@@ -77,9 +80,9 @@ namespace SushiShop.Core.Managers.Profile
             return new Response<ProfileDiscount>(isSuccessful: false, null);
         }
 
-        public async Task<Response<Data.Models.Profile.Profile>> SavePersonalDataAsync(BaseProfile profile)
+        public async Task<Response<Data.Models.Profile.Profile>> SaveProfileAsync(BaseProfile profile)
         {
-            var response = await profileService.SavePersonalDataAsync(profile.Map(), CancellationToken.None);
+            var response = await profileService.SaveProfileAsync(profile.Map(), CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();

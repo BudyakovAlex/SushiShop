@@ -5,7 +5,6 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.NavigationParameters;
-using SushiShop.Core.Providers;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,16 +14,14 @@ namespace SushiShop.Core.ViewModels.Profile
     {
         private readonly IProfileManager profileManager;
         private readonly IUserDialogs userDialogs;
-        private readonly IUserSession userSession;
         private string login;
 
-        public AcceptPhoneViewModel(IProfileManager profileManager, IUserSession userSession)
+        public AcceptPhoneViewModel(IProfileManager profileManager)
         {
             this.profileManager = profileManager;
             this.userDialogs = UserDialogs.Instance;
-            this.userSession = userSession;
 
-            ContinueCommand = new SafeAsyncCommand(ExecutionStateWrapper, ContinueAsync);
+            ContinueCommand = new SafeAsyncCommand(ExecutionStateWrapper, ContinueAsync, () => Code.IsNotNullNorEmpty());
         }
 
         private string? code;
@@ -43,11 +40,6 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task ContinueAsync()
         {
-            if (Code.IsNullOrEmpty())
-            {
-                return;
-            }
-
             var response = await profileManager.AuthorizeAsync(login, Code);
             if (response.Data is null)
             {
@@ -59,8 +51,7 @@ namespace SushiShop.Core.ViewModels.Profile
                 await userDialogs.AlertAsync(error);
                 return;
             }
-
-            userSession.SetToken(response.Data.Token);              
+            
             await RefreshDataAsync();
             _ = NavigationManager.NavigateAsync<ProfileViewModel>();
         }

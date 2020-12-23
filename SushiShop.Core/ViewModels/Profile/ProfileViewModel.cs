@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
@@ -6,6 +7,7 @@ using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Core.ViewModels.Orders;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
@@ -54,8 +56,8 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref username, value);
         }
 
-        private string score;
-        public string Score
+        private int score;
+        public int Score
         {
             get => score;
             set => SetProperty(ref score, value);
@@ -72,6 +74,22 @@ namespace SushiShop.Core.ViewModels.Profile
         public IMvxCommand ShowScoreViewCommand { get; }
 
         public IMvxCommand ChooseNewImageCommand { get; }
+
+        public override async Task InitializeAsync()
+        {
+            await base.InitializeAsync();
+            var response = await profileManager.GetDiscountAsync();
+            if (response.Data is null)
+            {
+                var error = response.Errors.FirstOrDefault();
+                if (error.IsNullOrEmpty())
+                {
+                    return;
+                }
+            }
+
+            Score = response.Data.Bonuses;
+        }
 
         private async Task LogoutAsync()
         {

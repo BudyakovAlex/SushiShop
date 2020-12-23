@@ -62,7 +62,7 @@ namespace SushiShop.Core.Services.Http.Profile
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<ProfileDto>>> SavePersonalDataAsync(BaseProfileDto profileDto, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ProfileDto>>> SaveProfileAsync(BaseProfileDto profileDto, CancellationToken cancellationToken)
         {
             return httpService.ExecuteAsync<ResponseDto<ProfileDto>>(
                 Method.Post,

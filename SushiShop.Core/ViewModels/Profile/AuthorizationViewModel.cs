@@ -42,11 +42,6 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task SignInAsync()
         {
-            if (PhoneOrEmail.IsNullOrEmpty())
-            {
-                return;
-            }
-
             var response = await profileManager.CheckIsLoginAvailableAsync(PhoneOrEmail, null);
             if (response.Data is null)
             {

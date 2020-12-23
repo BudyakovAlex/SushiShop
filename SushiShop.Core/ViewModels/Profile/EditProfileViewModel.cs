@@ -16,6 +16,8 @@ namespace SushiShop.Core.ViewModels.Profile
         private readonly IProfileManager profileManager;
         private readonly IUserDialogs userDialogs;
 
+        private Data.Models.Profile.Profile profile;
+
         public EditProfileViewModel(IProfileManager profileManager)
         {
             this.profileManager = profileManager;
@@ -89,11 +91,27 @@ namespace SushiShop.Core.ViewModels.Profile
 
         public IMvxCommand SaveCommand { get; }
 
+        public override async Task InitializeAsync()
+        {
+            await base.InitializeAsync();
+            var responseProfile = await profileManager.GetProfileAsync();
+            profile = responseProfile.Data;
+
+            FirstName = profile.FirstName;
+            LastName = profile.LastName;
+            Gender = profile.Gender;
+            DateOfBirdth = profile.DateOfBirth;
+            Phone = profile.Phone;
+            Email = profile.Email;
+            IsAllowSubscribe = profile.IsAllowSubscribe;
+            IsAllowNotifications = profile.IsAllowNotifications;
+            IsAllowPush = profile.IsAllowPush;
+        }
+
         private async Task SaveAsync()
         {
-            var responsePersonalData = await profileManager.GetProfileAsync();
-            var personalData = new Data.Models.Profile.Profile(
-                responsePersonalData.Data.UserId,
+            var userData = new Data.Models.Profile.Profile(
+                profile.UserId,
                 this.Email,
                 this.Phone,
                 this.DateOfBirdth,
@@ -104,13 +122,13 @@ namespace SushiShop.Core.ViewModels.Profile
                 this.IsAllowSubscribe,
                 this.IsAllowNotifications,
                 this.IsAllowPush,
-                responsePersonalData.Data.IsNeedRegistration,
-                responsePersonalData.Data.DateOfBirthFormated,
-                responsePersonalData.Data.CanChangeDateOfBirth,
-                responsePersonalData.Data.SubscribeSales,
-                responsePersonalData.Data.Photo);
+                profile.IsNeedRegistration,
+                profile.DateOfBirthFormated,
+                profile.CanChangeDateOfBirth,
+                profile.SubscribeSales,
+                profile.Photo);
 
-            var response = await profileManager.SavePersonalDataAsync(personalData);
+            var response = await profileManager.SaveProfileAsync(userData);
             if (response.Data is null)
             {
                 var error = response.Errors.FirstOrDefault();

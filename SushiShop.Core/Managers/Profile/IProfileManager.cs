@@ -6,7 +6,7 @@ namespace SushiShop.Core.Managers.Profile
 {
     public interface IProfileManager
     {
-        Task<Response<BaseProfile>> CheckIsLoginAvailableAsync(string login, bool? sendCode);
+        Task<Response<BaseProfile>> CheckIsLoginAvailableAsync(string login, bool? shouldSendCode);
 
         Task<Response<AuthorizationData>> AuthorizeAsync(string login, string pass);
 
@@ -16,6 +16,6 @@ namespace SushiShop.Core.Managers.Profile
 
         Task<Response<ProfileDiscount>> GetDiscountAsync();
 
-        Task<Response<Data.Models.Profile.Profile>> SavePersonalDataAsync(BaseProfile profile);
+        Task<Response<Data.Models.Profile.Profile>> SaveProfileAsync(BaseProfile profile);
     }
 }
