@@ -9,57 +9,81 @@ namespace SushiShop.Core.Providers
     public class UserSession : IUserSession
     {
         private Token? token;
+        private City? city;
+        private Guid? cartId;
 
         public Guid GetCartId()
         {
-            var defaultGuid = Guid.NewGuid();
-            var defaultGuidString = defaultGuid.ToString();
-            var guidString = Preferences.Get(Constants.Preferences.CartKey, defaultGuidString);
-            if (guidString == defaultGuidString)
+            if (cartId.HasValue)
             {
-                SetCartId(defaultGuid);
+                return cartId.Value;
             }
 
-            return Guid.Parse(guidString);
+            var json = Preferences.Get(Constants.Preferences.CartKey, null);
+            if (json is null)
+            {
+                var newCartId = Guid.NewGuid();
+                SetCartId(newCartId);
+
+                return newCartId;
+            }
+            else
+            {
+                var newCartId = Guid.Parse(json);
+                cartId = newCartId;
+
+                return newCartId;
+            }
         }
 
         public void SetCartId(Guid id)
         {
+            cartId = id;
+
             Preferences.Set(Constants.Preferences.CartKey, id.ToString());
         }
 
         public City? GetCity()
         {
-            var city = Preferences.Get(Constants.Preferences.CityKey, null);
-            if (city is null)
+            if (city != null)
+            {
+                return city;
+            }
+
+            var json = Preferences.Get(Constants.Preferences.CityKey, null);
+            if (json is null)
             {
                 return null;
             }
 
-            var result = Json.Deserialize<City>(city);
-            return result;
+            var newCity = Json.Deserialize<City>(json);
+            city = newCity;
+
+            return newCity;
         }
 
         public void SetCity(City city)
         {
-            var cityJson = Json.Serialize(city);
-            Preferences.Set(Constants.Preferences.CityKey, cityJson);
+            this.city = city;
+
+            var value = Json.Serialize(city);
+            Preferences.Set(Constants.Preferences.CityKey, value);
         }
 
         public Token? GetToken()
         {
-            if (token is null)
+            if (token != null)
+            {
+                return token;
+            }
+
+            var json = Preferences.Get(Constants.Preferences.TokenKey, null);
+            if (json is null)
             {
                 return null;
             }
 
-            var value = Preferences.Get(Constants.Preferences.TokenKey, null);
-            if (value is null)
-            {
-                return null;
-            }
-
-            var newToken = Json.Deserialize<Token>(value);
+            var newToken = Json.Deserialize<Token>(json);
             token = newToken;
 
             return newToken;
@@ -69,8 +93,8 @@ namespace SushiShop.Core.Providers
         {
             this.token = token;
 
-            var value = Json.Serialize(token);
-            Preferences.Set(Constants.Preferences.TokenKey, value);
+            var json = Json.Serialize(token);
+            Preferences.Set(Constants.Preferences.TokenKey, json);
         }
     }
 }
