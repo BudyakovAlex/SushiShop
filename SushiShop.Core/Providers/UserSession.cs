@@ -1,5 +1,4 @@
 ﻿using System;
-using BuildApps.Core.Mobile.Common.Extensions;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Profile;
@@ -15,7 +14,7 @@ namespace SushiShop.Core.Providers
         {
             var defaultGuid = Guid.NewGuid();
             var defaultGuidString = defaultGuid.ToString();
-            var guidString = Preferences.Get(Constants.Cart.PreferencesCartKey, defaultGuidString);
+            var guidString = Preferences.Get(Constants.Preferences.CartKey, defaultGuidString);
             if (guidString == defaultGuidString)
             {
                 SetCartId(defaultGuid);
@@ -26,25 +25,25 @@ namespace SushiShop.Core.Providers
 
         public void SetCartId(Guid id)
         {
-            Preferences.Set(Constants.Cart.PreferencesCartKey, id.ToString());
+            Preferences.Set(Constants.Preferences.CartKey, id.ToString());
         }
 
         public City? GetCity()
         {
-            var city = Preferences.Get(Constants.Menu.PreferencesCityKey, default(string));
-            if (city.IsNullOrEmpty())
+            var city = Preferences.Get(Constants.Preferences.CityKey, null);
+            if (city is null)
             {
                 return null;
             }
 
             var result = Json.Deserialize<City>(city);
-            return result.data;
+            return result;
         }
 
         public void SetCity(City city)
         {
             var cityJson = Json.Serialize(city);
-            Preferences.Set(Constants.Menu.PreferencesCityKey, cityJson);
+            Preferences.Set(Constants.Preferences.CityKey, cityJson);
         }
 
         public Token? GetToken()
@@ -60,7 +59,7 @@ namespace SushiShop.Core.Providers
                 return null;
             }
 
-            var newToken = Json.ForceDeserialize<Token>(value);
+            var newToken = Json.Deserialize<Token>(value);
             token = newToken;
 
             return newToken;

@@ -34,7 +34,7 @@ namespace SushiShop.Core.Services.Http
         public Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, object? content, CancellationToken cancellationToken) where T : class
         {
             var request = CreateRequestMessage(method, url, content);
-            AddTokenIfPossible(request);
+            AddAuthorizationHeaderIfExists(request);
 
             return ExecuteAsync<T>(request, cancellationToken);
         }
@@ -112,7 +112,7 @@ namespace SushiShop.Core.Services.Http
             switch (response.ResponseStatus)
             {
                 case HttpResponseStatus.Success:
-                    var (data, exception) = Json.Deserialize<T>(response.RawData);
+                    var (data, exception) = Json.SafeDeserialize<T>(response.RawData);
                     return data is null
                         ? HttpResponse<T>.ParseError(exception, response.RawData, response.StatusCode)
                         : HttpResponse<T>.Success(data);
@@ -125,7 +125,7 @@ namespace SushiShop.Core.Services.Http
             }
         }
 
-        private void AddTokenIfPossible(HttpRequestMessage requestMessage)
+        private void AddAuthorizationHeaderIfExists(HttpRequestMessage requestMessage)
         {
             var token = userSession.GetToken();
             if (token != null)

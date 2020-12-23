@@ -4,7 +4,9 @@
     {
         public static class Preferences
         {
-            public const string TokenKey = "TokenKey";
+            public const string TokenKey = nameof(TokenKey);
+            public const string CityKey = nameof(CityKey);
+            public const string CartKey = nameof(CartKey);
         }
     }
 }
