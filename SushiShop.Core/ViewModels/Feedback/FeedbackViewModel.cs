@@ -60,20 +60,14 @@ namespace SushiShop.Core.ViewModels.Feedback
         public string? OrderNumber
         {
             get => orderNumber;
-            set => SetProperty(ref orderNumber, value, () =>
-            {
-                IsOrderNumberEmpty = string.IsNullOrEmpty(orderNumber);
-            });
+            set => SetProperty(ref orderNumber, value, () => IsOrderNumberEmpty = string.IsNullOrEmpty(orderNumber));
         }
 
         private string? question;
         public string? Question
         {
             get => question;
-            set => SetProperty(ref question, value, () =>
-            {
-                IsQuestionEmpty = string.IsNullOrEmpty(question);
-            });
+            set => SetProperty(ref question, value, () => IsQuestionEmpty = string.IsNullOrEmpty(question));
         }
 
         private IMvxAsyncCommand PickPhotoCommand { get; }

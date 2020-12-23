@@ -62,7 +62,7 @@ namespace SushiShop.Ios.Views.Controls
         public override void LayoutSubviews()
         {
             base.LayoutSubviews();
-            bottomLineLayer.Frame = new CGRect(0f, Bounds.Bottom - BottomLineHeight, Bounds.Width, BottomLineHeight);
+            bottomLineLayer.Frame = new CGRect(0f, Bounds.Height - BottomLineHeight, Bounds.Width, BottomLineHeight);
         }
 
         protected override void Initialize()
@@ -106,7 +106,7 @@ namespace SushiShop.Ios.Views.Controls
                     placeholderLabel.Font = Font;
 
                     var size = placeholderLabel.SizeThatFits(Bounds.Size);
-                    placeholderLabel.UpdateFrame(y: TextContainerInset.Top, width: size.Width + 10f, height: size.Height);
+                    placeholderLabel.UpdateFrame(y: TextContainerInset.Top, width: size.Width, height: size.Height);
                 });
             }
             else
@@ -116,7 +116,7 @@ namespace SushiShop.Ios.Views.Controls
                     placeholderLabel.Font = Font.WithSize(Font.PointSize * FontScale);
 
                     var size = placeholderLabel.SizeThatFits(Bounds.Size);
-                    placeholderLabel.UpdateFrame(y: 0f, width: size.Width + 10f, height: size.Height);
+                    placeholderLabel.UpdateFrame(y: 0f, width: size.Width, height: size.Height);
                 });
             }
         }
