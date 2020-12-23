@@ -4,9 +4,9 @@ using System;
 
 namespace SushiShop.Core.Data.Models.Profile
 {
-    public class Profile : BaseProfile
+    public class DetailedProfile : Profile
     {
-        public Profile(
+        public DetailedProfile(
             int userId,
             string? email,
             string? phone,
@@ -24,16 +24,16 @@ namespace SushiShop.Core.Data.Models.Profile
             string? subscribeSales,
             ImageInfo? photo)
             : base(email,
-                  phone,
-                  dateOfBirth,
-                  firstName,
-                  lastName,
-                  fullName,
-                  gender,
-                  isAllowSubscribe,
-                  isAllowNotifications,
-                  isAllowPush,
-                  isNeedRegistration)
+                   phone,
+                   dateOfBirth,
+                   firstName,
+                   lastName,
+                   fullName,
+                   gender,
+                   isAllowSubscribe,
+                   isAllowNotifications,
+                   isAllowPush,
+                   isNeedRegistration)
         {
             UserId = userId;
             DateOfBirthFormated = dateOfBirthFormated;

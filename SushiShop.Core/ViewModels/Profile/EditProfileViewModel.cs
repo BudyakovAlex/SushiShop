@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
-    public class EditProfileViewModel : BasePageViewModel
+    public class EditProfileViewModel : BasePageViewModelResult<bool>
     {
         private readonly IProfileManager profileManager;
         private readonly IUserDialogs userDialogs;
 
-        private Data.Models.Profile.Profile? profile;
+        private Data.Models.Profile.DetailedProfile? profile;
 
         public EditProfileViewModel(IProfileManager profileManager, IUserDialogs userDialogs)
         {
@@ -26,18 +26,11 @@ namespace SushiShop.Core.ViewModels.Profile
             SaveCommand = new SafeAsyncCommand(ExecutionStateWrapper, SaveAsync);
         }
 
-        private string? firstName;
-        public string? FirstName
+        private string? fullName;
+        public string? FullName
         {
-            get => firstName;
-            set => SetProperty(ref firstName, value);
-        }
-
-        private string? lastName;
-        public string? LastName
-        {
-            get => lastName;
-            set => SetProperty(ref lastName, value);
+            get => fullName;
+            set => SetProperty(ref fullName, value);
         }
 
         private GenderType gender = GenderType.None;
@@ -47,11 +40,11 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref gender, value);
         }
 
-        private DateTime dateOfBirdth;
-        public DateTime DateOfBirdth
+        private DateTime dateOfBirth;
+        public DateTime DateOfBirth
         {
-            get => dateOfBirdth;
-            set => SetProperty(ref dateOfBirdth, value);
+            get => dateOfBirth;
+            set => SetProperty(ref dateOfBirth, value);
         }
 
         private string? phone;
@@ -98,10 +91,15 @@ namespace SushiShop.Core.ViewModels.Profile
             var responseProfile = await profileManager.GetProfileAsync();
 
             profile = responseProfile.Data;
-            FirstName = profile.FirstName;
-            LastName = profile.LastName;
+
+            if (profile is null)
+            {
+                return;
+            }
+
+            FullName = profile.FullName;
             Gender = profile.Gender;
-            DateOfBirdth = profile.DateOfBirth;
+            DateOfBirth = profile.DateOfBirth;
             Phone = profile.Phone;
             Email = profile.Email;
             IsAllowSubscribe = profile.IsAllowSubscribe;
@@ -116,25 +114,20 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            var userData = new Data.Models.Profile.Profile(
-                profile.UserId,
+            var updatedProfile = new Data.Models.Profile.Profile(
                 Email,
                 Phone,
-                DateOfBirdth,
-                FirstName,
-                LastName,
-                $"{FirstName} {LastName}",
+                DateOfBirth,
+                string.Empty,
+                string.Empty,
+                FullName,
                 Gender,
                 IsAllowSubscribe,
                 IsAllowNotifications,
                 IsAllowPush,
-                profile.IsNeedRegistration,
-                profile.DateOfBirthFormated,
-                profile.CanChangeDateOfBirth,
-                profile.SubscribeSales,
-                profile.Photo);
+                false);
 
-            var response = await profileManager.SaveProfileAsync(userData);
+            var response = await profileManager.SaveProfileAsync(updatedProfile);
             if (response.Data is null)
             {
                 var error = response.Errors.FirstOrDefault();
@@ -146,8 +139,7 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            await RefreshDataAsync();
-            _ = NavigationManager.NavigateAsync<ProfileViewModel>();
+            await NavigationManager.CloseAsync(this, true);
         }
     }
 }

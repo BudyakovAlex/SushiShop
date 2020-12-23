@@ -3,21 +3,9 @@ using System;
 
 namespace SushiShop.Core.Data.Models.Profile
 {
-    public class BaseProfile
+    public class Profile
     {
-        public BaseProfile(
-            string? fullname,
-            DateTime dateOfBirth,
-            string? phone,
-            string? email)
-        {
-            FullName = fullname;
-            DateOfBirth = dateOfBirth;
-            Phone = phone;
-            Email = email;
-        }
-
-        public BaseProfile(
+        public Profile(
             string? email,
             string? phone,
             DateTime dateOfBirth,

@@ -3,6 +3,7 @@ using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.NavigationParameters;
 using System;
@@ -30,6 +31,13 @@ namespace SushiShop.Core.ViewModels.Profile
         {
             get => fullName;
             set => SetProperty(ref fullName, value);
+        }
+
+        private GenderType gender = GenderType.None;
+        public GenderType Gender
+        {
+            get => gender;
+            set => SetProperty(ref gender, value);
         }
 
         private DateTime dateOfBirth;
@@ -88,7 +96,18 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            var profile = new Data.Models.Profile.BaseProfile(FullName, DateOfBirth, Phone, Email);
+            var profile = new Data.Models.Profile.Profile(
+                Email,
+                Phone,
+                DateOfBirth,
+                string.Empty,
+                string.Empty,
+                FullName,
+                Gender,
+                IsAcceptEmailNotifications,
+                IsAcceptSmsNotifications,
+                IsAcceptPushNotifications,
+                true);
 
             var response = await profileManager.RegistrationAsync(profile);
             if (response.Data is null)
@@ -106,7 +125,7 @@ namespace SushiShop.Core.ViewModels.Profile
             await RefreshDataAsync();
 
             var navigationParameters = new RegistrationNavigationParameters(response.Data.Phone);
-            await NavigationManager.NavigateAsync<AcceptPhoneViewModel, RegistrationNavigationParameters>(navigationParameters);
+            await NavigationManager.NavigateAsync<ConfirmCodeViewModel, RegistrationNavigationParameters>(navigationParameters);
         }
 
         private Task ShowPrivacyPolicyAsync()

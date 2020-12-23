@@ -54,8 +54,7 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            await RefreshDataAsync();
-            _ = NavigationManager.NavigateAsync<AcceptPhoneViewModel>();
+            await NavigationManager.NavigateAsync<ConfirmCodeViewModel>();
         }
 
         private Task SignUpAsync()

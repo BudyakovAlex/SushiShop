@@ -8,7 +8,6 @@ namespace SushiShop.Core.Mappers
         public static Profile Map(this ProfileDto profileDto)
         {
             return new Profile(
-                profileDto.UserId,
                 profileDto.Email,
                 profileDto.Phone,
                 profileDto.DateOfBirth,
@@ -19,11 +18,7 @@ namespace SushiShop.Core.Mappers
                 profileDto.IsAllowSubscribe,
                 profileDto.IsAllowNotifications,
                 profileDto.IsAllowPush,
-                profileDto.IsNeedRegistration,
-                profileDto.DateOfBirthFormated,
-                profileDto.CanChangeDateOfBirth,
-                profileDto.SubscribeSales,
-                profileDto.Photo?.Map());
+                profileDto.IsNeedRegistration);
         }
 
         public static ProfileDto Map(this Profile profile)

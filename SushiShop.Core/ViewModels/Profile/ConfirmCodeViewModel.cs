@@ -10,16 +10,19 @@ using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
-    public class AcceptPhoneViewModel : BasePageViewModel<RegistrationNavigationParameters>
+    public class ConfirmCodeViewModel : BasePageViewModel<RegistrationNavigationParameters>
     {
         private readonly IProfileManager profileManager;
         private readonly IUserDialogs userDialogs;
+
         private string login;
 
-        public AcceptPhoneViewModel(IProfileManager profileManager)
+        public ConfirmCodeViewModel(IProfileManager profileManager, IUserDialogs userDialogs)
         {
+            login = string.Empty;
+
             this.profileManager = profileManager;
-            this.userDialogs = UserDialogs.Instance;
+            this.userDialogs = userDialogs;
 
             ContinueCommand = new SafeAsyncCommand(ExecutionStateWrapper, ContinueAsync, () => Code.IsNotNullNorEmpty());
         }
@@ -28,7 +31,7 @@ namespace SushiShop.Core.ViewModels.Profile
         public string? Code
         {
             get => code;
-            set => SetProperty(ref code, value);
+            set => SetProperty(ref code, value, ContinueCommand.RaiseCanExecuteChanged);
         }
 
         public IMvxCommand ContinueCommand { get; }
@@ -40,7 +43,7 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task ContinueAsync()
         {
-            var response = await profileManager.AuthorizeAsync(login, Code);
+            var response = await profileManager.AuthorizeAsync(login, Code!);
             if (response.Data is null)
             {
                 var error = response.Errors.FirstOrDefault();
@@ -48,12 +51,12 @@ namespace SushiShop.Core.ViewModels.Profile
                 {
                     return;
                 }
+
                 await userDialogs.AlertAsync(error);
                 return;
             }
             
-            await RefreshDataAsync();
-            _ = NavigationManager.NavigateAsync<ProfileViewModel>();
+            await NavigationManager.NavigateAsync<ProfileViewModel>();
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+using SushiShop.Core.Common;
 using SushiShop.Core.Managers.CommonInfo;
 using SushiShop.Core.Providers;
 using System.Linq;
 using System.Threading.Tasks;
-using static SushiShop.Core.Common.Constants;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
@@ -22,22 +22,22 @@ namespace SushiShop.Core.ViewModels.Profile
             this.userDialogs = UserDialogs.Instance;
         }
 
-        private string title;
-        public string Title
+        private string? title;
+        public string? Title
         {
             get => title;
             set => SetProperty(ref title, value);
         }
 
-        private string introText;
-        public string IntroText
+        private string? introText;
+        public string? IntroText
         {
             get => introText;
             set => SetProperty(ref introText, value);
         }
 
-        private string content;
-        public string Content
+        private string? content;
+        public string? Content
         {
             get => content;
             set => SetProperty(ref content, value);
@@ -46,9 +46,9 @@ namespace SushiShop.Core.ViewModels.Profile
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
-            var city = userSession.GetCity()?.Name;
-            var response = await commonInfoManager.GetContentAsync(Rest.BonusPolicyResource, int.MinValue, city);
 
+            var city = userSession.GetCity()?.Name;
+            var response = await commonInfoManager.GetContentAsync(Constants.Rest.BonusPolicyResource, int.MinValue, city);
             if (response.Data is null)
             {
                 var error = response.Errors.FirstOrDefault();
@@ -56,6 +56,7 @@ namespace SushiShop.Core.ViewModels.Profile
                 {
                     return;
                 }
+
                 await userDialogs.AlertAsync(error);
                 return;
             }

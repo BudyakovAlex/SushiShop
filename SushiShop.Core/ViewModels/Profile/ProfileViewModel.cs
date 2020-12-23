@@ -81,8 +81,16 @@ namespace SushiShop.Core.ViewModels.Profile
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
+
+            _ = RefreshDataAsync();
+        }
+
+        protected override async Task RefreshDataAsync()
+        {
+            await base.RefreshDataAsync();
+
             var getDiscountTask = profileManager.GetDiscountAsync();
-            var getProfileTask =  profileManager.GetProfileAsync();
+            var getProfileTask = profileManager.GetProfileAsync();
 
             await Task.WhenAll(getDiscountTask, getProfileTask);
 
@@ -119,9 +127,15 @@ namespace SushiShop.Core.ViewModels.Profile
             userSession.SetToken(null);
         }
 
-        private Task ShowEditProfileAsync()
+        private async Task ShowEditProfileAsync()
         {
-            return NavigationManager.NavigateAsync<EditProfileViewModel>();
+            var shouldRefresh = await NavigationManager.NavigateAsync<EditProfileViewModel>();
+            if (!shouldRefresh)
+            {
+                return;
+            }
+
+            await RefreshDataAsync();
         }
 
         private Task ShowMyOrdersAsync()

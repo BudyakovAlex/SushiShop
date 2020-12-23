@@ -15,10 +15,10 @@ namespace SushiShop.Core.Services.Http.Profile
             this.httpService = httpService;
         }
 
-        public Task<HttpResponse<ResponseDto<BaseProfileDto>>> CheckIsLoginAvailableAsync(string? login, bool? sendCode, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ProfileDto>>> CheckIsLoginAvailableAsync(string? login, bool? sendCode, CancellationToken cancellationToken)
         {
             var body = new { login, sendCode };
-            return httpService.ExecuteAsync<ResponseDto<BaseProfileDto>>(
+            return httpService.ExecuteAsync<ResponseDto<ProfileDto>>(
                 Method.Post,
                 Constants.Rest.ProfileCheckLoginResource,
                 body,
@@ -35,7 +35,7 @@ namespace SushiShop.Core.Services.Http.Profile
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<ConfirmationResultDto>>> RegistrationAsync(BaseProfileDto profileDto, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ConfirmationResultDto>>> RegistrationAsync(ProfileDto profileDto, CancellationToken cancellationToken)
         {
             return httpService.ExecuteAsync<ResponseDto<ConfirmationResultDto>>(
                 Method.Post,
@@ -44,9 +44,9 @@ namespace SushiShop.Core.Services.Http.Profile
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<ProfileDto>>> GetProfileAsync(CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<DetailedProfileDto>>> GetProfileAsync(CancellationToken cancellationToken)
         {
-            return httpService.ExecuteAsync<ResponseDto<ProfileDto>>(
+            return httpService.ExecuteAsync<ResponseDto<DetailedProfileDto>>(
                 Method.Post,
                 Constants.Rest.ProfileGetPersonalDataResource,
                 null,
@@ -62,9 +62,9 @@ namespace SushiShop.Core.Services.Http.Profile
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<ProfileDto>>> SaveProfileAsync(BaseProfileDto profileDto, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<DetailedProfileDto>>> SaveProfileAsync(ProfileDto profileDto, CancellationToken cancellationToken)
         {
-            return httpService.ExecuteAsync<ResponseDto<ProfileDto>>(
+            return httpService.ExecuteAsync<ResponseDto<DetailedProfileDto>>(
                 Method.Post,
                 Constants.Rest.ProfileSaveResource,
                 profileDto,
