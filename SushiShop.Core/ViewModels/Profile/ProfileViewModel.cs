@@ -1,8 +1,11 @@
 ﻿using System.Threading.Tasks;
+using Acr.UserDialogs;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Managers.Profile;
+using SushiShop.Core.Resources;
+using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Core.ViewModels.Orders;
 
 namespace SushiShop.Core.ViewModels.Profile
@@ -15,8 +18,6 @@ namespace SushiShop.Core.ViewModels.Profile
         {
             this.profileManager = profileManager;
 
-            //LoginCommand = new SafeAsyncCommand(ExecutionStateWrapper, LoginAsync);
-            //RegistrationCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegistrationAsync);
             LogoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, LogoutAsync);
             ShowPersonalDataViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPersonalDataViewAsync);
             ShowMyOrdersViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowMyOrdersViewAsync);
@@ -62,10 +63,6 @@ namespace SushiShop.Core.ViewModels.Profile
 
         public IMvxCommand LogoutCommand { get; }
 
-        //public IMvxCommand LoginCommand { get; }
-
-        //public IMvxCommand RegistrationCommand { get; }
-
         public IMvxCommand ShowPersonalDataViewCommand { get; }
 
         public IMvxCommand ShowMyOrdersViewCommand { get; }
@@ -76,21 +73,21 @@ namespace SushiShop.Core.ViewModels.Profile
 
         public IMvxCommand ChooseNewImageCommand { get; }
 
-        //private Task LoginAsync()
-        //{
-        //    IsLogged = true;
-        //    return NavigationManager.NavigateAsync<AcceptPhoneViewModel>();
-        //}
-
-        //private Task RegistrationAsync()
-        //{
-        //    return NavigationManager.NavigateAsync<RegistrationViewModel>();
-        //}
-
-        private Task LogoutAsync()
+        private async Task LogoutAsync()
         {
             IsLogged = false;
-            return Task.CompletedTask;
+
+            var confirmationTask = UserDialogs.Instance.ConfirmAsync(string.Empty, AppStrings.SignOutOfYourProfile, okText: AppStrings.No, cancelText: AppStrings.Yes);
+            await Task.WhenAll(confirmationTask);
+
+            //HACK: to avoid design issue
+            var isConfirmed = confirmationTask.Result;
+            if (isConfirmed)
+            {
+                return;
+            }
+
+            _ = Task.CompletedTask;
         }
 
         private Task ShowPersonalDataViewAsync()
@@ -105,7 +102,7 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private Task ShowFeedbackViewAsync()
         {
-            return Task.CompletedTask;
+            return NavigationManager.NavigateAsync<FeedbackViewModel>();
         }
 
         private Task ShowScoreViewAsync()

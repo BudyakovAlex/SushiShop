@@ -157,7 +157,7 @@
     <value>Нет</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
-    <value>Политика конфиденциальности</value>
+    <value>Нажимая кнопку “Зарегистрироваться”, Я соглашаюсь с условием политики конфиденциальности</value>
   </data>
   <data name="PublicOffer" xml:space="preserve">
     <value>Публичная оферта</value>
@@ -222,9 +222,6 @@
   <data name="Done" xml:space="preserve">
     <value>Готово</value>
   </data>
-  <data name="PromocodeApplied" xml:space="preserve">
-    <value>Промокод применен</value>
-  </data>
   <data name="OrderTemplate" xml:space="preserve">
     <value>Заказ №{0}</value>
   </data>
@@ -273,9 +270,6 @@
   <data name="EmailRequired" xml:space="preserve">
     <value>Email*</value>
   </data>
-  <data name="PrivacyPolicy" xml:space="preserve">
-    <value>Нажимая кнопку “Зарегистрироваться”, Я соглашаюсь с условием политики конфиденциальности</value>
-  </data>
   <data name="MyOrders" xml:space="preserve">
     <value>Мои заказы</value>
   </data>
@@ -314,5 +308,8 @@
   </data>
   <data name="SignUp" xml:space="preserve">
     <value>Зарегистрироваться</value>
+  </data>
+  <data name="SignOutOfYourProfile" xml:space="preserve">
+    <value>Выйти из профиля?</value>
   </data>
 </root>
