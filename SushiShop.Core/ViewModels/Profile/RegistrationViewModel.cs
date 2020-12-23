@@ -7,6 +7,7 @@ using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Managers.Profile;
+using SushiShop.Core.NavigationParameters;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
@@ -103,7 +104,9 @@ namespace SushiShop.Core.ViewModels.Profile
             }
 
             await RefreshDataAsync();
-            _ = NavigationManager.NavigateAsync<AcceptPhoneViewModel>();
+            var param = new RegistrationNavigationParameters(response.Data.Phone);
+            _ = NavigationManager.NavigateAsync<AcceptPhoneViewModel, RegistrationNavigationParameters>(param);
+
         }
 
         private Task ShowPrivacyPolicyAsync()

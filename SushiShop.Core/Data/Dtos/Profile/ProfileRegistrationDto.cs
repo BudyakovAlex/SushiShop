@@ -5,9 +5,9 @@ namespace SushiShop.Core.Data.Dtos.Profile
     public class ProfileRegistrationDto
     {
         [JsonProperty("message")]
-        public string? Message { get; set; }
+        public string Message { get; set; }
 
         [JsonProperty("phone")]
-        public string? Phone { get; set; }
+        public string Phone { get; set; }
     }
 }
