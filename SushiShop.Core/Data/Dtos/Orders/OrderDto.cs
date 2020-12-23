@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Cart;
 using SushiShop.Core.Data.Dtos.Common;
+using System;
 
 namespace SushiShop.Core.Data.Dtos.Orders
 {
@@ -43,7 +44,7 @@ namespace SushiShop.Core.Data.Dtos.Orders
         public double PaidSum { get; set; }
 
         [JsonProperty("theTimeAtWhichTheCustomerWantsToReceiveAnOrder")]
-        public long PreferredDeliveryTime { get; set; }
+        public DateTime PreferredDeliveryTime { get; set; }
 
         [JsonProperty("cutleryCount")]
         public long CutleryCount { get; set; }
@@ -91,7 +92,7 @@ namespace SushiShop.Core.Data.Dtos.Orders
         public bool CanRepeat { get; set; }
 
         [JsonProperty("orderDateTime")]
-        public long OrderDateTime { get; set; }
+        public DateTime OrderDateTime { get; set; }
 
         [JsonProperty("orderDateFormated")]
         public string? OrderDateFormated { get; set; }

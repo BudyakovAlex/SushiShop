@@ -1,4 +1,5 @@
-﻿using SushiShop.Core.Data.Dtos.Franchise;
+﻿using SushiShop.Core.Data.Dtos.Common;
+using SushiShop.Core.Data.Dtos.Franchise;
 using SushiShop.Core.Data.Dtos.Job;
 using SushiShop.Core.Data.Http;
 using System.Threading;
@@ -11,5 +12,7 @@ namespace SushiShop.Core.Services.Http.CommonInfo
         Task<HttpResponse<ResponseDto<VacancyDto>>> GetVacanciesAsync(string? city, CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<FranchiseDto>>> GetFranchiseAsync(CancellationToken cancellationToken);
+        
+        Task<HttpResponse<ResponseDto<ContentDto>>> GetContentAsync(string alias, int id, string? city, CancellationToken cancellationToken);
     }
 }

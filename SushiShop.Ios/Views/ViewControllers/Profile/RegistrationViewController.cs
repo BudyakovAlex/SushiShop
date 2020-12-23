@@ -54,13 +54,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             bindingSet.Bind(backButton).For(v => v.BindTap()).To(vm => vm.CloseCommand);
             bindingSet.Bind(RegisterButton).For(v => v.BindTap()).To(vm => vm.RegisterCommand);
-            bindingSet.Bind(NameTextField).For(v => v.Text).To(vm => vm.Name);
+            bindingSet.Bind(NameTextField).For(v => v.Text).To(vm => vm.FullName);
             bindingSet.Bind(DateOfBirthTextField).For(v => v.Text).To(vm => vm.DateOfBirth);
             bindingSet.Bind(PhoneTextField).For(v => v.Text).To(vm => vm.Phone);
             bindingSet.Bind(EmailTextField).For(v => v.Text).To(vm => vm.Email);
-            bindingSet.Bind(PushNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.AcceptPushNotifications).TwoWay();
-            bindingSet.Bind(EmailNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.AcceptEmailNotifications).TwoWay();
-            bindingSet.Bind(SmsNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.AcceptSmsNotifications).TwoWay();
+            bindingSet.Bind(PushNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.IsAcceptPushNotifications).TwoWay();
+            bindingSet.Bind(EmailNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.IsAcceptEmailNotifications).TwoWay();
+            bindingSet.Bind(SmsNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.IsAcceptSmsNotifications).TwoWay();
 
             bindingSet.Apply();
         }

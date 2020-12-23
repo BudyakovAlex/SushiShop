@@ -20,6 +20,7 @@ namespace SushiShop.Core.Services.Http.Cities
             return await httpService.ExecuteAsync<ResponseDto<CityDto[]>>(
                 Method.Post,
                 Constants.Rest.CitiesResource,
+                null,
                 cancellationToken);
         }
     }

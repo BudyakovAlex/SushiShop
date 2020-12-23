@@ -430,7 +430,15 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("Send", resourceCulture);
             }
         }
-        
+
+        public static string SignOutOfYourProfile
+        {
+            get
+            {
+                return ResourceManager.GetString("SignOutOfYourProfile", resourceCulture);
+            }
+        }
+
         public static string UploadPhotos {
             get {
                 return ResourceManager.GetString("UploadPhotos", resourceCulture);

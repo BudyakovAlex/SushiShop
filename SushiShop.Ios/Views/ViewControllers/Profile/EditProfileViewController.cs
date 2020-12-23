@@ -9,7 +9,7 @@ using UIKit;
 namespace SushiShop.Ios.Views.ViewControllers.Profile
 {
     [MvxChildPresentation(Animated = true)]
-    public partial class PersonalDataViewController : BaseViewController<PersonalDataViewModel>
+    public partial class EditProfileViewController : BaseViewController<EditProfileViewModel>
     {
         private UIButton saveButton;
 
@@ -44,13 +44,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             bindingSet.Bind(NavigationItem.LeftBarButtonItem).For(v => v.BindClicked()).To(vm => vm.PlatformCloseCommand);
             bindingSet.Bind(saveButton).For(v => v.BindTap()).To(vm => vm.SaveCommand);
-            bindingSet.Bind(NametextField).For(v => v.Text).To(vm => vm.Name);
+            bindingSet.Bind(NametextField).For(v => v.Text).To(vm => vm.FullName);
             bindingSet.Bind(GenderTextField).For(v => v.Text).To(vm => vm.Gender);
-            bindingSet.Bind(DateOfBirdthtextField).For(v => v.Text).To(vm => vm.DateOfBirdth);
+            bindingSet.Bind(DateOfBirdthtextField).For(v => v.Text).To(vm => vm.DateOfBirth);
             bindingSet.Bind(PhoneTextField).For(v => v.Text).To(vm => vm.Phone);
             bindingSet.Bind(EmailTextField).For(v => v.Text).To(vm => vm.Email);
-            bindingSet.Bind(NotificationByPhoneSwitch).For(v => v.BindOn()).To(vm => vm.AcceptNotificationByPhone).TwoWay();
-            bindingSet.Bind(NotificationByEmailSwitch).For(v => v.BindOn()).To(vm => vm.AcceptNotificationByEmail).TwoWay();
+            bindingSet.Bind(IsAllowNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.IsAllowNotifications).TwoWay();
+            bindingSet.Bind(IsAllowPushSwitch).For(v => v.BindOn()).To(vm => vm.IsAllowPush).TwoWay();
 
             bindingSet.Apply();
         }

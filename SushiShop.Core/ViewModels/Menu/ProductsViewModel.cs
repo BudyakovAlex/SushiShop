@@ -24,7 +24,8 @@ namespace SushiShop.Core.ViewModels.Menu
         private Category? category;
         private Sticker? sticker;
 
-        public ProductsViewModel(IProductsManager productsManager,
+        public ProductsViewModel(
+            IProductsManager productsManager,
             ICartManager cartManager,
             IUserSession userSession)
         {

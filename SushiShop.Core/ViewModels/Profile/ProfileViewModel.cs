@@ -1,93 +1,173 @@
-﻿using System.Threading.Tasks;
+﻿using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using SushiShop.Core.Managers.Profile;
+using SushiShop.Core.Providers;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Core.ViewModels.Orders;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
     public class ProfileViewModel : BasePageViewModel
     {
-        public ProfileViewModel()
+        private readonly IProfileManager profileManager;
+        private readonly IUserSession userSession;
+        private readonly IUserDialogs userDialogs;
+
+        public ProfileViewModel(
+            IProfileManager profileManager,
+            IUserSession userSession,
+            IUserDialogs userDialogs)
         {
-            LoginCommand = new SafeAsyncCommand(ExecutionStateWrapper, LoginAsync);
-            RegistrationCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegistrationAsync);
+            this.profileManager = profileManager;
+            this.userSession = userSession;
+            this.userDialogs = userDialogs;
+
             LogoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, LogoutAsync);
-            ShowPersonalDataViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPersonalDataViewAsync);
-            ShowMyOrdersViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowMyOrdersViewAsync);
-            ShowFeedbackViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowFeedbackViewAsync);
-            ShowScoreViewCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowScoreViewAsync);
+            ShowEditProfileCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowEditProfileAsync);
+            ShowMyOrdersCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowMyOrdersAsync);
+            ShowFeedbackCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowFeedbackAsync);
+            ShowBonusProgramCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowBonusProgramAsync);
             ChooseNewImageCommand = new SafeAsyncCommand(ExecutionStateWrapper, ChooseNewImageAsync);
+            LoginCommand = new SafeAsyncCommand(ExecutionStateWrapper, LoginAsync, () => PhoneOrEmail.IsNotNullNorEmpty());
+            RegistrationCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegistrationAsync);
         }
 
-        private string? login;
-        public string? Login
+        private string? phoneOrEmail;
+        public string? PhoneOrEmail
         {
-            get => login;
-            set => SetProperty(ref login, value);
+            get => phoneOrEmail;
+            set => SetProperty(ref phoneOrEmail, value, LoginCommand.RaiseCanExecuteChanged);
         }
 
-        private bool isLogged;
-        public bool IsLogged
+        private bool isAuthorized;
+        public bool IsAuthorized
         {
-            get => isLogged;
-            set => SetProperty(ref isLogged, value);
+            get => isAuthorized;
+            set => SetProperty(ref isAuthorized, value);
         }
 
-        // TODO: Change this code.
-        public string UserName => "Александр";
-        public string Score => 2020 + " баллов";
+        private string? avatar;
+        public string? Avatar
+        {
+            get => avatar;
+            set => SetProperty(ref avatar, value);
+        }
+
+        private string? username;
+        public string? Username
+        {
+            get => username;
+            set => SetProperty(ref username, value);
+        }
+
+        private int score;
+        public int Score
+        {
+            get => score;
+            set => SetProperty(ref score, value);
+        }
 
         public IMvxCommand LogoutCommand { get; }
+
+        public IMvxCommand ShowEditProfileCommand { get; }
+
+        public IMvxCommand ShowMyOrdersCommand { get; }
+
+        public IMvxCommand ShowFeedbackCommand { get; }
+
+        public IMvxCommand ShowBonusProgramCommand { get; }
+
+        public IMvxCommand ChooseNewImageCommand { get; }
 
         public IMvxCommand LoginCommand { get; }
 
         public IMvxCommand RegistrationCommand { get; }
 
-        public IMvxCommand ShowPersonalDataViewCommand { get; }
-
-        public IMvxCommand ShowMyOrdersViewCommand { get; }
-
-        public IMvxCommand ShowFeedbackViewCommand { get; }
-
-        public IMvxCommand ShowScoreViewCommand { get; }
-
-        public IMvxCommand ChooseNewImageCommand { get; }
-
-        private Task LoginAsync()
+        public override async Task InitializeAsync()
         {
-            IsLogged = true;
-            return NavigationManager.NavigateAsync<AcceptPhoneViewModel>();
+            await base.InitializeAsync();
+
+            _ = SafeExecutionWrapper.WrapAsync(RefreshDataAsync);
         }
 
-        private Task RegistrationAsync()
+        protected override async Task RefreshDataAsync()
         {
-            return NavigationManager.NavigateAsync<RegistrationViewModel>();
+            await base.RefreshDataAsync();
+
+            var token = userSession.GetToken();
+            var isUserAuthorized = token != null && token.ExpiresAt > DateTime.Now;
+            IsAuthorized = isUserAuthorized;
+            if (!IsAuthorized)
+            {
+                return;
+            }
+
+            var getDiscountTask = profileManager.GetDiscountAsync();
+            var getProfileTask = profileManager.GetProfileAsync();
+
+            await Task.WhenAll(getDiscountTask, getProfileTask);
+
+            if (getProfileTask.Result.Data is null || getDiscountTask.Result.Data is null)
+            {
+                var error = getProfileTask.Result.Errors.FirstOrDefault();
+                if (error.IsNullOrEmpty())
+                {
+                    return;
+                }
+            }
+
+            var profile = getProfileTask.Result.Data!;
+            Username = profile.FullName;
+            Avatar = profile.Photo?.JpgUrl;
+            Score = getDiscountTask.Result.Data!.Bonuses;
         }
 
-        private Task LogoutAsync()
+        private async Task LogoutAsync()
         {
-            IsLogged = false;
-            return Task.CompletedTask;
+            IsAuthorized = false;
+
+            var confirmationTask = UserDialogs.Instance.ConfirmAsync(string.Empty, AppStrings.SignOutOfYourProfile, okText: AppStrings.No, cancelText: AppStrings.Yes);
+            await Task.WhenAll(confirmationTask);
+
+            //HACK: to avoid design issue
+            var isConfirmed = confirmationTask.Result;
+            if (isConfirmed)
+            {
+                return;
+            }
+
+            userSession.SetToken(null);
         }
 
-        private Task ShowPersonalDataViewAsync()
+        private async Task ShowEditProfileAsync()
         {
-            return NavigationManager.NavigateAsync<PersonalDataViewModel>();
+            var shouldRefresh = await NavigationManager.NavigateAsync<EditProfileViewModel>();
+            if (!shouldRefresh)
+            {
+                return;
+            }
+
+            await RefreshDataAsync();
         }
 
-        private Task ShowMyOrdersViewAsync()
+        private Task ShowMyOrdersAsync()
         {
             return NavigationManager.NavigateAsync<MyOrdersViewModel>();
         }
 
-        private Task ShowFeedbackViewAsync()
+        private Task ShowFeedbackAsync()
         {
             return NavigationManager.NavigateAsync<FeedbackViewModel>();
         }
 
-        private Task ShowScoreViewAsync()
+        private Task ShowBonusProgramAsync()
         {
             return NavigationManager.NavigateAsync<BonusProgramViewModel>();
         }
@@ -95,6 +175,41 @@ namespace SushiShop.Core.ViewModels.Profile
         private Task ChooseNewImageAsync()
         {
             return Task.CompletedTask;
+        }
+
+        private async Task LoginAsync()
+        {
+            var response = await profileManager.CheckIsLoginAvailableAsync(PhoneOrEmail, null);
+            if (response.Data is null)
+            {
+                var error = response.Errors.FirstOrDefault();
+                if (error.IsNullOrEmpty())
+                {
+                    return;
+                }
+
+                await userDialogs.AlertAsync(error);
+                return;
+            }
+
+            var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string>(PhoneOrEmail!);
+            if (!isConfirmed)
+            {
+                return;
+            }
+
+            await RefreshDataAsync();
+        }
+
+        private async Task RegistrationAsync()
+        {
+            var isRegistered = await NavigationManager.NavigateAsync<RegistrationViewModel>();
+            if (!isRegistered)
+            {
+                return;
+            }
+
+            await RefreshDataAsync();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SushiShop.Core.Common;
+using SushiShop.Core.Data.Dtos.Common;
 using SushiShop.Core.Data.Dtos.Franchise;
 using SushiShop.Core.Data.Dtos.Job;
 using SushiShop.Core.Data.Http;
@@ -21,6 +22,7 @@ namespace SushiShop.Core.Services.Http.CommonInfo
             return httpService.ExecuteAsync<ResponseDto<FranchiseDto>>(
                 Method.Post,
                 Constants.Rest.FranchiseResource,
+                null,
                 cancellationToken);
         }
 
@@ -29,6 +31,23 @@ namespace SushiShop.Core.Services.Http.CommonInfo
             return httpService.ExecuteAsync<ResponseDto<VacancyDto>>(
                 Method.Post,
                 Constants.Rest.JobResource,
+                null,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<ContentDto>>> GetContentAsync(string alias, int id, string? city, CancellationToken cancellationToken)
+        {
+            var body = new
+            {
+                alias,
+                id,
+                city
+            };
+
+            return httpService.ExecuteAsync<ResponseDto<ContentDto>>(
+                Method.Post,
+                Constants.Rest.GetResource,
+                body,
                 cancellationToken);
         }
     }

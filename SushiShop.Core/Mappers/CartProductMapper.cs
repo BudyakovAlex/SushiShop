@@ -1,6 +1,7 @@
 ﻿using SushiShop.Core.Data.Dtos.Cart;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cart;
+using SushiShop.Core.Data.Models.Toppings;
 using System;
 using System.Linq;
 
@@ -21,8 +22,8 @@ namespace SushiShop.Core.Mappers
                 productDto.PageTitle!,
                 productDto.Uid,
                 productDto.IsReadOnly,
-                Enum.Parse<ProductType>(productDto.Type, ignoreCase: true),
-                productDto.Toppings!.Select(topping => topping.Map()).ToArray(),
+                productDto.Type is null ? ProductType.Item : Enum.Parse<ProductType>(productDto.Type, ignoreCase: true),
+                productDto.Toppings?.Select(topping => topping.Map()).ToArray() ?? Array.Empty<CartTopping>(),
                 productDto.ImageInfo?.Map());
         }
     }

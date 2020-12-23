@@ -31,7 +31,7 @@ namespace SushiShop.Core.Services.Http.Orders
 
             return httpService.ExecuteAsync<ResponseDto<PaginationContainerDto<OrderDto>>>(
                 Method.Post,
-                Constants.Rest.ProfileGetOrders,
+                Constants.Rest.ProfileGetOrdersResource,
                 body,
                 cancellationToken);
         }
@@ -45,7 +45,7 @@ namespace SushiShop.Core.Services.Http.Orders
 
             return httpService.ExecuteAsync<ResponseDto<OrderDto>>(
                 Method.Post,
-                Constants.Rest.ProfileGetOrderDetails,
+                Constants.Rest.ProfileGetOrderDetailsResource,
                 body,
                 cancellationToken);
         }
@@ -61,7 +61,7 @@ namespace SushiShop.Core.Services.Http.Orders
 
             return httpService.ExecuteAsync<ResponseDto<CartDto>>(
                 Method.Post,
-                Constants.Rest.ProfileRepearOrder,
+                Constants.Rest.ProfileRepearOrderResource,
                 body,
                 cancellationToken);
         }

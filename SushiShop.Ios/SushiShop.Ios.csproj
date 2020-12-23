@@ -338,9 +338,9 @@
     <InterfaceDefinition Include="Views\Cells\Promotions\PromotionItemViewCell.xib" />
     <InterfaceDefinition Include="Views\Cells\Cart\CartToppingViewCell.xib" />
     <InterfaceDefinition Include="Views\Cells\Cart\CartProductToppingViewCell.xib" />
-    <InterfaceDefinition Include="Views\ViewControllers\Profile\AcceptPhoneViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Profile\ConfirmCodeViewController.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Profile\RegistrationViewController.xib" />
-    <InterfaceDefinition Include="Views\ViewControllers\Profile\PersonalDataViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Profile\EditProfileViewController.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Profile\BonusProgramViewController.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Orders\MyOrdersViewController.xib" />
     <InterfaceDefinition Include="Views\Cells\Orders\OrderItemViewCell.xib" />
@@ -510,17 +510,17 @@
     </Compile>
     <Compile Include="Views\Controls\DoneAccessoryView.cs" />
     <Compile Include="Views\Cells\Interfaces\IUpdatableViewCell.cs" />
-    <Compile Include="Views\ViewControllers\Profile\AcceptPhoneViewController.cs" />
-    <Compile Include="Views\ViewControllers\Profile\AcceptPhoneViewController.designer.cs">
-      <DependentUpon>AcceptPhoneViewController.cs</DependentUpon>
+    <Compile Include="Views\ViewControllers\Profile\ConfirmCodeViewController.cs" />
+    <Compile Include="Views\ViewControllers\Profile\ConfirmCodeViewController.designer.cs">
+      <DependentUpon>ConfirmCodeViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewControllers\Profile\RegistrationViewController.cs" />
     <Compile Include="Views\ViewControllers\Profile\RegistrationViewController.designer.cs">
       <DependentUpon>RegistrationViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewControllers\Profile\PersonalDataViewController.cs" />
-    <Compile Include="Views\ViewControllers\Profile\PersonalDataViewController.designer.cs">
-      <DependentUpon>PersonalDataViewController.cs</DependentUpon>
+    <Compile Include="Views\ViewControllers\Profile\EditProfileViewController.cs" />
+    <Compile Include="Views\ViewControllers\Profile\EditProfileViewController.designer.cs">
+      <DependentUpon>EditProfileViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewControllers\Profile\BonusProgramViewController.cs" />
     <Compile Include="Views\ViewControllers\Profile\BonusProgramViewController.designer.cs">

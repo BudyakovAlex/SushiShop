@@ -76,7 +76,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(this).For(v => v.Content).To(vm => vm.Descriptiom)
+            bindingSet.Bind(this).For(v => v.Content).To(vm => vm.Content)
                 .WithConversion<HtmlTextToAttributedStringConverter>();
 
             bindingSet.Apply();
@@ -88,11 +88,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             {
                 ShouldReceiveTouch = CloseTapGestureShouldReceiveTouch
             };
+
             View.AddGestureRecognizer(closeTapGesture);
             var closeSwipeGesture = new UISwipeGestureRecognizer(() => ViewModel?.PlatformCloseCommand?.Execute(null))
             {
                 Direction = UISwipeGestureRecognizerDirection.Down
             };
+
             View.AddGestureRecognizer(closeSwipeGesture);
         }
 

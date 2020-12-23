@@ -30,7 +30,7 @@ namespace SushiShop.Core.Services.Http.Feedback
 
             return httpService.ExecuteMultipartAsync<ResponseDto<string>>(
                 Method.Post,
-                Constants.Rest.ProfileFeedback,
+                Constants.Rest.ProfileFeedbackResource,
                 body,
                 files,
                 cancellationToken);
