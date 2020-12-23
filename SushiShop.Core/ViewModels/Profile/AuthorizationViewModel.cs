@@ -1,9 +1,10 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
-using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Managers.Profile;
-using SushiShop.Core.Resources;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
@@ -11,17 +12,16 @@ namespace SushiShop.Core.ViewModels.Profile
     public class AuthorizationViewModel : BasePageViewModel
     {
         private readonly IProfileManager profileManager;
-        private CommonInfoType commonInfoType;
+        private readonly IUserDialogs userDialogs;
 
-        public AuthorizationViewModel(IProfileManager profileManager)
+        public AuthorizationViewModel(IProfileManager profileManager, IUserDialogs userDialogs)
         {
             this.profileManager = profileManager;
+            this.userDialogs = UserDialogs.Instance;
 
             SignInCommand = new SafeAsyncCommand(ExecutionStateWrapper, SignInAsync);
             SignUpCommand = new SafeAsyncCommand(ExecutionStateWrapper, SignUpAsync);
         }
-
-        public string Title => GetTitle();
 
         private string phoneOrEmail;
         public string PhoneOrEmail
@@ -40,26 +40,33 @@ namespace SushiShop.Core.ViewModels.Profile
         public IMvxCommand SignInCommand { get; }
         public IMvxCommand SignUpCommand { get; }
 
-        private Task SignInAsync()
+        private async Task SignInAsync()
         {
-            return NavigationManager.NavigateAsync<AcceptPhoneViewModel>();
+            if (PhoneOrEmail.IsNullOrEmpty())
+            {
+                return;
+            }
+
+            var response = await profileManager.CheckIsLoginAvailableAsync(PhoneOrEmail, null);
+            if (response.Data is null)
+            {
+                var error = response.Errors.FirstOrDefault();
+                if (error.IsNullOrEmpty())
+                {
+                    return;
+                }
+
+                await userDialogs.AlertAsync(error);
+                return;
+            }
+
+            await RefreshDataAsync();
+            _ = NavigationManager.NavigateAsync<AcceptPhoneViewModel>();
         }
 
         private Task SignUpAsync()
         {
             return NavigationManager.NavigateAsync<RegistrationViewModel>();
-        }
-
-        private string GetTitle()
-        {
-            return commonInfoType switch
-            {
-                CommonInfoType.AboutUs => AppStrings.AboutUs,
-                CommonInfoType.PrivacyPolicy => AppStrings.PrivacyPolicy,
-                CommonInfoType.PublicOffer => AppStrings.PublicOffer,
-                CommonInfoType.Vacancies => AppStrings.Vacancies,
-                _ => string.Empty
-            };
         }
     }
 }
