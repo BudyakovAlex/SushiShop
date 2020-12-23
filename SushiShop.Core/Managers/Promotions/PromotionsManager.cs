@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Promotions;
-using SushiShop.Core.Mappers.Promotions;
+using SushiShop.Core.Mappers;
 using SushiShop.Core.Services.Http.Promotions;
 
 namespace SushiShop.Core.Managers.Promotions

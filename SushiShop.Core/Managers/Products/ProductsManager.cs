@@ -1,7 +1,7 @@
 ﻿using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Products;
-using SushiShop.Core.Mappers.Products;
+using SushiShop.Core.Mappers;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http.Products;
 using System;

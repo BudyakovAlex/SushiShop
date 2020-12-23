@@ -2,9 +2,6 @@
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Data.Models.Pagination;
 using SushiShop.Core.Mappers;
-using SushiShop.Core.Mappers.Cart;
-using SushiShop.Core.Mappers.Orders;
-using SushiShop.Core.Mappers.Pagination;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http.Orders;
 using System.Threading;

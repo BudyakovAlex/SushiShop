@@ -1,7 +1,7 @@
 ﻿using SushiShop.Core.Data.Dtos.Profile;
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Profile;
-using SushiShop.Core.Mappers.Profile;
+using SushiShop.Core.Mappers;
 using SushiShop.Core.Services.Http.Profile;
 using System.Threading;
 using System.Threading.Tasks;

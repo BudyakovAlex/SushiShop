@@ -3,12 +3,11 @@ using SushiShop.Core.Data.Models.Profile;
 
 namespace SushiShop.Core.Mappers
 {
-    public static class ProfileMapper
+    public static class BaseProfileMapper
     {
-        public static Profile Map(this ProfileDto profileDto)
+        public static BaseProfile Map(this BaseProfileDto profileDto)
         {
-            return new Profile(
-                profileDto.UserId,
+            return new BaseProfile(
                 profileDto.Email,
                 profileDto.Phone,
                 profileDto.DateOfBirth,
@@ -19,16 +18,12 @@ namespace SushiShop.Core.Mappers
                 profileDto.IsAllowSubscribe,
                 profileDto.IsAllowNotifications,
                 profileDto.IsAllowPush,
-                profileDto.IsNeedRegistration,
-                profileDto.DateOfBirthFormated,
-                profileDto.CanChangeDateOfBirth,
-                profileDto.SubscribeSales,
-                profileDto.Photo?.Map());
+                profileDto.IsNeedRegistration);
         }
 
-        public static ProfileDto Map(this Profile profile)
+        public static BaseProfileDto Map(this BaseProfile profile)
         {
-            var profileDto = new ProfileDto
+            var profileDto = new BaseProfileDto
             {
                 Email = profile.Email,
                 Phone = profile.Phone,

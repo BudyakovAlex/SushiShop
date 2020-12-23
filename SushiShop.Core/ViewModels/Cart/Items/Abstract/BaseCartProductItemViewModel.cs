@@ -7,7 +7,7 @@ using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Cart;
-using SushiShop.Core.Mappers.Cart;
+using SushiShop.Core.Mappers;
 using SushiShop.Core.Messages;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;

@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Cities;
-using SushiShop.Core.Mappers.Cities;
+using SushiShop.Core.Mappers;
 using SushiShop.Core.Services.Http.Cities;
 
 namespace SushiShop.Core.Managers.Cities

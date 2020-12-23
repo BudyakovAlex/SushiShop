@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Menu;
 using SushiShop.Core.Data.Models.Stickers;
-using SushiShop.Core.Mappers.Menu;
+using SushiShop.Core.Mappers;
 using SushiShop.Core.Services.Http.Menu;
 
 namespace SushiShop.Core.Managers.Menu
