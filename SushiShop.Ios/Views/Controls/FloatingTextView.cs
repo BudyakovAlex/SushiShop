@@ -32,11 +32,6 @@ namespace SushiShop.Ios.Views.Controls
             get => placeholderLabel.Text;
             set
             {
-                if (placeholderLabel.Text == value)
-                {
-                    return;
-                }
-
                 placeholderLabel.Text = value;
                 UpdatePlaceholderLabelFrame();
             }
