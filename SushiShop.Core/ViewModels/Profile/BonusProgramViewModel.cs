@@ -27,7 +27,7 @@ namespace SushiShop.Core.ViewModels.Profile
             await base.InitializeAsync();
 
             var city = userSession.GetCity()?.Name;
-            var response = await commonInfoManager.GetContentAsync(Rest.BonusPolicyAlias, int.MinValue, city);
+            var response = await commonInfoManager.GetContentAsync(Rest.BonusPolicyResource, int.MinValue, city);
 
             if (response.Data is null)
             {

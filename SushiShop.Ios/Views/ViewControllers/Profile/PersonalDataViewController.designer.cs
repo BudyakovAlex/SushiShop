@@ -25,10 +25,10 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 		SushiShop.Ios.Views.Controls.FloatingTextField NametextField { get; set; }
 
 		[Outlet]
-		UIKit.UISwitch NotificationByEmailSwitch { get; set; }
+		UIKit.UISwitch IsAllowPushSwitch { get; set; }
 
 		[Outlet]
-		UIKit.UISwitch NotificationByPhoneSwitch { get; set; }
+		UIKit.UISwitch IsAllowNotificationsSwitch { get; set; }
 
 		[Outlet]
 		SushiShop.Ios.Views.Controls.FloatingTextField PhoneTextField { get; set; }
@@ -60,14 +60,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				EmailTextField = null;
 			}
 
-			if (NotificationByPhoneSwitch != null) {
-				NotificationByPhoneSwitch.Dispose ();
-				NotificationByPhoneSwitch = null;
+			if (IsAllowNotificationsSwitch != null) {
+				IsAllowNotificationsSwitch.Dispose ();
+				IsAllowNotificationsSwitch = null;
 			}
 
-			if (NotificationByEmailSwitch != null) {
-				NotificationByEmailSwitch.Dispose ();
-				NotificationByEmailSwitch = null;
+			if (IsAllowPushSwitch != null) {
+				IsAllowPushSwitch.Dispose ();
+				IsAllowPushSwitch = null;
 			}
 		}
 	}

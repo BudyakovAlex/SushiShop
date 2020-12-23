@@ -36,6 +36,17 @@ namespace SushiShop.Core.Data.Models.Profile
                 isNeedRegistration)
         {
             UserId = userId;
+            Email = email;
+            Phone = Phone;
+            DateOfBirth = dateOfBirth;
+            FirstName = firstName;
+            LastName = lastName;
+            FullName = fullName;
+            Gender = gender;
+            IsAllowSubscribe = isAllowSubscribe;
+            IsAllowNotifications = isAllowNotifications;
+            IsAllowPush = isAllowPush;
+            IsNeedRegistration = isNeedRegistration;
             DateOfBirthFormated = dateOfBirthFormated;
             CanChangeDateOfBirth = canChangeDateOfBirth;
             SubscribeSales = subscribeSales;

@@ -20,7 +20,7 @@ namespace SushiShop.Core.Services.Http.Profile
             var body = new { login, sendCode };
             return httpService.ExecuteAsync<ResponseDto<ProfileDto>>(
                 Method.Post,
-                Constants.Rest.ProfileCheckLogin,
+                Constants.Rest.ProfileCheckLoginResource,
                 body,
                 cancellationToken);
         }
@@ -30,7 +30,7 @@ namespace SushiShop.Core.Services.Http.Profile
             var body = new { login, pass };
             return httpService.ExecuteAsync<ResponseDto<AuthorizationDataDto>>(
                 Method.Post,
-                Constants.Rest.ProfileAuth,
+                Constants.Rest.ProfileAuthResource,
                 body,
                 cancellationToken);
         }
@@ -39,7 +39,7 @@ namespace SushiShop.Core.Services.Http.Profile
         {
             return httpService.ExecuteAsync<ResponseDto<ProfileRegistrationDto>>(
                 Method.Post,
-                Constants.Rest.ProfileRegistration,
+                Constants.Rest.ProfileRegistrationResource,
                 profileDto,
                 cancellationToken);
         }
@@ -48,7 +48,7 @@ namespace SushiShop.Core.Services.Http.Profile
         {
             return httpService.ExecuteAsync<ResponseDto<PersonalDataDto>>(
                 Method.Post,
-                Constants.Rest.ProfileGetPersonalData,
+                Constants.Rest.ProfileGetPersonalDataResource,
                 null,
                 cancellationToken);
         }
@@ -57,8 +57,17 @@ namespace SushiShop.Core.Services.Http.Profile
         {
             return httpService.ExecuteAsync<ResponseDto<ProfileDiscountDto>>(
                 Method.Post,
-                Constants.Rest.ProfileGetDiscount,
+                Constants.Rest.ProfileGetDiscountResource,
                 null,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<PersonalDataDto>>> SavePersonalDataAsync(ProfileDto profileDto, CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<PersonalDataDto>>(
+                Method.Post,
+                Constants.Rest.ProfileSaveResource,
+                profileDto,
                 cancellationToken);
         }
     }

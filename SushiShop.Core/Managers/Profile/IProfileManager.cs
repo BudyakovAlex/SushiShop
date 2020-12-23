@@ -15,5 +15,7 @@ namespace SushiShop.Core.Managers.Profile
         Task<Response<PersonalData>> GetPersonalDataAsync();
 
         Task<Response<ProfileDiscount>> GetDiscountAsync();
+
+        Task<Response<PersonalData>> SavePersonalDataAsync(Data.Models.Profile.Profile profile);
     }
 }
