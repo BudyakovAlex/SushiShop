@@ -18,7 +18,7 @@ namespace SushiShop.Core.Services.Http.Profile
         public Task<HttpResponse<ResponseDto<ProfileDto>>> CheckIsLoginAvailableAsync(string? login, bool? sendCode, CancellationToken cancellationToken)
         {
             var body = new { login, sendCode };
-            return httpService.ExecuteAsync<ResponseDto<ProfileDto>>(
+            return httpService.ExecuteAnonymouslyAsync<ResponseDto<ProfileDto>>(
                 Method.Post,
                 Constants.Rest.ProfileCheckLoginResource,
                 body,
@@ -37,7 +37,7 @@ namespace SushiShop.Core.Services.Http.Profile
 
         public Task<HttpResponse<ResponseDto<ConfirmationResultDto>>> RegistrationAsync(ProfileDto profileDto, CancellationToken cancellationToken)
         {
-            return httpService.ExecuteAsync<ResponseDto<ConfirmationResultDto>>(
+            return httpService.ExecuteAnonymouslyAsync<ResponseDto<ConfirmationResultDto>>(
                 Method.Post,
                 Constants.Rest.ProfileRegistrationResource,
                 profileDto,
