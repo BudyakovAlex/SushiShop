@@ -16,7 +16,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 		UIKit.UIView LoadingView { get; set; }
 
 		[Outlet]
-		SushiShop.Ios.Views.Controls.FloatingTextField OrderNumberTextField { get; set; }
+		SushiShop.Ios.Views.Controls.FloatingTextView OrderNumberTextView { get; set; }
 
 		[Outlet]
 		UIKit.UICollectionView PhotosCollectionView { get; set; }
@@ -47,11 +47,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 			if (LoadingView != null) {
 				LoadingView.Dispose ();
 				LoadingView = null;
-			}
-
-			if (OrderNumberTextField != null) {
-				OrderNumberTextField.Dispose ();
-				OrderNumberTextField = null;
 			}
 
 			if (PhotosCollectionView != null) {
@@ -92,6 +87,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 			if (UploadPhotosView != null) {
 				UploadPhotosView.Dispose ();
 				UploadPhotosView = null;
+			}
+
+			if (OrderNumberTextView != null) {
+				OrderNumberTextView.Dispose ();
+				OrderNumberTextView = null;
 			}
 		}
 	}

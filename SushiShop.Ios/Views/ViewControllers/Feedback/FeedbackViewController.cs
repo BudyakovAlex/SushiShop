@@ -74,8 +74,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 
             bindingSet.Bind(this).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(this).For(v => v.HasPhotos).To(vm => vm.HasPhotos);
-            bindingSet.Bind(OrderNumberTextField).For(v => v.Placeholder).To(vm => vm.OrderNumberPlaceholder);
-            bindingSet.Bind(OrderNumberTextField).For(v => v.Text).To(vm => vm.OrderNumber);
+            bindingSet.Bind(OrderNumberTextView).For(v => v.Placeholder).To(vm => vm.OrderNumberPlaceholder);
+            bindingSet.Bind(OrderNumberTextView).For(v => v.Text).To(vm => vm.OrderNumber);
             bindingSet.Bind(QuestionTextView).For(v => v.Placeholder).To(vm => vm.QuestionPlaceholder);
             bindingSet.Bind(QuestionTextView).For(v => v.Text).To(vm => vm.Question);
             bindingSet.Bind(UploadPhotosView).For(v => v.BindTap()).To(vm => vm.UploadPhotosCommand);
@@ -95,8 +95,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 
         private void InitializeOrderNumberTextField()
         {
-            OrderNumberTextField.ReturnKeyType = UIReturnKeyType.Next;
-            OrderNumberTextField.ShouldReturn = OnOrderNumberTextFieldShouldReturn;
+            OrderNumberTextView.ReturnKeyType = UIReturnKeyType.Next;
+            OrderNumberTextView.TextContainer.MaximumNumberOfLines = 1;
         }
 
         private void InitializeCollectionView()

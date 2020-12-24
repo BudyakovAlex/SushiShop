@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +20,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackViewController">
             <connections>
                 <outlet property="LoadingView" destination="2jg-9D-zPb" id="jpv-xU-h27"/>
-                <outlet property="OrderNumberTextField" destination="uqJ-mG-ZEw" id="LaU-3L-7aW"/>
+                <outlet property="OrderNumberTextView" destination="4YM-CA-27i" id="nY6-wj-R12"/>
                 <outlet property="PhotosCollectionView" destination="fU1-jB-WHs" id="ZwR-CT-IxI"/>
                 <outlet property="PhotosCollectionViewHeightConstraint" destination="IxK-dY-n7q" id="POp-Bk-wN3"/>
                 <outlet property="QuestionTextView" destination="BjQ-HP-P1m" id="3sZ-5a-AYn"/>
@@ -41,30 +41,34 @@
                     <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBz-eM-M2Y">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="168.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="192.5"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uqJ-mG-ZEw" customClass="FloatingTextField">
-                                    <rect key="frame" x="16" y="16" width="382" height="21"/>
-                                    <color key="textColor" red="0.14117647058823529" green="0.14509803921568626" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4YM-CA-27i" customClass="FloatingTextView">
+                                    <rect key="frame" x="16" y="16" width="382" height="45"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="PDL-WD-9Zk"/>
+                                    </constraints>
+                                    <color key="textColor" systemColor="labelColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BjQ-HP-P1m" customClass="FloatingTextView">
-                                    <rect key="frame" x="16" y="61" width="382" height="35.5"/>
+                                    <rect key="frame" x="16" y="85" width="382" height="35.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <color key="textColor" red="0.14117647058823529" green="0.14509803921568626" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3W-KA-5io">
-                                    <rect key="frame" x="0.0" y="108.5" width="414" height="10"/>
+                                    <rect key="frame" x="0.0" y="132.5" width="414" height="10"/>
                                     <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="FhG-Xz-h6c"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zs4-fg-Irf">
-                                    <rect key="frame" x="0.0" y="118.5" width="414" height="50"/>
+                                    <rect key="frame" x="0.0" y="142.5" width="414" height="50"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" text="Загрузить фотографии" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjf-k9-Fcd">
                                             <rect key="frame" x="16" y="15" width="360.5" height="20"/>
@@ -97,7 +101,7 @@
                                     </constraints>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fU1-jB-WHs">
-                                    <rect key="frame" x="0.0" y="168.5" width="414" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="192.5" width="414" height="0.0"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" id="IxK-dY-n7q"/>
@@ -112,20 +116,20 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="4YM-CA-27i" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" constant="16" id="DCJ-I3-4Tm"/>
                                 <constraint firstItem="fU1-jB-WHs" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" id="JIC-Gt-oco"/>
                                 <constraint firstAttribute="trailing" secondItem="fU1-jB-WHs" secondAttribute="trailing" id="LWG-xk-aAq"/>
                                 <constraint firstItem="zs4-fg-Irf" firstAttribute="top" secondItem="Y3W-KA-5io" secondAttribute="bottom" id="PqN-L1-Gar"/>
-                                <constraint firstItem="uqJ-mG-ZEw" firstAttribute="top" secondItem="bBz-eM-M2Y" secondAttribute="top" constant="16" id="Qwa-Ed-7cK"/>
+                                <constraint firstAttribute="trailing" secondItem="4YM-CA-27i" secondAttribute="trailing" constant="16" id="QJn-0P-iCp"/>
                                 <constraint firstAttribute="trailing" secondItem="zs4-fg-Irf" secondAttribute="trailing" id="SaZ-fI-0Tc"/>
                                 <constraint firstItem="BjQ-HP-P1m" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" constant="16" id="Thw-ag-0Tp"/>
                                 <constraint firstItem="Y3W-KA-5io" firstAttribute="top" secondItem="BjQ-HP-P1m" secondAttribute="bottom" constant="12" id="UEd-aK-nlu"/>
-                                <constraint firstAttribute="trailing" secondItem="uqJ-mG-ZEw" secondAttribute="trailing" constant="16" id="bIn-kK-j1u"/>
+                                <constraint firstItem="BjQ-HP-P1m" firstAttribute="top" secondItem="4YM-CA-27i" secondAttribute="bottom" constant="24" id="azF-no-by9"/>
                                 <constraint firstItem="fU1-jB-WHs" firstAttribute="top" secondItem="zs4-fg-Irf" secondAttribute="bottom" id="bRu-TI-K27"/>
                                 <constraint firstAttribute="trailing" secondItem="Y3W-KA-5io" secondAttribute="trailing" id="eAv-UT-yIc"/>
                                 <constraint firstItem="zs4-fg-Irf" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" id="f4t-Ta-SUV"/>
+                                <constraint firstItem="4YM-CA-27i" firstAttribute="top" secondItem="bBz-eM-M2Y" secondAttribute="top" constant="16" id="hTV-3I-eX2"/>
                                 <constraint firstAttribute="trailing" secondItem="BjQ-HP-P1m" secondAttribute="trailing" constant="16" id="idk-Nr-yzb"/>
-                                <constraint firstItem="BjQ-HP-P1m" firstAttribute="top" secondItem="uqJ-mG-ZEw" secondAttribute="bottom" constant="24" id="m4n-qg-f1u"/>
-                                <constraint firstItem="uqJ-mG-ZEw" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" constant="16" id="mfG-IK-GcN"/>
                                 <constraint firstAttribute="bottom" secondItem="fU1-jB-WHs" secondAttribute="bottom" id="o7R-IP-R5F"/>
                                 <constraint firstItem="Y3W-KA-5io" firstAttribute="leading" secondItem="bBz-eM-M2Y" secondAttribute="leading" id="yXi-nC-iw2"/>
                             </constraints>
@@ -187,6 +191,9 @@
     </objects>
     <resources>
         <image name="ic_right_arrow" width="6" height="13"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
