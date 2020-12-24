@@ -25,6 +25,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 		SushiShop.Ios.Views.Controls.FloatingTextField EmailTextField { get; set; }
 
 		[Outlet]
+		UIKit.UIActivityIndicatorView LoadingActivityIndicator { get; set; }
+
+		[Outlet]
 		SushiShop.Ios.Views.Controls.FloatingTextField NameTextField { get; set; }
 
 		[Outlet]
@@ -41,9 +44,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (NameTextField != null) {
-				NameTextField.Dispose ();
-				NameTextField = null;
+			if (AcceptDescriptionLabel != null) {
+				AcceptDescriptionLabel.Dispose ();
+				AcceptDescriptionLabel = null;
 			}
 
 			if (DateOfBirthTextField != null) {
@@ -51,9 +54,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				DateOfBirthTextField = null;
 			}
 
-			if (PhoneTextField != null) {
-				PhoneTextField.Dispose ();
-				PhoneTextField = null;
+			if (EmailNotificationsSwitch != null) {
+				EmailNotificationsSwitch.Dispose ();
+				EmailNotificationsSwitch = null;
 			}
 
 			if (EmailTextField != null) {
@@ -61,14 +64,24 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				EmailTextField = null;
 			}
 
+			if (NameTextField != null) {
+				NameTextField.Dispose ();
+				NameTextField = null;
+			}
+
+			if (PhoneTextField != null) {
+				PhoneTextField.Dispose ();
+				PhoneTextField = null;
+			}
+
 			if (PushNotificationsSwitch != null) {
 				PushNotificationsSwitch.Dispose ();
 				PushNotificationsSwitch = null;
 			}
 
-			if (EmailNotificationsSwitch != null) {
-				EmailNotificationsSwitch.Dispose ();
-				EmailNotificationsSwitch = null;
+			if (RegisterButton != null) {
+				RegisterButton.Dispose ();
+				RegisterButton = null;
 			}
 
 			if (SmsNotificationsSwitch != null) {
@@ -76,14 +89,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				SmsNotificationsSwitch = null;
 			}
 
-			if (AcceptDescriptionLabel != null) {
-				AcceptDescriptionLabel.Dispose ();
-				AcceptDescriptionLabel = null;
-			}
-
-			if (RegisterButton != null) {
-				RegisterButton.Dispose ();
-				RegisterButton = null;
+			if (LoadingActivityIndicator != null) {
+				LoadingActivityIndicator.Dispose ();
+				LoadingActivityIndicator = null;
 			}
 		}
 	}

@@ -19,6 +19,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 		UIKit.UIView FeedbackView { get; set; }
 
 		[Outlet]
+		UIKit.UIActivityIndicatorView LoadingActivityIndicator { get; set; }
+
+		[Outlet]
 		SushiShop.Ios.Views.Controls.PrimaryButton LoginButton { get; set; }
 
 		[Outlet]
@@ -52,6 +55,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				EmailLoginTextField = null;
 			}
 
+			if (FeedbackView != null) {
+				FeedbackView.Dispose ();
+				FeedbackView = null;
+			}
+
 			if (LoginButton != null) {
 				LoginButton.Dispose ();
 				LoginButton = null;
@@ -62,14 +70,29 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				LoginView = null;
 			}
 
-			if (RegisterButton != null) {
-				RegisterButton.Dispose ();
-				RegisterButton = null;
+			if (MyOrdersView != null) {
+				MyOrdersView.Dispose ();
+				MyOrdersView = null;
+			}
+
+			if (PersonalDataView != null) {
+				PersonalDataView.Dispose ();
+				PersonalDataView = null;
 			}
 
 			if (ProfileView != null) {
 				ProfileView.Dispose ();
 				ProfileView = null;
+			}
+
+			if (RegisterButton != null) {
+				RegisterButton.Dispose ();
+				RegisterButton = null;
+			}
+
+			if (ScoreButton != null) {
+				ScoreButton.Dispose ();
+				ScoreButton = null;
 			}
 
 			if (UserImage != null) {
@@ -82,24 +105,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				UserNameLabel = null;
 			}
 
-			if (ScoreButton != null) {
-				ScoreButton.Dispose ();
-				ScoreButton = null;
-			}
-
-			if (PersonalDataView != null) {
-				PersonalDataView.Dispose ();
-				PersonalDataView = null;
-			}
-
-			if (MyOrdersView != null) {
-				MyOrdersView.Dispose ();
-				MyOrdersView = null;
-			}
-
-			if (FeedbackView != null) {
-				FeedbackView.Dispose ();
-				FeedbackView = null;
+			if (LoadingActivityIndicator != null) {
+				LoadingActivityIndicator.Dispose ();
+				LoadingActivityIndicator = null;
 			}
 		}
 	}

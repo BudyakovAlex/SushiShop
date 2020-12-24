@@ -74,6 +74,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(PushNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.IsAcceptPushNotifications).TwoWay();
             bindingSet.Bind(EmailNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.IsAcceptEmailNotifications).TwoWay();
             bindingSet.Bind(SmsNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.IsAcceptSmsNotifications).TwoWay();
+            bindingSet.Bind(LoadingActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
 
             bindingSet.Apply();
         }

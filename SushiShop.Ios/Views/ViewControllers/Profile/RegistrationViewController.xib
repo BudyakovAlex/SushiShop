@@ -23,6 +23,7 @@
                 <outlet property="DateOfBirthTextField" destination="HPE-HA-7r7" id="uBJ-E7-DrX"/>
                 <outlet property="EmailNotificationsSwitch" destination="aFN-Nc-J4U" id="chV-q7-QCv"/>
                 <outlet property="EmailTextField" destination="KdL-Te-phx" id="KQe-EP-2Ov"/>
+                <outlet property="LoadingActivityIndicator" destination="fzW-cg-k2g" id="dfl-QI-u7H"/>
                 <outlet property="NameTextField" destination="Oc6-S8-OeE" id="zvk-yh-af2"/>
                 <outlet property="PhoneTextField" destination="Yf0-HB-yeF" id="60W-QK-PMQ"/>
                 <outlet property="PushNotificationsSwitch" destination="zGP-eq-El7" id="WIa-up-WqN"/>
@@ -196,14 +197,19 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="sQn-YH-BC8"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="qC4-oj-NeO"/>
                 </scrollView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="fzW-cg-k2g">
+                    <rect key="frame" x="185" y="417" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="dtn-WB-rbl"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ZGg-Cg-URS" firstAttribute="top" secondItem="dtn-WB-rbl" secondAttribute="top" id="ark-4X-yxm"/>
                 <constraint firstItem="dtn-WB-rbl" firstAttribute="bottom" secondItem="ZGg-Cg-URS" secondAttribute="bottom" id="bQR-Pk-oNh"/>
+                <constraint firstItem="fzW-cg-k2g" firstAttribute="centerY" secondItem="dtn-WB-rbl" secondAttribute="centerY" id="eOC-5X-kDM"/>
                 <constraint firstItem="ZGg-Cg-URS" firstAttribute="leading" secondItem="dtn-WB-rbl" secondAttribute="leading" id="lgt-b5-9M1"/>
                 <constraint firstItem="dtn-WB-rbl" firstAttribute="trailing" secondItem="ZGg-Cg-URS" secondAttribute="trailing" id="qUK-s9-sl5"/>
+                <constraint firstItem="fzW-cg-k2g" firstAttribute="centerX" secondItem="dtn-WB-rbl" secondAttribute="centerX" id="wd1-fx-s8O"/>
             </constraints>
             <point key="canvasLocation" x="-98.461538461538453" y="1.4218009478672986"/>
         </view>

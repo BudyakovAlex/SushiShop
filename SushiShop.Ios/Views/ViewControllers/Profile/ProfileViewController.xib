@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,6 +24,7 @@
             <connections>
                 <outlet property="EmailLoginTextField" destination="NL4-Ao-kgU" id="4ZX-Tk-MA8"/>
                 <outlet property="FeedbackView" destination="ytc-hP-Jll" id="HvX-Ve-avp"/>
+                <outlet property="LoadingActivityIndicator" destination="1aP-ee-qRr" id="Pzu-p6-8fV"/>
                 <outlet property="LoginButton" destination="Qxd-nZ-G18" id="CK1-Od-1er"/>
                 <outlet property="LoginView" destination="pqn-Rb-6HT" id="Q1D-KM-hGU"/>
                 <outlet property="MyOrdersView" destination="kij-hv-ETy" id="DWi-rL-w84"/>
@@ -239,12 +240,17 @@
                         <constraint firstItem="flK-pH-oN8" firstAttribute="top" secondItem="ytc-hP-Jll" secondAttribute="bottom" id="uJc-Vg-gmM"/>
                     </constraints>
                 </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1aP-ee-qRr">
+                    <rect key="frame" x="197" y="443" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="nWY-9J-8Ae"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="1aP-ee-qRr" firstAttribute="centerY" secondItem="nWY-9J-8Ae" secondAttribute="centerY" id="E1Q-cy-9Lg"/>
                 <constraint firstItem="ImS-nR-EAd" firstAttribute="top" secondItem="nWY-9J-8Ae" secondAttribute="top" id="Od2-Z2-C7f"/>
                 <constraint firstItem="pqn-Rb-6HT" firstAttribute="leading" secondItem="nWY-9J-8Ae" secondAttribute="leading" id="iPt-uk-Gc4"/>
+                <constraint firstItem="1aP-ee-qRr" firstAttribute="centerX" secondItem="nWY-9J-8Ae" secondAttribute="centerX" id="k7b-Zb-lVO"/>
                 <constraint firstItem="ImS-nR-EAd" firstAttribute="leading" secondItem="nWY-9J-8Ae" secondAttribute="leading" id="lVj-Fc-nx3"/>
                 <constraint firstItem="nWY-9J-8Ae" firstAttribute="bottom" secondItem="pqn-Rb-6HT" secondAttribute="bottom" id="mzI-On-DpE"/>
                 <constraint firstItem="nWY-9J-8Ae" firstAttribute="trailing" secondItem="ImS-nR-EAd" secondAttribute="trailing" id="onT-Jd-zyd"/>

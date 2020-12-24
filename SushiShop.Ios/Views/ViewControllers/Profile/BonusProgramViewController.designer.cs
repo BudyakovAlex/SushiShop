@@ -19,6 +19,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 		UIKit.UIScrollView ContentScrollView { get; set; }
 
 		[Outlet]
+		UIKit.UIActivityIndicatorView LoadingActivityIndicator { get; set; }
+
+		[Outlet]
 		UIKit.UIView RoundedContentView { get; set; }
 
 		[Outlet]
@@ -52,6 +55,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 			if (TitleLabel != null) {
 				TitleLabel.Dispose ();
 				TitleLabel = null;
+			}
+
+			if (LoadingActivityIndicator != null) {
+				LoadingActivityIndicator.Dispose ();
+				LoadingActivityIndicator = null;
 			}
 		}
 	}

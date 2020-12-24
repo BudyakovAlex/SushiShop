@@ -17,6 +17,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
 		[Outlet]
 		SushiShop.Ios.Views.Controls.PrimaryButton ContinueButton { get; set; }
+
+		[Outlet]
+		UIKit.UIActivityIndicatorView LoadingActivityIndicator { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -28,6 +31,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 			if (ContinueButton != null) {
 				ContinueButton.Dispose ();
 				ContinueButton = null;
+			}
+
+			if (LoadingActivityIndicator != null) {
+				LoadingActivityIndicator.Dispose ();
+				LoadingActivityIndicator = null;
 			}
 		}
 	}

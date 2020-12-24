@@ -22,37 +22,25 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 		SushiShop.Ios.Views.Controls.FloatingTextField GenderTextField { get; set; }
 
 		[Outlet]
-		SushiShop.Ios.Views.Controls.FloatingTextField NametextField { get; set; }
+		UIKit.UISwitch IsAllowNotificationsSwitch { get; set; }
 
 		[Outlet]
 		UIKit.UISwitch IsAllowPushSwitch { get; set; }
 
 		[Outlet]
-		UIKit.UISwitch IsAllowNotificationsSwitch { get; set; }
+		UIKit.UIActivityIndicatorView LoadingActivityIndicator { get; set; }
+
+		[Outlet]
+		SushiShop.Ios.Views.Controls.FloatingTextField NametextField { get; set; }
 
 		[Outlet]
 		SushiShop.Ios.Views.Controls.FloatingTextField PhoneTextField { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (NametextField != null) {
-				NametextField.Dispose ();
-				NametextField = null;
-			}
-
-			if (GenderTextField != null) {
-				GenderTextField.Dispose ();
-				GenderTextField = null;
-			}
-
 			if (DateOfBirdthtextField != null) {
 				DateOfBirdthtextField.Dispose ();
 				DateOfBirdthtextField = null;
-			}
-
-			if (PhoneTextField != null) {
-				PhoneTextField.Dispose ();
-				PhoneTextField = null;
 			}
 
 			if (EmailTextField != null) {
@@ -60,14 +48,34 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				EmailTextField = null;
 			}
 
-			if (IsAllowNotificationsSwitch != null) {
-				IsAllowNotificationsSwitch.Dispose ();
-				IsAllowNotificationsSwitch = null;
+			if (GenderTextField != null) {
+				GenderTextField.Dispose ();
+				GenderTextField = null;
+			}
+
+			if (NametextField != null) {
+				NametextField.Dispose ();
+				NametextField = null;
 			}
 
 			if (IsAllowPushSwitch != null) {
 				IsAllowPushSwitch.Dispose ();
 				IsAllowPushSwitch = null;
+			}
+
+			if (IsAllowNotificationsSwitch != null) {
+				IsAllowNotificationsSwitch.Dispose ();
+				IsAllowNotificationsSwitch = null;
+			}
+
+			if (PhoneTextField != null) {
+				PhoneTextField.Dispose ();
+				PhoneTextField = null;
+			}
+
+			if (LoadingActivityIndicator != null) {
+				LoadingActivityIndicator.Dispose ();
+				LoadingActivityIndicator = null;
 			}
 		}
 	}

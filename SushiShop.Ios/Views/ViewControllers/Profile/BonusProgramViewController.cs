@@ -4,6 +4,7 @@ using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using CoreAnimation;
 using Foundation;
+using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Ios.Converters;
@@ -79,6 +80,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(this).For(nameof(Content)).To(vm => vm.Content)
                 .WithConversion<HtmlTextToAttributedStringConverter>();
             bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.Title);
+            bindingSet.Bind(LoadingActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
 
             bindingSet.Apply();
         }

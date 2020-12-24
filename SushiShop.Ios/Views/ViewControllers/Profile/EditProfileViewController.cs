@@ -68,8 +68,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(IsAllowNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.IsAllowNotifications).TwoWay();
             bindingSet.Bind(IsAllowPushSwitch).For(v => v.BindOn()).To(vm => vm.IsAllowPush).TwoWay();
             bindingSet.Bind(genderPickerViewModel).For(v => v.ItemsSource).To(vm => vm.GenderTypes);
-            bindingSet.Bind(genderPickerViewModel).For(v => v.SelectedItem).To(vm => vm.Gender)
-                .TwoWay();
+            bindingSet.Bind(genderPickerViewModel).For(v => v.SelectedItem).To(vm => vm.Gender).TwoWay();
+            bindingSet.Bind(LoadingActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
 
             bindingSet.Apply();
         }

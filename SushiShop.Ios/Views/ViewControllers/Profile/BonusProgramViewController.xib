@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="ContentLabel" destination="wZ2-rT-2aw" id="EGx-qR-cem"/>
                 <outlet property="ContentScrollView" destination="flV-KW-Lbv" id="3fq-Ve-tWS"/>
+                <outlet property="LoadingActivityIndicator" destination="YZe-Ij-8QW" id="jYd-Pa-Lsp"/>
                 <outlet property="RoundedContentView" destination="Ri2-Bw-vw5" id="bBp-3s-2rx"/>
                 <outlet property="ScrollViewContentView" destination="DAg-aJ-uwR" id="hzA-Zx-BRz"/>
                 <outlet property="TitleLabel" destination="QN5-rL-TII" id="JAf-6W-Lxv"/>
@@ -109,13 +110,18 @@
                         <constraint firstItem="Ri2-Bw-vw5" firstAttribute="leading" secondItem="DAg-aJ-uwR" secondAttribute="leading" id="w4c-0A-W6i"/>
                     </constraints>
                 </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-Ij-8QW">
+                    <rect key="frame" x="197" y="443" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="nDb-gc-H7r"/>
             <color key="backgroundColor" red="0.14117647058823529" green="0.14509803921568626" blue="0.16470588235294117" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="nDb-gc-H7r" firstAttribute="trailing" secondItem="DAg-aJ-uwR" secondAttribute="trailing" id="LC2-Li-yHL"/>
+                <constraint firstItem="YZe-Ij-8QW" firstAttribute="centerY" secondItem="nDb-gc-H7r" secondAttribute="centerY" id="ao9-aj-rWn"/>
                 <constraint firstItem="nDb-gc-H7r" firstAttribute="top" secondItem="DAg-aJ-uwR" secondAttribute="top" id="ccR-5c-i5e"/>
                 <constraint firstItem="DAg-aJ-uwR" firstAttribute="leading" secondItem="nDb-gc-H7r" secondAttribute="leading" id="pg8-FG-X89"/>
+                <constraint firstItem="YZe-Ij-8QW" firstAttribute="centerX" secondItem="nDb-gc-H7r" secondAttribute="centerX" id="rAD-co-Vu6"/>
                 <constraint firstItem="DAg-aJ-uwR" firstAttribute="bottom" secondItem="2" secondAttribute="bottom" id="wvi-Bs-E67"/>
             </constraints>
             <point key="canvasLocation" x="-97.101449275362327" y="2.6785714285714284"/>
