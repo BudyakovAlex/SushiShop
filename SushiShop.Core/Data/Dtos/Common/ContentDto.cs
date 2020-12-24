@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 
 namespace SushiShop.Core.Data.Dtos.Common
 {
@@ -18,9 +17,9 @@ namespace SushiShop.Core.Data.Dtos.Common
         public string? Content { get; set; }
 
         [JsonProperty("createdon")]
-        public DateTime? CreatedOn { get; set; }
+        public long CreatedOn { get; set; }
 
         [JsonProperty("editedon")]
-        public DateTime? EditedOn { get; set; }
+        public long EditedOn { get; set; }
     }
 }

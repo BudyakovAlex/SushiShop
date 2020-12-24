@@ -9,8 +9,8 @@ namespace SushiShop.Core.Data.Models.Common
             string? title,
             string? alias,
             string? mainText,
-            DateTime? createdOn,
-            DateTime? editedOn)
+            DateTimeOffset createdOn,
+            DateTimeOffset editedOn)
         {
             Id = id;
             Title = title;
@@ -28,8 +28,8 @@ namespace SushiShop.Core.Data.Models.Common
 
         public string? MainText { get; set; }
 
-        public DateTime? CreatedOn { get; set; }
+        public DateTimeOffset CreatedOn { get; set; }
 
-        public DateTime? EditedOn { get; set; }
+        public DateTimeOffset EditedOn { get; set; }
     }
 }

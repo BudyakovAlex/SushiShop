@@ -1,4 +1,7 @@
-﻿using Acr.UserDialogs;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
@@ -8,9 +11,6 @@ using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Core.ViewModels.Orders;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Profile
 {
@@ -103,6 +103,7 @@ namespace SushiShop.Core.ViewModels.Profile
 
             var token = userSession.GetToken();
             var isUserAuthorized = token != null && token.ExpiresAt > DateTime.Now;
+
             IsAuthorized = isUserAuthorized;
             if (!IsAuthorized)
             {
@@ -131,18 +132,19 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task LogoutAsync()
         {
-            var confirmationTask = UserDialogs.Instance.ConfirmAsync(string.Empty, AppStrings.SignOutOfYourProfile, okText: AppStrings.No, cancelText: AppStrings.Yes);
-            await Task.WhenAll(confirmationTask);
-
             //HACK: to avoid design issue
-            var isConfirmed = confirmationTask.Result;
+            var isConfirmed = await UserDialogs.Instance.ConfirmAsync(
+                string.Empty,
+                AppStrings.SignOutOfYourProfile,
+                okText: AppStrings.No,
+                cancelText: AppStrings.Yes);
             if (isConfirmed)
             {
                 return;
             }
 
-            IsAuthorized = false;
             userSession.SetToken(null);
+            IsAuthorized = false;
         }
 
         private async Task ShowEditProfileAsync()

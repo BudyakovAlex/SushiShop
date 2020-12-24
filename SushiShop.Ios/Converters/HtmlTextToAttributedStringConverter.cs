@@ -9,14 +9,15 @@ namespace SushiShop.Ios.Converters
     {
         protected override NSAttributedString Convert(string value, Type targetType, object parameter, CultureInfo culture)
         {
-            var error = new NSError();
-            var docuemntAttributes = new NSAttributedStringDocumentAttributes()
+            var data = NSData.FromString(value ?? string.Empty, NSStringEncoding.UTF8);
+            var documentAttributes = new NSAttributedStringDocumentAttributes()
             {
                 DocumentType = NSDocumentType.HTML,
                 StringEncoding = NSStringEncoding.UTF8
             };
 
-            return new NSAttributedString(value, docuemntAttributes, ref error);
+            NSError error = null;
+            return new NSAttributedString(data, documentAttributes, ref error);
         }
     }
 }

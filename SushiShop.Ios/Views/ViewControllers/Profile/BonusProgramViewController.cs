@@ -17,14 +17,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
         ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve)]
     public partial class BonusProgramViewController : BaseViewController<BonusProgramViewModel>
     {
+        private readonly CompositeDisposable disposables;
+
         private nfloat startContentOffsetY;
         private bool isAtTop = true;
         private bool isFirstStart = true;
-        private CompositeDisposable disposables;
 
         public NSAttributedString Content
         {
-            get => ContentLabel?.AttributedText;
             set
             {
                 ContentLabel.AttributedText = value;
@@ -76,7 +76,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(this).For(v => v.Content).To(vm => vm.Content)
+            bindingSet.Bind(this).For(nameof(Content)).To(vm => vm.Content)
                 .WithConversion<HtmlTextToAttributedStringConverter>();
             bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.Title);
 

@@ -7,23 +7,13 @@ using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Promotions;
 using SushiShop.Ios.Common.Styles;
+using SushiShop.Ios.Converters;
 
 namespace SushiShop.Ios.Views.ViewControllers.Promotions
 {
     [MvxChildPresentation]
     public partial class PromotionDetailsViewController : BaseViewController<PromotionDetailsViewModel>
     {
-        private string htmlContent;
-        public string HtmlContent
-        {
-            get => htmlContent;
-            set
-            {
-                htmlContent = value;
-                HtmlContentChanged(htmlContent);
-            }
-        }
-
         private bool hasPublicationDate;
         public bool HasPublicationDate
         {
@@ -47,6 +37,17 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 
                 StepperView.Hidden = !canAddToCart;
                 ContentTextViewBottomConstraint.Constant = canAddToCart ? 80f : 16f;
+            }
+        }
+
+        public NSAttributedString AttributedHtmlContent
+        {
+            set
+            {
+                ContentTextView.AttributedText = value;
+
+                var size = ContentTextView.SizeThatFits(new CGSize(ContentTextView.Bounds.Width, nfloat.MaxValue));
+                ContentTextViewHeightConstraint.Constant = size.Height;
             }
         }
 
@@ -76,7 +77,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 
             var bindingSet = this.CreateBindingSet<PromotionDetailsViewController, PromotionDetailsViewModel>();
 
-            bindingSet.Bind(this).For(v => v.HtmlContent).To(vm => vm.HtmlContent);
+            bindingSet.Bind(this).For(nameof(AttributedHtmlContent)).To(vm => vm.HtmlContent)
+               .WithConversion<HtmlTextToAttributedStringConverter>();
             bindingSet.Bind(this).For(v => v.HasPublicationDate).To(vm => vm.HasPublicationDate);
             bindingSet.Bind(this).For(v => v.CanAddToCart).To(vm => vm.CanAddToCart);
             bindingSet.Bind(BackButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
@@ -87,35 +89,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
             bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);
 
             bindingSet.Apply();
-        }
-
-        private void HtmlContentChanged(string html)
-        {
-            if (!string.IsNullOrEmpty(html))
-            {
-                NSError error = null;
-                var attributedString = new NSAttributedString(
-                    NSData.FromString(html, NSStringEncoding.UTF8),
-                    new NSAttributedStringDocumentAttributes
-                    {
-                        DocumentType = NSDocumentType.HTML,
-                        StringEncoding = NSStringEncoding.UTF8
-                    },
-                    ref error);
-
-                if (error is null)
-                {
-                    ContentTextView.AttributedText = attributedString;
-
-                    var size = ContentTextView.SizeThatFits(new CGSize(ContentTextView.Bounds.Width, nfloat.MaxValue));
-                    ContentTextViewHeightConstraint.Constant = size.Height;
-
-                    return;
-                }
-            }
-
-            ContentTextView.Text = string.Empty;
-            ContentTextViewHeightConstraint.Constant = 0f;
         }
     }
 }

@@ -28,6 +28,13 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public string Title => AppStrings.MyOrders;
 
+        private bool isLoading;
+        public bool IsLoading
+        {
+            get => isLoading;
+            set => SetProperty(ref isLoading, value);
+        }
+
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
@@ -35,10 +42,14 @@ namespace SushiShop.Core.ViewModels.Orders
             _ = RefreshDataAsync();
         }
 
-        protected override Task RefreshDataAsync()
+        protected override async Task RefreshDataAsync()
         {
+            IsLoading = true;
+
             Pagination.Reset();
-            return LoadMoreItemsAsync(0, Constants.Common.DefaultPaginationSize);
+            await LoadMoreItemsAsync(0, Constants.Common.DefaultPaginationSize);
+
+            IsLoading = false;
         }
 
         private async Task<int> LoadMoreItemsAsync(int paginationIndex, int paginationSize)

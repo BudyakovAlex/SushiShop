@@ -93,8 +93,15 @@ namespace SushiShop.Core.Providers
         {
             this.token = token;
 
-            var json = Json.Serialize(token);
-            Preferences.Set(Constants.Preferences.TokenKey, json);
+            if (token is null)
+            {
+                Preferences.Set(Constants.Preferences.TokenKey, null);
+            }
+            else
+            {
+                var json = Json.Serialize(token);
+                Preferences.Set(Constants.Preferences.TokenKey, json);
+            }
         }
     }
 }

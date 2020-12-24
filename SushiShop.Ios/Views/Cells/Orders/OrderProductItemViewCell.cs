@@ -20,6 +20,12 @@ namespace SushiShop.Ios.Views.Cells.Orders
         {
         }
 
+        protected override void Initialize()
+        {
+            base.Initialize();
+            ProductImageView.Layer.CornerRadius = 6f;
+        }
+
         protected override void Bind()
         {
             base.Bind();
