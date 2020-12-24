@@ -430,15 +430,7 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("Send", resourceCulture);
             }
         }
-
-        public static string SignOutOfYourProfile
-        {
-            get
-            {
-                return ResourceManager.GetString("SignOutOfYourProfile", resourceCulture);
-            }
-        }
-
+        
         public static string UploadPhotos {
             get {
                 return ResourceManager.GetString("UploadPhotos", resourceCulture);
@@ -466,6 +458,30 @@ namespace SushiShop.Core.Resources {
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        public static string SignOutOfYourProfile {
+            get {
+                return ResourceManager.GetString("SignOutOfYourProfile", resourceCulture);
+            }
+        }
+        
+        public static string Male {
+            get {
+                return ResourceManager.GetString("Male", resourceCulture);
+            }
+        }
+        
+        public static string Female {
+            get {
+                return ResourceManager.GetString("Female", resourceCulture);
+            }
+        }
+        
+        public static string Points {
+            get {
+                return ResourceManager.GetString("Points", resourceCulture);
             }
         }
     }

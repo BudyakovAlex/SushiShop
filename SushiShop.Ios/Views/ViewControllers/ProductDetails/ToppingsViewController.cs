@@ -37,8 +37,8 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
 
             bindingSet.Bind(tableViewSource).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(NavigationItem.LeftBarButtonItem).For(v => v.BindClicked()).To(vm => vm.PlatformCloseCommand);
-            bindingSet.Bind(AddButton).For(v => v.BindTap()).To(vm => vm.AddToCartCommand);
-            bindingSet.Bind(resetButton).For(v => v.BindTap()).To(vm => vm.ResetCommand);
+            bindingSet.Bind(AddButton).For(v => v.BindTouchUpInside()).To(vm => vm.AddToCartCommand);
+            bindingSet.Bind(resetButton).For(v => v.BindTouchUpInside()).To(vm => vm.ResetCommand);
             bindingSet.Bind(this).For(v => v.Title).To(vm => vm.PageTitle);
 
             bindingSet.Apply();

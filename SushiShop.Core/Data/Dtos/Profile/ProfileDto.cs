@@ -13,7 +13,7 @@ namespace SushiShop.Core.Data.Dtos.Profile
         public string? Phone { get; set; }
 
         [JsonProperty("dateOfBirth")]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         [JsonProperty("firstName")]
         public string? FirstName { get; set; }

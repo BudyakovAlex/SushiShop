@@ -3,10 +3,12 @@ using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using Foundation;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
+using SushiShop.Core.Converters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Extensions;
+using SushiShop.Ios.Views.Controls;
 using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Profile
@@ -20,6 +22,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
         private readonly NSRange privacyPolicyRange = new NSRange(61, 27);
 
         private UIButton backButton;
+        private UIDatePicker dateOfBirthDatePicker;
 
         protected override void InitStylesAndContent()
         {
@@ -31,7 +34,15 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             DateOfBirthTextField.Placeholder = AppStrings.DateOfBirthRequired;
             PhoneTextField.Placeholder = AppStrings.PhoneRequired;
             EmailTextField.Placeholder = AppStrings.EmailRequired;
-            
+
+            DateOfBirthTextField.InputView = dateOfBirthDatePicker = new UIDatePicker()
+            {
+                Mode = UIDatePickerMode.Date,
+                PreferredDatePickerStyle = UIDatePickerStyle.Wheels,
+                MaximumDate = NSDate.Now
+            };
+            DateOfBirthTextField.InputAccessoryView = new DoneAccessoryView(View, () => { });
+
             var attributedText = new NSMutableAttributedString(AppStrings.PrivacyPolicy);
             attributedText.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), privacyPolicyRange);
             AcceptDescriptionLabel.AttributedText = attributedText;
@@ -55,7 +66,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(backButton).For(v => v.BindTap()).To(vm => vm.CloseCommand);
             bindingSet.Bind(RegisterButton).For(v => v.BindTap()).To(vm => vm.RegisterCommand);
             bindingSet.Bind(NameTextField).For(v => v.Text).To(vm => vm.FullName);
-            bindingSet.Bind(DateOfBirthTextField).For(v => v.Text).To(vm => vm.DateOfBirth);
+            bindingSet.Bind(dateOfBirthDatePicker).For(v => v.BindDate()).To(vm => vm.DateOfBirth).TwoWay();
+            bindingSet.Bind(DateOfBirthTextField).For(v => v.Text).To(vm => vm.DateOfBirth)
+                .WithConversion<DateTimeToStringConverter>();
             bindingSet.Bind(PhoneTextField).For(v => v.Text).To(vm => vm.Phone);
             bindingSet.Bind(EmailTextField).For(v => v.Text).To(vm => vm.Email);
             bindingSet.Bind(PushNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.IsAcceptPushNotifications).TwoWay();

@@ -131,8 +131,6 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task LogoutAsync()
         {
-            IsAuthorized = false;
-
             var confirmationTask = UserDialogs.Instance.ConfirmAsync(string.Empty, AppStrings.SignOutOfYourProfile, okText: AppStrings.No, cancelText: AppStrings.Yes);
             await Task.WhenAll(confirmationTask);
 
@@ -143,6 +141,7 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
+            IsAuthorized = false;
             userSession.SetToken(null);
         }
 
@@ -192,11 +191,13 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string>(PhoneOrEmail!);
+            var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string, bool>(PhoneOrEmail!);
             if (!isConfirmed)
             {
                 return;
             }
+
+            IsAuthorized = true;
 
             await RefreshDataAsync();
         }

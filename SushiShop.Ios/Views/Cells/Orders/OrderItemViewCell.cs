@@ -41,7 +41,7 @@ namespace SushiShop.Ios.Views.Cells.Orders
             bindingSet.Bind(ReceiveMethodLabel).For(v => v.Text).To(vm => vm.ReceiveMethod);
             bindingSet.Bind(TotalPriceLabel).For(v => v.Text).To(vm => vm.TotalPrice);
             bindingSet.Bind(RepeatButton).For(v => v.BindVisible()).To(vm => vm.CanRepeat);
-            bindingSet.Bind(RepeatButton).For(v => v.BindTap()).To(vm => vm.RepeatOrderCommand);
+            bindingSet.Bind(RepeatButton).For(v => v.BindTouchUpInside()).To(vm => vm.RepeatOrderCommand);
 
             bindingSet.Apply();
         }

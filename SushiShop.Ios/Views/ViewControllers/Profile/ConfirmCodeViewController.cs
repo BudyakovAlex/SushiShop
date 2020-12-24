@@ -40,8 +40,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(backButton).For(v => v.BindTap()).To(vm => vm.PlatformCloseCommand);
-            bindingSet.Bind(ContinueButton).For(v => v.BindTap()).To(vm => vm.ContinueCommand);
+            bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
+            bindingSet.Bind(ContinueButton).For(v => v.BindTouchUpInside()).To(vm => vm.ContinueCommand);
             bindingSet.Bind(CodeTextField).For(v => v.Text).To(vm => vm.Code);
 
             bindingSet.Apply();

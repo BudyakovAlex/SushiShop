@@ -32,15 +32,8 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref fullName, value);
         }
 
-        private GenderType gender = GenderType.None;
-        public GenderType Gender
-        {
-            get => gender;
-            set => SetProperty(ref gender, value);
-        }
-
-        private DateTime dateOfBirth;
-        public DateTime DateOfBirth
+        private DateTime? dateOfBirth;
+        public DateTime? DateOfBirth
         {
             get => dateOfBirth;
             set => SetProperty(ref dateOfBirth, value);
@@ -102,7 +95,7 @@ namespace SushiShop.Core.ViewModels.Profile
                 string.Empty,
                 string.Empty,
                 FullName,
-                Gender,
+                GenderType.Unknown,
                 IsAcceptEmailNotifications,
                 IsAcceptSmsNotifications,
                 IsAcceptPushNotifications,

@@ -74,7 +74,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             bindingSet.Bind(PriceLabel).For(v => v.Text).To(vm => vm.TotalPrice);
             bindingSet.Bind(PromocodeTextField).For(v => v.Text).To(vm => vm.Promocode);
             bindingSet.Bind(BottomCheckoutView).For(v => v.BindVisibility()).To(vm => vm.IsEmptyBasket);
-            bindingSet.Bind(CheckoutButton).For(v => v.BindTap()).To(vm => vm.CheckoutCommand);
+            bindingSet.Bind(CheckoutButton).For(v => v.BindTouchUpInside()).To(vm => vm.CheckoutCommand);
             bindingSet.Bind(ContentScrollView).For(v => v.BindVisibility()).To(vm => vm.IsEmptyBasket);
             bindingSet.Bind(this).For(v => v.IsHideFooterView).To(vm => vm.Sauces.Count)
                .WithConversion<AmountToBoolInvertVisibilityConverter>();

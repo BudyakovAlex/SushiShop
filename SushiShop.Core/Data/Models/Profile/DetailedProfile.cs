@@ -10,7 +10,7 @@ namespace SushiShop.Core.Data.Models.Profile
             int userId,
             string? email,
             string? phone,
-            DateTime dateOfBirth,
+            DateTime? dateOfBirth,
             string? firstName,
             string? lastName,
             string? fullName,

@@ -20,6 +20,7 @@
                 <outlet property="ContentScrollView" destination="flV-KW-Lbv" id="3fq-Ve-tWS"/>
                 <outlet property="RoundedContentView" destination="Ri2-Bw-vw5" id="bBp-3s-2rx"/>
                 <outlet property="ScrollViewContentView" destination="DAg-aJ-uwR" id="hzA-Zx-BRz"/>
+                <outlet property="TitleLabel" destination="QN5-rL-TII" id="JAf-6W-Lxv"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
         </placeholder>

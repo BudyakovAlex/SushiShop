@@ -327,4 +327,13 @@
   <data name="SignOutOfYourProfile" xml:space="preserve">
     <value>Выйти из профиля?</value>
   </data>
+  <data name="Male" xml:space="preserve">
+    <value>Мужской</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Женский</value>
+  </data>
+  <data name="Points" xml:space="preserve">
+    <value>баллов</value>
+  </data>
 </root>

@@ -23,12 +23,20 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
 		[Outlet]
 		UIKit.UIView ScrollViewContentView { get; set; }
+
+		[Outlet]
+		UIKit.UILabel TitleLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (ContentLabel != null) {
 				ContentLabel.Dispose ();
 				ContentLabel = null;
+			}
+
+			if (ContentScrollView != null) {
+				ContentScrollView.Dispose ();
+				ContentScrollView = null;
 			}
 
 			if (RoundedContentView != null) {
@@ -41,9 +49,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				ScrollViewContentView = null;
 			}
 
-			if (ContentScrollView != null) {
-				ContentScrollView.Dispose ();
-				ContentScrollView = null;
+			if (TitleLabel != null) {
+				TitleLabel.Dispose ();
+				TitleLabel = null;
 			}
 		}
 	}

@@ -8,7 +8,7 @@ namespace SushiShop.Core.Data.Models.Profile
         public Profile(
             string? email,
             string? phone,
-            DateTime dateOfBirth,
+            DateTime? dateOfBirth,
             string? firstName,
             string? lastName,
             string? fullName,
@@ -35,7 +35,7 @@ namespace SushiShop.Core.Data.Models.Profile
 
         public string? Phone { get; }
 
-        public DateTime DateOfBirth { get; }
+        public DateTime? DateOfBirth { get; }
 
         public string? FirstName { get; }
 

@@ -51,7 +51,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
 
             bindingSet.Bind(switchPresentationButton).For(v => v.BindImage()).To(vm => vm.IsListMenuPresentation)
                 .WithConversion(new BoolToValueConverter<string>(ImageNames.MenuTiles, ImageNames.MenuList));
-            bindingSet.Bind(switchPresentationButton).For(v => v.BindTap()).To(vm => vm.SwitchPresentationCommand);
+            bindingSet.Bind(switchPresentationButton).For(v => v.BindTouchUpInside()).To(vm => vm.SwitchPresentationCommand);
 
             bindingSet.Bind(titleLabel).For(v => v.Text).To(vm => vm.CityName);
             bindingSet.Bind(leftBarButtonItemView).For(v => v.BindTap()).To(vm => vm.SelectCityCommand);

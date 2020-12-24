@@ -1,6 +1,7 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
+using SushiShop.Core.Converters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Ios.Common;
@@ -40,19 +41,20 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(LoginButton).For(v => v.BindTap()).To(vm => vm.LoginCommand);
-            bindingSet.Bind(RegisterButton).For(v => v.BindTap()).To(vm => vm.RegistrationCommand);
+            bindingSet.Bind(LoginButton).For(v => v.BindTouchUpInside()).To(vm => vm.LoginCommand);
+            bindingSet.Bind(RegisterButton).For(v => v.BindTouchUpInside()).To(vm => vm.RegistrationCommand);
             bindingSet.Bind(EmailLoginTextField).For(v => v.Text).To(vm => vm.PhoneOrEmail);
-            bindingSet.Bind(logoutButton).For(v => v.BindTap()).To(vm => vm.LogoutCommand);
+            bindingSet.Bind(logoutButton).For(v => v.BindTouchUpInside()).To(vm => vm.LogoutCommand);
             bindingSet.Bind(logoutButton).For(v => v.BindVisible()).To(vm => vm.IsAuthorized);
             bindingSet.Bind(ProfileView).For(v => v.BindVisible()).To(vm => vm.IsAuthorized);
-            bindingSet.Bind(ScoreButton).For(v => v.BindTap()).To(vm => vm.ShowBonusProgramCommand);
+            bindingSet.Bind(ScoreButton).For(v => v.BindTouchUpInside()).To(vm => vm.ShowBonusProgramCommand);
             bindingSet.Bind(PersonalDataView).For(v => v.BindTap()).To(vm => vm.ShowEditProfileCommand);
             bindingSet.Bind(MyOrdersView).For(v => v.BindTap()).To(vm => vm.ShowMyOrdersCommand);
             bindingSet.Bind(FeedbackView).For(v => v.BindTap()).To(vm => vm.ShowFeedbackCommand);
             bindingSet.Bind(UserImage).For(v => v.BindTap()).To(vm => vm.ChooseNewImageCommand);
             bindingSet.Bind(UserNameLabel).For(v => v.Text).To(vm => vm.Username);
-            bindingSet.Bind(ScoreButton.TitleLabel).For(v => v.Text).To(vm => vm.Score);
+            bindingSet.Bind(ScoreButton).For(v => v.BindTitle()).To(vm => vm.Score)
+                .WithConversion<ScoreBonusToStringConverter>();
 
             bindingSet.Apply();
         }

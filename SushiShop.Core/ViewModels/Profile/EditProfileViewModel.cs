@@ -23,8 +23,12 @@ namespace SushiShop.Core.ViewModels.Profile
             this.profileManager = profileManager;
             this.userDialogs = userDialogs;
 
+            GenderTypes = new[] { GenderType.Male, GenderType.Female };
+
             SaveCommand = new SafeAsyncCommand(ExecutionStateWrapper, SaveAsync);
         }
+
+        public GenderType[] GenderTypes { get; }
 
         private string? fullName;
         public string? FullName
@@ -33,15 +37,15 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref fullName, value);
         }
 
-        private GenderType gender = GenderType.None;
+        private GenderType gender = GenderType.Unknown;
         public GenderType Gender
         {
             get => gender;
             set => SetProperty(ref gender, value);
         }
 
-        private DateTime dateOfBirth;
-        public DateTime DateOfBirth
+        private DateTime? dateOfBirth;
+        public DateTime? DateOfBirth
         {
             get => dateOfBirth;
             set => SetProperty(ref dateOfBirth, value);
