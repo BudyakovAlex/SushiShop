@@ -110,7 +110,7 @@
                         <constraint firstItem="Ri2-Bw-vw5" firstAttribute="leading" secondItem="DAg-aJ-uwR" secondAttribute="leading" id="w4c-0A-W6i"/>
                     </constraints>
                 </view>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-Ij-8QW">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-Ij-8QW">
                     <rect key="frame" x="197" y="443" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>

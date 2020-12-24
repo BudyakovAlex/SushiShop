@@ -197,7 +197,7 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="sQn-YH-BC8"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="qC4-oj-NeO"/>
                 </scrollView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="fzW-cg-k2g">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="fzW-cg-k2g">
                     <rect key="frame" x="185" y="417" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>
