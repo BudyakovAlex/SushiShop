@@ -62,7 +62,6 @@ namespace SushiShop.Core.ViewModels.Profile
             }
 
             Title = response.Data?.Title;
-            IntroText = response.Data?.IntroText;
             Content = response.Data?.MainText;
         }
     }

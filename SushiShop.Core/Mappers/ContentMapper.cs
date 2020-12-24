@@ -11,7 +11,6 @@ namespace SushiShop.Core.Mappers
                 contentDto.Id,
                 contentDto.Title,
                 contentDto.Alias,
-                contentDto.IntroText,
                 contentDto.Content,
                 contentDto.CreatedOn,
                 contentDto.EditedOn);

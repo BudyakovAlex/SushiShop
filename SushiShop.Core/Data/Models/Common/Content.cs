@@ -8,7 +8,6 @@ namespace SushiShop.Core.Data.Models.Common
             int id,
             string? title,
             string? alias,
-            string? introText,
             string? mainText,
             DateTime? createdOn,
             DateTime? editedOn)
@@ -16,7 +15,6 @@ namespace SushiShop.Core.Data.Models.Common
             Id = id;
             Title = title;
             Alias = alias;
-            IntroText = introText;
             MainText = mainText;
             CreatedOn = createdOn;
             EditedOn = editedOn;
@@ -27,8 +25,6 @@ namespace SushiShop.Core.Data.Models.Common
         public string? Title { get; set; }
 
         public string? Alias { get; set; }
-
-        public string? IntroText { get; set; }
 
         public string? MainText { get; set; }
 

@@ -14,9 +14,6 @@ namespace SushiShop.Core.Data.Dtos.Common
         [JsonProperty("alias")]
         public string? Alias { get; set; }
 
-        [JsonProperty("introtext")]
-        public string? IntroText { get; set; }
-
         [JsonProperty("content")]
         public string? Content { get; set; }
 

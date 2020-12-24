@@ -63,7 +63,6 @@ namespace SushiShop.Core.Managers.CommonInfo
                     string.Empty,
                     string.Empty,
                     string.Empty,
-                    string.Empty,
                     DateTime.MinValue,
                     DateTime.MinValue));
         }
