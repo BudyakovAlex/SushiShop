@@ -41,26 +41,27 @@ namespace SushiShop.Core.Services.Http
             return ExecuteAsync<T>(request, cancellationToken);
         }
 
-        public Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, object body, string[]? files, CancellationToken cancellationToken)
+        public Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, object? content, string[] filePaths, CancellationToken cancellationToken)
             where T : class
         {
-            var content = Json.Serialize(body);
-            var multipartContent = new MultipartContent
-            {
-                new StringContent(content)
-            };
+            var multipartContent = new MultipartContent();
 
-            if (files != null)
+            var stringContent = CreateStringContentOrDefault(content);
+            if (stringContent != null)
             {
-                foreach (var file in files)
-                {
-                    using var fs = new FileStream(file, FileMode.Open, FileAccess.Read);
-                    multipartContent.Add(new StreamContent(fs));
-                }
+                multipartContent.Add(stringContent);
+            }
+
+            foreach (var filePath in filePaths)
+            {
+                var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+                multipartContent.Add(new StreamContent(fs));
             }
 
             var request = CreateRequestMessage(method, url);
             request.Content = multipartContent;
+
+            AddAuthorizationHeaderIfExists(request);
 
             return ExecuteAsync<T>(request, cancellationToken);
         }
@@ -139,18 +140,7 @@ namespace SushiShop.Core.Services.Http
         {
             var httpMethod = ToHttpMethod(method);
             var request = new HttpRequestMessage(httpMethod, url);
-
-            switch (content)
-            {
-                case string str:
-                    request.Content = new StringContent(str);
-                    break;
-
-                case object obj:
-                    var value = Json.Serialize(obj);
-                    request.Content = new StringContent(value);
-                    break;
-            }
+            request.Content = CreateStringContentOrDefault(content);
 
             return request;
 
@@ -160,6 +150,22 @@ namespace SushiShop.Core.Services.Http
                 Method.Post => HttpMethod.Post,
                 _ => throw new ArgumentOutOfRangeException(),
             };
+        }
+
+        private StringContent? CreateStringContentOrDefault(object? content)
+        {
+            switch (content)
+            {
+                case null:
+                    return null;
+
+                case string str:
+                    return new StringContent(str);
+
+                case object obj:
+                    var value = Json.Serialize(obj);
+                    return new StringContent(value);
+            }
         }
     }
 }

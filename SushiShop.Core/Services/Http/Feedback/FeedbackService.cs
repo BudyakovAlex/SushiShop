@@ -1,8 +1,7 @@
-﻿using SushiShop.Core.Common;
-using SushiShop.Core.Data.Http;
-using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using SushiShop.Core.Common;
+using SushiShop.Core.Data.Http;
 
 namespace SushiShop.Core.Services.Http.Feedback
 {
@@ -16,12 +15,11 @@ namespace SushiShop.Core.Services.Http.Feedback
         }
 
         public Task<HttpResponse<ResponseDto<string>>> SendFeedbackAsync(
-            string? orderNumber,
-            string? question,
-            string[]? files,
+            string orderNumber,
+            string question,
+            string[] imagePaths,
             CancellationToken cancellationToken)
         {
-            files ??= Array.Empty<string>();
             var body = new
             {
                 question,
@@ -32,7 +30,7 @@ namespace SushiShop.Core.Services.Http.Feedback
                 Method.Post,
                 Constants.Rest.ProfileFeedbackResource,
                 body,
-                files,
+                imagePaths,
                 cancellationToken);
         }
     }

@@ -12,7 +12,7 @@ namespace SushiShop.Core.Services.Http
         Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, object? content, CancellationToken cancellationToken)
             where T : class;
 
-        Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, object body, string[] files, CancellationToken cancellationToken)
+        Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, object? content, string[] filePaths, CancellationToken cancellationToken)
             where T : class;
     }
 }

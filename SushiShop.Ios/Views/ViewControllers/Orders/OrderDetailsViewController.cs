@@ -38,6 +38,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(RepeatOrderButton).For(v => v.BindVisible()).To(vm => vm.CanRepeat);
             bindingSet.Bind(RepeatOrderButton).For(v => v.BindTitle()).To(vm => vm.RepeatOrderTitle);
             bindingSet.Bind(RepeatOrderButton).For(v => v.BindTouchUpInside()).To(vm => vm.RepeatOrderCommand);
+            bindingSet.Bind(LoadingView).For(v => v.BindVisible()).To(vm => vm.IsLoading);
 
             bindingSet.Apply();
         }

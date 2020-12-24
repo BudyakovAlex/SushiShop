@@ -70,5 +70,15 @@ namespace SushiShop.Core.Services.Http.Profile
                 profileDto,
                 cancellationToken);
         }
+
+        public Task<HttpResponse<ResponseDto<string>>> UploadPhotoAsync(string imagePath, CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteMultipartAsync<ResponseDto<string>>(
+                Method.Post,
+                Constants.Rest.ProfileUploadPhotoResource,
+                null,
+                new string[] { imagePath },
+                cancellationToken);
+        }
     }
 }

@@ -3,10 +3,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.Common.Wrappers;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using Plugin.Media.Abstractions;
+using SushiShop.Core.Data.Models.Plugins;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Profile;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Feedback;
@@ -19,25 +24,43 @@ namespace SushiShop.Core.ViewModels.Profile
         private readonly IProfileManager profileManager;
         private readonly IUserSession userSession;
         private readonly IUserDialogs userDialogs;
+        private readonly IDialog dialog;
+        private readonly IMedia media;
 
         public ProfileViewModel(
             IProfileManager profileManager,
             IUserSession userSession,
-            IUserDialogs userDialogs)
+            IUserDialogs userDialogs,
+            IDialog dialog,
+            IMedia media)
         {
             this.profileManager = profileManager;
             this.userSession = userSession;
             this.userDialogs = userDialogs;
+            this.dialog = dialog;
+            this.media = media;
 
             LogoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, LogoutAsync);
             ShowEditProfileCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowEditProfileAsync);
             ShowMyOrdersCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowMyOrdersAsync);
             ShowFeedbackCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowFeedbackAsync);
             ShowBonusProgramCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowBonusProgramAsync);
-            ChooseNewImageCommand = new SafeAsyncCommand(ExecutionStateWrapper, ChooseNewImageAsync);
-            LoginCommand = new SafeAsyncCommand(ExecutionStateWrapper, LoginAsync, () => PhoneOrEmail.IsNotNullNorEmpty());
+            ChooseNewImageCommand = new SafeAsyncCommand(new ExecutionStateWrapper(), ChooseNewImageAsync);
+            LoginCommand = new SafeAsyncCommand(ExecutionStateWrapper, LoginAsync, PhoneOrEmail.IsNotNullNorEmpty);
             RegistrationCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegistrationAsync);
+
+            PickPhotoCommand = new SafeAsyncCommand(ExecutionStateWrapper, PickPhotoAsync);
+            TakePhotoCommand = new SafeAsyncCommand(ExecutionStateWrapper, TakePhotoAsync);
         }
+
+        public IMvxCommand LogoutCommand { get; }
+        public IMvxCommand ShowEditProfileCommand { get; }
+        public IMvxCommand ShowMyOrdersCommand { get; }
+        public IMvxCommand ShowFeedbackCommand { get; }
+        public IMvxCommand ShowBonusProgramCommand { get; }
+        public IMvxCommand ChooseNewImageCommand { get; }
+        public IMvxCommand LoginCommand { get; }
+        public IMvxCommand RegistrationCommand { get; }
 
         private string? phoneOrEmail;
         public string? PhoneOrEmail
@@ -74,21 +97,8 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref score, value);
         }
 
-        public IMvxCommand LogoutCommand { get; }
-
-        public IMvxCommand ShowEditProfileCommand { get; }
-
-        public IMvxCommand ShowMyOrdersCommand { get; }
-
-        public IMvxCommand ShowFeedbackCommand { get; }
-
-        public IMvxCommand ShowBonusProgramCommand { get; }
-
-        public IMvxCommand ChooseNewImageCommand { get; }
-
-        public IMvxCommand LoginCommand { get; }
-
-        public IMvxCommand RegistrationCommand { get; }
+        private IMvxAsyncCommand PickPhotoCommand { get; }
+        private IMvxAsyncCommand TakePhotoCommand { get; }
 
         public override async Task InitializeAsync()
         {
@@ -175,7 +185,12 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private Task ChooseNewImageAsync()
         {
-            return Task.CompletedTask;
+            return dialog.ShowActionSheetAsync(
+                null,
+                null,
+                AppStrings.Cancel,
+                new DialogAction(AppStrings.TakePhoto, TakePhotoCommand),
+                new DialogAction(AppStrings.UploadFromGallery, PickPhotoCommand));
         }
 
         private async Task LoginAsync()
@@ -213,6 +228,37 @@ namespace SushiShop.Core.ViewModels.Profile
             }
 
             await RefreshDataAsync();
+        }
+
+        private async Task PickPhotoAsync()
+        {
+            var mediaFile = await media.PickPhotoOrDefaultAsync();
+            if (mediaFile is null)
+            {
+                return;
+            }
+
+            await UploadPhotoAsync(mediaFile.Path);
+        }
+
+        private async Task TakePhotoAsync()
+        {
+            var mediaFile = await media.TakePhotoOrDefaultAsync();
+            if (mediaFile is null)
+            {
+                return;
+            }
+
+            await UploadPhotoAsync(mediaFile.Path);
+        }
+
+        private async Task UploadPhotoAsync(string imagePath)
+        {
+            var response = await profileManager.UploadPhotoAsync(imagePath);
+            if (response.IsSuccessful)
+            {
+                Avatar = response.Data;
+            }
         }
     }
 }

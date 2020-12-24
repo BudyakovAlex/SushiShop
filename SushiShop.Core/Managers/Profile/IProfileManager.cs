@@ -1,6 +1,6 @@
-﻿using SushiShop.Core.Data.Http;
+﻿using System.Threading.Tasks;
+using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Profile;
-using System.Threading.Tasks;
 
 namespace SushiShop.Core.Managers.Profile
 {
@@ -17,5 +17,7 @@ namespace SushiShop.Core.Managers.Profile
         Task<Response<ProfileDiscount?>> GetDiscountAsync();
 
         Task<Response<DetailedProfile?>> SaveProfileAsync(Data.Models.Profile.Profile profile);
+
+        Task<Response<string?>> UploadPhotoAsync(string imagePath);
     }
 }

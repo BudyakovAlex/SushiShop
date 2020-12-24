@@ -18,5 +18,7 @@ namespace SushiShop.Core.Services.Http.Profile
         Task<HttpResponse<ResponseDto<ProfileDiscountDto>>> GetDiscountAsync(CancellationToken cancellationToken);
         
         Task<HttpResponse<ResponseDto<DetailedProfileDto>>> SaveProfileAsync(ProfileDto profileDto, CancellationToken cancellationToken);
+
+        Task<HttpResponse<ResponseDto<string>>> UploadPhotoAsync(string imagePath, CancellationToken cancellationToken);
     }
 }

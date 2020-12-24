@@ -1,7 +1,7 @@
-﻿using SushiShop.Core.Data.Http;
-using SushiShop.Core.Services.Http.Feedback;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using SushiShop.Core.Data.Http;
+using SushiShop.Core.Services.Http.Feedback;
 
 namespace SushiShop.Core.Managers.Feedback
 {
@@ -15,14 +15,14 @@ namespace SushiShop.Core.Managers.Feedback
         }
 
         public async Task<Response<string?>> SendFeedbackAsync(
-            string? orderNumber,
-            string? question,
-            string[]? files)
+            string orderNumber,
+            string question,
+            string[] imagePaths)
         {
             var response = await feedbackService.SendFeedbackAsync(
                 orderNumber,
                 question,
-                files,
+                imagePaths,
                 CancellationToken.None);
             if (response.IsSuccessful)
             {

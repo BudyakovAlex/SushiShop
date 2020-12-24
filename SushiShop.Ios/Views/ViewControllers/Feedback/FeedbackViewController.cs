@@ -95,7 +95,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 
         private void InitializeOrderNumberTextField()
         {
-            OrderNumberTextView.ReturnKeyType = UIReturnKeyType.Next;
             OrderNumberTextView.TextContainer.MaximumNumberOfLines = 1;
         }
 
@@ -111,12 +110,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
         private void OnViewTap()
         {
             View.EndEditing(true);
-        }
-
-        private bool OnOrderNumberTextFieldShouldReturn(UITextField _)
-        {
-            QuestionTextView.BecomeFirstResponder();
-            return true;
         }
 
         private void AddKeyboardObservers()

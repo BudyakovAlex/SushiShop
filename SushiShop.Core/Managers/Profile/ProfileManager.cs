@@ -1,10 +1,10 @@
-﻿using SushiShop.Core.Data.Http;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Profile;
 using SushiShop.Core.Mappers;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http.Profile;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace SushiShop.Core.Managers.Profile
 {
@@ -56,16 +56,16 @@ namespace SushiShop.Core.Managers.Profile
             return new Response<ConfirmationResult?>(isSuccessful: false, null);
         }
 
-        public async Task<Response<Data.Models.Profile.DetailedProfile?>> GetProfileAsync()
+        public async Task<Response<DetailedProfile?>> GetProfileAsync()
         {
             var response = await profileService.GetProfileAsync(CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<Data.Models.Profile.DetailedProfile?>(isSuccessful: true, data);
+                return new Response<DetailedProfile?>(isSuccessful: true, data);
             }
 
-            return new Response<Data.Models.Profile.DetailedProfile?>(isSuccessful: false, null);
+            return new Response<DetailedProfile?>(isSuccessful: false, null);
         }
 
         public async Task<Response<ProfileDiscount?>> GetDiscountAsync()
@@ -80,16 +80,27 @@ namespace SushiShop.Core.Managers.Profile
             return new Response<ProfileDiscount?>(isSuccessful: false, null);
         }
 
-        public async Task<Response<Data.Models.Profile.DetailedProfile?>> SaveProfileAsync(Data.Models.Profile.Profile profile)
+        public async Task<Response<DetailedProfile?>> SaveProfileAsync(Data.Models.Profile.Profile profile)
         {
             var response = await profileService.SaveProfileAsync(profile.Map(), CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<Data.Models.Profile.DetailedProfile?>(isSuccessful: true, data);
+                return new Response<DetailedProfile?>(isSuccessful: true, data);
             }
 
-            return new Response<Data.Models.Profile.DetailedProfile?>(isSuccessful: false, null);
+            return new Response<DetailedProfile?>(isSuccessful: false, null);
+        }
+
+        public async Task<Response<string?>> UploadPhotoAsync(string imagePath)
+        {
+            var response = await profileService.UploadPhotoAsync(imagePath, CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                return new Response<string?>(isSuccessful: true, response.Data!.SuccessData);
+            }
+
+            return new Response<string?>(isSuccessful: false, null);
         }
     }
 }

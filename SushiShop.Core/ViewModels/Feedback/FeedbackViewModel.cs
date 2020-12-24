@@ -110,7 +110,7 @@ namespace SushiShop.Core.ViewModels.Feedback
         private async Task SendFeedbackAsync()
         {
             var photos = Photos.Select(photo => photo.ImagePath).ToArray();
-            var response = await feedbackManager.SendFeedbackAsync(OrderNumber, Question, photos);
+            var response = await feedbackManager.SendFeedbackAsync(OrderNumber!, Question!, photos);
             if (!response.IsSuccessful)
             {
                 if (response.Errors.Any())

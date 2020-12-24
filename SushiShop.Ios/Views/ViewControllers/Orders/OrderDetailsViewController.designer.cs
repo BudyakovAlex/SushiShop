@@ -19,6 +19,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UILabel AddressValueLabel { get; set; }
 
 		[Outlet]
+		UIKit.UIView LoadingView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel OrderCompositionLabel { get; set; }
 
 		[Outlet]
@@ -77,14 +80,19 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (AddressValueLabel != null) {
-				AddressValueLabel.Dispose ();
-				AddressValueLabel = null;
+			if (LoadingView != null) {
+				LoadingView.Dispose ();
+				LoadingView = null;
 			}
 
 			if (AddressTitleLabel != null) {
 				AddressTitleLabel.Dispose ();
 				AddressTitleLabel = null;
+			}
+
+			if (AddressValueLabel != null) {
+				AddressValueLabel.Dispose ();
+				AddressValueLabel = null;
 			}
 
 			if (OrderCompositionLabel != null) {
@@ -117,6 +125,46 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				PhoneNumberLabel = null;
 			}
 
+			if (PreferredDeliveryTimeTitleLabel != null) {
+				PreferredDeliveryTimeTitleLabel.Dispose ();
+				PreferredDeliveryTimeTitleLabel = null;
+			}
+
+			if (PreferredDeliveryTimeValueLabel != null) {
+				PreferredDeliveryTimeValueLabel.Dispose ();
+				PreferredDeliveryTimeValueLabel = null;
+			}
+
+			if (PriceTitleLabel != null) {
+				PriceTitleLabel.Dispose ();
+				PriceTitleLabel = null;
+			}
+
+			if (PriceValueLabel != null) {
+				PriceValueLabel.Dispose ();
+				PriceValueLabel = null;
+			}
+
+			if (ReceiveMethodTitleLabel != null) {
+				ReceiveMethodTitleLabel.Dispose ();
+				ReceiveMethodTitleLabel = null;
+			}
+
+			if (ReceiveMethodValueLabel != null) {
+				ReceiveMethodValueLabel.Dispose ();
+				ReceiveMethodValueLabel = null;
+			}
+
+			if (ReceiveTitleLabel != null) {
+				ReceiveTitleLabel.Dispose ();
+				ReceiveTitleLabel = null;
+			}
+
+			if (ReceiveValueLabel != null) {
+				ReceiveValueLabel.Dispose ();
+				ReceiveValueLabel = null;
+			}
+
 			if (RepeatOrderButton != null) {
 				RepeatOrderButton.Dispose ();
 				RepeatOrderButton = null;
@@ -132,26 +180,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				TimeLabel = null;
 			}
 
-			if (ReceiveMethodTitleLabel != null) {
-				ReceiveMethodTitleLabel.Dispose ();
-				ReceiveMethodTitleLabel = null;
-			}
-
-			if (ReceiveMethodValueLabel != null) {
-				ReceiveMethodValueLabel.Dispose ();
-				ReceiveMethodValueLabel = null;
-			}
-
-			if (PriceTitleLabel != null) {
-				PriceTitleLabel.Dispose ();
-				PriceTitleLabel = null;
-			}
-
-			if (PriceValueLabel != null) {
-				PriceValueLabel.Dispose ();
-				PriceValueLabel = null;
-			}
-
 			if (TotalPriceTitleLabel != null) {
 				TotalPriceTitleLabel.Dispose ();
 				TotalPriceTitleLabel = null;
@@ -160,26 +188,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (TotalPriceValueLabel != null) {
 				TotalPriceValueLabel.Dispose ();
 				TotalPriceValueLabel = null;
-			}
-
-			if (ReceiveTitleLabel != null) {
-				ReceiveTitleLabel.Dispose ();
-				ReceiveTitleLabel = null;
-			}
-
-			if (ReceiveValueLabel != null) {
-				ReceiveValueLabel.Dispose ();
-				ReceiveValueLabel = null;
-			}
-
-			if (PreferredDeliveryTimeTitleLabel != null) {
-				PreferredDeliveryTimeTitleLabel.Dispose ();
-				PreferredDeliveryTimeTitleLabel = null;
-			}
-
-			if (PreferredDeliveryTimeValueLabel != null) {
-				PreferredDeliveryTimeValueLabel.Dispose ();
-				PreferredDeliveryTimeValueLabel = null;
 			}
 		}
 	}

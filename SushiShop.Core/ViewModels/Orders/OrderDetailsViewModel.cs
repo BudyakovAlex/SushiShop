@@ -31,7 +31,10 @@ namespace SushiShop.Core.ViewModels.Orders
             ShowOrderCompositionCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowOrderCompositionAsync);
         }
 
-        public string Title => string.Format(AppStrings.OrderTemplate, order?.Id);
+        public IMvxCommand RepeatOrderCommand { get; }
+        public IMvxCommand ShowOrderCompositionCommand { get; }
+
+        public string Title => string.Format(AppStrings.OrderTemplate, orderId);
 
         public string? OrderDateTime => order?.OrderDateTime.ToString(Constants.Format.DateTime.DateWithTime);
 
@@ -75,9 +78,12 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public string ReceiveValue => order?.DeliveryAmount > 0 ? $"{order.DeliveryAmount} {order?.Currency?.Symbol}" : AppStrings.FreeOfCharge;
 
-        public IMvxCommand RepeatOrderCommand { get; }
-
-        public IMvxCommand ShowOrderCompositionCommand { get; }
+        private bool isLoading;
+        public bool IsLoading
+        {
+            get => isLoading;
+            set => SetProperty(ref isLoading, value);
+        }
 
         protected override bool DefaultResult => shouldRefresh;
 
@@ -95,14 +101,16 @@ namespace SushiShop.Core.ViewModels.Orders
 
         protected override async Task RefreshDataAsync()
         {
+            IsLoading = true;
+
             var response = await ordersManager.GetOrderAsync(orderId);
-            if (!response.IsSuccessful)
+            if (response.IsSuccessful)
             {
-                return;
+                order = response.Data;
+                await RaiseAllPropertiesChanged();
             }
 
-            order = response.Data;
-            await RaiseAllPropertiesChanged();
+            IsLoading = false;
         }
 
         private async Task RepeatOrderAsync()
