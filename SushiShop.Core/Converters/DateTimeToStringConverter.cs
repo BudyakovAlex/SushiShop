@@ -11,5 +11,15 @@ namespace SushiShop.Core.Converters
         {
             return value?.ToString(Format.DateTime.DateOfBirth);
         }
+
+        protected override DateTime? ConvertBack(string? value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (DateTime.TryParse(value, out var dateTime))
+            {
+                return dateTime;
+            }
+
+            return null;
+        }
     }
 }

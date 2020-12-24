@@ -20,7 +20,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 
         public IMvxAsyncCommand ShowDetailsCommand { get; }
 
-        public string ImageUrl => promotion.RectangularImageInfo.JpgUrl;
+        public string? ImageUrl => promotion.RectangularImageInfo.JpgUrl;
 
         private Task ShowDetailsAsync() =>
             NavigationManager.NavigateAsync<PromotionDetailsViewModel, long>(promotion.Id);

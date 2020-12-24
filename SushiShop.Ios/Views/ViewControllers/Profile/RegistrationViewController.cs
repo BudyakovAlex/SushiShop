@@ -41,6 +41,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
                 PreferredDatePickerStyle = UIDatePickerStyle.Wheels,
                 MaximumDate = NSDate.Now
             };
+
             DateOfBirthTextField.InputAccessoryView = new DoneAccessoryView(View, () => { });
 
             var attributedText = new NSMutableAttributedString(AppStrings.PrivacyPolicy);

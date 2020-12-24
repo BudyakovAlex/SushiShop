@@ -19,7 +19,7 @@ namespace SushiShop.Core.Data.Models.Profile
             bool isAllowNotifications,
             bool isAllowPush,
             bool isNeedRegistration,
-            DateTime dateOfBirthFormated,
+            string? dateOfBirthFormated,
             bool canChangeDateOfBirth,
             string? subscribeSales,
             ImageInfo? photo)
@@ -44,7 +44,7 @@ namespace SushiShop.Core.Data.Models.Profile
 
         public int UserId { get; }
 
-        public DateTime DateOfBirthFormated { get; }
+        public string? DateOfBirthFormated { get; }
 
         public bool CanChangeDateOfBirth { get; }
 

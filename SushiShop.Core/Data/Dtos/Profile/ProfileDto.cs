@@ -25,7 +25,7 @@ namespace SushiShop.Core.Data.Dtos.Profile
         public string? FullName { get; set; }
 
         [JsonProperty("gender")]
-        public GenderType Gender { get; set; }
+        public GenderType? Gender { get; set; }
 
         [JsonProperty("allowSubscribe")]
         public bool IsAllowSubscribe { get; set; }

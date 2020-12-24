@@ -1,4 +1,5 @@
 ﻿using SushiShop.Core.Data.Dtos.Profile;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Profile;
 
 namespace SushiShop.Core.Mappers
@@ -15,7 +16,7 @@ namespace SushiShop.Core.Mappers
                 profileDto.FirstName,
                 profileDto.LastName,
                 profileDto.FullName,
-                profileDto.Gender,
+                profileDto.Gender ?? GenderType.Unknown,
                 profileDto.IsAllowSubscribe,
                 profileDto.IsAllowNotifications,
                 profileDto.IsAllowPush,

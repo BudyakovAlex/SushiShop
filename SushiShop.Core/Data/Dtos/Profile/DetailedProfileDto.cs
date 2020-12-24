@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using SushiShop.Core.Data.Dtos.Common;
-using System;
 
 namespace SushiShop.Core.Data.Dtos.Profile
 {
@@ -10,7 +9,7 @@ namespace SushiShop.Core.Data.Dtos.Profile
         public int UserId { get; set; }
 
         [JsonProperty("dateOfBirthFormated")]
-        public DateTime DateOfBirthFormated { get; set; }
+        public string? DateOfBirthFormated { get; set; }
 
         [JsonProperty("dateOfBirthReadonly")]
         public bool CanChangeDateOfBirth { get; set; }

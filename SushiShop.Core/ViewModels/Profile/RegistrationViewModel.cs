@@ -114,7 +114,7 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string>(Phone!);
+            var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string, bool>(Phone!);
             if (!isConfirmed)
             {
                 return;

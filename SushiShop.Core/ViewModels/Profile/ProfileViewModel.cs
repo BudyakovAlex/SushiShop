@@ -159,7 +159,7 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task ShowEditProfileAsync()
         {
-            var shouldRefresh = await NavigationManager.NavigateAsync<EditProfileViewModel>();
+            var shouldRefresh = await NavigationManager.NavigateAsync<EditProfileViewModel, bool>();
             if (!shouldRefresh)
             {
                 return;
@@ -221,7 +221,7 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task RegistrationAsync()
         {
-            var isRegistered = await NavigationManager.NavigateAsync<RegistrationViewModel>();
+            var isRegistered = await NavigationManager.NavigateAsync<RegistrationViewModel, bool>();
             if (!isRegistered)
             {
                 return;
