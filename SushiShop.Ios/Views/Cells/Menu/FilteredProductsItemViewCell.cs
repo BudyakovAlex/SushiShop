@@ -63,6 +63,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
 
             ProductsCollectionView.Source = source;
             ProductsCollectionView.Delegate = new FilteredProductsCollectionViewDelegateFlowLayout(OnScrolled);
+            ProductsCollectionView.ContentInset = new UIEdgeInsets(0f, 0f, Constants.UI.TabHeight, 0f);
         }
 
         private void OnScrolled(UIScrollView scrollView)

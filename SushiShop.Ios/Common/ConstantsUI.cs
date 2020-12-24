@@ -5,6 +5,7 @@
         public static class UI
         {
             public const float CornerRadius = 6f;
+            public const float TabHeight = 50f;
         }
     }
 }

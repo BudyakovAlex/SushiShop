@@ -5,6 +5,7 @@ using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Core.ViewModels.Feedback.Items;
+using SushiShop.Ios.Common;
 using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Feedback;
@@ -127,7 +128,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
         private void KeyboardWillShow(object _, UIKeyboardEventArgs args)
         {
             var height = args.FrameEnd.Height;
-            var offset = height - UIApplication.SharedApplication.KeyWindow.SafeAreaInsets.Bottom - MainViewController.TabHeight;
+            var offset = height - UIApplication.SharedApplication.KeyWindow.SafeAreaInsets.Bottom - Constants.UI.TabHeight;
             SetScrollViewBottomConstraint(offset, args.AnimationDuration);
         }
 
