@@ -47,7 +47,7 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public string? Status => order?.OrderStateTitle;
 
-        public string? ReceiveMethod => order?.ReceiveMethod;
+        public string? ReceiveMethodValue => order?.ReceiveMethod;
 
         public string? OrderNumber => $"№{order?.Id}";
 
@@ -57,7 +57,7 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public string? DeliveryAddressTitle => AppStrings.Address;
 
-        public string? DeliveryAddress => order?.DeliveryAddress;
+        public string? DeliveryAddress => order?.PickupPoint?.Address;
 
         public string? Phones => order?.PickupPoint?.GetPhonesStringPresentation();
 
@@ -65,8 +65,7 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public string ReceiveMethodTitle => AppStrings.ReceiveMethod;
 
-        // TODO: unhardcode
-        public string ReceiveMethodValue =>  "Магазин";
+        public string ReceiveMethod => order?.IsDeliveryNeeded == true ? AppStrings.Delivery : AppStrings.Pickup;
 
         public string ShowOrderCompositionTitle => AppStrings.OrderComposition;
 
@@ -74,8 +73,7 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public string ReceiveTitle => $"{ReceiveMethod}:";
 
-        // TODO: unhardcode
-        public string ReceiveValue => "Бесплатно";
+        public string ReceiveValue => order?.DeliveryAmount > 0 ? $"{order.DeliveryAmount} {order?.Currency?.Symbol}" : AppStrings.FreeOfCharge;
 
         public IMvxCommand RepeatOrderCommand { get; }
 
