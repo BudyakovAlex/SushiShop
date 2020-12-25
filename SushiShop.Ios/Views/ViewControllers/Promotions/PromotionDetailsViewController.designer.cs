@@ -31,7 +31,10 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 		UIKit.NSLayoutConstraint DateLabelBottomConstraint { get; set; }
 
 		[Outlet]
-		SushiShop.Ios.Views.Controls.ScalableImageView ImageView { get; set; }
+		FFImageLoading.Cross.MvxCachedImageView ImageView { get; set; }
+
+		[Outlet]
+		UIKit.NSLayoutConstraint ImageViewAspectRationConstraint { get; set; }
 
 		[Outlet]
 		UIKit.UIView LoadingView { get; set; }
@@ -54,6 +57,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 				ContentTextView = null;
 			}
 
+			if (ContentTextViewBottomConstraint != null) {
+				ContentTextViewBottomConstraint.Dispose ();
+				ContentTextViewBottomConstraint = null;
+			}
+
 			if (ContentTextViewHeightConstraint != null) {
 				ContentTextViewHeightConstraint.Dispose ();
 				ContentTextViewHeightConstraint = null;
@@ -74,6 +82,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 				ImageView = null;
 			}
 
+			if (ImageViewAspectRationConstraint != null) {
+				ImageViewAspectRationConstraint.Dispose ();
+				ImageViewAspectRationConstraint = null;
+			}
+
 			if (LoadingView != null) {
 				LoadingView.Dispose ();
 				LoadingView = null;
@@ -87,11 +100,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
 			if (StepperView != null) {
 				StepperView.Dispose ();
 				StepperView = null;
-			}
-
-			if (ContentTextViewBottomConstraint != null) {
-				ContentTextViewBottomConstraint.Dispose ();
-				ContentTextViewBottomConstraint = null;
 			}
 		}
 	}

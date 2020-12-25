@@ -39,7 +39,7 @@ namespace SushiShop.Core.ViewModels.Promotions
         public StepperViewModel? StepperViewModel =>
             stepperViewModel ??= CreateStepperViewModelOrDefault();
 
-        public string? ImageUrl => promotion?.SquareImageInfo.JpgUrl ?? string.Empty;
+        public string? ImageUrl => promotion?.SquareImageInfo.OriginalUrl ?? string.Empty;
 
         public string PageTitle => promotion?.PageTitle ?? promotion?.LongTitle ?? string.Empty;
 

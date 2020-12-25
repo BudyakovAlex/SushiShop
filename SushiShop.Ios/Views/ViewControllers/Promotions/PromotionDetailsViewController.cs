@@ -1,6 +1,8 @@
 ﻿using System;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using CoreFoundation;
 using CoreGraphics;
+using FFImageLoading.Args;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
@@ -54,12 +56,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
+
+            ImageView.OnSuccess += OnImageViewSuccess;
             NavigationController.SetNavigationBarHidden(hidden: true, animated: true);
         }
 
         public override void ViewWillDisappear(bool animated)
         {
             base.ViewWillDisappear(animated);
+
+            ImageView.OnSuccess -= OnImageViewSuccess;
             NavigationController.SetNavigationBarHidden(hidden: false, animated: true);
         }
 
@@ -83,12 +89,21 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
             bindingSet.Bind(this).For(v => v.CanAddToCart).To(vm => vm.CanAddToCart);
             bindingSet.Bind(BackButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
             bindingSet.Bind(LoadingView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
-            bindingSet.Bind(ImageView).For(v => v.ImageUrl).To(vm => vm.ImageUrl);
+            bindingSet.Bind(ImageView).For(v => v.ImagePath).To(vm => vm.ImageUrl);
             bindingSet.Bind(DateLabel).For(v => v.Text).To(vm => vm.PublicationDateTitle);
             bindingSet.Bind(PageTitleLabel).For(v => v.Text).To(vm => vm.PageTitle);
             bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);
 
             bindingSet.Apply();
+        }
+
+        private void OnImageViewSuccess(object _, SuccessEventArgs args)
+        {
+            DispatchQueue.MainQueue.DispatchAsync(() =>
+            {
+                var ratio = args.ImageInformation.OriginalHeight / args.ImageInformation.OriginalWidth;
+                ImageViewAspectRationConstraint.Constant = ratio;
+            });
         }
     }
 }
