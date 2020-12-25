@@ -19,14 +19,17 @@ namespace SushiShop.Core.Data.Http
 
         public T? Data { get; }
 
-        public static HttpResponse<T> Success(T data) =>
-            new HttpResponse<T>(HttpResponseStatus.Success, rawData: null, exception: null, statusCode: null, data);
+        public static HttpResponse<T> Success(T data, HttpStatusCode? statusCode) =>
+            new HttpResponse<T>(HttpResponseStatus.Success, rawData: null, exception: null, statusCode: statusCode, data);
 
         public static HttpResponse<T> ParseError(Exception? exception, string? rawData, HttpStatusCode? statusCode) =>
             new HttpResponse<T>(HttpResponseStatus.ParseError, rawData, exception, statusCode, data: null);
 
         public static new HttpResponse<T> Error(Exception? exception, HttpStatusCode? statusCode) =>
             new HttpResponse<T>(HttpResponseStatus.Error, rawData: null, exception, statusCode, null);
+
+        public static HttpResponse<T> Error(T data, HttpStatusCode? statusCode) =>
+           new HttpResponse<T>(HttpResponseStatus.Error, rawData: null, exception: null, statusCode, data);
 
         public static new HttpResponse<T> TimedOut() =>
             new HttpResponse<T>(HttpResponseStatus.TimedOut, rawData: null, exception: null, statusCode: null, data: null);

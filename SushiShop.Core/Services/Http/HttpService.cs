@@ -1,10 +1,12 @@
-﻿using HeyRed.Mime;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
+using HeyRed.Mime;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Providers;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -21,6 +23,12 @@ namespace SushiShop.Core.Services.Http
 
         private readonly IUserSession userSession;
         private readonly HttpClient client;
+        private readonly HttpStatusCode[] _notValidStatusesWithErrorContent = new[]
+        {
+            HttpStatusCode.Unauthorized,
+            HttpStatusCode.BadRequest,
+            HttpStatusCode.NotFound
+        };
 
         public HttpService(IUserSession userSession)
         {
@@ -112,7 +120,7 @@ namespace SushiShop.Core.Services.Http
                     return HttpResponse.Success(data, response.StatusCode);
                 }
 
-                if (response.StatusCode == HttpStatusCode.BadRequest)
+                if (_notValidStatusesWithErrorContent.Contains(response.StatusCode))
                 {
                     var data = await response.Content.ReadAsStringAsync();
                     return HttpResponse.Error(data, response.StatusCode);
@@ -151,10 +159,16 @@ namespace SushiShop.Core.Services.Http
                     var (data, exception) = Json.SafeDeserialize<T>(response.RawData);
                     return data is null
                         ? HttpResponse<T>.ParseError(exception, response.RawData, response.StatusCode)
-                        : HttpResponse<T>.Success(data);
+                        : HttpResponse<T>.Success(data, response.StatusCode);
 
                 case HttpResponseStatus.TimedOut:
                     return HttpResponse<T>.TimedOut();
+
+                case HttpResponseStatus.Error when response.RawData.IsNotNullNorEmpty():
+                    var (errorData, parseException) = Json.SafeDeserialize<T>(response.RawData);
+                    return errorData is null
+                        ? HttpResponse<T>.ParseError(parseException, response.RawData, response.StatusCode)
+                        : HttpResponse<T>.Error(errorData, response.StatusCode);
 
                 default:
                     return HttpResponse<T>.Error(response.Exception, response.StatusCode);
