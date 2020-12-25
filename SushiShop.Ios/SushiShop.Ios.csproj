@@ -89,6 +89,9 @@
     <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.iOS">
       <Version>1.0.69</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>5.0.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -231,6 +234,18 @@
     <ImageAsset Include="Assets.xcassets\ic_plus_cart_sause.imageset\Combined Shape.pdf" />
     <ImageAsset Include="Assets.xcassets\ic_right_arrow.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ic_right_arrow.imageset\Arrow.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_logout.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_logout.imageset\Group 5.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_user_default.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_user_default.imageset\Group 174.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_one.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_one.imageset\ic_bonus_one.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_two.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_two.imageset\ic_bonus_two.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_three.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_bonus_three.imageset\ic_bonus_three.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_close_rounded.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_close_rounded.imageset\ic_close_rounded.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -281,6 +296,18 @@
         <Folder Include="Assets.xcassets\ic_plus_cart_sause.imageset\" />
         <Folder Include="Assets.xcassets\ic_right_arrow.imageset\" />
         <Folder Include="Views\Cells\Interfaces\" />
+        <Folder Include="Assets.xcassets\ic_logout.imageset\" />
+        <Folder Include="Assets.xcassets\ic_user_default.imageset\" />
+        <Folder Include="Assets.xcassets\ic_bonus_one.imageset\" />
+        <Folder Include="Assets.xcassets\ic_bonus_two.imageset\" />
+        <Folder Include="Assets.xcassets\ic_bonus_three.imageset\" />
+        <Folder Include="Views\ViewControllers\Orders\" />
+        <Folder Include="Views\Cells\Orders\" />
+        <Folder Include="Views\ViewControllers\Feedback\" />
+        <Folder Include="Views\Cells\Feedback\" />
+        <Folder Include="Assets.xcassets\ic_close_rounded.imageset\" />
+        <Folder Include="Plugins\" />
+        <Folder Include="Views\ViewControllers\Common\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -311,6 +338,18 @@
     <InterfaceDefinition Include="Views\Cells\Promotions\PromotionItemViewCell.xib" />
     <InterfaceDefinition Include="Views\Cells\Cart\CartToppingViewCell.xib" />
     <InterfaceDefinition Include="Views\Cells\Cart\CartProductToppingViewCell.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Profile\ConfirmCodeViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Profile\RegistrationViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Profile\EditProfileViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Profile\BonusProgramViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Orders\MyOrdersViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\Orders\OrderItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Orders\OrderDetailsViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Orders\OrderCompositionViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\Orders\OrderProductItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Feedback\FeedbackViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\Feedback\FeedbackPhotoItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Common\PhotoDetailsViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -471,6 +510,63 @@
     </Compile>
     <Compile Include="Views\Controls\DoneAccessoryView.cs" />
     <Compile Include="Views\Cells\Interfaces\IUpdatableViewCell.cs" />
+    <Compile Include="Views\ViewControllers\Profile\ConfirmCodeViewController.cs" />
+    <Compile Include="Views\ViewControllers\Profile\ConfirmCodeViewController.designer.cs">
+      <DependentUpon>ConfirmCodeViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Profile\RegistrationViewController.cs" />
+    <Compile Include="Views\ViewControllers\Profile\RegistrationViewController.designer.cs">
+      <DependentUpon>RegistrationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Profile\EditProfileViewController.cs" />
+    <Compile Include="Views\ViewControllers\Profile\EditProfileViewController.designer.cs">
+      <DependentUpon>EditProfileViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Profile\BonusProgramViewController.cs" />
+    <Compile Include="Views\ViewControllers\Profile\BonusProgramViewController.designer.cs">
+      <DependentUpon>BonusProgramViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\HtmlTextToAttributedStringConverter.cs" />
+    <Compile Include="Extensions\UITapGestureExtensions.cs" />
+    <Compile Include="Views\ViewControllers\Orders\MyOrdersViewController.cs" />
+    <Compile Include="Views\ViewControllers\Orders\MyOrdersViewController.designer.cs">
+      <DependentUpon>MyOrdersViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Orders\OrderItemViewCell.cs" />
+    <Compile Include="Views\Cells\Orders\OrderItemViewCell.designer.cs">
+      <DependentUpon>OrderItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Orders\OrderDetailsViewController.cs" />
+    <Compile Include="Views\ViewControllers\Orders\OrderDetailsViewController.designer.cs">
+      <DependentUpon>OrderDetailsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Orders\OrderCompositionViewController.cs" />
+    <Compile Include="Views\ViewControllers\Orders\OrderCompositionViewController.designer.cs">
+      <DependentUpon>OrderCompositionViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Orders\OrderProductItemViewCell.cs" />
+    <Compile Include="Views\Cells\Orders\OrderProductItemViewCell.designer.cs">
+      <DependentUpon>OrderProductItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Feedback\FeedbackViewController.cs" />
+    <Compile Include="Views\ViewControllers\Feedback\FeedbackViewController.designer.cs">
+      <DependentUpon>FeedbackViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Feedback\FeedbackPhotoItemViewCell.cs" />
+    <Compile Include="Views\Cells\Feedback\FeedbackPhotoItemViewCell.designer.cs">
+      <DependentUpon>FeedbackPhotoItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delegates\FeedbackPhotosCollectionViewDelegateFlowLayout.cs" />
+    <Compile Include="Plugins\Dialog.cs" />
+    <Compile Include="Extensions\WindowExtensions.cs" />
+    <Compile Include="Views\ViewControllers\Common\PhotoDetailsViewController.cs" />
+    <Compile Include="Views\ViewControllers\Common\PhotoDetailsViewController.designer.cs">
+      <DependentUpon>PhotoDetailsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\FloatingTextView.cs" />
+    <Compile Include="Views\Controls\Abstract\BaseTextView.cs" />
+    <Compile Include="Extensions\ViewExtensions.cs" />
+    <Compile Include="Sources\GenderPickerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

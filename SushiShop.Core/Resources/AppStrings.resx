@@ -157,7 +157,7 @@
     <value>Нет</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
-    <value>Политика конфиденциальности</value>
+    <value>Нажимая кнопку “Зарегистрироваться”, Я соглашаюсь с условием политики конфиденциальности</value>
   </data>
   <data name="PublicOffer" xml:space="preserve">
     <value>Публичная оферта</value>
@@ -222,7 +222,127 @@
   <data name="Done" xml:space="preserve">
     <value>Готово</value>
   </data>
-  <data name="PromocodeApplied" xml:space="preserve">
-    <value>Промокод применен</value>
+  <data name="OrderTemplate" xml:space="preserve">
+    <value>Заказ №{0}</value>
+  </data>
+  <data name="ProfileLoginPlaceholder" xml:space="preserve">
+    <value>Телефон или email</value>
+  </data>
+  <data name="AcceptPhoneTitle" xml:space="preserve">
+    <value>Подтверждение</value>
+  </data>
+  <data name="LastFourDigits" xml:space="preserve">
+    <value>Последние 4 цифры</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Личные данные</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Пол</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Дата рождения</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="NameAndSurnameRequired" xml:space="preserve">
+    <value>Имя фамилия*</value>
+  </data>
+  <data name="DateOfBirthRequired" xml:space="preserve">
+    <value>Дата рождения*</value>
+  </data>
+  <data name="PhoneRequired" xml:space="preserve">
+    <value>Телефон*</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Email*</value>
+  </data>
+  <data name="MyOrders" xml:space="preserve">
+    <value>Мои заказы</value>
+  </data>
+  <data name="Repeat" xml:space="preserve">
+    <value>Повторить</value>
+  </data>
+  <data name="RepeatOrder" xml:space="preserve">
+    <value>Повторить заказ</value>
+  </data>
+  <data name="OrderComposition" xml:space="preserve">
+    <value>Состав заказа</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Товары</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Итого</value>
+  </data>
+  <data name="PreferredDeliveryTime" xml:space="preserve">
+    <value>Желаемое время получения</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="ReceiveMethod" xml:space="preserve">
+    <value>Способ получения</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Обратная связь</value>
+  </data>
+  <data name="OrderNumber" xml:space="preserve">
+    <value>Номер заказа</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>Вопрос</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Отправить</value>
+  </data>
+  <data name="UploadPhotos" xml:space="preserve">
+    <value>Загрузить фотографии</value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>Фото</value>
+  </data>
+  <data name="TakePhoto" xml:space="preserve">
+    <value>Сделать фото</value>
+  </data>
+  <data name="UploadFromGallery" xml:space="preserve">
+    <value>Загрузить из галереи</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="SignOutOfYourProfile" xml:space="preserve">
+    <value>Выйти из профиля?</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Мужской</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Женский</value>
+  </data>
+  <data name="Points" xml:space="preserve">
+    <value>баллов</value>
+  </data>
+  <data name="Delivery" xml:space="preserve">
+    <value>Доставка</value>
+  </data>
+  <data name="Pickup" xml:space="preserve">
+    <value>Самовывоз</value>
+  </data>
+  <data name="FreeOfCharge" xml:space="preserve">
+    <value>Бесплатно</value>
   </data>
 </root>

@@ -22,9 +22,7 @@ namespace SushiShop.Ios.Views.ViewControllers
     [MvxRootPresentation(WrapInNavigationController = false)]
     public partial class MainViewController : BaseViewController<MainViewModel>, IMvxTabBarViewController
     {
-        private const float TabHeight = 50f;
-
-        private static readonly nfloat TabViewHeight = TabHeight + UIApplication.SharedApplication.KeyWindow.SafeAreaInsets.Bottom;
+        private static readonly nfloat TabViewHeight = Constants.UI.TabHeight + UIApplication.SharedApplication.KeyWindow.SafeAreaInsets.Bottom;
         private static readonly string[] TabImageNames = new string[]
         {
             ImageNames.MenuTabIcon,
@@ -179,7 +177,7 @@ namespace SushiShop.Ios.Views.ViewControllers
                 tabStackView.LeadingAnchor.ConstraintEqualTo(tabView.LeadingAnchor),
                 tabStackView.TopAnchor.ConstraintEqualTo(tabView.TopAnchor),
                 tabStackView.TrailingAnchor.ConstraintEqualTo(tabView.TrailingAnchor),
-                tabStackView.HeightAnchor.ConstraintEqualTo(TabHeight)
+                tabStackView.HeightAnchor.ConstraintEqualTo(Constants.UI.TabHeight)
             });
         }
 

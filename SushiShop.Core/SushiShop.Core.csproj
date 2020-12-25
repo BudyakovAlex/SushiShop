@@ -19,6 +19,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">
@@ -32,5 +33,19 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\Orders\" />
+    <Folder Include="ViewModels\Orders\Items\" />
+    <Folder Include="Managers\Orders\" />
+    <Folder Include="Services\Http\Orders\" />
+    <Folder Include="Data\Dtos\Orders\" />
+    <Folder Include="Data\Models\Orders\" />
+    <Folder Include="Data\Dtos\Pagination\" />
+    <Folder Include="Data\Models\Pagination\" />
+    <Folder Include="ViewModels\Feedback\Items\" />
+    <Folder Include="Services\Http\Feedback\" />
+    <Folder Include="Plugins\" />
+    <Folder Include="Data\Models\Plugins\" />
   </ItemGroup>
 </Project>

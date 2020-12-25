@@ -256,5 +256,251 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("Done", resourceCulture);
             }
         }
+        
+        public static string OrderTemplate {
+            get {
+                return ResourceManager.GetString("OrderTemplate", resourceCulture);
+            }
+        }
+        
+        public static string ProfileLoginPlaceholder {
+            get {
+                return ResourceManager.GetString("ProfileLoginPlaceholder", resourceCulture);
+            }
+        }
+        
+        public static string AcceptPhoneTitle {
+            get {
+                return ResourceManager.GetString("AcceptPhoneTitle", resourceCulture);
+            }
+        }
+        
+        public static string LastFourDigits {
+            get {
+                return ResourceManager.GetString("LastFourDigits", resourceCulture);
+            }
+        }
+        
+        public static string PersonalData {
+            get {
+                return ResourceManager.GetString("PersonalData", resourceCulture);
+            }
+        }
+        
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        public static string Gender {
+            get {
+                return ResourceManager.GetString("Gender", resourceCulture);
+            }
+        }
+        
+        public static string DateOfBirth {
+            get {
+                return ResourceManager.GetString("DateOfBirth", resourceCulture);
+            }
+        }
+        
+        public static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        public static string Registration {
+            get {
+                return ResourceManager.GetString("Registration", resourceCulture);
+            }
+        }
+        
+        public static string NameAndSurnameRequired {
+            get {
+                return ResourceManager.GetString("NameAndSurnameRequired", resourceCulture);
+            }
+        }
+        
+        public static string DateOfBirthRequired {
+            get {
+                return ResourceManager.GetString("DateOfBirthRequired", resourceCulture);
+            }
+        }
+        
+        public static string PhoneRequired {
+            get {
+                return ResourceManager.GetString("PhoneRequired", resourceCulture);
+            }
+        }
+        
+        public static string EmailRequired {
+            get {
+                return ResourceManager.GetString("EmailRequired", resourceCulture);
+            }
+        }
+        
+        public static string MyOrders {
+            get {
+                return ResourceManager.GetString("MyOrders", resourceCulture);
+            }
+        }
+        
+        public static string Repeat {
+            get {
+                return ResourceManager.GetString("Repeat", resourceCulture);
+            }
+        }
+        
+        public static string RepeatOrder {
+            get {
+                return ResourceManager.GetString("RepeatOrder", resourceCulture);
+            }
+        }
+        
+        public static string OrderComposition {
+            get {
+                return ResourceManager.GetString("OrderComposition", resourceCulture);
+            }
+        }
+        
+        public static string Products {
+            get {
+                return ResourceManager.GetString("Products", resourceCulture);
+            }
+        }
+        
+        public static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        public static string PreferredDeliveryTime {
+            get {
+                return ResourceManager.GetString("PreferredDeliveryTime", resourceCulture);
+            }
+        }
+        
+        public static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        public static string ReceiveMethod {
+            get {
+                return ResourceManager.GetString("ReceiveMethod", resourceCulture);
+            }
+        }
+        
+        public static string Feedback {
+            get {
+                return ResourceManager.GetString("Feedback", resourceCulture);
+            }
+        }
+        
+        public static string OrderNumber {
+            get {
+                return ResourceManager.GetString("OrderNumber", resourceCulture);
+            }
+        }
+        
+        public static string Question {
+            get {
+                return ResourceManager.GetString("Question", resourceCulture);
+            }
+        }
+        
+        public static string Send {
+            get {
+                return ResourceManager.GetString("Send", resourceCulture);
+            }
+        }
+        
+        public static string UploadPhotos {
+            get {
+                return ResourceManager.GetString("UploadPhotos", resourceCulture);
+            }
+        }
+        
+        public static string Photo {
+            get {
+                return ResourceManager.GetString("Photo", resourceCulture);
+            }
+        }
+        
+        public static string TakePhoto {
+            get {
+                return ResourceManager.GetString("TakePhoto", resourceCulture);
+            }
+        }
+        
+        public static string UploadFromGallery {
+            get {
+                return ResourceManager.GetString("UploadFromGallery", resourceCulture);
+            }
+        }
+        
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        public static string SignOutOfYourProfile {
+            get {
+                return ResourceManager.GetString("SignOutOfYourProfile", resourceCulture);
+            }
+        }
+        
+        public static string Male {
+            get {
+                return ResourceManager.GetString("Male", resourceCulture);
+            }
+        }
+        
+        public static string Female {
+            get {
+                return ResourceManager.GetString("Female", resourceCulture);
+            }
+        }
+        
+        public static string Points {
+            get {
+                return ResourceManager.GetString("Points", resourceCulture);
+            }
+        }
+        
+        public static string Delivery {
+            get {
+                return ResourceManager.GetString("Delivery", resourceCulture);
+            }
+        }
+        
+        public static string Pickup {
+            get {
+                return ResourceManager.GetString("Pickup", resourceCulture);
+            }
+        }
+        
+        public static string FreeOfCharge {
+            get {
+                return ResourceManager.GetString("FreeOfCharge", resourceCulture);
+            }
+        }
     }
 }

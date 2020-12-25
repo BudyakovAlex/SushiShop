@@ -12,6 +12,7 @@ using SushiShop.Core.Extensions;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Common.Styles;
+using SushiShop.Ios.Converters;
 using UIKit;
 using Xamarin.Essentials;
 
@@ -25,25 +26,6 @@ namespace SushiShop.Ios.Views.Cells.Menu
         protected ProductItemViewCell(IntPtr handle)
             : base(handle)
         {
-        }
-
-        private string oldPrice;
-        public string OldPrice
-        {
-            get => oldPrice;
-            set
-            {
-                oldPrice = value;
-                if (oldPrice is null)
-                {
-                    OldPriceLabel.Hidden = true;
-                }
-                else
-                {
-                    OldPriceLabel.Hidden = false;
-                    OldPriceLabel.AttributedText = new NSMutableAttributedString(oldPrice, strikethroughStyle: NSUnderlineStyle.Single);
-                }
-            }
         }
 
         private StickerParams[] stickers;
@@ -92,7 +74,8 @@ namespace SushiShop.Ios.Views.Cells.Menu
 
             bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
             bindingSet.Bind(this).For(v => v.Stickers).To(vm => vm.Stickers);
-            bindingSet.Bind(this).For(v => v.OldPrice).To(vm => vm.OldPrice);
+            bindingSet.Bind(OldPriceLabel).For(v => v.AttributedText).To(vm => vm.OldPrice)
+                .WithConversion<StringToStrikethroughAttributedTextConverter>();
             bindingSet.Bind(TopImageView).For(v => v.ImageUrl).To(vm => vm.ImageUrl);
             bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.Title);
             bindingSet.Bind(PriceLabel).For(v => v.Text).To(vm => vm.Price);

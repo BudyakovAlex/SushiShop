@@ -11,12 +11,12 @@ namespace SushiShop.Ios.Views.Controls
     public class FloatingTextField : UITextField
     {
         private const float ScaleFloatingLabel = 0.8f;
-        private const float ScaledFloatingLabelTranslationX = -8f;
 
         private CALayer bottomLine;
         private UILabel floatingLabel;
 
         private float maxLineHeight;
+        private float maxWidthFloatingLabel;
 
         public override string Placeholder
         {
@@ -143,12 +143,12 @@ namespace SushiShop.Ios.Views.Controls
 
             if (!string.IsNullOrEmpty(Text))
             {
-                translateX = Text.Length > 0 ? ScaledFloatingLabelTranslationX : 0;
+                translateX = -maxWidthFloatingLabel * 0.1f;
                 translateY = -maxLineHeight;
                 scaleX = ScaleFloatingLabel;
                 scaleY = ScaleFloatingLabel;
             }
-
+            
             floatingLabel.Transform = CGAffineTransform.Scale(CGAffineTransform.MakeTranslation(translateX, translateY), scaleX, scaleY);
         }
 
@@ -163,11 +163,12 @@ namespace SushiShop.Ios.Views.Controls
         {
             maxLineHeight = (float)Math.Max(maxLineHeight, floatingLabel.Font.LineHeight);
         }
-
+        
         private void SetFloatingLabelText(string value)
         {
             floatingLabel.Text = value;
             floatingLabel.SizeToFit();
+            maxWidthFloatingLabel = (float)floatingLabel.Frame.Size.Width;
             floatingLabel.Frame = new CGRect(0, floatingLabel.Font.LineHeight, floatingLabel.Frame.Size.Width, floatingLabel.Frame.Size.Height);
         }
     }

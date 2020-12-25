@@ -47,9 +47,9 @@ namespace SushiShop.Ios.Views.ViewControllers.ProductDetails
             bindingSet.Bind(ProteinsValueLabel).For(v => v.Text).To(vm => vm.Protein);
             bindingSet.Bind(CarbohydratesValueLabel).For(v => v.Text).To(vm => vm.Carbohydrates);
             bindingSet.Bind(CaloriesValueLabel).For(v => v.Text).To(vm => vm.Calories);
-            bindingSet.Bind(AddToCartButton).For(v => v.BindTap()).To(vm => vm.AddToCartCommand);
+            bindingSet.Bind(AddToCartButton).For(v => v.BindTouchUpInside()).To(vm => vm.AddToCartCommand);
             bindingSet.Bind(AddToCartButton).For(v => v.Hidden).To(vm => vm.IsReadOnly);
-            bindingSet.Bind(BackButton).For(v => v.BindTap()).To(vm => vm.CloseCommand);
+            bindingSet.Bind(BackButton).For(v => v.BindTouchUpInside()).To(vm => vm.CloseCommand);
             bindingSet.Bind(OldPriceLabel).For(v => v.AttributedText).To(vm => vm.OldPrice)
                 .WithConversion<StringToStrikethroughAttributedTextConverter>();
             bindingSet.Bind(StepperView).For(v => v.ViewModel).To(vm => vm.StepperViewModel);

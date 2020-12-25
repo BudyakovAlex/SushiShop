@@ -22,7 +22,8 @@
                 <outlet property="ContentTextViewHeightConstraint" destination="QJO-qe-DNG" id="k0f-wA-wg6"/>
                 <outlet property="DateLabel" destination="Zhc-Gb-AXj" id="4u7-IK-Vtb"/>
                 <outlet property="DateLabelBottomConstraint" destination="Qbm-cH-9e3" id="enw-1s-Zwo"/>
-                <outlet property="ImageView" destination="Tkv-Ji-bts" id="XaP-VR-F8b"/>
+                <outlet property="ImageView" destination="Tkv-Ji-bts" id="bTL-aX-75Q"/>
+                <outlet property="ImageViewAspectRationConstraint" destination="rMl-ye-yEm" id="R1I-nx-neQ"/>
                 <outlet property="LoadingView" destination="7EH-We-4zY" id="1NH-39-reh"/>
                 <outlet property="PageTitleLabel" destination="1gP-Rm-adF" id="hVF-JD-Qhr"/>
                 <outlet property="StepperView" destination="l20-6t-Ikh" id="tvv-fG-EQ8"/>
@@ -38,28 +39,28 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndD-Qc-ZYe">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="456.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="504"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tkv-Ji-bts" customClass="ScalableImageView">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="366.5"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tkv-Ji-bts" customClass="MvxCachedImageView">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="Tkv-Ji-bts" secondAttribute="height" multiplier="113:100" id="PLK-YJ-DOF"/>
+                                        <constraint firstAttribute="height" secondItem="Tkv-Ji-bts" secondAttribute="width" id="rMl-ye-yEm"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="С 1 по 21 января 2021" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhc-Gb-AXj">
-                                    <rect key="frame" x="18" y="381.5" width="378" height="17"/>
+                                    <rect key="frame" x="18" y="429" width="378" height="17"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                     <color key="textColor" red="0.63529411764705879" green="0.63529411764705879" blue="0.67843137254901964" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Ролл месяца Космос" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gP-Rm-adF">
-                                    <rect key="frame" x="16" y="406.5" width="382" height="24"/>
+                                    <rect key="frame" x="16" y="454" width="382" height="24"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="20"/>
                                     <color key="textColor" red="0.090196078431372548" green="0.094117647058823528" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mn-en-brr">
-                                    <rect key="frame" x="16" y="440.5" width="382" height="0.0"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Mn-en-brr">
+                                    <rect key="frame" x="16" y="488" width="382" height="0.0"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" id="QJO-qe-DNG"/>

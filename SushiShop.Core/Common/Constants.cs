@@ -2,15 +2,14 @@
 {
     public static partial class Constants
     {
-        public static class Menu
+        public static class Common
         {
-            public const string PreferencesCityKey = nameof(PreferencesCityKey);
-            public const string DefaultCityName = "Санкт-Петербург";
+            public const int DefaultPaginationSize = 20;
         }
 
-        public static class Cart
+        public static class Menu
         {
-            public const string PreferencesCartKey = nameof(PreferencesCartKey);
+            public const string DefaultCityName = "Санкт-Петербург";
         }
     }
 }

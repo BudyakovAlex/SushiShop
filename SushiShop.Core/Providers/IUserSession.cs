@@ -1,5 +1,6 @@
-﻿using SushiShop.Core.Data.Models.Cities;
-using System;
+﻿using System;
+using SushiShop.Core.Data.Models.Cities;
+using SushiShop.Core.Data.Models.Profile;
 
 namespace SushiShop.Core.Providers
 {
@@ -12,5 +13,9 @@ namespace SushiShop.Core.Providers
         Guid GetCartId();
 
         void SetCartId(Guid id);
+
+        Token? GetToken();
+
+        void SetToken(Token? token);
     }
 }

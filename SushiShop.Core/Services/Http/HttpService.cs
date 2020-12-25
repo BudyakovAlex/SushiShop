@@ -1,9 +1,12 @@
-﻿using System;
+﻿using SushiShop.Core.Common;
+using SushiShop.Core.Data.Http;
+using SushiShop.Core.Providers;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using SushiShop.Core.Common;
-using SushiShop.Core.Data.Http;
 
 namespace SushiShop.Core.Services.Http
 {
@@ -11,48 +14,69 @@ namespace SushiShop.Core.Services.Http
     {
         private const string BaseUrl = "https://sushishop.ru/api/";
 
+        private readonly IUserSession userSession;
         private readonly HttpClient client;
 
-        public HttpService()
+        public HttpService(IUserSession userSession)
         {
+            this.userSession = userSession;
+
             client = new HttpClient();
             client.BaseAddress = new Uri(BaseUrl);
             client.Timeout = TimeSpan.FromMinutes(5);
         }
 
-        public async Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, string content, CancellationToken cancellationToken) where T : class
+        public Task<HttpResponse<T>> ExecuteAnonymouslyAsync<T>(Method method, string url, object? content, CancellationToken cancellationToken)
+            where T : class
         {
-            var response = await ExecuteAsync(method, url, content, cancellationToken);
-            return Deserialize<T>(response);
+            var request = CreateRequestMessage(method, url, content);
+            return ExecuteAsync<T>(request, cancellationToken);
         }
 
-        public async Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, object body, CancellationToken cancellationToken) where T : class
+        public Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, object? content, CancellationToken cancellationToken)
+            where T : class
         {
-            var content = Json.Serialize(body);
-            var response = await ExecuteAsync(method, url, content, cancellationToken);
-            return Deserialize<T>(response);
+            var request = CreateRequestMessage(method, url, content);
+            AddAuthorizationHeaderIfExists(request);
+
+            return ExecuteAsync<T>(request, cancellationToken);
         }
 
-        public async Task<HttpResponse<T>> ExecuteAsync<T>(Method method, string url, CancellationToken cancellationToken) where T : class
+        public Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, Dictionary<string, string>? parameters, string[] filePaths, CancellationToken cancellationToken)
+            where T : class
         {
-            var response = await ExecuteAsync(method, url, cancellationToken);
-            return Deserialize<T>(response);
-        }
+            parameters ??= new Dictionary<string, string>();
 
-        public Task<HttpResponse> ExecuteAsync(Method method, string url, string content, CancellationToken cancellationToken)
-        {
-            var request = new HttpRequestMessage(ToHttpMethod(method), url)
+            var multipartContent = new MultipartFormDataContent();
+            foreach (var parameter in parameters)
             {
-                Content = new StringContent(content)
-            };
+                var stringContent = CreateStringContentOrDefault(parameter.Value);
+                if (stringContent != null)
+                {
+                    multipartContent.Add(stringContent, parameter.Key);
+                }
+            }
 
-            return ExecuteAsync(request, cancellationToken);
+            foreach (var filePath in filePaths)
+            {
+                var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+                var content = new StreamContent(fs);
+                multipartContent.Add(content);
+            }
+
+            var request = CreateRequestMessage(method, url);
+            request.Content = multipartContent;
+
+            AddAuthorizationHeaderIfExists(request);
+
+            return ExecuteAsync<T>(request, cancellationToken);
         }
 
-        public Task<HttpResponse> ExecuteAsync(Method method, string url, CancellationToken cancellationToken)
+        private async Task<HttpResponse<T>> ExecuteAsync<T>(HttpRequestMessage request, CancellationToken cancellationToken)
+            where T : class
         {
-            var request = new HttpRequestMessage(ToHttpMethod(method), url);
-            return ExecuteAsync(request, cancellationToken);
+            var response = await ExecuteAsync(request, cancellationToken);
+            return Deserialize<T>(response);
         }
 
         private async Task<HttpResponse> ExecuteAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -96,7 +120,7 @@ namespace SushiShop.Core.Services.Http
             switch (response.ResponseStatus)
             {
                 case HttpResponseStatus.Success:
-                    var (data, exception) = Json.Deserialize<T>(response.RawData);
+                    var (data, exception) = Json.SafeDeserialize<T>(response.RawData);
                     return data is null
                         ? HttpResponse<T>.ParseError(exception, response.RawData, response.StatusCode)
                         : HttpResponse<T>.Success(data);
@@ -109,11 +133,46 @@ namespace SushiShop.Core.Services.Http
             }
         }
 
-        private HttpMethod ToHttpMethod(Method method) => method switch
+        private void AddAuthorizationHeaderIfExists(HttpRequestMessage requestMessage)
         {
-            Method.Get => HttpMethod.Get,
-            Method.Post => HttpMethod.Post,
-            _ => throw new ArgumentOutOfRangeException(),
-        };
+            var token = userSession.GetToken();
+            if (token != null)
+            {
+                requestMessage.Headers.Add(token.Header, $"{token.HeaderPreffix}{token.AccessToken}");
+            }
+        }
+
+        private HttpRequestMessage CreateRequestMessage(Method method, string url, object? content = null)
+        {
+            var httpMethod = ToHttpMethod(method);
+            var request = new HttpRequestMessage(httpMethod, url);
+            request.Content = CreateStringContentOrDefault(content);
+
+            return request;
+
+            static HttpMethod ToHttpMethod(Method method) => method switch
+            {
+                Method.Get => HttpMethod.Get,
+                Method.Post => HttpMethod.Post,
+                Method.Put => HttpMethod.Put,
+                _ => throw new ArgumentOutOfRangeException(),
+            };
+        }
+
+        private StringContent? CreateStringContentOrDefault(object? content)
+        {
+            switch (content)
+            {
+                case null:
+                    return null;
+
+                case string str:
+                    return new StringContent(str);
+
+                case object obj:
+                    var value = Json.Serialize(obj);
+                    return new StringContent(value);
+            }
+        }
     }
 }
