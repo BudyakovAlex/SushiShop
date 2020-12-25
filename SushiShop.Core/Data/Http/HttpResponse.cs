@@ -58,6 +58,9 @@ namespace SushiShop.Core.Data.Http
         public static HttpResponse Error(Exception? exception, HttpStatusCode? statusCode)
             => new HttpResponse(HttpResponseStatus.Error, rawData: null, exception, statusCode);
 
+        public static HttpResponse Error(string rawData, HttpStatusCode? statusCode)
+           => new HttpResponse(HttpResponseStatus.Error, rawData, exception: null, statusCode);
+
         public static HttpResponse TimedOut() =>
             new HttpResponse(HttpResponseStatus.TimedOut, rawData: null, exception: null, statusCode: null);
 

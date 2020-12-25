@@ -33,6 +33,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             {
                 ShowSelectionIndicator = true
             };
+
             genderPickerViewModel = new GenderPickerViewModel(genderPickerView);
             genderPickerView.Model = genderPickerViewModel;
             GenderTextField.InputView = genderPickerView;
