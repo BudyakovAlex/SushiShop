@@ -1,4 +1,5 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using FFImageLoading.Args;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.Converters;
@@ -6,6 +7,7 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Common.Styles;
+using System;
 using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Profile
@@ -14,6 +16,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
     public partial class ProfileViewController : BaseViewController<ProfileViewModel>
     {
         private UIButton logoutButton;
+        private bool isDisposed;
 
         protected override void InitStylesAndContent()
         {
@@ -32,6 +35,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             navigationItem.Title = AppStrings.Profile;
             UserImage.SetCornerRadius(35);
+            UserImage.SetPlaceholders(ImageNames.UserProfilePlaceholder);
 
             logoutButton = Components.CreateDefaultBarButton(ImageNames.Logout);
             navigationItem.RightBarButtonItem = new UIBarButtonItem(logoutButton);

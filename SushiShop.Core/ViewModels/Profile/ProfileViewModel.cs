@@ -46,7 +46,7 @@ namespace SushiShop.Core.ViewModels.Profile
             ShowFeedbackCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowFeedbackAsync);
             ShowBonusProgramCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowBonusProgramAsync);
             ChooseNewImageCommand = new SafeAsyncCommand(new ExecutionStateWrapper(), ChooseNewImageAsync);
-            LoginCommand = new SafeAsyncCommand(ExecutionStateWrapper, LoginAsync, PhoneOrEmail.IsNotNullNorEmpty);
+            LoginCommand = new SafeAsyncCommand(ExecutionStateWrapper, LoginAsync, () => PhoneOrEmail.IsNotNullNorEmpty());
             RegistrationCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegistrationAsync);
 
             PickPhotoCommand = new SafeAsyncCommand(ExecutionStateWrapper, PickPhotoAsync);

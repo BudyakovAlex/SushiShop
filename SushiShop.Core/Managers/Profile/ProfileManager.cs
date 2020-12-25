@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Profile;
@@ -28,7 +29,7 @@ namespace SushiShop.Core.Managers.Profile
                 return new Response<Data.Models.Profile.Profile?>(isSuccessful: true, data);
             }
 
-            return new Response<Data.Models.Profile.Profile?>(isSuccessful: false, null);
+            return new Response<Data.Models.Profile.Profile?>(isSuccessful: false, null, response.Data?.Errors ?? Array.Empty<string>());
         }
 
         public async Task<Response<AuthorizationData?>> AuthorizeAsync(string login, string pass)
@@ -41,7 +42,7 @@ namespace SushiShop.Core.Managers.Profile
                 return new Response<AuthorizationData?>(isSuccessful: true, data);
             }
 
-            return new Response<AuthorizationData?>(isSuccessful: false, null);
+            return new Response<AuthorizationData?>(isSuccessful: false, null, response.Data?.Errors ?? Array.Empty<string>());
         }
 
         public async Task<Response<ConfirmationResult?>> RegistrationAsync(Data.Models.Profile.Profile profile)
@@ -53,7 +54,7 @@ namespace SushiShop.Core.Managers.Profile
                 return new Response<ConfirmationResult?>(isSuccessful: true, data);
             }
 
-            return new Response<ConfirmationResult?>(isSuccessful: false, null);
+            return new Response<ConfirmationResult?>(isSuccessful: false, null, response.Data?.Errors ?? Array.Empty<string>());
         }
 
         public async Task<Response<DetailedProfile?>> GetProfileAsync()
@@ -65,7 +66,7 @@ namespace SushiShop.Core.Managers.Profile
                 return new Response<DetailedProfile?>(isSuccessful: true, data);
             }
 
-            return new Response<DetailedProfile?>(isSuccessful: false, null);
+            return new Response<DetailedProfile?>(isSuccessful: false, null, response.Data?.Errors ?? Array.Empty<string>());
         }
 
         public async Task<Response<ProfileDiscount?>> GetDiscountAsync()
@@ -77,7 +78,7 @@ namespace SushiShop.Core.Managers.Profile
                 return new Response<ProfileDiscount?>(isSuccessful: true, data);
             }
 
-            return new Response<ProfileDiscount?>(isSuccessful: false, null);
+            return new Response<ProfileDiscount?>(isSuccessful: false, null, response.Data?.Errors ?? Array.Empty<string>());
         }
 
         public async Task<Response<DetailedProfile?>> SaveProfileAsync(Data.Models.Profile.Profile profile)
@@ -89,7 +90,7 @@ namespace SushiShop.Core.Managers.Profile
                 return new Response<DetailedProfile?>(isSuccessful: true, data);
             }
 
-            return new Response<DetailedProfile?>(isSuccessful: false, null);
+            return new Response<DetailedProfile?>(isSuccessful: false, null, response.Data?.Errors ?? Array.Empty<string>());
         }
 
         public async Task<Response<string?>> UploadPhotoAsync(string imagePath)
@@ -100,7 +101,7 @@ namespace SushiShop.Core.Managers.Profile
                 return new Response<string?>(isSuccessful: true, response.Data!.SuccessData);
             }
 
-            return new Response<string?>(isSuccessful: false, null);
+            return new Response<string?>(isSuccessful: false, null, response.Data?.Errors ?? Array.Empty<string>());
         }
     }
 }
