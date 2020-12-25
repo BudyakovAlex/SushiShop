@@ -1,12 +1,12 @@
-﻿using System;
-using System.IO;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using SushiShop.Core.Common;
+﻿using SushiShop.Core.Common;
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Providers;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.Services.Http
 {
@@ -42,21 +42,26 @@ namespace SushiShop.Core.Services.Http
             return ExecuteAsync<T>(request, cancellationToken);
         }
 
-        public Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, object? content, string[] filePaths, CancellationToken cancellationToken)
+        public Task<HttpResponse<T>> ExecuteMultipartAsync<T>(Method method, string url, Dictionary<string, string>? parameters, string[] filePaths, CancellationToken cancellationToken)
             where T : class
         {
-            var multipartContent = new MultipartContent();
+            parameters ??= new Dictionary<string, string>();
 
-            var stringContent = CreateStringContentOrDefault(content);
-            if (stringContent != null)
+            var multipartContent = new MultipartFormDataContent();
+            foreach (var parameter in parameters)
             {
-                multipartContent.Add(stringContent);
+                var stringContent = CreateStringContentOrDefault(parameter.Value);
+                if (stringContent != null)
+                {
+                    multipartContent.Add(stringContent, parameter.Key);
+                }
             }
 
             foreach (var filePath in filePaths)
             {
                 var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-                multipartContent.Add(new StreamContent(fs));
+                var content = new StreamContent(fs);
+                multipartContent.Add(content);
             }
 
             var request = CreateRequestMessage(method, url);
@@ -149,6 +154,7 @@ namespace SushiShop.Core.Services.Http
             {
                 Method.Get => HttpMethod.Get,
                 Method.Post => HttpMethod.Post,
+                Method.Put => HttpMethod.Put,
                 _ => throw new ArgumentOutOfRangeException(),
             };
         }

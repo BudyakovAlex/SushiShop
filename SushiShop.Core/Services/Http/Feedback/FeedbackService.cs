@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Http;
@@ -15,21 +16,21 @@ namespace SushiShop.Core.Services.Http.Feedback
         }
 
         public Task<HttpResponse<ResponseDto<string>>> SendFeedbackAsync(
-            string orderNumber,
+            string orderId,
             string question,
             string[] imagePaths,
             CancellationToken cancellationToken)
         {
-            var body = new
+            var parameters = new Dictionary<string, string>
             {
-                question,
-                orderId = orderNumber
+                [nameof(question)] = question,
+                [nameof(orderId)] = orderId
             };
 
             return httpService.ExecuteMultipartAsync<ResponseDto<string>>(
                 Method.Post,
                 Constants.Rest.ProfileFeedbackResource,
-                body,
+                parameters,
                 imagePaths,
                 cancellationToken);
         }

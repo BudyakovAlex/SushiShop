@@ -3,6 +3,7 @@
     public enum Method
     {
         Get,
-        Post
+        Post,
+        Put
     }
 }
