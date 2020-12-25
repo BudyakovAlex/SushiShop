@@ -5,6 +5,7 @@ using SushiShop.Core.Converters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Ios.Common;
+using SushiShop.Ios.Common.Styles;
 using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Profile
@@ -30,6 +31,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             base.InitNavigationItem(navigationItem);
 
             navigationItem.Title = AppStrings.Profile;
+            UserImage.SetCornerRadius(35);
 
             logoutButton = Components.CreateDefaultBarButton(ImageNames.Logout);
             navigationItem.RightBarButtonItem = new UIBarButtonItem(logoutButton);
@@ -47,6 +49,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(logoutButton).For(v => v.BindTouchUpInside()).To(vm => vm.LogoutCommand);
             bindingSet.Bind(logoutButton).For(v => v.BindVisible()).To(vm => vm.IsAuthorized);
             bindingSet.Bind(ProfileView).For(v => v.BindVisible()).To(vm => vm.IsAuthorized);
+            bindingSet.Bind(UserImage).For(v => v.ImagePath).To(vm => vm.Avatar);
             bindingSet.Bind(ScoreButton).For(v => v.BindTouchUpInside()).To(vm => vm.ShowBonusProgramCommand);
             bindingSet.Bind(PersonalDataView).For(v => v.BindTap()).To(vm => vm.ShowEditProfileCommand);
             bindingSet.Bind(MyOrdersView).For(v => v.BindTap()).To(vm => vm.ShowMyOrdersCommand);

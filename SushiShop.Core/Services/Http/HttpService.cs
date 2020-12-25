@@ -1,10 +1,13 @@
-﻿using SushiShop.Core.Common;
+﻿using HeyRed.Mime;
+using SushiShop.Core.Common;
 using SushiShop.Core.Data.Http;
 using SushiShop.Core.Providers;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,6 +16,8 @@ namespace SushiShop.Core.Services.Http
     public class HttpService : IHttpService
     {
         private const string BaseUrl = "https://sushishop.ru/api/";
+        private const string FormDataDispositionType = "form-data";
+        private const string FilesParameterName = "files[]";
 
         private readonly IUserSession userSession;
         private readonly HttpClient client;
@@ -59,8 +64,25 @@ namespace SushiShop.Core.Services.Http
 
             foreach (var filePath in filePaths)
             {
+                if (!File.Exists(filePath))
+                {
+                    continue;
+                }
+
+                var fileInfo = new FileInfo(filePath);
+                var fileName = $"{Guid.NewGuid()}{fileInfo.Extension}";
+
                 var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
                 var content = new StreamContent(fs);
+
+                var mimeType = MimeTypesMap.GetMimeType(fileInfo.Name);
+                content.Headers.ContentType = new MediaTypeHeaderValue(mimeType);
+                content.Headers.ContentDisposition = new ContentDispositionHeaderValue(FormDataDispositionType)
+                {
+                    FileName = fileName,
+                    Name = FilesParameterName
+                };
+
                 multipartContent.Add(content);
             }
 
@@ -88,6 +110,12 @@ namespace SushiShop.Core.Services.Http
                 {
                     var data = await response.Content.ReadAsStringAsync();
                     return HttpResponse.Success(data, response.StatusCode);
+                }
+
+                if (response.StatusCode == HttpStatusCode.BadRequest)
+                {
+                    var data = await response.Content.ReadAsStringAsync();
+                    return HttpResponse.Error(data, response.StatusCode);
                 }
 
                 return HttpResponse.Error(exception: null, response.StatusCode);

@@ -121,6 +121,7 @@ namespace SushiShop.Core.ViewModels.Feedback
                 return;
             }
 
+            await UserDialogs.Instance.AlertAsync(response.Data);
             await NavigationManager.CloseAsync(this);
         }
 
