@@ -6,7 +6,7 @@ namespace SushiShop.Core.Managers.Profile
 {
     public interface IProfileManager
     {
-        Task<Response<Data.Models.Profile.Profile?>> CheckIsLoginAvailableAsync(string? login, bool? shouldSendCode);
+        Task<Response<LoginValidationResult?>> CheckIsLoginAvailableAsync(string? login);
 
         Task<Response<AuthorizationData?>> AuthorizeAsync(string login, string pass);
 

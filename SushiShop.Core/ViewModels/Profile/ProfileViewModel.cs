@@ -11,6 +11,7 @@ using Plugin.Media.Abstractions;
 using SushiShop.Core.Data.Models.Plugins;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Profile;
+using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
@@ -195,7 +196,7 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private async Task LoginAsync()
         {
-            var response = await profileManager.CheckIsLoginAvailableAsync(PhoneOrEmail, null);
+            var response = await profileManager.CheckIsLoginAvailableAsync(PhoneOrEmail);
             if (response.Data is null)
             {
                 var error = response.Errors.FirstOrDefault();
@@ -208,7 +209,8 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string, bool>(PhoneOrEmail!);
+            var navigationParameters = new ConfirmCodeNavigationParameters(PhoneOrEmail!, response.Data.Message);
+            var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, ConfirmCodeNavigationParameters, bool>(navigationParameters);
             if (!isConfirmed)
             {
                 return;

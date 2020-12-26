@@ -44,6 +44,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             DateOfBirdthtextField.UserInteractionEnabled = false;
         }
 
+        public override void ViewWillDisappear(bool animated)
+        {
+            UIApplication.SharedApplication.KeyWindow.EndEditing(true);
+            base.ViewWillDisappear(animated);
+        }
+
         protected override void InitNavigationItem(UINavigationItem navigationItem)
         {
             base.InitNavigationItem(navigationItem);
