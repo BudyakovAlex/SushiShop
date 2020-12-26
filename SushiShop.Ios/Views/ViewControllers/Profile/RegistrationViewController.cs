@@ -17,12 +17,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
         WrapInNavigationController = true,
         Animated = true,
         ModalPresentationStyle = UIModalPresentationStyle.OverFullScreen)]
-    public partial class RegistrationViewController : BaseViewController<RegistrationViewModel>
+    public partial class RegistrationViewController : BaseViewControllerWithKeyboard<RegistrationViewModel>
     {
         private readonly NSRange privacyPolicyRange = new NSRange(61, 27);
 
         private UIButton backButton;
         private UIDatePicker dateOfBirthDatePicker;
+
+        protected override bool HandlesKeyboardNotifications => true;
 
         protected override void InitStylesAndContent()
         {
