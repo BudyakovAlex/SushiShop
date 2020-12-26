@@ -12,11 +12,13 @@ using UIKit;
 namespace SushiShop.Ios.Views.ViewControllers.Profile
 {
     [MvxChildPresentation(Animated = true)]
-    public partial class EditProfileViewController : BaseViewController<EditProfileViewModel>
+    public partial class EditProfileViewController : BaseViewControllerWithKeyboard<EditProfileViewModel>
     {
         private UIButton saveButton;
         private UIPickerView genderPickerView;
         private GenderPickerViewModel genderPickerViewModel;
+
+        protected override bool HandlesKeyboardNotifications => true;
 
         protected override void InitStylesAndContent()
         {

@@ -1,5 +1,4 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
-using FFImageLoading.Args;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.Converters;
@@ -7,16 +6,16 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Common.Styles;
-using System;
 using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Profile
 {
     [MvxTabPresentation(WrapInNavigationController = true)]
-    public partial class ProfileViewController : BaseViewController<ProfileViewModel>
+    public partial class ProfileViewController : BaseViewControllerWithKeyboard<ProfileViewModel>
     {
         private UIButton logoutButton;
-        private bool isDisposed;
+
+        protected override bool HandlesKeyboardNotifications => true;
 
         protected override void InitStylesAndContent()
         {
@@ -39,6 +38,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             logoutButton = Components.CreateDefaultBarButton(ImageNames.Logout);
             navigationItem.RightBarButtonItem = new UIBarButtonItem(logoutButton);
+        }
+
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+
+            UIApplication.SharedApplication.KeyWindow.EndEditing(true);
         }
 
         protected override void Bind()

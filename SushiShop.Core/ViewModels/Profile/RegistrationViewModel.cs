@@ -36,7 +36,15 @@ namespace SushiShop.Core.ViewModels.Profile
         public DateTime? DateOfBirth
         {
             get => dateOfBirth;
-            set => SetProperty(ref dateOfBirth, value);
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                SetProperty(ref dateOfBirth, value);
+            }
         }
 
         private string? phone;
