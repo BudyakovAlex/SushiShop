@@ -29,6 +29,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
             bindingSet.Bind(this).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
+            bindingSet.Bind(_source).For(v => v.LoadMoreCommand).To(vm => vm.Pagination.LoadMoreItemsCommand);
             bindingSet.Bind(LoadingIndicator).For(v => v.BindVisible()).To(vm => vm.IsLoading);
 
             bindingSet.Apply();
