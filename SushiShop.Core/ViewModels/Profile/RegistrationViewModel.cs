@@ -5,6 +5,7 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Managers.Profile;
+using SushiShop.Core.NavigationParameters;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -122,7 +123,8 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, string, bool>(Phone!);
+            var navigationParameters = new ConfirmCodeNavigationParameters(Phone!, response.Data.Message);
+            var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, ConfirmCodeNavigationParameters, bool>(navigationParameters);
             if (!isConfirmed)
             {
                 return;

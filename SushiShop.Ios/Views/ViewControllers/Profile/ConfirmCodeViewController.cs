@@ -26,6 +26,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             CodeTextField.InputAccessoryView = new DoneAccessoryView(View, () => ViewModel?.ContinueCommand?.Execute());
         }
 
+        public override void ViewWillDisappear(bool animated)
+        {
+            UIApplication.SharedApplication.KeyWindow.EndEditing(true);
+            base.ViewWillDisappear(animated);
+        }
+
         protected override void InitNavigationItem(UINavigationItem navigationItem)
         {
             base.InitNavigationItem(navigationItem);
@@ -43,6 +49,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
             bindingSet.Bind(ContinueButton).For(v => v.BindTouchUpInside()).To(vm => vm.ContinueCommand);
             bindingSet.Bind(CodeTextField).For(v => v.Text).To(vm => vm.Code);
+            bindingSet.Bind(ConfirmationMessageLabel).For(v => v.Text).To(vm => vm.Message);
             bindingSet.Bind(LoadingActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
 
             bindingSet.Apply();

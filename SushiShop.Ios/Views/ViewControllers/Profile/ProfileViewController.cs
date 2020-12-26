@@ -40,13 +40,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             navigationItem.RightBarButtonItem = new UIBarButtonItem(logoutButton);
         }
 
-        public override void ViewDidAppear(bool animated)
-        {
-            base.ViewDidAppear(animated);
-
-            UIApplication.SharedApplication.KeyWindow.EndEditing(true);
-        }
-
         protected override void Bind()
         {
             base.Bind();

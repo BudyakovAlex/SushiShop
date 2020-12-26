@@ -20,16 +20,16 @@ namespace SushiShop.Core.Managers.Profile
             this.userSession = userSession;
         }
 
-        public async Task<Response<Data.Models.Profile.Profile?>> CheckIsLoginAvailableAsync(string? login, bool? shouldSendCode)
+        public async Task<Response<LoginValidationResult?>> CheckIsLoginAvailableAsync(string? login)
         {
-            var response = await profileService.CheckIsLoginAvailableAsync(login, shouldSendCode, CancellationToken.None);
+            var response = await profileService.CheckIsLoginAvailableAsync(login, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Map();
-                return new Response<Data.Models.Profile.Profile?>(isSuccessful: true, data);
+                return new Response<LoginValidationResult?>(isSuccessful: true, data);
             }
 
-            return new Response<Data.Models.Profile.Profile?>(isSuccessful: false, null, response.Data?.Errors ?? Array.Empty<string>());
+            return new Response<LoginValidationResult?>(isSuccessful: false, null, response.Data?.Errors ?? Array.Empty<string>());
         }
 
         public async Task<Response<AuthorizationData?>> AuthorizeAsync(string login, string pass)

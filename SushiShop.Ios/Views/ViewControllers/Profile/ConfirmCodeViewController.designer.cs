@@ -16,6 +16,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 		SushiShop.Ios.Views.Controls.FloatingTextField CodeTextField { get; set; }
 
 		[Outlet]
+		UIKit.UILabel ConfirmationMessageLabel { get; set; }
+
+		[Outlet]
 		SushiShop.Ios.Views.Controls.PrimaryButton ContinueButton { get; set; }
 
 		[Outlet]
@@ -31,6 +34,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 			if (ContinueButton != null) {
 				ContinueButton.Dispose ();
 				ContinueButton = null;
+			}
+
+			if (ConfirmationMessageLabel != null) {
+				ConfirmationMessageLabel.Dispose ();
+				ConfirmationMessageLabel = null;
 			}
 
 			if (LoadingActivityIndicator != null) {

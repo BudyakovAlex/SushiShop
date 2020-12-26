@@ -19,6 +19,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfirmCodeViewController">
             <connections>
                 <outlet property="CodeTextField" destination="eUP-3R-Ncy" id="lgP-aS-vr9"/>
+                <outlet property="ConfirmationMessageLabel" destination="lpc-6k-cDp" id="k0g-cK-cSs"/>
                 <outlet property="ContinueButton" destination="M2b-Wo-EmD" id="8Wi-J5-JQg"/>
                 <outlet property="LoadingActivityIndicator" destination="IM7-c9-bS4" id="OUH-ET-J8j"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
