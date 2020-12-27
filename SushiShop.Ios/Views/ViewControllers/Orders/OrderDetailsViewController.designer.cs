@@ -19,6 +19,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UILabel AddressValueLabel { get; set; }
 
 		[Outlet]
+		UIKit.UIView AddressView { get; set; }
+
+		[Outlet]
 		UIKit.UIView LoadingView { get; set; }
 
 		[Outlet]
@@ -80,11 +83,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (LoadingView != null) {
-				LoadingView.Dispose ();
-				LoadingView = null;
-			}
-
 			if (AddressTitleLabel != null) {
 				AddressTitleLabel.Dispose ();
 				AddressTitleLabel = null;
@@ -93,6 +91,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (AddressValueLabel != null) {
 				AddressValueLabel.Dispose ();
 				AddressValueLabel = null;
+			}
+
+			if (LoadingView != null) {
+				LoadingView.Dispose ();
+				LoadingView = null;
 			}
 
 			if (OrderCompositionLabel != null) {
@@ -188,6 +191,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (TotalPriceValueLabel != null) {
 				TotalPriceValueLabel.Dispose ();
 				TotalPriceValueLabel = null;
+			}
+
+			if (AddressView != null) {
+				AddressView.Dispose ();
+				AddressView = null;
 			}
 		}
 	}

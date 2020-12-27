@@ -60,6 +60,8 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public string? DeliveryAddressTitle => AppStrings.Address;
 
+        public bool HasDeliveryAddress => order?.PickupPoint?.Address != null;
+
         public string? DeliveryAddress => order?.PickupPoint?.Address;
 
         public string? Phones => order?.PickupPoint?.GetPhonesStringPresentation();

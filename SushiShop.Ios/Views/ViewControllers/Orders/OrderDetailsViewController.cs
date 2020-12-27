@@ -25,6 +25,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(PreferredDeliveryTimeValueLabel).For(v => v.Text).To(vm => vm.PreferredDeliveryTimeValue);
             bindingSet.Bind(ReceiveMethodTitleLabel).For(v => v.Text).To(vm => vm.ReceiveMethodTitle);
             bindingSet.Bind(ReceiveMethodValueLabel).For(v => v.Text).To(vm => vm.ReceiveMethodValue);
+            bindingSet.Bind(AddressView).For(v => v.BindVisible()).To(vm => vm.HasDeliveryAddress);
             bindingSet.Bind(AddressTitleLabel).For(v => v.Text).To(vm => vm.DeliveryAddressTitle);
             bindingSet.Bind(AddressValueLabel).For(v => v.Text).To(vm => vm.DeliveryAddress);
             bindingSet.Bind(PhoneNumberLabel).For(v => v.Text).To(vm => vm.Phones);
