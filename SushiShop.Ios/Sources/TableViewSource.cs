@@ -4,7 +4,6 @@ using System.Windows.Input;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using CoreFoundation;
 using Foundation;
-using MvvmCross.Binding.Extensions;
 using MvvmCross.Platforms.Ios.Binding.Views;
 using SushiShop.Ios.Views.Cells.Interfaces;
 using UIKit;
@@ -24,8 +23,6 @@ namespace SushiShop.Ios.Sources
 
         public ICommand LoadMoreCommand { get; set; }
 
-        public bool CanLoadMore { get; set; }
-
         public TableViewSource Register<TViewModel>(UINib nib, NSString reuseIdentifier)
             where TViewModel : BaseViewModel
         {
@@ -35,26 +32,15 @@ namespace SushiShop.Ios.Sources
             return this;
         }
 
-        public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
+        public override void Scrolled(UIScrollView scrollView)
         {
-            TryLoadMore(indexPath.Row);
-            return base.GetCell(tableView, indexPath);
-        }
-
-        private void TryLoadMore(int index)
-        {
-            if (!CanLoadMore)
-            {
-                return;
-            }
-
             var loadMoreCommand = LoadMoreCommand;
             if (loadMoreCommand is null || !loadMoreCommand.CanExecute(null))
             {
                 return;
             }
 
-            if (ItemsSource.Count() * LoadMoreThreshold < index)
+            if ((scrollView.ContentOffset.Y + scrollView.Bounds.Height) >= (scrollView.ContentSize.Height * LoadMoreThreshold))
             {
                 loadMoreCommand.Execute(null);
             }

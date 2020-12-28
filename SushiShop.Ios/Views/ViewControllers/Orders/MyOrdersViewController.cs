@@ -1,7 +1,6 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
-using SushiShop.Core.Converters;
 using SushiShop.Core.ViewModels.Orders;
 using SushiShop.Core.ViewModels.Orders.Items;
 using SushiShop.Ios.Sources;
@@ -32,8 +31,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(_source).For(v => v.LoadMoreCommand).To(vm => vm.Pagination.LoadMoreItemsCommand);
             bindingSet.Bind(LoadingIndicator).For(v => v.BindVisible()).To(vm => vm.IsLoading);
-            bindingSet.Bind(_source).For(v => v.CanLoadMore).To(vm => vm.IsLoading)
-                .WithConversion<InvertBoolConverter>();
 
             bindingSet.Apply();
         }
