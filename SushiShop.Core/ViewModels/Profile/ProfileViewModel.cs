@@ -126,13 +126,16 @@ namespace SushiShop.Core.ViewModels.Profile
 
             await Task.WhenAll(getDiscountTask, getProfileTask);
 
-            if (getProfileTask.Result.Data is null || getDiscountTask.Result.Data is null)
+            if (!getProfileTask.Result.IsSuccessful || !getDiscountTask.Result.IsSuccessful)
             {
                 var error = getProfileTask.Result.Errors.FirstOrDefault();
-                if (error.IsNullOrEmpty())
+                if (error.IsNotNullNorEmpty())
                 {
-                    return;
+                    await userDialogs.AlertAsync(error);
                 }
+
+                IsAuthorized = false;
+                return;
             }
 
             var profile = getProfileTask.Result.Data!;

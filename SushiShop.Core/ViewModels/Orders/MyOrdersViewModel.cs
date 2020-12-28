@@ -38,8 +38,7 @@ namespace SushiShop.Core.ViewModels.Orders
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
-
-            _ = RefreshDataAsync();
+            await RefreshDataAsync();
         }
 
         protected override async Task RefreshDataAsync()

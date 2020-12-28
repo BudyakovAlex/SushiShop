@@ -11,7 +11,7 @@ namespace SushiShop.Core.Services.Http.Orders
     public interface IOrdersService
     {
         Task<HttpResponse<ResponseDto<PaginationContainerDto<OrderDto>>>> GetMyOrdersAsync(
-            int skip,
+            int page,
             int take,
             CancellationToken cancellationToken);
 

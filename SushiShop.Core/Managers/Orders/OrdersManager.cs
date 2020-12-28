@@ -20,9 +20,9 @@ namespace SushiShop.Core.Managers.Orders
             this.userSession = userSession;
         }
 
-        public async Task<Response<PaginationContainer<Order>>> GetMyOrdersAsync(int skip, int take)
+        public async Task<Response<PaginationContainer<Order>>> GetMyOrdersAsync(int page, int take)
         {
-            var response = await ordersService.GetMyOrdersAsync(skip, take, CancellationToken.None);
+            var response = await ordersService.GetMyOrdersAsync(page, take, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData!.Map(order => order.Map());
