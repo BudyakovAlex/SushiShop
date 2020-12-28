@@ -45,7 +45,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 
         private Task ShowVacanciesAsync()
         {
-            var commonInfoNavigationParams = new CommonInfoNavigationParameters(CommonInfoType.Vacancies, city?.Name);
+            var commonInfoNavigationParams = new CommonInfoNavigationParameters(CommonInfoType.Vacancies, null, city?.Name, null, AppStrings.Vacancies);
             return NavigationManager.NavigateAsync<CommonInfoViewModel, CommonInfoNavigationParameters>(commonInfoNavigationParams);
         }
 

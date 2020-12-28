@@ -76,18 +76,18 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
     <PackageReference Include="MvvmCross">
-      <Version>7.0.1</Version>
+      <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.MvvmCross">
-      <Version>1.0.69</Version>
+      <Version>1.0.72</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.Common">
-      <Version>1.0.69</Version>
+      <Version>1.0.72</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.iOS">
-      <Version>1.0.69</Version>
+      <Version>1.0.72</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
       <Version>5.0.1</Version>
@@ -308,6 +308,7 @@
         <Folder Include="Assets.xcassets\ic_close_rounded.imageset\" />
         <Folder Include="Plugins\" />
         <Folder Include="Views\ViewControllers\Common\" />
+        <Folder Include="Views\Cells\Info\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />

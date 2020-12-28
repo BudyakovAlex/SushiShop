@@ -8,6 +8,7 @@ namespace SushiShop.Core.Common
             public const string MenuResource = "shop/menu";
 
             public const string GetResource = "content/get";
+            public const string GetMenuList = "content/list-info";
             public const string JobResource = "content/job";
             public const string FranchiseResource = "franchise/getbutton";
 

@@ -1,9 +1,8 @@
-﻿using System.Threading.Tasks;
-using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Managers.CommonInfo;
 using SushiShop.Core.NavigationParameters;
-using SushiShop.Core.Resources;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Common
 {
@@ -11,8 +10,7 @@ namespace SushiShop.Core.ViewModels.Common
     {
         private readonly ICommonInfoManager commonInfoManager;
 
-        private CommonInfoType commonInfoType;
-        private string? city;
+        private CommonInfoNavigationParameters? parameter;
 
         public CommonInfoViewModel(ICommonInfoManager commonInfoManager)
         {
@@ -21,40 +19,37 @@ namespace SushiShop.Core.ViewModels.Common
 
         public string? Content { get; private set; }
 
-        public string Title => GetTitle();
+        public string? Title { get; private set; }
 
         public override void Prepare(CommonInfoNavigationParameters parameter)
         {
-            commonInfoType = parameter.CommonInfoType;
-            city = parameter.City;
+            this.parameter = parameter;
+
+            Title = parameter.Title;
         }
 
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
 
-            //TODO: add all cases load here
-            switch (commonInfoType)
+            if (parameter is null)
+            {
+                return;
+            }
+
+            switch (parameter.CommonInfoType)
             {
                 case CommonInfoType.Vacancies:
-                    var vacancies = await commonInfoManager.GetVacanciesAsync(city);
-                    Content = vacancies.Data.Text;
+                    var vacanciesResponse = await commonInfoManager.GetVacanciesAsync(parameter.City);
+                    Content = vacanciesResponse.Data?.Text;
+                    break;
+                case CommonInfoType.Content:
+                    var contentResponse = await commonInfoManager.GetContentAsync(parameter.Alias!, parameter.Id!.Value, parameter.City);
+                    Content = contentResponse.Data?.MainText;
                     break;
             }
 
             _ = RaisePropertyChanged(nameof(Content));
-        }
-
-        private string GetTitle()
-        {
-            return commonInfoType switch
-            {
-                CommonInfoType.AboutUs => AppStrings.AboutUs,
-                CommonInfoType.PrivacyPolicy => AppStrings.PrivacyPolicy,
-                CommonInfoType.PublicOffer => AppStrings.PublicOffer,
-                CommonInfoType.Vacancies => AppStrings.Vacancies,
-                _ => string.Empty
-            };
         }
     }
 }

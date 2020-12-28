@@ -9,4 +9,3 @@ namespace SushiShop.Ios.Views.ViewControllers.Info
     {
     }
 }
-

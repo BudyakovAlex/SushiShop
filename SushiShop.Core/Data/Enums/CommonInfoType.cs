@@ -3,8 +3,6 @@
     public enum CommonInfoType
     {
         Vacancies,
-        AboutUs, 
-        PrivacyPolicy, 
-        PublicOffer
+        Content
     }
 }

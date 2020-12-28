@@ -1,12 +1,13 @@
 ﻿using SushiShop.Core.Data.Http;
+using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Data.Models.Franchise;
 using SushiShop.Core.Data.Models.Vacancy;
 using SushiShop.Core.Mappers;
 using SushiShop.Core.Services.Http.CommonInfo;
+using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using SushiShop.Core.Data.Models.Common;
-using System;
 
 namespace SushiShop.Core.Managers.CommonInfo
 {
@@ -47,7 +48,7 @@ namespace SushiShop.Core.Managers.CommonInfo
                 new Vacancy(string.Empty, string.Empty, string.Empty));
         }
 
-        public async Task<Response<Content>> GetContentAsync(string alias, int id, string? city)
+        public async Task<Response<Content>> GetContentAsync(string alias, long id, string? city)
         {
             var response = await commonInfoService.GetContentAsync(alias, id, city, CancellationToken.None);
             if (response.IsSuccessful)
@@ -65,6 +66,18 @@ namespace SushiShop.Core.Managers.CommonInfo
                     string.Empty,
                     DateTime.MinValue,
                     DateTime.MinValue));
+        }
+
+        public async Task<Response<CommonMenu[]>> GetCommonInfoMenuAsync()
+        {
+            var response = await commonInfoService.GetCommonInfoMenuAsync(CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData!.Select(menu => menu.Map()).ToArray();
+                return new Response<CommonMenu[]>(isSuccessful: true, data, response.Data?.Errors ?? Array.Empty<string>());
+            }
+
+            return new Response<CommonMenu[]>(isSuccessful: false, Array.Empty<CommonMenu>(), response.Data?.Errors ?? Array.Empty<string>());
         }
     }
 }

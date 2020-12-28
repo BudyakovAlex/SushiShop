@@ -12,6 +12,8 @@ namespace SushiShop.Core.Managers.CommonInfo
 
         Task<Response<Franchise>> GetFranchiseAsync();
 
-        Task<Response<Content>> GetContentAsync(string alias, int id, string? city);
+        Task<Response<Content>> GetContentAsync(string alias, long id, string? city);
+
+        Task<Response<CommonMenu[]>> GetCommonInfoMenuAsync();
     }
 }

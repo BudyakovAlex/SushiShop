@@ -12,10 +12,10 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.462" />
-    <PackageReference Include="MvvmCross" Version="7.0.1" />
-    <PackageReference Include="BuildApps.Core.Mobile.Plugin.Connectivity" Version="1.0.69" />
-    <PackageReference Include="BuildApps.Core.Mobile.MvvmCross" Version="1.0.69" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.470" />
+    <PackageReference Include="MvvmCross" Version="7.1.2" />
+    <PackageReference Include="BuildApps.Core.Mobile.Plugin.Connectivity" Version="1.0.72" />
+    <PackageReference Include="BuildApps.Core.Mobile.MvvmCross" Version="1.0.72" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
@@ -48,5 +48,6 @@
     <Folder Include="Services\Http\Feedback\" />
     <Folder Include="Plugins\" />
     <Folder Include="Data\Models\Plugins\" />
+    <Folder Include="ViewModels\Info\Items\" />
   </ItemGroup>
 </Project>
