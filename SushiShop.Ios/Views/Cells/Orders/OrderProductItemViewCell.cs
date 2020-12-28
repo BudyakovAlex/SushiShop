@@ -36,7 +36,7 @@ namespace SushiShop.Ios.Views.Cells.Orders
             bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.Title);
             bindingSet.Bind(OldPriceLabel).For(v => v.AttributedText).To(vm => vm.OldPrice)
                 .WithConversion<StringToStrikethroughAttributedTextConverter>();
-            bindingSet.Bind(PriceLabel).For(v => v.Text).To(vm => vm.Title);
+            bindingSet.Bind(PriceLabel).For(v => v.Text).To(vm => vm.Price);
             bindingSet.Bind(ValueLabel).For(v => v.Text).To(vm => vm.Value);
             bindingSet.Bind(CountLabel).For(v => v.Text).To(vm => vm.Count);
 
