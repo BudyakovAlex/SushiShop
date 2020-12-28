@@ -7,7 +7,7 @@ namespace SushiShop.Core.Managers.Orders
 {
     public interface IOrdersManager
     {
-        Task<Response<PaginationContainer<Order>>> GetMyOrdersAsync(int skip, int take);
+        Task<Response<PaginationContainer<Order>>> GetMyOrdersAsync(int page, int take);
 
         Task<Response<Order?>> GetOrderAsync(long id);
 

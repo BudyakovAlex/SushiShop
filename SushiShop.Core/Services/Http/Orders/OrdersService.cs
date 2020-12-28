@@ -19,13 +19,13 @@ namespace SushiShop.Core.Services.Http.Orders
         }
 
         public Task<HttpResponse<ResponseDto<PaginationContainerDto<OrderDto>>>> GetMyOrdersAsync(
-            int skip,
+            int page,
             int take,
             CancellationToken cancellationToken)
         {
             var body = new
             {
-                offset = skip,
+                page,
                 limit = take
             };
 

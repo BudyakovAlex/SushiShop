@@ -24,6 +24,8 @@ namespace SushiShop.Ios.Sources
 
         public ICommand LoadMoreCommand { get; set; }
 
+        public bool CanLoadMore { get; set; }
+
         public TableViewSource Register<TViewModel>(UINib nib, NSString reuseIdentifier)
             where TViewModel : BaseViewModel
         {
@@ -41,6 +43,11 @@ namespace SushiShop.Ios.Sources
 
         private void TryLoadMore(int index)
         {
+            if (!CanLoadMore)
+            {
+                return;
+            }
+
             var loadMoreCommand = LoadMoreCommand;
             if (loadMoreCommand is null || !loadMoreCommand.CanExecute(null))
             {
