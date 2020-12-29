@@ -81,13 +81,13 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.MvvmCross">
-      <Version>1.0.72</Version>
+      <Version>1.0.75</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.Common">
-      <Version>1.0.72</Version>
+      <Version>1.0.75</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.iOS">
-      <Version>1.0.72</Version>
+      <Version>1.0.75</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
       <Version>5.0.1</Version>
@@ -351,6 +351,8 @@
     <InterfaceDefinition Include="Views\ViewControllers\Feedback\FeedbackViewController.xib" />
     <InterfaceDefinition Include="Views\Cells\Feedback\FeedbackPhotoItemViewCell.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Common\PhotoDetailsViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\Info\InfoMenuItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\Cells\Info\SocialNetworkItemViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -568,6 +570,8 @@
     <Compile Include="Views\Controls\Abstract\BaseTextView.cs" />
     <Compile Include="Extensions\ViewExtensions.cs" />
     <Compile Include="Sources\GenderPickerViewModel.cs" />
+    <Compile Include="Views\Cells\Info\InfoMenuItemViewCell.cs" />
+    <Compile Include="Views\Cells\Info\SocialNetworkItemViewCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

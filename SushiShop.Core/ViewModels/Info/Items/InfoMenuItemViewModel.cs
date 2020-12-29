@@ -25,7 +25,7 @@ namespace SushiShop.Core.ViewModels.Info.Items
             ExecuteMenuActionCommand = new SafeAsyncCommand(ExecutionStateWrapper, ExecuteMenuActionAsync);
         }
 
-        public string? Name => commonMenu.Title;
+        public string? Title => commonMenu.Title;
 
         public ICommand ExecuteMenuActionCommand { get; }
 

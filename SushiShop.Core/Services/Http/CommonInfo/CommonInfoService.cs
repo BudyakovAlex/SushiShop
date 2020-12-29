@@ -59,5 +59,14 @@ namespace SushiShop.Core.Services.Http.CommonInfo
                 null,
                 cancellationToken);
         }
+
+        public Task<HttpResponse<ResponseDto<SocialNetworkDto[]>>> GetSocialNetworksAsync(CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<SocialNetworkDto[]>>(
+                Method.Post,
+                Constants.Rest.GetSocialNetworks,
+                null,
+                cancellationToken);
+        }
     }
 }

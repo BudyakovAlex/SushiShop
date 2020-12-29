@@ -79,5 +79,17 @@ namespace SushiShop.Core.Managers.CommonInfo
 
             return new Response<CommonMenu[]>(isSuccessful: false, Array.Empty<CommonMenu>(), response.Data?.Errors ?? Array.Empty<string>());
         }
+
+        public async Task<Response<SocialNetwork[]>> GetSocialNetworksAsync()
+        {
+            var response = await commonInfoService.GetSocialNetworksAsync(CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData!.Select(network => network.Map()).ToArray();
+                return new Response<SocialNetwork[]>(isSuccessful: true, data, response.Data?.Errors ?? Array.Empty<string>());
+            }
+
+            return new Response<SocialNetwork[]>(isSuccessful: false, Array.Empty<SocialNetwork>(), response.Data?.Errors ?? Array.Empty<string>());
+        }
     }
 }
