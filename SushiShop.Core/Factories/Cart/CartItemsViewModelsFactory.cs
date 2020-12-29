@@ -14,13 +14,14 @@ namespace SushiShop.Core.Factories.Cart
             ICartManager cartManager,
             CartProduct cartProduct,
             Currency? currency,
-            string? city)
+            string? city,
+            Action<int, long>? refreshCountStateAction)
         {
             return cartProduct.Type switch
             {
-                ProductType.Item => new CartProductItemViewModel(cartManager, cartProduct, currency, city),
-                ProductType.Pack => new CartPackItemViewModel(cartManager, cartProduct, currency, city),
-                ProductType.Sauce => new CartToppingItemViewModel(cartManager, cartProduct, currency, city),
+                ProductType.Item => new CartProductItemViewModel(cartManager, cartProduct, currency, city, null),
+                ProductType.Pack => new CartPackItemViewModel(cartManager, cartProduct, currency, city, null),
+                ProductType.Sauce => new CartToppingItemViewModel(cartManager, cartProduct, currency, city, refreshCountStateAction),
                 _ => throw new NotSupportedException($"ProductType {cartProduct.Type} currently not supported")
             };
         }

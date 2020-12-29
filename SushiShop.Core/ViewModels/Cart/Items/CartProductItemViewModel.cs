@@ -7,6 +7,7 @@ using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Cart.Items.Abstract;
 using SushiShop.Core.ViewModels.ProductDetails;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -18,7 +19,8 @@ namespace SushiShop.Core.ViewModels.Cart.Items
             ICartManager cartManager,
             CartProduct product,
             Currency? currency,
-            string? city) : base(cartManager, product, currency, city)
+            string? city,
+            Action<int, long>? refreshCountStateAction) : base(cartManager, product, currency, city, refreshCountStateAction)
         {
             Toppings = new MvxObservableCollection<CartProductToppingItemViewModel>(ProductToppingItemViewModels(product.Toppings));
 

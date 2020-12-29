@@ -107,12 +107,12 @@ namespace SushiShop.Core.ViewModels.Cart
             var availablePackages = packagingCart.Result.Data.Select(ProducePackageFromProduct).ToArray();
             var mergedPackages = cart!.Products.Where(product => product.Type == ProductType.Pack)
                                                .Union(availablePackages)
-                                               .Select(product => viewModelsFactory.ProduceProductItemViewModel(cartManager, product, cart.Currency, cart.City))
+                                               .Select(product => viewModelsFactory.ProduceProductItemViewModel(cartManager, product, cart.Currency, cart.City, RefreshSausesCountState))
                                                .DistinctBy(package => package.Id)
                                                .ToArray();
 
             var allProducts = cart!.Products.Where(product => product.Type != ProductType.Pack)
-                                            .Select(product => viewModelsFactory.ProduceProductItemViewModel(cartManager, product, cart.Currency, cart.City))
+                                            .Select(product => viewModelsFactory.ProduceProductItemViewModel(cartManager, product, cart.Currency, cart.City, RefreshSausesCountState))
                                             .ToArray();
 
             var mainProducts = allProducts.OfType<CartProductItemViewModel>().ToList();
@@ -127,6 +127,17 @@ namespace SushiShop.Core.ViewModels.Cart
             _ = RaisePropertyChanged(nameof(CountProductsInCart));
             _ = RaisePropertyChanged(nameof(TotalPrice));
             _ = RaisePropertyChanged(nameof(IsEmptyBasket));
+        }
+
+        private void RefreshSausesCountState(int count, long sauseId)
+        {
+            var sause = sauses.FirstOrDefault(item => item.Id == sauseId);
+            if (sause is null)
+            {
+                return;
+            }
+
+            sause.CountInBasket = count;
         }
 
         private static CartProduct ProducePackageFromProduct(Product product)
