@@ -2,6 +2,7 @@
 using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.ViewModels.Cart.Items.Abstract;
+using System;
 
 namespace SushiShop.Core.Factories.Cart
 {
@@ -11,6 +12,7 @@ namespace SushiShop.Core.Factories.Cart
             ICartManager cartManager,
             CartProduct cartProduct,
             Currency? currency,
-            string? city);
+            string? city,
+            Action<int, long>? refreshCountStateAction);
     }
 }
