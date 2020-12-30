@@ -25,12 +25,14 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
         private readonly Currency? currency;
 
         private readonly string? city;
+        private readonly Action<int, long>? refreshCountStateAction;
 
         protected BaseCartProductItemViewModel(
             ICartManager cartManager,
             CartProduct product,
             Currency? currency,
-            string? city)
+            string? city,
+            Action<int, long>? refreshCountStateAction)
         {
             product.ThrowIfNull();
 
@@ -38,6 +40,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
             this.userDialogs = UserDialogs.Instance;
             this.currency = currency;
             this.city = city;
+            this.refreshCountStateAction = refreshCountStateAction;
 
             Product = product;
             StepperViewModel = new StepperViewModel(product.Count, OnCountChangedAsync);
@@ -67,6 +70,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
 
         protected async Task OnCountChangedAsync(int previousCount, int newCount)
         {
+            refreshCountStateAction?.Invoke(newCount, Id);
             var step = newCount - previousCount;
             if (newCount == 0)
             {
@@ -74,6 +78,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
                 var shouldDelete = await userDialogs.ConfirmAsync(string.Empty, AppStrings.AnswerDeleteItemFromBasket, cancelText: AppStrings.Yes, okText: AppStrings.No);
                 if (shouldDelete)
                 {
+                    refreshCountStateAction?.Invoke(previousCount, Id);
                     StepperViewModel.Count = previousCount;
                     return;
                 }
@@ -83,6 +88,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
             var response = await cartManager.UpdateProductInCartAsync(city, Id, Uid, step, selectedToppings);
             if (response.Data is null)
             {
+                refreshCountStateAction?.Invoke(previousCount, Id);
                 StepperViewModel.Count = previousCount;
                 return;
             }

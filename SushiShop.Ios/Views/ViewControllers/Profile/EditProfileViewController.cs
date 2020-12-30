@@ -1,4 +1,5 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using Foundation;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.Converters;
@@ -17,6 +18,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
         private UIButton saveButton;
         private UIPickerView genderPickerView;
         private GenderPickerViewModel genderPickerViewModel;
+        private UIDatePicker dateOfBirthDatePicker;
 
         protected override bool HandlesKeyboardNotifications => true;
 
@@ -41,7 +43,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             GenderTextField.InputView = genderPickerView;
             GenderTextField.InputAccessoryView = new DoneAccessoryView(View, () => { });
 
-            DateOfBirdthtextField.UserInteractionEnabled = false;
+            DateOfBirdthtextField.InputView = dateOfBirthDatePicker = new UIDatePicker()
+            {
+                Mode = UIDatePickerMode.Date,
+                PreferredDatePickerStyle = UIDatePickerStyle.Wheels,
+                MaximumDate = NSDate.Now
+            };
+
+            DateOfBirdthtextField.InputAccessoryView = new DoneAccessoryView(View, () => { });
         }
 
         public override void ViewWillDisappear(bool animated)
@@ -70,6 +79,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(NametextField).For(v => v.Text).To(vm => vm.FullName);
             bindingSet.Bind(GenderTextField).For(v => v.Text).To(vm => vm.Gender)
                 .WithConversion<GenderTypeToStringConverter>();
+            bindingSet.Bind(dateOfBirthDatePicker).For(v => v.BindDate()).To(vm => vm.DateOfBirth).TwoWay();
             bindingSet.Bind(DateOfBirdthtextField).For(v => v.Text).To(vm => vm.DateOfBirth)
                 .WithConversion<DateTimeToStringConverter>();
             bindingSet.Bind(PhoneTextField).For(v => v.Text).To(vm => vm.Phone);
