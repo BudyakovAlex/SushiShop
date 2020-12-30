@@ -1,21 +1,66 @@
-﻿// WARNING
+// WARNING
 //
-// This file has been generated automatically by Xamarin Studio from the outlets and
-// actions declared in your storyboard file.
-// Manual changes to this file will not be maintained.
+// This file has been generated automatically by Visual Studio to store outlets and
+// actions made in the UI designer. If it is removed, they will be lost.
+// Manual changes to this file may not be handled correctly.
 //
 using Foundation;
-using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Info
 {
-    [Register("InfoViewController")]
-    partial class InfoViewController
-    {
-        void ReleaseDesignerOutlets()
-        {
-        }
-    }
+	[Register ("InfoViewController")]
+	partial class InfoViewController
+	{
+		[Outlet]
+		BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Controls.MvxStackView MenuStackView { get; set; }
+
+		[Outlet]
+		UIKit.UILabel PhoneLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel PhoneTitleLabel { get; set; }
+
+		[Outlet]
+		UIKit.UIView ShopsContainerView { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ShopsTitleLabel { get; set; }
+
+		[Outlet]
+		BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Controls.MvxStackView SocialNetworksStackView { get; set; }
+		
+		void ReleaseDesignerOutlets ()
+		{
+			if (PhoneTitleLabel != null) {
+				PhoneTitleLabel.Dispose ();
+				PhoneTitleLabel = null;
+			}
+
+			if (PhoneLabel != null) {
+				PhoneLabel.Dispose ();
+				PhoneLabel = null;
+			}
+
+			if (ShopsTitleLabel != null) {
+				ShopsTitleLabel.Dispose ();
+				ShopsTitleLabel = null;
+			}
+
+			if (ShopsContainerView != null) {
+				ShopsContainerView.Dispose ();
+				ShopsContainerView = null;
+			}
+
+			if (MenuStackView != null) {
+				MenuStackView.Dispose ();
+				MenuStackView = null;
+			}
+
+			if (SocialNetworksStackView != null) {
+				SocialNetworksStackView.Dispose ();
+				SocialNetworksStackView = null;
+			}
+		}
+	}
 }

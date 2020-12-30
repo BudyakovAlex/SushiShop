@@ -35,7 +35,7 @@ namespace SushiShop.Core.Services.Http.CommonInfo
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<ContentDto>>> GetContentAsync(string alias, int id, string? city, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ContentDto>>> GetContentAsync(string alias, long id, string? city, CancellationToken cancellationToken)
         {
             var body = new
             {
@@ -48,6 +48,24 @@ namespace SushiShop.Core.Services.Http.CommonInfo
                 Method.Post,
                 Constants.Rest.GetResource,
                 body,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<CommonMenuDto[]>>> GetCommonInfoMenuAsync(CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<CommonMenuDto[]>>(
+                Method.Post,
+                Constants.Rest.GetMenuList,
+                null,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<SocialNetworkDto[]>>> GetSocialNetworksAsync(CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<SocialNetworkDto[]>>(
+                Method.Post,
+                Constants.Rest.GetSocialNetworks,
+                null,
                 cancellationToken);
         }
     }

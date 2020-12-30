@@ -11,5 +11,10 @@
         {
             public const string DefaultCityName = "Санкт-Петербург";
         }
+
+        public static class Info
+        {
+            public const string OfficePhone = "+7 (812) 493 4444";
+        }
     }
 }
