@@ -345,4 +345,10 @@
   <data name="FreeOfCharge" xml:space="preserve">
     <value>Бесплатно</value>
   </data>
+  <data name="Office" xml:space="preserve">
+    <value>Офис</value>
+  </data>
+  <data name="Shops" xml:space="preserve">
+    <value>Магазины</value>
+  </data>
 </root>

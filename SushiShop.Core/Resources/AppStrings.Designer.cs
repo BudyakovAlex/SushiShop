@@ -502,5 +502,17 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("FreeOfCharge", resourceCulture);
             }
         }
+        
+        public static string Office {
+            get {
+                return ResourceManager.GetString("Office", resourceCulture);
+            }
+        }
+        
+        public static string Shops {
+            get {
+                return ResourceManager.GetString("Shops", resourceCulture);
+            }
+        }
     }
 }
