@@ -49,5 +49,8 @@
     <Folder Include="Plugins\" />
     <Folder Include="Data\Models\Plugins\" />
     <Folder Include="ViewModels\Info\Items\" />
+    <Folder Include="ViewModels\Info\Sections\" />
+    <Folder Include="Data\Dtos\Shops\" />
+    <Folder Include="Data\Models\Shops\" />
   </ItemGroup>
 </Project>
