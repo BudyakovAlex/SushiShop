@@ -43,10 +43,22 @@ namespace SushiShop.Core.Data.Dtos.Shops
         public string? TempTimeTable { get; set; }
 
         [JsonProperty("franchisePoint")]
-        public string? FranchisePoint { get; set; }
+        public bool IsFranchisePoint { get; set; }
 
         [JsonProperty("delivery")]
-        public string? Delivery { get; set; }
+        public bool IsDelivery { get; set; }
+
+        [JsonProperty("merchant")]
+        public bool IsMerchant { get; set; }
+
+        [JsonProperty("pizzaPoint")]
+        public bool IsPizzaPoint { get; set; }
+
+        [JsonProperty("thisOptionIsNotAvailableForOrder")]
+        public bool IsOrderAvailable { get; set; }
+
+        [JsonProperty("sendOrderToRKeeper")]
+        public bool CanSendOrderToRKeeper { get; set; }
 
         [JsonProperty("email")]
         public string? Email { get; set; }
@@ -74,5 +86,8 @@ namespace SushiShop.Core.Data.Dtos.Shops
         public string[]? Phones { get; set; }
 
         public MetroDto[]? Metro { get; set; }
+
+        [JsonProperty("gallery")]
+        public ImageInfoDto[]? Images { get; }
     }
 }

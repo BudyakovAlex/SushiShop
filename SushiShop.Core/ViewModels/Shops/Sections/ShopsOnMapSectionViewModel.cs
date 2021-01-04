@@ -1,9 +1,9 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
-using SushiShop.Core.ViewModels.Info.Items;
+using SushiShop.Core.ViewModels.Shops.Items;
 
-namespace SushiShop.Core.ViewModels.Info.Sections
+namespace SushiShop.Core.ViewModels.Shops.Sections
 {
     public class ShopsOnMapSectionViewModel : BaseViewModel
     {
@@ -18,11 +18,11 @@ namespace SushiShop.Core.ViewModels.Info.Sections
 
         public MvxObservableCollection<ShopItemViewModel> Items { get; }
 
-        private ShopItemViewModel selectedItem;
-        public ShopItemViewModel SelectedItem
+        private ShopItemViewModel? selectedItem;
+        public ShopItemViewModel? SelectedItem
         {
             get => selectedItem;
-            set => selectedItem = value;
+            set => SetProperty(ref selectedItem, value);
         }
 
         private void ItemSelected(ShopItemViewModel shopItemViewModel)

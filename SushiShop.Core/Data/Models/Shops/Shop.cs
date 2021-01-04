@@ -19,8 +19,12 @@ namespace SushiShop.Core.Data.Models.Shops
             string? thursdayWorkingTime,
             string? city,
             string? phone,
-            string? franchisePoint,
-            string? delivery,
+            bool isFranchisePoint,
+            bool isDelivery,
+            bool isMerchant,
+            bool isPizzaPoint,
+            bool isOrderAvailable,
+            bool canSendOrderToRKeeper,
             string? email,
             long addressId,
             DeliveryZone[]? deliveryZones,
@@ -29,8 +33,9 @@ namespace SushiShop.Core.Data.Models.Shops
             string? longTitle,
             long parentId,
             ShopWorkingInfo? shopWorkingInfo,
-            string[]? phones,
-            Metro[] metro)
+            string[] phones,
+            Metro[] metro,
+            ImageInfo[] images)
         {
             Id = id;
             Latitude = latitude;
@@ -45,8 +50,12 @@ namespace SushiShop.Core.Data.Models.Shops
             ThursdayWorkingTime = thursdayWorkingTime;
             City = city;
             Phone = phone;
-            FranchisePoint = franchisePoint;
-            Delivery = delivery;
+            IsFranchisePoint = isFranchisePoint;
+            IsDelivery = isDelivery;
+            IsMerchant = isMerchant;
+            IsPizzaPoint = isPizzaPoint;
+            IsOrderAvailable = isOrderAvailable;
+            CanSendOrderToRKeeper = canSendOrderToRKeeper;
             Email = email;
             AddressId = addressId;
             DeliveryZones = deliveryZones;
@@ -57,6 +66,7 @@ namespace SushiShop.Core.Data.Models.Shops
             ShopWorkingInfo = shopWorkingInfo;
             Phones = phones;
             Metro = metro;
+            Images = images;
         }
 
         public long Id { get; }
@@ -85,9 +95,17 @@ namespace SushiShop.Core.Data.Models.Shops
 
         public string? Phone { get; }
 
-        public string? FranchisePoint { get; }
+        public bool IsFranchisePoint { get; }
 
-        public string? Delivery { get; }
+        public bool IsDelivery { get; }
+
+        public bool IsMerchant { get; }
+
+        public bool IsPizzaPoint { get; }
+
+        public bool IsOrderAvailable { get; }
+
+        public bool CanSendOrderToRKeeper { get; }
 
         public string? Email { get; }
 
@@ -105,8 +123,10 @@ namespace SushiShop.Core.Data.Models.Shops
 
         public ShopWorkingInfo? ShopWorkingInfo { get; }
 
-        public string[]? Phones { get; }
+        public string[] Phones { get; }
 
         public Metro[] Metro { get; }
+
+        public ImageInfo[] Images { get; }
     }
 }

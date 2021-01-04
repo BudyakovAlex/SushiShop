@@ -44,13 +44,17 @@
     <Folder Include="Data\Models\Orders\" />
     <Folder Include="Data\Dtos\Pagination\" />
     <Folder Include="Data\Models\Pagination\" />
-    <Folder Include="ViewModels\Feedback\Items\" />
     <Folder Include="Services\Http\Feedback\" />
     <Folder Include="Plugins\" />
     <Folder Include="Data\Models\Plugins\" />
     <Folder Include="ViewModels\Info\Items\" />
-    <Folder Include="ViewModels\Info\Sections\" />
     <Folder Include="Data\Dtos\Shops\" />
     <Folder Include="Data\Models\Shops\" />
+    <Folder Include="Services\Http\Shops\" />
+    <Folder Include="Managers\Shops\" />
+    <Folder Include="ViewModels\Shops\" />
+    <Folder Include="ViewModels\Shops\Sections\" />
+    <Folder Include="ViewModels\Shops\Items\" />
+    <Folder Include="ViewModels\Common\Items\" />
   </ItemGroup>
 </Project>

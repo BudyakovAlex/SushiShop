@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SushiShop.Core.Data.Dtos.Common;
 
 namespace SushiShop.Core.Data.Dtos.Shops
 {
@@ -8,7 +9,7 @@ namespace SushiShop.Core.Data.Dtos.Shops
         public string? Title { get; set; }
 
         [JsonProperty("path")]
-        public string? Path { get; set; }
+        public CoordinatesDto[]? Path { get; set; }
 
         [JsonProperty("price")]
         public decimal Price { get; set; }

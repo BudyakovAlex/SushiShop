@@ -1,12 +1,12 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.ViewModels;
-using SushiShop.Core.ViewModels.Info.Items;
+using SushiShop.Core.ViewModels.Shops.Items;
 
-namespace SushiShop.Core.ViewModels.Info.Sections
+namespace SushiShop.Core.ViewModels.Shops.Sections
 {
-    public class ShopsListViewModel : BaseViewModel
+    public class ShopsListSectionViewModel : BaseViewModel
     {
-        public ShopsListViewModel()
+        public ShopsListSectionViewModel()
         {
             Items = new MvxObservableCollection<ShopItemViewModel>();
         }

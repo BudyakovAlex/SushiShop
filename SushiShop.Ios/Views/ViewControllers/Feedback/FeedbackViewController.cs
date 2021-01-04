@@ -4,7 +4,7 @@ using Foundation;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Feedback;
-using SushiShop.Core.ViewModels.Feedback.Items;
+using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Sources;
@@ -102,7 +102,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
         private void InitializeCollectionView()
         {
             _source = new CollectionViewSource(PhotosCollectionView)
-                .Register<FeedbackPhotoItemViewModel>(FeedbackPhotoItemViewCell.Nib, FeedbackPhotoItemViewCell.Key);
+                .Register<PhotoItemViewModel>(FeedbackPhotoItemViewCell.Nib, FeedbackPhotoItemViewCell.Key);
 
             PhotosCollectionView.Source = _source;
             PhotosCollectionView.Delegate = new FeedbackPhotosCollectionViewDelegateFlowLayout();

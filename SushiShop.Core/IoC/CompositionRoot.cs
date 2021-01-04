@@ -10,6 +10,7 @@ using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Managers.Products;
 using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.Managers.Promotions;
+using SushiShop.Core.Managers.Shops;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http;
 using SushiShop.Core.Services.Http.Cart;
@@ -21,6 +22,7 @@ using SushiShop.Core.Services.Http.Orders;
 using SushiShop.Core.Services.Http.Products;
 using SushiShop.Core.Services.Http.Profile;
 using SushiShop.Core.Services.Http.Promotions;
+using SushiShop.Core.Services.Http.Shops;
 
 namespace SushiShop.Core.IoC
 {
@@ -37,6 +39,7 @@ namespace SushiShop.Core.IoC
             Container.RegisterSingleton<IOrdersManager, OrdersManager>();
             Container.RegisterSingleton<IFeedbackManager, FeedbackManager>();
             Container.RegisterSingleton<IProfileManager, ProfileManager>();
+            Container.RegisterSingleton<IShopsManager, ShopsManager>();
         }
 
         protected override void RegisterServices()
@@ -51,6 +54,7 @@ namespace SushiShop.Core.IoC
             Container.RegisterSingleton<IOrdersService, OrdersService>();
             Container.RegisterSingleton<IFeedbackService, FeedbackService>();
             Container.RegisterSingleton<IProfileService, ProfileService>();
+            Container.RegisterSingleton<IShopsService, ShopsService>();
         }
 
         protected override void RegisterFactories()
