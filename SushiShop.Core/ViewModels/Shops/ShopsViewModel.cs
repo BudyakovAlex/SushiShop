@@ -1,11 +1,10 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Managers.Shops;
 using SushiShop.Core.Providers;
-using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Info
@@ -15,8 +14,8 @@ namespace SushiShop.Core.ViewModels.Info
         private readonly IShopsManager shopsManager;
         private readonly IUserSession userSession;
 
-        private ShopsOnMapSectionViewModel? shopsOnMapViewModel;
-        private ShopsListSectionViewModel? shopsListViewModel;
+        private ShopsOnMapSectionViewModel? shopsOnMapSectionViewModel;
+        private ShopsListSectionViewModel? shopsListSectionViewModel;
         private MetroSectionViewModel? metroSectionViewModel;
 
         public ShopsViewModel(IShopsManager shopsManager, IUserSession userSession)
@@ -25,37 +24,42 @@ namespace SushiShop.Core.ViewModels.Info
             this.userSession = userSession;
         }
 
-        public override async Task InitializeAsync()
+        public override Task InitializeAsync()
         {
-            await base.InitializeAsync();
+            return Task.WhenAll(base.InitializeAsync(), RefreshDataAsync());
+        }
 
+        protected override async Task RefreshDataAsync()
+        {
             var city = userSession.GetCity();
             var isMetroAvailable = city?.IsMetroAvailable ?? true;
             Items.AddRange(ProduceSectionsViewModels(isMetroAvailable));
 
             var getShopsTask = shopsManager.GetShopsAsync(city?.Name);
-            var initializeMetroTask = metroSectionViewModel?.InitializeAsync() ?? Task.CompletedTask;
+            var getMetroShopsTask = shopsManager.GetMetroShopsAsync(city?.Name);
+            await Task.WhenAll(getShopsTask, getMetroShopsTask);
 
-            await Task.WhenAll(getShopsTask, initializeMetroTask);
-
-            if (!getShopsTask.Result.IsSuccessful)
+            if (!getShopsTask.Result.IsSuccessful
+                || !getMetroShopsTask.Result.IsSuccessful)
             {
                 return;
             }
 
-            var viewModels = getShopsTask.Result.Data.Select(item => new ShopItemViewModel(item)).ToArray();
-            shopsOnMapViewModel!.Items.AddRange(viewModels);
-            shopsListViewModel!.Items.AddRange(viewModels);
+            shopsListSectionViewModel?.SetShops(getShopsTask.Result.Data);
+            shopsOnMapSectionViewModel?.SetShops(getShopsTask.Result.Data);
+
+            shopsListSectionViewModel?.SetMetroShops(getMetroShopsTask.Result.Data);
+            metroSectionViewModel?.SetMetroShops(getMetroShopsTask.Result.Data);
         }
 
         private IEnumerable<BaseViewModel> ProduceSectionsViewModels(bool isMetroAvailable)
         {
-            yield return shopsOnMapViewModel = new ShopsOnMapSectionViewModel();
-            yield return shopsListViewModel = new ShopsListSectionViewModel();
+            yield return shopsOnMapSectionViewModel = new ShopsOnMapSectionViewModel();
+            yield return shopsListSectionViewModel = new ShopsListSectionViewModel().DisposeWith(Disposables);
 
             if (isMetroAvailable)
             {
-                yield return metroSectionViewModel = new MetroSectionViewModel(shopsManager, userSession);
+                yield return metroSectionViewModel = new MetroSectionViewModel();
             }
         }
     }

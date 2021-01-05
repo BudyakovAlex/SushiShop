@@ -1,14 +1,14 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
-using SushiShop.Core.Data.Models.Shops;
+using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Shops.Items;
 
 namespace SushiShop.Core.ViewModels.Shops
 {
-    public class ShopOnMapViewModel : BasePageViewModel<Shop>
+    public class ShopOnMapViewModel : BasePageViewModel<ShopOnMapNavigationParameter>
     {
-        public override void Prepare(Shop parameter)
+        public override void Prepare(ShopOnMapNavigationParameter parameter)
         {
-            ShopItemViewModel = new ShopItemViewModel(parameter);
+            ShopItemViewModel = new ShopItemViewModel(parameter.Shop);
         }
 
         public ShopItemViewModel? ShopItemViewModel { get; private set; }

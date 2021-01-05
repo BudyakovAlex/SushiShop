@@ -1,9 +1,9 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Shops;
-using SushiShop.Core.Managers.Shops;
-using SushiShop.Core.Providers;
+using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Shops.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,33 +12,20 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
 {
     public class MetroSectionViewModel : BaseViewModel
     {
-        private readonly IShopsManager shopsManager;
-        private readonly IUserSession userSession;
-
         private Dictionary<string, MetroShop[]>? metroShopsMappings;
 
-        public MetroSectionViewModel(IShopsManager shopsManager, IUserSession userSession)
+        public MetroSectionViewModel()
         {
-            this.shopsManager = shopsManager;
-            this.userSession = userSession;
-
             Items = new MvxObservableCollection<MetroItemViewModel>();
         }
 
         public MvxObservableCollection<MetroItemViewModel> Items { get; }
 
-        public async Task InitializeAsync()
+        public void SetMetroShops(Dictionary<string, MetroShop[]>? metroShopsMappings)
         {
-            var city = userSession.GetCity();
-            var response = await shopsManager.GetMetroShopsAsync(city?.Name);
-            if (!response.IsSuccessful)
-            {
-                return;
-            }
-
-            metroShopsMappings = response.Data;
-            var viewModels = metroShopsMappings.Keys.Select(key => new MetroItemViewModel(key, GoToShopAsync)).ToArray();
-            Items.AddRange(viewModels);
+            this.metroShopsMappings = metroShopsMappings;
+            var viewModels = metroShopsMappings?.Keys.Select(key => new MetroItemViewModel(key, GoToShopAsync)).ToArray() ?? Array.Empty<MetroItemViewModel>();
+            Items.ReplaceWith(viewModels);
         }
 
         private Task GoToShopAsync(MetroItemViewModel itemViewModel)
@@ -49,7 +36,8 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
                 return Task.CompletedTask;
             }
 
-            return NavigationManager.NavigateAsync<ShopsNearMetroViewModel>();
+            var navigationParameter = new ShopsNearMetroNavigationParameters(shops);
+            return NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters>(navigationParameter);
         }
     }
 }

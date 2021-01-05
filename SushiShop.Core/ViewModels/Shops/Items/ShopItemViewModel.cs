@@ -1,8 +1,8 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
-using BuildApps.Core.Mobile.MvvmCross.ViewModels.Simple;
+﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Simple;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Shops;
+using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Common.Items;
 using System;
 using System.Linq;
@@ -13,14 +13,18 @@ namespace SushiShop.Core.ViewModels.Shops.Items
 {
     public class ShopItemViewModel : SelectableItemViewModel<Shop>
     {
-        public ShopItemViewModel(Shop key, bool isSelected = false) : base(key.LongTitle, key, isSelected)
+        public ShopItemViewModel(Shop key, bool isSelected = false, Action<Shop>? showNearestMetroAction = null) : base(key.LongTitle, key, isSelected)
         {
             Photos = new MvxObservableCollection<PhotoItemViewModel>(ProducePhotoViewModels());
 
             GoToMapCommand = new MvxAsyncCommand(GoToMapAsync);
+
+            ShowNearestMetroCommand = new MvxCommand(() => showNearestMetroAction?.Invoke(Key));
         }
 
         public ICommand GoToMapCommand { get; }
+
+        public ICommand ShowNearestMetroCommand { get; }
 
         public MvxObservableCollection<PhotoItemViewModel> Photos { get; }
 
@@ -32,8 +36,7 @@ namespace SushiShop.Core.ViewModels.Shops.Items
 
         public string? WorkingTime => GetWorkingTimeTitle();
 
-        //TODO: wait for BE
-        public string? DriveWay => string.Empty;
+        public string? DriveWay => Key.DriveWay;
 
         private string? GetWorkingTimeTitle()
         {
@@ -58,7 +61,8 @@ namespace SushiShop.Core.ViewModels.Shops.Items
 
         private Task GoToMapAsync()
         {
-            return NavigationManager.NavigateAsync<ShopOnMapViewModel>();
+            var navigationParameter = new ShopOnMapNavigationParameter(Key);
+            return NavigationManager.NavigateAsync<ShopOnMapViewModel, ShopOnMapNavigationParameter>(navigationParameter);
         }
     }
 }

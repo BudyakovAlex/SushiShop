@@ -1,7 +1,9 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
+using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.ViewModels.Shops.Items;
+using System.Linq;
 
 namespace SushiShop.Core.ViewModels.Shops.Sections
 {
@@ -23,6 +25,12 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
         {
             get => selectedItem;
             set => SetProperty(ref selectedItem, value);
+        }
+
+        public void SetShops(Shop[] shops)
+        {
+            var viewModels = shops.Select(item => new ShopItemViewModel(item)).ToArray();
+            Items.ReplaceWith(viewModels);
         }
 
         private void ItemSelected(ShopItemViewModel shopItemViewModel)

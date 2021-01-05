@@ -46,20 +46,23 @@ namespace SushiShop.Core.Data.Dtos.Shops
         [JsonProperty("delivery")]
         public bool IsDelivery { get; set; }
 
-        [JsonProperty("merchant")]
-        public bool IsMerchant { get; set; }
-
         [JsonProperty("pizzaPoint")]
         public bool IsPizzaPoint { get; set; }
 
         [JsonProperty("thisOptionIsNotAvailableForOrder")]
         public bool IsOrderAvailable { get; set; }
 
+        [JsonProperty("merchant")]
+        public long MerchantId { get; set; }
+
         [JsonProperty("sendOrderToRKeeper")]
         public bool CanSendOrderToRKeeper { get; set; }
 
         [JsonProperty("email")]
         public string? Email { get; set; }
+
+        [JsonProperty("howToComeIn")]
+        public string? DriveWay { get; set; }
 
         public long AddressId { get; set; }
 

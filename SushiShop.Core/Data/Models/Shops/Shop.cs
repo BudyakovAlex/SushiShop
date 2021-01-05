@@ -20,7 +20,7 @@ namespace SushiShop.Core.Data.Models.Shops
             string? phone,
             bool isFranchisePoint,
             bool isDelivery,
-            bool isMerchant,
+            long merchantId,
             bool isPizzaPoint,
             bool isOrderAvailable,
             bool canSendOrderToRKeeper,
@@ -31,6 +31,7 @@ namespace SushiShop.Core.Data.Models.Shops
             string? pageTitle,
             string? longTitle,
             long parentId,
+            string? driveWay,
             ShopWorkingInfo? shopWorkingInfo,
             string[] phones,
             Metro[] metro,
@@ -50,7 +51,7 @@ namespace SushiShop.Core.Data.Models.Shops
             Phone = phone;
             IsFranchisePoint = isFranchisePoint;
             IsDelivery = isDelivery;
-            IsMerchant = isMerchant;
+            MerchantId = merchantId;
             IsPizzaPoint = isPizzaPoint;
             IsOrderAvailable = isOrderAvailable;
             CanSendOrderToRKeeper = canSendOrderToRKeeper;
@@ -61,6 +62,7 @@ namespace SushiShop.Core.Data.Models.Shops
             PageTitle = pageTitle;
             LongTitle = longTitle;
             ParentId = parentId;
+            DriveWay = driveWay;
             ShopWorkingInfo = shopWorkingInfo;
             Phones = phones;
             Metro = metro;
@@ -91,11 +93,11 @@ namespace SushiShop.Core.Data.Models.Shops
 
         public string? Phone { get; }
 
+        public long MerchantId { get; }
+
         public bool IsFranchisePoint { get; }
 
         public bool IsDelivery { get; }
-
-        public bool IsMerchant { get; }
 
         public bool IsPizzaPoint { get; }
 
@@ -116,6 +118,8 @@ namespace SushiShop.Core.Data.Models.Shops
         public string? LongTitle { get; }
 
         public long ParentId { get; }
+
+        public string? DriveWay { get; }
 
         public ShopWorkingInfo? ShopWorkingInfo { get; }
 
