@@ -12,7 +12,8 @@ namespace SushiShop.Core.Mappers
         {
             return new DeliveryZone(
                 dto.Title,
-                dto.Path?.Select(coordinates => coordinates.Map()).ToArray() ?? Array.Empty<Coordinates>(),
+                dto.Polygon?.Select(coordinates => coordinates.Map()).ToArray() ?? Array.Empty<Coordinates>(),
+                dto.Path,
                 dto.Price,
                 dto.IsActive);
         }

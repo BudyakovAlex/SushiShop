@@ -12,8 +12,7 @@ namespace SushiShop.Core.Mappers
         {
             return new Shop(
                 dto.Id,
-                dto.Latitude,
-                dto.Longitude,
+                dto.Coordinates!.Map(),
                 dto.TimeZone,
                 dto.MondayWorkingTime,
                 dto.TuesdayWorkingTime,

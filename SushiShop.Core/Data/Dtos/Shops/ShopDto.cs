@@ -7,9 +7,7 @@ namespace SushiShop.Core.Data.Dtos.Shops
     {
         public long Id { get; set; }
 
-        public double Latitude { get; set; }
-
-        public double Longitude { get; set; }
+        public CoordinatesDto? Coordinates { get; set; }
 
         [JsonProperty("timezone")]
         public string? TimeZone { get; set; }

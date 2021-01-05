@@ -6,11 +6,13 @@ namespace SushiShop.Core.Data.Models.Shops
     {
         public DeliveryZone(
             string? title,
-            Coordinates[]? path,
+            Coordinates[]? polygon,
+            string? path,
             decimal price,
             bool isActive)
         {
             Title = title;
+            Polygon = polygon;
             Path = path;
             Price = price;
             IsActive = isActive;
@@ -18,7 +20,9 @@ namespace SushiShop.Core.Data.Models.Shops
 
         public string? Title { get; }
 
-        public Coordinates[]? Path { get; }
+        public Coordinates[]? Polygon { get; }
+
+        public string? Path { get; }
 
         public decimal Price { get; }
 

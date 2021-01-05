@@ -24,9 +24,9 @@ namespace SushiShop.Core.ViewModels.Shops.Items
 
         public MvxObservableCollection<PhotoItemViewModel> Photos { get; }
 
-        public double Latitude => Key.Latitude;
+        public double? Latitude => Key.Coordinates.Latitude;
 
-        public double Longitude => Key.Longitude;
+        public double? Longitude => Key.Coordinates.Longitude;
 
         public string? Phone => Key.Phone;
 

@@ -7,8 +7,7 @@ namespace SushiShop.Core.Data.Models.Shops
     {
         public Shop(
             long id,
-            double latitude,
-            double longitude,
+            Coordinates coordinates,
             string? timeZone,
             string? mondayWorkingTime,
             string? tuesdayWorkingTime,
@@ -38,8 +37,7 @@ namespace SushiShop.Core.Data.Models.Shops
             ImageInfo[] images)
         {
             Id = id;
-            Latitude = latitude;
-            Longitude = longitude;
+            Coordinates = coordinates;
             TimeZone = timeZone;
             MondayWorkingTime = mondayWorkingTime;
             TuesdayWorkingTime = tuesdayWorkingTime;
@@ -71,9 +69,7 @@ namespace SushiShop.Core.Data.Models.Shops
 
         public long Id { get; }
 
-        public double Latitude { get; }
-
-        public double Longitude { get; }
+        public Coordinates Coordinates { get; }
 
         public string? TimeZone { get; }
 
