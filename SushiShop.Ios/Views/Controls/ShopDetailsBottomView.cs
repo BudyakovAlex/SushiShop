@@ -24,18 +24,9 @@ namespace SushiShop.Ios.Views.Controls
         private readonly float startHeight = (float)UIApplication.SharedApplication.KeyWindow.Frame.Height * 0.25f;
 
         private NSLayoutConstraint heightConstraint;
-        private NSLayoutConstraint leadingConstraint;
-        private NSLayoutConstraint trailingConstraint;
-        private NSLayoutConstraint bottomConstraint;
-        private CollectionViewSource photosCollectionViewSource;
-
         private bool isExpanded;
 
-        public string Title
-        {
-            get => TitleLabel.Text;
-            set => TitleLabel.Text = value;
-        }
+        private CollectionViewSource photosCollectionViewSource;
 
         public ShopDetailsBottomView(IntPtr handle) : base(handle)
         {
@@ -58,9 +49,6 @@ namespace SushiShop.Ios.Views.Controls
 
             heightConstraint = HeightAnchor.ConstraintEqualTo(0f);
             heightConstraint.Active = true;
-            leadingConstraint = LeadingAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.LeadingAnchor);
-            trailingConstraint = TrailingAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.TrailingAnchor);
-            bottomConstraint = BottomAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.BottomAnchor);
         }
 
         protected override void Bind()
@@ -72,7 +60,7 @@ namespace SushiShop.Ios.Views.Controls
             bindingSet.Bind(PhoneLabel).For(v => v.Text).To(vm => vm.Phone);
             bindingSet.Bind(TimeWorkingLabel).For(v => v.Text).To(vm => vm.WorkingTime);
             bindingSet.Bind(DriveWayLabel).For(v => v.Text).To(vm => vm.DriveWay);
-            bindingSet.Bind(this).For(v => v.Title).To(vm => vm.LongTitle);
+            bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.LongTitle);
             bindingSet.Bind(photosCollectionViewSource).For(v => v.ItemsSource).To(vm => vm.Photos);
 
             bindingSet.Apply();
@@ -83,9 +71,9 @@ namespace SushiShop.Ios.Views.Controls
             UIApplication.SharedApplication.KeyWindow.AddSubview(this);
             NSLayoutConstraint.ActivateConstraints(new[]
             {
-                leadingConstraint,
-                trailingConstraint,
-                bottomConstraint
+                LeadingAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.LeadingAnchor),
+                TrailingAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.TrailingAnchor),
+                BottomAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.BottomAnchor)
             });
 
             Animate(0.000001f, () => UIApplication.SharedApplication.KeyWindow.LayoutIfNeeded());
@@ -97,13 +85,6 @@ namespace SushiShop.Ios.Views.Controls
             DispatchQueue.MainQueue.DispatchAsync(async () =>
             {
                 await AnimateHeightAsync(0f);
-                NSLayoutConstraint.DeactivateConstraints(new[]
-                {
-                    leadingConstraint,
-                    trailingConstraint,
-                    bottomConstraint
-                });
-
                 RemoveFromSuperview();
             });
         }

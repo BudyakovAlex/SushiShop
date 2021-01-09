@@ -23,6 +23,7 @@ namespace SushiShop.Core.ViewModels.Shops
         private readonly IUserDialogs userDialogs;
 
         private Dictionary<string, MetroShop[]>? metroShopsMappings;
+        private IEnumerable<MetroItemViewModel>? nearestMetro;
 
         public ShopsNearMetroViewModel(IShopsManager shopsManager, IUserSession userSession)
         {

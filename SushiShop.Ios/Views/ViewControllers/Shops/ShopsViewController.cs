@@ -17,7 +17,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
     [MvxChildPresentation]
     public partial class ShopsViewController : BaseViewController<ShopsViewModel>
     {
-        private MainViewController rootViewController = UIApplication.SharedApplication.KeyWindow.RootViewController as MainViewController;
         private CollectionViewSource shopsContentCollectionViewSource;
 
         private UIButton backButton;
@@ -68,7 +67,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
         {
             var indexPath = NSIndexPath.FromRowSection(tabsScrollableTabView.SelectedIndex, 0);
             contentCollectionView.ScrollToItem(indexPath, UICollectionViewScrollPosition.CenteredHorizontally, true);
-            rootViewController?.ShowTabView();
         }
 
         private void OnDecelerated()
@@ -77,7 +75,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
             if (indexPath != null && tabsScrollableTabView.SelectedIndex != indexPath.Row)
             {
                 tabsScrollableTabView.SelectedIndex = indexPath.Row;
-                rootViewController?.ShowTabView();
             }
         }
     }

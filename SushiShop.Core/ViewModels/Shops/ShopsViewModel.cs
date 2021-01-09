@@ -7,6 +7,7 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Info
@@ -20,6 +21,7 @@ namespace SushiShop.Core.ViewModels.Info
         private ShopsListSectionViewModel? shopsListSectionViewModel;
         private MetroSectionViewModel? metroSectionViewModel;
         private ShopItemViewModel? savedSelectedItem;
+        private int previousSelectedIndex;
 
         public ShopsViewModel(IShopsManager shopsManager, IUserSession userSession)
         {
@@ -64,6 +66,28 @@ namespace SushiShop.Core.ViewModels.Info
 
             shopsListSectionViewModel?.SetMetroShops(getMetroShopsTask.Result.Data);
             metroSectionViewModel?.SetMetroShops(getMetroShopsTask.Result.Data);
+        }
+
+        public override void ViewAppearing()
+        {
+            base.ViewAppeared();
+
+            if (selectedIndex == 0)
+            {
+                ShowSelectedItem();
+            }
+        }
+
+        public override void ViewDisappearing()
+        {
+            base.ViewDisappearing();
+
+            if (previousSelectedIndex != 0)
+            {
+                return;
+            }
+
+            HideSelectedItem();
         }
 
         private void ShowSelectedItem()
@@ -115,10 +139,14 @@ namespace SushiShop.Core.ViewModels.Info
             if (selectedIndex == 0)
             {
                 ShowSelectedItem();
-                return;
             }
 
-            HideSelectedItem();
+            if (previousSelectedIndex == 0)
+            {
+                HideSelectedItem();
+            }
+
+            previousSelectedIndex = selectedIndex;
         }
     }
 }

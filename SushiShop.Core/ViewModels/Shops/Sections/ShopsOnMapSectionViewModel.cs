@@ -50,6 +50,7 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
             }
 
             SelectedItem = null;
+
         }
     }
 }

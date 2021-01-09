@@ -17,11 +17,6 @@ namespace SushiShop.Ios.Views.Controls
     {
         private TableViewSource tableViewSource;
 
-        private NSLayoutConstraint topConstraint;
-        private NSLayoutConstraint leadingConstraint;
-        private NSLayoutConstraint trailingConstraint;
-        private NSLayoutConstraint bottomConstraint;
-
         public NearestMetroView(IntPtr handle) : base(handle)
         {
         }
@@ -44,15 +39,9 @@ namespace SushiShop.Ios.Views.Controls
 
             RootContentView.Layer.MaskedCorners = CACornerMask.MinXMinYCorner | CACornerMask.MaxXMinYCorner;
             RootContentView.Layer.CornerRadius = 16f;
-
             tableViewSource = new TableViewSource(MetroTableView);
             tableViewSource.Register<MetroItemViewModel>(NearestMetroItemViewCell.Nib, NearestMetroItemViewCell.Key);
             MetroTableView.Source = tableViewSource;
-
-            topConstraint = TopAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.TopAnchor);
-            leadingConstraint = LeadingAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.LeadingAnchor);
-            trailingConstraint = TrailingAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.TrailingAnchor);
-            bottomConstraint = BottomAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.BottomAnchor);
 
             AddGestureRecognizer(new UITapGestureRecognizer(() => CloseCommand?.Execute(null))
             {
@@ -65,10 +54,10 @@ namespace SushiShop.Ios.Views.Controls
             UIApplication.SharedApplication.KeyWindow.AddSubview(this);
             NSLayoutConstraint.ActivateConstraints(new[]
             {
-                topConstraint,
-                leadingConstraint,
-                trailingConstraint,
-                bottomConstraint
+                TopAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.TopAnchor),
+                LeadingAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.LeadingAnchor),
+                TrailingAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.TrailingAnchor),
+                BottomAnchor.ConstraintEqualTo(UIApplication.SharedApplication.KeyWindow.BottomAnchor)
             });
             AnimateAlpha(1f);
         }
@@ -76,13 +65,6 @@ namespace SushiShop.Ios.Views.Controls
         public void Hide()
         {
             AnimateAlpha(0f);
-            NSLayoutConstraint.DeactivateConstraints(new[]
-            {
-                topConstraint,
-                leadingConstraint,
-                trailingConstraint,
-                bottomConstraint
-            });
             RemoveFromSuperview();
         }
 
