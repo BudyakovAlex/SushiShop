@@ -80,7 +80,7 @@ namespace SushiShop.Ios.Sources
                     return;
                 }
 
-                TableView.ReloadRows(new[] { indexPath }, UITableViewRowAnimation.Fade);
+                TableView.ReloadData();
             });
         }
     }

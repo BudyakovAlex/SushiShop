@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Medium.otf">
+            <string>SFProDisplay-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="49" id="cxk-wN-pdQ" customClass="MetroItemViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label ,dsgnsdlg lsd gl ksdjgl ksdjlgkjsdlkgjlsdkjglksdj" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXj-5B-MCj">
+                        <rect key="frame" x="16" y="15" width="269" height="19"/>
+                        <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_right_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="SOB-qG-yZV">
+                        <rect key="frame" x="300" y="19" width="4" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="8rl-Vh-E7U"/>
+                            <constraint firstAttribute="width" constant="4" id="Zmb-aJ-p3C"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="XXj-5B-MCj" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="15" id="4gd-i1-3Ed"/>
+                    <constraint firstAttribute="trailing" secondItem="SOB-qG-yZV" secondAttribute="trailing" constant="16" id="7n2-og-kLj"/>
+                    <constraint firstAttribute="bottom" secondItem="XXj-5B-MCj" secondAttribute="bottom" constant="15" id="Aqc-Eg-hSb"/>
+                    <constraint firstItem="SOB-qG-yZV" firstAttribute="centerY" secondItem="XXj-5B-MCj" secondAttribute="centerY" id="G5E-5o-tDX"/>
+                    <constraint firstItem="XXj-5B-MCj" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="QWh-Ri-LI2"/>
+                    <constraint firstItem="SOB-qG-yZV" firstAttribute="leading" secondItem="XXj-5B-MCj" secondAttribute="trailing" constant="15" id="ieq-7O-nPs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="TitleLabel" destination="XXj-5B-MCj" id="0cf-nu-i9H"/>
+            </connections>
+            <point key="canvasLocation" x="-97.101449275362327" y="4.3526785714285712"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_right_arrow" width="6" height="13"/>
+    </resources>
+</document>

@@ -15,7 +15,8 @@ namespace SushiShop.Core.Data.Models.Cities
             PriceGroup priceGroup,
             string phone,
             string cityGroups,
-            Currency currency)
+            Currency currency,
+            bool isMetroAvailable)
         {
             Id = id;
             Name = name;
@@ -27,6 +28,7 @@ namespace SushiShop.Core.Data.Models.Cities
             Phone = phone;
             CityGroups = cityGroups;
             Currency = currency;
+            IsMetroAvailable = isMetroAvailable;
         }
 
         public long Id { get; set; }
@@ -38,6 +40,7 @@ namespace SushiShop.Core.Data.Models.Cities
         public PriceGroup PriceGroup { get; set; }
         public string Phone { get; set; }
         public string CityGroups { get; set; }
+        public bool IsMetroAvailable { get; set; }
         public Currency Currency { get; set; }
     }
 }

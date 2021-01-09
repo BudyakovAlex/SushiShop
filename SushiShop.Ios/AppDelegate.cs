@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Google.Maps;
 using MvvmCross.Platforms.Ios.Core;
 using SushiShop.Core;
 using SushiShop.Ios.Common.Styles;
@@ -14,6 +15,8 @@ namespace SushiShop.Ios
             base.FinishedLaunching(application, launchOptions);
 
             Appearance.SetGlobalAppearance();
+
+            MapServices.ProvideApiKey(Core.Common.Constants.Map.MapKey);
 
             return true;
         }

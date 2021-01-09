@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Medium.otf">
+            <string>SFProDisplay-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1" customClass="NearestMetroView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LsT-wA-FPL">
+                    <rect key="frame" x="0.0" y="100" width="320" height="380"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ближайшие станции метро" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOD-pJ-8O9">
+                            <rect key="frame" x="16" y="22" width="288" height="21.5"/>
+                            <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="18"/>
+                            <color key="textColor" red="0.63529411764705879" green="0.63529411764705879" blue="0.67843137254901964" alpha="0.69630048064147532" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qeM-oC-fxD" customClass="SelfSizeTableView">
+                            <rect key="frame" x="0.0" y="51.5" width="320" height="328.5"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="hOD-pJ-8O9" secondAttribute="trailing" constant="16" id="11R-0w-reS"/>
+                        <constraint firstItem="qeM-oC-fxD" firstAttribute="leading" secondItem="LsT-wA-FPL" secondAttribute="leading" id="EeR-Cm-P14"/>
+                        <constraint firstItem="hOD-pJ-8O9" firstAttribute="leading" secondItem="LsT-wA-FPL" secondAttribute="leading" constant="16" id="FgK-Bh-4tj"/>
+                        <constraint firstAttribute="bottom" secondItem="qeM-oC-fxD" secondAttribute="bottom" id="UzY-1N-pIi"/>
+                        <constraint firstItem="qeM-oC-fxD" firstAttribute="top" secondItem="hOD-pJ-8O9" secondAttribute="bottom" constant="8" id="WYa-9H-Mrz"/>
+                        <constraint firstAttribute="trailing" secondItem="qeM-oC-fxD" secondAttribute="trailing" id="spl-67-dv9"/>
+                        <constraint firstItem="hOD-pJ-8O9" firstAttribute="top" secondItem="LsT-wA-FPL" secondAttribute="top" constant="22" id="xcp-zd-d2j"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.090196078431372548" green="0.094117647058823528" blue="0.10588235294117647" alpha="0.69630048064147532" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="LsT-wA-FPL" secondAttribute="trailing" id="C2T-fe-5JK"/>
+                <constraint firstItem="LsT-wA-FPL" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="cdo-ba-jna"/>
+                <constraint firstAttribute="bottom" secondItem="LsT-wA-FPL" secondAttribute="bottom" id="cm5-TU-2lh"/>
+            </constraints>
+            <connections>
+                <outlet property="MetroTableView" destination="qeM-oC-fxD" id="0r5-n1-9rG"/>
+                <outlet property="RootContentView" destination="LsT-wA-FPL" id="8FT-QV-0QX"/>
+            </connections>
+            <point key="canvasLocation" x="-97.5" y="2.5"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

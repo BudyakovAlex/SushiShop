@@ -4,7 +4,7 @@ using Foundation;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Feedback;
-using SushiShop.Core.ViewModels.Feedback.Items;
+using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Sources;
@@ -20,6 +20,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
 
         private NSObject keyboardWillShowObject;
         private NSObject keyboardWillHideObject;
+
+        private MainViewController rootViewController = (MainViewController)UIApplication.SharedApplication.KeyWindow.RootViewController;
 
         private bool hasPhotos;
         public bool HasPhotos
@@ -45,12 +47,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
         {
             base.ViewWillAppear(animated);
             AddKeyboardObservers();
+
+            rootViewController.HideTabView();
         }
 
         public override void ViewWillDisappear(bool animated)
         {
             base.ViewWillDisappear(animated);
             RemoveKeyboardObservers();
+
+            rootViewController.ShowTabView();
         }
 
         protected override void InitStylesAndContent()
@@ -65,6 +71,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
             InitializeScrollView();
             InitializeOrderNumberTextField();
             InitializeCollectionView();
+        }
+
+        protected override void InitNavigationItem(UINavigationItem navigationItem)
+        {
+            base.InitNavigationItem(navigationItem);
+
+            navigationItem.LeftBarButtonItem = Components.CreateBarButtonItem(ImageNames.ArrowBack);
         }
 
         protected override void Bind()
@@ -85,6 +98,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
             bindingSet.Bind(SendButton).For(v => v.BindTitle()).To(vm => vm.SendFeedbackTitle);
             bindingSet.Bind(SendButton).For(v => v.BindTouchUpInside()).To(vm => vm.SendFeedbackCommand);
             bindingSet.Bind(LoadingView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
+            bindingSet.Bind(NavigationItem.LeftBarButtonItem).For(v => v.BindClicked()).To(vm => vm.CloseCommand);
 
             bindingSet.Apply();
         }
@@ -102,7 +116,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
         private void InitializeCollectionView()
         {
             _source = new CollectionViewSource(PhotosCollectionView)
-                .Register<FeedbackPhotoItemViewModel>(FeedbackPhotoItemViewCell.Nib, FeedbackPhotoItemViewCell.Key);
+                .Register<PhotoItemViewModel>(FeedbackPhotoItemViewCell.Nib, FeedbackPhotoItemViewCell.Key);
 
             PhotosCollectionView.Source = _source;
             PhotosCollectionView.Delegate = new FeedbackPhotosCollectionViewDelegateFlowLayout();

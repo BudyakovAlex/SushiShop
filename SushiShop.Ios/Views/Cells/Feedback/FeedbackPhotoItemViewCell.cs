@@ -3,7 +3,7 @@ using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
-using SushiShop.Core.ViewModels.Feedback.Items;
+using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Ios.Common.Styles;
 using UIKit;
 
@@ -31,11 +31,12 @@ namespace SushiShop.Ios.Views.Cells.Feedback
         {
             base.Bind();
 
-            var bindingSet = this.CreateBindingSet<FeedbackPhotoItemViewCell, FeedbackPhotoItemViewModel>();
+            var bindingSet = this.CreateBindingSet<FeedbackPhotoItemViewCell, PhotoItemViewModel>();
 
             bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
             bindingSet.Bind(ImageView).For(v => v.ImagePath).To(vm => vm.ImagePath);
             bindingSet.Bind(CloseImageView).For(v => v.BindTap()).To(vm => vm.RemoveCommand);
+            bindingSet.Bind(CloseImageView).For(v => v.BindVisible()).To(vm => vm.CanRemove);
 
             bindingSet.Apply();
         }

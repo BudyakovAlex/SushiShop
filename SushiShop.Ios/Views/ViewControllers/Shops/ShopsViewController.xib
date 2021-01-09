@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShopsViewController">
+            <connections>
+                <outlet property="contentCollectionView" destination="OQv-J3-mNV" id="OuN-gM-VIj"/>
+                <outlet property="tabsScrollableTabView" destination="TGU-Z4-P2d" id="RA4-0I-qx2"/>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGU-Z4-P2d" customClass="ScrollableTabView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="I3k-hR-hCv"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="OQv-J3-mNV">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qts-i2-bgX">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="xom-vz-d9J"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="xom-vz-d9J" firstAttribute="trailing" secondItem="OQv-J3-mNV" secondAttribute="trailing" id="2nz-4z-BM3"/>
+                <constraint firstItem="OQv-J3-mNV" firstAttribute="leading" secondItem="xom-vz-d9J" secondAttribute="leading" id="HRA-ps-QAX"/>
+                <constraint firstItem="TGU-Z4-P2d" firstAttribute="leading" secondItem="xom-vz-d9J" secondAttribute="leading" id="IOy-Jy-8cA"/>
+                <constraint firstItem="xom-vz-d9J" firstAttribute="bottom" secondItem="OQv-J3-mNV" secondAttribute="bottom" id="Lp6-83-YVn"/>
+                <constraint firstItem="OQv-J3-mNV" firstAttribute="top" secondItem="TGU-Z4-P2d" secondAttribute="bottom" id="VWq-We-bbc"/>
+                <constraint firstItem="TGU-Z4-P2d" firstAttribute="top" secondItem="xom-vz-d9J" secondAttribute="top" id="Xhw-TQ-N1f"/>
+                <constraint firstItem="xom-vz-d9J" firstAttribute="trailing" secondItem="TGU-Z4-P2d" secondAttribute="trailing" id="npP-Lu-DNd"/>
+            </constraints>
+            <point key="canvasLocation" x="-97" y="3"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

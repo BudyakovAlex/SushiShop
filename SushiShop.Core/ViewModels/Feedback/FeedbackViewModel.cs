@@ -13,7 +13,7 @@ using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Feedback;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Resources;
-using SushiShop.Core.ViewModels.Feedback.Items;
+using SushiShop.Core.ViewModels.Common.Items;
 
 namespace SushiShop.Core.ViewModels.Feedback
 {
@@ -29,7 +29,7 @@ namespace SushiShop.Core.ViewModels.Feedback
             this.dialog = dialog;
             this.media = media;
 
-            Photos = new MvxObservableCollection<FeedbackPhotoItemViewModel>();
+            Photos = new MvxObservableCollection<PhotoItemViewModel>();
 
             SendFeedbackCommand = new SafeAsyncCommand(
                 ExecutionStateWrapper,
@@ -44,7 +44,7 @@ namespace SushiShop.Core.ViewModels.Feedback
         public IMvxAsyncCommand SendFeedbackCommand { get; }
         public IMvxAsyncCommand UploadPhotosCommand { get; }
 
-        public MvxObservableCollection<FeedbackPhotoItemViewModel> Photos { get; }
+        public MvxObservableCollection<PhotoItemViewModel> Photos { get; }
 
         public string Title => AppStrings.Feedback;
         public string SendFeedbackTitle => AppStrings.Send;
@@ -157,10 +157,10 @@ namespace SushiShop.Core.ViewModels.Feedback
                 new DialogAction(AppStrings.UploadFromGallery, PickPhotoCommand));
         }
 
-        private FeedbackPhotoItemViewModel ProduceFeedbackPhotoViewModel(string imageUrl) =>
-            new FeedbackPhotoItemViewModel(imageUrl, RemovePhotoItem);
+        private PhotoItemViewModel ProduceFeedbackPhotoViewModel(string imageUrl) =>
+            new PhotoItemViewModel(imageUrl, RemovePhotoItem);
 
-        private void RemovePhotoItem(FeedbackPhotoItemViewModel item)
+        private void RemovePhotoItem(PhotoItemViewModel item)
         {
             Photos.Remove(item);
             RaisePropertyChanged(nameof(HasPhotos));

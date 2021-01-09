@@ -75,8 +75,7 @@ namespace SushiShop.Core.ViewModels.Info
 
         private Task GoToShopsAsync()
         {
-            //TODO: implement navigation
-            return Task.CompletedTask;
+            return NavigationManager.NavigateAsync<ShopsViewModel>();
         }
     }
 }

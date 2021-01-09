@@ -28,7 +28,7 @@ namespace SushiShop.Ios.Sources
         protected override UICollectionViewCell GetOrCreateCellFor(UICollectionView collectionView, NSIndexPath indexPath, object item)
         {
             var reuseIdentifier = GetReuseIdentifier(item);
-            return (UICollectionViewCell) collectionView.DequeueReusableCell(reuseIdentifier, indexPath);
+            return (UICollectionViewCell)collectionView.DequeueReusableCell(reuseIdentifier, indexPath);
         }
 
         private NSString GetReuseIdentifier(object item)

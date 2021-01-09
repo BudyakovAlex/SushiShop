@@ -19,7 +19,8 @@ namespace SushiShop.Core.Mappers
                 Enum.Parse<PriceGroup>(dto.PriceGroup!, ignoreCase: true),
                 dto.Phone!,
                 dto.CityGroups!,
-                dto.Currency!.Map());
+                dto.Currency!.Map(),
+                dto.IsMetroAvailable);
         }
     }
 }

@@ -156,8 +156,11 @@
   <data name="No" xml:space="preserve">
     <value>Нет</value>
   </data>
-  <data name="PrivacyPolicy" xml:space="preserve">
+  <data name="PrivacyPolicyConfirmation" xml:space="preserve">
     <value>Нажимая кнопку “Зарегистрироваться”, Я соглашаюсь с условием политики конфиденциальности</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Политика конфиденциальности</value>
   </data>
   <data name="PublicOffer" xml:space="preserve">
     <value>Публичная оферта</value>
@@ -350,5 +353,17 @@
   </data>
   <data name="Shops" xml:space="preserve">
     <value>Магазины</value>
+  </data>
+  <data name="Metro" xml:space="preserve">
+    <value>Метро</value>
+  </data>
+  <data name="OnMap" xml:space="preserve">
+    <value>На карте</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>Списком</value>
+  </data>
+  <data name="NoNearestMetro" xml:space="preserve">
+    <value>Ближайшее метро отсувствует</value>
   </data>
 </root>

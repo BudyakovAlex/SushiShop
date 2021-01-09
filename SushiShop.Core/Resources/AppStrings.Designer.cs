@@ -125,6 +125,12 @@ namespace SushiShop.Core.Resources {
             }
         }
         
+        public static string PrivacyPolicyConfirmation {
+            get {
+                return ResourceManager.GetString("PrivacyPolicyConfirmation", resourceCulture);
+            }
+        }
+        
         public static string PrivacyPolicy {
             get {
                 return ResourceManager.GetString("PrivacyPolicy", resourceCulture);
@@ -512,6 +518,30 @@ namespace SushiShop.Core.Resources {
         public static string Shops {
             get {
                 return ResourceManager.GetString("Shops", resourceCulture);
+            }
+        }
+        
+        public static string Metro {
+            get {
+                return ResourceManager.GetString("Metro", resourceCulture);
+            }
+        }
+        
+        public static string OnMap {
+            get {
+                return ResourceManager.GetString("OnMap", resourceCulture);
+            }
+        }
+        
+        public static string List {
+            get {
+                return ResourceManager.GetString("List", resourceCulture);
+            }
+        }
+        
+        public static string NoNearestMetro {
+            get {
+                return ResourceManager.GetString("NoNearestMetro", resourceCulture);
             }
         }
     }

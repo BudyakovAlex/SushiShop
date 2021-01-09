@@ -18,6 +18,7 @@ namespace SushiShop.Ios.Views.Controls
 
         private UIStackView stackView;
         private TabItemView[] tabs;
+        private NSLayoutConstraint trailingConstraint;
 
         public ScrollableTabView()
         {
@@ -34,6 +35,23 @@ namespace SushiShop.Ios.Views.Controls
         }
 
         public Action OnTabChangedAfterTapAction { get; set; }
+
+        private bool isFixedTabs;
+        public bool IsFixedTabs
+        {
+            get => isFixedTabs;
+            set
+            {
+                if (value == isFixedTabs)
+                {
+                    return;
+                }
+
+                isFixedTabs = value;
+                trailingConstraint.Active = value;
+                SetFixedTabs();
+            }
+        }
 
         private List<string> items;
         public List<string> Items
@@ -54,6 +72,8 @@ namespace SushiShop.Ios.Views.Controls
                         .Select(CreateTabItem)
                         .Pipe(stackView.AddArrangedSubview)
                         .ToArray();
+
+                    SetFixedTabs();
                 }
 
                 SelectedIndex = 0;
@@ -104,6 +124,8 @@ namespace SushiShop.Ios.Views.Controls
 
             AddSubview(stackView);
 
+            trailingConstraint = stackView.TrailingAnchor.ConstraintEqualTo(TrailingAnchor);
+
             NSLayoutConstraint.ActivateConstraints(new[]
             {
                 stackView.LeadingAnchor.ConstraintEqualTo(LeadingAnchor),
@@ -123,6 +145,11 @@ namespace SushiShop.Ios.Views.Controls
 
         private void ScrollTo(TabItemView tab)
         {
+            if (IsFixedTabs)
+            {
+                return;
+            }
+
             if (tab.Index == 0)
             {
                 SetScrollOffset(MinScrollOffset);
@@ -145,6 +172,21 @@ namespace SushiShop.Ios.Views.Controls
         {
             stackView.LayoutMargins = new UIEdgeInsets(0f, left, 0f, 0f);
             Animate(0.5d, 0f, UIViewAnimationOptions.AllowUserInteraction, stackView.LayoutIfNeeded, null);
+        }
+
+        private void SetFixedTabs()
+        {
+            if (!IsFixedTabs || tabs == null)
+            {
+                stackView.DirectionalLayoutMargins = new NSDirectionalEdgeInsets(0f, MinScrollOffset, 0f, 0f);
+                return;
+            }
+
+            stackView.DirectionalLayoutMargins = new NSDirectionalEdgeInsets(0f, 0f, 0f, 0f);
+
+            tabs
+                .Pipe(tab => tab.WidthAnchor.ConstraintEqualTo(stackView.WidthAnchor, 1.0f / Items.Count).Active = true)
+                .ToArray();
         }
 
         private class TabItemView : UIView

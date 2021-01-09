@@ -74,7 +74,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(NavigationItem.LeftBarButtonItem).For(v => v.BindClicked()).To(vm => vm.PlatformCloseCommand);
+            bindingSet.Bind(NavigationItem.LeftBarButtonItem).For(v => v.BindClicked()).To(vm => vm.CloseCommand);
             bindingSet.Bind(saveButton).For(v => v.BindTouchUpInside()).To(vm => vm.SaveCommand);
             bindingSet.Bind(NametextField).For(v => v.Text).To(vm => vm.FullName);
             bindingSet.Bind(GenderTextField).For(v => v.Text).To(vm => vm.Gender)
@@ -85,7 +85,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(PhoneTextField).For(v => v.Text).To(vm => vm.Phone);
             bindingSet.Bind(EmailTextField).For(v => v.Text).To(vm => vm.Email);
             bindingSet.Bind(IsAllowNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.IsAllowNotifications).TwoWay();
-            bindingSet.Bind(IsAllowPushSwitch).For(v => v.BindOn()).To(vm => vm.IsAllowPush).TwoWay();
+            bindingSet.Bind(IsAllowSubscribeSwitch).For(v => v.BindOn()).To(vm => vm.IsAllowSubscribe).TwoWay();
             bindingSet.Bind(genderPickerViewModel).For(v => v.ItemsSource).To(vm => vm.GenderTypes);
             bindingSet.Bind(genderPickerViewModel).For(v => v.SelectedItem).To(vm => vm.Gender).TwoWay();
             bindingSet.Bind(LoadingActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);

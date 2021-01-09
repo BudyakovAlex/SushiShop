@@ -9,6 +9,22 @@ namespace SushiShop.Ios.Views.ViewControllers.Common
     [MvxChildPresentation]
     public partial class PhotoDetailsViewController : BaseViewController<PhotoDetailsViewModel>
     {
+        private MainViewController rootViewController = (MainViewController)UIApplication.SharedApplication.KeyWindow.RootViewController;
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            rootViewController.HideTabView();
+        }
+
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
+
+            rootViewController.ShowTabView();
+        }
+
         protected override void InitStylesAndContent()
         {
             base.InitStylesAndContent();

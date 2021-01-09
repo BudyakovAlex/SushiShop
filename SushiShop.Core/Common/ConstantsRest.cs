@@ -45,6 +45,9 @@ namespace SushiShop.Core.Common
             public const string ProfileGetDiscountResource = "profile/get-discount";
             public const string ProfileSaveResource = "profile/save";
             public const string ProfileUploadPhotoResource = "profile/upload-photo";
+
+            public const string ShopsResource = "cities/shops";
+            public const string MetroShopsResource = "cities/metro-list";
         }
     }
 }

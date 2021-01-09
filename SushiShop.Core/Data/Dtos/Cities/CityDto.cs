@@ -16,6 +16,8 @@ namespace SushiShop.Core.Data.Dtos.Cities
         public string? PriceGroup { get; set; }
         public string? Phone { get; set; }
         public string? CityGroups { get; set; }
+        [JsonProperty("haveMetro")]
+        public bool IsMetroAvailable { get; set; }
         public CurrencyDto? Currency { get; set; }
     }
 }
