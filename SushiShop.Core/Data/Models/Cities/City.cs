@@ -7,6 +7,7 @@ namespace SushiShop.Core.Data.Models.Cities
     {
         public City(
             long id,
+            float zoomFactor,
             string name,
             int shopsCount,
             double latitude,
@@ -19,6 +20,7 @@ namespace SushiShop.Core.Data.Models.Cities
             bool isMetroAvailable)
         {
             Id = id;
+            ZoomFactor = zoomFactor;
             Name = name;
             ShopsCount = shopsCount;
             Latitude = latitude;
@@ -32,6 +34,7 @@ namespace SushiShop.Core.Data.Models.Cities
         }
 
         public long Id { get; set; }
+        public float ZoomFactor { get; set; }
         public string Name { get; set; }
         public int ShopsCount { get; set; }
         public double Latitude { get; set; }

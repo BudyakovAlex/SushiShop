@@ -7,7 +7,7 @@ namespace SushiShop.Core.Mappers
     {
         public static Coordinates Map(this CoordinatesDto dto)
         {
-            return new Coordinates(dto?.Latitude, dto?.Longitude);
+            return new Coordinates(dto?.Longitude, dto?.Latitude);
         }
     }
 }

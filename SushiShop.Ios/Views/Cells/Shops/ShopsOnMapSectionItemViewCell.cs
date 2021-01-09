@@ -5,6 +5,7 @@ using Foundation;
 using Google.Maps;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.ViewModels;
+using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using SushiShop.Ios.Common;
@@ -52,6 +53,43 @@ namespace SushiShop.Ios.Views.Cells.Shops
             set => OpenOrHideExpandContentView(value?.IsSelected ?? false);
         }
 
+        private float zoom;
+        public float Zoom
+        {
+            get => zoom;
+            set
+            {
+                zoom = value;
+                if (CenterCoordinates == null)
+                {
+                    return;
+                }
+
+                var coordinates = new CLLocationCoordinate2D(CenterCoordinates.Latitude ?? 0, CenterCoordinates.Longitude ?? 0);
+                var cameraPosition = CameraPosition.FromCamera(coordinates, value);
+                mapView?.MoveCamera(CameraUpdate.SetCamera(cameraPosition));
+            }
+        }
+
+        private Coordinates centerCoordinates;
+        public Coordinates CenterCoordinates
+        {
+            get => centerCoordinates;
+            set
+            {
+                centerCoordinates = value;
+                if (value is null)
+                {
+                    return;
+                }
+
+                var coordinates = new CLLocationCoordinate2D(value.Latitude ?? 0, value.Longitude ?? 0);
+                var currentZoom = zoom == 0 ? Core.Common.Constants.Map.DefaultZoomFactor : zoom;
+                var cameraPosition = CameraPosition.FromCamera(coordinates, currentZoom);
+                mapView?.MoveCamera(CameraUpdate.SetCamera(cameraPosition));
+            }
+        }
+
         private void OnItemsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             UpdateMarkers();
@@ -66,7 +104,7 @@ namespace SushiShop.Ios.Views.Cells.Shops
             shopDetailsBottomView = ShopDetailsBottomView.Create();
             
             var target = new CLLocationCoordinate2D(Core.Common.Constants.Map.MapStartPointLatitude, Core.Common.Constants.Map.MapStartPointLongitude);
-            var camera = CameraPosition.FromCamera(target, 5);
+            var camera = CameraPosition.FromCamera(target, Core.Common.Constants.Map.DefaultZoomFactor);
             mapView = new MapView
             {
                 Camera = camera,
@@ -96,6 +134,8 @@ namespace SushiShop.Ios.Views.Cells.Shops
             bindingSet.Bind(this).For(v => v.Items).To(vm => vm.Items);
             bindingSet.Bind(shopDetailsBottomView).For(v => v.DataContext).To(vm => vm.SelectedItem);
             bindingSet.Bind(this).For(nameof(SelectedItem)).To(vm => vm.SelectedItem);
+            bindingSet.Bind(this).For(v => v.CenterCoordinates).To(vm => vm.CenterCoordinates);
+            bindingSet.Bind(this).For(v => v.Zoom).To(vm => vm.ZoomFactor);
 
             bindingSet.Apply();
         }

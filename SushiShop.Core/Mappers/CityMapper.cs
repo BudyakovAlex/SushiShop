@@ -11,10 +11,11 @@ namespace SushiShop.Core.Mappers
         {
             return new City(
                 dto.Id,
+                dto.ZoomFactor,
                 dto.City!,
                 dto.ShopsCount,
                 dto.Latitude,
-                dto.Latitude,
+                dto.Longitude,
                 dto.TimeZone!,
                 Enum.Parse<PriceGroup>(dto.PriceGroup!, ignoreCase: true),
                 dto.Phone!,

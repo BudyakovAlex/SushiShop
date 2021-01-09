@@ -1,6 +1,9 @@
 ﻿using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
+using SushiShop.Core.Common;
+using SushiShop.Core.Data.Models.Cities;
+using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Managers.Shops;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
@@ -48,7 +51,7 @@ namespace SushiShop.Core.ViewModels.Info
             var city = userSession.GetCity();
             var isMetroAvailable = city?.IsMetroAvailable ?? true;
 
-            Items.AddRange(ProduceSectionsViewModels(isMetroAvailable));
+            Items.AddRange(ProduceSectionsViewModels(city, isMetroAvailable));
             TabsTitles.AddRange(ProduceSectionsTitles(isMetroAvailable));
 
             var getShopsTask = shopsManager.GetShopsAsync(city?.Name);
@@ -112,9 +115,12 @@ namespace SushiShop.Core.ViewModels.Info
             shopsOnMapSectionViewModel.SelectedItem = null;
         }
 
-        private IEnumerable<BaseViewModel> ProduceSectionsViewModels(bool isMetroAvailable)
+        private IEnumerable<BaseViewModel> ProduceSectionsViewModels(City? city, bool isMetroAvailable)
         {
-            yield return shopsOnMapSectionViewModel = new ShopsOnMapSectionViewModel();
+            var coordinates = city is null
+                ? new Coordinates(Constants.Map.MapStartPointLongitude, Constants.Map.MapStartPointLatitude)
+                : new Coordinates(city.Longitude, city.Latitude);
+            yield return shopsOnMapSectionViewModel = new ShopsOnMapSectionViewModel(coordinates, city?.ZoomFactor ?? Constants.Map.DefaultZoomFactor);
             yield return shopsListSectionViewModel = new ShopsListSectionViewModel().DisposeWith(Disposables);
 
             if (isMetroAvailable)

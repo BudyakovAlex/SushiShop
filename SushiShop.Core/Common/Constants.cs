@@ -22,6 +22,7 @@
             public const string MapKey = "AIzaSyAbKymKuZG4Ipeg8Y6mt03Qel73poVU33E";
             public const double MapStartPointLatitude = 59.934664;
             public const double MapStartPointLongitude = 30.334695;
+            public const float DefaultZoomFactor = 10;
         }
     }
 }

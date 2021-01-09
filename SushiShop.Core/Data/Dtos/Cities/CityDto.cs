@@ -19,5 +19,7 @@ namespace SushiShop.Core.Data.Dtos.Cities
         [JsonProperty("haveMetro")]
         public bool IsMetroAvailable { get; set; }
         public CurrencyDto? Currency { get; set; }
+        [JsonProperty("defaultMapZoom")]
+        public float ZoomFactor { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
+using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.ViewModels.Shops.Items;
 using System.Linq;
@@ -9,11 +10,13 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
 {
     public class ShopsOnMapSectionViewModel : BaseViewModel
     {
-        public ShopsOnMapSectionViewModel()
+        public ShopsOnMapSectionViewModel(Coordinates centerCoordinates, float zoomFactor)
         {
             Items = new MvxObservableCollection<ShopItemViewModel>();
 
             SelectItemCommand = new MvxCommand<ShopItemViewModel>(ItemSelected);
+            CenterCoordinates = centerCoordinates;
+            ZoomFactor = zoomFactor;
         }
 
         public IMvxCommand<ShopItemViewModel> SelectItemCommand { get; }
@@ -26,6 +29,10 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
             get => selectedItem;
             set => SetProperty(ref selectedItem, value);
         }
+
+        public Coordinates CenterCoordinates { get; }
+
+        public float ZoomFactor { get; }
 
         public void SetShops(Shop[] shops)
         {
