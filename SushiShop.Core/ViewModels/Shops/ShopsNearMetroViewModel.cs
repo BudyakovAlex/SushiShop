@@ -94,7 +94,9 @@ namespace SushiShop.Core.ViewModels.Shops
 
         private void ShowNearestMetro(Shop shop)
         {
-            var metroViewModels = shop.Metro.Select(metro => new MetroItemViewModel(metro.Name!, GoToShopAsync)).ToArray();
+            var metroViewModels = shop.Metro.Where(metro => metro.Name != Title)
+                                            .Select(metro => new MetroItemViewModel(metro.Name!, GoToShopAsync))
+                                            .ToArray();
             NearestMetro.ReplaceWith(metroViewModels);
         }
 
