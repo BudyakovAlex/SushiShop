@@ -92,6 +92,12 @@
     <PackageReference Include="Xam.Plugin.Media">
       <Version>5.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Google.iOS.Maps">
+      <Version>3.9.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.GoogleMapsUtils">
+      <Version>1.0.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -246,6 +252,14 @@
     <ImageAsset Include="Assets.xcassets\ic_bonus_three.imageset\ic_bonus_three.pdf" />
     <ImageAsset Include="Assets.xcassets\ic_close_rounded.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ic_close_rounded.imageset\ic_close_rounded.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_metro.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_metro.imageset\metro.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_pin.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_pin.imageset\pin.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_default_marker.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_default_marker.imageset\ic_default_marker.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_selected_marker.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_selected_marker.imageset\ic_selected_marker.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -309,6 +323,12 @@
         <Folder Include="Plugins\" />
         <Folder Include="Views\ViewControllers\Common\" />
         <Folder Include="Views\Cells\Info\" />
+        <Folder Include="Views\ViewControllers\Shops\" />
+        <Folder Include="Views\Cells\Shops\" />
+        <Folder Include="Assets.xcassets\ic_metro.imageset\" />
+        <Folder Include="Assets.xcassets\ic_pin.imageset\" />
+        <Folder Include="Assets.xcassets\ic_default_marker.imageset\" />
+        <Folder Include="Assets.xcassets\ic_selected_marker.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -353,6 +373,17 @@
     <InterfaceDefinition Include="Views\ViewControllers\Common\PhotoDetailsViewController.xib" />
     <InterfaceDefinition Include="Views\Cells\Info\InfoMenuItemViewCell.xib" />
     <InterfaceDefinition Include="Views\Cells\Info\SocialNetworkItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Shops\ShopsViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\Shops\ShopsOnMapSectionItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\Cells\Shops\ShopsListSectionItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\Cells\Shops\MetroSectionItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\Cells\Shops\MetroItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\Cells\Shops\ShopItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Shops\ShopOnMapViewController.xib" />
+    <InterfaceDefinition Include="Views\Controls\ShopDetailsBottomView.xib" />
+    <InterfaceDefinition Include="Views\Controls\NearestMetroView.xib" />
+    <InterfaceDefinition Include="Views\Cells\Shops\NearestMetroItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Shops\ShopsNearMetroViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -572,6 +603,51 @@
     <Compile Include="Sources\GenderPickerViewModel.cs" />
     <Compile Include="Views\Cells\Info\InfoMenuItemViewCell.cs" />
     <Compile Include="Views\Cells\Info\SocialNetworkItemViewCell.cs" />
+    <Compile Include="Views\ViewControllers\Shops\ShopsViewController.cs" />
+    <Compile Include="Views\ViewControllers\Shops\ShopsViewController.designer.cs">
+      <DependentUpon>ShopsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Shops\ShopsOnMapSectionItemViewCell.cs" />
+    <Compile Include="Views\Cells\Shops\ShopsOnMapSectionItemViewCell.designer.cs">
+      <DependentUpon>ShopsOnMapSectionItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Shops\ShopsListSectionItemViewCell.cs" />
+    <Compile Include="Views\Cells\Shops\ShopsListSectionItemViewCell.designer.cs">
+      <DependentUpon>ShopsListSectionItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Shops\MetroSectionItemViewCell.cs" />
+    <Compile Include="Views\Cells\Shops\MetroSectionItemViewCell.designer.cs">
+      <DependentUpon>MetroSectionItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delegates\ShopsContentCollectionViewDelegateFlowLayout.cs" />
+    <Compile Include="Views\Cells\Shops\MetroItemViewCell.cs" />
+    <Compile Include="Views\Cells\Shops\MetroItemViewCell.designer.cs">
+      <DependentUpon>MetroItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Shops\ShopItemViewCell.cs" />
+    <Compile Include="Views\Cells\Shops\ShopItemViewCell.designer.cs">
+      <DependentUpon>ShopItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Shops\ShopOnMapViewController.cs" />
+    <Compile Include="Views\ViewControllers\Shops\ShopOnMapViewController.designer.cs">
+      <DependentUpon>ShopOnMapViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ShopDetailsBottomView.cs" />
+    <Compile Include="Views\Controls\ShopDetailsBottomView.designer.cs">
+      <DependentUpon>ShopDetailsBottomView.cs</DependentUpon>
+    </Compile>      
+    <Compile Include="Views\Controls\NearestMetroView.cs" />
+    <Compile Include="Views\Controls\NearestMetroView.designer.cs">
+      <DependentUpon>NearestMetroView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Shops\NearestMetroItemViewCell.cs" />
+    <Compile Include="Views\Cells\Shops\NearestMetroItemViewCell.designer.cs">
+      <DependentUpon>NearestMetroItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Shops\ShopsNearMetroViewController.cs" />
+    <Compile Include="Views\ViewControllers\Shops\ShopsNearMetroViewController.designer.cs">
+      <DependentUpon>ShopsNearMetroViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

@@ -1,8 +1,11 @@
-﻿using BuildApps.Core.Mobile.Common.Extensions;
+﻿using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.NavigationParameters;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Shops.Items;
 using System;
 using System.Collections.Generic;
@@ -10,6 +13,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Reactive.Disposables;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SushiShop.Core.ViewModels.Shops.Sections
 {
@@ -26,7 +30,11 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
             NearestMetro = new MvxObservableCollection<MetroItemViewModel>();
 
             NearestMetro.SubscribeToCollectionChanged(OnNearestMetroCollectionChanged).DisposeWith(Disposables);
+
+            ClearNearestMetroCommand = new MvxCommand(() => NearestMetro.Clear());
         }
+
+        public ICommand ClearNearestMetroCommand { get; }
 
         public MvxObservableCollection<ShopItemViewModel> Items { get; }
 
@@ -54,18 +62,26 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
 
         private Task GoToShopAsync(MetroItemViewModel itemViewModel)
         {
+            NearestMetro.Clear();
+
             var shops = metroShopsMappings?.GetValueOrDefault(itemViewModel.Text);
             if (shops is null || shops.Length == 0)
             {
                 return Task.CompletedTask;
             }
 
-            var navigationParameter = new ShopsNearMetroNavigationParameters(shops);
+            var navigationParameter = new ShopsNearMetroNavigationParameters(shops, itemViewModel.Text);
             return NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters>(navigationParameter);
         }
 
         private void ShowNearestMetro(Shop shop)
         {
+            if (shop.Metro.Length == 0)
+            {
+                UserDialogs.Instance.Alert(AppStrings.NoNearestMetro);
+                return;
+            }
+
             var metroViewModels = shop.Metro.Select(metro => new MetroItemViewModel(metro.Name!, GoToShopAsync)).ToArray();
             NearestMetro.ReplaceWith(metroViewModels);
         }

@@ -7,6 +7,7 @@ namespace SushiShop.Core.Data.Dtos.Shops
     {
         public long Id { get; set; }
 
+        [JsonProperty("cordinates")]
         public CoordinatesDto? Coordinates { get; set; }
 
         [JsonProperty("timezone")]
@@ -53,7 +54,7 @@ namespace SushiShop.Core.Data.Dtos.Shops
         public bool IsOrderAvailable { get; set; }
 
         [JsonProperty("merchant")]
-        public long MerchantId { get; set; }
+        public long? MerchantId { get; set; }
 
         [JsonProperty("sendOrderToRKeeper")]
         public bool CanSendOrderToRKeeper { get; set; }

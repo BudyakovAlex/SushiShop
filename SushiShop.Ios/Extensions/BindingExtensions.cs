@@ -1,4 +1,5 @@
-﻿using SushiShop.Ios.Common;
+﻿using Google.Maps;
+using SushiShop.Ios.Common;
 using SushiShop.Ios.TargetBindings;
 using UIKit;
 using WebKit;

@@ -3,9 +3,13 @@ using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.NavigationParameters;
+using SushiShop.Core.Providers;
+using SushiShop.Core.Resources;
+using SushiShop.Core.ViewModels.Common;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,11 +19,13 @@ namespace SushiShop.Core.ViewModels.Profile
     public class RegistrationViewModel : BasePageViewModelResult<bool>
     {
         private readonly IProfileManager profileManager;
+        private readonly IUserSession userSession;
         private readonly IUserDialogs userDialogs;
 
-        public RegistrationViewModel(IProfileManager profileManager)
+        public RegistrationViewModel(IProfileManager profileManager, IUserSession userSession)
         {
             this.profileManager = profileManager;
+            this.userSession = userSession;
             this.userDialogs = UserDialogs.Instance;
 
             RegisterCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegisterAsync);
@@ -135,7 +141,9 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private Task ShowPrivacyPolicyAsync()
         {
-            return Task.CompletedTask;
+            var city = userSession.GetCity();
+            var navigationParameters = new CommonInfoNavigationParameters(CommonInfoType.Content, 0, city?.Name, Constants.Rest.PrivacyPolicyResource, AppStrings.PrivacyPolicy);
+            return NavigationManager.NavigateAsync<CommonInfoViewModel, CommonInfoNavigationParameters>(navigationParameters);
         }
     }
 }

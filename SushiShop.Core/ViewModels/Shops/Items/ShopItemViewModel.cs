@@ -28,15 +28,17 @@ namespace SushiShop.Core.ViewModels.Shops.Items
 
         public MvxObservableCollection<PhotoItemViewModel> Photos { get; }
 
-        public double? Latitude => Key.Coordinates.Latitude;
+        public double Latitude => Key.Coordinates.Latitude ?? 0;
 
-        public double? Longitude => Key.Coordinates.Longitude;
+        public double Longitude => Key.Coordinates.Longitude ?? 0;
 
         public string? Phone => Key.Phone;
 
         public string? WorkingTime => GetWorkingTimeTitle();
 
         public string? DriveWay => Key.DriveWay;
+
+        public string? LongTitle => Key.LongTitle;
 
         private string? GetWorkingTimeTitle()
         {
@@ -55,7 +57,7 @@ namespace SushiShop.Core.ViewModels.Shops.Items
 
         private PhotoItemViewModel[] ProducePhotoViewModels()
         {
-            var viewModels = Key.Images.Select(item => new PhotoItemViewModel(item.JpgUrl!, null)).ToArray();
+            var viewModels = Key.Images.Select(item => new PhotoItemViewModel(item.JpgUrl!, canRemove: false)).ToArray();
             return viewModels;
         }
 

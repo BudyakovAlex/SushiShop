@@ -40,11 +40,14 @@ namespace SushiShop.Core.ViewModels.Shops
 
         public bool IsNearestMetroNotEmpty => NearestMetro.Count > 0;
 
+        public string? Title { get; private set; }
+
         public MvxObservableCollection<MetroItemViewModel> NearestMetro { get; }
 
         public override void Prepare(ShopsNearMetroNavigationParameters parameter)
         {
             var viewModels = parameter.Shops.Select(item => new ShopItemViewModel(item.Shop!, showNearestMetroAction: ShowNearestMetro)).ToArray();
+            Title = parameter.Title;
             Items.AddRange(viewModels);
         }
 
@@ -68,15 +71,23 @@ namespace SushiShop.Core.ViewModels.Shops
             metroShopsMappings = response.Data;
         }
 
+        protected override Task CloseAsync(bool? isPlatform)
+        {
+            NearestMetro.Clear();
+            return base.CloseAsync(isPlatform);
+        }
+
         private Task GoToShopAsync(MetroItemViewModel itemViewModel)
         {
+            NearestMetro.Clear();
+
             var shops = metroShopsMappings?.GetValueOrDefault(itemViewModel.Text);
             if (shops is null || shops.Length == 0)
             {
                 return Task.CompletedTask;
             }
 
-            var navigationParameter = new ShopsNearMetroNavigationParameters(shops);
+            var navigationParameter = new ShopsNearMetroNavigationParameters(shops, Title);
             return NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters>(navigationParameter);
         }
 

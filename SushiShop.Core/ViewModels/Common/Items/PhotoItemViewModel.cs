@@ -8,9 +8,10 @@ namespace SushiShop.Core.ViewModels.Common.Items
 {
     public class PhotoItemViewModel : BaseViewModel
     {
-        public PhotoItemViewModel(string imagePath, Action<PhotoItemViewModel>? removeAction)
+        public PhotoItemViewModel(string imagePath, Action<PhotoItemViewModel>? removeAction = null, bool canRemove = true)
         {
             ImagePath = imagePath;
+            CanRemove = canRemove;
 
             RemoveCommand = new MvxCommand(() => removeAction?.Invoke(this));
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
@@ -20,6 +21,8 @@ namespace SushiShop.Core.ViewModels.Common.Items
         public IMvxCommand ShowDetailsCommand { get; }
 
         public string ImagePath { get; }
+
+        public bool CanRemove { get; }
 
         private Task ShowDetailsAsync()
         {

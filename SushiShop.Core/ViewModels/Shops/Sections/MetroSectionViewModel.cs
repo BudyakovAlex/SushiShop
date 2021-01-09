@@ -36,7 +36,7 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
                 return Task.CompletedTask;
             }
 
-            var navigationParameter = new ShopsNearMetroNavigationParameters(shops);
+            var navigationParameter = new ShopsNearMetroNavigationParameters(shops, itemViewModel.Text);
             return NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters>(navigationParameter);
         }
     }

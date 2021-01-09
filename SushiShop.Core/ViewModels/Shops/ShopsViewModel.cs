@@ -3,6 +3,8 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Managers.Shops;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Resources;
+using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -17,11 +19,21 @@ namespace SushiShop.Core.ViewModels.Info
         private ShopsOnMapSectionViewModel? shopsOnMapSectionViewModel;
         private ShopsListSectionViewModel? shopsListSectionViewModel;
         private MetroSectionViewModel? metroSectionViewModel;
+        private ShopItemViewModel? savedSelectedItem;
 
         public ShopsViewModel(IShopsManager shopsManager, IUserSession userSession)
         {
             this.shopsManager = shopsManager;
             this.userSession = userSession;
+        }
+
+        public List<string> TabsTitles { get; } = new List<string>();
+
+        private int selectedIndex;
+        public int SelectedIndex
+        {
+            get => selectedIndex;
+            set => SetProperty(ref selectedIndex, value, OnSelectedIndexChanged);
         }
 
         public override Task InitializeAsync()
@@ -33,7 +45,9 @@ namespace SushiShop.Core.ViewModels.Info
         {
             var city = userSession.GetCity();
             var isMetroAvailable = city?.IsMetroAvailable ?? true;
+
             Items.AddRange(ProduceSectionsViewModels(isMetroAvailable));
+            TabsTitles.AddRange(ProduceSectionsTitles(isMetroAvailable));
 
             var getShopsTask = shopsManager.GetShopsAsync(city?.Name);
             var getMetroShopsTask = shopsManager.GetMetroShopsAsync(city?.Name);
@@ -52,6 +66,28 @@ namespace SushiShop.Core.ViewModels.Info
             metroSectionViewModel?.SetMetroShops(getMetroShopsTask.Result.Data);
         }
 
+        private void ShowSelectedItem()
+        {
+            if (shopsOnMapSectionViewModel is null)
+            {
+                return;
+            }
+
+            shopsOnMapSectionViewModel.SelectedItem = savedSelectedItem;
+            savedSelectedItem = null;
+        }
+
+        private void HideSelectedItem()
+        {
+            if (shopsOnMapSectionViewModel is null)
+            {
+                return;
+            }
+
+            savedSelectedItem = shopsOnMapSectionViewModel.SelectedItem;
+            shopsOnMapSectionViewModel.SelectedItem = null;
+        }
+
         private IEnumerable<BaseViewModel> ProduceSectionsViewModels(bool isMetroAvailable)
         {
             yield return shopsOnMapSectionViewModel = new ShopsOnMapSectionViewModel();
@@ -61,6 +97,28 @@ namespace SushiShop.Core.ViewModels.Info
             {
                 yield return metroSectionViewModel = new MetroSectionViewModel();
             }
+        }
+
+        private IEnumerable<string> ProduceSectionsTitles(bool isMetroAvailable)
+        {
+            yield return AppStrings.OnMap;
+            yield return AppStrings.List;
+
+            if (isMetroAvailable)
+            {
+                yield return AppStrings.Metro;
+            }
+        }
+
+        private void OnSelectedIndexChanged()
+        {
+            if (selectedIndex == 0)
+            {
+                ShowSelectedItem();
+                return;
+            }
+
+            HideSelectedItem();
         }
     }
 }

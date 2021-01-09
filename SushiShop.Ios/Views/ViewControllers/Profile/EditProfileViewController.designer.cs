@@ -25,7 +25,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 		UIKit.UISwitch IsAllowNotificationsSwitch { get; set; }
 
 		[Outlet]
-		UIKit.UISwitch IsAllowPushSwitch { get; set; }
+		UIKit.UISwitch IsAllowSubscribeSwitch { get; set; }
 
 		[Outlet]
 		UIKit.UIActivityIndicatorView LoadingActivityIndicator { get; set; }
@@ -53,29 +53,29 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				GenderTextField = null;
 			}
 
-			if (NametextField != null) {
-				NametextField.Dispose ();
-				NametextField = null;
-			}
-
-			if (IsAllowPushSwitch != null) {
-				IsAllowPushSwitch.Dispose ();
-				IsAllowPushSwitch = null;
-			}
-
 			if (IsAllowNotificationsSwitch != null) {
 				IsAllowNotificationsSwitch.Dispose ();
 				IsAllowNotificationsSwitch = null;
 			}
 
-			if (PhoneTextField != null) {
-				PhoneTextField.Dispose ();
-				PhoneTextField = null;
+			if (IsAllowSubscribeSwitch != null) {
+				IsAllowSubscribeSwitch.Dispose ();
+				IsAllowSubscribeSwitch = null;
 			}
 
 			if (LoadingActivityIndicator != null) {
 				LoadingActivityIndicator.Dispose ();
 				LoadingActivityIndicator = null;
+			}
+
+			if (NametextField != null) {
+				NametextField.Dispose ();
+				NametextField = null;
+			}
+
+			if (PhoneTextField != null) {
+				PhoneTextField.Dispose ();
+				PhoneTextField = null;
 			}
 		}
 	}

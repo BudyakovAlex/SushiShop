@@ -20,7 +20,7 @@
                 <outlet property="EmailTextField" destination="HRy-cc-tiA" id="ojt-3Z-MAK"/>
                 <outlet property="GenderTextField" destination="CSU-Li-jAw" id="BaC-Kf-zPe"/>
                 <outlet property="IsAllowNotificationsSwitch" destination="RbN-PB-6OS" id="f3c-ZS-jpi"/>
-                <outlet property="IsAllowPushSwitch" destination="Sc4-Kr-Ngg" id="4Ch-Ib-GDz"/>
+                <outlet property="IsAllowSubscribeSwitch" destination="Sc4-Kr-Ngg" id="tbG-O3-LPi"/>
                 <outlet property="LoadingActivityIndicator" destination="rmX-HJ-ise" id="yaG-2F-OmT"/>
                 <outlet property="NametextField" destination="uwh-C4-Ged" id="gPc-tS-p0B"/>
                 <outlet property="PhoneTextField" destination="7FF-7b-yXf" id="rON-NE-LmU"/>

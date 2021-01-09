@@ -36,6 +36,7 @@ namespace SushiShop.Ios.Views.Cells.Feedback
             bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
             bindingSet.Bind(ImageView).For(v => v.ImagePath).To(vm => vm.ImagePath);
             bindingSet.Bind(CloseImageView).For(v => v.BindTap()).To(vm => vm.RemoveCommand);
+            bindingSet.Bind(CloseImageView).For(v => v.BindVisible()).To(vm => vm.CanRemove);
 
             bindingSet.Apply();
         }

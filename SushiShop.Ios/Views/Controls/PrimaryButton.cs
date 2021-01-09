@@ -52,12 +52,15 @@ namespace SushiShop.Ios.Views.Controls
         {
             base.LayoutSubviews();
             gradientLayer.Frame = Bounds;
+
+            
         }
 
         private void Initialize()
         {
             gradientLayer = Components.CreateGradientLayer();
-            Layer.AddSublayer(gradientLayer);
+            Layer.InsertSublayer(gradientLayer, 0);
+            BringSubviewToFront(ImageView);
             this.SetCornerRadius();
         }
     }

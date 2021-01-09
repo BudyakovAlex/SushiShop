@@ -46,7 +46,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
             DateOfBirthTextField.InputAccessoryView = new DoneAccessoryView(View, () => { });
 
-            var attributedText = new NSMutableAttributedString(AppStrings.PrivacyPolicy);
+            var attributedText = new NSMutableAttributedString(AppStrings.PrivacyPolicyConfirmation);
             attributedText.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), privacyPolicyRange);
             AcceptDescriptionLabel.AttributedText = attributedText;
             AcceptDescriptionLabel.AddGestureRecognizer(new UITapGestureRecognizer(TapOnLabel).DisposeWith(ViewModel?.Disposables));

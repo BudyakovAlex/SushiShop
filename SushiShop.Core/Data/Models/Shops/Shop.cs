@@ -20,7 +20,7 @@ namespace SushiShop.Core.Data.Models.Shops
             string? phone,
             bool isFranchisePoint,
             bool isDelivery,
-            long merchantId,
+            long? merchantId,
             bool isPizzaPoint,
             bool isOrderAvailable,
             bool canSendOrderToRKeeper,
@@ -93,7 +93,7 @@ namespace SushiShop.Core.Data.Models.Shops
 
         public string? Phone { get; }
 
-        public long MerchantId { get; }
+        public long? MerchantId { get; }
 
         public bool IsFranchisePoint { get; }
 

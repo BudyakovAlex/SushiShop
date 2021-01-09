@@ -16,5 +16,12 @@
         {
             public const string OfficePhone = "+7 (812) 493 4444";
         }
+
+        public static class Map
+        {
+            public const string MapKey = "AIzaSyAbKymKuZG4Ipeg8Y6mt03Qel73poVU33E";
+            public const double MapStartPointLatitude = 59.934664;
+            public const double MapStartPointLongitude = 30.334695;
+        }
     }
 }

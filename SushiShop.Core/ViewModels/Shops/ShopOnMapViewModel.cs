@@ -1,5 +1,6 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using SushiShop.Core.NavigationParameters;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Shops.Items;
 
 namespace SushiShop.Core.ViewModels.Shops
@@ -12,5 +13,7 @@ namespace SushiShop.Core.ViewModels.Shops
         }
 
         public ShopItemViewModel? ShopItemViewModel { get; private set; }
+
+        public string Title => AppStrings.OnMap;
     }
 }

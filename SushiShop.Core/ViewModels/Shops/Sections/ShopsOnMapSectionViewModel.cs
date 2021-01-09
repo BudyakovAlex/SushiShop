@@ -38,7 +38,18 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
             foreach (var item in Items)
             {
                 item.IsSelected = item == shopItemViewModel && !item.IsSelected;
+                if (item.IsSelected)
+                {
+                    SelectedItem = item;
+                }
             }
+
+            if (Items.Any(item => item.IsSelected))
+            {
+                return;
+            }
+
+            SelectedItem = null;
         }
     }
 }
