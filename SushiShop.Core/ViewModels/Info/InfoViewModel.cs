@@ -1,9 +1,11 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Common;
 using SushiShop.Core.Managers.CommonInfo;
+using SushiShop.Core.Messages;
 using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Info.Items;
 using System.Linq;
@@ -27,13 +29,15 @@ namespace SushiShop.Core.ViewModels.Info
 
             GoToShopsCommand = new SafeAsyncCommand(ExecutionStateWrapper, GoToShopsAsync);
             CallToOfficeCommand = new MvxCommand(() => ExecutionStateWrapper.Wrap(CallToOffice));
+
+            Messenger.Subscribe<CityChangedMessage>(OnCityChnaged).DisposeWith(Disposables);
         }
 
         public ICommand CallToOfficeCommand { get; }
 
         public ICommand GoToShopsCommand { get; }
 
-        public string OfficePhone => Constants.Info.OfficePhone;
+        public string? OfficePhone { get; private set; }
 
         public MvxObservableCollection<SocialNetworkItemViewModel> SocialNetworks { get; }
 
@@ -47,10 +51,14 @@ namespace SushiShop.Core.ViewModels.Info
         protected override async Task RefreshDataAsync()
         {
             await base.RefreshDataAsync();
+
+            var city = userSession.GetCity();
+            OfficePhone = city?.Phone ?? Constants.Info.OfficePhone;
+
             var getMenuListTask = commonInfoManager.GetCommonInfoMenuAsync();
             var getSocialNetworksTask = commonInfoManager.GetSocialNetworksAsync();
 
-            await Task.WhenAll(getMenuListTask, getSocialNetworksTask);
+            await Task.WhenAll(getMenuListTask, getSocialNetworksTask, RaisePropertyChanged(nameof(OfficePhone)));
             if (!getMenuListTask.Result.IsSuccessful)
             {
                 return;
@@ -70,12 +78,17 @@ namespace SushiShop.Core.ViewModels.Info
 
         private void CallToOffice()
         {
-            SafeExecutionWrapper.Wrap(() => PhoneDialer.Open(Constants.Info.OfficePhone));  
+            SafeExecutionWrapper.Wrap(() => PhoneDialer.Open(OfficePhone));  
         }
 
         private Task GoToShopsAsync()
         {
             return NavigationManager.NavigateAsync<ShopsViewModel>();
+        }
+
+        private void OnCityChnaged(CityChangedMessage message)
+        {
+            RefreshDataCommand.Execute();
         }
     }
 }

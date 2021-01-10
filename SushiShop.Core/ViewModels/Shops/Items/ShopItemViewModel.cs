@@ -1,4 +1,5 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Simple;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.ViewModels.Simple;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Shops;
@@ -37,6 +38,8 @@ namespace SushiShop.Core.ViewModels.Shops.Items
         public string? WorkingTime => GetWorkingTimeTitle();
 
         public string? DriveWay => Key.DriveWay;
+
+        public bool HasDriveWay => DriveWay.IsNotNullNorEmpty();
 
         public string? LongTitle => Key.LongTitle;
 

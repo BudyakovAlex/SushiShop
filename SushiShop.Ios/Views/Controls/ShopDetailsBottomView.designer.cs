@@ -15,6 +15,9 @@ namespace SushiShop.Ios.Views.Controls
 		UIKit.UIScrollView ContentScrollView { get; set; }
 
 		[Outlet]
+		UIKit.UIView DriveWayContainerView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel DriveWayLabel { get; set; }
 
 		[Outlet]
@@ -75,6 +78,11 @@ namespace SushiShop.Ios.Views.Controls
 			if (TitleLabel != null) {
 				TitleLabel.Dispose ();
 				TitleLabel = null;
+			}
+
+			if (DriveWayContainerView != null) {
+				DriveWayContainerView.Dispose ();
+				DriveWayContainerView = null;
 			}
 		}
 	}

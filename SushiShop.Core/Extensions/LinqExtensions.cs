@@ -67,6 +67,12 @@ namespace SushiShop.Core.Extensions
             return source.DistinctBy(keySelector, null);
         }
 
+        public static void ReplaceWith<TSource>(this List<TSource> items, IEnumerable<TSource> newItems)
+        {
+            items.Clear();
+            items.AddRange(newItems);
+        }
+
         public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source,
                                                                      Func<TSource, TKey> keySelector,
                                                                      IEqualityComparer<TKey>? comparer)

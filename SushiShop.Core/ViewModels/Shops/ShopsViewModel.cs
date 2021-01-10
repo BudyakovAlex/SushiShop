@@ -4,7 +4,9 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Common;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Shops;
+using SushiShop.Core.Messages;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Shops.Items;
@@ -24,12 +26,15 @@ namespace SushiShop.Core.ViewModels.Info
         private ShopsListSectionViewModel? shopsListSectionViewModel;
         private MetroSectionViewModel? metroSectionViewModel;
         private ShopItemViewModel? savedSelectedItem;
+
         private int previousSelectedIndex;
 
         public ShopsViewModel(IShopsManager shopsManager, IUserSession userSession)
         {
             this.shopsManager = shopsManager;
             this.userSession = userSession;
+
+            Messenger.Subscribe<CityChangedMessage>(OnCityChnaged).DisposeWith(Disposables);
         }
 
         public List<string> TabsTitles { get; } = new List<string>();
@@ -51,12 +56,12 @@ namespace SushiShop.Core.ViewModels.Info
             var city = userSession.GetCity();
             var isMetroAvailable = city?.IsMetroAvailable ?? true;
 
-            Items.AddRange(ProduceSectionsViewModels(city, isMetroAvailable));
-            TabsTitles.AddRange(ProduceSectionsTitles(isMetroAvailable));
+            Items.ReplaceWith(ProduceSectionsViewModels(city, isMetroAvailable));
+            TabsTitles.ReplaceWith(ProduceSectionsTitles(isMetroAvailable));
 
             var getShopsTask = shopsManager.GetShopsAsync(city?.Name);
             var getMetroShopsTask = shopsManager.GetMetroShopsAsync(city?.Name);
-            await Task.WhenAll(getShopsTask, getMetroShopsTask);
+            await Task.WhenAll(getShopsTask, getMetroShopsTask, RaisePropertyChanged(nameof(TabsTitles)));
 
             if (!getShopsTask.Result.IsSuccessful
                 || !getMetroShopsTask.Result.IsSuccessful)
@@ -153,6 +158,11 @@ namespace SushiShop.Core.ViewModels.Info
             }
 
             previousSelectedIndex = selectedIndex;
+        }
+
+        private void OnCityChnaged(CityChangedMessage message)
+        {
+            RefreshDataCommand.Execute();
         }
     }
 }

@@ -5,6 +5,7 @@ using CoreAnimation;
 using CoreFoundation;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
+using MvvmCross.Platforms.Ios.Binding;
 using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Ios.Delegates;
@@ -60,6 +61,7 @@ namespace SushiShop.Ios.Views.Controls
             bindingSet.Bind(PhoneLabel).For(v => v.Text).To(vm => vm.Phone);
             bindingSet.Bind(TimeWorkingLabel).For(v => v.Text).To(vm => vm.WorkingTime);
             bindingSet.Bind(DriveWayLabel).For(v => v.Text).To(vm => vm.DriveWay);
+            bindingSet.Bind(DriveWayContainerView).For(v => v.BindVisible()).To(vm => vm.HasDriveWay);
             bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.LongTitle);
             bindingSet.Bind(photosCollectionViewSource).For(v => v.ItemsSource).To(vm => vm.Photos);
 

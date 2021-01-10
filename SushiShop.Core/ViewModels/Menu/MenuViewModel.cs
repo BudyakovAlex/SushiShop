@@ -192,6 +192,7 @@ namespace SushiShop.Core.ViewModels.Menu
             await RaisePropertyChanged(nameof(CityName));
             await ReloadDataAsync();
 
+            Messenger.Publish(new CityChangedMessage(this));
             Messenger.Publish(new RefreshCartMessage(this));
         }
     }
