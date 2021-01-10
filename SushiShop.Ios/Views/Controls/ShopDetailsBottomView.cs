@@ -1,16 +1,17 @@
-﻿using System;
-using System.Threading.Tasks;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Controls;
+﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Controls;
 using CoreAnimation;
 using CoreFoundation;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Feedback;
+using System;
+using System.Threading.Tasks;
 using UIKit;
 
 namespace SushiShop.Ios.Views.Controls
@@ -25,7 +26,6 @@ namespace SushiShop.Ios.Views.Controls
         private readonly float startHeight = (float)UIApplication.SharedApplication.KeyWindow.Frame.Height * 0.25f;
 
         private NSLayoutConstraint heightConstraint;
-        private bool isExpanded;
 
         private CollectionViewSource photosCollectionViewSource;
 
@@ -33,11 +33,16 @@ namespace SushiShop.Ios.Views.Controls
         {
         }
 
+        public bool IsExpanded { get; set; }
+
         protected override void Initialize()
         {
             base.Initialize();
 
             TranslatesAutoresizingMaskIntoConstraints = false;
+
+            DriveTitleLabel.Text = AppStrings.DriveWay;
+            GalleryTitleLabel.Text = AppStrings.Gallery;
 
             RootContentView.Layer.MaskedCorners = CACornerMask.MinXMinYCorner | CACornerMask.MaxXMinYCorner;
             RootContentView.Layer.CornerRadius = 16f;
@@ -64,6 +69,8 @@ namespace SushiShop.Ios.Views.Controls
             bindingSet.Bind(DriveWayContainerView).For(v => v.BindVisible()).To(vm => vm.HasDriveWay);
             bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.LongTitle);
             bindingSet.Bind(photosCollectionViewSource).For(v => v.ItemsSource).To(vm => vm.Photos);
+            bindingSet.Bind(GalleryTitleLabel).For(v => v.BindVisible()).To(vm => vm.HasPhotos);
+            bindingSet.Bind(PhotosCollectionView).For(v => v.BindVisible()).To(vm => vm.HasPhotos);
 
             bindingSet.Apply();
         }
@@ -79,7 +86,7 @@ namespace SushiShop.Ios.Views.Controls
             });
 
             Animate(0.000001f, () => UIApplication.SharedApplication.KeyWindow.LayoutIfNeeded());
-            DispatchQueue.MainQueue.DispatchAsync(async () => await AnimateHeightAsync(isExpanded ? maxHeight : startHeight));
+            DispatchQueue.MainQueue.DispatchAsync(async () => await AnimateHeightAsync(IsExpanded ? maxHeight : startHeight));
         }
 
         public void Hide()
@@ -99,7 +106,7 @@ namespace SushiShop.Ios.Views.Controls
             {
                 case UIGestureRecognizerState.Began:
                 case UIGestureRecognizerState.Changed:
-                    height = isExpanded ? maxHeight : startHeight;
+                    height = IsExpanded ? maxHeight : startHeight;
                     height -= (float)translation.Y;
                     if (height > maxHeight)
                     {
@@ -116,15 +123,15 @@ namespace SushiShop.Ios.Views.Controls
 
                 case UIGestureRecognizerState.Ended:
                 case UIGestureRecognizerState.Cancelled:
-                    if (!isExpanded)
+                    if (!IsExpanded)
                     {
-                        isExpanded = heightConstraint.Constant / maxHeight > HeightPercentExpand;
-                        height = isExpanded ? maxHeight : startHeight;
+                        IsExpanded = heightConstraint.Constant / maxHeight > HeightPercentExpand;
+                        height = IsExpanded ? maxHeight : startHeight;
                     }
                     else
                     {
-                        isExpanded = heightConstraint.Constant / maxHeight >= HeightPercentCollapse;
-                        height = isExpanded ? maxHeight : startHeight;
+                        IsExpanded = heightConstraint.Constant / maxHeight >= HeightPercentCollapse;
+                        height = IsExpanded ? maxHeight : startHeight;
                     }
 
                     DispatchQueue.MainQueue.DispatchAsync(async () => await AnimateHeightAsync(height));
@@ -140,7 +147,7 @@ namespace SushiShop.Ios.Views.Controls
                 () =>
                 {
                     UIApplication.SharedApplication.KeyWindow.LayoutIfNeeded();
-                    ContentScrollView.ScrollEnabled = isExpanded;
+                    ContentScrollView.ScrollEnabled = IsExpanded;
                 });
         }
 

@@ -544,5 +544,17 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("NoNearestMetro", resourceCulture);
             }
         }
+        
+        public static string DriveWay {
+            get {
+                return ResourceManager.GetString("DriveWay", resourceCulture);
+            }
+        }
+        
+        public static string Gallery {
+            get {
+                return ResourceManager.GetString("Gallery", resourceCulture);
+            }
+        }
     }
 }

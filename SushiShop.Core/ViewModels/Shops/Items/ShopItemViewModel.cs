@@ -14,12 +14,14 @@ namespace SushiShop.Core.ViewModels.Shops.Items
 {
     public class ShopItemViewModel : SelectableItemViewModel<Shop>
     {
-        public ShopItemViewModel(Shop key, bool isSelected = false, Action<Shop>? showNearestMetroAction = null) : base(key.LongTitle, key, isSelected)
+        public ShopItemViewModel(
+            Shop key,
+            bool isSelected = false,
+            Action<Shop>? showNearestMetroAction = null) : base(key.LongTitle, key, isSelected)
         {
             Photos = new MvxObservableCollection<PhotoItemViewModel>(ProducePhotoViewModels());
 
             GoToMapCommand = new MvxAsyncCommand(GoToMapAsync);
-
             ShowNearestMetroCommand = new MvxCommand(() => showNearestMetroAction?.Invoke(Key));
         }
 
@@ -28,6 +30,8 @@ namespace SushiShop.Core.ViewModels.Shops.Items
         public ICommand ShowNearestMetroCommand { get; }
 
         public MvxObservableCollection<PhotoItemViewModel> Photos { get; }
+
+        public bool HasPhotos => Photos.IsNotEmpty();
 
         public double Latitude => Key.Coordinates.Latitude ?? 0;
 
@@ -42,6 +46,8 @@ namespace SushiShop.Core.ViewModels.Shops.Items
         public bool HasDriveWay => DriveWay.IsNotNullNorEmpty();
 
         public string? LongTitle => Key.LongTitle;
+
+        public bool HasNearestMetro => Key.Metro.Any();
 
         private string? GetWorkingTimeTitle()
         {

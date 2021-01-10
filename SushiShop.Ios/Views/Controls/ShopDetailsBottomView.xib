@@ -37,10 +37,10 @@
                             <rect key="frame" x="0.0" y="27" width="320" height="453"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUi-h7-Wco">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="403.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="274.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hbb-vQ-rqi">
-                                            <rect key="frame" x="16" y="0.0" width="288" height="253.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="288" height="124.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhV-Dy-jMW">
                                                     <rect key="frame" x="0.0" y="0.0" width="288" height="21.5"/>
@@ -75,17 +75,17 @@
                                                         <constraint firstAttribute="trailing" secondItem="EFK-QD-MBc" secondAttribute="trailing" id="mcW-5Z-GlW"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHg-B2-fQA">
-                                                    <rect key="frame" x="0.0" y="136.5" width="288" height="85.5"/>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHg-B2-fQA">
+                                                    <rect key="frame" x="0.0" y="124.5" width="288" height="6"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2I-3Y-5xs">
-                                                            <rect key="frame" x="0.0" y="66" width="288" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="6" width="288" height="0.0"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проезд:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQF-Nt-KiY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="60"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="0.0"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -102,16 +102,16 @@
                                                         <constraint firstItem="PQF-Nt-KiY" firstAttribute="top" secondItem="bHg-B2-fQA" secondAttribute="top" id="rjK-tO-I8A"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Галерея:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mc-Bs-5ah">
-                                                    <rect key="frame" x="0.0" y="234" width="288" height="19.5"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Галерея:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mc-Bs-5ah">
+                                                    <rect key="frame" x="0.0" y="124.5" width="288" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9KN-7D-uMu">
-                                            <rect key="frame" x="0.0" y="265.5" width="320" height="100"/>
+                                        <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9KN-7D-uMu">
+                                            <rect key="frame" x="0.0" y="136.5" width="320" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="h4Z-8C-gmM"/>
@@ -166,8 +166,10 @@
             </constraints>
             <connections>
                 <outlet property="ContentScrollView" destination="Lf4-Ep-RGO" id="hGU-m9-obi"/>
+                <outlet property="DriveTitleLabel" destination="PQF-Nt-KiY" id="EVK-qR-KQN"/>
                 <outlet property="DriveWayContainerView" destination="bHg-B2-fQA" id="0Sm-qT-amp"/>
                 <outlet property="DriveWayLabel" destination="k2I-3Y-5xs" id="6xp-Bv-0ej"/>
+                <outlet property="GalleryTitleLabel" destination="7mc-Bs-5ah" id="7Pg-KE-ctF"/>
                 <outlet property="GrayView" destination="vjR-sp-S0v" id="e5h-cq-wyZ"/>
                 <outlet property="PhoneLabel" destination="EFK-QD-MBc" id="Od4-dn-Fd4"/>
                 <outlet property="PhotosCollectionView" destination="9KN-7D-uMu" id="11r-BR-WJT"/>

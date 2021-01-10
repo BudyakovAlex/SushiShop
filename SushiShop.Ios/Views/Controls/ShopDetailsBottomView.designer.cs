@@ -15,10 +15,16 @@ namespace SushiShop.Ios.Views.Controls
 		UIKit.UIScrollView ContentScrollView { get; set; }
 
 		[Outlet]
+		UIKit.UILabel DriveTitleLabel { get; set; }
+
+		[Outlet]
 		UIKit.UIView DriveWayContainerView { get; set; }
 
 		[Outlet]
 		UIKit.UILabel DriveWayLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel GalleryTitleLabel { get; set; }
 
 		[Outlet]
 		UIKit.UIView GrayView { get; set; }
@@ -43,6 +49,11 @@ namespace SushiShop.Ios.Views.Controls
 			if (ContentScrollView != null) {
 				ContentScrollView.Dispose ();
 				ContentScrollView = null;
+			}
+
+			if (DriveWayContainerView != null) {
+				DriveWayContainerView.Dispose ();
+				DriveWayContainerView = null;
 			}
 
 			if (DriveWayLabel != null) {
@@ -75,14 +86,19 @@ namespace SushiShop.Ios.Views.Controls
 				TimeWorkingLabel = null;
 			}
 
+			if (DriveTitleLabel != null) {
+				DriveTitleLabel.Dispose ();
+				DriveTitleLabel = null;
+			}
+
 			if (TitleLabel != null) {
 				TitleLabel.Dispose ();
 				TitleLabel = null;
 			}
 
-			if (DriveWayContainerView != null) {
-				DriveWayContainerView.Dispose ();
-				DriveWayContainerView = null;
+			if (GalleryTitleLabel != null) {
+				GalleryTitleLabel.Dispose ();
+				GalleryTitleLabel = null;
 			}
 		}
 	}

@@ -33,7 +33,8 @@ namespace SushiShop.Ios.Views.Cells.Shops
             bindingSet.Bind(PhoneLabel).For(v => v.Text).To(vm => vm.Phone);
             bindingSet.Bind(WorkingTimeLabel).For(v => v.Text).To(vm => vm.WorkingTime);
             bindingSet.Bind(MetroButton).For(v => v.BindTouchUpInside()).To(vm => vm.ShowNearestMetroCommand);
-            bindingSet.Bind(NearestMetroButton).For(v => v.BindTouchUpInside()).To(vm => vm.GoToMapCommand);
+            bindingSet.Bind(MetroButton).For(v => v.BindVisible()).To(vm => vm.HasNearestMetro);
+            bindingSet.Bind(MapButton).For(v => v.BindTouchUpInside()).To(vm => vm.GoToMapCommand);
 
             bindingSet.Apply();
         }

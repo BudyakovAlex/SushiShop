@@ -163,6 +163,11 @@ namespace SushiShop.Ios.Views.Cells.Shops
                 return;
             }
 
+            if (data.IsSelected)
+            {
+                shopDetailsBottomView.IsExpanded = false;
+            }
+
             ViewModel?.SelectItemCommand?.Execute(data);
             UpdateMarkers();
         }

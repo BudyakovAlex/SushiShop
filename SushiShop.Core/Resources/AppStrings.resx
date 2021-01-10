@@ -366,4 +366,10 @@
   <data name="NoNearestMetro" xml:space="preserve">
     <value>Ближайшее метро отсувствует</value>
   </data>
+  <data name="DriveWay" xml:space="preserve">
+    <value>Проезд:</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>Галерея:</value>
+  </data>
 </root>

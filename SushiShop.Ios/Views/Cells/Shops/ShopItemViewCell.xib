@@ -17,11 +17,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="165" id="cxk-wN-pdQ" customClass="ShopItemViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="364" height="165"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="164" id="cxk-wN-pdQ" customClass="ShopItemViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="164"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
-                <rect key="frame" x="0.0" y="0.0" width="364" height="165"/>
+                <rect key="frame" x="0.0" y="0.0" width="364" height="164"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Ленинградская обл, Всеволожский р-н, г Кудрово, Европейский пр-кт, д 3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz5-E3-ezl">
@@ -37,63 +37,69 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 – 23:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjJ-4o-PSi">
-                        <rect key="frame" x="16" y="90.5" width="332" height="14.5"/>
+                        <rect key="frame" x="16" y="90.5" width="332" height="17.5"/>
                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yju-7f-ccs">
-                        <rect key="frame" x="0.0" y="164" width="364" height="1"/>
+                        <rect key="frame" x="0.0" y="163" width="364" height="1"/>
                         <color key="backgroundColor" red="0.8901960784313725" green="0.89411764705882346" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="aYN-Vg-ccf"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV0-Pr-yun" customClass="PrimaryButton">
-                        <rect key="frame" x="16" y="115" width="38" height="38"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ysN-af-7zg">
+                        <rect key="frame" x="16" y="113" width="85" height="38"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV0-Pr-yun" customClass="PrimaryButton">
+                                <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="gaM-n4-Ezn"/>
+                                    <constraint firstAttribute="height" constant="38" id="hZD-iY-ujA"/>
+                                </constraints>
+                                <state key="normal" image="ic_metro"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kns-Ga-Xc7" customClass="PrimaryButton">
+                                <rect key="frame" x="47" y="0.0" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="PYg-CF-0kl"/>
+                                    <constraint firstAttribute="width" constant="38" id="bYN-FD-5l2"/>
+                                </constraints>
+                                <state key="normal" image="ic_pin"/>
+                            </button>
+                        </subviews>
                         <constraints>
-                            <constraint firstAttribute="width" constant="38" id="gaM-n4-Ezn"/>
-                            <constraint firstAttribute="height" constant="38" id="hZD-iY-ujA"/>
+                            <constraint firstAttribute="height" constant="38" id="eWa-y8-lxV"/>
                         </constraints>
-                        <state key="normal" image="ic_metro"/>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kns-Ga-Xc7" customClass="PrimaryButton">
-                        <rect key="frame" x="63" y="115" width="38" height="38"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="38" id="PYg-CF-0kl"/>
-                            <constraint firstAttribute="width" constant="38" id="bYN-FD-5l2"/>
-                        </constraints>
-                        <state key="normal" image="ic_pin"/>
-                    </button>
+                    </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="vz5-E3-ezl" secondAttribute="trailing" constant="16" id="5g1-WY-mVM"/>
                     <constraint firstItem="yjJ-4o-PSi" firstAttribute="top" secondItem="LJ1-a1-cBk" secondAttribute="bottom" constant="2" id="5nJ-1a-1af"/>
-                    <constraint firstItem="hV0-Pr-yun" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="9z9-ZU-Jv9"/>
                     <constraint firstItem="LJ1-a1-cBk" firstAttribute="top" secondItem="vz5-E3-ezl" secondAttribute="bottom" constant="10" id="JdM-yd-L4q"/>
-                    <constraint firstAttribute="bottom" secondItem="hV0-Pr-yun" secondAttribute="bottom" constant="12" id="OqD-C3-9dy"/>
                     <constraint firstAttribute="trailing" secondItem="yjJ-4o-PSi" secondAttribute="trailing" constant="16" id="QrL-uz-CcH"/>
-                    <constraint firstItem="kns-Ga-Xc7" firstAttribute="centerY" secondItem="hV0-Pr-yun" secondAttribute="centerY" id="RKj-bU-V36"/>
                     <constraint firstItem="LJ1-a1-cBk" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="ReA-sr-WgS"/>
+                    <constraint firstItem="ysN-af-7zg" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="S3P-Un-Mq9"/>
                     <constraint firstAttribute="trailing" secondItem="LJ1-a1-cBk" secondAttribute="trailing" constant="16" id="T9R-p1-hg0"/>
                     <constraint firstAttribute="trailing" secondItem="yju-7f-ccs" secondAttribute="trailing" id="UMC-AZ-Cgj"/>
-                    <constraint firstItem="kns-Ga-Xc7" firstAttribute="leading" secondItem="hV0-Pr-yun" secondAttribute="trailing" constant="9" id="fqV-IP-loF"/>
-                    <constraint firstItem="hV0-Pr-yun" firstAttribute="top" secondItem="yjJ-4o-PSi" secondAttribute="bottom" constant="10" id="mvO-uL-VpR"/>
+                    <constraint firstItem="yju-7f-ccs" firstAttribute="top" secondItem="ysN-af-7zg" secondAttribute="bottom" constant="12" id="lkD-dA-Y5O"/>
                     <constraint firstItem="vz5-E3-ezl" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="16" id="n74-xg-kCI"/>
                     <constraint firstItem="yjJ-4o-PSi" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="nMV-XH-QmM"/>
                     <constraint firstItem="vz5-E3-ezl" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="qe4-Um-mNB"/>
+                    <constraint firstItem="ysN-af-7zg" firstAttribute="top" secondItem="yjJ-4o-PSi" secondAttribute="bottom" constant="5" id="vmo-GD-9Gi"/>
                     <constraint firstItem="yju-7f-ccs" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" id="wS3-v9-Ogf"/>
                     <constraint firstAttribute="bottom" secondItem="yju-7f-ccs" secondAttribute="bottom" id="xQk-yX-iUg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="AddressLabel" destination="vz5-E3-ezl" id="4cZ-8K-QBO"/>
+                <outlet property="MapButton" destination="kns-Ga-Xc7" id="BfN-Uc-9M8"/>
                 <outlet property="MetroButton" destination="hV0-Pr-yun" id="ef8-22-Bd3"/>
-                <outlet property="NearestMetroButton" destination="kns-Ga-Xc7" id="zBz-XV-b5q"/>
                 <outlet property="PhoneLabel" destination="LJ1-a1-cBk" id="69S-ms-vBp"/>
                 <outlet property="WorkingTimeLabel" destination="yjJ-4o-PSi" id="gvg-ks-ok8"/>
             </connections>
-            <point key="canvasLocation" x="-65.217391304347828" y="41.852678571428569"/>
+            <point key="canvasLocation" x="-65.217391304347828" y="41.517857142857139"/>
         </tableViewCell>
     </objects>
     <resources>
