@@ -35,7 +35,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cities
             bindingSet.Bind(SearchBar).For(v => v.Text).To(vm => vm.Query);
             bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(source).For(v => v.SelectionChangedCommand).To(vm => vm.SelectItemCommand);
-            bindingSet.Bind(NavigationItem.LeftBarButtonItem).For(v => v.BindClicked()).To(vm => vm.PlatformCloseCommand);
+            bindingSet.Bind(NavigationItem.LeftBarButtonItem).For(v => v.BindClicked()).To(vm => vm.CloseCommand);
 
             bindingSet.Apply();
         }
