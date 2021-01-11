@@ -56,5 +56,7 @@
     <Folder Include="ViewModels\Shops\Sections\" />
     <Folder Include="ViewModels\Shops\Items\" />
     <Folder Include="ViewModels\Common\Items\" />
+    <Folder Include="ViewModels\Orders\Sections\" />
+    <Folder Include="ViewModels\Orders\Sections\Abstract\" />
   </ItemGroup>
 </Project>

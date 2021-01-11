@@ -372,4 +372,10 @@
   <data name="Gallery" xml:space="preserve">
     <value>Галерея:</value>
   </data>
+  <data name="ReceiveInShop" xml:space="preserve">
+    <value>Забрать в магазине</value>
+  </data>
+  <data name="СourierDelivery" xml:space="preserve">
+    <value>Доставка курьером</value>
+  </data>
 </root>

@@ -556,5 +556,17 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("Gallery", resourceCulture);
             }
         }
+        
+        public static string ReceiveInShop {
+            get {
+                return ResourceManager.GetString("ReceiveInShop", resourceCulture);
+            }
+        }
+        
+        public static string СourierDelivery {
+            get {
+                return ResourceManager.GetString("СourierDelivery", resourceCulture);
+            }
+        }
     }
 }
