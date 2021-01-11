@@ -72,7 +72,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
 
             backButton = Components.CreateDefaultBarButton(ImageNames.ArrowBack);
             navigationItem.LeftBarButtonItem = new UIBarButtonItem(backButton);
-            backButton.AddGestureRecognizer(new UITapGestureRecognizer(() => ViewModel?.PlatformCloseCommand?.Execute(null)));
+            backButton.AddGestureRecognizer(new UITapGestureRecognizer(() => ViewModel?.CloseCommand?.Execute(null)));
         }
 
         protected override void Bind()

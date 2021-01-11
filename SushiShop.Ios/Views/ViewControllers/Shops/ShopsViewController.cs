@@ -48,7 +48,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
             bindingSet.Bind(tabsScrollableTabView).For(v => v.Items).To(vm => vm.TabsTitles);
             bindingSet.Bind(tabsScrollableTabView).For(v => v.SelectedIndex).To(vm => vm.SelectedIndex).TwoWay();
             bindingSet.Bind(shopsContentCollectionViewSource).For(v => v.ItemsSource).To(vm => vm.Items);
-            bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
+            bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.CloseCommand);
 
             bindingSet.Apply();
         }

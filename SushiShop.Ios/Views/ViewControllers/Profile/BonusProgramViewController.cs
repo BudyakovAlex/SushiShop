@@ -87,13 +87,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
         private void AddGestureRecognizers()
         {
-            var closeTapGesture = new UITapGestureRecognizer(() => ViewModel?.PlatformCloseCommand?.Execute(null))
+            var closeTapGesture = new UITapGestureRecognizer(() => ViewModel?.CloseCommand?.Execute(null))
             {
                 ShouldReceiveTouch = CloseTapGestureShouldReceiveTouch
             };
 
             View.AddGestureRecognizer(closeTapGesture);
-            var closeSwipeGesture = new UISwipeGestureRecognizer(() => ViewModel?.PlatformCloseCommand?.Execute(null))
+            var closeSwipeGesture = new UISwipeGestureRecognizer(() => ViewModel?.CloseCommand?.Execute(null))
             {
                 Direction = UISwipeGestureRecognizerDirection.Down
             };
@@ -129,11 +129,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
         {
             if (startContentOffsetY >= ContentScrollView.ContentOffset.Y && isAtTop)
             {
-                ViewModel?.PlatformCloseCommand?.Execute(null);
+                ViewModel?.CloseCommand?.Execute(null);
             }
         }
 
-        private void OnParentScrollViewDraggingStarted(object sender, System.EventArgs e)
+        private void OnParentScrollViewDraggingStarted(object sender, EventArgs e)
         {
             startContentOffsetY = ContentScrollView.ContentOffset.Y;
         }
