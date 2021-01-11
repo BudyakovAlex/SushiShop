@@ -261,7 +261,7 @@ namespace SushiShop.Ios.Views.ViewControllers
             {
                 var mvxView = (IMvxIosView) viewControllers.Last();
                 var viewModel = (BasePageViewModel) mvxView.ViewModel;
-                viewModel.PlatformCloseCommand.Execute(null);
+                viewModel.CloseCommand.Execute(null);
             }
         }
 

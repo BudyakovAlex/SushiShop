@@ -87,7 +87,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Promotions
                .WithConversion<HtmlTextToAttributedStringConverter>();
             bindingSet.Bind(this).For(v => v.HasPublicationDate).To(vm => vm.HasPublicationDate);
             bindingSet.Bind(this).For(v => v.CanAddToCart).To(vm => vm.CanAddToCart);
-            bindingSet.Bind(BackButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
+            bindingSet.Bind(BackButton).For(v => v.BindTouchUpInside()).To(vm => vm.CloseCommand);
             bindingSet.Bind(LoadingView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
             bindingSet.Bind(ImageView).For(v => v.ImagePath).To(vm => vm.ImageUrl);
             bindingSet.Bind(DateLabel).For(v => v.Text).To(vm => vm.PublicationDateTitle);

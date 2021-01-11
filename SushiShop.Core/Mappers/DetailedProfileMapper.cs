@@ -23,7 +23,6 @@ namespace SushiShop.Core.Mappers
                 profileDto.IsNeedRegistration,
                 profileDto.DateOfBirthFormated,
                 profileDto.CanChangeDateOfBirth,
-                profileDto.SubscribeSales,
                 profileDto.Photo?.Map());
         }
     }
