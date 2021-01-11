@@ -125,6 +125,8 @@ namespace SushiShop.Core.ViewModels.Orders
             var city = userSession.GetCity();
             await ordersManager.RepeatOrderAsync(orderId, city?.Name);
             Messenger.Publish(new RefreshCartMessage(this));
+            Messenger.Publish(new RefreshProductsMessage(this));
+
             shouldRefresh = true;
 
             await RefreshDataAsync();

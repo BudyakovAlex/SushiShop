@@ -10,8 +10,6 @@ namespace SushiShop.Ios.Delegates
         private const float Inset = 16f;
         private const float InteritemSpacing = 9f;
 
-        private int position;
-
         public override UIEdgeInsets GetInsetForSection(UICollectionView collectionView, UICollectionViewLayout layout, nint section)
         {
             return new UIEdgeInsets(Inset, Inset, Inset, Inset);
@@ -29,17 +27,13 @@ namespace SushiShop.Ios.Delegates
 
         public override CGSize GetSizeForItem(UICollectionView collectionView, UICollectionViewLayout layout, NSIndexPath indexPath)
         {
-            if (position == 0)
+            if (indexPath.Row == 0 || indexPath.Row % 3 == 0)
             {
-                ++position;
-
                 var size = collectionView.Bounds.Width - (Inset * 2f);
                 return new CGSize(size, size);
             }
             else
             {
-                position = position == 2 ? 0 : position + 1;
-
                 var size = (collectionView.Bounds.Width - (Inset * 2f) - InteritemSpacing) / 2f;
                 return new CGSize(size, size);
             }

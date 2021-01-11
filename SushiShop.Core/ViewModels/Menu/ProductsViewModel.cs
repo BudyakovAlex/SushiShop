@@ -34,6 +34,7 @@ namespace SushiShop.Core.ViewModels.Menu
             this.userSession = userSession;
 
             Messenger.Subscribe<CartProductChangedMessage>((msg) => _ = RefreshDataAsync()).DisposeWith(Disposables);
+            Messenger.Subscribe<RefreshProductsMessage>((msg) => _ = RefreshDataAsync()).DisposeWith(Disposables);
         }
 
         public string? Title => category?.PageTitle ?? sticker?.Title;

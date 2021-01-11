@@ -1,8 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Managers.Promotions;
+using SushiShop.Core.Messages;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Promotions.Items;
@@ -20,6 +23,7 @@ namespace SushiShop.Core.ViewModels.Promotions
             this.userSession = userSession;
 
             Items = new MvxObservableCollection<PromotionItemViewModel>();
+            Messenger.Subscribe<CityChangedMessage>(OnCityChnaged).DisposeWith(Disposables);
         }
 
         public MvxObservableCollection<PromotionItemViewModel> Items { get; }
@@ -29,11 +33,13 @@ namespace SushiShop.Core.ViewModels.Promotions
         public override async Task InitializeAsync()
         {
             await base.InitializeAsync();
-            _ = ExecutionStateWrapper.WrapAsync(() => LoadDataAsync(), awaitWhenBusy: true);
+            _ = ExecutionStateWrapper.WrapAsync(() => RefreshDataAsync(), awaitWhenBusy: true);
         }
 
-        private async Task LoadDataAsync()
+        protected override async Task RefreshDataAsync()
         {
+            await base.RefreshDataAsync();
+
             var city = userSession.GetCity();
             var response = await promotionsManager.GetPromotionsAsync(city?.Name);
             if (response.IsSuccessful)
@@ -41,6 +47,11 @@ namespace SushiShop.Core.ViewModels.Promotions
                 var items = response.Data.Select(promotion => new PromotionItemViewModel(promotion)).ToArray();
                 Items.ReplaceWith(items);
             }
+        }
+
+        private void OnCityChnaged(CityChangedMessage message)
+        {
+            RefreshDataCommand.Execute();
         }
     }
 }
