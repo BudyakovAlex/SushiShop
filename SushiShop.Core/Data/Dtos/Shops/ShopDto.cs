@@ -90,6 +90,6 @@ namespace SushiShop.Core.Data.Dtos.Shops
         public MetroDto[]? Metro { get; set; }
 
         [JsonProperty("gallery")]
-        public ImageInfoDto[]? Images { get; }
+        public ImageInfoDto[]? Images { get; set; }
     }
 }
