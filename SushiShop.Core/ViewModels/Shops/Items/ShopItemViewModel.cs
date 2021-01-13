@@ -3,7 +3,6 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Simple;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Shops;
-using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Common.Items;
 using System;
 using System.Linq;
@@ -14,20 +13,33 @@ namespace SushiShop.Core.ViewModels.Shops.Items
 {
     public class ShopItemViewModel : SelectableItemViewModel<Shop>
     {
+        private readonly Func<Shop, Task> goToMapFunc;
+        private readonly Func<Shop, Task> confirmSelectionFunc;
+
         public ShopItemViewModel(
             Shop key,
+            Func<Shop, Task> goToMapFunc,
+            Func<Shop, Task> confirmSelectionFunc,
+            bool isSelectionMode,
             bool isSelected = false,
             Action<Shop>? showNearestMetroAction = null) : base(key.LongTitle, key, isSelected)
         {
+            this.goToMapFunc = goToMapFunc;
+            this.confirmSelectionFunc = confirmSelectionFunc;
+
+            IsSelectionMode = isSelectionMode;
             Photos = new MvxObservableCollection<PhotoItemViewModel>(ProducePhotoViewModels());
 
             GoToMapCommand = new MvxAsyncCommand(GoToMapAsync);
             ShowNearestMetroCommand = new MvxCommand(() => showNearestMetroAction?.Invoke(Key));
+            ConfirmSelectionCommand = new MvxAsyncCommand(ConfirmSelectionAsync, () => IsSelectionMode);
         }
 
         public ICommand GoToMapCommand { get; }
 
         public ICommand ShowNearestMetroCommand { get; }
+
+        public ICommand ConfirmSelectionCommand { get; }
 
         public MvxObservableCollection<PhotoItemViewModel> Photos { get; }
 
@@ -48,6 +60,8 @@ namespace SushiShop.Core.ViewModels.Shops.Items
         public string? LongTitle => Key.LongTitle;
 
         public bool HasNearestMetro => Key.Metro.Any();
+
+        public bool IsSelectionMode { get; }
 
         private string? GetWorkingTimeTitle()
         {
@@ -72,8 +86,12 @@ namespace SushiShop.Core.ViewModels.Shops.Items
 
         private Task GoToMapAsync()
         {
-            var navigationParameter = new ShopOnMapNavigationParameter(Key);
-            return NavigationManager.NavigateAsync<ShopOnMapViewModel, ShopOnMapNavigationParameter>(navigationParameter);
+            return goToMapFunc?.Invoke(Key) ?? Task.CompletedTask;
+        }
+
+        private Task ConfirmSelectionAsync()
+        {
+            return confirmSelectionFunc?.Invoke(Key) ?? Task.CompletedTask;
         }
     }
 }

@@ -4,7 +4,6 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Shops;
-using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Shops.Items;
 using System;
@@ -19,12 +18,26 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
 {
     public class ShopsListSectionViewModel : BaseViewModel, IDisposable
     {
+        private readonly Func<MetroShop[], string, Task> goToShopFunc;
+        private readonly Func<Shop, Task> goToMapFunc;
+        private readonly Func<Shop, Task> confirmSelectionFunc;
+        private readonly bool isSelectionMode;
+
         private Dictionary<string, MetroShop[]>? metroShopsMappings;
 
         private bool isDisposed;
 
-        public ShopsListSectionViewModel()
+        public ShopsListSectionViewModel(
+            Func<MetroShop[], string, Task> goToShopFunc,
+            Func<Shop, Task> goToMapFunc,
+            Func<Shop, Task> confirmSelectionFunc,
+            bool isSelectionMode)
         {
+            this.goToShopFunc = goToShopFunc;
+            this.goToMapFunc = goToMapFunc;
+            this.confirmSelectionFunc = confirmSelectionFunc;
+            this.isSelectionMode = isSelectionMode;
+
             Disposables = new CompositeDisposable();
             Items = new MvxObservableCollection<ShopItemViewModel>();
             NearestMetro = new MvxObservableCollection<MetroItemViewModel>();
@@ -46,7 +59,13 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
 
         public void SetShops(Shop[] shops)
         {
-            var viewModels = shops.Select(item => new ShopItemViewModel(item, showNearestMetroAction: ShowNearestMetro)).ToArray();
+            var viewModels = shops.Select(item => new ShopItemViewModel(
+                item,
+                goToMapFunc,
+                confirmSelectionFunc,
+                isSelectionMode,
+                showNearestMetroAction: ShowNearestMetro)).ToArray();
+
             Items.ReplaceWith(viewModels);
         }
 
@@ -60,20 +79,6 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
             RaisePropertyChanged(nameof(IsNearestMetroNotEmpty));
         }
 
-        private Task GoToShopAsync(MetroItemViewModel itemViewModel)
-        {
-            NearestMetro.Clear();
-
-            var shops = metroShopsMappings?.GetValueOrDefault(itemViewModel.Text);
-            if (shops is null || shops.Length == 0)
-            {
-                return Task.CompletedTask;
-            }
-
-            var navigationParameter = new ShopsNearMetroNavigationParameters(shops, itemViewModel.Text);
-            return NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters>(navigationParameter);
-        }
-
         private void ShowNearestMetro(Shop shop)
         {
             if (shop.Metro.Length == 0)
@@ -84,6 +89,19 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
 
             var metroViewModels = shop.Metro.Select(metro => new MetroItemViewModel(metro.Name!, GoToShopAsync)).ToArray();
             NearestMetro.ReplaceWith(metroViewModels);
+        }
+
+        private Task GoToShopAsync(MetroItemViewModel itemViewModel)
+        {
+            NearestMetro.Clear();
+
+            var shops = metroShopsMappings?.GetValueOrDefault(itemViewModel.Text);
+            if (shops is null || shops.Length == 0)
+            {
+                return Task.CompletedTask;
+            }
+
+            return goToShopFunc?.Invoke(shops, itemViewModel.Text) ?? Task.CompletedTask;
         }
 
         protected virtual void Dispose(bool disposing)

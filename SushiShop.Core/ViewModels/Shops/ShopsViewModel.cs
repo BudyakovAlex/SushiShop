@@ -4,20 +4,22 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Common;
+using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Shops;
 using SushiShop.Core.Messages;
+using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
+using SushiShop.Core.ViewModels.Shops;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Info
 {
-    public class ShopsViewModel : BaseItemsPageViewModel<BaseViewModel>
+    public class ShopsViewModel : BaseItemsPageViewModel<BaseViewModel, bool, Shop>
     {
         private readonly IShopsManager shopsManager;
         private readonly IUserSession userSession;
@@ -44,6 +46,15 @@ namespace SushiShop.Core.ViewModels.Info
         {
             get => selectedIndex;
             set => SetProperty(ref selectedIndex, value, OnSelectedIndexChanged);
+        }
+
+        public bool IsSelectionMode { get; private set; }
+
+        public override void Prepare(bool parameter)
+        {
+            IsSelectionMode = parameter;
+
+            RaisePropertyChanged(nameof(IsSelectionMode));
         }
 
         public override Task InitializeAsync()
@@ -125,12 +136,23 @@ namespace SushiShop.Core.ViewModels.Info
             var coordinates = city is null
                 ? new Coordinates(Constants.Map.MapStartPointLongitude, Constants.Map.MapStartPointLatitude)
                 : new Coordinates(city.Longitude, city.Latitude);
-            yield return shopsOnMapSectionViewModel = new ShopsOnMapSectionViewModel(coordinates, city?.ZoomFactor ?? Constants.Map.DefaultZoomFactor);
-            yield return shopsListSectionViewModel = new ShopsListSectionViewModel().DisposeWith(Disposables);
+
+            yield return shopsOnMapSectionViewModel = new ShopsOnMapSectionViewModel(
+                coordinates,
+                city?.ZoomFactor ?? Constants.Map.DefaultZoomFactor,
+                GoToMapAsync,
+                ConfirmSelectionAsync,
+                IsSelectionMode);
+
+            yield return shopsListSectionViewModel = new ShopsListSectionViewModel(
+                GoToShopAsync,
+                GoToMapAsync,
+                ConfirmSelectionAsync,
+                IsSelectionMode).DisposeWith(Disposables);
 
             if (isMetroAvailable)
             {
-                yield return metroSectionViewModel = new MetroSectionViewModel();
+                yield return metroSectionViewModel = new MetroSectionViewModel(GoToShopAsync);
             }
         }
 
@@ -163,6 +185,35 @@ namespace SushiShop.Core.ViewModels.Info
         private void OnCityChnaged(CityChangedMessage message)
         {
             RefreshDataCommand.Execute();
+        }
+
+        private async Task GoToMapAsync(Shop shop)
+        {
+            var navigationParameter = new ShopOnMapNavigationParameter(shop, IsSelectionMode);
+            var selectedShop = await NavigationManager.NavigateAsync<ShopOnMapViewModel, ShopOnMapNavigationParameter, Shop>(navigationParameter);
+            if (!IsSelectionMode)
+            {
+                return;
+            }
+
+            await NavigationManager.CloseAsync(this, selectedShop);
+        }
+
+        private async Task GoToShopAsync(MetroShop[] shops, string title)
+        {
+            var navigationParameter = new ShopsNearMetroNavigationParameters(shops, title, IsSelectionMode);
+            var selectedShop = await NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters, Shop>(navigationParameter);
+            if (!IsSelectionMode)
+            {
+                return;
+            }
+
+            await NavigationManager.CloseAsync(this, selectedShop);
+        }
+
+        private Task ConfirmSelectionAsync(Shop shop)
+        {
+            return NavigationManager.CloseAsync(this, shop);
         }
     }
 }

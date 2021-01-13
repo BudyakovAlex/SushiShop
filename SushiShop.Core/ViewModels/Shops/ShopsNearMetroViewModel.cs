@@ -16,7 +16,7 @@ using System.Windows.Input;
 
 namespace SushiShop.Core.ViewModels.Shops
 {
-    public class ShopsNearMetroViewModel : BaseItemsPageViewModel<ShopItemViewModel, ShopsNearMetroNavigationParameters>
+    public class ShopsNearMetroViewModel : BaseItemsPageViewModel<ShopItemViewModel, ShopsNearMetroNavigationParameters, Shop>
     {
         private readonly IShopsManager shopsManager;
         private readonly IUserSession userSession;
@@ -24,6 +24,7 @@ namespace SushiShop.Core.ViewModels.Shops
 
         private Dictionary<string, MetroShop[]>? metroShopsMappings;
         private IEnumerable<MetroItemViewModel>? nearestMetro;
+        private bool isSelectionMode;
 
         public ShopsNearMetroViewModel(IShopsManager shopsManager, IUserSession userSession)
         {
@@ -47,7 +48,15 @@ namespace SushiShop.Core.ViewModels.Shops
 
         public override void Prepare(ShopsNearMetroNavigationParameters parameter)
         {
-            var viewModels = parameter.Shops.Select(item => new ShopItemViewModel(item.Shop!, showNearestMetroAction: ShowNearestMetro)).ToArray();
+            isSelectionMode = parameter.IsSelectionMode;
+
+            var viewModels = parameter.Shops.Select(item => new ShopItemViewModel(
+                item.Shop!,
+                GoToMapAsync,
+                ConfirmSelectionAsync,
+                isSelectionMode,
+                showNearestMetroAction: ShowNearestMetro)).ToArray();
+
             Title = parameter.Title;
             Items.AddRange(viewModels);
         }
@@ -78,18 +87,44 @@ namespace SushiShop.Core.ViewModels.Shops
             return base.CloseAsync(isPlatform);
         }
 
-        private Task GoToShopAsync(MetroItemViewModel itemViewModel)
+        private async Task GoToMapAsync(Shop shop)
+        {
+            var navigationParameter = new ShopOnMapNavigationParameter(shop, isSelectionMode);
+            var selectedShop = await NavigationManager.NavigateAsync<ShopOnMapViewModel, ShopOnMapNavigationParameter, Shop>(navigationParameter);
+            if (!isSelectionMode)
+            {
+                return;
+            }
+
+            NearestMetro.Clear();
+            await NavigationManager.CloseAsync(this, selectedShop);
+        }
+
+        private async Task GoToShopAsync(MetroItemViewModel itemViewModel)
         {
             NearestMetro.Clear();
 
             var shops = metroShopsMappings?.GetValueOrDefault(itemViewModel.Text);
             if (shops is null || shops.Length == 0)
             {
-                return Task.CompletedTask;
+                return;
             }
 
-            var navigationParameter = new ShopsNearMetroNavigationParameters(shops, Title);
-            return NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters>(navigationParameter);
+            var navigationParameter = new ShopsNearMetroNavigationParameters(shops, Title, isSelectionMode);
+            var selectedShop = await NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters, Shop>(navigationParameter);
+            if (!isSelectionMode)
+            {
+                return;
+            }
+
+            NearestMetro.Clear();
+            await NavigationManager.CloseAsync(this, selectedShop);
+        }
+
+        private Task ConfirmSelectionAsync(Shop shop)
+        {
+            NearestMetro.Clear();
+            return NavigationManager.CloseAsync(this, shop);
         }
 
         private void ShowNearestMetro(Shop shop)

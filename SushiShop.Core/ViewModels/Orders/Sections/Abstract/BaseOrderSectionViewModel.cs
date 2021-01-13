@@ -21,7 +21,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
             ChangePaymentTypeCommand = new MvxCommand<PaymentType>((newPayementType) => PaymentType = newPayementType);
             ConfirmOrderCommand = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmOrderAsync);
-            SelectAdressCommand = new SafeAsyncCommand(ExecutionStateWrapper, SelectAdressAsync);
+            SelectAddressCommand = new SafeAsyncCommand(ExecutionStateWrapper, SelectAddressAsync);
             SelectReceiveDateTime = new SafeAsyncCommand(ExecutionStateWrapper, SelectReceiveDateTimeAsync);
         }
 
@@ -29,7 +29,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         public ICommand ConfirmOrderCommand { get; }
 
-        public ICommand SelectAdressCommand { get; }
+        public ICommand SelectAddressCommand { get; }
 
         public ICommand SelectReceiveDateTime { get; }
 
@@ -100,7 +100,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         protected abstract Task ConfirmOrderAsync();
 
-        protected abstract Task SelectAdressAsync();
+        protected abstract Task SelectAddressAsync();
 
         private async Task SelectReceiveDateTimeAsync()
         {

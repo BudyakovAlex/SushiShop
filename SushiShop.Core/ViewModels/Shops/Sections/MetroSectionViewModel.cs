@@ -12,10 +12,14 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
 {
     public class MetroSectionViewModel : BaseViewModel
     {
+        private readonly Func<MetroShop[], string, Task> goToShopFunc;
+
         private Dictionary<string, MetroShop[]>? metroShopsMappings;
 
-        public MetroSectionViewModel()
+        public MetroSectionViewModel(Func<MetroShop[], string, Task> goToShopFunc)
         {
+            this.goToShopFunc = goToShopFunc;
+
             Items = new MvxObservableCollection<MetroItemViewModel>();
         }
 
@@ -36,8 +40,7 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
                 return Task.CompletedTask;
             }
 
-            var navigationParameter = new ShopsNearMetroNavigationParameters(shops, itemViewModel.Text);
-            return NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters>(navigationParameter);
+            return goToShopFunc?.Invoke(shops, itemViewModel.Text) ?? Task.CompletedTask;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             throw new System.NotImplementedException();
         }
 
-        protected override Task SelectAdressAsync()
+        protected override Task SelectAddressAsync()
         {
             throw new System.NotImplementedException();
         }
