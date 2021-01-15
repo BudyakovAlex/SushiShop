@@ -16,14 +16,18 @@ namespace SushiShop.Core.ViewModels.Orders
         {
             Items.AddRange(new BaseOrderSectionViewModel[]
             {
-                new PickupOrderSectionViewModel(ordersManager),
-                new DeliveryOrderSectionViewModel(ordersManager)
+                PickupOrderSectionViewModel = new PickupOrderSectionViewModel(ordersManager),
+                DeliveryOrderSectionViewModel = new DeliveryOrderSectionViewModel(ordersManager)
             });
 
             TabsTitles.AddRange(new[] { AppStrings.ReceiveInShop, AppStrings.СourierDelivery });
         }
 
         public List<string> TabsTitles { get; } = new List<string>();
+
+        public PickupOrderSectionViewModel PickupOrderSectionViewModel { get; }
+
+        public DeliveryOrderSectionViewModel DeliveryOrderSectionViewModel { get; }
 
         public override void Prepare(Data.Models.Cart.Cart parameter)
         {

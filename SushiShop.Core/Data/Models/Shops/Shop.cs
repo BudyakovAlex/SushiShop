@@ -127,6 +127,6 @@ namespace SushiShop.Core.Data.Models.Shops
 
         public Metro[] Metro { get; }
 
-        public ImageInfo[] Images { get; }
+        public ImageInfo[] Images { get; set; }
     }
 }
