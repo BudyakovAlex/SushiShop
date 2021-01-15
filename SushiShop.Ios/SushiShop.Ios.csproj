@@ -653,6 +653,7 @@
     <Compile Include="Views\ViewControllers\Orders\OrderRegistrationViewController.designer.cs">
       <DependentUpon>OrderRegistrationViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Delegates\WKWebViewNavigationDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
