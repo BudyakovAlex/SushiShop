@@ -384,6 +384,7 @@
     <InterfaceDefinition Include="Views\Controls\NearestMetroView.xib" />
     <InterfaceDefinition Include="Views\Cells\Shops\NearestMetroItemViewCell.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Shops\ShopsNearMetroViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Orders\OrderRegistrationViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -647,6 +648,10 @@
     <Compile Include="Views\ViewControllers\Shops\ShopsNearMetroViewController.cs" />
     <Compile Include="Views\ViewControllers\Shops\ShopsNearMetroViewController.designer.cs">
       <DependentUpon>ShopsNearMetroViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewControllers\Orders\OrderRegistrationViewController.cs" />
+    <Compile Include="Views\ViewControllers\Orders\OrderRegistrationViewController.designer.cs">
+      <DependentUpon>OrderRegistrationViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

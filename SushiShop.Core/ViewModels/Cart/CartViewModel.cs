@@ -17,6 +17,7 @@ using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cart.Items;
+using SushiShop.Core.ViewModels.Orders;
 using SushiShop.Core.ViewModels.ProductDetails;
 using System;
 using System.Collections.Generic;
@@ -234,7 +235,7 @@ namespace SushiShop.Core.ViewModels.Cart
 
         private Task CheckoutAsync()
         {
-            return Task.CompletedTask;
+            return NavigationManager.NavigateAsync<OrderRegistrationViewModel, Data.Models.Cart.Cart>(cart!);
         }
     }
 }

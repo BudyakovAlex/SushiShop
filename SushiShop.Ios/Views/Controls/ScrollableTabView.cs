@@ -185,7 +185,11 @@ namespace SushiShop.Ios.Views.Controls
             stackView.DirectionalLayoutMargins = new NSDirectionalEdgeInsets(0f, 0f, 0f, 0f);
 
             tabs
-                .Pipe(tab => tab.WidthAnchor.ConstraintEqualTo(stackView.WidthAnchor, 1.0f / Items.Count).Active = true)
+                .Pipe(tab =>
+                {
+                    tab.WidthAnchor.ConstraintEqualTo(stackView.WidthAnchor, 1.0f / Items.Count).Active = true;
+                    tab.SetFixedFormat();
+                })
                 .ToArray();
         }
 
@@ -194,6 +198,7 @@ namespace SushiShop.Ios.Views.Controls
             private const float IndicatorHeight = 4f;
 
             private UIView indicator;
+            private UIButton button;
 
             public TabItemView(string title, int index, Action<int> onTap)
             {
@@ -216,9 +221,15 @@ namespace SushiShop.Ios.Views.Controls
                 }
             }
 
+            public void SetFixedFormat()
+            {
+                button.TitleLabel.Lines = 0;
+                button.TitleLabel.TextAlignment = UITextAlignment.Center;
+            }
+
             private void InitializeButton(string title, Action<int> onTap)
             {
-                var button = new UIButton();
+                button = new UIButton();
                 button.TranslatesAutoresizingMaskIntoConstraints = false;
                 button.Font = Font.Create(FontStyle.Medium, 16f);
                 button.ContentEdgeInsets = new UIEdgeInsets(0f, 12f, 0f, 12f);
