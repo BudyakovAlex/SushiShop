@@ -42,7 +42,7 @@
                     <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEn-tQ-Vwl">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1705"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1715"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="АДРЕС МАГАЗИНА" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eB-8V-7zA">
                                     <rect key="frame" x="16" y="8" width="382" height="12"/>
@@ -86,10 +86,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98Y-Ew-aRf">
-                                    <rect key="frame" x="0.0" y="81" width="414" height="453"/>
+                                    <rect key="frame" x="0.0" y="81" width="414" height="458"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAv-au-PVJ">
-                                            <rect key="frame" x="0.0" y="5" width="414" height="366.5"/>
+                                            <rect key="frame" x="0.0" y="5" width="414" height="371.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Лиговский проспект, 43/81" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Lq-Zd-dui">
                                                     <rect key="frame" x="16" y="16" width="382" height="21.5"/>
@@ -124,11 +124,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="Ifb-YM-p3J" secondAttribute="trailing" constant="16" id="t2D-Up-6GE"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPW-kR-Mux">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="371.5"/>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPW-kR-Mux">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="376.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9B-j6-Hpw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="108.5"/>
+                                                    <rect key="frame" x="0.0" y="5" width="414" height="108.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Россия, Санкт-Петербург, Прачечный переулок, 10" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhR-A7-ZRc">
                                                             <rect key="frame" x="16" y="16" width="382" height="43"/>
@@ -155,7 +155,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iir-RD-WDR">
-                                                    <rect key="frame" x="0.0" y="113.5" width="414" height="258"/>
+                                                    <rect key="frame" x="0.0" y="118.5" width="414" height="258"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wky-Fx-x0P" customClass="FloatingTextField">
                                                             <rect key="frame" x="16" y="28" width="382" height="34"/>
@@ -199,7 +199,7 @@
                                             <constraints>
                                                 <constraint firstItem="Iir-RD-WDR" firstAttribute="leading" secondItem="DPW-kR-Mux" secondAttribute="leading" id="Phx-84-VXv"/>
                                                 <constraint firstItem="Iir-RD-WDR" firstAttribute="top" secondItem="G9B-j6-Hpw" secondAttribute="bottom" constant="5" id="UWy-ul-6AM"/>
-                                                <constraint firstItem="G9B-j6-Hpw" firstAttribute="top" secondItem="DPW-kR-Mux" secondAttribute="top" id="eQu-Tv-fty"/>
+                                                <constraint firstItem="G9B-j6-Hpw" firstAttribute="top" secondItem="DPW-kR-Mux" secondAttribute="top" constant="5" id="eQu-Tv-fty"/>
                                                 <constraint firstAttribute="trailing" secondItem="Iir-RD-WDR" secondAttribute="trailing" id="jld-VK-l9z"/>
                                                 <constraint firstAttribute="bottom" secondItem="Iir-RD-WDR" secondAttribute="bottom" id="nEk-ax-hyp"/>
                                                 <constraint firstAttribute="trailing" secondItem="G9B-j6-Hpw" secondAttribute="trailing" id="nd4-a4-AgB"/>
@@ -207,13 +207,13 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВРЕМЯ ЗАКАЗА" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IA1-Xf-Ubc">
-                                            <rect key="frame" x="16" y="380.5" width="382" height="12"/>
+                                            <rect key="frame" x="16" y="385.5" width="382" height="12"/>
                                             <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="10"/>
                                             <color key="textColor" red="0.63529411759999999" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qki-EU-1aP">
-                                            <rect key="frame" x="0.0" y="401.5" width="414" height="51.5"/>
+                                            <rect key="frame" x="0.0" y="406.5" width="414" height="51.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заберу" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohw-7j-iaT">
                                                     <rect key="frame" x="16" y="16" width="51.5" height="20"/>
@@ -266,13 +266,13 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЛИЧНЫЕ ДАННЫЕ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRZ-QF-ahn">
-                                    <rect key="frame" x="16" y="543" width="382" height="12"/>
+                                    <rect key="frame" x="16" y="548" width="382" height="12"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="10"/>
                                     <color key="textColor" red="0.63529411759999999" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOB-Zo-enw">
-                                    <rect key="frame" x="0.0" y="564" width="414" height="134"/>
+                                    <rect key="frame" x="0.0" y="569" width="414" height="134"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FSS-15-jfd" customClass="FloatingTextField">
                                             <rect key="frame" x="16" y="28" width="382" height="34"/>
@@ -297,22 +297,22 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПРЕДПОЧТЕНИЯ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adr-a5-fMX">
-                                    <rect key="frame" x="8" y="706" width="382" height="12"/>
+                                    <rect key="frame" x="8" y="711" width="382" height="12"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="10"/>
                                     <color key="textColor" red="0.63529411759999999" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zag-CZ-UiB">
-                                    <rect key="frame" x="0.0" y="727" width="414" height="213.5"/>
+                                    <rect key="frame" x="0.0" y="732" width="414" height="218.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество приборов" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95U-x2-GTD">
-                                            <rect key="frame" x="17" y="10" width="155.5" height="19.5"/>
+                                            <rect key="frame" x="16" y="15" width="155.5" height="19.5"/>
                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPJ-H0-OTz" customClass="SmallStepperView">
-                                            <rect key="frame" x="320" y="4" width="78" height="32"/>
+                                            <rect key="frame" x="320" y="9" width="78" height="32"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="1RP-o0-726"/>
@@ -320,14 +320,14 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJX-DI-3lD">
-                                            <rect key="frame" x="16" y="44.5" width="398" height="1"/>
+                                            <rect key="frame" x="16" y="49.5" width="398" height="1"/>
                                             <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="WNc-Dr-8XI"/>
                                             </constraints>
                                         </view>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="F7M-Ye-iFK" customClass="FloatingTextView">
-                                            <rect key="frame" x="16" y="73.5" width="382" height="128"/>
+                                            <rect key="frame" x="16" y="78.5" width="382" height="128"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="128" id="vBK-WC-SqO"/>
@@ -341,7 +341,7 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="F7M-Ye-iFK" firstAttribute="top" secondItem="jJX-DI-3lD" secondAttribute="bottom" constant="28" id="3UO-sA-igb"/>
-                                        <constraint firstItem="95U-x2-GTD" firstAttribute="top" secondItem="zag-CZ-UiB" secondAttribute="top" constant="10" id="BL7-MD-9Qg"/>
+                                        <constraint firstItem="95U-x2-GTD" firstAttribute="top" secondItem="zag-CZ-UiB" secondAttribute="top" constant="15" id="BL7-MD-9Qg"/>
                                         <constraint firstAttribute="trailing" secondItem="F7M-Ye-iFK" secondAttribute="trailing" constant="16" id="BgP-BW-NwZ"/>
                                         <constraint firstAttribute="bottom" secondItem="F7M-Ye-iFK" secondAttribute="bottom" constant="12" id="G4K-MC-mvy"/>
                                         <constraint firstAttribute="trailing" secondItem="YPJ-H0-OTz" secondAttribute="trailing" constant="16" id="TUN-Ij-c8w"/>
@@ -349,19 +349,19 @@
                                         <constraint firstAttribute="trailing" secondItem="jJX-DI-3lD" secondAttribute="trailing" id="ali-tl-W8m"/>
                                         <constraint firstItem="YPJ-H0-OTz" firstAttribute="centerY" secondItem="95U-x2-GTD" secondAttribute="centerY" id="ei1-dG-pLt"/>
                                         <constraint firstItem="YPJ-H0-OTz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="95U-x2-GTD" secondAttribute="trailing" constant="20" id="tnb-pO-rp6"/>
-                                        <constraint firstItem="95U-x2-GTD" firstAttribute="leading" secondItem="zag-CZ-UiB" secondAttribute="leading" constant="17" id="vPL-xz-Bdp"/>
+                                        <constraint firstItem="95U-x2-GTD" firstAttribute="leading" secondItem="zag-CZ-UiB" secondAttribute="leading" constant="16" id="vPL-xz-Bdp"/>
                                         <constraint firstItem="jJX-DI-3lD" firstAttribute="leading" secondItem="zag-CZ-UiB" secondAttribute="leading" constant="16" id="y1h-pX-CGx"/>
                                         <constraint firstItem="F7M-Ye-iFK" firstAttribute="leading" secondItem="zag-CZ-UiB" secondAttribute="leading" constant="16" id="y2v-1o-ATY"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СПОСОБ ОПЛАТЫ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsw-RF-vac">
-                                    <rect key="frame" x="16" y="949.5" width="382" height="12"/>
+                                    <rect key="frame" x="16" y="959.5" width="382" height="12"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="10"/>
                                     <color key="textColor" red="0.63529411759999999" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Fe-Wg-4B8">
-                                    <rect key="frame" x="0.0" y="970.5" width="414" height="145"/>
+                                    <rect key="frame" x="0.0" y="980.5" width="414" height="145"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWa-yv-cpS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
@@ -458,13 +458,13 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СПИСАНИЕ БАЛЛОВ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssk-3r-gmW">
-                                    <rect key="frame" x="16" y="1124.5" width="382" height="12"/>
+                                    <rect key="frame" x="16" y="1134.5" width="382" height="12"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="10"/>
                                     <color key="textColor" red="0.63529411759999999" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2q-6U-OJA">
-                                    <rect key="frame" x="0.0" y="1145.5" width="414" height="86.5"/>
+                                    <rect key="frame" x="0.0" y="1155.5" width="414" height="86.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество баллов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="219-qb-vYs">
                                             <rect key="frame" x="16" y="16" width="137" height="20"/>
@@ -509,7 +509,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFr-48-DmT">
-                                    <rect key="frame" x="0.0" y="1242" width="414" height="126"/>
+                                    <rect key="frame" x="0.0" y="1252" width="414" height="126"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Потратить баллы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhx-da-0Gw">
                                             <rect key="frame" x="16" y="18" width="126" height="20"/>
@@ -550,7 +550,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Giw-t5-a2S">
-                                    <rect key="frame" x="0.0" y="1378" width="414" height="327"/>
+                                    <rect key="frame" x="0.0" y="1388" width="414" height="327"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Товары:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwU-0k-hj1">
                                             <rect key="frame" x="16" y="20" width="56" height="20"/>
