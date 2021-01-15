@@ -2,6 +2,7 @@
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Common;
+using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Extensions;
 
 namespace SushiShop.Ios.Views.ViewControllers.CommonInfo
@@ -9,6 +10,13 @@ namespace SushiShop.Ios.Views.ViewControllers.CommonInfo
     [MvxChildPresentation]
     public partial class CommonInfoViewController : BaseViewController<CommonInfoViewModel>
     {
+        protected override void InitStylesAndContent()
+        {
+            base.InitStylesAndContent();
+
+            WebView.NavigationDelegate = new WKWebViewNavigationDelegate();
+        }
+
         protected override void Bind()
         {
             base.Bind();

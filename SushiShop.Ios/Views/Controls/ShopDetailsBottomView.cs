@@ -135,6 +135,11 @@ namespace SushiShop.Ios.Views.Controls
                 case UIGestureRecognizerState.Cancelled:
                     if (!IsExpanded)
                     {
+                        if (translation.Y > 0)
+                        {
+                            break;
+                        }
+
                         IsExpanded = heightConstraint.Constant / maxHeight > HeightPercentExpand;
                         height = IsExpanded ? maxHeight : startHeight;
                     }
