@@ -12,6 +12,7 @@ namespace SushiShop.Core.Mappers
                 dto.IsAuthByEmail,
                 dto.IsRegistrationNeeded,
                 dto.Message,
+                dto.Placeholder,
                 dto.IsPhone,
                 dto.IsEmail);
         }

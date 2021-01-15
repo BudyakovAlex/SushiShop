@@ -7,6 +7,7 @@
             bool isAuthByEmail,
             bool isRegistrationNeeded,
             string? message,
+            string? placeholder,
             bool isPhone,
             bool isEmail)
         {
@@ -14,6 +15,7 @@
             IsAuthByEmail = isAuthByEmail;
             IsRegistrationNeeded = isRegistrationNeeded;
             Message = message;
+            Placeholder = placeholder;
             IsPhone = isPhone;
             IsEmail = isEmail;
         }
@@ -25,6 +27,8 @@
         public bool IsRegistrationNeeded { get; }
 
         public string? Message { get; }
+
+        public string? Placeholder { get; }
 
         public bool IsPhone { get; }
 

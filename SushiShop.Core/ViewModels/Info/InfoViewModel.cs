@@ -39,6 +39,8 @@ namespace SushiShop.Core.ViewModels.Info
 
         public string? OfficePhone { get; private set; }
 
+        public bool HasOfficePhone => OfficePhone.IsNotNullNorEmpty();
+
         public MvxObservableCollection<SocialNetworkItemViewModel> SocialNetworks { get; }
 
         public override async Task InitializeAsync()
@@ -53,12 +55,17 @@ namespace SushiShop.Core.ViewModels.Info
             await base.RefreshDataAsync();
 
             var city = userSession.GetCity();
-            OfficePhone = city?.Phone ?? Constants.Info.OfficePhone;
+            OfficePhone = city?.Phone;
 
             var getMenuListTask = commonInfoManager.GetCommonInfoMenuAsync();
             var getSocialNetworksTask = commonInfoManager.GetSocialNetworksAsync();
 
-            await Task.WhenAll(getMenuListTask, getSocialNetworksTask, RaisePropertyChanged(nameof(OfficePhone)));
+            await Task.WhenAll(
+                getMenuListTask,
+                getSocialNetworksTask,
+                RaisePropertyChanged(nameof(OfficePhone)),
+                RaisePropertyChanged(nameof(HasOfficePhone)));
+
             if (!getMenuListTask.Result.IsSuccessful)
             {
                 return;

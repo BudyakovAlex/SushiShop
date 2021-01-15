@@ -86,6 +86,20 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref isAllowPush, value);
         }
 
+        private bool canChangeDateOfBirth;
+        public bool CanChangeDateOfBirth
+        {
+            get => canChangeDateOfBirth;
+            set => SetProperty(ref canChangeDateOfBirth, value);
+        }
+
+        private bool canChangePhone;
+        public bool CanChangePhone
+        {
+            get => canChangePhone;
+            set => SetProperty(ref canChangePhone, value);
+        }
+
         public IMvxCommand SaveCommand { get; }
 
         public override async Task InitializeAsync()
@@ -109,6 +123,8 @@ namespace SushiShop.Core.ViewModels.Profile
             IsAllowSubscribe = profile.IsAllowSubscribe;
             IsAllowNotifications = profile.IsAllowNotifications;
             IsAllowPush = profile.IsAllowPush;
+            CanChangePhone = !profile.CanChangePhone;
+            CanChangeDateOfBirth = !profile.CanChangeDateOfBirth;
         }
 
         private async Task SaveAsync()

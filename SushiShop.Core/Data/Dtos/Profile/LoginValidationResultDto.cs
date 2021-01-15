@@ -16,6 +16,9 @@ namespace SushiShop.Core.Data.Dtos.Profile
         [JsonProperty("message")]
         public string? Message { get; set; }
 
+        [JsonProperty("placeholder")]
+        public string? Placeholder { get; set; }
+
         [JsonProperty("isPhone")]
         public bool IsPhone { get; set; }
 

@@ -8,9 +8,11 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Ios.Delegates;
+using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Feedback;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UIKit;
 
@@ -24,6 +26,7 @@ namespace SushiShop.Ios.Views.Controls
 
         private readonly float maxHeight = (float)UIApplication.SharedApplication.KeyWindow.Frame.Height / 2.0f * 1.5f;
         private readonly float startHeight = (float)UIApplication.SharedApplication.KeyWindow.Frame.Height * 0.25f;
+        private readonly Dictionary<NSRange, string> _phonesRangesMappings = new Dictionary<NSRange, string>();
 
         private NSLayoutConstraint heightConstraint;
 
@@ -34,6 +37,13 @@ namespace SushiShop.Ios.Views.Controls
         }
 
         public bool IsExpanded { get; set; }
+
+        protected ShopItemViewModel ViewModel => DataContext as ShopItemViewModel;
+
+        public string[] Phones
+        {
+            set => SetPhonesAttributedString(value);
+        }
 
         protected override void Initialize()
         {
@@ -63,7 +73,7 @@ namespace SushiShop.Ios.Views.Controls
 
             var bindingSet = this.CreateBindingSet<ShopDetailsBottomView, ShopItemViewModel>();
 
-            bindingSet.Bind(PhoneLabel).For(v => v.Text).To(vm => vm.Phone);
+            bindingSet.Bind(this).For(nameof(Phones)).To(vm => vm.Phones);
             bindingSet.Bind(TimeWorkingLabel).For(v => v.Text).To(vm => vm.WorkingTime);
             bindingSet.Bind(DriveWayLabel).For(v => v.Text).To(vm => vm.DriveWay);
             bindingSet.Bind(DriveWayContainerView).For(v => v.BindVisible()).To(vm => vm.HasDriveWay);
@@ -149,6 +159,34 @@ namespace SushiShop.Ios.Views.Controls
                     UIApplication.SharedApplication.KeyWindow.LayoutIfNeeded();
                     ContentScrollView.ScrollEnabled = IsExpanded;
                 });
+        }
+
+        private void SetPhonesAttributedString(string[] phones)
+        {
+            var joinedText = string.Join(", ", phones);
+            var attributedText = new NSMutableAttributedString(joinedText);
+            foreach (var item in phones)
+            {
+                var startPosition = joinedText.IndexOf(item);
+                var endPosition = startPosition + item.Length;
+                _phonesRangesMappings[new NSRange(startPosition, endPosition)] = item;
+            }
+
+            PhoneLabel.AttributedText = attributedText;
+            PhoneLabel.UserInteractionEnabled = true;
+            PhoneLabel.AddGestureRecognizer(new UITapGestureRecognizer(OnPhoneLabelTapped));
+        }
+
+        private void OnPhoneLabelTapped(UITapGestureRecognizer gesture)
+        {
+            foreach (var item in _phonesRangesMappings)
+            {
+                if (gesture.DidTapAttributedTextInLabel(PhoneLabel, item.Key))
+                {
+                    ViewModel?.CallCommand?.Execute(item.Value);
+                    break;
+                }
+            }
         }
 
         protected override void Dispose(bool disposing)

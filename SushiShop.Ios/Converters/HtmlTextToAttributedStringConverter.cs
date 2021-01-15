@@ -13,11 +13,12 @@ namespace SushiShop.Ios.Converters
             var documentAttributes = new NSAttributedStringDocumentAttributes()
             {
                 DocumentType = NSDocumentType.HTML,
-                StringEncoding = NSStringEncoding.UTF8
+                StringEncoding = NSStringEncoding.UTF8,
             };
 
             NSError error = null;
-            return new NSAttributedString(data, documentAttributes, ref error);
+            var attributedString = new NSAttributedString(data, documentAttributes, ref error);
+            return attributedString;
         }
     }
 }

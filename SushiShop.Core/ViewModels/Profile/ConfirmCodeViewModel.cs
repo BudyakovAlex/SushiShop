@@ -29,6 +29,8 @@ namespace SushiShop.Core.ViewModels.Profile
 
         public string? Message { get; private set; }
 
+        public string? Placeholder { get; private set; }
+
         private string? code;
         public string? Code
         {
@@ -42,6 +44,8 @@ namespace SushiShop.Core.ViewModels.Profile
         {
             login = parameter.Login;
             Message = parameter.Message;
+            Placeholder = parameter.Placeholder;
+
             RaisePropertyChanged(nameof(Message));
         }
 

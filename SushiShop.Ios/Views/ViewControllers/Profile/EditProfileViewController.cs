@@ -82,6 +82,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(dateOfBirthDatePicker).For(v => v.BindDate()).To(vm => vm.DateOfBirth).TwoWay();
             bindingSet.Bind(DateOfBirdthtextField).For(v => v.Text).To(vm => vm.DateOfBirth)
                 .WithConversion<DateTimeToStringConverter>();
+            bindingSet.Bind(DateOfBirdthtextField).For(v => v.Enabled).To(vm => vm.CanChangeDateOfBirth);
+            bindingSet.Bind(PhoneTextField).For(v => v.Enabled).To(vm => vm.CanChangePhone);
+            bindingSet.Bind(DateOfBirdthtextField).For(v => v.Alpha).To(vm => vm.CanChangeDateOfBirth)
+                .WithConversion(new BoolToValueConverter<float>(1, 0.5f));
+            bindingSet.Bind(PhoneTextField).For(v => v.Alpha).To(vm => vm.CanChangePhone)
+                .WithConversion(new BoolToValueConverter<float>(1, 0.5f));
             bindingSet.Bind(PhoneTextField).For(v => v.Text).To(vm => vm.Phone);
             bindingSet.Bind(EmailTextField).For(v => v.Text).To(vm => vm.Email);
             bindingSet.Bind(IsAllowNotificationsSwitch).For(v => v.BindOn()).To(vm => vm.IsAllowNotifications).TwoWay();

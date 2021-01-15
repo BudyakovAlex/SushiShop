@@ -91,8 +91,8 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref username, value);
         }
 
-        private int score;
-        public int Score
+        private string? score;
+        public string? Score
         {
             get => score;
             set => SetProperty(ref score, value);
@@ -141,7 +141,7 @@ namespace SushiShop.Core.ViewModels.Profile
             var profile = getProfileTask.Result.Data!;
             Username = profile.FullName;
             Avatar = profile.Photo?.JpgUrl;
-            Score = getDiscountTask.Result.Data!.Bonuses;
+            Score = getDiscountTask.Result.Data!.Title;
         }
 
         private async Task LogoutAsync()
@@ -212,7 +212,10 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            var navigationParameters = new ConfirmCodeNavigationParameters(PhoneOrEmail!, response.Data.Message);
+            var navigationParameters = new ConfirmCodeNavigationParameters(
+                PhoneOrEmail!,
+                response.Data.Message,
+                response.Data.Placeholder);
             var isConfirmed = await NavigationManager.NavigateAsync<ConfirmCodeViewModel, ConfirmCodeNavigationParameters, bool>(navigationParameters);
             if (!isConfirmed)
             {

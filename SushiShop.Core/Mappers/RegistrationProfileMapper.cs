@@ -8,8 +8,9 @@ namespace SushiShop.Core.Mappers
         public static ConfirmationResult Map(this ConfirmationResultDto registrationProfileDto)
         {
             return new ConfirmationResult(
-                registrationProfileDto.Message,
-                registrationProfileDto.Phone);
+                registrationProfileDto.Message!,
+                registrationProfileDto.Phone!,
+                registrationProfileDto.Placeholder!);
         }
     }
 }

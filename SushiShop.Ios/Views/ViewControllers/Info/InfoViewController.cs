@@ -41,6 +41,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Info
             bindingSet.Bind(ShopsContainerView).For(v => v.BindTap()).To(vm => vm.GoToShopsCommand);
             bindingSet.Bind(PhoneLabel).For(v => v.Text).To(vm => vm.OfficePhone);
             bindingSet.Bind(PhoneLabel).For(v => v.BindTap()).To(vm => vm.CallToOfficeCommand);
+            bindingSet.Bind(PhoneContainerView).For(v => v.BindVisible()).To(vm => vm.HasOfficePhone);
             bindingSet.Bind(MenuStackView).For(v => v.ItemsSource).To(vm => vm.Items);
 
             bindingSet.Apply();

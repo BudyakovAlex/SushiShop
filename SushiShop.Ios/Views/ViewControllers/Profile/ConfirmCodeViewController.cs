@@ -22,7 +22,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             base.InitStylesAndContent();
 
             Title = AppStrings.AcceptPhoneTitle;
-            CodeTextField.Placeholder = AppStrings.LastFourDigits;
             CodeTextField.InputAccessoryView = new DoneAccessoryView(View, () => ViewModel?.ContinueCommand?.Execute());
         }
 
@@ -49,6 +48,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.CloseCommand);
             bindingSet.Bind(ContinueButton).For(v => v.BindTouchUpInside()).To(vm => vm.ContinueCommand);
             bindingSet.Bind(CodeTextField).For(v => v.Text).To(vm => vm.Code);
+            bindingSet.Bind(CodeTextField).For(v => v.Placeholder).To(vm => vm.Placeholder);
             bindingSet.Bind(ConfirmationMessageLabel).For(v => v.Text).To(vm => vm.Message);
             bindingSet.Bind(LoadingActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
 

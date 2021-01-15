@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Shops.Items
 {
@@ -33,6 +34,7 @@ namespace SushiShop.Core.ViewModels.Shops.Items
             GoToMapCommand = new MvxAsyncCommand(GoToMapAsync);
             ShowNearestMetroCommand = new MvxCommand(() => showNearestMetroAction?.Invoke(Key));
             ConfirmSelectionCommand = new MvxAsyncCommand(ConfirmSelectionAsync, () => IsSelectionMode);
+            CallCommand = new MvxCommand<string>(PhoneDialer.Open);
         }
 
         public ICommand GoToMapCommand { get; }
@@ -40,6 +42,8 @@ namespace SushiShop.Core.ViewModels.Shops.Items
         public ICommand ShowNearestMetroCommand { get; }
 
         public ICommand ConfirmSelectionCommand { get; }
+
+        public ICommand CallCommand { get; }
 
         public MvxObservableCollection<PhotoItemViewModel> Photos { get; }
 
@@ -50,6 +54,8 @@ namespace SushiShop.Core.ViewModels.Shops.Items
         public double Longitude => Key.Coordinates.Longitude ?? 0;
 
         public string? Phone => Key.Phone;
+
+        public string[] Phones => Key.Phones;
 
         public string? WorkingTime => GetWorkingTimeTitle();
 

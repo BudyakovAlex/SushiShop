@@ -21,6 +21,7 @@ namespace SushiShop.Core.Data.Models.Profile
             bool isNeedRegistration,
             string? dateOfBirthFormated,
             bool canChangeDateOfBirth,
+            bool canChangePhone,
             ImageInfo? photo)
             : base(email,
                    phone,
@@ -37,6 +38,7 @@ namespace SushiShop.Core.Data.Models.Profile
             UserId = userId;
             DateOfBirthFormated = dateOfBirthFormated;
             CanChangeDateOfBirth = canChangeDateOfBirth;
+            CanChangePhone = canChangePhone;
             Photo = photo;
         }
 
@@ -45,6 +47,8 @@ namespace SushiShop.Core.Data.Models.Profile
         public string? DateOfBirthFormated { get; }
 
         public bool CanChangeDateOfBirth { get; }
+
+        public bool CanChangePhone { get; }
 
         public ImageInfo? Photo { get; }
     }

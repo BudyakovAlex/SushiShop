@@ -14,6 +14,9 @@ namespace SushiShop.Core.Data.Dtos.Profile
         [JsonProperty("dateOfBirthReadonly")]
         public bool CanChangeDateOfBirth { get; set; }
 
+        [JsonProperty("phoneReadonly")]
+        public bool CanChangePhone { get; set; }
+
         [JsonProperty("photo")]
         public ImageInfoDto? Photo { get; set; }
     }

@@ -16,6 +16,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Info
 		BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Controls.MvxStackView MenuStackView { get; set; }
 
 		[Outlet]
+		UIKit.UIView PhoneContainerView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel PhoneLabel { get; set; }
 
 		[Outlet]
@@ -32,9 +35,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Info
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (PhoneTitleLabel != null) {
-				PhoneTitleLabel.Dispose ();
-				PhoneTitleLabel = null;
+			if (MenuStackView != null) {
+				MenuStackView.Dispose ();
+				MenuStackView = null;
 			}
 
 			if (PhoneLabel != null) {
@@ -42,9 +45,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Info
 				PhoneLabel = null;
 			}
 
-			if (ShopsTitleLabel != null) {
-				ShopsTitleLabel.Dispose ();
-				ShopsTitleLabel = null;
+			if (PhoneTitleLabel != null) {
+				PhoneTitleLabel.Dispose ();
+				PhoneTitleLabel = null;
 			}
 
 			if (ShopsContainerView != null) {
@@ -52,14 +55,19 @@ namespace SushiShop.Ios.Views.ViewControllers.Info
 				ShopsContainerView = null;
 			}
 
-			if (MenuStackView != null) {
-				MenuStackView.Dispose ();
-				MenuStackView = null;
+			if (ShopsTitleLabel != null) {
+				ShopsTitleLabel.Dispose ();
+				ShopsTitleLabel = null;
 			}
 
 			if (SocialNetworksStackView != null) {
 				SocialNetworksStackView.Dispose ();
 				SocialNetworksStackView = null;
+			}
+
+			if (PhoneContainerView != null) {
+				PhoneContainerView.Dispose ();
+				PhoneContainerView = null;
 			}
 		}
 	}

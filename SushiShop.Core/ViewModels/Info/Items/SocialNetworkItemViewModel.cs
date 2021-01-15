@@ -26,7 +26,7 @@ namespace SushiShop.Core.ViewModels.Info.Items
 
         private Task OpenBrowserAsync()
         {
-            return Browser.OpenAsync(socialNetwork.Url);
+            return Browser.OpenAsync(socialNetwork.Url, BrowserLaunchMode.External);
         }
     }
 }
