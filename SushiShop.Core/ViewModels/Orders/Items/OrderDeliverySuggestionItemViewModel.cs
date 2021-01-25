@@ -5,12 +5,12 @@ namespace SushiShop.Core.ViewModels.Orders.Items
 {
     public class OrderDeliverySuggestionItemViewModel : BaseViewModel
     {
-        public OrderDeliverySuggestionItemViewModel(OrderDelivery orderDelivery)
+        public OrderDeliverySuggestionItemViewModel(OrderDeliveryRequest orderDelivery)
         {
             OrderDelivery = orderDelivery;
         }
 
-        public OrderDelivery OrderDelivery { get; }
+        public OrderDeliveryRequest OrderDelivery { get; }
 
         public string? Address => OrderDelivery?.Address;
     }

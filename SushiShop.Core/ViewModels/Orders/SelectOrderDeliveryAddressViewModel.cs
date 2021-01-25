@@ -15,7 +15,7 @@ using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Orders
 {
-    public class SelectOrderDeliveryAddressViewModel : BaseItemsPageViewModelResult<DeliveryZoneItemViewModel, OrderDelivery>
+    public class SelectOrderDeliveryAddressViewModel : BaseItemsPageViewModelResult<DeliveryZoneItemViewModel, OrderDeliveryRequest>
     {
         private const int SearchMillisecondsDelay = 1500;
 
@@ -111,7 +111,7 @@ namespace SushiShop.Core.ViewModels.Orders
                 await Task.WhenAll(getPlacemarksTasks);
 
                 var suggestions = getPlacemarksTasks.SelectMany(task => task.Result)
-                    .Select(placemark => new OrderDeliverySuggestionItemViewModel(new OrderDelivery(placemark.FeatureName, new Coordinates(placemark.Location.Longitude, placemark.Location.Latitude))))
+                    .Select(placemark => new OrderDeliverySuggestionItemViewModel(new OrderDeliveryRequest(placemark.FeatureName, new Coordinates(placemark.Location.Longitude, placemark.Location.Latitude))))
                     .ToArray();
 
                 Suggestions.ReplaceWith(suggestions);
@@ -121,7 +121,7 @@ namespace SushiShop.Core.ViewModels.Orders
 
             Suggestions.Clear();
             var firstLocation = locations.FirstOrDefault();
-            OrderDelivery = new OrderDelivery(AddressQuery, new Coordinates(firstLocation.Longitude, firstLocation.Latitude));
+            OrderDelivery = new OrderDeliveryRequest(AddressQuery, new Coordinates(firstLocation.Longitude, firstLocation.Latitude));
         }
     }
 }

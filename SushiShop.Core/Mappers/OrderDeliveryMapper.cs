@@ -9,5 +9,18 @@ namespace SushiShop.Core.Mappers
         {
             return new OrderDelivery(dto.Address, dto.Coordinates?.Map());
         }
+
+        public static OrderDeliveryRequestDto Map(this OrderDeliveryRequest model)
+        {
+            return new OrderDeliveryRequestDto
+            {
+                Address = model.Address,
+                Floor = model.Floor,
+                Flat = model.Flat,
+                Coordinates = model.Cordinates?.Map(),
+                IntercomCode = model.IntercomCode,
+                Section = model.Section
+            };
+        }
     }
 }

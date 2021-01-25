@@ -1,8 +1,13 @@
-﻿using SushiShop.Core.Data.Models.Shops;
+﻿using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.Extensions;
+using SushiShop.Core.Data.Models.Orders;
+using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Info;
 using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Orders.Sections
@@ -11,7 +16,11 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
     {
         private Shop? selectedShop;
 
-        public PickupOrderSectionViewModel(IOrdersManager ordersManager) : base(ordersManager)
+        public PickupOrderSectionViewModel(
+            IOrdersManager ordersManager,
+            IUserSession userSession,
+            Func<OrderConfirmed, Task> confirmOrderFunc)
+            : base(ordersManager, userSession, confirmOrderFunc)
         {
         }
 
@@ -19,37 +28,39 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         public string? ShopPhone => selectedShop?.Phone;
 
-        private string? flat;
-        public string? Flat
+        protected override async Task<OrderConfirmed?> ConfirmOrderAsync()
         {
-            get => flat;
-            set => SetProperty(ref flat, value);
-        }
+            var city = UserSession.GetCity();
+            var orderRequest = new OrderRequest(
+                UserSession.GetCartId(),
+                city?.Name,
+                Name!,
+                Phone!,
+                Comments!,
+                СutleryStepperViewModel.Count,
+                selectedShop!.Id,
+                ReceiveDateTime,
+                PaymentMethod,
+                null,
+                0,
+                true,
+                ShouldApplyScores,
+                ScoresToApply);
 
-        private string? entrance;
-        public string? Entrance
-        {
-            get => entrance;
-            set => SetProperty(ref entrance, value);
-        }
+            var response = await OrdersManager.CreateOrderAsync(orderRequest);
+            if (response.Data is null)
+            {
+                var error = response.Errors.FirstOrDefault();
+                if (error.IsNullOrEmpty())
+                {
+                    return null;
+                }
 
-        private string? floor;
-        public string? Floor
-        {
-            get => floor;
-            set => SetProperty(ref floor, value);
-        }
+                await UserDialogs.Instance.AlertAsync(error);
+                return null;
+            }
 
-        private string? intercom;
-        public string? Intercom
-        {
-            get => intercom;
-            set => SetProperty(ref intercom, value);
-        }
-
-        protected override Task ConfirmOrderAsync()
-        {
-            throw new NotImplementedException();
+            return response.Data;
         }
 
         protected override async Task SelectAddressAsync()

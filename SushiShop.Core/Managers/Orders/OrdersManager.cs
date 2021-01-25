@@ -4,6 +4,7 @@ using SushiShop.Core.Data.Models.Pagination;
 using SushiShop.Core.Mappers;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http.Orders;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,6 +19,20 @@ namespace SushiShop.Core.Managers.Orders
         {
             this.ordersService = ordersService;
             this.userSession = userSession;
+        }
+
+        public async Task<Response<OrderConfirmed?>> CreateOrderAsync(OrderRequest orderRequest)
+        {
+            var requestDto = orderRequest.Map();
+            var response = await ordersService.CreateOrderAsync(requestDto, CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData!.Map();
+                return new Response<OrderConfirmed?>(isSuccessful: true, data);
+            }
+
+            var errors = response.Data!.Errors ?? Array.Empty<string>();
+            return new Response<OrderConfirmed?>(isSuccessful: false, null, errors: errors);
         }
 
         public async Task<Response<PaginationContainer<Order>>> GetMyOrdersAsync(int page, int take)
