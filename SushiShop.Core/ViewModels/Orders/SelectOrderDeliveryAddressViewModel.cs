@@ -5,10 +5,12 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Data.Models.Orders;
+using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.Managers.Shops;
 using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Orders.Items;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -21,12 +23,20 @@ namespace SushiShop.Core.ViewModels.Orders
 
         private readonly IUserDialogs userDialogs;
         private readonly IShopsManager shopsManager;
+        private readonly ICitiesManager citiesManager;
         private readonly IUserSession userSession;
 
-        public SelectOrderDeliveryAddressViewModel(IShopsManager shopsManager, IUserSession userSession)
+        private CancellationTokenSource? cancellationTokenSource;
+        private Data.Models.Cities.City? _city;
+
+        public SelectOrderDeliveryAddressViewModel(
+            IShopsManager shopsManager,
+            ICitiesManager citiesManager,
+            IUserSession userSession)
         {
             userDialogs = UserDialogs.Instance;
             this.shopsManager = shopsManager;
+            this.citiesManager = citiesManager;
             this.userSession = userSession;
 
             Suggestions = new MvxObservableCollection<OrderDeliverySuggestionItemViewModel>();
@@ -59,6 +69,7 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public override Task InitializeAsync()
         {
+            _city = userSession.GetCity();
             return Task.WhenAll(base.InitializeAsync(), RefreshDataAsync());
         }
 
@@ -103,6 +114,11 @@ namespace SushiShop.Core.ViewModels.Orders
             {
                 return;
             }
+
+            cancellationTokenSource?.Cancel();
+            cancellationTokenSource = new CancellationTokenSource();
+
+            var suggestions = await citiesManager.SearchAddressAsync(_city?.Name, query!, cancellationTokenSource.Token);
 
             var locations = await Geocoding.GetLocationsAsync(query);
             if (locations.Count() > 1)

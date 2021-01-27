@@ -81,7 +81,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         public decimal ScoresToApply
         {
             get => scoresToApply;
-            set => SetProperty(ref scoresToApply, value);
+            set => SetProperty(ref scoresToApply, value, () => RaisePropertyChanged(nameof(ScoresDiscount)));
         }
 
         private DateTime? receiveDateTime;
@@ -93,21 +93,31 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         public string? AvailableScores { get; }
 
-        public string? ProductsPrice { get; }
-
-        public string? DeliveryPrice { get; }
-
-        public string? DiscountByPromocode { get; }
-
         public string? DiscountByScores { get; }
 
-        public string? PriceToPay { get; }
+        public string ProductsPrice => $"{Cart?.TotalSum} {Cart?.Currency?.Symbol}";
+
+        public string DiscountByPromocode => $"- {Cart?.Discount} {Cart?.Currency?.Symbol}";
+
+        public string? ScoresDiscount => $"- {ScoresToApply} {Cart?.Currency?.Symbol}";
+
+        public abstract string PriceToPay { get; }
 
         public StepperViewModel СutleryStepperViewModel { get; }
+
+        protected Data.Models.Cart.Cart? Cart { get; private set; }
 
         protected IOrdersManager OrdersManager { get; }
 
         protected IUserSession UserSession { get; }
+
+        public virtual void Prepare(Data.Models.Cart.Cart cart)
+        {
+            Cart = cart;
+
+            RaisePropertyChanged(nameof(ProductsPrice));
+            RaisePropertyChanged(nameof(DiscountByPromocode));
+        }
 
         protected abstract Task<OrderConfirmed?> ConfirmOrderAsync();
 

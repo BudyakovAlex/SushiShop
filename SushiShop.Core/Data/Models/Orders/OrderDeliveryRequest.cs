@@ -17,5 +17,7 @@ namespace SushiShop.Core.Data.Models.Orders
         public string? Floor { get; set; }
 
         public string? IntercomCode { get; set; }
+
+        public decimal Delivery { get; set; }
     }
 }

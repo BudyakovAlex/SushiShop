@@ -8,5 +8,7 @@ namespace SushiShop.Core.Services.Http.Cities
     public interface ICitiesService
     {
         Task<HttpResponse<ResponseDto<CityDto[]>>> GetCitiesAsync(CancellationToken cancellationToken);
+
+        Task<HttpResponse<ResponseDto<AddressSuggestionDto[]>>> SearchAddressAsync(string? city, string query, CancellationToken cancellationToken);
     }
 }

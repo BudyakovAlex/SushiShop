@@ -29,5 +29,17 @@ namespace SushiShop.Core.Managers.Cities
 
             return new Response<City[]>(isSuccessful: false, Array.Empty<City>());
         }
+
+        public async Task<Response<AddressSuggestion[]>> SearchAddressAsync(string? city, string query, CancellationToken token)
+        {
+            var response = await citiesService.SearchAddressAsync(city, query, token);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData!.Select(x => x.Map()).ToArray();
+                return new Response<AddressSuggestion[]>(isSuccessful: true, data);
+            }
+
+            return new Response<AddressSuggestion[]>(isSuccessful: false, Array.Empty<AddressSuggestion>());
+        }
     }
 }

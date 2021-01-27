@@ -28,6 +28,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         public string? ShopPhone => selectedShop?.Phone;
 
+        public override string PriceToPay => $"{Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
+
         protected override async Task<OrderConfirmed?> ConfirmOrderAsync()
         {
             var city = UserSession.GetCity();

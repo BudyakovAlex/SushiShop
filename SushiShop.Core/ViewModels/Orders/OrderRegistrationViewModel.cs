@@ -1,6 +1,7 @@
 ﻿using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Data.Models.Orders;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
@@ -13,8 +14,6 @@ namespace SushiShop.Core.ViewModels.Orders
 {
     public class OrderRegistrationViewModel : BaseItemsPageViewModel<BaseOrderSectionViewModel, Data.Models.Cart.Cart>
     {
-        private Data.Models.Cart.Cart? cart;
-
         public OrderRegistrationViewModel(IOrdersManager ordersManager, IUserSession userSession)
         {
             Items.AddRange(new BaseOrderSectionViewModel[]
@@ -36,13 +35,7 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public override void Prepare(Data.Models.Cart.Cart parameter)
         {
-            cart = parameter;
-        }
-
-        public override Task InitializeAsync()
-        {
-            //TODO: load data here
-            return base.InitializeAsync();
+            Items.ForEach(item => item.Prepare(parameter));
         }
 
         private async Task OrderConfirmedAsync(OrderConfirmed orderConfirmed)

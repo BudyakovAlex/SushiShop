@@ -14,6 +14,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
     {
         private OrderDeliveryRequest? orderDeliveryRequest;
 
+        private decimal _deliveryPrice;
+
         public DeliveryOrderSectionViewModel(
             IOrdersManager ordersManager,
             IUserSession userSession,
@@ -36,6 +38,10 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             set => SetProperty(ref section, value);
         }
 
+        public string? DeliveryPrice => $"{_deliveryPrice} {Cart?.Currency?.Symbol}";
+
+        public override string PriceToPay => $"{_deliveryPrice + Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
+
         private string? floor;
         public string? Floor
         {
@@ -48,6 +54,13 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         {
             get => intercom;
             set => SetProperty(ref intercom, value);
+        }
+
+        public override void Prepare(Data.Models.Cart.Cart cart)
+        {
+            base.Prepare(cart);
+
+            RaisePropertyChanged(nameof(ScoresDiscount));
         }
 
         protected override async Task<OrderConfirmed?> ConfirmOrderAsync()
