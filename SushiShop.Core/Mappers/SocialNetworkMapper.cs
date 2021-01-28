@@ -5,9 +5,9 @@ namespace SushiShop.Core.Mappers
 {
     public static class SocialNetworkMapper
     {
-        public static SocialNetwork Map(this SocialNetworkDto dto)
+        public static LinkedImage Map(this LinkedImageDto dto)
         {
-            return new SocialNetwork(dto.Url!, dto.ImageUrl!);
+            return new LinkedImage(dto.Url!, dto.ImageUrl!);
         }
     }
 }

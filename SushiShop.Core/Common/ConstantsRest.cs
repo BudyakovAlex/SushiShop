@@ -11,8 +11,11 @@ namespace SushiShop.Core.Common
 
             public const string GetResource = "content/get";
             public const string GetMenuList = "content/list-info";
-            public const string GetSocialNetworks = "content/socials";
+            public const string GetSocialNetworksResource = "content/socials";
             public const string JobResource = "content/job";
+            public const string GetDiscountImagesResource = "content/discount-images";
+            public const string DiscountPolicyResource = "content/discount-policy";
+
             public const string FranchiseResource = "franchise/getbutton";
 
             public const string PromotionsResource = "sales/list";

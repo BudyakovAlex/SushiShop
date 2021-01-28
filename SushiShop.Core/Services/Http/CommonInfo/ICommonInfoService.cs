@@ -17,6 +17,10 @@ namespace SushiShop.Core.Services.Http.CommonInfo
 
         Task<HttpResponse<ResponseDto<CommonMenuDto[]>>> GetCommonInfoMenuAsync(CancellationToken cancellationToken);
 
-        Task<HttpResponse<ResponseDto<SocialNetworkDto[]>>> GetSocialNetworksAsync(CancellationToken cancellationToken);
+        Task<HttpResponse<ResponseDto<LinkedImageDto[]>>> GetSocialNetworksAsync(CancellationToken cancellationToken);
+
+        Task<HttpResponse<ResponseDto<ContentDto>>> GetBonusesContentAsync(CancellationToken cancellationToken);
+
+        Task<HttpResponse<ResponseDto<LinkedImageDto[]>>> GetBonusesImagesAsync(CancellationToken cancellationToken);
     }
 }

@@ -329,6 +329,7 @@
         <Folder Include="Assets.xcassets\ic_pin.imageset\" />
         <Folder Include="Assets.xcassets\ic_default_marker.imageset\" />
         <Folder Include="Assets.xcassets\ic_selected_marker.imageset\" />
+        <Folder Include="Views\Cells\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -385,6 +386,7 @@
     <InterfaceDefinition Include="Views\Cells\Shops\NearestMetroItemViewCell.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Shops\ShopsNearMetroViewController.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Orders\OrderRegistrationViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\Profile\BonusProgramImageItemViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -653,6 +655,7 @@
     <Compile Include="Views\ViewControllers\Orders\OrderRegistrationViewController.designer.cs">
       <DependentUpon>OrderRegistrationViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cells\Profile\BonusProgramImageItemViewCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
@@ -669,6 +672,7 @@
     <BundleResource Include="Resources\SF-Pro-Display-Regular.otf" />
     <BundleResource Include="Resources\SF-Pro-Display-MediumItalic.otf" />
     <BundleResource Include="Resources\SF-Pro-Display-Medium.otf" />
+    <BundleResource Include="Resources\.DS_Store" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

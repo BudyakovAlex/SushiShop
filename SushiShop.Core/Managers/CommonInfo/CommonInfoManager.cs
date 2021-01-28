@@ -68,6 +68,26 @@ namespace SushiShop.Core.Managers.CommonInfo
                     DateTime.MinValue));
         }
 
+        public async Task<Response<Content>> GetBonusesContentAsync()
+        {
+            var response = await commonInfoService.GetBonusesContentAsync(CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData!.Map();
+                return new Response<Content>(isSuccessful: true, data);
+            }
+
+            return new Response<Content>(
+                isSuccessful: false,
+                new Content(
+                    int.MinValue,
+                    string.Empty,
+                    string.Empty,
+                    string.Empty,
+                    DateTime.Now,
+                    DateTime.Now));
+        }
+
         public async Task<Response<CommonMenu[]>> GetCommonInfoMenuAsync()
         {
             var response = await commonInfoService.GetCommonInfoMenuAsync(CancellationToken.None);
@@ -80,16 +100,28 @@ namespace SushiShop.Core.Managers.CommonInfo
             return new Response<CommonMenu[]>(isSuccessful: false, Array.Empty<CommonMenu>(), response.Data?.Errors ?? Array.Empty<string>());
         }
 
-        public async Task<Response<SocialNetwork[]>> GetSocialNetworksAsync()
+        public async Task<Response<LinkedImage[]>> GetSocialNetworksAsync()
         {
             var response = await commonInfoService.GetSocialNetworksAsync(CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData!.Select(network => network.Map()).ToArray();
-                return new Response<SocialNetwork[]>(isSuccessful: true, data, response.Data?.Errors ?? Array.Empty<string>());
+                return new Response<LinkedImage[]>(isSuccessful: true, data, response.Data?.Errors ?? Array.Empty<string>());
             }
 
-            return new Response<SocialNetwork[]>(isSuccessful: false, Array.Empty<SocialNetwork>(), response.Data?.Errors ?? Array.Empty<string>());
+            return new Response<LinkedImage[]>(isSuccessful: false, Array.Empty<LinkedImage>(), response.Data?.Errors ?? Array.Empty<string>());
+        }
+
+        public async Task<Response<LinkedImage[]>> GetBonusesImagesAsync()
+        {
+            var response = await commonInfoService.GetBonusesImagesAsync(CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData!.Select(network => network.Map()).ToArray();
+                return new Response<LinkedImage[]>(isSuccessful: true, data, response.Data?.Errors ?? Array.Empty<string>());
+            }
+
+            return new Response<LinkedImage[]>(isSuccessful: false, Array.Empty<LinkedImage>(), response.Data?.Errors ?? Array.Empty<string>());
         }
     }
 }
