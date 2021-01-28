@@ -1,17 +1,23 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
-using SushiShop.Core.Data.Models.Orders;
+using SushiShop.Core.Data.Models.Cities;
+using System.Windows.Input;
 
 namespace SushiShop.Core.ViewModels.Orders.Items
 {
     public class OrderDeliverySuggestionItemViewModel : BaseViewModel
     {
-        public OrderDeliverySuggestionItemViewModel(OrderDeliveryRequest orderDelivery)
+        public OrderDeliverySuggestionItemViewModel(AddressSuggestion suggestion, ICommand selectCommand)
         {
-            OrderDelivery = orderDelivery;
+            Suggestion = suggestion;
+            SelectCommand = selectCommand;
         }
 
-        public OrderDeliveryRequest OrderDelivery { get; }
+        public ICommand SelectCommand { get; }
 
-        public string? Address => OrderDelivery?.Address;
+        public AddressSuggestion Suggestion { get; }
+
+        public string? Address => Suggestion?.Address;
+
+        public bool IsDeliveryAvailable => Suggestion?.ShopId.HasValue ?? false;
     }
 }

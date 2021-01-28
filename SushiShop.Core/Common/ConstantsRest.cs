@@ -6,6 +6,7 @@ namespace SushiShop.Core.Common
         {
             public const string CitiesResource = "cities";
             public const string CitiesSearchAddressResource = "cities/address-search";
+            public const string CitiesCheckCoordinatesResource = "cities/check-coordinate";
             public const string MenuResource = "shop/menu";
 
             public const string GetResource = "content/get";

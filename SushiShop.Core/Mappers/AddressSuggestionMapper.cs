@@ -14,6 +14,8 @@ namespace SushiShop.Core.Mappers
                 dto.KladrId,
                 dto.ZipCode,
                 dto.IsHouseAddress,
+                dto.ShopId,
+                dto.DeliveryPrice,
                 dto.Coordinates?.Map());
         }
     }

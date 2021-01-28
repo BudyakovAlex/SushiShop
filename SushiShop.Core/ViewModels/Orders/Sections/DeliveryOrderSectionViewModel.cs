@@ -1,5 +1,6 @@
 ﻿using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.Extensions;
+using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Providers;
@@ -12,9 +13,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 {
     public class DeliveryOrderSectionViewModel : BaseOrderSectionViewModel
     {
-        private OrderDeliveryRequest? orderDeliveryRequest;
-
-        private decimal _deliveryPrice;
+        private AddressSuggestion? addressSuggestion;
 
         public DeliveryOrderSectionViewModel(
             IOrdersManager ordersManager,
@@ -38,9 +37,9 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             set => SetProperty(ref section, value);
         }
 
-        public string? DeliveryPrice => $"{_deliveryPrice} {Cart?.Currency?.Symbol}";
+        public string? DeliveryPrice => $"{addressSuggestion?.DeliveryPrice ?? 0} {Cart?.Currency?.Symbol}";
 
-        public override string PriceToPay => $"{_deliveryPrice + Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
+        public override string PriceToPay => $"{addressSuggestion?.DeliveryPrice ?? 0 + Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
 
         private string? floor;
         public string? Floor
@@ -65,16 +64,19 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         protected override async Task<OrderConfirmed?> ConfirmOrderAsync()
         {
-            if (orderDeliveryRequest is null)
+            if (addressSuggestion is null)
             {
                 return null;
             }
 
-            orderDeliveryRequest.Flat = Flat;
-            orderDeliveryRequest.Floor = Floor;
-            orderDeliveryRequest.Section = Section;
-            orderDeliveryRequest.IntercomCode = Intercom;
-            
+            var deliveryRequest = new OrderDeliveryRequest(addressSuggestion?.Address, addressSuggestion?.Coordinates)
+            {
+                Flat = Flat,
+                Floor = Floor,
+                Section = Section,
+                IntercomCode = Intercom
+            };
+
             var city = UserSession.GetCity();
             var orderRequest = new OrderRequest(
                 UserSession.GetCartId(),
@@ -83,10 +85,10 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
                 Phone!,
                 Comments!,
                 СutleryStepperViewModel.Count,
-                0,
+                addressSuggestion?.ShopId ?? 0,
                 ReceiveDateTime,
                 PaymentMethod,
-                orderDeliveryRequest,
+                deliveryRequest,
                 0,
                 true,
                 ShouldApplyScores,
@@ -110,7 +112,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         protected override async Task SelectAddressAsync()
         {
-            orderDeliveryRequest = await NavigationManager.NavigateAsync<SelectOrderDeliveryAddressViewModel, OrderDeliveryRequest>();
+            addressSuggestion = await NavigationManager.NavigateAsync<SelectOrderDeliveryAddressViewModel, AddressSuggestion>();
         }
     }
 }

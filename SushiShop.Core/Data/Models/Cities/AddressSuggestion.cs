@@ -12,6 +12,10 @@ namespace SushiShop.Core.Data.Models.Cities
             string? kladrId,
             long zipCode,
             bool isHouseAddress,
+            long? shopId,
+            decimal deliveryPrice,
+            int deliveryTime,
+            int cookingTime,
             Coordinates? coordinates)
         {
             Address = address;
@@ -20,6 +24,10 @@ namespace SushiShop.Core.Data.Models.Cities
             KladrId = kladrId;
             ZipCode = zipCode;
             IsHouseAddress = isHouseAddress;
+            ShopId = shopId;
+            DeliveryPrice = deliveryPrice;
+            DeliveryTime = deliveryTime;
+            CookingTime = cookingTime;
             Coordinates = coordinates;
         }
 
@@ -34,6 +42,14 @@ namespace SushiShop.Core.Data.Models.Cities
         public long ZipCode { get; }
 
         public bool IsHouseAddress { get; }
+
+        public long? ShopId { get; }
+
+        public decimal DeliveryPrice { get; }
+
+        public int DeliveryTime { get; }
+
+        public int CookingTime { get; }
 
         public Coordinates? Coordinates { get; }
     }
