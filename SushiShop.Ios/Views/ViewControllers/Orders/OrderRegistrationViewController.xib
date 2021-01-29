@@ -22,6 +22,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderRegistrationViewController">
             <connections>
+                <outlet property="ChoiceAddressLabel" destination="4Zn-NM-8NC" id="re6-nZ-9KA"/>
+                <outlet property="ChoiceAddressView" destination="kHp-xa-zZE" id="UmF-9P-nGd"/>
+                <outlet property="DeliveryAddressLabel" destination="uhR-A7-ZRc" id="h3h-cx-j97"/>
+                <outlet property="DeliveryAppartmentTextField" destination="wky-Fx-x0P" id="89p-Oi-v5C"/>
+                <outlet property="DeliveryEntranceTextField" destination="U2B-w7-ToG" id="vdh-Wx-qvH"/>
+                <outlet property="DeliveryFloorTextField" destination="wDw-7Y-dcU" id="cbp-rk-vsO"/>
+                <outlet property="DeliveryIntercomTextField" destination="wjn-eB-0YV" id="hCv-KC-nzd"/>
+                <outlet property="DeliveryPriceLabel" destination="mdq-Aq-gOK" id="hhm-dX-gb6"/>
+                <outlet property="DeliveryView" destination="98Y-Ew-aRf" id="qsn-eh-bnd"/>
+                <outlet property="PickUpAddressLabel" destination="0Lq-Zd-dui" id="Ugm-83-ZZp"/>
+                <outlet property="PickUpPhoneLabel" destination="062-Vs-PFZ" id="QyJ-3W-w0r"/>
+                <outlet property="PickUpTimeWorkingLabel" destination="Ifb-YM-p3J" id="Jse-K3-zaU"/>
                 <outlet property="scrollableTabsView" destination="c01-P4-Rlz" id="yLN-aw-JFb"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
@@ -124,8 +136,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="Ifb-YM-p3J" secondAttribute="trailing" constant="16" id="t2D-Up-6GE"/>
                                             </constraints>
                                         </view>
-                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPW-kR-Mux">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="376.5"/>
+                                        <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPW-kR-Mux">
+                                            <rect key="frame" x="0.0" y="117" width="414" height="259"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9B-j6-Hpw">
                                                     <rect key="frame" x="0.0" y="5" width="414" height="108.5"/>

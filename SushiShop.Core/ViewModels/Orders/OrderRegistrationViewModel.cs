@@ -29,6 +29,24 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public DeliveryOrderSectionViewModel DeliveryOrderSectionViewModel { get; }
 
+        private int _selectedIndex;
+        public int SelectedIndex
+        {
+            get => _selectedIndex;
+            set
+            {
+                SetProperty(ref _selectedIndex, value);
+                IsDelivery = value == 1;
+            }
+        }
+
+        private bool _isDelivery;
+        public bool IsDelivery
+        {
+            get => _isDelivery;
+            set => SetProperty(ref _isDelivery, value);
+        }
+
         public override void Prepare(Data.Models.Cart.Cart parameter)
         {
             cart = parameter;
