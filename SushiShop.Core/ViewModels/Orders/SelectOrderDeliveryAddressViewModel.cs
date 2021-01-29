@@ -3,36 +3,49 @@ using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using MvvmCross.ViewModels;
+using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Common;
-using SushiShop.Core.Data.Models.Orders;
+using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.Managers.Shops;
 using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Orders.Items;
+using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Orders
 {
-    public class SelectOrderDeliveryAddressViewModel : BaseItemsPageViewModelResult<DeliveryZoneItemViewModel, OrderDelivery>
+    public class SelectOrderDeliveryAddressViewModel : BaseItemsPageViewModelResult<DeliveryZoneItemViewModel, AddressSuggestion>
     {
         private const int SearchMillisecondsDelay = 1500;
 
         private readonly IUserDialogs userDialogs;
         private readonly IShopsManager shopsManager;
+        private readonly ICitiesManager citiesManager;
         private readonly IUserSession userSession;
+        private readonly ICommand selectCommand;
 
-        public SelectOrderDeliveryAddressViewModel(IShopsManager shopsManager, IUserSession userSession)
+        private CancellationTokenSource? cancellationTokenSource;
+        private City? _city;
+
+        public SelectOrderDeliveryAddressViewModel(
+            IShopsManager shopsManager,
+            ICitiesManager citiesManager,
+            IUserSession userSession)
         {
             userDialogs = UserDialogs.Instance;
             this.shopsManager = shopsManager;
+            this.citiesManager = citiesManager;
             this.userSession = userSession;
 
             Suggestions = new MvxObservableCollection<OrderDeliverySuggestionItemViewModel>();
 
             ConfirmAddress = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmAddressAsync);
             TryLoadPlacemarkCommand = new SafeAsyncCommand<Location>(ExecutionStateWrapper, TryLoadPlacemarkAsync);
+            selectCommand = new SafeAsyncCommand<OrderDeliverySuggestionItemViewModel>(ExecutionStateWrapper, SelectAsync);
         }
 
         private string? addressQuery;
@@ -46,19 +59,20 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public ICommand TryLoadPlacemarkCommand { get; }
 
-        public bool HasSelectedLocation => OrderDelivery != null;
+        public bool HasSelectedLocation => SelectedLocation != null;
 
         public MvxObservableCollection<OrderDeliverySuggestionItemViewModel> Suggestions { get; }
 
-        private OrderDelivery? orderDelivery;
-        protected OrderDelivery? OrderDelivery
+        private OrderDeliverySuggestionItemViewModel? selectedLocation;
+        protected OrderDeliverySuggestionItemViewModel? SelectedLocation
         {
-            get => orderDelivery;
-            set => SetProperty(ref orderDelivery, value, () => RaisePropertyChanged(nameof(HasSelectedLocation)));
+            get => selectedLocation;
+            set => SetProperty(ref selectedLocation, value, () => RaisePropertyChanged(nameof(HasSelectedLocation)));
         }
 
         public override Task InitializeAsync()
         {
+            _city = userSession.GetCity();
             return Task.WhenAll(base.InitializeAsync(), RefreshDataAsync());
         }
 
@@ -85,14 +99,45 @@ namespace SushiShop.Core.ViewModels.Orders
             Items.ReplaceWith(deliveryZonesViewModels);
         }
 
-        private Task ConfirmAddressAsync()
+        private Task SelectAsync(OrderDeliverySuggestionItemViewModel viewModel)
         {
-            throw new System.NotImplementedException();
+            SelectedLocation = viewModel;
+            Suggestions.Clear();
+
+            return Task.CompletedTask;
         }
 
-        private Task TryLoadPlacemarkAsync(Location location)
+        private Task ConfirmAddressAsync()
         {
-            throw new System.NotImplementedException();
+            if (SelectedLocation is null ||
+                !SelectedLocation.IsDeliveryAvailable)
+            {
+                return Task.CompletedTask;
+            }
+
+            return NavigationManager.CloseAsync(this, SelectedLocation.Suggestion);
+        }
+
+        private async Task TryLoadPlacemarkAsync(Location location)
+        {
+            cancellationTokenSource?.Cancel();
+            cancellationTokenSource = new CancellationTokenSource();
+
+            var coordinates = new Coordinates(location.Longitude, location.Latitude);
+            var response = await citiesManager.SearchByLocationAsync(coordinates, cancellationTokenSource.Token);
+            if (!response.IsSuccessful)
+            {
+                return;
+            }
+
+            var suggestion = response.Data.FirstOrDefault();
+            if (suggestion is null)
+            {
+                return;
+            }
+
+            SelectedLocation = new OrderDeliverySuggestionItemViewModel(suggestion, selectCommand);
+            cancellationTokenSource = null;
         }
 
         private async Task OnAddressQueryChangedAsync(string? query)
@@ -104,24 +149,14 @@ namespace SushiShop.Core.ViewModels.Orders
                 return;
             }
 
-            var locations = await Geocoding.GetLocationsAsync(query);
-            if (locations.Count() > 1)
-            {
-                var getPlacemarksTasks = locations.Select(location => Geocoding.GetPlacemarksAsync(location)).ToArray();
-                await Task.WhenAll(getPlacemarksTasks);
+            cancellationTokenSource?.Cancel();
+            cancellationTokenSource = new CancellationTokenSource();
 
-                var suggestions = getPlacemarksTasks.SelectMany(task => task.Result)
-                    .Select(placemark => new OrderDeliverySuggestionItemViewModel(new OrderDelivery(placemark.FeatureName, new Coordinates(placemark.Location.Longitude, placemark.Location.Latitude))))
-                    .ToArray();
+            var response = await citiesManager.SearchAddressAsync(_city?.Name, query!, cancellationTokenSource.Token);
+            var viewModels = response?.Data?.Select(suggestion => new OrderDeliverySuggestionItemViewModel(suggestion, selectCommand)).ToArray() ?? Array.Empty<OrderDeliverySuggestionItemViewModel>();
 
-                Suggestions.ReplaceWith(suggestions);
-                OrderDelivery = null;
-                return;
-            }
-
-            Suggestions.Clear();
-            var firstLocation = locations.FirstOrDefault();
-            OrderDelivery = new OrderDelivery(AddressQuery, new Coordinates(firstLocation.Longitude, firstLocation.Latitude));
+            Suggestions.ReplaceWith(viewModels);
+            cancellationTokenSource = null;
         }
     }
 }

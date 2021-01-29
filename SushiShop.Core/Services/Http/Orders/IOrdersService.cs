@@ -18,5 +18,7 @@ namespace SushiShop.Core.Services.Http.Orders
         Task<HttpResponse<ResponseDto<OrderDto>>> GetOrderAsync(long id, CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<CartDto>>> RepeatOrderAsync(long id, Guid basketId, string? city, CancellationToken cancellationToken);
+
+        Task<HttpResponse<ResponseDto<OrderConfirmedDto>>> CreateOrderAsync(OrderRequestDto orderRequest, CancellationToken cancellationToken);
     }
 }

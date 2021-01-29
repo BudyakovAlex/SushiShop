@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BonusProgramViewController">
             <connections>
+                <outlet property="BonusesImagesStackView" destination="T4s-xc-Q7E" id="5uL-Cv-fzu"/>
                 <outlet property="ContentLabel" destination="wZ2-rT-2aw" id="EGx-qR-cem"/>
                 <outlet property="ContentScrollView" destination="flV-KW-Lbv" id="3fq-Ve-tWS"/>
                 <outlet property="LoadingActivityIndicator" destination="YZe-Ij-8QW" id="jYd-Pa-Lsp"/>
@@ -42,27 +43,6 @@
                                     <color key="textColor" red="1" green="0.40392156862745099" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_bonus_one" translatesAutoresizingMaskIntoConstraints="NO" id="khz-7w-GLf">
-                                    <rect key="frame" x="62" y="83.5" width="70" height="70"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="70" id="NTp-sb-00J"/>
-                                        <constraint firstAttribute="height" constant="70" id="ven-s8-hJU"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_bonus_two" translatesAutoresizingMaskIntoConstraints="NO" id="5H9-bg-KoL">
-                                    <rect key="frame" x="172" y="83.5" width="70" height="70"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="70" id="Ary-ld-BbC"/>
-                                        <constraint firstAttribute="width" constant="70" id="rZz-A8-UOx"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_bonus_three" translatesAutoresizingMaskIntoConstraints="NO" id="Gt5-mq-IdD">
-                                    <rect key="frame" x="282" y="83.5" width="70" height="70"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="70" id="RQe-MI-5RK"/>
-                                        <constraint firstAttribute="width" constant="70" id="Whu-sq-fbS"/>
-                                    </constraints>
-                                </imageView>
                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flV-KW-Lbv">
                                     <rect key="frame" x="16" y="184.5" width="382" height="20.5"/>
                                     <subviews>
@@ -84,21 +64,23 @@
                                     <viewLayoutGuide key="contentLayoutGuide" id="6aF-RU-QF6"/>
                                     <viewLayoutGuide key="frameLayoutGuide" id="4Rk-Hu-xmJ"/>
                                 </scrollView>
+                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalCentering" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="T4s-xc-Q7E" customClass="MvxStackView">
+                                    <rect key="frame" x="2" y="83.5" width="410" height="70"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="70" id="iws-bK-6fp"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="QN5-rL-TII" firstAttribute="top" secondItem="Ri2-Bw-vw5" secondAttribute="top" constant="32" id="7PJ-7I-0sG"/>
+                                <constraint firstItem="T4s-xc-Q7E" firstAttribute="centerX" secondItem="Ri2-Bw-vw5" secondAttribute="centerX" id="8gm-tZ-n8w"/>
                                 <constraint firstItem="QN5-rL-TII" firstAttribute="centerX" secondItem="Ri2-Bw-vw5" secondAttribute="centerX" id="9Yy-R6-1O0"/>
-                                <constraint firstItem="5H9-bg-KoL" firstAttribute="leading" secondItem="khz-7w-GLf" secondAttribute="trailing" constant="40" id="D35-M3-YMx"/>
-                                <constraint firstItem="flV-KW-Lbv" firstAttribute="top" secondItem="khz-7w-GLf" secondAttribute="bottom" constant="31" id="Mdj-Pc-bse"/>
+                                <constraint firstItem="T4s-xc-Q7E" firstAttribute="top" secondItem="QN5-rL-TII" secondAttribute="bottom" constant="30" id="Akb-WB-GUE"/>
                                 <constraint firstItem="flV-KW-Lbv" firstAttribute="leading" secondItem="Ri2-Bw-vw5" secondAttribute="leading" constant="16" id="PLO-e0-hL1"/>
                                 <constraint firstAttribute="trailing" secondItem="flV-KW-Lbv" secondAttribute="trailing" constant="16" id="VF2-vZ-J0V"/>
-                                <constraint firstItem="5H9-bg-KoL" firstAttribute="centerX" secondItem="Ri2-Bw-vw5" secondAttribute="centerX" id="WU6-F9-cv8"/>
-                                <constraint firstItem="khz-7w-GLf" firstAttribute="centerY" secondItem="5H9-bg-KoL" secondAttribute="centerY" id="ba9-hv-sSv"/>
-                                <constraint firstItem="Gt5-mq-IdD" firstAttribute="leading" secondItem="5H9-bg-KoL" secondAttribute="trailing" constant="40" id="fnk-en-tTf"/>
-                                <constraint firstItem="Gt5-mq-IdD" firstAttribute="centerY" secondItem="5H9-bg-KoL" secondAttribute="centerY" id="iRI-LE-aeb"/>
+                                <constraint firstItem="flV-KW-Lbv" firstAttribute="top" secondItem="T4s-xc-Q7E" secondAttribute="bottom" constant="31" id="ZnC-qx-Om2"/>
                                 <constraint firstAttribute="bottom" secondItem="flV-KW-Lbv" secondAttribute="bottom" constant="40" id="lgf-Uw-erz"/>
-                                <constraint firstItem="5H9-bg-KoL" firstAttribute="top" secondItem="QN5-rL-TII" secondAttribute="bottom" constant="30" id="wvc-Ty-sMI"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -128,9 +110,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_bonus_one" width="70" height="70"/>
-        <image name="ic_bonus_three" width="70" height="70"/>
-        <image name="ic_bonus_two" width="70" height="70"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

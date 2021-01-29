@@ -58,5 +58,6 @@
     <Folder Include="ViewModels\Common\Items\" />
     <Folder Include="ViewModels\Orders\Sections\" />
     <Folder Include="ViewModels\Orders\Sections\Abstract\" />
+    <Folder Include="ViewModels\Profile\Items\" />
   </ItemGroup>
 </Project>

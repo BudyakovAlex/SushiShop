@@ -3,7 +3,9 @@ using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Common;
 using System;
 using System.Threading.Tasks;
@@ -13,19 +15,26 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 {
     public abstract class BaseOrderSectionViewModel : BaseViewModel
     {
-        public BaseOrderSectionViewModel(IOrdersManager ordersManager)
+        private readonly Func<OrderConfirmed, Task> confirmOrderFunc;
+
+        public BaseOrderSectionViewModel(
+            IOrdersManager ordersManager,
+            IUserSession userSession,
+            Func<OrderConfirmed, Task> confirmOrderFunc)
         {
             OrdersManager = ordersManager;
+            UserSession = userSession;
+            this.confirmOrderFunc = confirmOrderFunc;
 
             СutleryStepperViewModel = new StepperViewModel(1, (oldValue, newValue) => Task.CompletedTask);
 
-            ChangePaymentTypeCommand = new MvxCommand<PaymentType>((newPayementType) => PaymentType = newPayementType);
-            ConfirmOrderCommand = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmOrderAsync);
+            ChangePaymentMethodCommand = new MvxCommand<PaymentMethod>((newPayementType) => PaymentMethod = newPayementType);
+            ConfirmOrderCommand = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmOrderInternalAsync);
             SelectAddressCommand = new SafeAsyncCommand(ExecutionStateWrapper, SelectAddressAsync);
             SelectReceiveDateTime = new SafeAsyncCommand(ExecutionStateWrapper, SelectReceiveDateTimeAsync);
         }
 
-        public IMvxCommand<PaymentType> ChangePaymentTypeCommand { get; }
+        public IMvxCommand<PaymentMethod> ChangePaymentMethodCommand { get; }
 
         public ICommand ConfirmOrderCommand { get; }
 
@@ -54,11 +63,11 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             set => SetProperty(ref comments, value);
         }
 
-        private PaymentType paymentType;
-        public PaymentType PaymentType
+        private PaymentMethod paymentMethod;
+        public PaymentMethod PaymentMethod
         {
-            get => paymentType;
-            private set => SetProperty(ref paymentType, value);
+            get => paymentMethod;
+            private set => SetProperty(ref paymentMethod, value);
         }
 
         private bool shouldApplyScores;
@@ -68,11 +77,11 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             set => SetProperty(ref shouldApplyScores, value);
         }
 
-        private string? scoresToApply;
-        public string? ScoresToApply
+        private decimal scoresToApply;
+        public decimal ScoresToApply
         {
             get => scoresToApply;
-            set => SetProperty(ref scoresToApply, value);
+            set => SetProperty(ref scoresToApply, value, () => RaisePropertyChanged(nameof(ScoresDiscount)));
         }
 
         private DateTime? receiveDateTime;
@@ -84,21 +93,33 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         public string? AvailableScores { get; }
 
-        public string? ProductsPrice { get; }
-
-        public string? DeliveryPrice { get; }
-
-        public string? DiscountByPromocode { get; }
-
         public string? DiscountByScores { get; }
 
-        public string? PriceToPay { get; }
+        public string ProductsPrice => $"{Cart?.TotalSum} {Cart?.Currency?.Symbol}";
+
+        public string DiscountByPromocode => $"- {Cart?.Discount} {Cart?.Currency?.Symbol}";
+
+        public string? ScoresDiscount => $"- {ScoresToApply} {Cart?.Currency?.Symbol}";
+
+        public abstract string PriceToPay { get; }
 
         public StepperViewModel СutleryStepperViewModel { get; }
 
+        protected Data.Models.Cart.Cart? Cart { get; private set; }
+
         protected IOrdersManager OrdersManager { get; }
 
-        protected abstract Task ConfirmOrderAsync();
+        protected IUserSession UserSession { get; }
+
+        public virtual void Prepare(Data.Models.Cart.Cart cart)
+        {
+            Cart = cart;
+
+            RaisePropertyChanged(nameof(ProductsPrice));
+            RaisePropertyChanged(nameof(DiscountByPromocode));
+        }
+
+        protected abstract Task<OrderConfirmed?> ConfirmOrderAsync();
 
         protected abstract Task SelectAddressAsync();
 
@@ -112,6 +133,18 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
             var result = await UserDialogs.Instance.DatePromptAsync(pickerConfig);
             ReceiveDateTime = result?.SelectedDate;
+        }
+
+        private async Task ConfirmOrderInternalAsync()
+        {
+            var orderConfirmed = await ConfirmOrderAsync();
+            if (orderConfirmed is null)
+            {
+                return;
+            }
+
+            var confirmTask = confirmOrderFunc?.Invoke(orderConfirmed) ?? Task.CompletedTask;
+            await confirmTask;
         }
     }
 }
