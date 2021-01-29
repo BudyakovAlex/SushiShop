@@ -3,6 +3,7 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Messages;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cart;
@@ -18,13 +19,16 @@ namespace SushiShop.Core.ViewModels
     {
         private readonly ICartManager cartManager;
         private readonly IUserSession userSession;
+        private readonly IDialog dialog;
 
         public MainViewModel(
             ICartManager cartManager,
-            IUserSession userSession)
+            IUserSession userSession,
+            IDialog dialog)
         {
             this.cartManager = cartManager;
             this.userSession = userSession;
+            this.dialog = dialog;
 
             LoadTabsCommand = new MvxAsyncCommand(LoadTabsAsync);
             Messenger.Subscribe<RefreshCartMessage>((msg) => OnCartChanged()).DisposeWith(Disposables);
@@ -79,6 +83,17 @@ namespace SushiShop.Core.ViewModels
         private void OnCartChanged()
         {
             _ = SafeExecutionWrapper.WrapAsync(RefreshDataAsync);
+        }
+
+        protected override void OnHasConnectionChanged(bool hasConnection)
+        {
+            base.OnHasConnectionChanged(hasConnection);
+            if (hasConnection)
+            {
+                return;
+            }
+
+            _ = dialog.ShowToastAsync("No internet connection");
         }
     }
 }
