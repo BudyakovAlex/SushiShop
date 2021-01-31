@@ -1,5 +1,6 @@
 ﻿using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.Extensions;
+using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.Managers.Orders;
@@ -27,6 +28,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         public string? ShopAddress => selectedShop?.LongTitle;
 
         public string? ShopPhone => selectedShop?.Phone;
+
+        public string? ShopTimeWorking => $"{selectedShop?.DeliveryTime}";
 
         public override string PriceToPay => $"{Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
 

@@ -33,23 +33,23 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public DeliveryOrderSectionViewModel DeliveryOrderSectionViewModel { get; }
 
-        private int _selectedIndex;
+        public BaseOrderSectionViewModel AbstractOrderSectionViewModel => IsDelivery ? (BaseOrderSectionViewModel)DeliveryOrderSectionViewModel : PickupOrderSectionViewModel;
+
+        private int selectedIndex;
         public int SelectedIndex
         {
-            get => _selectedIndex;
+            get => selectedIndex;
             set
             {
-                SetProperty(ref _selectedIndex, value);
-                IsDelivery = value == 1;
+                SetProperty(ref selectedIndex, value);
+                RaisePropertyChanged(nameof(IsDelivery));
+                RaisePropertyChanged(nameof(PickupOrderSectionViewModel));
+                RaisePropertyChanged(nameof(DeliveryOrderSectionViewModel));
+                RaisePropertyChanged(nameof(AbstractOrderSectionViewModel));
             }
         }
 
-        private bool _isDelivery;
-        public bool IsDelivery
-        {
-            get => _isDelivery;
-            set => SetProperty(ref _isDelivery, value);
-        }
+        public bool IsDelivery => SelectedIndex == 1;
 
         public override void Prepare(Data.Models.Cart.Cart parameter)
         {

@@ -19,10 +19,25 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UIView ChoiceAddressView { get; set; }
 
 		[Outlet]
+		UIKit.UIView ChooseTimeView { get; set; }
+
+		[Outlet]
+		SushiShop.Ios.Views.Controls.FloatingTextView CommentTextView { get; set; }
+
+		[Outlet]
+		UIKit.UIScrollView ContentScrollView { get; set; }
+
+		[Outlet]
+		SushiShop.Ios.Views.Controls.Stepper.SmallStepperView CountOfDevicesStepperView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel DeliveryAddressLabel { get; set; }
 
 		[Outlet]
 		SushiShop.Ios.Views.Controls.FloatingTextField DeliveryAppartmentTextField { get; set; }
+
+		[Outlet]
+		UIKit.UIView DeliveryDetailsView { get; set; }
 
 		[Outlet]
 		SushiShop.Ios.Views.Controls.FloatingTextField DeliveryEntranceTextField { get; set; }
@@ -40,7 +55,25 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UIView DeliveryView { get; set; }
 
 		[Outlet]
+		UIKit.UIImageView OnlinePaymentimageView { get; set; }
+
+		[Outlet]
+		UIKit.UIView OnlinePaymentView { get; set; }
+
+		[Outlet]
+		UIKit.UIImageView OnPointPaymentImageView { get; set; }
+
+		[Outlet]
+		UIKit.UIView OnPointPaymentView { get; set; }
+
+		[Outlet]
+		SushiShop.Ios.Views.Controls.FloatingTextField PhoneUserTextField { get; set; }
+
+		[Outlet]
 		UIKit.UILabel PickUpAddressLabel { get; set; }
+
+		[Outlet]
+		UIKit.UIView PickupDetailsView { get; set; }
 
 		[Outlet]
 		UIKit.UILabel PickUpPhoneLabel { get; set; }
@@ -50,6 +83,15 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
 		[Outlet]
 		SushiShop.Ios.Views.Controls.ScrollableTabView scrollableTabsView { get; set; }
+
+		[Outlet]
+		SushiShop.Ios.Views.Controls.FloatingTextField SpendPointsTextField { get; set; }
+
+		[Outlet]
+		UIKit.UISwitch SpendPointSwitch { get; set; }
+
+		[Outlet]
+		SushiShop.Ios.Views.Controls.FloatingTextField UserNameTextField { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -63,14 +105,39 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				ChoiceAddressView = null;
 			}
 
+			if (DeliveryAddressLabel != null) {
+				DeliveryAddressLabel.Dispose ();
+				DeliveryAddressLabel = null;
+			}
+
+			if (DeliveryAppartmentTextField != null) {
+				DeliveryAppartmentTextField.Dispose ();
+				DeliveryAppartmentTextField = null;
+			}
+
+			if (DeliveryEntranceTextField != null) {
+				DeliveryEntranceTextField.Dispose ();
+				DeliveryEntranceTextField = null;
+			}
+
+			if (DeliveryFloorTextField != null) {
+				DeliveryFloorTextField.Dispose ();
+				DeliveryFloorTextField = null;
+			}
+
+			if (DeliveryIntercomTextField != null) {
+				DeliveryIntercomTextField.Dispose ();
+				DeliveryIntercomTextField = null;
+			}
+
+			if (DeliveryPriceLabel != null) {
+				DeliveryPriceLabel.Dispose ();
+				DeliveryPriceLabel = null;
+			}
+
 			if (DeliveryView != null) {
 				DeliveryView.Dispose ();
 				DeliveryView = null;
-			}
-
-			if (scrollableTabsView != null) {
-				scrollableTabsView.Dispose ();
-				scrollableTabsView = null;
 			}
 
 			if (PickUpAddressLabel != null) {
@@ -88,34 +155,79 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				PickUpTimeWorkingLabel = null;
 			}
 
-			if (DeliveryAddressLabel != null) {
-				DeliveryAddressLabel.Dispose ();
-				DeliveryAddressLabel = null;
+			if (scrollableTabsView != null) {
+				scrollableTabsView.Dispose ();
+				scrollableTabsView = null;
 			}
 
-			if (DeliveryPriceLabel != null) {
-				DeliveryPriceLabel.Dispose ();
-				DeliveryPriceLabel = null;
+			if (PickupDetailsView != null) {
+				PickupDetailsView.Dispose ();
+				PickupDetailsView = null;
 			}
 
-			if (DeliveryAppartmentTextField != null) {
-				DeliveryAppartmentTextField.Dispose ();
-				DeliveryAppartmentTextField = null;
+			if (DeliveryDetailsView != null) {
+				DeliveryDetailsView.Dispose ();
+				DeliveryDetailsView = null;
 			}
 
-			if (DeliveryEntranceTextField != null) {
-				DeliveryEntranceTextField.Dispose ();
-				DeliveryEntranceTextField = null;
+			if (ChooseTimeView != null) {
+				ChooseTimeView.Dispose ();
+				ChooseTimeView = null;
 			}
 
-			if (DeliveryIntercomTextField != null) {
-				DeliveryIntercomTextField.Dispose ();
-				DeliveryIntercomTextField = null;
+			if (ContentScrollView != null) {
+				ContentScrollView.Dispose ();
+				ContentScrollView = null;
 			}
 
-			if (DeliveryFloorTextField != null) {
-				DeliveryFloorTextField.Dispose ();
-				DeliveryFloorTextField = null;
+			if (UserNameTextField != null) {
+				UserNameTextField.Dispose ();
+				UserNameTextField = null;
+			}
+
+			if (PhoneUserTextField != null) {
+				PhoneUserTextField.Dispose ();
+				PhoneUserTextField = null;
+			}
+
+			if (CountOfDevicesStepperView != null) {
+				CountOfDevicesStepperView.Dispose ();
+				CountOfDevicesStepperView = null;
+			}
+
+			if (CommentTextView != null) {
+				CommentTextView.Dispose ();
+				CommentTextView = null;
+			}
+
+			if (SpendPointSwitch != null) {
+				SpendPointSwitch.Dispose ();
+				SpendPointSwitch = null;
+			}
+
+			if (SpendPointsTextField != null) {
+				SpendPointsTextField.Dispose ();
+				SpendPointsTextField = null;
+			}
+
+			if (OnPointPaymentImageView != null) {
+				OnPointPaymentImageView.Dispose ();
+				OnPointPaymentImageView = null;
+			}
+
+			if (OnlinePaymentimageView != null) {
+				OnlinePaymentimageView.Dispose ();
+				OnlinePaymentimageView = null;
+			}
+
+			if (OnPointPaymentView != null) {
+				OnPointPaymentView.Dispose ();
+				OnPointPaymentView = null;
+			}
+
+			if (OnlinePaymentView != null) {
+				OnlinePaymentView.Dispose ();
+				OnlinePaymentView = null;
 			}
 		}
 	}
