@@ -574,5 +574,17 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("NoInternetConnection", resourceCulture);
             }
         }
+        
+        public static string OrderCreationError {
+            get {
+                return ResourceManager.GetString("OrderCreationError", resourceCulture);
+            }
+        }
+        
+        public static string OrderPayment {
+            get {
+                return ResourceManager.GetString("OrderPayment", resourceCulture);
+            }
+        }
     }
 }

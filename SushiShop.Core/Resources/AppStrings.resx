@@ -381,4 +381,10 @@
   <data name="NoInternetConnection" xml:space="preserve">
     <value>Отсутсвует интернет соединение</value>
   </data>
+  <data name="OrderCreationError" xml:space="preserve">
+    <value>Не удалось создать заказ, попробуйте снова</value>
+  </data>
+  <data name="OrderPayment" xml:space="preserve">
+    <value>Оплата заказа</value>
+  </data>
 </root>

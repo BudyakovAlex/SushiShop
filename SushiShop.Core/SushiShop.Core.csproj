@@ -59,5 +59,6 @@
     <Folder Include="ViewModels\Orders\Sections\" />
     <Folder Include="ViewModels\Orders\Sections\Abstract\" />
     <Folder Include="ViewModels\Profile\Items\" />
+    <Folder Include="ViewModels\Payment\" />
   </ItemGroup>
 </Project>
