@@ -65,6 +65,8 @@ namespace SushiShop.Ios.Views.Controls
 
             heightConstraint = HeightAnchor.ConstraintEqualTo(0f);
             heightConstraint.Active = true;
+
+            PickupThereButton.WithoutRadius = true;
         }
 
         protected override void Bind()
@@ -81,6 +83,8 @@ namespace SushiShop.Ios.Views.Controls
             bindingSet.Bind(photosCollectionViewSource).For(v => v.ItemsSource).To(vm => vm.Photos);
             bindingSet.Bind(GalleryTitleLabel).For(v => v.BindVisible()).To(vm => vm.HasPhotos);
             bindingSet.Bind(PhotosCollectionView).For(v => v.BindVisible()).To(vm => vm.HasPhotos);
+            bindingSet.Bind(PickupThereButton).For(v => v.BindVisible()).To(vm => vm.IsSelectionMode);
+            bindingSet.Bind(PickupThereButton).For(v => v.BindTouchUpInside()).To(vm => vm.ConfirmSelectionCommand);
 
             bindingSet.Apply();
         }

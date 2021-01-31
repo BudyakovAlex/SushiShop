@@ -146,14 +146,27 @@
                             <viewLayoutGuide key="contentLayoutGuide" id="teV-6g-ldz"/>
                             <viewLayoutGuide key="frameLayoutGuide" id="U18-0b-BJu"/>
                         </scrollView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZZ-eS-nAt" customClass="PrimaryButton">
+                            <rect key="frame" x="0.0" y="430" width="320" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Qj8-mG-dhJ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
+                            <state key="normal" title="Заберу здесь">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="PZZ-eS-nAt" secondAttribute="bottom" id="AVc-pt-Eoi"/>
                         <constraint firstItem="vjR-sp-S0v" firstAttribute="centerX" secondItem="dZe-W0-eVr" secondAttribute="centerX" id="Imf-97-SN4"/>
                         <constraint firstAttribute="bottom" secondItem="Lf4-Ep-RGO" secondAttribute="bottom" id="PMs-Vk-9Oc"/>
+                        <constraint firstItem="PZZ-eS-nAt" firstAttribute="leading" secondItem="dZe-W0-eVr" secondAttribute="leading" id="bpN-ss-S2P"/>
                         <constraint firstAttribute="trailing" secondItem="Lf4-Ep-RGO" secondAttribute="trailing" id="bvC-c5-62l"/>
                         <constraint firstItem="Lf4-Ep-RGO" firstAttribute="top" secondItem="vjR-sp-S0v" secondAttribute="bottom" constant="13" id="eND-oL-3rF"/>
                         <constraint firstItem="vjR-sp-S0v" firstAttribute="top" secondItem="dZe-W0-eVr" secondAttribute="top" constant="10" id="jOb-f0-f21"/>
+                        <constraint firstAttribute="trailing" secondItem="PZZ-eS-nAt" secondAttribute="trailing" id="phs-Qx-M5B"/>
                         <constraint firstItem="Lf4-Ep-RGO" firstAttribute="leading" secondItem="dZe-W0-eVr" secondAttribute="leading" id="ytp-Cq-kqU"/>
                     </constraints>
                 </view>
@@ -173,6 +186,7 @@
                 <outlet property="GrayView" destination="vjR-sp-S0v" id="e5h-cq-wyZ"/>
                 <outlet property="PhoneLabel" destination="EFK-QD-MBc" id="Od4-dn-Fd4"/>
                 <outlet property="PhotosCollectionView" destination="9KN-7D-uMu" id="11r-BR-WJT"/>
+                <outlet property="PickupThereButton" destination="PZZ-eS-nAt" id="ig4-vd-A6y"/>
                 <outlet property="RootContentView" destination="dZe-W0-eVr" id="GdH-sw-5Mg"/>
                 <outlet property="TimeWorkingLabel" destination="FmY-mz-KVz" id="sqb-QZ-y69"/>
                 <outlet property="TitleLabel" destination="XhV-Dy-jMW" id="MoF-ZW-I4g"/>

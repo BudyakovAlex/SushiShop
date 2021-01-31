@@ -13,6 +13,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 	partial class OrderRegistrationViewController
 	{
 		[Outlet]
+		UIKit.UILabel AvailableScorsLabel { get; set; }
+
+		[Outlet]
 		UIKit.UILabel ChoiceAddressLabel { get; set; }
 
 		[Outlet]
@@ -52,7 +55,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UILabel DeliveryPriceLabel { get; set; }
 
 		[Outlet]
+		UIKit.UILabel DeliveryTitleLabel { get; set; }
+
+		[Outlet]
 		UIKit.UIView DeliveryView { get; set; }
+
+		[Outlet]
+		UIKit.UILabel DiscountByPromocodeLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel FullDeliveryPriceLabel { get; set; }
 
 		[Outlet]
 		UIKit.UIImageView OnlinePaymentimageView { get; set; }
@@ -82,6 +94,15 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UILabel PickUpTimeWorkingLabel { get; set; }
 
 		[Outlet]
+		UIKit.UILabel PriceToPayLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ProductsPriceLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ScoresDiscountLabel { get; set; }
+
+		[Outlet]
 		SushiShop.Ios.Views.Controls.ScrollableTabView scrollableTabsView { get; set; }
 
 		[Outlet]
@@ -105,6 +126,26 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				ChoiceAddressView = null;
 			}
 
+			if (ChooseTimeView != null) {
+				ChooseTimeView.Dispose ();
+				ChooseTimeView = null;
+			}
+
+			if (CommentTextView != null) {
+				CommentTextView.Dispose ();
+				CommentTextView = null;
+			}
+
+			if (ContentScrollView != null) {
+				ContentScrollView.Dispose ();
+				ContentScrollView = null;
+			}
+
+			if (CountOfDevicesStepperView != null) {
+				CountOfDevicesStepperView.Dispose ();
+				CountOfDevicesStepperView = null;
+			}
+
 			if (DeliveryAddressLabel != null) {
 				DeliveryAddressLabel.Dispose ();
 				DeliveryAddressLabel = null;
@@ -113,6 +154,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (DeliveryAppartmentTextField != null) {
 				DeliveryAppartmentTextField.Dispose ();
 				DeliveryAppartmentTextField = null;
+			}
+
+			if (DeliveryDetailsView != null) {
+				DeliveryDetailsView.Dispose ();
+				DeliveryDetailsView = null;
 			}
 
 			if (DeliveryEntranceTextField != null) {
@@ -140,9 +186,39 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				DeliveryView = null;
 			}
 
+			if (OnlinePaymentimageView != null) {
+				OnlinePaymentimageView.Dispose ();
+				OnlinePaymentimageView = null;
+			}
+
+			if (OnlinePaymentView != null) {
+				OnlinePaymentView.Dispose ();
+				OnlinePaymentView = null;
+			}
+
+			if (OnPointPaymentImageView != null) {
+				OnPointPaymentImageView.Dispose ();
+				OnPointPaymentImageView = null;
+			}
+
+			if (OnPointPaymentView != null) {
+				OnPointPaymentView.Dispose ();
+				OnPointPaymentView = null;
+			}
+
+			if (PhoneUserTextField != null) {
+				PhoneUserTextField.Dispose ();
+				PhoneUserTextField = null;
+			}
+
 			if (PickUpAddressLabel != null) {
 				PickUpAddressLabel.Dispose ();
 				PickUpAddressLabel = null;
+			}
+
+			if (PickupDetailsView != null) {
+				PickupDetailsView.Dispose ();
+				PickupDetailsView = null;
 			}
 
 			if (PickUpPhoneLabel != null) {
@@ -160,44 +236,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				scrollableTabsView = null;
 			}
 
-			if (PickupDetailsView != null) {
-				PickupDetailsView.Dispose ();
-				PickupDetailsView = null;
-			}
-
-			if (DeliveryDetailsView != null) {
-				DeliveryDetailsView.Dispose ();
-				DeliveryDetailsView = null;
-			}
-
-			if (ChooseTimeView != null) {
-				ChooseTimeView.Dispose ();
-				ChooseTimeView = null;
-			}
-
-			if (ContentScrollView != null) {
-				ContentScrollView.Dispose ();
-				ContentScrollView = null;
-			}
-
-			if (UserNameTextField != null) {
-				UserNameTextField.Dispose ();
-				UserNameTextField = null;
-			}
-
-			if (PhoneUserTextField != null) {
-				PhoneUserTextField.Dispose ();
-				PhoneUserTextField = null;
-			}
-
-			if (CountOfDevicesStepperView != null) {
-				CountOfDevicesStepperView.Dispose ();
-				CountOfDevicesStepperView = null;
-			}
-
-			if (CommentTextView != null) {
-				CommentTextView.Dispose ();
-				CommentTextView = null;
+			if (SpendPointsTextField != null) {
+				SpendPointsTextField.Dispose ();
+				SpendPointsTextField = null;
 			}
 
 			if (SpendPointSwitch != null) {
@@ -205,29 +246,44 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				SpendPointSwitch = null;
 			}
 
-			if (SpendPointsTextField != null) {
-				SpendPointsTextField.Dispose ();
-				SpendPointsTextField = null;
+			if (UserNameTextField != null) {
+				UserNameTextField.Dispose ();
+				UserNameTextField = null;
 			}
 
-			if (OnPointPaymentImageView != null) {
-				OnPointPaymentImageView.Dispose ();
-				OnPointPaymentImageView = null;
+			if (AvailableScorsLabel != null) {
+				AvailableScorsLabel.Dispose ();
+				AvailableScorsLabel = null;
 			}
 
-			if (OnlinePaymentimageView != null) {
-				OnlinePaymentimageView.Dispose ();
-				OnlinePaymentimageView = null;
+			if (ProductsPriceLabel != null) {
+				ProductsPriceLabel.Dispose ();
+				ProductsPriceLabel = null;
 			}
 
-			if (OnPointPaymentView != null) {
-				OnPointPaymentView.Dispose ();
-				OnPointPaymentView = null;
+			if (DiscountByPromocodeLabel != null) {
+				DiscountByPromocodeLabel.Dispose ();
+				DiscountByPromocodeLabel = null;
 			}
 
-			if (OnlinePaymentView != null) {
-				OnlinePaymentView.Dispose ();
-				OnlinePaymentView = null;
+			if (ScoresDiscountLabel != null) {
+				ScoresDiscountLabel.Dispose ();
+				ScoresDiscountLabel = null;
+			}
+
+			if (PriceToPayLabel != null) {
+				PriceToPayLabel.Dispose ();
+				PriceToPayLabel = null;
+			}
+
+			if (DeliveryTitleLabel != null) {
+				DeliveryTitleLabel.Dispose ();
+				DeliveryTitleLabel = null;
+			}
+
+			if (FullDeliveryPriceLabel != null) {
+				FullDeliveryPriceLabel.Dispose ();
+				FullDeliveryPriceLabel = null;
 			}
 		}
 	}

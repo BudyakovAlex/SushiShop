@@ -18,6 +18,8 @@ namespace SushiShop.Core.ViewModels.Orders.Items
 
         public string? Address => Suggestion?.Address;
 
+        public string DeliveryPrice => $"Стоимость доставки: {Suggestion?.DeliveryPrice} ";
+
         public bool IsDeliveryAvailable => Suggestion?.ShopId.HasValue ?? false;
     }
 }

@@ -13,6 +13,22 @@ namespace SushiShop.Ios.Views.Controls
     {
         private CAGradientLayer gradientLayer;
 
+        private bool withoutRadius;
+        public bool WithoutRadius
+        {
+            get => withoutRadius;
+            set
+            {
+                if (value == withoutRadius)
+                {
+                    return;
+                }
+
+                withoutRadius = value;
+                SetCornerRadius();
+            }
+        }
+
         public PrimaryButton()
         {
             Initialize();
@@ -52,8 +68,6 @@ namespace SushiShop.Ios.Views.Controls
         {
             base.LayoutSubviews();
             gradientLayer.Frame = Bounds;
-
-            
         }
 
         private void Initialize()
@@ -61,7 +75,19 @@ namespace SushiShop.Ios.Views.Controls
             gradientLayer = Components.CreateGradientLayer();
             Layer.InsertSublayer(gradientLayer, 0);
             BringSubviewToFront(ImageView);
-            this.SetCornerRadius();
+            SetCornerRadius();
+        }
+
+        private void SetCornerRadius()
+        {
+            if (WithoutRadius)
+            {
+                this.SetCornerRadius(0);
+            }
+            else
+            {
+                this.SetCornerRadius(null);
+            }
         }
     }
 }

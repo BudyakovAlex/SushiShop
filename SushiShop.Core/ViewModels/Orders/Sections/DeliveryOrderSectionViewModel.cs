@@ -39,8 +39,6 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             set => SetProperty(ref section, value);
         }
 
-        public string? DeliveryPrice => $"{addressSuggestion?.DeliveryPrice ?? 0} {Cart?.Currency?.Symbol}";
-
         public override string PriceToPay => $"{addressSuggestion?.DeliveryPrice ?? 0 + Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
 
         public string? DeliveryAddress => addressSuggestion?.FullAddress;
@@ -58,6 +56,12 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             get => intercom;
             set => SetProperty(ref intercom, value);
         }
+
+        public override string DeliveryTitle => "Доставка:";
+
+        public override string DeliveryPrice => $"{addressSuggestion?.DeliveryPrice ?? 0} {Cart?.Currency?.Symbol}";
+
+        public override bool AvailableVisibleInfo => !string.IsNullOrEmpty(DeliveryAddress);
 
         public override void Prepare(Data.Models.Cart.Cart cart)
         {
@@ -117,6 +121,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         protected override async Task SelectAddressAsync()
         {
             addressSuggestion = await NavigationManager.NavigateAsync<SelectOrderDeliveryAddressViewModel, AddressSuggestion>();
+            await RaisePropertyChanged(nameof(AvailableVisibleInfo));
         }
     }
 }

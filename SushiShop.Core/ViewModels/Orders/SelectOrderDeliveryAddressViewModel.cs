@@ -1,5 +1,4 @@
-﻿using Acr.UserDialogs;
-using BuildApps.Core.Mobile.Common.Extensions;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using MvvmCross.ViewModels;
@@ -65,10 +64,10 @@ namespace SushiShop.Core.ViewModels.Orders
         public MvxObservableCollection<OrderDeliverySuggestionItemViewModel> Suggestions { get; }
 
         private OrderDeliverySuggestionItemViewModel? selectedLocation;
-        protected OrderDeliverySuggestionItemViewModel? SelectedLocation
+        public OrderDeliverySuggestionItemViewModel? SelectedLocation
         {
             get => selectedLocation;
-            set => SetProperty(ref selectedLocation, value, () => RaisePropertyChanged(nameof(HasSelectedLocation)));
+            protected set => SetProperty(ref selectedLocation, value, () => RaisePropertyChanged(nameof(HasSelectedLocation)));
         }
 
         public override Task InitializeAsync()
@@ -104,6 +103,7 @@ namespace SushiShop.Core.ViewModels.Orders
         {
             SelectedLocation = viewModel;
             Suggestions.Clear();
+            AddressQuery = null;
 
             return Task.CompletedTask;
         }

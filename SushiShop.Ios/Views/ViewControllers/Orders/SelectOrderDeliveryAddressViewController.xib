@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Medium.otf">
+            <string>SFProDisplay-Medium</string>
+        </array>
+        <array key="SF-Pro-Display-Regular.otf">
+            <string>SFProDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectOrderDeliveryAddressViewController">
+            <connections>
+                <outlet property="AboutPointView" destination="7TX-Eg-qsE" id="9El-g2-yXq"/>
+                <outlet property="AddressSelectedPointLabel" destination="3xV-JJ-nwv" id="XTD-Aa-7P5"/>
+                <outlet property="BadLocationLabel" destination="Dmu-T8-Tif" id="LwO-dh-jkD"/>
+                <outlet property="DeliveryPriceLabel" destination="4yD-8C-0CU" id="FCn-gk-SM5"/>
+                <outlet property="DeliveryThereButton" destination="1ww-JI-mSR" id="hH3-kt-yEg"/>
+                <outlet property="MapViewContainer" destination="xZg-SS-eKp" id="CcN-m5-V2v"/>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZg-SS-eKp">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7TX-Eg-qsE">
+                    <rect key="frame" x="0.0" y="667" width="414" height="195"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I0J-C4-rGJ">
+                            <rect key="frame" x="0.0" y="17" width="414" height="178"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1p-ea-FgW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="TcB-ZS-GT5">
+                                            <rect key="frame" x="16" y="0.0" width="382" height="128"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xV-JJ-nwv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="51"/>
+                                                    <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yD-8C-0CU">
+                                                    <rect key="frame" x="0.0" y="57" width="382" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="К сожалею этот адрес не входит в зону доставки" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmu-T8-Tif">
+                                                    <rect key="frame" x="0.0" y="82.5" width="382" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NtR-Wq-jOf">
+                                                    <rect key="frame" x="0.0" y="108" width="382" height="20"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="0V5-Iu-8LM"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="TcB-ZS-GT5" firstAttribute="top" secondItem="u1p-ea-FgW" secondAttribute="top" id="BXR-SC-R8p"/>
+                                        <constraint firstItem="TcB-ZS-GT5" firstAttribute="leading" secondItem="u1p-ea-FgW" secondAttribute="leading" constant="16" id="EHT-1g-PfP"/>
+                                        <constraint firstAttribute="trailing" secondItem="TcB-ZS-GT5" secondAttribute="trailing" constant="16" id="coi-Ih-jt7"/>
+                                        <constraint firstAttribute="bottom" secondItem="TcB-ZS-GT5" secondAttribute="bottom" id="qKo-zc-4C2"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ww-JI-mSR" customClass="PrimaryButton">
+                                    <rect key="frame" x="0.0" y="128" width="414" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="rx1-1J-VCy"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                    <state key="normal" title="Доставить сюда">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="I0J-C4-rGJ" secondAttribute="trailing" id="7OK-ko-OJM"/>
+                        <constraint firstItem="I0J-C4-rGJ" firstAttribute="top" secondItem="7TX-Eg-qsE" secondAttribute="top" constant="17" id="Lwu-Uq-S4y"/>
+                        <constraint firstItem="I0J-C4-rGJ" firstAttribute="leading" secondItem="7TX-Eg-qsE" secondAttribute="leading" id="Qli-n4-tN8"/>
+                        <constraint firstAttribute="bottom" secondItem="I0J-C4-rGJ" secondAttribute="bottom" id="wZM-YA-1YS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Xzi-Op-JcZ"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Xzi-Op-JcZ" firstAttribute="trailing" secondItem="xZg-SS-eKp" secondAttribute="trailing" id="Bk6-kK-00W"/>
+                <constraint firstItem="Xzi-Op-JcZ" firstAttribute="trailing" secondItem="7TX-Eg-qsE" secondAttribute="trailing" id="Ejw-im-Ddm"/>
+                <constraint firstItem="xZg-SS-eKp" firstAttribute="leading" secondItem="Xzi-Op-JcZ" secondAttribute="leading" id="KC6-pC-9KS"/>
+                <constraint firstItem="xZg-SS-eKp" firstAttribute="top" secondItem="Xzi-Op-JcZ" secondAttribute="top" id="NVa-nW-eGc"/>
+                <constraint firstItem="Xzi-Op-JcZ" firstAttribute="bottom" secondItem="xZg-SS-eKp" secondAttribute="bottom" id="Q6T-C4-77X"/>
+                <constraint firstItem="Xzi-Op-JcZ" firstAttribute="bottom" secondItem="7TX-Eg-qsE" secondAttribute="bottom" id="bZa-PM-fFF"/>
+                <constraint firstItem="7TX-Eg-qsE" firstAttribute="leading" secondItem="Xzi-Op-JcZ" secondAttribute="leading" id="uFX-NH-4Jk"/>
+            </constraints>
+            <point key="canvasLocation" x="-97.101449275362327" y="1.3392857142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -95,7 +95,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             set => SetProperty(ref receiveDateTime, value);
         }
 
-        public string? AvailableScores { get; }
+        // TODO: Change this code.
+        public string? AvailableScores { get; } = "300 баллов";
 
         public string? DiscountByScores { get; }
 
@@ -106,6 +107,12 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         public string? ScoresDiscount => $"- {ScoresToApply} {Cart?.Currency?.Symbol}";
 
         public abstract string PriceToPay { get; }
+
+        public abstract string DeliveryTitle { get; }
+
+        public abstract string DeliveryPrice { get; }
+
+        public abstract bool AvailableVisibleInfo { get; }
 
         public StepperViewModel СutleryStepperViewModel { get; }
 

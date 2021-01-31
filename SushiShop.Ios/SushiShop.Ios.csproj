@@ -262,6 +262,8 @@
     <ImageAsset Include="Assets.xcassets\ic_selected_marker.imageset\ic_selected_marker.pdf" />
     <ImageAsset Include="Assets.xcassets\ic_close_white.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ic_close_white.imageset\ic_close_white.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_arrow_suggestion.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_arrow_suggestion.imageset\Group 4.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -334,6 +336,7 @@
         <Folder Include="Views\Cells\Profile\" />
         <Folder Include="Assets.xcassets\ic_close_white.imageset\" />
         <Folder Include="Views\ViewControllers\Payment\" />
+        <Folder Include="Assets.xcassets\ic_arrow_suggestion.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -392,6 +395,8 @@
     <InterfaceDefinition Include="Views\ViewControllers\Orders\OrderRegistrationViewController.xib" />
     <InterfaceDefinition Include="Views\Cells\Profile\BonusProgramImageItemViewCell.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Payment\PaymentViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Orders\SelectOrderDeliveryAddressViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\Orders\OrderDeliverySuggestionItemViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -667,6 +672,14 @@
       <DependentUpon>PaymentViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="TargetBindings\WKWebViewUrlTargetBinding.cs" />
+    <Compile Include="Views\ViewControllers\Orders\SelectOrderDeliveryAddressViewController.cs" />
+    <Compile Include="Views\ViewControllers\Orders\SelectOrderDeliveryAddressViewController.designer.cs">
+      <DependentUpon>SelectOrderDeliveryAddressViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Orders\OrderDeliverySuggestionItemViewCell.cs" />
+    <Compile Include="Views\Cells\Orders\OrderDeliverySuggestionItemViewCell.designer.cs">
+      <DependentUpon>OrderDeliverySuggestionItemViewCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

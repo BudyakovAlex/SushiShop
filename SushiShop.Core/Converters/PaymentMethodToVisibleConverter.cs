@@ -5,7 +5,7 @@ using SushiShop.Core.Data.Enums;
 
 namespace SushiShop.Core.Converters
 {
-    public class PaymentMethodToVisibleImageConverter : MvxValueConverter<PaymentMethod, bool>
+    public class PaymentMethodToVisibleConverter : MvxValueConverter<PaymentMethod, bool>
     {
         protected override bool Convert(PaymentMethod value, Type targetType, object parameter, CultureInfo culture)
         {
