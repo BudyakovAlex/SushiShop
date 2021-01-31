@@ -1,7 +1,6 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using Foundation;
 using MvvmCross.Platforms.Ios.Binding;
-using SushiShop.Core.Common;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Payment;
 using SushiShop.Ios.Common;
@@ -50,7 +49,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Payment
         [Export("webView:didFinishNavigation:")]
         public void DidFinishNavigation(WKWebView webView, WKNavigation navigation)
         {
-            webView.Url.AbsoluteString.EndsWith(SushiShop.Core.Common.Constants.Rest.PaymentOkResource);
+            var canConfirmPayment = webView.Url.AbsoluteString.EndsWith(Core.Common.Constants.Rest.PaymentOkResource);
+            if (!canConfirmPayment)
+            {
+                return;
+            }
+
+            ViewModel.ConfirmPaymentCommand?.Execute(null);
         }
     }
 }
