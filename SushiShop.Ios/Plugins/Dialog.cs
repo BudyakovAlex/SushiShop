@@ -80,25 +80,42 @@ namespace SushiShop.Ios.Plugins
                 var superview = topViewController.View!;
                 superview.AddSubview(toast);
 
+                NSLayoutConstraint topConstraint;
                 NSLayoutConstraint.ActivateConstraints(new[]
                 {
                     toast.LeadingAnchor.ConstraintEqualTo(superview.LeadingAnchor),
-                    toast.TopAnchor.ConstraintEqualTo(superview.SafeAreaLayoutGuide.TopAnchor),
+                    topConstraint = toast.TopAnchor.ConstraintEqualTo(superview.SafeAreaLayoutGuide.TopAnchor),
                     toast.TrailingAnchor.ConstraintEqualTo(superview.TrailingAnchor)
                 });
 
-                toast.Frame = new CGRect(0f, -toast.Frame.Height, toast.Frame.Width, toast.Frame.Height);
-                UIView.Animate(
-                    ToastAnimationDuration,
-                    () => toast.Frame = new CGRect(0f, 0f, toast.Frame.Width, toast.Frame.Height));
+                superview.LayoutIfNeeded();
+                topConstraint.Constant = -toast.Bounds.Height;
+                superview.LayoutIfNeeded();
+
+                topConstraint.Constant = 0;
+                UIView.Transition(
+                    toast,
+                    0.3d,
+                    UIViewAnimationOptions.CurveLinear,
+                    () => superview.LayoutIfNeeded(),
+                    () => { });
 
                 DispatchQueue.MainQueue.DispatchAfter(
                     new DispatchTime(DispatchTime.Now, TimeSpan.FromSeconds(ToastDuration)),
                     () =>
                     {
-                        toast.RemoveFromSuperview();
-                        IsToastShown = false;
-                        taskCompletionSource?.TrySetResult(true);
+                        topConstraint.Constant = -toast.Bounds.Height;
+                        UIView.Transition(
+                            toast,
+                            0.3d,
+                            UIViewAnimationOptions.CurveLinear,
+                            () => superview.LayoutIfNeeded(),
+                            () =>
+                            {
+                                toast.RemoveFromSuperview();
+                                IsToastShown = false;
+                                taskCompletionSource?.TrySetResult(true);
+                             });
                     });
 
                 await taskCompletionSource.Task;

@@ -5,6 +5,7 @@ using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Common;
 using System;
@@ -20,10 +21,13 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         public BaseOrderSectionViewModel(
             IOrdersManager ordersManager,
             IUserSession userSession,
+            IDialog dialog,
             Func<OrderConfirmed, Task> confirmOrderFunc)
         {
             OrdersManager = ordersManager;
             UserSession = userSession;
+            Dialog = dialog;
+
             this.confirmOrderFunc = confirmOrderFunc;
 
             СutleryStepperViewModel = new StepperViewModel(1, (oldValue, newValue) => Task.CompletedTask);
@@ -110,6 +114,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         protected IOrdersManager OrdersManager { get; }
 
         protected IUserSession UserSession { get; }
+
+        protected IDialog Dialog { get; }
 
         public virtual void Prepare(Data.Models.Cart.Cart cart)
         {

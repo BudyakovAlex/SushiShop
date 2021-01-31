@@ -1,8 +1,8 @@
-﻿using Acr.UserDialogs;
-using BuildApps.Core.Mobile.Common.Extensions;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Info;
 using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
@@ -19,8 +19,9 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         public PickupOrderSectionViewModel(
             IOrdersManager ordersManager,
             IUserSession userSession,
+            IDialog dialog,
             Func<OrderConfirmed, Task> confirmOrderFunc)
-            : base(ordersManager, userSession, confirmOrderFunc)
+            : base(ordersManager, userSession, dialog, confirmOrderFunc)
         {
         }
 
@@ -58,7 +59,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
                     return null;
                 }
 
-                await UserDialogs.Instance.AlertAsync(error);
+                await Dialog.ShowToastAsync(error);
                 return null;
             }
 

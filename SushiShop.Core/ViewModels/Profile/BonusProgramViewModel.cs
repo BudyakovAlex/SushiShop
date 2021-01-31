@@ -3,6 +3,7 @@ using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Managers.CommonInfo;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.ViewModels.Profile.Items;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,12 +13,12 @@ namespace SushiShop.Core.ViewModels.Profile
     public class BonusProgramViewModel : BasePageViewModel
     {
         private readonly ICommonInfoManager commonInfoManager;
-        private readonly IUserDialogs userDialogs;
+        private readonly IDialog dialog;
 
-        public BonusProgramViewModel(ICommonInfoManager commonInfoManager)
+        public BonusProgramViewModel(ICommonInfoManager commonInfoManager, IDialog dialog)
         {
             this.commonInfoManager = commonInfoManager;
-            this.userDialogs = UserDialogs.Instance;
+            this.dialog = dialog;
 
             Images = new MvxObservableCollection<BonusProgramImageItemViewModel>();
         }
@@ -64,7 +65,7 @@ namespace SushiShop.Core.ViewModels.Profile
                     return;
                 }
 
-                await userDialogs.AlertAsync(error);
+                await dialog.ShowToastAsync(error);
                 return;
             }
 
@@ -76,7 +77,7 @@ namespace SushiShop.Core.ViewModels.Profile
                     return;
                 }
 
-                await userDialogs.AlertAsync(error);
+                await dialog.ShowToastAsync(error);
                 return;
             }
 

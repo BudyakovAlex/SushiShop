@@ -93,7 +93,7 @@ namespace SushiShop.Core.ViewModels
                 return;
             }
 
-            _ = dialog.ShowToastAsync("No internet connection");
+            _ = dialog.ShowToastAsync(AppStrings.NoInternetConnection);
         }
     }
 }

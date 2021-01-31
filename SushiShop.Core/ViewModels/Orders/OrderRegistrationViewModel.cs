@@ -3,6 +3,7 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders.Sections;
@@ -14,12 +15,15 @@ namespace SushiShop.Core.ViewModels.Orders
 {
     public class OrderRegistrationViewModel : BaseItemsPageViewModel<BaseOrderSectionViewModel, Data.Models.Cart.Cart>
     {
-        public OrderRegistrationViewModel(IOrdersManager ordersManager, IUserSession userSession)
+        public OrderRegistrationViewModel(
+            IOrdersManager ordersManager,
+            IUserSession userSession,
+            IDialog dialog)
         {
             Items.AddRange(new BaseOrderSectionViewModel[]
             {
-                PickupOrderSectionViewModel = new PickupOrderSectionViewModel(ordersManager, userSession, OrderConfirmedAsync),
-                DeliveryOrderSectionViewModel = new DeliveryOrderSectionViewModel(ordersManager, userSession, OrderConfirmedAsync)
+                PickupOrderSectionViewModel = new PickupOrderSectionViewModel(ordersManager, userSession, dialog, OrderConfirmedAsync),
+                DeliveryOrderSectionViewModel = new DeliveryOrderSectionViewModel(ordersManager, userSession, dialog, OrderConfirmedAsync)
             });
 
             TabsTitles.AddRange(new[] { AppStrings.ReceiveInShop, AppStrings.СourierDelivery });

@@ -568,5 +568,11 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("СourierDelivery", resourceCulture);
             }
         }
+        
+        public static string NoInternetConnection {
+            get {
+                return ResourceManager.GetString("NoInternetConnection", resourceCulture);
+            }
+        }
     }
 }

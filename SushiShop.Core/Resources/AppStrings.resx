@@ -378,4 +378,7 @@
   <data name="СourierDelivery" xml:space="preserve">
     <value>Доставка курьером</value>
   </data>
+  <data name="NoInternetConnection" xml:space="preserve">
+    <value>Отсутсвует интернет соединение</value>
+  </data>
 </root>
