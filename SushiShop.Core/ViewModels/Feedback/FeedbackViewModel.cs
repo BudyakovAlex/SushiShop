@@ -115,7 +115,7 @@ namespace SushiShop.Core.ViewModels.Feedback
             {
                 if (response.Errors.Any())
                 {
-                    await UserDialogs.Instance.AlertAsync(response.Errors.First());
+                    await dialog.ShowToastAsync(response.Errors.First());
                 }
 
                 return;

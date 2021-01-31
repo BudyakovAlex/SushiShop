@@ -1,10 +1,10 @@
-﻿using Acr.UserDialogs;
-using BuildApps.Core.Mobile.Common.Extensions;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.NavigationParameters;
+using SushiShop.Core.Plugins;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,16 +13,16 @@ namespace SushiShop.Core.ViewModels.Profile
     public class ConfirmCodeViewModel : BasePageViewModel<ConfirmCodeNavigationParameters, bool>
     {
         private readonly IProfileManager profileManager;
-        private readonly IUserDialogs userDialogs;
+        private readonly IDialog dialog;
 
         private string login;
 
-        public ConfirmCodeViewModel(IProfileManager profileManager, IUserDialogs userDialogs)
+        public ConfirmCodeViewModel(IProfileManager profileManager, IDialog dialog)
         {
             login = string.Empty;
 
             this.profileManager = profileManager;
-            this.userDialogs = userDialogs;
+            this.dialog = dialog;
 
             ContinueCommand = new SafeAsyncCommand(ExecutionStateWrapper, ContinueAsync, () => Code.IsNotNullNorEmpty());
         }
@@ -60,7 +60,7 @@ namespace SushiShop.Core.ViewModels.Profile
                     return;
                 }
 
-                await userDialogs.AlertAsync(error);
+                await dialog.ShowToastAsync(error);
                 return;
             }
 

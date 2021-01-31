@@ -7,6 +7,7 @@ using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.Managers.Shops;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Orders.Items;
 using System;
@@ -22,10 +23,10 @@ namespace SushiShop.Core.ViewModels.Orders
     {
         private const int SearchMillisecondsDelay = 1500;
 
-        private readonly IUserDialogs userDialogs;
         private readonly IShopsManager shopsManager;
         private readonly ICitiesManager citiesManager;
         private readonly IUserSession userSession;
+        private readonly IDialog dialog;
         private readonly ICommand selectCommand;
 
         private CancellationTokenSource? cancellationTokenSource;
@@ -34,13 +35,13 @@ namespace SushiShop.Core.ViewModels.Orders
         public SelectOrderDeliveryAddressViewModel(
             IShopsManager shopsManager,
             ICitiesManager citiesManager,
-            IUserSession userSession)
+            IUserSession userSession,
+            IDialog dialog)
         {
-            userDialogs = UserDialogs.Instance;
             this.shopsManager = shopsManager;
             this.citiesManager = citiesManager;
             this.userSession = userSession;
-
+            this.dialog = dialog;
             Suggestions = new MvxObservableCollection<OrderDeliverySuggestionItemViewModel>();
 
             ConfirmAddress = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmAddressAsync);
@@ -88,7 +89,7 @@ namespace SushiShop.Core.ViewModels.Orders
                     return;
                 }
 
-                await userDialogs.AlertAsync(error);
+                await dialog.ShowToastAsync(error);
                 return;
             }
 

@@ -1,10 +1,10 @@
-﻿using Acr.UserDialogs;
-using BuildApps.Core.Mobile.Common.Extensions;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Managers.Profile;
+using SushiShop.Core.Plugins;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,14 +14,14 @@ namespace SushiShop.Core.ViewModels.Profile
     public class EditProfileViewModel : BasePageViewModelResult<bool>
     {
         private readonly IProfileManager profileManager;
-        private readonly IUserDialogs userDialogs;
+        private readonly IDialog dialog;
 
         private Data.Models.Profile.DetailedProfile? profile;
 
-        public EditProfileViewModel(IProfileManager profileManager, IUserDialogs userDialogs)
+        public EditProfileViewModel(IProfileManager profileManager, IDialog dialog)
         {
             this.profileManager = profileManager;
-            this.userDialogs = userDialogs;
+            this.dialog = dialog;
 
             GenderTypes = new[] { GenderType.Male, GenderType.Female };
 
@@ -155,7 +155,8 @@ namespace SushiShop.Core.ViewModels.Profile
                 {
                     return;
                 }
-                await userDialogs.AlertAsync(error);
+
+                await dialog.ShowToastAsync(error);
                 return;
             }
 

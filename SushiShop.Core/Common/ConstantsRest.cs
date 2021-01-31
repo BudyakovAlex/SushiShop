@@ -55,6 +55,8 @@ namespace SushiShop.Core.Common
             public const string MetroShopsResource = "cities/metro-list";
 
             public const string OrderCreateResource = "order/create";
+
+            public const string PaymentOkResource = "payment-ok";
         }
     }
 }

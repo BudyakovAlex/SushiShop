@@ -7,6 +7,7 @@ using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.NavigationParameters;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
@@ -20,13 +21,16 @@ namespace SushiShop.Core.ViewModels.Profile
     {
         private readonly IProfileManager profileManager;
         private readonly IUserSession userSession;
-        private readonly IUserDialogs userDialogs;
+        private readonly IDialog dialog;
 
-        public RegistrationViewModel(IProfileManager profileManager, IUserSession userSession)
+        public RegistrationViewModel(
+            IProfileManager profileManager,
+            IUserSession userSession,
+            IDialog dialog)
         {
             this.profileManager = profileManager;
             this.userSession = userSession;
-            this.userDialogs = UserDialogs.Instance;
+            this.dialog = dialog;
 
             RegisterCommand = new SafeAsyncCommand(ExecutionStateWrapper, RegisterAsync);
             ShowPrivacyPolicyCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPrivacyPolicyAsync);
@@ -125,7 +129,7 @@ namespace SushiShop.Core.ViewModels.Profile
                     return;
                 }
 
-                await userDialogs.AlertAsync(error);
+                await dialog.ShowToastAsync(error);
                 return;
             }
 

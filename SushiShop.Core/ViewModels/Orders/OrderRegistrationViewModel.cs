@@ -3,10 +3,13 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Messages;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders.Sections;
 using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
+using SushiShop.Core.ViewModels.Payment;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,12 +17,19 @@ namespace SushiShop.Core.ViewModels.Orders
 {
     public class OrderRegistrationViewModel : BaseItemsPageViewModel<BaseOrderSectionViewModel, Data.Models.Cart.Cart>
     {
-        public OrderRegistrationViewModel(IOrdersManager ordersManager, IUserSession userSession)
+        private readonly IDialog dialog;
+
+        public OrderRegistrationViewModel(
+            IOrdersManager ordersManager,
+            IUserSession userSession,
+            IDialog dialog)
         {
+            this.dialog = dialog;
+
             Items.AddRange(new BaseOrderSectionViewModel[]
             {
-                PickupOrderSectionViewModel = new PickupOrderSectionViewModel(ordersManager, userSession, OrderConfirmedAsync),
-                DeliveryOrderSectionViewModel = new DeliveryOrderSectionViewModel(ordersManager, userSession, OrderConfirmedAsync)
+                PickupOrderSectionViewModel = new PickupOrderSectionViewModel(ordersManager, userSession, dialog, OrderConfirmedAsync),
+                DeliveryOrderSectionViewModel = new DeliveryOrderSectionViewModel(ordersManager, userSession, dialog, OrderConfirmedAsync)
             });
 
             TabsTitles.AddRange(new[] { AppStrings.ReceiveInShop, AppStrings.СourierDelivery });
@@ -56,24 +66,39 @@ namespace SushiShop.Core.ViewModels.Orders
             Items.ForEach(item => item.Prepare(parameter));
         }
 
-        private async Task OrderConfirmedAsync(OrderConfirmed orderConfirmed)
+        private Task OrderConfirmedAsync(OrderConfirmed orderConfirmed)
         {
-            OrderThanksSectionViewModel = new OrderThanksSectionViewModel(
-                orderConfirmed.ConfirmationInfo,
-                orderConfirmed.OrderNumber,
-                GoToRootAsync);
+            return orderConfirmed.ConfirmationInfo.PaymentUrl.IsNotNullNorEmpty()
+                ? PayForOrderAsync(orderConfirmed)
+                : ProduceThanksForOrderSectionAsync(orderConfirmed);
+        }
 
-            if (orderConfirmed.ConfirmationInfo.PaymentUrl.IsNotNullNorEmpty())
+        private async Task PayForOrderAsync(OrderConfirmed orderConfirmed)
+        {
+            var isPaymentConfirmed = await NavigationManager.NavigateAsync<PaymentViewModel, string>(orderConfirmed.ConfirmationInfo.PaymentUrl!);
+            if (!isPaymentConfirmed)
             {
-                await Xamarin.Essentials.Browser.OpenAsync(orderConfirmed.ConfirmationInfo.PaymentUrl);
+                await dialog.ShowToastAsync(AppStrings.OrderCreationError);
+                return;
             }
 
-            await RaisePropertyChanged(nameof(OrderThanksSectionViewModel));
+            await ProduceThanksForOrderSectionAsync(orderConfirmed);
+        }
+
+        private Task ProduceThanksForOrderSectionAsync(OrderConfirmed orderConfirmed)
+        {
+            OrderThanksSectionViewModel = new OrderThanksSectionViewModel(
+               orderConfirmed.ConfirmationInfo,
+               orderConfirmed.OrderNumber,
+               GoToRootAsync);
+
+            return RaisePropertyChanged(nameof(OrderThanksSectionViewModel));
         }
 
         private Task GoToRootAsync()
         {
-            return Task.CompletedTask;
+            Messenger.Publish(new RefreshCartMessage(this));
+            return NavigationManager.CloseAsync(this);
         }
     }
 }
