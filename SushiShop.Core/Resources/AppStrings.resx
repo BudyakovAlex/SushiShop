@@ -387,4 +387,31 @@
   <data name="OrderPayment" xml:space="preserve">
     <value>Оплата заказа</value>
   </data>
+  <data name="OrderRegistrationTitle" xml:space="preserve">
+    <value>Оформление заказа</value>
+  </data>
+  <data name="Apartment" xml:space="preserve">
+    <value>Квартира</value>
+  </data>
+  <data name="Entrance" xml:space="preserve">
+    <value>Подъезд</value>
+  </data>
+  <data name="Intercom" xml:space="preserve">
+    <value>Домофон</value>
+  </data>
+  <data name="Floor" xml:space="preserve">
+    <value>Этаж</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Количество</value>
+  </data>
+  <data name="SelectOrderDeliveryTitle" xml:space="preserve">
+    <value>Выбор адреса</value>
+  </data>
+  <data name="EnterYourAddress" xml:space="preserve">
+    <value>Введите ваш адрес</value>
+  </data>
 </root>

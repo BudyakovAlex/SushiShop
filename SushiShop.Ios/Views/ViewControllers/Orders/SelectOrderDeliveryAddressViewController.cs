@@ -59,7 +59,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
         {
             base.InitStylesAndContent();
 
-            Title = "Выбор адреса";
+            Title = AppStrings.SelectOrderDeliveryTitle;
 
             DeliveryThereButton.WithoutRadius = true;
             DefinesPresentationContext = true;
@@ -72,7 +72,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
                 .Register<OrderDeliverySuggestionItemViewModel>(OrderDeliverySuggestionItemViewCell.Nib, OrderDeliverySuggestionItemViewCell.Key);
 
             searchSuggestionsController = new UISearchController(searchSuggestionsViewController);
-            searchSuggestionsController.SearchBar.SearchTextField.Placeholder = "Введите ваш адрес";
+            searchSuggestionsController.SearchBar.SearchTextField.Placeholder = AppStrings.EnterYourAddress;
             searchSuggestionsController.SearchBar.TintColor = Colors.Orange2;
             searchSuggestionsController.SearchBar.SetValueForKey(new NSString(AppStrings.Cancel), new NSString(CancelButtonTextKey));
 

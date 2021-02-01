@@ -3,6 +3,7 @@ using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.Converters;
 using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Views.Controls;
@@ -32,18 +33,18 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
         {
             base.InitStylesAndContent();
 
-            Title = "Оформление заказа";
+            Title = AppStrings.OrderRegistrationTitle;
 
             scrollableTabsView.IsFixedTabs = true;
 
-            DeliveryAppartmentTextField.Placeholder = "Квартира*";
-            DeliveryEntranceTextField.Placeholder = "Подъезд*";
-            DeliveryIntercomTextField.Placeholder = "Домофон*";
-            DeliveryFloorTextField.Placeholder = "Этаж*";
-            UserNameTextField.Placeholder = "Имя*";
-            PhoneUserTextField.Placeholder = "Телефон*";
-            CommentTextView.Placeholder = "Комментарий";
-            SpendPointsTextField.Placeholder = "Количество";
+            DeliveryAppartmentTextField.Placeholder = $"{AppStrings.Apartment}*";
+            DeliveryEntranceTextField.Placeholder = $"{AppStrings.Entrance}*";
+            DeliveryIntercomTextField.Placeholder = $"{AppStrings.Intercom}*";
+            DeliveryFloorTextField.Placeholder = $"{AppStrings.Floor}*";
+            UserNameTextField.Placeholder = $"{AppStrings.Name}*";
+            PhoneUserTextField.Placeholder = $"{AppStrings.Phone}*";
+            CommentTextView.Placeholder = AppStrings.Comment;
+            SpendPointsTextField.Placeholder = AppStrings.Count;
 
             doneAccessoryView = new DoneAccessoryView(this.View, () => this.View.EndEditing(true));
             PhoneUserTextField.InputAccessoryView = doneAccessoryView;
