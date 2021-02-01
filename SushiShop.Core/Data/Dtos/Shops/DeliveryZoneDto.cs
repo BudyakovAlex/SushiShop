@@ -8,7 +8,7 @@ namespace SushiShop.Core.Data.Dtos.Shops
         [JsonProperty("title")]
         public string? Title { get; set; }
 
-        [JsonProperty("poligon")]
+        [JsonProperty("polygon")]
         public CoordinatesDto[]? Polygon { get; set; }
 
         public string? Path { get; set; }

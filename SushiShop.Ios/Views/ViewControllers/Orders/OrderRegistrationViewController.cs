@@ -105,4 +105,3 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
         }
     }
 }
-
