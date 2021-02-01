@@ -143,12 +143,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
                 foreach (var item in items)
                 {
-                    var path = new Path();
+                    var path = new MutablePath();
                     foreach (var zone in item.DeliveryZone.Polygon)
                     {
-                        path.PathOffsetByLatitude((double)zone.Latitude, (double)zone.Longitude);
+                        path.AddLatLon((double)zone.Latitude, (double)zone.Longitude);
                     }
+
                     var polygon = Polygon.FromPath(path);
+                    polygon.FillColor = Colors.Orange2.ColorWithAlpha(0.3f);
+                    polygon.StrokeColor = Colors.Orange2;
+                    polygon.StrokeWidth = 2;
                     polygon.Map = mapView;
                 }
             });
