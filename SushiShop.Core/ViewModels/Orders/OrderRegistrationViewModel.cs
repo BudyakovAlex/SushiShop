@@ -75,6 +75,12 @@ namespace SushiShop.Core.ViewModels.Orders
             await base.InitializeAsync();
 
             var response = await profileManager.GetDiscountAsync();
+            if (!response.IsSuccessful)
+            {
+                return;
+            }
+
+            Items.ForEach(item => item.SetDiscount(response.Data));
         }
 
         private Task OrderConfirmedAsync(OrderConfirmed orderConfirmed)

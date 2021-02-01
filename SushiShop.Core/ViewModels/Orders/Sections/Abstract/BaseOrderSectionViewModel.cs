@@ -113,6 +113,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         public string? ScoresDiscount => $"- {ScoresToApply} {Cart?.Currency?.Symbol}";
 
+        public bool CanApplyScores { get; private set; }
+
         public abstract string PriceToPay { get; }
 
         public abstract string DeliveryTitle { get; }
@@ -148,9 +150,12 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
                 return;
             }
 
+            CanApplyScores = true;
             AvailableScoresPresentation = $"{discount!.Bonuses} {AppStrings.Scores}";
             AvailableScores = discount.Bonuses;
+
             RaisePropertyChanged(nameof(AvailableScoresPresentation));
+            RaisePropertyChanged(nameof(CanApplyScores));
         }
 
         protected abstract Task<OrderConfirmed?> ConfirmOrderAsync();
