@@ -86,7 +86,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
                 .CommandParameter(PaymentMethod.OnPoint);
             bindingSet.Bind(OnlinePaymentView).For(v => v.BindTap()).To(vm => vm.AbstractOrderSectionViewModel.ChangePaymentMethodCommand)
                 .CommandParameter(PaymentMethod.Online);
-            bindingSet.Bind(AvailableScorsLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.AvailableScores);
+            bindingSet.Bind(AvailableScorsLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.AvailableScoresPresentation);
             bindingSet.Bind(ProductsPriceLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.ProductsPrice);
             bindingSet.Bind(DiscountByPromocodeLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.DiscountByPromocode);
             bindingSet.Bind(PriceToPayLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.PriceToPay);

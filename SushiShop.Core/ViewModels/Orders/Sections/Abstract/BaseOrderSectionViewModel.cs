@@ -4,9 +4,11 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Orders;
+using SushiShop.Core.Data.Models.Profile;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
 using System;
 using System.Threading.Tasks;
@@ -85,7 +87,15 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         public decimal ScoresToApply
         {
             get => scoresToApply;
-            set => SetProperty(ref scoresToApply, value, () => RaisePropertyChanged(nameof(ScoresDiscount)));
+            set
+            {
+                if (AvailableScores < value)
+                {
+                    value = AvailableScores;
+                }
+
+                SetProperty(ref scoresToApply, value, () => RaisePropertyChanged(nameof(ScoresDiscount)));
+            }
         }
 
         private DateTime? receiveDateTime;
@@ -95,10 +105,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             set => SetProperty(ref receiveDateTime, value);
         }
 
-        // TODO: Change this code.
-        public string? AvailableScores { get; } = "300 баллов";
-
-        public string? DiscountByScores { get; }
+        public string? AvailableScoresPresentation { get; private set; }
 
         public string ProductsPrice => $"{Cart?.TotalSum} {Cart?.Currency?.Symbol}";
 
@@ -116,6 +123,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         public StepperViewModel СutleryStepperViewModel { get; }
 
+        protected int AvailableScores { get; private set; }
+
         protected Data.Models.Cart.Cart? Cart { get; private set; }
 
         protected IOrdersManager OrdersManager { get; }
@@ -130,6 +139,18 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
             RaisePropertyChanged(nameof(ProductsPrice));
             RaisePropertyChanged(nameof(DiscountByPromocode));
+        }
+
+        public void SetDiscount(ProfileDiscount? discount)
+        {
+            if (discount?.Bonuses <= 0)
+            {
+                return;
+            }
+
+            AvailableScoresPresentation = $"{discount!.Bonuses} {AppStrings.Scores}";
+            AvailableScores = discount.Bonuses;
+            RaisePropertyChanged(nameof(AvailableScoresPresentation));
         }
 
         protected abstract Task<OrderConfirmed?> ConfirmOrderAsync();

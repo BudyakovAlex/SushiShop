@@ -586,5 +586,11 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("OrderPayment", resourceCulture);
             }
         }
+        
+        public static string Scores {
+            get {
+                return ResourceManager.GetString("Scores", resourceCulture);
+            }
+        }
     }
 }

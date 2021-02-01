@@ -387,4 +387,7 @@
   <data name="OrderPayment" xml:space="preserve">
     <value>Оплата заказа</value>
   </data>
+  <data name="Scores" xml:space="preserve">
+    <value>баллов</value>
+  </data>
 </root>
