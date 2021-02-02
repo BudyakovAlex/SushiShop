@@ -164,14 +164,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         private async Task SelectReceiveDateTimeAsync()
         {
-            var pickerConfig = new DatePromptConfig
-            {
-                iOSPickerStyle = iOSPickerStyle.Wheels,
-                SelectedDate = ReceiveDateTime
-            };
-
-            var result = await UserDialogs.Instance.DatePromptAsync(pickerConfig);
-            ReceiveDateTime = result?.SelectedDate;
+            ReceiveDateTime = await Dialog.ShowDatePickerAsync(ReceiveDateTime ?? DateTime.Now, null, null, DatePickerMode.DateAndTime);
         }
 
         private async Task ConfirmOrderInternalAsync()

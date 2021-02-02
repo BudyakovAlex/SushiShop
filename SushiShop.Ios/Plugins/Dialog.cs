@@ -1,23 +1,26 @@
 ﻿#nullable enable
-
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
 using CoreFoundation;
-using CoreGraphics;
 using MvvmCross.Platforms.Ios.Views;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Plugins;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Plugins;
+using SushiShop.Core.Resources;
+using SushiShop.Ios.Common;
 using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Views.Controls;
+using SushiShop.Ios.Views.ViewControllers.Common.Dialogs;
 using UIKit;
+using Xamarin.Essentials;
 
 namespace SushiShop.Ios.Plugins
 {
     public class Dialog : IDialog
     {
-        private const double ToastAnimationDuration = 0.5d;
         private const double ToastDuration = 2d;
 
         public bool IsToastShown { get; protected set; }
@@ -47,6 +50,41 @@ namespace SushiShop.Ios.Plugins
                     alertAction.Command.Execute(null);
                 });
             }
+        }
+
+        public Task<DateTime?> ShowDatePickerAsync(
+            DateTime initialDate,
+            DateTime? minDate,
+            DateTime? maxDate,
+            DatePickerMode mode = DatePickerMode.Date)
+        {
+            var keyWindow = UIApplication.SharedApplication.KeyWindow;
+            if (keyWindow is null)
+            {
+                return Task.FromResult<DateTime?>(null);
+            }
+
+            var topViewController = GetTopViewController(keyWindow);
+
+            var tcs = new TaskCompletionSource<DateTime?>();
+            MainThread.InvokeOnMainThreadAsync(() =>
+            {
+                var completeAction = new Action<DateTime?>((selectedDate) =>
+                {
+                    topViewController?.DismissModalViewController(true);
+                    tcs.TrySetResult(selectedDate);
+                });
+
+                var dialogViewController = new DatePickerViewController(completeAction, initialDate, minDate, maxDate, mode)
+                {
+                    ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve,
+                    ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext,
+                };
+
+                topViewController?.PresentViewController(dialogViewController, true, null);
+            });
+
+            return tcs.Task;
         }
 
         public async Task ShowToastAsync(string message)
@@ -126,7 +164,7 @@ namespace SushiShop.Ios.Plugins
             }
         }
 
-        public static UIViewController? GetTopViewController(UIWindow window)
+        private static UIViewController? GetTopViewController(UIWindow window)
         {
             var topViewController = window.RootViewController;
             if (topViewController?.PresentedViewController is null &&
