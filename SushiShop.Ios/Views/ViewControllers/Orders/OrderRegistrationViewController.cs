@@ -1,5 +1,4 @@
-﻿using System;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using CoreGraphics;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
@@ -80,6 +79,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(EntranceDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Section);
             bindingSet.Bind(IntercomDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Intercom);
             bindingSet.Bind(FloorDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Floor);
+            bindingSet.Bind(ChooseTimeDeliveryView).For(v => v.BindTap()).To(vm => vm.DeliveryOrderSectionViewModel.SelectReceiveDateTime);
             bindingSet.Bind(ReceiveTimeDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.ReceiveDateTimePresentation);
 
             bindingSet.Bind(UserNamePickUpTextField).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.Name).TwoWay();

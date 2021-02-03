@@ -9,6 +9,7 @@ using Google.Maps;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using MvvmCross.ViewModels;
+using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders;
 using SushiShop.Core.ViewModels.Orders.Items;
@@ -85,6 +86,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
                 TranslatesAutoresizingMaskIntoConstraints = false,
                 MyLocationEnabled = true
             };
+            mapView.CoordinateTapped += MapViewCoordinateTapped;
 
             MapViewContainer.AddSubview(mapView);
             NSLayoutConstraint.ActivateConstraints(new[]
@@ -163,9 +165,17 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
                     var marker = Marker.FromPosition(position);
                     marker.Map = mapView;
                     marker.Icon = UIImage.FromBundle(ImageNames.DefaultMarker);
-                    mapView.MoveCamera(CameraUpdate.SetTarget(position, 10));
+                }
+                else
+                {
+                    mapView.MoveCamera(CameraUpdate.SetTarget(new CLLocationCoordinate2D(ViewModel.Latitude, ViewModel.Longitude), ViewModel.ZoomFactor));
                 }
             });
+        }
+
+        private void MapViewCoordinateTapped(object sender, GMSCoordEventArgs e)
+        {
+            ViewModel?.TryLoadPlacemarkCommand?.Execute(new Coordinates(e.Coordinate.Longitude, e.Coordinate.Latitude));
         }
     }
 }

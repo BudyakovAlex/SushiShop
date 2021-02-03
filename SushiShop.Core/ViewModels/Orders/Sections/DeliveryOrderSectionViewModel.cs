@@ -116,6 +116,10 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         protected override async Task SelectAddressAsync()
         {
             addressSuggestion = await NavigationManager.NavigateAsync<SelectOrderDeliveryAddressViewModel, AddressSuggestion>();
+            await Task.WhenAll(
+                RaisePropertyChanged(nameof(DeliveryAddress)),
+                RaisePropertyChanged(nameof(DeliveryPrice)),
+                RaisePropertyChanged(nameof(PriceToPay)));
         }
     }
 }

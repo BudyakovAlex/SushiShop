@@ -14,7 +14,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Orders
 {
@@ -44,7 +43,7 @@ namespace SushiShop.Core.ViewModels.Orders
             Suggestions = new MvxObservableCollection<OrderDeliverySuggestionItemViewModel>();
 
             ConfirmAddress = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmAddressAsync);
-            TryLoadPlacemarkCommand = new SafeAsyncCommand<Location>(ExecutionStateWrapper, TryLoadPlacemarkAsync);
+            TryLoadPlacemarkCommand = new SafeAsyncCommand<Coordinates>(ExecutionStateWrapper, TryLoadPlacemarkAsync);
             selectCommand = new SafeAsyncCommand<OrderDeliverySuggestionItemViewModel>(ExecutionStateWrapper, SelectAsync);
         }
 
@@ -62,6 +61,12 @@ namespace SushiShop.Core.ViewModels.Orders
         public bool HasSelectedLocation => SelectedLocation != null;
 
         public MvxObservableCollection<OrderDeliverySuggestionItemViewModel> Suggestions { get; }
+
+        public float ZoomFactor => _city?.ZoomFactor ?? 0;
+
+        public double Latitude => _city?.Latitude ?? 0;
+
+        public double Longitude => _city?.Longitude ?? 0;
 
         private OrderDeliverySuggestionItemViewModel? selectedLocation;
         public OrderDeliverySuggestionItemViewModel? SelectedLocation
@@ -119,15 +124,15 @@ namespace SushiShop.Core.ViewModels.Orders
             return NavigationManager.CloseAsync(this, SelectedLocation.Suggestion);
         }
 
-        private async Task TryLoadPlacemarkAsync(Location location)
+        private async Task TryLoadPlacemarkAsync(Coordinates coordinates)
         {
             cancellationTokenSource?.Cancel();
             cancellationTokenSource = new CancellationTokenSource();
 
-            var coordinates = new Coordinates(location.Longitude, location.Latitude);
             var response = await citiesManager.SearchByLocationAsync(coordinates, cancellationTokenSource.Token);
             if (!response.IsSuccessful)
             {
+                SelectedLocation = null;
                 return;
             }
 
