@@ -337,6 +337,7 @@
         <Folder Include="Assets.xcassets\ic_close_white.imageset\" />
         <Folder Include="Views\ViewControllers\Payment\" />
         <Folder Include="Assets.xcassets\ic_arrow_suggestion.imageset\" />
+        <Folder Include="Views\ViewControllers\Common\Dialogs\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -680,6 +681,8 @@
     <Compile Include="Views\Cells\Orders\OrderDeliverySuggestionItemViewCell.designer.cs">
       <DependentUpon>OrderDeliverySuggestionItemViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\DatePickerModeExtensions.cs" />
+    <Compile Include="Views\ViewControllers\Common\Dialogs\DatePickerViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

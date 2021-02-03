@@ -4,9 +4,11 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Orders;
+using SushiShop.Core.Data.Models.Profile;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
 using System;
 using System.Threading.Tasks;
@@ -85,7 +87,15 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         public decimal ScoresToApply
         {
             get => scoresToApply;
-            set => SetProperty(ref scoresToApply, value, () => RaisePropertyChanged(nameof(ScoresDiscount)));
+            set
+            {
+                if (AvailableScores < value)
+                {
+                    value = AvailableScores;
+                }
+
+                SetProperty(ref scoresToApply, value, () => RaisePropertyChanged(nameof(ScoresDiscount)));
+            }
         }
 
         private DateTime? receiveDateTime;
@@ -95,16 +105,15 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             set => SetProperty(ref receiveDateTime, value);
         }
 
-        // TODO: Change this code.
-        public string? AvailableScores { get; } = "300 баллов";
-
-        public string? DiscountByScores { get; }
+        public string? AvailableScoresPresentation { get; private set; }
 
         public string ProductsPrice => $"{Cart?.TotalSum} {Cart?.Currency?.Symbol}";
 
         public string DiscountByPromocode => $"- {Cart?.Discount} {Cart?.Currency?.Symbol}";
 
         public string? ScoresDiscount => $"- {ScoresToApply} {Cart?.Currency?.Symbol}";
+
+        public bool CanApplyScores { get; private set; }
 
         public abstract string PriceToPay { get; }
 
@@ -115,6 +124,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         public abstract bool AvailableVisibleInfo { get; }
 
         public StepperViewModel СutleryStepperViewModel { get; }
+
+        protected int AvailableScores { get; private set; }
 
         protected Data.Models.Cart.Cart? Cart { get; private set; }
 
@@ -132,20 +143,28 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             RaisePropertyChanged(nameof(DiscountByPromocode));
         }
 
+        public void SetDiscount(ProfileDiscount? discount)
+        {
+            if (discount?.Bonuses <= 0)
+            {
+                return;
+            }
+
+            CanApplyScores = true;
+            AvailableScoresPresentation = $"{discount!.Bonuses} {AppStrings.Scores}";
+            AvailableScores = discount.Bonuses;
+
+            RaisePropertyChanged(nameof(AvailableScoresPresentation));
+            RaisePropertyChanged(nameof(CanApplyScores));
+        }
+
         protected abstract Task<OrderConfirmed?> ConfirmOrderAsync();
 
         protected abstract Task SelectAddressAsync();
 
         private async Task SelectReceiveDateTimeAsync()
         {
-            var pickerConfig = new DatePromptConfig
-            {
-                iOSPickerStyle = iOSPickerStyle.Wheels,
-                SelectedDate = ReceiveDateTime
-            };
-
-            var result = await UserDialogs.Instance.DatePromptAsync(pickerConfig);
-            ReceiveDateTime = result?.SelectedDate;
+            ReceiveDateTime = await Dialog.ShowDatePickerAsync(ReceiveDateTime ?? DateTime.Now, null, null, DatePickerMode.DateAndTime);
         }
 
         private async Task ConfirmOrderInternalAsync()

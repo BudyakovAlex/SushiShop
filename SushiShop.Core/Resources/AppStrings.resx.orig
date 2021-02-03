@@ -387,11 +387,9 @@
   <data name="OrderPayment" xml:space="preserve">
     <value>Оплата заказа</value>
   </data>
+<<<<<<< HEAD
   <data name="OrderRegistrationTitle" xml:space="preserve">
     <value>Оформление заказа</value>
-  </data>
-  <data name="Scores" xml:space="preserve">
-    <value>баллов</value>
   </data>
   <data name="Apartment" xml:space="preserve">
     <value>Квартира</value>
@@ -428,5 +426,9 @@
   </data>
   <data name="Free" xml:space="preserve">
     <value>Бесплатно</value>
+=======
+  <data name="Scores" xml:space="preserve">
+    <value>баллов</value>
+>>>>>>> f454d343191bd152ae42bb1679796af3fca40fdc
   </data>
 </root>

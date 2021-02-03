@@ -587,15 +587,10 @@ namespace SushiShop.Core.Resources {
             }
         }
         
+<<<<<<< HEAD
         public static string OrderRegistrationTitle {
             get {
                 return ResourceManager.GetString("OrderRegistrationTitle", resourceCulture);
-            }
-        }
-         
-        public static string Scores {
-            get {
-                return ResourceManager.GetString("Scores", resourceCulture);
             }
         }
         
@@ -656,6 +651,11 @@ namespace SushiShop.Core.Resources {
         public static string Free {
             get {
                 return ResourceManager.GetString("Free", resourceCulture);
+=======
+        public static string Scores {
+            get {
+                return ResourceManager.GetString("Scores", resourceCulture);
+>>>>>>> f454d343191bd152ae42bb1679796af3fca40fdc
             }
         }
     }

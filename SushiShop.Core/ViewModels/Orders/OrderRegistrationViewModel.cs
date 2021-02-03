@@ -3,6 +3,7 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.Messages;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
@@ -17,13 +18,16 @@ namespace SushiShop.Core.ViewModels.Orders
 {
     public class OrderRegistrationViewModel : BaseItemsPageViewModel<BaseOrderSectionViewModel, Data.Models.Cart.Cart>
     {
+        private readonly IProfileManager profileManager;
         private readonly IDialog dialog;
 
         public OrderRegistrationViewModel(
             IOrdersManager ordersManager,
+            IProfileManager profileManager,
             IUserSession userSession,
             IDialog dialog)
         {
+            this.profileManager = profileManager;
             this.dialog = dialog;
 
             Items.AddRange(new BaseOrderSectionViewModel[]
@@ -64,6 +68,19 @@ namespace SushiShop.Core.ViewModels.Orders
         public override void Prepare(Data.Models.Cart.Cart parameter)
         {
             Items.ForEach(item => item.Prepare(parameter));
+        }
+
+        public override async Task InitializeAsync()
+        {
+            await base.InitializeAsync();
+
+            var response = await profileManager.GetDiscountAsync();
+            if (!response.IsSuccessful)
+            {
+                return;
+            }
+
+            Items.ForEach(item => item.SetDiscount(response.Data));
         }
 
         private Task OrderConfirmedAsync(OrderConfirmed orderConfirmed)
