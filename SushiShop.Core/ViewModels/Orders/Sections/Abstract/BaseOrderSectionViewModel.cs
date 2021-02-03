@@ -1,5 +1,4 @@
-﻿using Acr.UserDialogs;
-using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Data.Enums;
@@ -115,13 +114,9 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         public bool CanApplyScores { get; private set; }
 
+        public string? ReceiveDateTimePresentation { get; private set; }
+
         public abstract string PriceToPay { get; }
-
-        public abstract string DeliveryTitle { get; }
-
-        public abstract string DeliveryPrice { get; }
-
-        public abstract bool AvailableVisibleInfo { get; }
 
         public StepperViewModel СutleryStepperViewModel { get; }
 
@@ -152,7 +147,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
             CanApplyScores = true;
             AvailableScoresPresentation = $"{discount!.Bonuses} {AppStrings.Scores}";
-            AvailableScores = discount.Bonuses;
+            AvailableScores = discount!.Bonuses;
 
             RaisePropertyChanged(nameof(AvailableScoresPresentation));
             RaisePropertyChanged(nameof(CanApplyScores));
@@ -165,6 +160,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         private async Task SelectReceiveDateTimeAsync()
         {
             ReceiveDateTime = await Dialog.ShowDatePickerAsync(ReceiveDateTime ?? DateTime.Now, null, null, DatePickerMode.DateAndTime);
+            ReceiveDateTimePresentation = $"от {ReceiveDateTime.Value}";
+            await RaisePropertyChanged(nameof(ReceiveDateTimePresentation));
         }
 
         private async Task ConfirmOrderInternalAsync()

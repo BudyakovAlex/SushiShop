@@ -4,7 +4,6 @@ using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
-using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Info;
 using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using System;
@@ -33,12 +32,6 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         public string? ShopTimeWorking => $"{selectedShop?.DeliveryTime}";
 
         public override string PriceToPay => $"{Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
-
-        public override string DeliveryTitle => $"{AppStrings.Pickup}:";
-
-        public override string DeliveryPrice => AppStrings.Free;
-
-        public override bool AvailableVisibleInfo => !string.IsNullOrEmpty(ShopAddress);
 
         protected override async Task<OrderConfirmed?> ConfirmOrderAsync()
         {
@@ -80,7 +73,6 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             selectedShop = await NavigationManager.NavigateAsync<ShopsViewModel, bool, Shop>(true);
 
             await Task.WhenAll(
-                RaisePropertyChanged(nameof(AvailableVisibleInfo)),
                 RaisePropertyChanged(nameof(ShopAddress)),
                 RaisePropertyChanged(nameof(ShopPhone)));
         }

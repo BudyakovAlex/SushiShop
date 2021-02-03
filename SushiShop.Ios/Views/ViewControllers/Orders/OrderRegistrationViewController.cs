@@ -1,4 +1,6 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+﻿using System;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using CoreGraphics;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.Converters;
@@ -6,6 +8,7 @@ using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders;
 using SushiShop.Ios.Common;
+using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Views.Controls;
 using UIKit;
 
@@ -17,18 +20,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
         private UIButton backButton;
         private DoneAccessoryView doneAccessoryView;
 
-        public bool VisiblePickupDetailsView
-        {
-            get => PickupDetailsView.Hidden;
-            set => PickupDetailsView.Hidden = !(value && scrollableTabsView.SelectedIndex == 0);
-        }
-
-        public bool VisibleDeliveryDetailsView
-        {
-            get => DeliveryDetailsView.Hidden;
-            set => DeliveryDetailsView.Hidden = !(value && scrollableTabsView.SelectedIndex == 1);
-        }
-
         protected override void InitStylesAndContent()
         {
             base.InitStylesAndContent();
@@ -36,19 +27,21 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             Title = AppStrings.OrderRegistrationTitle;
 
             scrollableTabsView.IsFixedTabs = true;
+            scrollableTabsView.OnTabChangedAfterTapAction = OnTabChangedAfterTap;
+            RootScrollView.Delegate = new OrderRegistrationScrollViewDelegate(OnDecelerated);
 
-            DeliveryAppartmentTextField.Placeholder = $"{AppStrings.Apartment}*";
-            DeliveryEntranceTextField.Placeholder = $"{AppStrings.Entrance}*";
-            DeliveryIntercomTextField.Placeholder = $"{AppStrings.Intercom}*";
-            DeliveryFloorTextField.Placeholder = $"{AppStrings.Floor}*";
-            UserNameTextField.Placeholder = $"{AppStrings.Name}*";
-            PhoneUserTextField.Placeholder = $"{AppStrings.Phone}*";
-            CommentTextView.Placeholder = AppStrings.Comment;
-            SpendPointsTextField.Placeholder = AppStrings.Count;
+            AppartmentDeliveryTextField.Placeholder = $"{AppStrings.Apartment}*";
+            EntranceDeliveryTextField.Placeholder = $"{AppStrings.Entrance}*";
+            IntercomDeliveryTextField.Placeholder = $"{AppStrings.Intercom}*";
+            FloorDeliveryTextField.Placeholder = $"{AppStrings.Floor}*";
+            UserNamePickUpTextField.Placeholder = UserNameDeliveryTextField.Placeholder = $"{AppStrings.Name}*";
+            UserPhonePickUpTextField.Placeholder = UserPhoneDeliveryTextField.Placeholder = $"{AppStrings.Phone}*";
+            CommentPickUpTextView.Placeholder = CommentDeliveryTextView.Placeholder = AppStrings.Comment;
+            SpendPointsPickUpTextField.Placeholder = SpendPointsDeliveryTextField.Placeholder = AppStrings.Count;
 
             doneAccessoryView = new DoneAccessoryView(this.View, () => this.View.EndEditing(true));
-            PhoneUserTextField.InputAccessoryView = doneAccessoryView;
-            SpendPointsTextField.InputAccessoryView = doneAccessoryView;
+            UserPhonePickUpTextField.InputAccessoryView = doneAccessoryView;
+            SpendPointsPickUpTextField.InputAccessoryView = doneAccessoryView;
         }
 
         protected override void InitNavigationItem(UINavigationItem navigationItem)
@@ -65,44 +58,98 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
             var bindingSet = CreateBindingSet();
 
-           /* bindingSet.Bind(scrollableTabsView).For(v => v.Items).To(vm => vm.TabsTitles);
-            bindingSet.Bind(scrollableTabsView).For(v => v.SelectedIndex).To(vm => vm.SelectedIndex);
-            bindingSet.Bind(ChoiceAddressView).For(v => v.BindTap()).To(vm => vm.AbstractOrderSectionViewModel.SelectAddressCommand);
-            bindingSet.Bind(this).For(v => v.VisiblePickupDetailsView).To(vm => vm.PickupOrderSectionViewModel.AvailableVisibleInfo);
-            bindingSet.Bind(this).For(v => v.VisibleDeliveryDetailsView).To(vm => vm.DeliveryOrderSectionViewModel.AvailableVisibleInfo);
-            bindingSet.Bind(UserNameTextField).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.Name).TwoWay();
-            bindingSet.Bind(PhoneUserTextField).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.Phone).TwoWay();
-            bindingSet.Bind(CommentTextView).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.Comments).TwoWay();
-            bindingSet.Bind(SpendPointSwitch).For(v => v.BindOn()).To(vm => vm.AbstractOrderSectionViewModel.ShouldApplyScores).TwoWay();
-            bindingSet.Bind(SpendPointsTextField).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.ScoresToApply)
+            bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
+
+            bindingSet.Bind(scrollableTabsView).For(v => v.Items).To(vm => vm.TabsTitles);
+
+            bindingSet.Bind(ChooseAddressPickUpView).For(v => v.BindTap()).To(vm => vm.PickupOrderSectionViewModel.SelectAddressCommand);
+            bindingSet.Bind(ChooseAddressDeliveryView).For(v => v.BindTap()).To(vm => vm.DeliveryOrderSectionViewModel.SelectAddressCommand);
+
+            bindingSet.Bind(AboutShopPickUpView).For(v => v.BindVisible()).To(vm => vm.PickupOrderSectionViewModel.ShopAddress)
+                .WithConversion<StringToBoolConverter>();
+            bindingSet.Bind(ShopAddressPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ShopAddress);
+            bindingSet.Bind(ShopPhonePickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ShopPhone);
+            bindingSet.Bind(ShopTimeWorkingPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ShopTimeWorking);
+            bindingSet.Bind(ChooseTimePickUpView).For(v => v.BindTap()).To(vm => vm.PickupOrderSectionViewModel.SelectReceiveDateTime);
+            bindingSet.Bind(ReceiveTimePickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ReceiveDateTimePresentation);
+            bindingSet.Bind(AboutAddressDeliveryView).For(v => v.BindVisible()).To(vm => vm.DeliveryOrderSectionViewModel.DeliveryAddress)
+                .WithConversion<StringToBoolConverter>();
+            bindingSet.Bind(AddressDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.DeliveryAddress);
+            bindingSet.Bind(AddressPriceDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.DeliveryPrice);
+            bindingSet.Bind(AppartmentDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Flat);
+            bindingSet.Bind(EntranceDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Section);
+            bindingSet.Bind(IntercomDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Intercom);
+            bindingSet.Bind(FloorDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Floor);
+            bindingSet.Bind(ReceiveTimeDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.ReceiveDateTimePresentation);
+
+            bindingSet.Bind(UserNamePickUpTextField).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.Name).TwoWay();
+            bindingSet.Bind(UserPhonePickUpTextField).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.Phone).TwoWay();
+            bindingSet.Bind(UserNameDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Name).TwoWay();
+            bindingSet.Bind(UserPhoneDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Phone).TwoWay();
+
+            bindingSet.Bind(CountOfCutleryPickUpStepperView).For(v => v.ViewModel).To(vm => vm.PickupOrderSectionViewModel.СutleryStepperViewModel);
+            bindingSet.Bind(CommentPickUpTextView).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.Comments).TwoWay();
+            bindingSet.Bind(CountOfCutleryDeliveryStepperView).For(v => v.ViewModel).To(vm => vm.DeliveryOrderSectionViewModel.СutleryStepperViewModel);
+            bindingSet.Bind(CommentDeliveryTextView).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Comments).TwoWay();
+
+            bindingSet.Bind(OnPointPaymentPickUpImageView).For(v => v.BindVisible()).To(vm => vm.PickupOrderSectionViewModel.PaymentMethod)
+                .WithConversion<PaymentMethodToVisibleConverter>(PaymentMethod.OnPoint);
+            bindingSet.Bind(OnlinePaymentPickUpImageView).For(v => v.BindVisible()).To(vm => vm.PickupOrderSectionViewModel.PaymentMethod)
+                .WithConversion<PaymentMethodToVisibleConverter>(PaymentMethod.Online);
+            bindingSet.Bind(OnPointPaymentPickUpView).For(v => v.BindTap()).To(vm => vm.PickupOrderSectionViewModel.ChangePaymentMethodCommand)
+                .CommandParameter(PaymentMethod.OnPoint);
+            bindingSet.Bind(OnlinePaymentPickUpView).For(v => v.BindTap()).To(vm => vm.PickupOrderSectionViewModel.ChangePaymentMethodCommand)
+                .CommandParameter(PaymentMethod.Online);
+            bindingSet.Bind(OnPointPaymentDeliveryImageView).For(v => v.BindVisible()).To(vm => vm.DeliveryOrderSectionViewModel.PaymentMethod)
+                .WithConversion<PaymentMethodToVisibleConverter>(PaymentMethod.OnPoint);
+            bindingSet.Bind(OnlinePaymentDeliveryImageView).For(v => v.BindVisible()).To(vm => vm.DeliveryOrderSectionViewModel.PaymentMethod)
+                .WithConversion<PaymentMethodToVisibleConverter>(PaymentMethod.Online);
+            bindingSet.Bind(OnPointPaymentDeliveryView).For(v => v.BindTap()).To(vm => vm.DeliveryOrderSectionViewModel.ChangePaymentMethodCommand)
+                .CommandParameter(PaymentMethod.OnPoint);
+            bindingSet.Bind(OnlinePaymentDeliveryView).For(v => v.BindTap()).To(vm => vm.DeliveryOrderSectionViewModel.ChangePaymentMethodCommand)
+                .CommandParameter(PaymentMethod.Online);
+
+            bindingSet.Bind(ScoresPickUpView).For(v => v.BindVisible()).To(vm => vm.PickupOrderSectionViewModel.CanApplyScores);
+            bindingSet.Bind(ScoresDeliveryView).For(v => v.BindVisible()).To(vm => vm.DeliveryOrderSectionViewModel.CanApplyScores);
+            bindingSet.Bind(CountOfScoresPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.AvailableScoresPresentation);
+            bindingSet.Bind(CountOfScoresDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.AvailableScoresPresentation);
+
+            bindingSet.Bind(SpendPointPickUpSwitch).For(v => v.BindOn()).To(vm => vm.PickupOrderSectionViewModel.ShouldApplyScores).TwoWay();
+            bindingSet.Bind(SpendPointsPickUpTextField.Superview).For(v => v.BindVisible()).To(vm => vm.PickupOrderSectionViewModel.ShouldApplyScores);
+            bindingSet.Bind(SpendPointsPickUpTextField).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ScoresToApply)
                 .WithConversion<DecimalToStringConverter>()
                 .TwoWay();
-            bindingSet.Bind(CountOfDevicesStepperView).For(v => v.ViewModel).To(vm => vm.AbstractOrderSectionViewModel.СutleryStepperViewModel);
-            bindingSet.Bind(ChooseTimeView).For(v => v.BindTap()).To(vm => vm.AbstractOrderSectionViewModel.SelectReceiveDateTime);
-            bindingSet.Bind(OnPointPaymentImageView).For(v => v.BindVisible()).To(vm => vm.AbstractOrderSectionViewModel.PaymentMethod)
-                .WithConversion<PaymentMethodToVisibleConverter>(PaymentMethod.OnPoint);
-            bindingSet.Bind(OnlinePaymentimageView).For(v => v.BindVisible()).To(vm => vm.AbstractOrderSectionViewModel.PaymentMethod)
-                .WithConversion<PaymentMethodToVisibleConverter>(PaymentMethod.Online);
-            bindingSet.Bind(OnPointPaymentView).For(v => v.BindTap()).To(vm => vm.AbstractOrderSectionViewModel.ChangePaymentMethodCommand)
-                .CommandParameter(PaymentMethod.OnPoint);
-            bindingSet.Bind(OnlinePaymentView).For(v => v.BindTap()).To(vm => vm.AbstractOrderSectionViewModel.ChangePaymentMethodCommand)
-                .CommandParameter(PaymentMethod.Online);
-            bindingSet.Bind(AvailableScorsLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.AvailableScoresPresentation);
-            bindingSet.Bind(ProductsPriceLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.ProductsPrice);
-            bindingSet.Bind(DiscountByPromocodeLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.DiscountByPromocode);
-            bindingSet.Bind(PriceToPayLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.PriceToPay);
-            bindingSet.Bind(DeliveryTitleLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.DeliveryTitle);
-            bindingSet.Bind(FullDeliveryPriceLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.DeliveryPrice);
-            bindingSet.Bind(DeliveryPriceLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.DeliveryPrice);
-            bindingSet.Bind(ScoresDiscountLabel).For(v => v.Text).To(vm => vm.AbstractOrderSectionViewModel.ScoresDiscount);
-            bindingSet.Bind(DeliveryView).For(v => v.BindVisible()).To(vm => vm.AbstractOrderSectionViewModel.AvailableVisibleInfo);
-            bindingSet.Bind(PickUpAddressLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ShopAddress);
-            bindingSet.Bind(PickUpPhoneLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ShopPhone);
-            bindingSet.Bind(PickUpTimeWorkingLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ShopTimeWorking);
-            bindingSet.Bind(DeliveryAddressLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.DeliveryAddress);
-            bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand); */
+            bindingSet.Bind(SpendPointDeliverySwitch).For(v => v.BindOn()).To(vm => vm.DeliveryOrderSectionViewModel.ShouldApplyScores).TwoWay();
+            bindingSet.Bind(SpendPointsDeliveryTextField.Superview).For(v => v.BindVisible()).To(vm => vm.DeliveryOrderSectionViewModel.ShouldApplyScores);
+            bindingSet.Bind(SpendPointsDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.ScoresToApply)
+                .WithConversion<DecimalToStringConverter>()
+                .TwoWay();
+
+            bindingSet.Bind(ProductsPricePickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ProductsPrice);
+            bindingSet.Bind(DiscountByPromocodePickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.DiscountByPromocode);
+            bindingSet.Bind(ScoresDiscountPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ScoresDiscount);
+            bindingSet.Bind(PriceToPayPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.PriceToPay);
+            bindingSet.Bind(ConfirmOrderPickUpButton).For(v => v.BindTouchUpInside()).To(vm => vm.PickupOrderSectionViewModel.ConfirmOrderCommand);
+
+            bindingSet.Bind(ProductsPriceDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.ProductsPrice);
+            bindingSet.Bind(PriceDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.DeliveryPrice);
+            bindingSet.Bind(DiscountByPromocodeDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.DiscountByPromocode);
+            bindingSet.Bind(ScoresDiscountDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.ScoresDiscount);
+            bindingSet.Bind(PriceToPayDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.PriceToPay);
+            bindingSet.Bind(ConfirmOrderDeliveryButton).For(v => v.BindTouchUpInside()).To(vm => vm.DeliveryOrderSectionViewModel.ConfirmOrderCommand);
 
             bindingSet.Apply();
+        }
+
+        private void OnTabChangedAfterTap()
+        {
+            var xContentOffset = scrollableTabsView.SelectedIndex == 0 ? 0 : RootScrollView.Frame.Width;
+            RootScrollView.SetContentOffset(new CGPoint(xContentOffset, 0), true);
+        }
+
+        private void OnDecelerated()
+        {
+            scrollableTabsView.SelectedIndex = RootScrollView.ContentOffset.X <= 0 ? 0 : 1;
         }
     }
 }

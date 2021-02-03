@@ -47,24 +47,6 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public DeliveryOrderSectionViewModel DeliveryOrderSectionViewModel { get; }
 
-        public BaseOrderSectionViewModel AbstractOrderSectionViewModel => IsDelivery ? (BaseOrderSectionViewModel)DeliveryOrderSectionViewModel : PickupOrderSectionViewModel;
-
-        private int selectedIndex;
-        public int SelectedIndex
-        {
-            get => selectedIndex;
-            set
-            {
-                SetProperty(ref selectedIndex, value);
-                RaisePropertyChanged(nameof(IsDelivery));
-                RaisePropertyChanged(nameof(PickupOrderSectionViewModel));
-                RaisePropertyChanged(nameof(DeliveryOrderSectionViewModel));
-                RaisePropertyChanged(nameof(AbstractOrderSectionViewModel));
-            }
-        }
-
-        public bool IsDelivery => SelectedIndex == 1;
-
         public override void Prepare(Data.Models.Cart.Cart parameter)
         {
             Items.ForEach(item => item.Prepare(parameter));
@@ -79,7 +61,7 @@ namespace SushiShop.Core.ViewModels.Orders
             {
                 return;
             }
-
+                 
             Items.ForEach(item => item.SetDiscount(response.Data));
         }
 

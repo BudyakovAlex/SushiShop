@@ -683,6 +683,7 @@
     </Compile>
     <Compile Include="Extensions\DatePickerModeExtensions.cs" />
     <Compile Include="Views\ViewControllers\Common\Dialogs\DatePickerViewController.cs" />
+    <Compile Include="Delegates\OrderRegistrationScrollViewDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

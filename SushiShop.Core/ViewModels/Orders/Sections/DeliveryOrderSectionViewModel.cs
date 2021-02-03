@@ -4,7 +4,6 @@ using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
-using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using System;
 using System.Linq;
@@ -43,6 +42,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         public string? DeliveryAddress => addressSuggestion?.FullAddress;
 
+        public string? DeliveryPrice => $"{addressSuggestion?.DeliveryPrice ?? 0} {Cart?.Currency?.Symbol}";
+
         private string? floor;
         public string? Floor
         {
@@ -56,12 +57,6 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             get => intercom;
             set => SetProperty(ref intercom, value);
         }
-
-        public override string DeliveryTitle => $"{AppStrings.Delivery}:";
-
-        public override string DeliveryPrice => $"{addressSuggestion?.DeliveryPrice ?? 0} {Cart?.Currency?.Symbol}";
-
-        public override bool AvailableVisibleInfo => !string.IsNullOrEmpty(DeliveryAddress);
 
         public override void Prepare(Data.Models.Cart.Cart cart)
         {
@@ -121,7 +116,6 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         protected override async Task SelectAddressAsync()
         {
             addressSuggestion = await NavigationManager.NavigateAsync<SelectOrderDeliveryAddressViewModel, AddressSuggestion>();
-            await RaisePropertyChanged(nameof(AvailableVisibleInfo));
         }
     }
 }

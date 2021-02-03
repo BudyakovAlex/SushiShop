@@ -592,7 +592,7 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("OrderRegistrationTitle", resourceCulture);
             }
         }
-         
+        
         public static string Scores {
             get {
                 return ResourceManager.GetString("Scores", resourceCulture);
