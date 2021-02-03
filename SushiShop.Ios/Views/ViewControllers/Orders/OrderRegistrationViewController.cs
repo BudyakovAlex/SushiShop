@@ -65,7 +65,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
             var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(scrollableTabsView).For(v => v.Items).To(vm => vm.TabsTitles);
+           /* bindingSet.Bind(scrollableTabsView).For(v => v.Items).To(vm => vm.TabsTitles);
             bindingSet.Bind(scrollableTabsView).For(v => v.SelectedIndex).To(vm => vm.SelectedIndex);
             bindingSet.Bind(ChoiceAddressView).For(v => v.BindTap()).To(vm => vm.AbstractOrderSectionViewModel.SelectAddressCommand);
             bindingSet.Bind(this).For(v => v.VisiblePickupDetailsView).To(vm => vm.PickupOrderSectionViewModel.AvailableVisibleInfo);
@@ -100,7 +100,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(PickUpPhoneLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ShopPhone);
             bindingSet.Bind(PickUpTimeWorkingLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ShopTimeWorking);
             bindingSet.Bind(DeliveryAddressLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.DeliveryAddress);
-            bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
+            bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand); */
 
             bindingSet.Apply();
         }

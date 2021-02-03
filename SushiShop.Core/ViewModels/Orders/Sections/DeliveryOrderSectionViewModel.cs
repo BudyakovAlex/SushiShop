@@ -1,10 +1,10 @@
-﻿using Acr.UserDialogs;
-using BuildApps.Core.Mobile.Common.Extensions;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
 using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using System;
 using System.Linq;
@@ -57,7 +57,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             set => SetProperty(ref intercom, value);
         }
 
-        public override string DeliveryTitle => "Доставка:";
+        public override string DeliveryTitle => $"{AppStrings.Delivery}:";
 
         public override string DeliveryPrice => $"{addressSuggestion?.DeliveryPrice ?? 0} {Cart?.Currency?.Symbol}";
 

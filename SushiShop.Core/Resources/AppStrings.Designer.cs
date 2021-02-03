@@ -640,5 +640,17 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("EnterYourAddress", resourceCulture);
             }
         }
+        
+        public static string PriceOfDelivery {
+            get {
+                return ResourceManager.GetString("PriceOfDelivery", resourceCulture);
+            }
+        }
+        
+        public static string Free {
+            get {
+                return ResourceManager.GetString("Free", resourceCulture);
+            }
+        }
     }
 }

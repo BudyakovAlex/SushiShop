@@ -1,5 +1,6 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using SushiShop.Core.Data.Models.Cities;
+using SushiShop.Core.Resources;
 using System.Windows.Input;
 
 namespace SushiShop.Core.ViewModels.Orders.Items
@@ -18,8 +19,12 @@ namespace SushiShop.Core.ViewModels.Orders.Items
 
         public string? Address => Suggestion?.Address;
 
-        public string DeliveryPrice => $"Стоимость доставки: {Suggestion?.DeliveryPrice} ";
+        public string DeliveryPrice => $"{AppStrings.PriceOfDelivery}: {Suggestion?.DeliveryPrice} ";
 
         public bool IsDeliveryAvailable => Suggestion?.ShopId.HasValue ?? false;
+
+        public double? Longitude => Suggestion?.Coordinates?.Longitude;
+
+        public double? Latitude => Suggestion?.Coordinates?.Latitude;
     }
 }

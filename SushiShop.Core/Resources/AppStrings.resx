@@ -414,4 +414,16 @@
   <data name="EnterYourAddress" xml:space="preserve">
     <value>Введите ваш адрес</value>
   </data>
+  <data name="PriceOfDelivery" xml:space="preserve">
+    <value>Стоимость доставки</value>
+  </data>
+  <data name="Delivery" xml:space="preserve">
+    <value>Доставка</value>
+  </data>
+  <data name="Pickup" xml:space="preserve">
+    <value>Самовывоз</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Бесплатно</value>
+  </data>
 </root>

@@ -4,6 +4,7 @@ using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Info;
 using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using System;
@@ -33,9 +34,9 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         public override string PriceToPay => $"{Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
 
-        public override string DeliveryTitle => "Самовывоз:";
+        public override string DeliveryTitle => $"{AppStrings.Pickup}:";
 
-        public override string DeliveryPrice => "Бесплатно";
+        public override string DeliveryPrice => AppStrings.Free;
 
         public override bool AvailableVisibleInfo => !string.IsNullOrEmpty(ShopAddress);
 

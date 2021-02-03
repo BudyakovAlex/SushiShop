@@ -36,6 +36,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             set
             {
                 AboutPointView.Hidden = !value;
+                UpdateZones();
             }
         }
 
@@ -82,7 +83,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             {
                 Camera = camera,
                 TranslatesAutoresizingMaskIntoConstraints = false,
-                MyLocationEnabled = false
+                MyLocationEnabled = true
             };
 
             MapViewContainer.AddSubview(mapView);
@@ -154,6 +155,15 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
                     polygon.StrokeColor = Colors.Orange2;
                     polygon.StrokeWidth = 2;
                     polygon.Map = mapView;
+                }
+
+                if (ViewModel.HasSelectedLocation)
+                {
+                    var position = new CLLocationCoordinate2D(ViewModel.SelectedLocation.Latitude ?? 0, ViewModel.SelectedLocation.Longitude ?? 0);
+                    var marker = Marker.FromPosition(position);
+                    marker.Map = mapView;
+                    marker.Icon = UIImage.FromBundle(ImageNames.DefaultMarker);
+                    mapView.MoveCamera(CameraUpdate.SetTarget(position, 10));
                 }
             });
         }
