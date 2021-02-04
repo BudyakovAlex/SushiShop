@@ -1,8 +1,8 @@
 ﻿namespace SushiShop.Core.Data.Models.Common
 {
-    public class SocialNetwork
+    public class LinkedImage
     {
-        public SocialNetwork(string url, string imageUrl)
+        public LinkedImage(string url, string imageUrl)
         {
             Url = url;
             ImageUrl = imageUrl;

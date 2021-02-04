@@ -9,5 +9,14 @@ namespace SushiShop.Core.Mappers
         {
             return new Coordinates(dto?.Longitude, dto?.Latitude);
         }
+
+        public static CoordinatesDto Map(this Coordinates model)
+        {
+            return new CoordinatesDto
+            {
+                Latitude = model.Latitude,
+                Longitude = model.Longitude
+            };
+        }
     }
 }

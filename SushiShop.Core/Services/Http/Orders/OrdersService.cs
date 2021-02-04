@@ -18,6 +18,15 @@ namespace SushiShop.Core.Services.Http.Orders
             this.httpService = httpService;
         }
 
+        public Task<HttpResponse<ResponseDto<OrderConfirmedDto>>> CreateOrderAsync(OrderRequestDto orderRequest, CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<OrderConfirmedDto>>(
+               Method.Post,
+               Constants.Rest.OrderCreateResource,
+               orderRequest,
+               cancellationToken);
+        }
+
         public Task<HttpResponse<ResponseDto<PaginationContainerDto<OrderDto>>>> GetMyOrdersAsync(
             int page,
             int take,

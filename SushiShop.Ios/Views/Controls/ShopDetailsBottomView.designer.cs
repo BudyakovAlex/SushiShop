@@ -36,6 +36,9 @@ namespace SushiShop.Ios.Views.Controls
 		UIKit.UICollectionView PhotosCollectionView { get; set; }
 
 		[Outlet]
+		SushiShop.Ios.Views.Controls.PrimaryButton PickupThereButton { get; set; }
+
+		[Outlet]
 		UIKit.UIView RootContentView { get; set; }
 
 		[Outlet]
@@ -51,6 +54,11 @@ namespace SushiShop.Ios.Views.Controls
 				ContentScrollView = null;
 			}
 
+			if (DriveTitleLabel != null) {
+				DriveTitleLabel.Dispose ();
+				DriveTitleLabel = null;
+			}
+
 			if (DriveWayContainerView != null) {
 				DriveWayContainerView.Dispose ();
 				DriveWayContainerView = null;
@@ -59,6 +67,11 @@ namespace SushiShop.Ios.Views.Controls
 			if (DriveWayLabel != null) {
 				DriveWayLabel.Dispose ();
 				DriveWayLabel = null;
+			}
+
+			if (GalleryTitleLabel != null) {
+				GalleryTitleLabel.Dispose ();
+				GalleryTitleLabel = null;
 			}
 
 			if (GrayView != null) {
@@ -86,19 +99,14 @@ namespace SushiShop.Ios.Views.Controls
 				TimeWorkingLabel = null;
 			}
 
-			if (DriveTitleLabel != null) {
-				DriveTitleLabel.Dispose ();
-				DriveTitleLabel = null;
-			}
-
 			if (TitleLabel != null) {
 				TitleLabel.Dispose ();
 				TitleLabel = null;
 			}
 
-			if (GalleryTitleLabel != null) {
-				GalleryTitleLabel.Dispose ();
-				GalleryTitleLabel = null;
+			if (PickupThereButton != null) {
+				PickupThereButton.Dispose ();
+				PickupThereButton = null;
 			}
 		}
 	}

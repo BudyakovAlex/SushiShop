@@ -73,6 +73,17 @@
                             <constraint firstAttribute="height" constant="38" id="eWa-y8-lxV"/>
                         </constraints>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itm-Gs-njn" customClass="PrimaryButton">
+                        <rect key="frame" x="223" y="114" width="125" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="38" id="CGz-iP-UgH"/>
+                            <constraint firstAttribute="width" constant="125" id="POu-jL-g4J"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
+                        <state key="normal" title="Заберу здесь">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="vz5-E3-ezl" secondAttribute="trailing" constant="16" id="5g1-WY-mVM"/>
@@ -83,6 +94,8 @@
                     <constraint firstItem="ysN-af-7zg" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="S3P-Un-Mq9"/>
                     <constraint firstAttribute="trailing" secondItem="LJ1-a1-cBk" secondAttribute="trailing" constant="16" id="T9R-p1-hg0"/>
                     <constraint firstAttribute="trailing" secondItem="yju-7f-ccs" secondAttribute="trailing" id="UMC-AZ-Cgj"/>
+                    <constraint firstAttribute="trailing" secondItem="Itm-Gs-njn" secondAttribute="trailing" constant="16" id="gdL-3a-cUO"/>
+                    <constraint firstAttribute="bottom" secondItem="Itm-Gs-njn" secondAttribute="bottom" constant="12" id="lRy-bR-MYt"/>
                     <constraint firstItem="yju-7f-ccs" firstAttribute="top" secondItem="ysN-af-7zg" secondAttribute="bottom" constant="12" id="lkD-dA-Y5O"/>
                     <constraint firstItem="vz5-E3-ezl" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="16" id="n74-xg-kCI"/>
                     <constraint firstItem="yjJ-4o-PSi" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="nMV-XH-QmM"/>
@@ -97,6 +110,7 @@
                 <outlet property="MapButton" destination="kns-Ga-Xc7" id="BfN-Uc-9M8"/>
                 <outlet property="MetroButton" destination="hV0-Pr-yun" id="ef8-22-Bd3"/>
                 <outlet property="PhoneLabel" destination="LJ1-a1-cBk" id="69S-ms-vBp"/>
+                <outlet property="PickupThereButton" destination="Itm-Gs-njn" id="yJe-BG-mjW"/>
                 <outlet property="WorkingTimeLabel" destination="yjJ-4o-PSi" id="gvg-ks-ok8"/>
             </connections>
             <point key="canvasLocation" x="-65.217391304347828" y="41.517857142857139"/>

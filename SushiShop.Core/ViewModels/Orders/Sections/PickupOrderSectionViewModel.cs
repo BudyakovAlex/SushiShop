@@ -1,8 +1,13 @@
-﻿using SushiShop.Core.Data.Models.Shops;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
+using SushiShop.Core.Data.Models.Orders;
+using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Plugins;
+using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Info;
 using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Orders.Sections
@@ -11,7 +16,12 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
     {
         private Shop? selectedShop;
 
-        public PickupOrderSectionViewModel(IOrdersManager ordersManager) : base(ordersManager)
+        public PickupOrderSectionViewModel(
+            IOrdersManager ordersManager,
+            IUserSession userSession,
+            IDialog dialog,
+            Func<OrderConfirmed, Task> confirmOrderFunc)
+            : base(ordersManager, userSession, dialog, confirmOrderFunc)
         {
         }
 
@@ -19,44 +29,59 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         public string? ShopPhone => selectedShop?.Phone;
 
-        private string? flat;
-        public string? Flat
-        {
-            get => flat;
-            set => SetProperty(ref flat, value);
-        }
+        public string? ShopTimeWorking => $"{selectedShop?.DeliveryTime}";
 
-        private string? entrance;
-        public string? Entrance
-        {
-            get => entrance;
-            set => SetProperty(ref entrance, value);
-        }
+        public override string PriceToPay => $"{Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
 
-        private string? floor;
-        public string? Floor
-        {
-            get => floor;
-            set => SetProperty(ref floor, value);
-        }
+        protected override DateTime MinDateTimeForPicker => selectedShop is null
+            ? base.MinDateTimeForPicker
+            : base.MinDateTimeForPicker.AddMinutes(selectedShop.CookingTime + selectedShop.DeliveryTime);
 
-        private string? intercom;
-        public string? Intercom
-        {
-            get => intercom;
-            set => SetProperty(ref intercom, value);
-        }
+        protected override int MinimumMinutesToReceiveOrder => selectedShop is null ? 0 : selectedShop.CookingTime + selectedShop.DeliveryTime;
 
-        protected override Task ConfirmOrderAsync()
+        protected override async Task<OrderConfirmed?> ConfirmOrderAsync()
         {
-            throw new NotImplementedException();
+            var city = UserSession.GetCity();
+            var orderRequest = new OrderRequest(
+                UserSession.GetCartId(),
+                city?.Name,
+                Name!,
+                Phone!,
+                Comments!,
+                СutleryStepperViewModel.Count,
+                selectedShop!.Id,
+                ReceiveDateTime,
+                PaymentMethod,
+                null,
+                0,
+                true,
+                ShouldApplyScores,
+                ScoresToApply);
+
+            var response = await OrdersManager.CreateOrderAsync(orderRequest);
+            if (response.Data is null)
+            {
+                var error = response.Errors.FirstOrDefault();
+                if (error.IsNullOrEmpty())
+                {
+                    return null;
+                }
+
+                await Dialog.ShowToastAsync(error);
+                return null;
+            }
+
+            return response.Data;
         }
 
         protected override async Task SelectAddressAsync()
         {
             selectedShop = await NavigationManager.NavigateAsync<ShopsViewModel, bool, Shop>(true);
 
-            await Task.WhenAll(RaisePropertyChanged(ShopAddress), RaisePropertyChanged(ShopPhone));
+            await Task.WhenAll(
+                RaisePropertyChanged(nameof(ShopAddress)),
+                RaisePropertyChanged(nameof(ShopPhone)),
+                RaisePropertyChanged(nameof(ReceiveDateTimePresentation)));
         }
     }
 }

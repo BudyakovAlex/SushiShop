@@ -25,6 +25,9 @@ namespace SushiShop.Ios.Views.Cells.Shops
 		UIKit.UILabel PhoneLabel { get; set; }
 
 		[Outlet]
+		SushiShop.Ios.Views.Controls.PrimaryButton PickupThereButton { get; set; }
+
+		[Outlet]
 		UIKit.UILabel WorkingTimeLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -34,14 +37,14 @@ namespace SushiShop.Ios.Views.Cells.Shops
 				AddressLabel = null;
 			}
 
-			if (MetroButton != null) {
-				MetroButton.Dispose ();
-				MetroButton = null;
-			}
-
 			if (MapButton != null) {
 				MapButton.Dispose ();
 				MapButton = null;
+			}
+
+			if (MetroButton != null) {
+				MetroButton.Dispose ();
+				MetroButton = null;
 			}
 
 			if (PhoneLabel != null) {
@@ -52,6 +55,11 @@ namespace SushiShop.Ios.Views.Cells.Shops
 			if (WorkingTimeLabel != null) {
 				WorkingTimeLabel.Dispose ();
 				WorkingTimeLabel = null;
+			}
+
+			if (PickupThereButton != null) {
+				PickupThereButton.Dispose ();
+				PickupThereButton = null;
 			}
 		}
 	}

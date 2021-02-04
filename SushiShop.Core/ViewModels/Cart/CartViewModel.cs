@@ -14,6 +14,7 @@ using SushiShop.Core.Factories.Cart;
 using SushiShop.Core.Managers.Cart;
 using SushiShop.Core.Messages;
 using SushiShop.Core.NavigationParameters;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cart.Items;
@@ -31,6 +32,7 @@ namespace SushiShop.Core.ViewModels.Cart
         private readonly ICartManager cartManager;
         private readonly IUserSession userSession;
         private readonly ICartItemsViewModelsFactory viewModelsFactory;
+        private readonly IDialog dialog;
         private readonly IUserDialogs userDialogs;
 
         private Topping[]? sauses;
@@ -41,11 +43,13 @@ namespace SushiShop.Core.ViewModels.Cart
         public CartViewModel(
             ICartManager cartManager,
             IUserSession userSession,
-            ICartItemsViewModelsFactory viewModelsFactory)
+            ICartItemsViewModelsFactory viewModelsFactory,
+            IDialog dialog)
         {
             this.cartManager = cartManager;
             this.userSession = userSession;
             this.viewModelsFactory = viewModelsFactory;
+            this.dialog = dialog;
             this.userDialogs = UserDialogs.Instance;
 
             Products = new MvxObservableCollection<CartProductItemViewModel>();
@@ -103,6 +107,11 @@ namespace SushiShop.Core.ViewModels.Cart
 
             sauses = getSauces.Result.Data;
             cart = getBasket.Result.Data;
+            if (cart is null)
+            {
+                return;
+            }
+
             Promocode = cart!.Promocode?.Code ?? string.Empty;
 
             var availablePackages = packagingCart.Result.Data.Select(ProducePackageFromProduct).ToArray();
@@ -210,7 +219,7 @@ namespace SushiShop.Core.ViewModels.Cart
                     return;
                 }
 
-                await userDialogs.AlertAsync(error);
+                await dialog.ShowToastAsync(error);
                 return;   
             }
 
@@ -233,9 +242,15 @@ namespace SushiShop.Core.ViewModels.Cart
             RaisePropertyChanged(nameof(TotalPrice));
         }
 
-        private Task CheckoutAsync()
+        private async Task CheckoutAsync()
         {
-            return NavigationManager.NavigateAsync<OrderRegistrationViewModel, Data.Models.Cart.Cart>(cart!);
+            var shouldRefresh = await NavigationManager.NavigateAsync<OrderRegistrationViewModel, Data.Models.Cart.Cart, bool>(cart!);
+            if (shouldRefresh)
+            {
+                return;
+            }
+
+            await RefreshDataAsync();
         }
     }
 }

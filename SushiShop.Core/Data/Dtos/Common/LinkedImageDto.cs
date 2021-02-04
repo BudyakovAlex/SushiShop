@@ -2,7 +2,7 @@
 
 namespace SushiShop.Core.Data.Dtos.Common
 {
-    public class SocialNetworkDto
+    public class LinkedImageDto
     {
         public string? Url { get; set; }
 

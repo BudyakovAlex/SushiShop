@@ -42,6 +42,8 @@ namespace SushiShop.Ios.Views.Cells.Shops
             bindingSet.Bind(MetroButton).For(v => v.BindTouchUpInside()).To(vm => vm.ShowNearestMetroCommand);
             bindingSet.Bind(MetroButton).For(v => v.BindVisible()).To(vm => vm.HasNearestMetro);
             bindingSet.Bind(MapButton).For(v => v.BindTouchUpInside()).To(vm => vm.GoToMapCommand);
+            bindingSet.Bind(PickupThereButton).For(v => v.BindTouchUpInside()).To(vm => vm.ConfirmSelectionCommand);
+            bindingSet.Bind(PickupThereButton).For(v => v.BindVisible()).To(vm => vm.IsSelectionMode);
 
             bindingSet.Apply();
         }

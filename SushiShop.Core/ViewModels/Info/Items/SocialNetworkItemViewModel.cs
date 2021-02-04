@@ -9,9 +9,9 @@ namespace SushiShop.Core.ViewModels.Info.Items
 {
     public class SocialNetworkItemViewModel : BaseViewModel
     {
-        private readonly SocialNetwork socialNetwork;
+        private readonly LinkedImage socialNetwork;
 
-        public SocialNetworkItemViewModel(SocialNetwork socialNetwork)
+        public SocialNetworkItemViewModel(LinkedImage socialNetwork)
         {
             this.socialNetwork = socialNetwork;
 
