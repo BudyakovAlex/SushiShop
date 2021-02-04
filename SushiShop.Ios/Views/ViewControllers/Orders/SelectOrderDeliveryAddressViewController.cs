@@ -4,7 +4,6 @@ using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using CoreAnimation;
 using CoreLocation;
-using Foundation;
 using Google.Maps;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
@@ -23,11 +22,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
     [MvxModalPresentation(WrapInNavigationController = true)]
     public partial class SelectOrderDeliveryAddressViewController : BaseViewController<SelectOrderDeliveryAddressViewModel>
     {
-        private const string CancelButtonTextKey = "cancelButtonText";
-
         private UIButton backButton;
-        private UISearchController searchSuggestionsController;
-        private UITableViewController searchSuggestionsViewController;
+        private SelectOrderDeliverySearchController searchSuggestionsController;
         private TableViewSource searchSuggestionsTableViewSource;
         private MapView mapView;
         private IDisposable subscription;
@@ -69,14 +65,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             AboutPointView.Layer.MaskedCorners = CACornerMask.MinXMinYCorner | CACornerMask.MaxXMinYCorner;
             AboutPointView.Layer.CornerRadius = 16f;
 
-            searchSuggestionsViewController = new UITableViewController();
-            searchSuggestionsViewController.TableView.Source = searchSuggestionsTableViewSource = new TableViewSource(searchSuggestionsViewController.TableView)
+            searchSuggestionsController = new SelectOrderDeliverySearchController();
+            searchSuggestionsController.TableView.Source = searchSuggestionsTableViewSource = new TableViewSource(searchSuggestionsController.TableView)
                 .Register<OrderDeliverySuggestionItemViewModel>(OrderDeliverySuggestionItemViewCell.Nib, OrderDeliverySuggestionItemViewCell.Key);
-
-            searchSuggestionsController = new UISearchController(searchSuggestionsViewController);
             searchSuggestionsController.SearchBar.SearchTextField.Placeholder = AppStrings.EnterYourAddress;
             searchSuggestionsController.SearchBar.TintColor = Colors.Orange2;
-            searchSuggestionsController.SearchBar.SetValueForKey(new NSString(AppStrings.Cancel), new NSString(CancelButtonTextKey));
+            searchSuggestionsController.CancelButtonText = AppStrings.Cancel;
 
             var target = new CLLocationCoordinate2D(Core.Common.Constants.Map.MapStartPointLatitude, Core.Common.Constants.Map.MapStartPointLongitude);
             var camera = CameraPosition.FromCamera(target, 5);
