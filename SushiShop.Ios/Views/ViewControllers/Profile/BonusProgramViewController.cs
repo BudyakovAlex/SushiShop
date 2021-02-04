@@ -1,13 +1,15 @@
-﻿using System;
-using System.Reactive.Disposables;
-using BuildApps.Core.Mobile.Common.Extensions;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using CoreAnimation;
 using Foundation;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Profile;
+using SushiShop.Core.ViewModels.Profile.Items;
 using SushiShop.Ios.Converters;
+using SushiShop.Ios.Views.Cells.Profile;
+using System;
+using System.Reactive.Disposables;
 using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Profile
@@ -43,6 +45,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
         protected override void InitStylesAndContent()
         {
             base.InitStylesAndContent();
+
+            BonusesImagesStackView.RegisterView<BonusProgramImageItemViewCell, BonusProgramImageItemViewModel>();
 
             RoundedContentView.Layer.MaskedCorners = CACornerMask.MinXMinYCorner | CACornerMask.MaxXMinYCorner;
             RoundedContentView.Layer.CornerRadius = 16f;
@@ -81,6 +85,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
                 .WithConversion<HtmlTextToAttributedStringConverter>();
             bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.Title);
             bindingSet.Bind(LoadingActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
+            bindingSet.Bind(BonusesImagesStackView).For(v => v.ItemsSource).To(vm => vm.Images);
 
             bindingSet.Apply();
         }

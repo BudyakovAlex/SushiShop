@@ -6,6 +6,7 @@ using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.Managers.Shops;
 using SushiShop.Core.NavigationParameters;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Shops.Items;
 using System.Collections.Generic;
@@ -20,17 +21,17 @@ namespace SushiShop.Core.ViewModels.Shops
     {
         private readonly IShopsManager shopsManager;
         private readonly IUserSession userSession;
-        private readonly IUserDialogs userDialogs;
+        private readonly IDialog dialog;
 
         private Dictionary<string, MetroShop[]>? metroShopsMappings;
-        private IEnumerable<MetroItemViewModel>? nearestMetro;
+
         private bool isSelectionMode;
 
-        public ShopsNearMetroViewModel(IShopsManager shopsManager, IUserSession userSession)
+        public ShopsNearMetroViewModel(IShopsManager shopsManager, IUserSession userSession, IDialog dialog)
         {
             this.shopsManager = shopsManager;
             this.userSession = userSession;
-            this.userDialogs = UserDialogs.Instance;
+            this.dialog = dialog;
 
             NearestMetro = new MvxObservableCollection<MetroItemViewModel>();
             NearestMetro.SubscribeToCollectionChanged(OnNearestMetroCollectionChanged).DisposeWith(Disposables);
@@ -72,7 +73,7 @@ namespace SushiShop.Core.ViewModels.Shops
                 var error = response.Errors.FirstOrDefault();
                 if (error.IsNotNullNorEmpty())
                 {
-                    await userDialogs.AlertAsync(error);
+                    await dialog.ShowToastAsync(error);
                 }
 
                 return;

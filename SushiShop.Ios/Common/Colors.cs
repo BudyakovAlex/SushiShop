@@ -5,10 +5,12 @@ namespace SushiShop.Ios.Common
     public static class Colors
     {
         public static UIColor White => UIColor.White;
+        public static UIColor Blue => UIColor.FromRGB(47, 128, 237);
         public static UIColor RealBlack => UIColor.Black;
         public static UIColor Clear => UIColor.Clear;
 
         public static UIColor Orange2 => UIColor.FromRGB(255, 103, 19);
+        public static UIColor Orange => UIColor.FromRGB(250, 105, 91);
         public static UIColor FigmaBlack => UIColor.FromRGB(23, 24, 27);
         public static UIColor Gray4 => UIColor.FromRGB(133, 135, 141);
         public static UIColor Background => UIColor.FromRGB(242, 242, 247);

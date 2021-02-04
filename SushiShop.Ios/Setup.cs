@@ -28,6 +28,7 @@ namespace SushiShop.Ios
 
             registry.RegisterCustomBindingFactory<UIButton>(BindingConstants.Image, view => new UIButtonImageTargetBinding(view));
             registry.RegisterCustomBindingFactory<WKWebView>(nameof(WKWebViewHtmlStringTargetBinding), view => new WKWebViewHtmlStringTargetBinding(view));
+            registry.RegisterCustomBindingFactory<WKWebView>(nameof(WKWebViewUrlTargetBinding), view => new WKWebViewUrlTargetBinding(view));
         }
     }
 }

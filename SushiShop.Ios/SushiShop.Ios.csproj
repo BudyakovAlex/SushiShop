@@ -81,13 +81,13 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.MvvmCross">
-      <Version>1.0.75</Version>
+      <Version>1.0.80</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.Common">
-      <Version>1.0.75</Version>
+      <Version>1.0.80</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.iOS">
-      <Version>1.0.75</Version>
+      <Version>1.0.80</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
       <Version>5.0.1</Version>
@@ -260,6 +260,10 @@
     <ImageAsset Include="Assets.xcassets\ic_default_marker.imageset\ic_default_marker.pdf" />
     <ImageAsset Include="Assets.xcassets\ic_selected_marker.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ic_selected_marker.imageset\ic_selected_marker.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_close_white.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_close_white.imageset\ic_close_white.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_arrow_suggestion.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_arrow_suggestion.imageset\Group 4.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -329,6 +333,11 @@
         <Folder Include="Assets.xcassets\ic_pin.imageset\" />
         <Folder Include="Assets.xcassets\ic_default_marker.imageset\" />
         <Folder Include="Assets.xcassets\ic_selected_marker.imageset\" />
+        <Folder Include="Views\Cells\Profile\" />
+        <Folder Include="Assets.xcassets\ic_close_white.imageset\" />
+        <Folder Include="Views\ViewControllers\Payment\" />
+        <Folder Include="Assets.xcassets\ic_arrow_suggestion.imageset\" />
+        <Folder Include="Views\ViewControllers\Common\Dialogs\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -385,6 +394,10 @@
     <InterfaceDefinition Include="Views\Cells\Shops\NearestMetroItemViewCell.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Shops\ShopsNearMetroViewController.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Orders\OrderRegistrationViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\Profile\BonusProgramImageItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Payment\PaymentViewController.xib" />
+    <InterfaceDefinition Include="Views\ViewControllers\Orders\SelectOrderDeliveryAddressViewController.xib" />
+    <InterfaceDefinition Include="Views\Cells\Orders\OrderDeliverySuggestionItemViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -653,7 +666,25 @@
     <Compile Include="Views\ViewControllers\Orders\OrderRegistrationViewController.designer.cs">
       <DependentUpon>OrderRegistrationViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cells\Profile\BonusProgramImageItemViewCell.cs" />
     <Compile Include="Delegates\WKWebViewNavigationDelegate.cs" />
+    <Compile Include="Views\Controls\ToastView.cs" />
+    <Compile Include="Views\ViewControllers\Payment\PaymentViewController.cs" />
+    <Compile Include="Views\ViewControllers\Payment\PaymentViewController.designer.cs">
+      <DependentUpon>PaymentViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TargetBindings\WKWebViewUrlTargetBinding.cs" />
+    <Compile Include="Views\ViewControllers\Orders\SelectOrderDeliveryAddressViewController.cs" />
+    <Compile Include="Views\ViewControllers\Orders\SelectOrderDeliveryAddressViewController.designer.cs">
+      <DependentUpon>SelectOrderDeliveryAddressViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\Orders\OrderDeliverySuggestionItemViewCell.cs" />
+    <Compile Include="Views\Cells\Orders\OrderDeliverySuggestionItemViewCell.designer.cs">
+      <DependentUpon>OrderDeliverySuggestionItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DatePickerModeExtensions.cs" />
+    <Compile Include="Views\ViewControllers\Common\Dialogs\DatePickerViewController.cs" />
+    <Compile Include="Delegates\OrderRegistrationScrollViewDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

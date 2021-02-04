@@ -51,6 +51,15 @@ namespace SushiShop.Core.Services.Http.CommonInfo
                 cancellationToken);
         }
 
+        public Task<HttpResponse<ResponseDto<ContentDto>>> GetBonusesContentAsync(CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<ContentDto>>(
+                Method.Post,
+                Constants.Rest.DiscountPolicyResource,
+                null,
+                cancellationToken);
+        }
+
         public Task<HttpResponse<ResponseDto<CommonMenuDto[]>>> GetCommonInfoMenuAsync(CancellationToken cancellationToken)
         {
             return httpService.ExecuteAsync<ResponseDto<CommonMenuDto[]>>(
@@ -60,11 +69,20 @@ namespace SushiShop.Core.Services.Http.CommonInfo
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<SocialNetworkDto[]>>> GetSocialNetworksAsync(CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<LinkedImageDto[]>>> GetSocialNetworksAsync(CancellationToken cancellationToken)
         {
-            return httpService.ExecuteAsync<ResponseDto<SocialNetworkDto[]>>(
+            return httpService.ExecuteAsync<ResponseDto<LinkedImageDto[]>>(
                 Method.Post,
-                Constants.Rest.GetSocialNetworks,
+                Constants.Rest.GetSocialNetworksResource,
+                null,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<LinkedImageDto[]>>> GetBonusesImagesAsync(CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<LinkedImageDto[]>>(
+                Method.Post,
+                Constants.Rest.GetDiscountImagesResource,
                 null,
                 cancellationToken);
         }

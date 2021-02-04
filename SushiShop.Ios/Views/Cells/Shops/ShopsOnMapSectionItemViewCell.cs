@@ -10,7 +10,6 @@ using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Views.Controls;
-using SushiShop.Ios.Views.ViewControllers;
 using System;
 using System.Collections.Specialized;
 using UIKit;
@@ -22,7 +21,6 @@ namespace SushiShop.Ios.Views.Cells.Shops
         public static readonly NSString Key = new NSString(nameof(ShopsOnMapSectionItemViewCell));
         public static readonly UINib Nib = UINib.FromName(Key, NSBundle.MainBundle);
 
-        private MainViewController rootViewController = UIApplication.SharedApplication.KeyWindow.RootViewController as MainViewController;
         private MapView mapView;
         private IDisposable subscription;
         private ShopDetailsBottomView shopDetailsBottomView;

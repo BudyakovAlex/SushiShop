@@ -378,4 +378,64 @@
   <data name="СourierDelivery" xml:space="preserve">
     <value>Доставка курьером</value>
   </data>
+  <data name="NoInternetConnection" xml:space="preserve">
+    <value>Отсутсвует интернет соединение</value>
+  </data>
+  <data name="OrderCreationError" xml:space="preserve">
+    <value>Не удалось создать заказ, попробуйте снова</value>
+  </data>
+  <data name="OrderPayment" xml:space="preserve">
+    <value>Оплата заказа</value>
+  </data>
+  <data name="OrderRegistrationTitle" xml:space="preserve">
+    <value>Оформление заказа</value>
+  </data>
+  <data name="Scores" xml:space="preserve">
+    <value>баллов</value>
+  </data>
+  <data name="Apartment" xml:space="preserve">
+    <value>Квартира</value>
+  </data>
+  <data name="Entrance" xml:space="preserve">
+    <value>Подъезд</value>
+  </data>
+  <data name="Intercom" xml:space="preserve">
+    <value>Домофон</value>
+  </data>
+  <data name="Floor" xml:space="preserve">
+    <value>Этаж</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Количество</value>
+  </data>
+  <data name="SelectOrderDeliveryTitle" xml:space="preserve">
+    <value>Выбор адреса</value>
+  </data>
+  <data name="EnterYourAddress" xml:space="preserve">
+    <value>Введите ваш адрес</value>
+  </data>
+  <data name="PriceOfDelivery" xml:space="preserve">
+    <value>Стоимость доставки</value>
+  </data>
+  <data name="Delivery" xml:space="preserve">
+    <value>Доставка</value>
+  </data>
+  <data name="Pickup" xml:space="preserve">
+    <value>Самовывоз</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Бесплатно</value>
+  </data>
+  <data name="UserAgreement" xml:space="preserve">
+    <value>Пользовательское соглашение</value>
+  </data>
+  <data name="ReceiveTimeTemplate" xml:space="preserve">
+    <value>от {0} мин. или позднее</value>
+  </data>
+  <data name="PrivacyPolicyConfirmOrder" xml:space="preserve">
+    <value>Завершая оформление заказа, я даю своё согласие на обработку персональных данных и подтверждаю оформление с условиями публичной оферты, пользовательского соглашения и политики конфиденциальности</value>
+  </data>
 </root>

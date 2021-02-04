@@ -13,6 +13,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 	partial class BonusProgramViewController
 	{
 		[Outlet]
+		BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Controls.MvxStackView BonusesImagesStackView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel ContentLabel { get; set; }
 
 		[Outlet]
@@ -42,6 +45,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				ContentScrollView = null;
 			}
 
+			if (LoadingActivityIndicator != null) {
+				LoadingActivityIndicator.Dispose ();
+				LoadingActivityIndicator = null;
+			}
+
 			if (RoundedContentView != null) {
 				RoundedContentView.Dispose ();
 				RoundedContentView = null;
@@ -52,14 +60,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				ScrollViewContentView = null;
 			}
 
+			if (BonusesImagesStackView != null) {
+				BonusesImagesStackView.Dispose ();
+				BonusesImagesStackView = null;
+			}
+
 			if (TitleLabel != null) {
 				TitleLabel.Dispose ();
 				TitleLabel = null;
-			}
-
-			if (LoadingActivityIndicator != null) {
-				LoadingActivityIndicator.Dispose ();
-				LoadingActivityIndicator = null;
 			}
 		}
 	}

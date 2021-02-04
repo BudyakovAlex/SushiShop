@@ -24,20 +24,17 @@ namespace SushiShop.Core.ViewModels.Profile
     {
         private readonly IProfileManager profileManager;
         private readonly IUserSession userSession;
-        private readonly IUserDialogs userDialogs;
         private readonly IDialog dialog;
         private readonly IMedia media;
 
         public ProfileViewModel(
             IProfileManager profileManager,
             IUserSession userSession,
-            IUserDialogs userDialogs,
             IDialog dialog,
             IMedia media)
         {
             this.profileManager = profileManager;
             this.userSession = userSession;
-            this.userDialogs = userDialogs;
             this.dialog = dialog;
             this.media = media;
 
@@ -131,7 +128,7 @@ namespace SushiShop.Core.ViewModels.Profile
                 var error = getProfileTask.Result.Errors.FirstOrDefault();
                 if (error.IsNotNullNorEmpty())
                 {
-                    await userDialogs.AlertAsync(error);
+                    await dialog.ShowToastAsync(error);
                 }
 
                 IsAuthorized = false;
@@ -208,7 +205,7 @@ namespace SushiShop.Core.ViewModels.Profile
                     return;
                 }
 
-                await userDialogs.AlertAsync(error);
+                await dialog.ShowToastAsync(error);
                 return;
             }
 

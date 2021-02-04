@@ -568,5 +568,113 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("СourierDelivery", resourceCulture);
             }
         }
+        
+        public static string NoInternetConnection {
+            get {
+                return ResourceManager.GetString("NoInternetConnection", resourceCulture);
+            }
+        }
+        
+        public static string OrderCreationError {
+            get {
+                return ResourceManager.GetString("OrderCreationError", resourceCulture);
+            }
+        }
+        
+        public static string OrderPayment {
+            get {
+                return ResourceManager.GetString("OrderPayment", resourceCulture);
+            }
+        }
+        
+        public static string OrderRegistrationTitle {
+            get {
+                return ResourceManager.GetString("OrderRegistrationTitle", resourceCulture);
+            }
+        }
+        
+        public static string Scores {
+            get {
+                return ResourceManager.GetString("Scores", resourceCulture);
+            }
+        }
+        
+        public static string Apartment {
+            get {
+                return ResourceManager.GetString("Apartment", resourceCulture);
+            }
+        }
+        
+        public static string Entrance {
+            get {
+                return ResourceManager.GetString("Entrance", resourceCulture);
+            }
+        }
+        
+        public static string Intercom {
+            get {
+                return ResourceManager.GetString("Intercom", resourceCulture);
+            }
+        }
+        
+        public static string Floor {
+            get {
+                return ResourceManager.GetString("Floor", resourceCulture);
+            }
+        }
+        
+        public static string Comment {
+            get {
+                return ResourceManager.GetString("Comment", resourceCulture);
+            }
+        }
+        
+        public static string Count {
+            get {
+                return ResourceManager.GetString("Count", resourceCulture);
+            }
+        }
+        
+        public static string SelectOrderDeliveryTitle {
+            get {
+                return ResourceManager.GetString("SelectOrderDeliveryTitle", resourceCulture);
+            }
+        }
+        
+        public static string EnterYourAddress {
+            get {
+                return ResourceManager.GetString("EnterYourAddress", resourceCulture);
+            }
+        }
+        
+        public static string PriceOfDelivery {
+            get {
+                return ResourceManager.GetString("PriceOfDelivery", resourceCulture);
+            }
+        }
+        
+        public static string Free {
+            get {
+                return ResourceManager.GetString("Free", resourceCulture);
+            }
+        }
+        
+        public static string UserAgreement {
+            get {
+                return ResourceManager.GetString("UserAgreement", resourceCulture);
+            }
+        }
+        
+        public static string ReceiveTimeTemplate {
+            get {
+                return ResourceManager.GetString("ReceiveTimeTemplate", resourceCulture);
+            }
+        }
+        
+        public static string PrivacyPolicyConfirmOrder {
+            get {
+                return ResourceManager.GetString("PrivacyPolicyConfirmOrder", resourceCulture);
+            }
+        }
     }
 }

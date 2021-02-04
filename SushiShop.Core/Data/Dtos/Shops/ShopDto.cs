@@ -71,7 +71,7 @@ namespace SushiShop.Core.Data.Dtos.Shops
         public DeliveryZoneDto[]? DeliveryZones { get; set; }
 
         [JsonProperty("deliveryTime")]
-        public long DeliveryTime { get; set; }
+        public int DeliveryTime { get; set; }
 
         [JsonProperty("pagetitle")]
         public string? PageTitle { get; set; }
@@ -91,5 +91,7 @@ namespace SushiShop.Core.Data.Dtos.Shops
 
         [JsonProperty("gallery")]
         public ImageInfoDto[]? Images { get; set; }
+
+        public int CookingTime { get; set; }
     }
 }
