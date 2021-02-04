@@ -64,11 +64,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				MapViewContainer.Dispose ();
 				MapViewContainer = null;
 			}
-
-			if (ResultsTableView != null) {
-				ResultsTableView.Dispose ();
-				ResultsTableView = null;
-			}
 		}
 	}
 }

@@ -88,9 +88,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
                 mapView.TopAnchor.ConstraintEqualTo(MapViewContainer.TopAnchor),
                 mapView.BottomAnchor.ConstraintEqualTo(MapViewContainer.BottomAnchor),
                 mapView.TrailingAnchor.ConstraintEqualTo(MapViewContainer.TrailingAnchor),
-                mapView.LeadingAnchor.ConstraintEqualTo(MapViewContainer.LeadingAnchor)
+                mapView.LeadingAnchor.ConstraintEqualTo(MapViewContainer.LeadingAnchor),
             });
-        } 
+        }
+
+        protected override void InitNavigationController(UINavigationController navigationController)
+        {
+            base.InitNavigationController(navigationController);
+        }
 
         protected override void InitNavigationItem(UINavigationItem navigationItem)
         {
