@@ -1,13 +1,16 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using CoreGraphics;
+using Foundation;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.Converters;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders;
+using SushiShop.Core.ViewModels.Orders.Sections;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Delegates;
+using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Views.Controls;
 using UIKit;
 
@@ -16,8 +19,28 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
     [MvxModalPresentation(WrapInNavigationController = true)]
     public partial class OrderRegistrationViewController : BaseViewController<OrderRegistrationViewModel>
     {
+        private readonly NSRange privacyPolicyRange = new NSRange(106, 58);
+        private readonly NSRange userAgreement = new NSRange(167, 27);
+
         private UIButton backButton;
         private DoneAccessoryView doneAccessoryView;
+
+        public OrderThanksSectionViewModel OrderThanksSection
+        {
+            set
+            {
+                if (value != null)
+                {
+                    this.NavigationController.SetNavigationBarHidden(true, true);
+                    ThanksOrderView.Hidden = false;
+                }
+                else
+                {
+                    this.NavigationController.SetNavigationBarHidden(false, true);
+                    ThanksOrderView.Hidden = true;
+                }
+            }
+        }
 
         protected override void InitStylesAndContent()
         {
@@ -41,6 +64,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             doneAccessoryView = new DoneAccessoryView(this.View, () => this.View.EndEditing(true));
             UserPhonePickUpTextField.InputAccessoryView = doneAccessoryView;
             SpendPointsPickUpTextField.InputAccessoryView = doneAccessoryView;
+
+            var attributedText = new NSMutableAttributedString(AppStrings.PrivacyPolicyConfirmOrder);
+            attributedText.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), privacyPolicyRange);
+            attributedText.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), userAgreement);
+            PrivacyPolicyPickUpLabel.AttributedText = attributedText;
+            PrivacyPolicyDeliveryLabel.AttributedText = attributedText;
+            PrivacyPolicyPickUpLabel.AddGestureRecognizer(new UITapGestureRecognizer(TapOnLabel));
+            PrivacyPolicyDeliveryLabel.AddGestureRecognizer(new UITapGestureRecognizer(TapOnLabel));
         }
 
         protected override void InitNavigationItem(UINavigationItem navigationItem)
@@ -138,6 +169,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(PriceToPayDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.PriceToPay);
             bindingSet.Bind(ConfirmOrderDeliveryButton).For(v => v.BindTouchUpInside()).To(vm => vm.DeliveryOrderSectionViewModel.ConfirmOrderCommand);
 
+            bindingSet.Bind(ThanksOrderImageView).For(v => v.ImagePath).To(vm => vm.OrderThanksSectionViewModel.Image);
+            bindingSet.Bind(ThanksOrderTitleLabel).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.Title);
+            bindingSet.Bind(ThanksOrderContentLabel).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.Content);
+            bindingSet.Bind(ThanksOrderNumberTitleLabel).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.OrderNumberTitle);
+            bindingSet.Bind(ThanksOrderNumberLabel).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.OrderNumber);
+            bindingSet.Bind(ThanksOrderGoToRootButton).For(v => v.BindTouchUpInside()).To(vm => vm.OrderThanksSectionViewModel.GoToRootCommand);
+            bindingSet.Bind(this).For(nameof(OrderThanksSection)).To(vm => vm.OrderThanksSectionViewModel);
+
             bindingSet.Apply();
         }
 
@@ -150,6 +189,20 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
         private void OnDecelerated()
         {
             scrollableTabsView.SelectedIndex = RootScrollView.ContentOffset.X <= 0 ? 0 : 1;
+        }
+
+        private void TapOnLabel(UITapGestureRecognizer gesture)
+        {
+            var label = (UILabel)gesture.View;
+            if (gesture.DidTapAttributedTextInLabel(label, privacyPolicyRange))
+            {
+                ViewModel?.ShowPrivacyPolicyCommand?.Execute(null);
+            }
+
+            if (gesture.DidTapAttributedTextInLabel(label, userAgreement))
+            {
+                ViewModel?.ShowUserAgreementCommand?.Execute(null);
+            }
         }
     }
 }

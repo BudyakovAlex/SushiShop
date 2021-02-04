@@ -13,6 +13,7 @@ using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using SushiShop.Core.ViewModels.Payment;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SushiShop.Core.ViewModels.Orders
 {
@@ -46,6 +47,10 @@ namespace SushiShop.Core.ViewModels.Orders
         public PickupOrderSectionViewModel PickupOrderSectionViewModel { get; }
 
         public DeliveryOrderSectionViewModel DeliveryOrderSectionViewModel { get; }
+
+        public ICommand ShowPrivacyPolicyCommand { get; }
+
+        public ICommand ShowUserAgreementCommand { get; }
 
         public override void Prepare(Data.Models.Cart.Cart parameter)
         {

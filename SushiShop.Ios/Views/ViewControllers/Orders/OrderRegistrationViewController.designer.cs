@@ -112,6 +112,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UILabel PriceToPayPickUpLabel { get; set; }
 
 		[Outlet]
+		UIKit.UILabel PrivacyPolicyDeliveryLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel PrivacyPolicyPickUpLabel { get; set; }
+
+		[Outlet]
 		UIKit.UILabel ProductsPriceDeliveryLabel { get; set; }
 
 		[Outlet]
@@ -161,6 +167,27 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
 		[Outlet]
 		SushiShop.Ios.Views.Controls.FloatingTextField SpendPointsPickUpTextField { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ThanksOrderContentLabel { get; set; }
+
+		[Outlet]
+		SushiShop.Ios.Views.Controls.PrimaryButton ThanksOrderGoToRootButton { get; set; }
+
+		[Outlet]
+		FFImageLoading.Cross.MvxCachedImageView ThanksOrderImageView { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ThanksOrderNumberLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ThanksOrderNumberTitleLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ThanksOrderTitleLabel { get; set; }
+
+		[Outlet]
+		UIKit.UIView ThanksOrderView { get; set; }
 
 		[Outlet]
 		SushiShop.Ios.Views.Controls.FloatingTextField UserNameDeliveryTextField { get; set; }
@@ -231,6 +258,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				CommentPickUpTextView = null;
 			}
 
+			if (ConfirmOrderDeliveryButton != null) {
+				ConfirmOrderDeliveryButton.Dispose ();
+				ConfirmOrderDeliveryButton = null;
+			}
+
+			if (ConfirmOrderPickUpButton != null) {
+				ConfirmOrderPickUpButton.Dispose ();
+				ConfirmOrderPickUpButton = null;
+			}
+
 			if (CountOfCutleryDeliveryStepperView != null) {
 				CountOfCutleryDeliveryStepperView.Dispose ();
 				CountOfCutleryDeliveryStepperView = null;
@@ -276,9 +313,19 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				IntercomDeliveryTextField = null;
 			}
 
+			if (OnlinePaymentDeliveryImageView != null) {
+				OnlinePaymentDeliveryImageView.Dispose ();
+				OnlinePaymentDeliveryImageView = null;
+			}
+
 			if (OnlinePaymentDeliveryView != null) {
 				OnlinePaymentDeliveryView.Dispose ();
 				OnlinePaymentDeliveryView = null;
+			}
+
+			if (OnlinePaymentPickUpImageView != null) {
+				OnlinePaymentPickUpImageView.Dispose ();
+				OnlinePaymentPickUpImageView = null;
 			}
 
 			if (OnlinePaymentPickUpView != null) {
@@ -286,9 +333,19 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				OnlinePaymentPickUpView = null;
 			}
 
+			if (OnPointPaymentDeliveryImageView != null) {
+				OnPointPaymentDeliveryImageView.Dispose ();
+				OnPointPaymentDeliveryImageView = null;
+			}
+
 			if (OnPointPaymentDeliveryView != null) {
 				OnPointPaymentDeliveryView.Dispose ();
 				OnPointPaymentDeliveryView = null;
+			}
+
+			if (OnPointPaymentPickUpImageView != null) {
+				OnPointPaymentPickUpImageView.Dispose ();
+				OnPointPaymentPickUpImageView = null;
 			}
 
 			if (OnPointPaymentPickUpView != null) {
@@ -311,6 +368,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				PriceToPayPickUpLabel = null;
 			}
 
+			if (PrivacyPolicyDeliveryLabel != null) {
+				PrivacyPolicyDeliveryLabel.Dispose ();
+				PrivacyPolicyDeliveryLabel = null;
+			}
+
+			if (PrivacyPolicyPickUpLabel != null) {
+				PrivacyPolicyPickUpLabel.Dispose ();
+				PrivacyPolicyPickUpLabel = null;
+			}
+
 			if (ProductsPriceDeliveryLabel != null) {
 				ProductsPriceDeliveryLabel.Dispose ();
 				ProductsPriceDeliveryLabel = null;
@@ -321,6 +388,26 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				ProductsPricePickUpLabel = null;
 			}
 
+			if (ReceiveTimeDeliveryLabel != null) {
+				ReceiveTimeDeliveryLabel.Dispose ();
+				ReceiveTimeDeliveryLabel = null;
+			}
+
+			if (ReceiveTimePickUpLabel != null) {
+				ReceiveTimePickUpLabel.Dispose ();
+				ReceiveTimePickUpLabel = null;
+			}
+
+			if (RootScrollView != null) {
+				RootScrollView.Dispose ();
+				RootScrollView = null;
+			}
+
+			if (ScoresDeliveryView != null) {
+				ScoresDeliveryView.Dispose ();
+				ScoresDeliveryView = null;
+			}
+
 			if (ScoresDiscountDeliveryLabel != null) {
 				ScoresDiscountDeliveryLabel.Dispose ();
 				ScoresDiscountDeliveryLabel = null;
@@ -329,6 +416,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (ScoresDiscountPickUpLabel != null) {
 				ScoresDiscountPickUpLabel.Dispose ();
 				ScoresDiscountPickUpLabel = null;
+			}
+
+			if (ScoresPickUpView != null) {
+				ScoresPickUpView.Dispose ();
+				ScoresPickUpView = null;
 			}
 
 			if (scrollableTabsView != null) {
@@ -371,6 +463,36 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				SpendPointsPickUpTextField = null;
 			}
 
+			if (ThanksOrderContentLabel != null) {
+				ThanksOrderContentLabel.Dispose ();
+				ThanksOrderContentLabel = null;
+			}
+
+			if (ThanksOrderGoToRootButton != null) {
+				ThanksOrderGoToRootButton.Dispose ();
+				ThanksOrderGoToRootButton = null;
+			}
+
+			if (ThanksOrderNumberLabel != null) {
+				ThanksOrderNumberLabel.Dispose ();
+				ThanksOrderNumberLabel = null;
+			}
+
+			if (ThanksOrderNumberTitleLabel != null) {
+				ThanksOrderNumberTitleLabel.Dispose ();
+				ThanksOrderNumberTitleLabel = null;
+			}
+
+			if (ThanksOrderTitleLabel != null) {
+				ThanksOrderTitleLabel.Dispose ();
+				ThanksOrderTitleLabel = null;
+			}
+
+			if (ThanksOrderView != null) {
+				ThanksOrderView.Dispose ();
+				ThanksOrderView = null;
+			}
+
 			if (UserNameDeliveryTextField != null) {
 				UserNameDeliveryTextField.Dispose ();
 				UserNameDeliveryTextField = null;
@@ -391,59 +513,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				UserPhonePickUpTextField = null;
 			}
 
-			if (OnPointPaymentPickUpImageView != null) {
-				OnPointPaymentPickUpImageView.Dispose ();
-				OnPointPaymentPickUpImageView = null;
-			}
-
-			if (OnlinePaymentPickUpImageView != null) {
-				OnlinePaymentPickUpImageView.Dispose ();
-				OnlinePaymentPickUpImageView = null;
-			}
-
-			if (OnPointPaymentDeliveryImageView != null) {
-				OnPointPaymentDeliveryImageView.Dispose ();
-				OnPointPaymentDeliveryImageView = null;
-			}
-
-			if (OnlinePaymentDeliveryImageView != null) {
-				OnlinePaymentDeliveryImageView.Dispose ();
-				OnlinePaymentDeliveryImageView = null;
-			}
-
-			if (ConfirmOrderPickUpButton != null) {
-				ConfirmOrderPickUpButton.Dispose ();
-				ConfirmOrderPickUpButton = null;
-			}
-
-			if (ConfirmOrderDeliveryButton != null) {
-				ConfirmOrderDeliveryButton.Dispose ();
-				ConfirmOrderDeliveryButton = null;
-			}
-
-			if (ScoresPickUpView != null) {
-				ScoresPickUpView.Dispose ();
-				ScoresPickUpView = null;
-			}
-
-			if (ScoresDeliveryView != null) {
-				ScoresDeliveryView.Dispose ();
-				ScoresDeliveryView = null;
-			}
-
-			if (ReceiveTimePickUpLabel != null) {
-				ReceiveTimePickUpLabel.Dispose ();
-				ReceiveTimePickUpLabel = null;
-			}
-
-			if (ReceiveTimeDeliveryLabel != null) {
-				ReceiveTimeDeliveryLabel.Dispose ();
-				ReceiveTimeDeliveryLabel = null;
-			}
-
-			if (RootScrollView != null) {
-				RootScrollView.Dispose ();
-				RootScrollView = null;
+			if (ThanksOrderImageView != null) {
+				ThanksOrderImageView.Dispose ();
+				ThanksOrderImageView = null;
 			}
 		}
 	}
