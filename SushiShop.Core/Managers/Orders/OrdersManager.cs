@@ -25,7 +25,8 @@ namespace SushiShop.Core.Managers.Orders
         {
             var requestDto = orderRequest.Map();
             var response = await ordersService.CreateOrderAsync(requestDto, CancellationToken.None);
-            if (response.IsSuccessful)
+            if (response.IsSuccessful &&
+                response.Data?.SuccessData != null)
             {
                 var data = response.Data!.SuccessData!.Map();
                 return new Response<OrderConfirmed?>(isSuccessful: true, data);

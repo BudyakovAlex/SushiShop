@@ -1,4 +1,4 @@
-﻿using MvvmCross.Platforms.Ios;
+﻿using Acr.UserDialogs;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Resources;
 using SushiShop.Ios.Common;
@@ -19,7 +19,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Common.Dialogs
         {
             var picker = ProduceDatePicker(initialDate, minDate, maxDate, mode);
             var button = ProduceDoneButton();
-            button.AddGestureRecognizer(new UITapGestureRecognizer(() => completeAction?.Invoke(picker.Date.ToDateTimeUtc())));
+            button.AddGestureRecognizer(new UITapGestureRecognizer(() => completeAction?.Invoke(picker.Date.ToDateTime())));
 
             var pickerContainer = new UIView
             {
