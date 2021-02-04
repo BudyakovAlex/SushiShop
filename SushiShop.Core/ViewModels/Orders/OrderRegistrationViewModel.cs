@@ -52,6 +52,8 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public ICommand ShowUserAgreementCommand { get; }
 
+        public ICommand ShowTermsOfThePublicOfferCommand { get; }
+
         public override void Prepare(Data.Models.Cart.Cart parameter)
         {
             Items.ForEach(item => item.Prepare(parameter));

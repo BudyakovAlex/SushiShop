@@ -1,4 +1,5 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+﻿using System.Linq;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using CoreGraphics;
 using Foundation;
 using MvvmCross.Platforms.Ios.Binding;
@@ -19,8 +20,10 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
     [MvxModalPresentation(WrapInNavigationController = true)]
     public partial class OrderRegistrationViewController : BaseViewController<OrderRegistrationViewModel>
     {
-        private readonly NSRange privacyPolicyRange = new NSRange(106, 58);
+        private readonly NSRange privacyPolicyRange = new NSRange(108, 26);
+        private readonly NSRange termsOfThePublicOffer = new NSRange(136, 28);
         private readonly NSRange userAgreement = new NSRange(167, 27);
+        private const int MainViewTabIndex = 0;
 
         private UIButton backButton;
         private DoneAccessoryView doneAccessoryView;
@@ -67,11 +70,15 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
             var attributedText = new NSMutableAttributedString(AppStrings.PrivacyPolicyConfirmOrder);
             attributedText.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), privacyPolicyRange);
+            attributedText.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), termsOfThePublicOffer);
             attributedText.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), userAgreement);
             PrivacyPolicyPickUpLabel.AttributedText = attributedText;
             PrivacyPolicyDeliveryLabel.AttributedText = attributedText;
             PrivacyPolicyPickUpLabel.AddGestureRecognizer(new UITapGestureRecognizer(TapOnLabel));
             PrivacyPolicyDeliveryLabel.AddGestureRecognizer(new UITapGestureRecognizer(TapOnLabel));
+
+            ConfirmOrderDeliveryButton.AddGestureRecognizer(new UITapGestureRecognizer(TapOnConfirmButton));
+            ConfirmOrderPickUpButton.AddGestureRecognizer(new UITapGestureRecognizer(TapOnConfirmButton));
         }
 
         protected override void InitNavigationItem(UINavigationItem navigationItem)
@@ -199,9 +206,22 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
                 ViewModel?.ShowPrivacyPolicyCommand?.Execute(null);
             }
 
+            if (gesture.DidTapAttributedTextInLabel(label, termsOfThePublicOffer))
+            {
+                ViewModel?.ShowTermsOfThePublicOfferCommand?.Execute(null);
+            }
+
             if (gesture.DidTapAttributedTextInLabel(label, userAgreement))
             {
                 ViewModel?.ShowUserAgreementCommand?.Execute(null);
+            }
+        }
+
+        private void TapOnConfirmButton()
+        {
+            if (UIApplication.SharedApplication.Windows.FirstOrDefault()?.RootViewController is MainViewController mainViewController)
+            {
+                mainViewController.TabIndex = MainViewTabIndex;
             }
         }
     }
