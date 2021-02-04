@@ -107,6 +107,11 @@ namespace SushiShop.Core.ViewModels.Cart
 
             sauses = getSauces.Result.Data;
             cart = getBasket.Result.Data;
+            if (cart is null)
+            {
+                return;
+            }
+
             Promocode = cart!.Promocode?.Code ?? string.Empty;
 
             var availablePackages = packagingCart.Result.Data.Select(ProducePackageFromProduct).ToArray();

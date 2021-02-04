@@ -58,6 +58,10 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             set => SetProperty(ref intercom, value);
         }
 
+        protected override DateTime MinDateTimeForPicker => addressSuggestion is null
+            ? base.MinDateTimeForPicker
+            : base.MinDateTimeForPicker.AddMinutes(addressSuggestion.CookingTime + addressSuggestion.DeliveryTime); 
+
         public override void Prepare(Data.Models.Cart.Cart cart)
         {
             base.Prepare(cart);

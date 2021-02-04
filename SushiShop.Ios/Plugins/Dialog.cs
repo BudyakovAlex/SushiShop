@@ -1,19 +1,16 @@
 ﻿#nullable enable
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Acr.UserDialogs;
 using CoreFoundation;
 using MvvmCross.Platforms.Ios.Views;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Plugins;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Plugins;
-using SushiShop.Core.Resources;
-using SushiShop.Ios.Common;
 using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Views.Controls;
 using SushiShop.Ios.Views.ViewControllers.Common.Dialogs;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using UIKit;
 using Xamarin.Essentials;
 
