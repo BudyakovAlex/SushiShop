@@ -79,6 +79,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		SushiShop.Ios.Views.Controls.FloatingTextField IntercomDeliveryTextField { get; set; }
 
 		[Outlet]
+		UIKit.UIView LoadingOverlayView { get; set; }
+
+		[Outlet]
 		UIKit.UIImageView OnlinePaymentDeliveryImageView { get; set; }
 
 		[Outlet]
@@ -473,6 +476,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				ThanksOrderGoToRootButton = null;
 			}
 
+			if (ThanksOrderImageView != null) {
+				ThanksOrderImageView.Dispose ();
+				ThanksOrderImageView = null;
+			}
+
 			if (ThanksOrderNumberLabel != null) {
 				ThanksOrderNumberLabel.Dispose ();
 				ThanksOrderNumberLabel = null;
@@ -513,9 +521,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				UserPhonePickUpTextField = null;
 			}
 
-			if (ThanksOrderImageView != null) {
-				ThanksOrderImageView.Dispose ();
-				ThanksOrderImageView = null;
+			if (LoadingOverlayView != null) {
+				LoadingOverlayView.Dispose ();
+				LoadingOverlayView = null;
 			}
 		}
 	}

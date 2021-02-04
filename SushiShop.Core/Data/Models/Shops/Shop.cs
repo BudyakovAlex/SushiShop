@@ -1,5 +1,4 @@
 ﻿using SushiShop.Core.Data.Models.Common;
-using System;
 
 namespace SushiShop.Core.Data.Models.Shops
 {
@@ -27,7 +26,8 @@ namespace SushiShop.Core.Data.Models.Shops
             string? email,
             long addressId,
             DeliveryZone[]? deliveryZones,
-            DateTimeOffset deliveryTime,
+            int deliveryTime,
+            int cookingTime,
             string? pageTitle,
             string? longTitle,
             long parentId,
@@ -59,6 +59,7 @@ namespace SushiShop.Core.Data.Models.Shops
             AddressId = addressId;
             DeliveryZones = deliveryZones;
             DeliveryTime = deliveryTime;
+            CookingTime = cookingTime;
             PageTitle = pageTitle;
             LongTitle = longTitle;
             ParentId = parentId;
@@ -111,7 +112,9 @@ namespace SushiShop.Core.Data.Models.Shops
 
         public DeliveryZone[]? DeliveryZones { get; }
 
-        public DateTimeOffset DeliveryTime { get; }
+        public int DeliveryTime { get; }
+
+        public int CookingTime { get; }
 
         public string? PageTitle { get; }
 

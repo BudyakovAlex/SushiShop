@@ -60,7 +60,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Common.Dialogs
         {
             var datePicker = new UIDatePicker
             {
-                Date = initialDate.Date.ToNSDate(),
+                Date = initialDate.ToNSDate(),
                 Mode = mode.ToUIDatePickerMode(),
                 MaximumDate = maxDate?.ToNSDate(),
                 MinimumDate = minDate?.ToNSDate(),

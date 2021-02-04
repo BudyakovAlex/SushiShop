@@ -107,6 +107,11 @@ namespace SushiShop.Core.ViewModels.Cart
 
             sauses = getSauces.Result.Data;
             cart = getBasket.Result.Data;
+            if (cart is null)
+            {
+                return;
+            }
+
             Promocode = cart!.Promocode?.Code ?? string.Empty;
 
             var availablePackages = packagingCart.Result.Data.Select(ProducePackageFromProduct).ToArray();
@@ -237,9 +242,15 @@ namespace SushiShop.Core.ViewModels.Cart
             RaisePropertyChanged(nameof(TotalPrice));
         }
 
-        private Task CheckoutAsync()
+        private async Task CheckoutAsync()
         {
-            return NavigationManager.NavigateAsync<OrderRegistrationViewModel, Data.Models.Cart.Cart>(cart!);
+            var shouldRefresh = await NavigationManager.NavigateAsync<OrderRegistrationViewModel, Data.Models.Cart.Cart, bool>(cart!);
+            if (shouldRefresh)
+            {
+                return;
+            }
+
+            await RefreshDataAsync();
         }
     }
 }

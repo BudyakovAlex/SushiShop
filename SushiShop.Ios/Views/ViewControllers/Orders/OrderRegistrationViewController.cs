@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using CoreGraphics;
 using Foundation;
+using MvvmCross.Binding.Combiners;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.Converters;
@@ -13,6 +13,7 @@ using SushiShop.Ios.Common;
 using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Extensions;
 using SushiShop.Ios.Views.Controls;
+using System.Linq;
 using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Orders
@@ -94,7 +95,10 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
             var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.PlatformCloseCommand);
+            bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.CloseCommand);
+            bindingSet.Bind(LoadingOverlayView).For(v => v.BindVisible()).ByCombining(new MvxOrValueCombiner(),
+                                                                                      vm => vm.PickupOrderSectionViewModel.ExecutionStateWrapper.IsBusy,
+                                                                                      vm => vm.DeliveryOrderSectionViewModel.ExecutionStateWrapper.IsBusy);
 
             bindingSet.Bind(scrollableTabsView).For(v => v.Items).To(vm => vm.TabsTitles);
 
@@ -206,7 +210,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
             if (gesture.DidTapAttributedTextInLabel(label, termsOfThePublicOffer))
             {
-                ViewModel?.ShowTermsOfThePublicOfferCommand?.Execute(null);
+                ViewModel?.ShowPublicOfferCommand?.Execute(null);
             }
 
             if (gesture.DidTapAttributedTextInLabel(label, userAgreement))

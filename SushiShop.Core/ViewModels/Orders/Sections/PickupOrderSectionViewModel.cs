@@ -33,6 +33,12 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         public override string PriceToPay => $"{Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
 
+        protected override DateTime MinDateTimeForPicker => selectedShop is null
+            ? base.MinDateTimeForPicker
+            : base.MinDateTimeForPicker.AddMinutes(selectedShop.CookingTime + selectedShop.DeliveryTime);
+
+        protected override int MinimumMinutesToReceiveOrder => selectedShop is null ? 0 : selectedShop.CookingTime + selectedShop.DeliveryTime;
+
         protected override async Task<OrderConfirmed?> ConfirmOrderAsync()
         {
             var city = UserSession.GetCity();
@@ -74,7 +80,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
             await Task.WhenAll(
                 RaisePropertyChanged(nameof(ShopAddress)),
-                RaisePropertyChanged(nameof(ShopPhone)));
+                RaisePropertyChanged(nameof(ShopPhone)),
+                RaisePropertyChanged(nameof(ReceiveDateTimePresentation)));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Data.Models.Profile;
@@ -101,7 +102,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         public DateTime? ReceiveDateTime
         {
             get => receiveDateTime;
-            set => SetProperty(ref receiveDateTime, value);
+            set => SetProperty(ref receiveDateTime, value, () => RaisePropertyChanged(nameof(ReceiveDateTimePresentation)));
         }
 
         public string? AvailableScoresPresentation { get; private set; }
@@ -114,7 +115,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         public bool CanApplyScores { get; private set; }
 
-        public string? ReceiveDateTimePresentation { get; private set; }
+        public string? ReceiveDateTimePresentation => GetReceiveTimePresentation();
 
         public abstract string PriceToPay { get; }
 
@@ -124,11 +125,15 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         protected Data.Models.Cart.Cart? Cart { get; private set; }
 
+        protected virtual DateTime MinDateTimeForPicker => DateTime.Now;
+
         protected IOrdersManager OrdersManager { get; }
 
         protected IUserSession UserSession { get; }
 
         protected IDialog Dialog { get; }
+
+        protected abstract int MinimumMinutesToReceiveOrder { get; }
 
         public virtual void Prepare(Data.Models.Cart.Cart cart)
         {
@@ -159,9 +164,18 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         private async Task SelectReceiveDateTimeAsync()
         {
-            ReceiveDateTime = await Dialog.ShowDatePickerAsync(ReceiveDateTime ?? DateTime.Now, null, null, DatePickerMode.DateAndTime);
-            ReceiveDateTimePresentation = $"от {ReceiveDateTime.Value}";
-            await RaisePropertyChanged(nameof(ReceiveDateTimePresentation));
+            var selectedDate = ReceiveDateTime ?? MinDateTimeForPicker;
+            ReceiveDateTime = await Dialog.ShowDatePickerAsync(selectedDate, MinDateTimeForPicker, MinDateTimeForPicker.AddDays(7), DatePickerMode.DateAndTime);
+        }
+
+        private string? GetReceiveTimePresentation()
+        {
+            if (ReceiveDateTime is null)
+            {
+                return string.Format(AppStrings.ReceiveTimeTemplate, MinimumMinutesToReceiveOrder);
+            }
+
+            return receiveDateTime!.Value.ToString(Constants.Format.DateTime.DateWithTime);
         }
 
         private async Task ConfirmOrderInternalAsync()

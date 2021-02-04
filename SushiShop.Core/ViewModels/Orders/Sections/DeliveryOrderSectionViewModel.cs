@@ -58,6 +58,12 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             set => SetProperty(ref intercom, value);
         }
 
+        protected override DateTime MinDateTimeForPicker => addressSuggestion is null
+            ? base.MinDateTimeForPicker
+            : base.MinDateTimeForPicker.AddMinutes(addressSuggestion.CookingTime + addressSuggestion.DeliveryTime);
+
+        protected override int MinimumMinutesToReceiveOrder => addressSuggestion is null ? 0 : addressSuggestion.CookingTime + addressSuggestion.DeliveryTime;
+
         public override void Prepare(Data.Models.Cart.Cart cart)
         {
             base.Prepare(cart);
@@ -119,7 +125,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             await Task.WhenAll(
                 RaisePropertyChanged(nameof(DeliveryAddress)),
                 RaisePropertyChanged(nameof(DeliveryPrice)),
-                RaisePropertyChanged(nameof(PriceToPay)));
+                RaisePropertyChanged(nameof(PriceToPay)),
+                RaisePropertyChanged(nameof(ReceiveDateTimePresentation)));
         }
     }
 }

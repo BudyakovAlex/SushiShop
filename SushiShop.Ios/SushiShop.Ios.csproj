@@ -667,6 +667,7 @@
       <DependentUpon>OrderRegistrationViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Cells\Profile\BonusProgramImageItemViewCell.cs" />
+    <Compile Include="Delegates\WKWebViewNavigationDelegate.cs" />
     <Compile Include="Views\Controls\ToastView.cs" />
     <Compile Include="Views\ViewControllers\Payment\PaymentViewController.cs" />
     <Compile Include="Views\ViewControllers\Payment\PaymentViewController.designer.cs">
