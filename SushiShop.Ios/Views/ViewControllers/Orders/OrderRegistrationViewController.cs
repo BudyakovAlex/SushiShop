@@ -77,8 +77,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             PrivacyPolicyPickUpLabel.AddGestureRecognizer(new UITapGestureRecognizer(TapOnLabel));
             PrivacyPolicyDeliveryLabel.AddGestureRecognizer(new UITapGestureRecognizer(TapOnLabel));
 
-            ConfirmOrderDeliveryButton.AddGestureRecognizer(new UITapGestureRecognizer(TapOnConfirmButton));
-            ConfirmOrderPickUpButton.AddGestureRecognizer(new UITapGestureRecognizer(TapOnConfirmButton));
+            ThanksOrderGoToRootButton.AddGestureRecognizer(new UITapGestureRecognizer(TapOnConfirmButton));
         }
 
         protected override void InitNavigationItem(UINavigationItem navigationItem)
@@ -181,7 +180,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(ThanksOrderContentLabel).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.Content);
             bindingSet.Bind(ThanksOrderNumberTitleLabel).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.OrderNumberTitle);
             bindingSet.Bind(ThanksOrderNumberLabel).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.OrderNumber);
-            bindingSet.Bind(ThanksOrderGoToRootButton).For(v => v.BindTouchUpInside()).To(vm => vm.OrderThanksSectionViewModel.GoToRootCommand);
             bindingSet.Bind(this).For(nameof(OrderThanksSection)).To(vm => vm.OrderThanksSectionViewModel);
 
             bindingSet.Apply();
@@ -208,7 +206,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
             if (gesture.DidTapAttributedTextInLabel(label, termsOfThePublicOffer))
             {
-                ViewModel?.ShowTermsOfThePublicOfferCommand?.Execute(null);
+                ViewModel?.ShowPublicOfferCommand?.Execute(null);
             }
 
             if (gesture.DidTapAttributedTextInLabel(label, userAgreement))
@@ -223,6 +221,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             {
                 mainViewController.TabIndex = MainViewTabIndex;
             }
+
+            ViewModel?.OrderThanksSectionViewModel?.GoToRootCommand?.Execute(null);
         }
     }
 }
