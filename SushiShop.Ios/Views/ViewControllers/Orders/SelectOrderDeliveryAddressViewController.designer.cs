@@ -29,12 +29,15 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
 		[Outlet]
 		UIKit.UIView MapViewContainer { get; set; }
+
+		[Outlet]
+		SushiShop.Ios.Views.Controls.SelfSizeTableView ResultsTableView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (MapViewContainer != null) {
-				MapViewContainer.Dispose ();
-				MapViewContainer = null;
+			if (AboutPointView != null) {
+				AboutPointView.Dispose ();
+				AboutPointView = null;
 			}
 
 			if (AddressSelectedPointLabel != null) {
@@ -42,14 +45,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				AddressSelectedPointLabel = null;
 			}
 
-			if (DeliveryPriceLabel != null) {
-				DeliveryPriceLabel.Dispose ();
-				DeliveryPriceLabel = null;
-			}
-
 			if (BadLocationLabel != null) {
 				BadLocationLabel.Dispose ();
 				BadLocationLabel = null;
+			}
+
+			if (DeliveryPriceLabel != null) {
+				DeliveryPriceLabel.Dispose ();
+				DeliveryPriceLabel = null;
 			}
 
 			if (DeliveryThereButton != null) {
@@ -57,9 +60,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				DeliveryThereButton = null;
 			}
 
-			if (AboutPointView != null) {
-				AboutPointView.Dispose ();
-				AboutPointView = null;
+			if (MapViewContainer != null) {
+				MapViewContainer.Dispose ();
+				MapViewContainer = null;
 			}
 		}
 	}
