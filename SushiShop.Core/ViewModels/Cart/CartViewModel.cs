@@ -242,9 +242,15 @@ namespace SushiShop.Core.ViewModels.Cart
             RaisePropertyChanged(nameof(TotalPrice));
         }
 
-        private Task CheckoutAsync()
+        private async Task CheckoutAsync()
         {
-            return NavigationManager.NavigateAsync<OrderRegistrationViewModel, Data.Models.Cart.Cart>(cart!);
+            var shouldRefresh = await NavigationManager.NavigateAsync<OrderRegistrationViewModel, Data.Models.Cart.Cart, bool>(cart!);
+            if (shouldRefresh)
+            {
+                return;
+            }
+
+            await RefreshDataAsync();
         }
     }
 }

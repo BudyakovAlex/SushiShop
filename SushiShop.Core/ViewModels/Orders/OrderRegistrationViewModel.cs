@@ -22,11 +22,13 @@ using System.Windows.Input;
 
 namespace SushiShop.Core.ViewModels.Orders
 {
-    public class OrderRegistrationViewModel : BaseItemsPageViewModel<BaseOrderSectionViewModel, Data.Models.Cart.Cart>
+    public class OrderRegistrationViewModel : BaseItemsPageViewModel<BaseOrderSectionViewModel, Data.Models.Cart.Cart, bool>
     {
         private readonly IProfileManager profileManager;
         private readonly IUserSession userSession;
         private readonly IDialog dialog;
+
+        private bool isChanged;
 
         public OrderRegistrationViewModel(
             IOrdersManager ordersManager,
@@ -50,6 +52,8 @@ namespace SushiShop.Core.ViewModels.Orders
             ShowUserAgreementCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowUserAgreementAsync);
             ShowPublicOfferCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPublicOfferAsync);
         }
+
+        protected override bool DefaultResult => isChanged;
 
         public List<string> TabsTitles { get; } = new List<string>();
 
@@ -85,6 +89,8 @@ namespace SushiShop.Core.ViewModels.Orders
 
         private Task OrderConfirmedAsync(OrderConfirmed orderConfirmed)
         {
+            isChanged = true;
+
             return orderConfirmed.ConfirmationInfo.PaymentUrl.IsNotNullNorEmpty()
                 ? PayForOrderAsync(orderConfirmed)
                 : ProduceThanksForOrderSectionAsync(orderConfirmed);
@@ -92,7 +98,7 @@ namespace SushiShop.Core.ViewModels.Orders
 
         private async Task PayForOrderAsync(OrderConfirmed orderConfirmed)
         {
-            var isPaymentConfirmed = await NavigationManager.NavigateAsync<PaymentViewModel, string>(orderConfirmed.ConfirmationInfo.PaymentUrl!);
+            var isPaymentConfirmed = await NavigationManager.NavigateAsync<PaymentViewModel, string, bool>(orderConfirmed.ConfirmationInfo.PaymentUrl!);
             if (!isPaymentConfirmed)
             {
                 await dialog.ShowToastAsync(AppStrings.OrderCreationError);
@@ -115,7 +121,9 @@ namespace SushiShop.Core.ViewModels.Orders
         private Task GoToRootAsync()
         {
             Messenger.Publish(new RefreshCartMessage(this));
-            return NavigationManager.CloseAsync(this);
+            Messenger.Publish(new RefreshProductsMessage(this));
+
+            return NavigationManager.CloseAsync(this, false);
         }
 
         private Task ShowPrivacyPolicyAsync()
