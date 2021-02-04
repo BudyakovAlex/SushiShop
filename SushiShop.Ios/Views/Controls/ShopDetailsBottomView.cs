@@ -167,6 +167,11 @@ namespace SushiShop.Ios.Views.Controls
 
         private void SetPhonesAttributedString(string[] phones)
         {
+            if (phones is null)
+            {
+                return;
+            }
+
             var joinedText = string.Join(", ", phones);
             var attributedText = new NSMutableAttributedString(joinedText);
             foreach (var item in phones)

@@ -17,7 +17,7 @@ namespace SushiShop.Core.Mappers
                 Comment = model.Comment,
                 Cutlery = model.Cutlery,
                 OrderDelivery = model.OrderDelivery?.Map(),
-                PaymentMethod = model.PaymentMethod.ToString(),
+                PaymentMethod = model.PaymentMethod.ToString().ToLower(),
                 PhoneNumber = model.PhoneNumber,
                 PreferedDateTime = model.PreferedDateTime,
                 ShopId = model.ShopId,
