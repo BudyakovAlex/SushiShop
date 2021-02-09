@@ -42,6 +42,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
                 MyLocationEnabled = false
             };
 
+            mapView.TappedMarker += OnMarkerTapped;
+
             MapViewContainer.AddSubview(mapView);
             NSLayoutConstraint.ActivateConstraints(new[]
             {
@@ -50,13 +52,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
                 mapView.TrailingAnchor.ConstraintEqualTo(MapViewContainer.TrailingAnchor),
                 mapView.LeadingAnchor.ConstraintEqualTo(MapViewContainer.LeadingAnchor),
             });
-        }
-
-        public override void ViewWillAppear(bool animated)
-        {
-            base.ViewWillAppear(animated);
-
-            shopDetailsBottomView.Show();
         }
 
         public override void ViewWillDisappear(bool animated)
@@ -83,7 +78,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
 
             bindingSet.Bind(this).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(this).For(nameof(SelectedItemViewModel)).To(vm => vm.ShopItemViewModel);
-            bindingSet.Bind(shopDetailsBottomView).For(v => v.DataContext).To(vm => vm.ShopItemViewModel);
 
             bindingSet.Apply();
         }
@@ -98,6 +92,10 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
                 marker.Map = mapView;
                 marker.Icon = UIImage.FromBundle(ImageNames.DefaultMarker);
                 mapView.MoveCamera(CameraUpdate.SetTarget(position, 10));
+                if (!viewModel.IsSelectionMode)
+                {
+                    SetShopDetailsBottomViewDataContext();
+                }
             });
         }
 
@@ -108,7 +106,20 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
             if (disposing)
             {
                 shopDetailsBottomView?.Dispose();
+                mapView.TappedMarker -= OnMarkerTapped;
             }
+        }
+
+        private void SetShopDetailsBottomViewDataContext()
+        {
+            shopDetailsBottomView.DataContext = ViewModel.ShopItemViewModel;
+            shopDetailsBottomView.Show();
+        }
+
+        private bool OnMarkerTapped(MapView map, Marker marker)
+        {
+            SetShopDetailsBottomViewDataContext();
+            return true;
         }
     }
 }

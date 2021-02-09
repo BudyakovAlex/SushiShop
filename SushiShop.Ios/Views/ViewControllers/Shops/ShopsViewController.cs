@@ -36,7 +36,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
 
             backButton = Components.CreateDefaultBarButton(ImageNames.ArrowBack);
             navigationItem.LeftBarButtonItem = new UIBarButtonItem(backButton);
-            navigationItem.Title = AppStrings.Shops;
         }
 
         protected override void Bind()
@@ -49,6 +48,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
             bindingSet.Bind(tabsScrollableTabView).For(v => v.SelectedIndex).To(vm => vm.SelectedIndex).TwoWay();
             bindingSet.Bind(shopsContentCollectionViewSource).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.CloseCommand);
+            bindingSet.Bind(this).For(v => v.Title).To(vm => vm.Title);
 
             bindingSet.Apply();
         }

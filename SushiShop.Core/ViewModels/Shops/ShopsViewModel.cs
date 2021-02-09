@@ -48,6 +48,14 @@ namespace SushiShop.Core.ViewModels.Info
             set => SetProperty(ref selectedIndex, value, OnSelectedIndexChanged);
         }
 
+        // TODO: Change this code.
+        private string title = AppStrings.Shops;
+        public string Title
+        {
+            get => title;
+            set => SetProperty(ref title, value);
+        }
+
         public bool IsSelectionMode { get; private set; }
 
         public override void Prepare(bool parameter)
