@@ -78,13 +78,18 @@ namespace SushiShop.Core.ViewModels.Orders
         {
             await base.InitializeAsync();
 
-            var response = await profileManager.GetDiscountAsync();
-            if (!response.IsSuccessful)
+            var getDiscountTask = profileManager.GetDiscountAsync();
+            var getProfileTask = profileManager.GetProfileAsync();
+
+            await Task.WhenAll(getDiscountTask, getProfileTask);
+            
+            if (!getDiscountTask.Result.IsSuccessful ||
+                !getProfileTask.Result.IsSuccessful)
             {
                 return;
             }
                  
-            Items.ForEach(item => item.SetDiscount(response.Data));
+            Items.ForEach(item => item.SetProfileInfo(getDiscountTask.Result.Data, getProfileTask.Result.Data));
         }
 
         private Task OrderConfirmedAsync(OrderConfirmed orderConfirmed)

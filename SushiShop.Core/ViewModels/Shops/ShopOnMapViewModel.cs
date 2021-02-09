@@ -20,11 +20,13 @@ namespace SushiShop.Core.ViewModels.Shops
                 GoToMapAsync,
                 ConfirmSelectionAsync,
                 isSelectionMode);
+
+            Title = isSelectionMode ? ShopItemViewModel.LongTitle : AppStrings.OnMap;
         }
 
         public ShopItemViewModel? ShopItemViewModel { get; private set; }
 
-        public string Title => AppStrings.OnMap;
+        public string? Title { get; private set; }
 
         private Task ConfirmSelectionAsync(Shop shop)
         {
@@ -35,7 +37,8 @@ namespace SushiShop.Core.ViewModels.Shops
         {
             var navigationParameter = new ShopOnMapNavigationParameter(shop, isSelectionMode);
             var selectedShop = await NavigationManager.NavigateAsync<ShopOnMapViewModel, ShopOnMapNavigationParameter, Shop>(navigationParameter);
-            if (!isSelectionMode)
+            if (!isSelectionMode ||
+                selectedShop is null)
             {
                 return;
             }

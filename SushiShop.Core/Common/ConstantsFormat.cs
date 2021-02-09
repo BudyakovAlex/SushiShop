@@ -9,6 +9,7 @@
                 public const string LongDate = "d MMMM yyyy";
                 public const string ShortDate = "d MMMM";
                 public const string DateWithTime = "d.MM.yyyy hh:mm";
+                public const string DateWithTwentyFourTime = "d.MM.yyyy HH:mm";
                 public const string DateOfBirth = "dd.MM.yyyy";
             }
         }

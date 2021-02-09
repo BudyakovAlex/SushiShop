@@ -676,5 +676,17 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("PrivacyPolicyConfirmOrder", resourceCulture);
             }
         }
+        
+        public static string ThanksForFeedback {
+            get {
+                return ResourceManager.GetString("ThanksForFeedback", resourceCulture);
+            }
+        }
+        
+        public static string SelectShop {
+            get {
+                return ResourceManager.GetString("SelectShop", resourceCulture);
+            }
+        }
     }
 }

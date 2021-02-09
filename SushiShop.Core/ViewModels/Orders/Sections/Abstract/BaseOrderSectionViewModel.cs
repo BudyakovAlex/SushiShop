@@ -109,9 +109,9 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         public string ProductsPrice => $"{Cart?.TotalSum} {Cart?.Currency?.Symbol}";
 
-        public string DiscountByPromocode => $"- {Cart?.Discount} {Cart?.Currency?.Symbol}";
+        public string DiscountByPromocode => Cart?.Discount > 0 ? $"- {Cart?.Discount} {Cart?.Currency?.Symbol}" : $"{Cart?.Discount} {Cart?.Currency?.Symbol}";
 
-        public string? ScoresDiscount => $"- {ScoresToApply} {Cart?.Currency?.Symbol}";
+        public string? ScoresDiscount => ScoresToApply > 0 ? $"- {ScoresToApply} {Cart?.Currency?.Symbol}" : $"{ScoresToApply} {Cart?.Currency?.Symbol}";
 
         public bool CanApplyScores { get; private set; }
 
@@ -143,7 +143,34 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             RaisePropertyChanged(nameof(DiscountByPromocode));
         }
 
-        public void SetDiscount(ProfileDiscount? discount)
+        public void SetProfileInfo(ProfileDiscount? discount, DetailedProfile? detailedProfile)
+        {
+            SetDiscount(discount);
+            SetProfile(detailedProfile);
+        }
+
+        protected abstract Task<OrderConfirmed?> ConfirmOrderAsync();
+
+        protected abstract Task SelectAddressAsync();
+
+        private async Task SelectReceiveDateTimeAsync()
+        {
+            var selectedDate = ReceiveDateTime ?? MinDateTimeForPicker;
+            ReceiveDateTime = await Dialog.ShowDatePickerAsync(selectedDate, MinDateTimeForPicker, MinDateTimeForPicker.AddDays(7), DatePickerMode.DateAndTime);
+        }
+
+        private void SetProfile(DetailedProfile? detailedProfile)
+        {
+            if (detailedProfile is null)
+            {
+                return;
+            }
+
+            Phone = detailedProfile.Phone;
+            Name = detailedProfile.FirstName;
+        }
+
+        private void SetDiscount(ProfileDiscount? discount)
         {
             if (discount?.Bonuses <= 0)
             {
@@ -158,16 +185,6 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             RaisePropertyChanged(nameof(CanApplyScores));
         }
 
-        protected abstract Task<OrderConfirmed?> ConfirmOrderAsync();
-
-        protected abstract Task SelectAddressAsync();
-
-        private async Task SelectReceiveDateTimeAsync()
-        {
-            var selectedDate = ReceiveDateTime ?? MinDateTimeForPicker;
-            ReceiveDateTime = await Dialog.ShowDatePickerAsync(selectedDate, MinDateTimeForPicker, MinDateTimeForPicker.AddDays(7), DatePickerMode.DateAndTime);
-        }
-
         private string? GetReceiveTimePresentation()
         {
             if (ReceiveDateTime is null)
@@ -175,7 +192,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
                 return string.Format(AppStrings.ReceiveTimeTemplate, MinimumMinutesToReceiveOrder);
             }
 
-            return receiveDateTime!.Value.ToString(Constants.Format.DateTime.DateWithTime);
+            return receiveDateTime!.Value.ToString(Constants.Format.DateTime.DateWithTwentyFourTime);
         }
 
         private async Task ConfirmOrderInternalAsync()
