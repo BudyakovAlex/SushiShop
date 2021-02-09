@@ -48,11 +48,20 @@ namespace SushiShop.Core.ViewModels.Info
             set => SetProperty(ref selectedIndex, value, OnSelectedIndexChanged);
         }
 
+        private string? title;
+        public string? Title
+        {
+            get => title;
+            set => SetProperty(ref title, value);
+        }
+
         public bool IsSelectionMode { get; private set; }
 
         public override void Prepare(bool parameter)
         {
             IsSelectionMode = parameter;
+
+            Title = IsSelectionMode ? AppStrings.SelectShop : AppStrings.Shops;
 
             RaisePropertyChanged(nameof(IsSelectionMode));
         }
@@ -137,18 +146,36 @@ namespace SushiShop.Core.ViewModels.Info
                 ? new Coordinates(Constants.Map.MapStartPointLongitude, Constants.Map.MapStartPointLatitude)
                 : new Coordinates(city.Longitude, city.Latitude);
 
-            yield return shopsOnMapSectionViewModel = new ShopsOnMapSectionViewModel(
-                coordinates,
-                city?.ZoomFactor ?? Constants.Map.DefaultZoomFactor,
-                GoToMapAsync,
-                ConfirmSelectionAsync,
-                IsSelectionMode);
+            if (IsSelectionMode)
+            {
+                yield return shopsListSectionViewModel = new ShopsListSectionViewModel(
+                    GoToShopAsync,
+                    GoToMapAsync,
+                    ConfirmSelectionAsync,
+                    IsSelectionMode).DisposeWith(Disposables);
 
-            yield return shopsListSectionViewModel = new ShopsListSectionViewModel(
-                GoToShopAsync,
-                GoToMapAsync,
-                ConfirmSelectionAsync,
-                IsSelectionMode).DisposeWith(Disposables);
+                yield return shopsOnMapSectionViewModel = new ShopsOnMapSectionViewModel(
+                    coordinates,
+                    city?.ZoomFactor ?? Constants.Map.DefaultZoomFactor,
+                    GoToMapAsync,
+                    ConfirmSelectionAsync,
+                    IsSelectionMode);
+            }
+            else
+            {
+                yield return shopsOnMapSectionViewModel = new ShopsOnMapSectionViewModel(
+                   coordinates,
+                   city?.ZoomFactor ?? Constants.Map.DefaultZoomFactor,
+                   GoToMapAsync,
+                   ConfirmSelectionAsync,
+                   IsSelectionMode);
+
+                yield return shopsListSectionViewModel = new ShopsListSectionViewModel(
+                    GoToShopAsync,
+                    GoToMapAsync,
+                    ConfirmSelectionAsync,
+                    IsSelectionMode).DisposeWith(Disposables);
+            }
 
             if (isMetroAvailable)
             {
@@ -158,8 +185,16 @@ namespace SushiShop.Core.ViewModels.Info
 
         private IEnumerable<string> ProduceSectionsTitles(bool isMetroAvailable)
         {
-            yield return AppStrings.OnMap;
-            yield return AppStrings.List;
+            if (IsSelectionMode)
+            {
+                yield return AppStrings.List;
+                yield return AppStrings.OnMap;
+            }
+            else
+            {
+                yield return AppStrings.OnMap;
+                yield return AppStrings.List;
+            }
 
             if (isMetroAvailable)
             {
@@ -191,7 +226,8 @@ namespace SushiShop.Core.ViewModels.Info
         {
             var navigationParameter = new ShopOnMapNavigationParameter(shop, IsSelectionMode);
             var selectedShop = await NavigationManager.NavigateAsync<ShopOnMapViewModel, ShopOnMapNavigationParameter, Shop>(navigationParameter);
-            if (!IsSelectionMode)
+            if (!IsSelectionMode ||
+                selectedShop is null)
             {
                 return;
             }
@@ -203,7 +239,8 @@ namespace SushiShop.Core.ViewModels.Info
         {
             var navigationParameter = new ShopsNearMetroNavigationParameters(shops, title, IsSelectionMode);
             var selectedShop = await NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters, Shop>(navigationParameter);
-            if (!IsSelectionMode)
+            if (!IsSelectionMode ||
+                selectedShop is null)
             {
                 return;
             }

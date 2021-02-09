@@ -92,7 +92,8 @@ namespace SushiShop.Core.ViewModels.Shops
         {
             var navigationParameter = new ShopOnMapNavigationParameter(shop, isSelectionMode);
             var selectedShop = await NavigationManager.NavigateAsync<ShopOnMapViewModel, ShopOnMapNavigationParameter, Shop>(navigationParameter);
-            if (!isSelectionMode)
+            if (!isSelectionMode ||
+                selectedShop is null)
             {
                 return;
             }
@@ -113,7 +114,8 @@ namespace SushiShop.Core.ViewModels.Shops
 
             var navigationParameter = new ShopsNearMetroNavigationParameters(shops, Title, isSelectionMode);
             var selectedShop = await NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters, Shop>(navigationParameter);
-            if (!isSelectionMode)
+            if (!isSelectionMode ||
+                selectedShop is null)
             {
                 return;
             }

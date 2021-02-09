@@ -438,4 +438,10 @@
   <data name="PrivacyPolicyConfirmOrder" xml:space="preserve">
     <value>Завершая оформление заказа, я даю своё согласие на обработку персональных данных и подтверждаю оформление с условиями публичной оферты, пользовательского соглашения и политики конфиденциальности</value>
   </data>
+  <data name="ThanksForFeedback" xml:space="preserve">
+    <value>Спасибо за отзыв!</value>
+  </data>
+  <data name="SelectShop" xml:space="preserve">
+    <value>Выбор магазина</value>
+  </data>
 </root>

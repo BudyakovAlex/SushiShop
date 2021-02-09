@@ -67,7 +67,17 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
             doneAccessoryView = new DoneAccessoryView(this.View, () => this.View.EndEditing(true));
             UserPhonePickUpTextField.InputAccessoryView = doneAccessoryView;
+            UserNamePickUpTextField.InputAccessoryView = doneAccessoryView;
+            UserPhoneDeliveryTextField.InputAccessoryView = doneAccessoryView;
+            UserNameDeliveryTextField.InputAccessoryView = doneAccessoryView;
             SpendPointsPickUpTextField.InputAccessoryView = doneAccessoryView;
+            SpendPointsDeliveryTextField.InputAccessoryView = doneAccessoryView;
+            AppartmentDeliveryTextField.InputAccessoryView = doneAccessoryView;
+            EntranceDeliveryTextField.InputAccessoryView = doneAccessoryView;
+            IntercomDeliveryTextField.InputAccessoryView = doneAccessoryView;
+            FloorDeliveryTextField.InputAccessoryView = doneAccessoryView;
+            CommentPickUpTextView.InputAccessoryView = doneAccessoryView;
+            CommentDeliveryTextView.InputAccessoryView = doneAccessoryView;
 
             var attributedText = new NSMutableAttributedString(AppStrings.PrivacyPolicyConfirmOrder);
             attributedText.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), privacyPolicyRange);
