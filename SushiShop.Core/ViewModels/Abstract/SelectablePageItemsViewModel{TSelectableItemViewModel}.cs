@@ -77,11 +77,6 @@ namespace SushiShop.Core.ViewModels.Abstract
                 return;
             }
 
-            if (item.IsSelected)
-            {
-                return;
-            }
-
             foreach (var itemViewModel in Items)
             {
                 itemViewModel.IsSelected = itemViewModel == item;
