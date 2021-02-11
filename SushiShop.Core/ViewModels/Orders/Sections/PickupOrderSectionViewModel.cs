@@ -37,7 +37,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             ? base.MinDateTimeForPicker
             : base.MinDateTimeForPicker.AddMinutes(selectedShop.CookingTime + selectedShop.DeliveryTime);
 
-        protected override int MinimumMinutesToReceiveOrder => selectedShop is null ? 0 : selectedShop.CookingTime + selectedShop.DeliveryTime;
+        protected override int MinimumMinutesToReceiveOrder => selectedShop is null ? 0 : selectedShop.CookingTime;
 
         protected override async Task<OrderConfirmed?> ConfirmOrderAsync()
         {
