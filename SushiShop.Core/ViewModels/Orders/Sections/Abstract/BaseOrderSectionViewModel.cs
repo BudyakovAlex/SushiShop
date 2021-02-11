@@ -94,7 +94,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
                     value = AvailableScores;
                 }
 
-                SetProperty(ref scoresToApply, value, () => RaisePropertyChanged(nameof(ScoresDiscount)));
+                SetProperty(ref scoresToApply, value, OnScoresToApplyChanged);
             }
         }
 
@@ -112,7 +112,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         public string DiscountByPromocode => Cart?.Discount > 0 ? $"- {Cart?.Discount} {Cart?.Currency?.Symbol}" : $"{Cart?.Discount} {Cart?.Currency?.Symbol}";
 
         public string? ScoresDiscount => ScoresToApply > 0 ? $"- {ScoresToApply} {Cart?.Currency?.Symbol}" : $"{ScoresToApply} {Cart?.Currency?.Symbol}";
-
+        
         public bool CanApplyScores { get; private set; }
 
         public string? ReceiveDateTimePresentation => GetReceiveTimePresentation();
@@ -153,6 +153,12 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         protected abstract Task SelectAddressAsync();
 
+        private void OnScoresToApplyChanged()
+        {
+            RaisePropertyChanged(nameof(ScoresDiscount));
+            RaisePropertyChanged(nameof(PriceToPay));
+        }
+
         private async Task SelectReceiveDateTimeAsync()
         {
             var selectedDate = ReceiveDateTime ?? MinDateTimeForPicker;
@@ -179,7 +185,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
             CanApplyScores = true;
             AvailableScoresPresentation = $"{discount!.Bonuses} {AppStrings.Scores}";
-            AvailableScores = discount!.Bonuses;
+            var productPriceCanBePayedByScores = (Cart?.TotalSum * 0.3m) ?? discount!.Bonuses;
+            AvailableScores = (int)Math.Min(productPriceCanBePayedByScores, discount!.Bonuses);
 
             RaisePropertyChanged(nameof(AvailableScoresPresentation));
             RaisePropertyChanged(nameof(CanApplyScores));

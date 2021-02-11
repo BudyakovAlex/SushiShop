@@ -62,7 +62,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             ? base.MinDateTimeForPicker
             : base.MinDateTimeForPicker.AddMinutes(addressSuggestion.CookingTime + addressSuggestion.DeliveryTime);
 
-        protected override int MinimumMinutesToReceiveOrder => addressSuggestion is null ? 0 : addressSuggestion.CookingTime + addressSuggestion.DeliveryTime;
+        protected override int MinimumMinutesToReceiveOrder => addressSuggestion is null ? 0 : addressSuggestion.DeliveryTime;
 
         public override void Prepare(Data.Models.Cart.Cart cart)
         {

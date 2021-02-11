@@ -13,6 +13,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
 	partial class CartViewController
 	{
 		[Outlet]
+		UIKit.UILabel AddPackagesTitleLabel { get; set; }
+
+		[Outlet]
+		UIKit.UIView AddSauseContainerView { get; set; }
+
+		[Outlet]
 		UIKit.UIView AddSauseView { get; set; }
 
 		[Outlet]
@@ -40,13 +46,36 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
 		SushiShop.Ios.Views.Controls.FloatingTextField PromocodeTextField { get; set; }
 
 		[Outlet]
+		UIKit.UIView SelectPackageTitleContainerView { get; set; }
+
+		[Outlet]
 		SushiShop.Ios.Views.Controls.SelfSizeTableView ToppingsTableView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (AddPackagesTitleLabel != null) {
+				AddPackagesTitleLabel.Dispose ();
+				AddPackagesTitleLabel = null;
+			}
+
+			if (SelectPackageTitleContainerView != null) {
+				SelectPackageTitleContainerView.Dispose ();
+				SelectPackageTitleContainerView = null;
+			}
+
+			if (AddSauseContainerView != null) {
+				AddSauseContainerView.Dispose ();
+				AddSauseContainerView = null;
+			}
+
 			if (AddSauseView != null) {
 				AddSauseView.Dispose ();
 				AddSauseView = null;
+			}
+
+			if (BottomCheckoutView != null) {
+				BottomCheckoutView.Dispose ();
+				BottomCheckoutView = null;
 			}
 
 			if (CheckoutButton != null) {
@@ -57,6 +86,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
 			if (ContentScrollView != null) {
 				ContentScrollView.Dispose ();
 				ContentScrollView = null;
+			}
+
+			if (GoToMenuButton != null) {
+				GoToMenuButton.Dispose ();
+				GoToMenuButton = null;
 			}
 
 			if (PackagesTableView != null) {
@@ -82,16 +116,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
 			if (ToppingsTableView != null) {
 				ToppingsTableView.Dispose ();
 				ToppingsTableView = null;
-			}
-
-			if (BottomCheckoutView != null) {
-				BottomCheckoutView.Dispose ();
-				BottomCheckoutView = null;
-			}
-
-			if (GoToMenuButton != null) {
-				GoToMenuButton.Dispose ();
-				GoToMenuButton = null;
 			}
 		}
 	}

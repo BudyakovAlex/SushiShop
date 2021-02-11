@@ -82,6 +82,10 @@ namespace SushiShop.Core.ViewModels.Cart
 
         public bool IsEmptyBasket => cart?.Products?.Length == 0;
 
+        public bool CanAddSauses { get; private set; } = true;
+
+        public bool CanAddPackages { get; private set; } = true;
+
         private string promocode = string.Empty;
         public string Promocode
         {
@@ -106,6 +110,9 @@ namespace SushiShop.Core.ViewModels.Cart
             await Task.WhenAll(getBasket, packagingCart, getSauces);
 
             sauses = getSauces.Result.Data;
+            CanAddSauses = sauses?.Length > 0;
+            await RaisePropertyChanged(nameof(CanAddSauses));
+
             cart = getBasket.Result.Data;
             if (cart is null)
             {
@@ -115,6 +122,9 @@ namespace SushiShop.Core.ViewModels.Cart
             Promocode = cart!.Promocode?.Code ?? string.Empty;
 
             var availablePackages = packagingCart.Result.Data.Select(ProducePackageFromProduct).ToArray();
+            CanAddPackages = availablePackages.Length > 0;
+            await RaisePropertyChanged(nameof(CanAddPackages));
+
             var mergedPackages = cart!.Products.Where(product => product.Type == ProductType.Pack)
                                                .Union(availablePackages)
                                                .Select(product => viewModelsFactory.ProduceProductItemViewModel(cartManager, product, cart.Currency, cart.City, RefreshSausesCountState))
