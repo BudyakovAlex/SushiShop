@@ -62,7 +62,11 @@ namespace SushiShop.Ios.Views.Controls
         public override void LayoutSubviews()
         {
             base.LayoutSubviews();
-            bottomLineLayer.Frame = new CGRect(0f, Bounds.Height - BottomLineHeight, Bounds.Width, BottomLineHeight);
+            bottomLineLayer.Frame = new CGRect(0f, TextInputView.Frame.Bottom - BottomLineHeight, Bounds.Width, BottomLineHeight);
+            if (ContentOffset.Y < TextInputView.Frame.Height - Frame.Height)
+            {
+                this.SetContentOffset(new CGPoint(0, TextInputView.Frame.Height - Frame.Height), false);
+            }
         }
 
         protected override void Initialize()
