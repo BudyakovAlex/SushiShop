@@ -127,6 +127,7 @@ namespace SushiShop.Core.ViewModels.Orders
         {
             Messenger.Publish(new RefreshCartMessage(this));
             Messenger.Publish(new RefreshProductsMessage(this));
+            Messenger.Publish(new OrderCreatedMessage(this));
 
             return NavigationManager.CloseAsync(this, false);
         }

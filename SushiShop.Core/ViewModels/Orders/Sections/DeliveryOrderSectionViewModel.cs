@@ -121,7 +121,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         protected override async Task SelectAddressAsync()
         {
-            addressSuggestion = await NavigationManager.NavigateAsync<SelectOrderDeliveryAddressViewModel, AddressSuggestion>();
+            addressSuggestion = await NavigationManager.NavigateAsync<SelectOrderDeliveryAddressViewModel, AddressSuggestion?, AddressSuggestion>(addressSuggestion);
             await Task.WhenAll(
                 RaisePropertyChanged(nameof(DeliveryAddress)),
                 RaisePropertyChanged(nameof(DeliveryPrice)),

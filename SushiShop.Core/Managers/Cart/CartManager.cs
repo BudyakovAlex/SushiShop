@@ -83,7 +83,7 @@ namespace SushiShop.Core.Managers.Cart
                 return new Response<Product[]?>(isSuccessful: false, Array.Empty<Product>());
             }
 
-            var data = response.Data!.SuccessData!.Select(package => package.Map()).ToArray();
+            var data = response.Data!.SuccessData?.Select(package => package.Map()).ToArray();
             return new Response<Product[]?>(isSuccessful: true, data);
         }
 
@@ -95,7 +95,7 @@ namespace SushiShop.Core.Managers.Cart
                 return new Response<Topping[]?>(isSuccessful: false, Array.Empty<Topping>());
             }
 
-            var data = response.Data!.SuccessData!.Select(sauces => sauces.Map()).ToArray();
+            var data = response.Data!.SuccessData?.Select(sauces => sauces.Map()).ToArray();
             return new Response<Topping[]?>(isSuccessful: true, data!);
         }
 

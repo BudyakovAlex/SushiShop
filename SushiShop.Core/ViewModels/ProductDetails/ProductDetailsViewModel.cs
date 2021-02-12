@@ -1,4 +1,5 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
@@ -39,6 +40,8 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             StepperViewModel = new StepperViewModel(0, OnCountChangedAsync);
             RelatedItems = new MvxObservableCollection<ProductItemViewModel>();
             AddToCartCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddToCartAsync);
+
+            Messenger.Subscribe<OrderCreatedMessage>(OnOrderCreated).DisposeWith(Disposables);
         }
 
         public IMvxCommand AddToCartCommand { get; }
@@ -109,6 +112,12 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         {
             hasChanged = true;
             return base.RefreshDataAsync();
+        }
+
+        private void OnOrderCreated(OrderCreatedMessage obj)
+        {
+            StepperViewModel.Count = 0;
+            IsHiddenStepper = true;
         }
 
         private async Task AddToCartAsync()

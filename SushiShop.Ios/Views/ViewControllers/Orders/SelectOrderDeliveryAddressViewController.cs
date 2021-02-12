@@ -27,6 +27,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
         private TableViewSource searchSuggestionsTableViewSource;
         private MapView mapView;
         private IDisposable subscription;
+        private bool isZoomedOnStart;
 
         public bool HasSelectedLocation
         {
@@ -159,10 +160,17 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
                     var marker = Marker.FromPosition(position);
                     marker.Map = mapView;
                     marker.Icon = UIImage.FromBundle(ImageNames.DefaultMarker);
+
+                    if (!isZoomedOnStart)
+                    {
+                        mapView.MoveCamera(CameraUpdate.SetTarget(position, ViewModel.ZoomFactor));
+                        isZoomedOnStart = true;
+                    }
                 }
                 else
                 {
                     mapView.MoveCamera(CameraUpdate.SetTarget(new CLLocationCoordinate2D(ViewModel.Latitude, ViewModel.Longitude), ViewModel.ZoomFactor));
+                    isZoomedOnStart = true;
                 }
             });
         }
