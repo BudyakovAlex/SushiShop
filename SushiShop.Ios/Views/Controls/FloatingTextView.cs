@@ -17,6 +17,7 @@ namespace SushiShop.Ios.Views.Controls
 
         private CALayer bottomLineLayer;
         private UILabel placeholderLabel;
+        private bool isScrolling;
 
         public FloatingTextView()
         {
@@ -57,12 +58,23 @@ namespace SushiShop.Ios.Views.Controls
         public void DidChange(UITextView _)
         {
             IsEmpty = string.IsNullOrEmpty(Text);
+            isScrolling = false;
+        }
+
+        [Export("scrollViewDidScroll:")]
+        public new void Scrolled(UIScrollView scrollView)
+        {
+            isScrolling = true;
         }
 
         public override void LayoutSubviews()
         {
             base.LayoutSubviews();
-            bottomLineLayer.Frame = new CGRect(0f, Bounds.Height - BottomLineHeight, Bounds.Width, BottomLineHeight);
+            bottomLineLayer.Frame = new CGRect(0f, TextInputView.Frame.Bottom - BottomLineHeight, Bounds.Width, BottomLineHeight);
+            if (ContentOffset.Y < TextInputView.Frame.Height - Frame.Height && !isScrolling)
+            {
+                this.SetContentOffset(new CGPoint(0, TextInputView.Frame.Height - Frame.Height), false);
+            }
         }
 
         protected override void Initialize()

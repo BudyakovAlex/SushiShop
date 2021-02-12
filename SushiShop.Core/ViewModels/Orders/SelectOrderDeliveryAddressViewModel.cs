@@ -2,6 +2,7 @@
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using MvvmCross.ViewModels;
+using SushiShop.Core.Common;
 using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Managers.Cities;
@@ -62,11 +63,11 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public MvxObservableCollection<OrderDeliverySuggestionItemViewModel> Suggestions { get; }
 
-        public float ZoomFactor => _city?.ZoomFactor ?? 0;
+        public float ZoomFactor => _city?.ZoomFactor ?? Constants.Map.DefaultZoomFactor;
 
-        public double Latitude => _city?.Latitude ?? 0;
+        public double Latitude => _city?.Latitude ?? Constants.Map.MapStartPointLatitude;
 
-        public double Longitude => _city?.Longitude ?? 0;
+        public double Longitude => _city?.Longitude ?? Constants.Map.MapStartPointLongitude;
 
         private OrderDeliverySuggestionItemViewModel? selectedLocation;
         public OrderDeliverySuggestionItemViewModel? SelectedLocation
