@@ -18,7 +18,7 @@ using System.Windows.Input;
 
 namespace SushiShop.Core.ViewModels.Orders
 {
-    public class SelectOrderDeliveryAddressViewModel : BaseItemsPageViewModelResult<DeliveryZoneItemViewModel, AddressSuggestion>
+    public class SelectOrderDeliveryAddressViewModel : BaseItemsPageViewModel<DeliveryZoneItemViewModel, AddressSuggestion?, AddressSuggestion>
     {
         private const int SearchMillisecondsDelay = 1500;
 
@@ -164,6 +164,16 @@ namespace SushiShop.Core.ViewModels.Orders
 
             Suggestions.ReplaceWith(viewModels);
             cancellationTokenSource = null;
+        }
+
+        public override void Prepare(AddressSuggestion? parameter)
+        {
+            if (parameter is null)
+            {
+                return;
+            }
+
+            SelectedLocation = new OrderDeliverySuggestionItemViewModel(parameter, selectCommand);
         }
     }
 }
