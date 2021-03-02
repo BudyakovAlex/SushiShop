@@ -142,7 +142,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Feedback
         private void KeyboardWillShow(object _, UIKeyboardEventArgs args)
         {
             var height = args.FrameEnd.Height;
-            var offset = height - UIApplication.SharedApplication.KeyWindow.SafeAreaInsets.Bottom - Constants.UI.TabHeight;
+            var offset = height - UIApplication.SharedApplication.KeyWindow.SafeAreaInsets.Bottom;
             SetScrollViewBottomConstraint(offset, args.AnimationDuration);
         }
 
