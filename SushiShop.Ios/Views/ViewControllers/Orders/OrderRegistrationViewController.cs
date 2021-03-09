@@ -19,7 +19,7 @@ using UIKit;
 namespace SushiShop.Ios.Views.ViewControllers.Orders
 {
     [MvxModalPresentation(WrapInNavigationController = true)]
-    public partial class OrderRegistrationViewController : BaseViewController<OrderRegistrationViewModel>
+    public partial class OrderRegistrationViewController : BaseViewControllerWithKeyboard<OrderRegistrationViewModel>
     {
         private readonly NSRange privacyPolicyRange = new NSRange(108, 26);
         private readonly NSRange termsOfThePublicOffer = new NSRange(136, 28);
@@ -28,6 +28,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
         private UIButton backButton;
         private DoneAccessoryView doneAccessoryView;
+
+        protected override bool HandlesKeyboardNotifications => true;
 
         public OrderThanksSectionViewModel OrderThanksSection
         {
@@ -55,7 +57,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             scrollableTabsView.IsFixedTabs = true;
             scrollableTabsView.OnTabChangedAfterTapAction = OnTabChangedAfterTap;
             RootScrollView.Delegate = new OrderRegistrationScrollViewDelegate(OnDecelerated);
-
+           
             AppartmentDeliveryTextField.Placeholder = $"{AppStrings.Apartment}*";
             EntranceDeliveryTextField.Placeholder = $"{AppStrings.Entrance}*";
             IntercomDeliveryTextField.Placeholder = $"{AppStrings.Intercom}*";

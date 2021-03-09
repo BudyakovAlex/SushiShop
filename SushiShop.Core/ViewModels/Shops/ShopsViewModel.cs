@@ -100,7 +100,8 @@ namespace SushiShop.Core.ViewModels.Info
         {
             base.ViewAppeared();
 
-            if (selectedIndex == 0)
+            if (!IsSelectionMode && selectedIndex == 0 ||
+                IsSelectionMode && selectedIndex == 1)
             {
                 ShowSelectedItem();
             }
@@ -110,7 +111,8 @@ namespace SushiShop.Core.ViewModels.Info
         {
             base.ViewDisappearing();
 
-            if (previousSelectedIndex != 0)
+            if (!IsSelectionMode && previousSelectedIndex != 0 ||
+                IsSelectionMode && previousSelectedIndex != 1)
             {
                 return;
             }
@@ -204,12 +206,14 @@ namespace SushiShop.Core.ViewModels.Info
 
         private void OnSelectedIndexChanged()
         {
-            if (selectedIndex == 0)
+            if (!IsSelectionMode && selectedIndex == 0 ||
+                 IsSelectionMode && selectedIndex == 1)
             {
                 ShowSelectedItem();
             }
 
-            if (previousSelectedIndex == 0)
+            if (!IsSelectionMode && previousSelectedIndex == 0 ||
+                IsSelectionMode && previousSelectedIndex == 1)
             {
                 HideSelectedItem();
             }
