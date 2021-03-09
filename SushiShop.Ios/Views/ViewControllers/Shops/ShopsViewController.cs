@@ -2,7 +2,6 @@
 using Foundation;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
-using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Info;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using SushiShop.Ios.Common;
