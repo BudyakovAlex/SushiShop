@@ -89,12 +89,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             get => scoresToApply;
             set
             {
-                if (AvailableScores < value)
-                {
-                    value = AvailableScores;
-                }
-
-                SetProperty(ref scoresToApply, value, OnScoresToApplyChanged);
+                var alignedScores = Math.Min(value, AvailableScores);
+                SetProperty(ref scoresToApply, alignedScores, OnScoresToApplyChanged);
             }
         }
 
