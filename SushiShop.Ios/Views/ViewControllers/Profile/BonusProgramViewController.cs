@@ -34,6 +34,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
                 ContentLabel.SizeToFit();
 
                 ContentScrollView.ContentSize = ContentLabel.Frame.Size;
+                View.LayoutIfNeeded();
             }
         }
 
