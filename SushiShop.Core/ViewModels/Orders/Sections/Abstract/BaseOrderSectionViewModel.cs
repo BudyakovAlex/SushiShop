@@ -89,8 +89,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             get => scoresToApply;
             set
             {
-                var alignedScores = Math.Min(value, AvailableScores);
-                SetProperty(ref scoresToApply, alignedScores, OnScoresToApplyChanged);
+                scoresToApply = Math.Min(value, AvailableScores);
+                OnScoresToApplyChanged();
             }
         }
 
@@ -151,6 +151,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         private void OnScoresToApplyChanged()
         {
+            RaisePropertyChanged(nameof(ScoresToApply));
             RaisePropertyChanged(nameof(ScoresDiscount));
             RaisePropertyChanged(nameof(PriceToPay));
         }
