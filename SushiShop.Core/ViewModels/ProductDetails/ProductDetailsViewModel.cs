@@ -29,6 +29,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         private long id;
         private string? city;
         private bool hasChanged;
+        private bool isCartProduct;
 
         public ProductDetailsViewModel(IProductsManager productsManager, ICartManager cartManager)
         {
@@ -88,6 +89,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             id = parameter.Id;
             city = parameter.City;
             IsReadOnly = parameter.IsReadonly;
+            isCartProduct = parameter.IsCartProduct;
         }
 
         public override async Task InitializeAsync()
@@ -159,6 +161,11 @@ namespace SushiShop.Core.ViewModels.ProductDetails
 
             hasChanged = true;
             Messenger.Publish(new RefreshCartMessage(this));
+            if (isCartProduct)
+            {
+                Messenger.Publish(new RefreshProductsMessage(this));
+            }
+
             product!.Uid = response.Data.Uid;
         }
     }
