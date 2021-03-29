@@ -22,6 +22,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             base.InitStylesAndContent();
 
             EmailLoginTextField.Placeholder = AppStrings.ProfileLoginPlaceholder;
+            EmailLoginTextField.ShouldReturn = (textField) =>
+            {
+                EmailLoginTextField.EndEditing(true);
+                return true;
+            };
+
+            View.AddGestureRecognizer(new UITapGestureRecognizer(() => EmailLoginTextField.ResignFirstResponder()));
 
             RegisterButton.Layer.BorderWidth = 2;
             RegisterButton.Layer.BorderColor = Colors.OrangeGradientEnd.CGColor;
