@@ -106,6 +106,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
             if (newCount == 0 || response.Data.IsRefreshNeeded)
             {
                 Messenger.Publish(new RefreshCartMessage(this));
+                Messenger.Publish(new RefreshProductsMessage(this));
                 return;
             }
 

@@ -29,7 +29,7 @@ namespace SushiShop.Core.Managers.Feedback
                 return new Response<string?>(isSuccessful: true, response.Data!.SuccessData);
             }
 
-            return new Response<string?>(isSuccessful: false, string.Empty);
+            return new Response<string?>(isSuccessful: false, null, response.Data!.Errors!);
         }
     }
 }
