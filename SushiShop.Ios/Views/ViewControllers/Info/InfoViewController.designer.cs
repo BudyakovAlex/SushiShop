@@ -13,6 +13,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Info
 	partial class InfoViewController
 	{
 		[Outlet]
+		UIKit.UILabel DevelopedAtTitleLabel { get; set; }
+
+		[Outlet]
+		UIKit.UIView DevelopedAtView { get; set; }
+
+		[Outlet]
 		BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Controls.MvxStackView MenuStackView { get; set; }
 
 		[Outlet]
@@ -40,6 +46,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Info
 				MenuStackView = null;
 			}
 
+			if (PhoneContainerView != null) {
+				PhoneContainerView.Dispose ();
+				PhoneContainerView = null;
+			}
+
 			if (PhoneLabel != null) {
 				PhoneLabel.Dispose ();
 				PhoneLabel = null;
@@ -65,9 +76,14 @@ namespace SushiShop.Ios.Views.ViewControllers.Info
 				SocialNetworksStackView = null;
 			}
 
-			if (PhoneContainerView != null) {
-				PhoneContainerView.Dispose ();
-				PhoneContainerView = null;
+			if (DevelopedAtView != null) {
+				DevelopedAtView.Dispose ();
+				DevelopedAtView = null;
+			}
+
+			if (DevelopedAtTitleLabel != null) {
+				DevelopedAtTitleLabel.Dispose ();
+				DevelopedAtTitleLabel = null;
 			}
 		}
 	}

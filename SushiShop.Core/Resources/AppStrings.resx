@@ -444,4 +444,7 @@
   <data name="SelectShop" xml:space="preserve">
     <value>Выбор магазина</value>
   </data>
+  <data name="DevelopedAt" xml:space="preserve">
+    <value>разработано в</value>
+  </data>
 </root>

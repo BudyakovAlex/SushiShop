@@ -688,5 +688,11 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("SelectShop", resourceCulture);
             }
         }
+        
+        public static string DevelopedAt {
+            get {
+                return ResourceManager.GetString("DevelopedAt", resourceCulture);
+            }
+        }
     }
 }

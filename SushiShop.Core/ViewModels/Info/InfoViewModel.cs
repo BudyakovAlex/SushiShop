@@ -29,6 +29,7 @@ namespace SushiShop.Core.ViewModels.Info
 
             GoToShopsCommand = new SafeAsyncCommand(ExecutionStateWrapper, GoToShopsAsync);
             CallToOfficeCommand = new MvxCommand(() => ExecutionStateWrapper.Wrap(CallToOffice));
+            OpenSiteInBrowserCommand = new SafeAsyncCommand(ExecutionStateWrapper, OpenSiteInBrowserAsync);
 
             Messenger.Subscribe<CityChangedMessage>(OnCityChnaged).DisposeWith(Disposables);
         }
@@ -36,6 +37,8 @@ namespace SushiShop.Core.ViewModels.Info
         public ICommand CallToOfficeCommand { get; }
 
         public ICommand GoToShopsCommand { get; }
+
+        public ICommand OpenSiteInBrowserCommand { get; }
 
         public string? OfficePhone { get; private set; }
 
@@ -96,6 +99,11 @@ namespace SushiShop.Core.ViewModels.Info
         private void OnCityChnaged(CityChangedMessage message)
         {
             RefreshDataCommand.Execute();
+        }
+
+        private Task OpenSiteInBrowserAsync()
+        {
+            return Browser.OpenAsync(Constants.Info.DevelopersSite);
         }
     }
 }
