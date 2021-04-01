@@ -18,8 +18,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
     [MvxTabPresentation(WrapInNavigationController = true)]
     public partial class CartViewController : BaseViewControllerWithKeyboard<CartViewModel>
     {
-        private const int MainViewTabIndex = 0;
-
         private TableViewSource productsTableViewSource;
         private TableViewSource toppingsTableViewSource;
         private TableViewSource packagesTableViewSource;
@@ -123,7 +121,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
         {
             if (UIApplication.SharedApplication.Windows.FirstOrDefault()?.RootViewController is MainViewController mainViewController)
             {
-                mainViewController.TabIndex = MainViewTabIndex;
+                mainViewController.TabIndex = Constants.UI.MainViewTabIndex;
             }
         }
     }

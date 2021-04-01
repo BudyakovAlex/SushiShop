@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
+using MvvmCross.ViewModels;
 using SushiShop.Core.Common;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Messages;
@@ -21,8 +22,12 @@ namespace SushiShop.Core.ViewModels.Orders
             this.ordersManager = ordersManager;
             this.userSession = userSession;
 
+            GoToCartInteraction = new MvxInteraction();
+
             Pagination = new PaginationViewModel(LoadMoreItemsAsync, Constants.Common.DefaultPaginationSize);
         }
+
+        public MvxInteraction GoToCartInteraction { get; }
 
         public PaginationViewModel Pagination { get; }
 
@@ -74,6 +79,7 @@ namespace SushiShop.Core.ViewModels.Orders
             Messenger.Publish(new RefreshProductsMessage(this));
 
             await RefreshDataAsync();
+            GoToCartInteraction.Raise();
         }
     }
 }
