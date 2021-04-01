@@ -159,7 +159,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
                     var position = new CLLocationCoordinate2D(ViewModel.SelectedLocation.Latitude ?? 0, ViewModel.SelectedLocation.Longitude ?? 0);
                     var marker = Marker.FromPosition(position);
                     marker.Map = mapView;
-                    marker.Icon = UIImage.FromBundle(ImageNames.DefaultMarker);
+                    marker.Icon = UIImage.FromBundle(ImageNames.SelectedMarker);
 
                     if (!isZoomedOnStart)
                     {
