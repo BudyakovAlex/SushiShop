@@ -4,7 +4,7 @@ using SushiShop.Droid.Views.Activities.Abstract;
 
 namespace SushiShop.Droid.Views.Activities
 {
-    [Activity(NoHistory = true)]
+    [Activity(NoHistory = true, Theme = "@style/Theme.Splash")]
     public class AppStartActivity : BaseActivity<AppStartViewModel>
     {
         public AppStartActivity()
