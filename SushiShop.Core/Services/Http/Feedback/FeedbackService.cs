@@ -16,15 +16,15 @@ namespace SushiShop.Core.Services.Http.Feedback
         }
 
         public Task<HttpResponse<ResponseDto<string>>> SendFeedbackAsync(
-            string orderId,
-            string question,
+            string? orderId,
+            string? question,
             string[] imagePaths,
             CancellationToken cancellationToken)
         {
             var parameters = new Dictionary<string, string>
             {
-                [nameof(question)] = question,
-                [nameof(orderId)] = orderId
+                [nameof(question)] = question ?? string.Empty,
+                [nameof(orderId)] = orderId ?? string.Empty
             };
 
             return httpService.ExecuteMultipartAsync<ResponseDto<string>>(

@@ -15,8 +15,8 @@ namespace SushiShop.Core.Managers.Feedback
         }
 
         public async Task<Response<string?>> SendFeedbackAsync(
-            string orderNumber,
-            string question,
+            string? orderNumber,
+            string? question,
             string[] imagePaths)
         {
             var response = await feedbackService.SendFeedbackAsync(

@@ -5,6 +5,6 @@ namespace SushiShop.Core.Managers.Feedback
 {
     public interface IFeedbackManager
     {
-        Task<Response<string?>> SendFeedbackAsync(string orderNumber, string question, string[] imagePaths);
+        Task<Response<string?>> SendFeedbackAsync(string? orderNumber, string? question, string[] imagePaths);
     }
 }

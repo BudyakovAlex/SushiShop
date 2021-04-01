@@ -31,11 +31,7 @@ namespace SushiShop.Core.ViewModels.Feedback
 
             Photos = new MvxObservableCollection<PhotoItemViewModel>();
 
-            SendFeedbackCommand = new SafeAsyncCommand(
-                ExecutionStateWrapper,
-                SendFeedbackAsync,
-                () => !IsOrderNumberEmpty && !IsQuestionEmpty);
-
+            SendFeedbackCommand = new SafeAsyncCommand(ExecutionStateWrapper, SendFeedbackAsync);
             PickPhotoCommand = new SafeAsyncCommand(new ExecutionStateWrapper(), PickPhotoAsync);
             TakePhotoCommand = new SafeAsyncCommand(new ExecutionStateWrapper(), TakePhotoAsync);
             UploadPhotosCommand = new SafeAsyncCommand(new ExecutionStateWrapper(), UploadPhotosAsync);

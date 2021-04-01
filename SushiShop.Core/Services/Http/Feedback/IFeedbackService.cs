@@ -7,8 +7,8 @@ namespace SushiShop.Core.Services.Http.Feedback
     public interface IFeedbackService
     {
         Task<HttpResponse<ResponseDto<string>>> SendFeedbackAsync(
-            string orderNumber,
-            string question,
+            string? orderNumber,
+            string? question,
             string[] imagePaths,
             CancellationToken cancellationToken);
     }
