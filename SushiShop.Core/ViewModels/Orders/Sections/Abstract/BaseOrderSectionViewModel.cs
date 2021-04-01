@@ -48,21 +48,21 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         public ICommand SelectReceiveDateTime { get; }
 
-        private string? name;
+        private string? name = string.Empty;
         public string? Name
         {
             get => name;
             set => SetProperty(ref name, value);
         }
 
-        private string? phone;
+        private string? phone = string.Empty;
         public string? Phone
         {
             get => phone;
             set => SetProperty(ref phone, value);
         }
 
-        private string? comments;
+        private string? comments = string.Empty;
         public string? Comments
         {
             get => comments;

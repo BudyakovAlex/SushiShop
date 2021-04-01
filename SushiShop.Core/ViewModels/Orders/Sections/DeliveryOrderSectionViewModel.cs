@@ -73,11 +73,6 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         protected override async Task<OrderConfirmed?> ConfirmOrderAsync()
         {
-            if (addressSuggestion is null)
-            {
-                return null;
-            }
-
             var deliveryRequest = new OrderDeliveryRequest(addressSuggestion?.Address, addressSuggestion?.Coordinates)
             {
                 Flat = Flat,
@@ -90,9 +85,9 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             var orderRequest = new OrderRequest(
                 UserSession.GetCartId(),
                 city?.Name,
-                Name!,
-                Phone!,
-                Comments!,
+                Name,
+                Phone,
+                Comments,
                 СutleryStepperViewModel.Count,
                 addressSuggestion?.ShopId ?? 0,
                 ReceiveDateTime,

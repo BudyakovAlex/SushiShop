@@ -1,16 +1,17 @@
 ﻿using SushiShop.Core.Data.Enums;
 using System;
+
 namespace SushiShop.Core.Data.Models.Orders
 {
     public class OrderRequest
     {
         public OrderRequest(Guid basketId,
                             string? city,
-                            string clientName,
-                            string phoneNumber,
-                            string comment,
+                            string? clientName,
+                            string? phoneNumber,
+                            string? comment,
                             int cutlery,
-                            long shopId,
+                            long? shopId,
                             DateTime? preferedDateTime,
                             PaymentMethod paymentMethod,
                             OrderDeliveryRequest? orderDelivery,
@@ -39,15 +40,15 @@ namespace SushiShop.Core.Data.Models.Orders
 
         public string? City { get; }
 
-        public string ClientName { get; }
+        public string? ClientName { get; }
 
-        public string PhoneNumber { get; }
+        public string? PhoneNumber { get; }
 
-        public string Comment { get; }
+        public string? Comment { get; }
 
         public int Cutlery { get; }
 
-        public long ShopId { get; }
+        public long? ShopId { get; }
 
         public DateTime? PreferedDateTime { get; }
 

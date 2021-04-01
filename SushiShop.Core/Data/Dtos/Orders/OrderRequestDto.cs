@@ -17,7 +17,7 @@ namespace SushiShop.Core.Data.Dtos.Orders
 
         public int Cutlery { get; set; }
 
-        public long ShopId { get; set; }
+        public long? ShopId { get; set; }
 
         [JsonProperty("orderClientTime")]
         public DateTime? PreferedDateTime { get; set; }
