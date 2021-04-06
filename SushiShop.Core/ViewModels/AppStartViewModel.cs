@@ -7,6 +7,7 @@ namespace SushiShop.Core.ViewModels
         public override void ViewAppeared()
         {
             base.ViewAppeared();
+
             _ = NavigationManager.NavigateAsync<MainViewModel>();
         }
     }

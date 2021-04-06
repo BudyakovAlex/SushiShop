@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="?android:actionBarSize"
             android:background="?android:windowBackground"
-            app:navigationIcon="@drawable/ic_back" />
+            app:navigationIcon="@drawable/ic_back"/>
     </com.google.android.material.appbar.AppBarLayout>
     <View
         android:layout_width="match_parent"
