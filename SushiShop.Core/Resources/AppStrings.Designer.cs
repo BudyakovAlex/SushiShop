@@ -47,9 +47,9 @@ namespace SushiShop.Core.Resources {
             }
         }
         
-        public static string SelectSity {
+        public static string SelectCity {
             get {
-                return ResourceManager.GetString("SelectSity", resourceCulture);
+                return ResourceManager.GetString("SelectCity", resourceCulture);
             }
         }
         
@@ -89,9 +89,9 @@ namespace SushiShop.Core.Resources {
             }
         }
         
-        public static string SearchSity {
+        public static string SearchCity {
             get {
-                return ResourceManager.GetString("SearchSity", resourceCulture);
+                return ResourceManager.GetString("SearchCity", resourceCulture);
             }
         }
         

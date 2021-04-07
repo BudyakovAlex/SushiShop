@@ -11,6 +11,7 @@
         android:layout_height="wrap_content">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            android:theme="@style/ToolbarText"
             android:layout_width="match_parent"
             android:layout_height="?android:actionBarSize"
             android:background="?android:windowBackground"
