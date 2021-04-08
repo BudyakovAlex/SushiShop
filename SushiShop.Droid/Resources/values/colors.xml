@@ -9,4 +9,6 @@
     <color name="black">#17181B</color>
     <color name="gray">#F2F2F7</color>
     <color name="gr">#BABAC2</color>
+    <color name="gr2">#E5E5ED</color>
+    <color name="background">#F2F2F6</color>
 </resources>

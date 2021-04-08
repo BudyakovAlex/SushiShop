@@ -1,15 +1,22 @@
 ﻿using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidX.RecyclerView.Widget;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
-using MvvmCross.Binding.BindingContext;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
+using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
+using SushiShop.Core.Data.Http;
 using SushiShop.Core.Extensions;
-using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Menu;
+using SushiShop.Core.ViewModels.Menu.Items;
+using SushiShop.Droid.Views.LayoutManagers;
+using SushiShop.Droid.Views.ViewHolders.Menu.Grid;
+using SushiShop.Droid.Views.ViewHolders.Menu.Simple;
 
 namespace SushiShop.Droid.Views.Fragments.Menu
 {
@@ -19,11 +26,14 @@ namespace SushiShop.Droid.Views.Fragments.Menu
         ActivityHostViewModelType = typeof(MainViewModel))]
     public class MenuFragment : BaseFragment<MenuViewModel>
     {
+        private RecycleViewBindableAdapter listAdapter;
         private MvxRecyclerView listRecyclerView;
         private MvxRecyclerView gridRecyclerView;
+
         private TextView toolbarTitleTextView;
         private ImageView chevronImageView;
         private ImageView changeModeImageView;
+        private int categoryPosition;
 
         public MenuFragment()
             : base(Resource.Layout.fragment_menu)
@@ -54,16 +64,84 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             bindingSet.Bind(changeModeImageView).For(v => v.BindClick()).To(vm => vm.SwitchPresentationCommand);
             bindingSet.Bind(changeModeImageView).For(v => v.BindDrawableId()).To(vm => vm.IsListMenuPresentation)
                       .WithConversion((bool isListMode) => isListMode ? Resource.Drawable.ic_list : Resource.Drawable.ic_grid);
+
+            bindingSet.Bind(listRecyclerView).For(v => v.ItemsSource).To(vm => vm.SimpleItems);
+            bindingSet.Bind(gridRecyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
+
+            bindingSet.Bind(listRecyclerView).For(v => v.BindHidden()).To(vm => vm.IsListMenuPresentation);
+            bindingSet.Bind(gridRecyclerView).For(v => v.BindVisible()).To(vm => vm.IsListMenuPresentation);
         }
 
         private void InitializeListRecyclerView()
         {
             listRecyclerView = View.FindViewById<MvxRecyclerView>(Resource.Id.list_recycler_view);
+            listAdapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
+            listRecyclerView.Adapter = listAdapter;
+
+            var gridLayoutManager = new GridLayoutManager(Context, 2);
+            gridLayoutManager.SetSpanSizeLookup(new DelegateGridLayoutManagerSpanSizeLookup(GetListRecyclerViewItemsSpan));
+
+            listRecyclerView.SetLayoutManager(gridLayoutManager);
+
+            listRecyclerView.ItemTemplateSelector = new TemplateSelector()
+                .AddElement<MenuActionItemViewModel, SimpleMenuActionItemViewHolder>(Resource.Layout.item_simple_menu_action)
+                .AddElement<CategoryMenuItemViewModel, SimpleMenuItemViewHolder>(Resource.Layout.item_simple_menu_action)
+                .AddElement<GroupsMenuItemViewModel, SimpleMenuGroupsViewHolder>(Resource.Layout.item_grouped_menu);
+        }
+
+        private int GetListRecyclerViewItemsSpan(int position)
+        {
+            var itemType = listAdapter.GetItemViewType(position);
+            return itemType switch
+            {
+                Resource.Layout.item_grouped_menu => 2,
+                _ => 1,
+            };
         }
 
         private void InitializeGridRecyclerView()
         {
             gridRecyclerView = View.FindViewById<MvxRecyclerView>(Resource.Id.grid_recycler_view);
+            gridRecyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
+
+            var gridLayoutManager = new GridLayoutManager(Context, 1);
+            gridLayoutManager.SetSpanSizeLookup(new DelegateGridLayoutManagerSpanSizeLookup(GetGridRecyclerViewItemsSpan));
+            gridRecyclerView.SetLayoutManager(gridLayoutManager);
+
+            gridRecyclerView.ItemTemplateSelector = new TemplateSelector()
+               .AddElement<MenuPromotionListItemViewModel, MenuPromotionListItemViewHolder>(Resource.Layout.item_selectable)
+               .AddElement<CategoryMenuItemViewModel, CategoryMenuItemViewHolder>(Resource.Layout.item_selectable);
+        }
+
+        private int GetGridRecyclerViewItemsSpan(int position)
+        {
+            return 1;
+            //var itemType = listAdapter.GetItemViewType(position);
+            //switch (itemType)
+            //{
+            //    case Resource.Layout.item_simple_menu_action:
+            //        return 2;
+
+            //    case CategoryMenuItemViewModel _:
+            //        var span = categoryPosition == 0 ? 1 : 2;
+            //        UpdateCategoryPosition();
+            //        return span;
+
+            //    default:
+            //        return 1;
+            //}
+        }
+
+        private void UpdateCategoryPosition()
+        {
+            if (categoryPosition == 2)
+            {
+                categoryPosition = 0;
+            }
+            else
+            {
+                categoryPosition++;
+            }
         }
     }
 }

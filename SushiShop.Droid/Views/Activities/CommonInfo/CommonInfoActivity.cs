@@ -14,7 +14,7 @@ namespace SushiShop.Droid.Views.Activities.CommonInfo
         private WebView webView;
         private Toolbar toolbar;
 
-        public CommonInfoActivity() : base(Resource.Layout.activity_select_city)
+        public CommonInfoActivity() : base(Resource.Layout.activity_common_info)
         {
         }
 
@@ -23,7 +23,6 @@ namespace SushiShop.Droid.Views.Activities.CommonInfo
             base.InitializeViewPoroperties();
 
             webView = FindViewById<WebView>(Resource.Id.web_view);
-
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
         }
