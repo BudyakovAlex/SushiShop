@@ -9,7 +9,6 @@ using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
-using SushiShop.Core.Data.Http;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Menu;
@@ -33,7 +32,6 @@ namespace SushiShop.Droid.Views.Fragments.Menu
         private TextView toolbarTitleTextView;
         private ImageView chevronImageView;
         private ImageView changeModeImageView;
-        private int categoryPosition;
 
         public MenuFragment()
             : base(Resource.Layout.fragment_menu)
@@ -104,43 +102,31 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             gridRecyclerView = View.FindViewById<MvxRecyclerView>(Resource.Id.grid_recycler_view);
             gridRecyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
 
-            var gridLayoutManager = new GridLayoutManager(Context, 1);
+            var gridLayoutManager = new GridLayoutManager(Context, 2, LinearLayoutManager.Vertical, false);
             gridLayoutManager.SetSpanSizeLookup(new DelegateGridLayoutManagerSpanSizeLookup(GetGridRecyclerViewItemsSpan));
             gridRecyclerView.SetLayoutManager(gridLayoutManager);
 
             gridRecyclerView.ItemTemplateSelector = new TemplateSelector()
-               .AddElement<MenuPromotionListItemViewModel, MenuPromotionListItemViewHolder>(Resource.Layout.item_selectable)
-               .AddElement<CategoryMenuItemViewModel, CategoryMenuItemViewHolder>(Resource.Layout.item_selectable);
+               .AddElement<MenuPromotionListItemViewModel, MenuPromotionListItemViewHolder>(Resource.Layout.item_promotion_list)
+               .AddElement<CategoryMenuItemViewModel, CategoryMenuItemViewHolder>(Resource.Layout.item_menu_category);
         }
 
         private int GetGridRecyclerViewItemsSpan(int position)
         {
-            return 1;
-            //var itemType = listAdapter.GetItemViewType(position);
-            //switch (itemType)
-            //{
-            //    case Resource.Layout.item_simple_menu_action:
-            //        return 2;
-
-            //    case CategoryMenuItemViewModel _:
-            //        var span = categoryPosition == 0 ? 1 : 2;
-            //        UpdateCategoryPosition();
-            //        return span;
-
-            //    default:
-            //        return 1;
-            //}
-        }
-
-        private void UpdateCategoryPosition()
-        {
-            if (categoryPosition == 2)
+            if (position == 0 ||
+                position == 1)
             {
-                categoryPosition = 0;
+                return 2;
+            }
+
+            if (position % 3 == 0 ||
+                position % 3 == 2)
+            {
+                return 1;
             }
             else
             {
-                categoryPosition++;
+                return 2;
             }
         }
     }

@@ -23,6 +23,8 @@ namespace SushiShop.Droid.Views.Activities.CommonInfo
             base.InitializeViewPoroperties();
 
             webView = FindViewById<WebView>(Resource.Id.web_view);
+            webView.Settings.JavaScriptEnabled = true;
+
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
         }

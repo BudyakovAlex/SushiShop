@@ -91,6 +91,7 @@
     <Compile Include="Views\ViewHolders\Menu\Simple\SimpleGroupMenuItemViewHolder.cs" />
     <Compile Include="TargetBindings\ImageViewUrlTargetBinding.cs" />
     <Compile Include="Extensions\BindingExtensions.cs" />
+    <Compile Include="Views\ViewHolders\Menu\Grid\MenuPromotionItemViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -335,6 +336,18 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\item_group_menu.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_promotion_list.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_menu_category.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_menu_promotion.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
