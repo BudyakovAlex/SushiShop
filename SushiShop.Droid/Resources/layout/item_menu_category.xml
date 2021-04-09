@@ -19,7 +19,7 @@
         android:layout_gravity="bottom"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="21dp"
-        android:fontFamily="@font/font_family_sf_pro_display_regular"
+        android:fontFamily="@font/font_family_sf_pro_display_medium"
         android:textColor="@color/white"
         android:textFontWeight="500"
         android:textSize="18dp"
