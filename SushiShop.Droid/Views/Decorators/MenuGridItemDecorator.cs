@@ -31,13 +31,13 @@ namespace SushiShop.Droid.Views.Decorators
 
             if (position % 3 == 0)
             {
-                outRect.Left = margin;
+                outRect.Right = margin;
                 return;
             }
 
             if (position % 3 == 2)
             {
-                outRect.Right = margin;
+                outRect.Left = margin;
                 return;
             }
             else
