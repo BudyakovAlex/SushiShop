@@ -94,6 +94,7 @@
     <Compile Include="Views\ViewHolders\Menu\Grid\MenuPromotionItemViewHolder.cs" />
     <Compile Include="Platform\Listeners\GlideRequestListener.cs" />
     <Compile Include="Views\Decorators\MenuGridItemDecorator.cs" />
+    <Compile Include="Views\Controls\StepperView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -366,6 +367,14 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\item_select_topping.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_plus.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_minus.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
