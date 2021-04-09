@@ -24,7 +24,7 @@ namespace SushiShop.Droid
         {
             base.FillTargetFactories(registry);
 
-            registry.RegisterCustomBindingFactory<ImageView>(ImageViewUrlTargetBinding.DefaultImageViewUrlTargetBinding, view => new ImageViewUrlTargetBinding(view));
+            registry.RegisterCustomBindingFactory<ImageView>(ImageViewUrlTargetBinding.DefaultImageViewUrlTargetBinding, view => new ImageViewUrlTargetBinding(view, false));
             registry.RegisterCustomBindingFactory<ImageView>(ImageViewUrlTargetBinding.AdaptedImageViewUrlTargetBinding, view => new ImageViewUrlTargetBinding(view, true));
         }
     }

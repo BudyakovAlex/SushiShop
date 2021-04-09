@@ -5,17 +5,11 @@
     android:background="@color/background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <LinearLayout
-        android:id="@+id/toolbar_layout"
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:orientation="vertical">
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <androidx.appcompat.widget.Toolbar
@@ -65,11 +59,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@drawable/dropshadow" />
-    </LinearLayout>
     <mvvmcross.droidx.recyclerview.MvxRecyclerView
         android:id="@+id/list_recycler_view"
         android:layout_width="0dp"
@@ -83,7 +72,7 @@
         android:clipToPadding="false"
         android:background="@color/background"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
     <mvvmcross.droidx.recyclerview.MvxRecyclerView
         android:id="@+id/grid_recycler_view"
         android:layout_width="0dp"
@@ -92,5 +81,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/background"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/dropshadow" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,5 @@
 ﻿using Android.Widget;
-using BumpTech.GlideLib;
+using Bumptech.Glide;
 using MvvmCross.Platforms.Android.Binding.Target;
 
 namespace SushiShop.Droid.TargetBindings
@@ -13,9 +13,14 @@ namespace SushiShop.Droid.TargetBindings
 
         private readonly bool isSizeAdapted;
 
-        public ImageViewUrlTargetBinding(ImageView target, bool isSizeAdapted = false) : base(target)
+        public ImageViewUrlTargetBinding(ImageView target, bool isSizeAdapted) : base(target)
         {
             this.isSizeAdapted = isSizeAdapted;
+
+            if (isSizeAdapted)
+            {
+                target.SetScaleType(ImageView.ScaleType.Center);
+            }
         }
 
         protected override void SetValueImpl(ImageView target, string value)
@@ -31,9 +36,17 @@ namespace SushiShop.Droid.TargetBindings
 
         private void LoadImage(string url)
         {
-            var request = Glide.With(Target.Context).Load(url);
-            request.Placeholder(Resource.Drawable.img_splash_logo).CenterCrop();
-            request.Into(Target);
+            if (!isSizeAdapted)
+            {
+                Glide.With(Target.Context).Load(url).Into(Target);
+                return;
+            }
+
+            Glide.With(Target.Context)
+                .Load(url)
+                .Placeholder(Resource.Drawable.ic_placeholder)
+                .Error(Resource.Drawable.ic_placeholder)
+                .Into(Target);
         }
 
         private string GetImagePath(string imageUrl)
@@ -48,10 +61,8 @@ namespace SushiShop.Droid.TargetBindings
             {
                 return imageUrl;
             }
-            else
-            {
-                return imageUrl[..index] + string.Format(UrlSuffixFormat, Target.Width, Target.Height);
-            }
+
+            return imageUrl[..index] + string.Format(UrlSuffixFormat, Target.Width, Target.Height);
         }
     }
 }

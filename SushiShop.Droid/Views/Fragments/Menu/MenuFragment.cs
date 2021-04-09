@@ -13,6 +13,7 @@ using SushiShop.Core.Extensions;
 using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Menu;
 using SushiShop.Core.ViewModels.Menu.Items;
+using SushiShop.Droid.Views.Decorators;
 using SushiShop.Droid.Views.LayoutManagers;
 using SushiShop.Droid.Views.ViewHolders.Menu.Grid;
 using SushiShop.Droid.Views.ViewHolders.Menu.Simple;
@@ -105,6 +106,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             var gridLayoutManager = new GridLayoutManager(Context, 2, LinearLayoutManager.Vertical, false);
             gridLayoutManager.SetSpanSizeLookup(new DelegateGridLayoutManagerSpanSizeLookup(GetGridRecyclerViewItemsSpan));
             gridRecyclerView.SetLayoutManager(gridLayoutManager);
+            gridRecyclerView.AddItemDecoration(new MenuGridItemDecorator());
 
             gridRecyclerView.ItemTemplateSelector = new TemplateSelector()
                .AddElement<MenuPromotionListItemViewModel, MenuPromotionListItemViewHolder>(Resource.Layout.item_promotion_list)
