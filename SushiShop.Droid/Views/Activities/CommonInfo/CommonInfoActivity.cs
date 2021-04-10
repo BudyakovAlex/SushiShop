@@ -4,7 +4,6 @@ using AndroidX.AppCompat.Widget;
 using MvvmCross.Platforms.Android.Binding;
 using SushiShop.Core.ViewModels.Common;
 using SushiShop.Droid.Views.Activities.Abstract;
-using System;
 
 namespace SushiShop.Droid.Views.Activities.CommonInfo
 {

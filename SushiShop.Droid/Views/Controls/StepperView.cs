@@ -5,12 +5,12 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Core.Content.Resources;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
+using MvvmCross.Base;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Binding;
-using MvvmCross.Platforms.Android.Binding.Views;
-using SushiShop.Core.Converters;
 using SushiShop.Core.ViewModels.Common;
 using System;
 using System.Threading.Tasks;
@@ -18,23 +18,38 @@ using System.Threading.Tasks;
 namespace SushiShop.Droid.Views.Controls
 {
     [Register(nameof(SushiShop) + "." + nameof(StepperView))]
-    public class StepperView : MvxLinearLayout, IMvxBindingContextOwner
+    public class StepperView : LinearLayout, IMvxBindingContextOwner, IMvxDataConsumer
     {
         private TextView valueTextView;
+        private LayoutParams incrementImageLayoutParams;
         private ImageView incrementImageView;
+
+        private LayoutParams decrementImageLayoutParams;
         private ImageView decrementImageView;
+
+        private int imageSize;
 
         public StepperView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
             Initialize();
         }
 
-        public StepperView(Context context, IAttributeSet attrs, IMvxAdapterWithChangedEvent adapter) : base(context, attrs, adapter)
+        protected StepperView(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
         {
             Initialize();
         }
 
-        protected StepperView(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        public StepperView(Context context) : base(context)
+        {
+            Initialize();
+        }
+
+        public StepperView(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
+        {
+            Initialize();
+        }
+
+        public StepperView(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(context, attrs, defStyleAttr, defStyleRes)
         {
             Initialize();
         }
@@ -52,37 +67,15 @@ namespace SushiShop.Droid.Views.Controls
             set
             {
                 count = value;
-                if (count == 0)
-                {
-                    if (Title is null)
-                    {
-                        decrementImageView.Visibility = ViewStates.Gone;
-                        valueTextView.Visibility = ViewStates.Gone;
-                        incrementImageView.Visibility = ViewStates.Visible;
-                    }
-                    else
-                    {
-                        decrementImageView.Visibility = ViewStates.Gone;
-                        incrementImageView.Visibility = ViewStates.Gone;
-
-                        SetTitle(Title);
-                        SetOnClickListener(new ViewOnClickListener((v) =>
-                        {
-                            ViewModel?.AddCommand?.Execute();
-                            return Task.CompletedTask;
-                        }));
-                    }
-                }
-                else
-                {
-                    decrementImageView.Visibility = ViewStates.Visible;
-                    incrementImageView.Visibility = ViewStates.Visible;
-                    SetTitle(count.ToString());
-                    SetOnClickListener(null);
-                }
-
+                SetControlsState();
                 RequestLayout();
             }
+        }
+
+        public object DataContext
+        {
+            get => BindingContext.DataContext;
+            set => BindingContext.DataContext = value;
         }
 
         private void SetTitle(string title)
@@ -91,17 +84,68 @@ namespace SushiShop.Droid.Views.Controls
             valueTextView.Visibility = ViewStates.Visible;
         }
 
+        private void SetControlsState()
+        {
+            if (Count > 0)
+            {
+                decrementImageView.Visibility = ViewStates.Visible;
+                incrementImageView.Visibility = ViewStates.Visible;
+
+                var margin = (int)Context.DpToPx(4);
+                decrementImageLayoutParams.MarginStart = margin;
+                incrementImageLayoutParams.MarginEnd = margin;
+
+                decrementImageView.LayoutParameters = decrementImageLayoutParams;
+                incrementImageView.LayoutParameters = incrementImageLayoutParams;
+
+                SetTitle(Count.ToString());
+                SetOnClickListener(null);
+                return;
+            }
+
+            if (Title is null)
+            {
+                decrementImageView.Visibility = ViewStates.Gone;
+                valueTextView.Visibility = ViewStates.Gone;
+                incrementImageView.Visibility = ViewStates.Visible;
+
+                incrementImageLayoutParams.MarginEnd = 0;
+                incrementImageView.LayoutParameters = incrementImageLayoutParams;
+
+                SetOnClickListener(null);
+                return;
+            }
+
+            decrementImageView.Visibility = ViewStates.Gone;
+            incrementImageView.Visibility = ViewStates.Gone;
+
+            SetTitle(Title);
+            SetOnClickListener(new ViewOnClickListener((v) =>
+            {
+                ViewModel?.AddCommand?.Execute();
+                return Task.CompletedTask;
+            }));
+        }
+
         private void Initialize()
         {
-            LayoutTransition.EnableTransitionType(LayoutTransitionType.Changing);
+            imageSize = (int)Context.DpToPx(32);
+            
+            BindingContext = new MvxBindingContext();
+
+            this.SetRoundedCorners(Context.DpToPx(16));
+
+            var layoutTransition = new LayoutTransition();
+            layoutTransition.EnableTransitionType(LayoutTransitionType.Changing | LayoutTransitionType.Appearing | LayoutTransitionType.Disappearing);
+
+            LayoutTransition = layoutTransition;
             SetBackgroundResource(Resource.Drawable.bg_button_gradient);
-            Orientation = Android.Widget.Orientation.Horizontal;
+            Orientation = Orientation.Horizontal;
 
             InitializeDecrementImage();
             InitializeValueTextView();
             InitializeIncrementImage();
 
-            BindingContext = new MvxBindingContext();
             this.DelayBind(Bind);
         }
 
@@ -111,72 +155,62 @@ namespace SushiShop.Droid.Views.Controls
 
             bindingSet.Bind(this).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(this).For(v => v.Count).To(vm => vm.Count);
+
             bindingSet.Bind(decrementImageView).For(v => v.BindClick()).To(vm => vm.RemoveCommand);
             bindingSet.Bind(incrementImageView).For(v => v.BindClick()).To(vm => vm.AddCommand);
-            bindingSet.Bind(incrementImageView).For(v => v.BindMarginEnd()).To(vm => vm.Count)
-               .WithConversion(new DelegateConverter<int, int>((int count) => count == 0 ? 10 : 12));
-            bindingSet.Bind(incrementImageView).For(v => v.BindMarginStart()).To(vm => vm.Count)
-               .WithConversion(new DelegateConverter<int, int>((int count) => count == 0 ? 10 : 0));
         }
 
         private void InitializeValueTextView()
         {
-            var margin = (int)Context.DpToPx(6);
             valueTextView = new TextView(Context)
             {
                 LayoutParameters = new LayoutParams(
                    ViewGroup.LayoutParams.WrapContent,
                    ViewGroup.LayoutParams.WrapContent)
                 {
-                    Gravity = GravityFlags.CenterVertical,
-                    MarginStart = margin,
-                    MarginEnd = margin
+                    Gravity = GravityFlags.CenterVertical
                 },
-                TextSize = Context.DpToPx(14)
+                TextSize = 14
             };
 
             valueTextView.SetTextColor(Color.White);
-            var typeface = Typeface.CreateFromAsset(Context.Assets,
-            "font/sf_pro_display_regular.otf");
+            var typeface = ResourcesCompat.GetFont(Context, Resource.Font.sf_pro_display_medium);
             valueTextView.SetTypeface(typeface, TypefaceStyle.Normal);
             AddView(valueTextView);
         }
 
         private void InitializeIncrementImage()
         {
-            var layoutParams = new LayoutParams(
-                ViewGroup.LayoutParams.WrapContent,
-                ViewGroup.LayoutParams.WrapContent)
+            incrementImageLayoutParams = new LayoutParams(imageSize, imageSize)
             {
                 Gravity = GravityFlags.CenterVertical
             };
 
             incrementImageView = new ImageView(Context)
             {
-                LayoutParameters = layoutParams
+                LayoutParameters = incrementImageLayoutParams
             };
 
             incrementImageView.SetImageResource(Resource.Drawable.ic_plus);
-            AddView(valueTextView);
+            incrementImageView.SetScaleType(ImageView.ScaleType.Center);
+            AddView(incrementImageView);
         }
 
         private void InitializeDecrementImage()
         {
-            var layoutParams = new LayoutParams(
-                ViewGroup.LayoutParams.WrapContent,
-                ViewGroup.LayoutParams.WrapContent)
+            decrementImageLayoutParams = new LayoutParams(imageSize, imageSize)
             {
-                Gravity = GravityFlags.CenterVertical,
-                MarginStart = (int)Context.DpToPx(12)
+                Gravity = GravityFlags.CenterVertical
             };
 
             decrementImageView = new ImageView(Context)
             {
-                LayoutParameters = layoutParams
+                LayoutParameters = decrementImageLayoutParams,               
             };
 
             decrementImageView.SetImageResource(Resource.Drawable.ic_minus);
-            AddView(valueTextView);
+            decrementImageView.SetScaleType(ImageView.ScaleType.Center);
+            AddView(decrementImageView);
         }
     }
 }
