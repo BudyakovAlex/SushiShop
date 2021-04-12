@@ -36,11 +36,11 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public string Title => string.Format(AppStrings.OrderTemplate, orderId);
 
-        public string? OrderDateTime => order?.OrderDateTime.ToString(Constants.Format.DateTime.DateWithTime);
+        public string? OrderDateTime => order?.OrderDateTime.ToString(Constants.Format.DateTime.DateWithTwentyFourTime);
 
         public string? PreferredDeliveryTimeTitle => AppStrings.PreferredDeliveryTime;
 
-        public string? PreferredDeliveryTimeValue => order?.PreferredDeliveryTime.ToString(Constants.Format.DateTime.DateWithTime);
+        public string? PreferredDeliveryTimeValue => order?.PreferredDeliveryTime.ToString(Constants.Format.DateTime.DateWithTwentyFourTime);
 
         public string? TotalPriceTitle => $"{AppStrings.Total}:";
 

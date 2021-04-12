@@ -77,6 +77,26 @@
     <Compile Include="Views\Fragments\Menu\MenuFragment.cs" />
     <Compile Include="Views\Fragments\Profile\ProfileFragment.cs" />
     <Compile Include="Views\Fragments\Promotions\PromotionsFragment.cs" />
+    <Compile Include="Plugins\Dialog.cs" />
+    <Compile Include="Views\ViewHolders\Abstract\CardViewHolder{TViewModel}.cs" />
+    <Compile Include="Views\Activities\Cities\SelectCityActivity.cs" />
+    <Compile Include="Views\Activities\CommonInfo\CommonInfoActivity.cs" />
+    <Compile Include="Views\ViewHolders\Common\SelectableItemViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Menu\Simple\SimpleMenuActionItemViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Menu\Simple\SimpleMenuItemViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Menu\Simple\SimpleMenuGroupsViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Menu\Grid\MenuPromotionListItemViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Menu\Grid\CategoryMenuItemViewHolder.cs" />
+    <Compile Include="Views\LayoutManagers\DelegateGridLayoutManagerSpanSizeLookup.cs" />
+    <Compile Include="Views\ViewHolders\Menu\Simple\SimpleGroupMenuItemViewHolder.cs" />
+    <Compile Include="TargetBindings\ImageViewUrlTargetBinding.cs" />
+    <Compile Include="Extensions\BindingExtensions.cs" />
+    <Compile Include="Views\ViewHolders\Menu\Grid\MenuPromotionItemViewHolder.cs" />
+    <Compile Include="Platform\Listeners\GlideRequestListener.cs" />
+    <Compile Include="Views\Decorators\MenuGridItemDecorator.cs" />
+    <Compile Include="Views\Controls\StepperView.cs" />
+    <Compile Include="Views\Activities\Toppings\ToppingsActivity.cs" />
+    <Compile Include="Views\ViewHolders\Toppings\ToppingItemViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -260,6 +280,106 @@
       <Generator>
       </Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\img_splashscreen_background.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\img_splash_logo.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\layout_toolbar.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\dropshadow.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_back.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_chevron_down.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_list.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_grid.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_select_city.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_search.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_common_info.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_selectable.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_checkmark.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_simple_menu_action.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_grouped_menu.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_group_menu.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_promotion_list.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_menu_category.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_menu_promotion.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_placeholder.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_toppings_selection.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bg_button_gradient.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_select_topping.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_plus.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_minus.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -293,12 +413,36 @@
     <PackageReference Include="BuildApps.Core.Mobile.MvvmCross">
       <Version>1.0.80</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.2.0.3" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.5" />
+    <PackageReference Include="Xamarin.Android.Glide">
+      <Version>4.11.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
       <Project>{CA50D097-2027-42BD-9EFA-A0DAFC2DA10F}</Project>
       <Name>SushiShop.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Plugins\" />
+    <Folder Include="Views\ViewHolders\" />
+    <Folder Include="Views\ViewHolders\Abstract\" />
+    <Folder Include="Views\Activities\Cities\" />
+    <Folder Include="Views\Activities\CommonInfo\" />
+    <Folder Include="Views\ViewHolders\Common\" />
+    <Folder Include="Views\ViewHolders\Menu\" />
+    <Folder Include="Views\ViewHolders\Menu\Simple\" />
+    <Folder Include="Views\ViewHolders\Menu\Grid\" />
+    <Folder Include="Views\LayoutManagers\" />
+    <Folder Include="TargetBindings\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Platform\" />
+    <Folder Include="Platform\Listeners\" />
+    <Folder Include="Views\Decorators\" />
+    <Folder Include="Views\Activities\Toppings\" />
+    <Folder Include="Views\ViewHolders\Toppings\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/layout_toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/search_card_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="4dp"
+        android:elevation="4dp"
+        android:translationZ="4dp"
+        app:cardBackgroundColor="@color/gray"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/transparent"
+            android:drawablePadding="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:lines="1"
+            android:maxLines="1"
+            android:textColorHint="@color/gr"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:drawableStart="@drawable/ic_search"/>
+    </androidx.cardview.widget.CardView>
+    <mvvmcross.droidx.recyclerview.MvxRecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_card_view" />
+</androidx.constraintlayout.widget.ConstraintLayout>

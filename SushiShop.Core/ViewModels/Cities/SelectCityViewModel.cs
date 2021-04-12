@@ -19,7 +19,7 @@ namespace SushiShop.Core.ViewModels.Cities
             this.citiesManager = citiesManager;
         }
 
-        public override string QueryPlaceholder => AppStrings.SearchSity;
+        public override string QueryPlaceholder => AppStrings.SearchCity;
 
         protected override async Task<List<CityItemViewModel>> LoadDataAsync(List<long> selectedItemIds)
         {

@@ -26,7 +26,6 @@ namespace SushiShop.Core.ViewModels.Orders
         private readonly ICitiesManager citiesManager;
         private readonly IUserSession userSession;
         private readonly IDialog dialog;
-        private readonly ICommand selectCommand;
 
         private CancellationTokenSource? cancellationTokenSource;
         private City? _city;
@@ -45,7 +44,6 @@ namespace SushiShop.Core.ViewModels.Orders
 
             ConfirmAddress = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmAddressAsync);
             TryLoadPlacemarkCommand = new SafeAsyncCommand<Coordinates>(ExecutionStateWrapper, TryLoadPlacemarkAsync);
-            selectCommand = new SafeAsyncCommand<OrderDeliverySuggestionItemViewModel>(ExecutionStateWrapper, SelectAsync);
         }
 
         private string? addressQuery;
@@ -143,7 +141,7 @@ namespace SushiShop.Core.ViewModels.Orders
                 return;
             }
 
-            SelectedLocation = new OrderDeliverySuggestionItemViewModel(suggestion, selectCommand);
+            SelectedLocation = new OrderDeliverySuggestionItemViewModel(suggestion, SelectAsync);
             cancellationTokenSource = null;
         }
 
@@ -156,11 +154,17 @@ namespace SushiShop.Core.ViewModels.Orders
                 return;
             }
 
+            if (AddressQuery.IsNullOrEmpty())
+            {
+                Suggestions.Clear();
+                return;
+            }
+
             cancellationTokenSource?.Cancel();
             cancellationTokenSource = new CancellationTokenSource();
 
             var response = await citiesManager.SearchAddressAsync(_city?.Name, query!, cancellationTokenSource.Token);
-            var viewModels = response?.Data?.Select(suggestion => new OrderDeliverySuggestionItemViewModel(suggestion, selectCommand)).ToArray() ?? Array.Empty<OrderDeliverySuggestionItemViewModel>();
+            var viewModels = response?.Data?.Select(suggestion => new OrderDeliverySuggestionItemViewModel(suggestion, SelectAsync)).ToArray() ?? Array.Empty<OrderDeliverySuggestionItemViewModel>();
 
             Suggestions.ReplaceWith(viewModels);
             cancellationTokenSource = null;
@@ -173,7 +177,7 @@ namespace SushiShop.Core.ViewModels.Orders
                 return;
             }
 
-            SelectedLocation = new OrderDeliverySuggestionItemViewModel(parameter, selectCommand);
+            SelectedLocation = new OrderDeliverySuggestionItemViewModel(parameter, SelectAsync);
         }
     }
 }

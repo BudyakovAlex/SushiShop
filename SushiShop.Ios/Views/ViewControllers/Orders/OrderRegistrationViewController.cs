@@ -58,10 +58,10 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             scrollableTabsView.OnTabChangedAfterTapAction = OnTabChangedAfterTap;
             RootScrollView.Delegate = new OrderRegistrationScrollViewDelegate(OnDecelerated);
            
-            AppartmentDeliveryTextField.Placeholder = $"{AppStrings.Apartment}*";
-            EntranceDeliveryTextField.Placeholder = $"{AppStrings.Entrance}*";
-            IntercomDeliveryTextField.Placeholder = $"{AppStrings.Intercom}*";
-            FloorDeliveryTextField.Placeholder = $"{AppStrings.Floor}*";
+            AppartmentDeliveryTextField.Placeholder = $"{AppStrings.Apartment}";
+            EntranceDeliveryTextField.Placeholder = $"{AppStrings.Entrance}";
+            IntercomDeliveryTextField.Placeholder = $"{AppStrings.Intercom}";
+            FloorDeliveryTextField.Placeholder = $"{AppStrings.Floor}";
             UserNamePickUpTextField.Placeholder = UserNameDeliveryTextField.Placeholder = $"{AppStrings.Name}*";
             UserPhonePickUpTextField.Placeholder = UserPhoneDeliveryTextField.Placeholder = $"{AppStrings.Phone}*";
             CommentPickUpTextView.Placeholder = CommentDeliveryTextView.Placeholder = AppStrings.Comment;

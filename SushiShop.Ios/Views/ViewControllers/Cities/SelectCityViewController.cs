@@ -45,7 +45,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cities
             base.InitNavigationItem(navigationItem);
 
             navigationItem.LeftBarButtonItem = Components.CreateBarButtonItem(ImageNames.ArrowBack);
-            navigationItem.Title = AppStrings.SelectSity;
+            navigationItem.Title = AppStrings.SelectCity;
         }
 
         private void InitTableView()
