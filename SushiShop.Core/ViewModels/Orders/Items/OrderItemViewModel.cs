@@ -26,7 +26,7 @@ namespace SushiShop.Core.ViewModels.Orders.Items
 
         public IMvxCommand ShowDetailsCommand { get; }
 
-        public string OrderDateTime => order.OrderDateTime.ToString(Constants.Format.DateTime.DateWithTime);
+        public string OrderDateTime => order.OrderDateTime.ToString(Constants.Format.DateTime.DateWithTwentyFourTime);
 
         public string TotalPrice => $"{order.Total} {order.Currency?.Symbol}";
 

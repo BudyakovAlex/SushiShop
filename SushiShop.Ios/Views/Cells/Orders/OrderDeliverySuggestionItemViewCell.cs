@@ -34,7 +34,7 @@ namespace SushiShop.Ios.Views.Cells.Orders
 
             var bindingSet = this.CreateBindingSet<OrderDeliverySuggestionItemViewCell, OrderDeliverySuggestionItemViewModel>();
 
-            bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.SelectCommand).CommandParameter(DataContext);
+            bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.SelectCommand);
             bindingSet.Bind(TitleLabel).For(v => v.Text).To(vm => vm.Address);
 
             bindingSet.Apply();

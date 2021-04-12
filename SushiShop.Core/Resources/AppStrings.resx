@@ -433,7 +433,7 @@
     <value>Пользовательское соглашение</value>
   </data>
   <data name="ReceiveTimeTemplate" xml:space="preserve">
-    <value>от {0} мин. или позднее</value>
+    <value>через {0} мин. или позднее</value>
   </data>
   <data name="PrivacyPolicyConfirmOrder" xml:space="preserve">
     <value>Завершая оформление заказа, я даю своё согласие на обработку персональных данных и подтверждаю оформление с условиями публичной оферты, пользовательского соглашения и политики конфиденциальности</value>

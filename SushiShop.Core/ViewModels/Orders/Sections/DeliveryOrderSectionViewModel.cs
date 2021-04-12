@@ -38,7 +38,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             set => SetProperty(ref section, value);
         }
 
-        public override string PriceToPay => $"{addressSuggestion?.DeliveryPrice ?? 0 + Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
+        public override string PriceToPay => $"{(addressSuggestion?.DeliveryPrice ?? 0) + Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
 
         public string? DeliveryAddress => addressSuggestion?.FullAddress;
 
