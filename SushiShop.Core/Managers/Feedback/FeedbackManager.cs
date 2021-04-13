@@ -24,7 +24,7 @@ namespace SushiShop.Core.Managers.Feedback
                 question,
                 imagePaths,
                 CancellationToken.None);
-            if (response.IsSuccessful)
+            if (response.Data?.IsSuccessful ?? false)
             {
                 return new Response<string?>(isSuccessful: true, response.Data!.SuccessData);
             }
