@@ -54,6 +54,25 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             }
         }
 
+        private MvxInteraction removeFocusInteraction;
+        public MvxInteraction RemoveFocusInteraction
+        {
+            get => removeFocusInteraction;
+            set
+            {
+                if (removeFocusInteraction != null)
+                {
+                    removeFocusInteraction.Requested -= OnRemoveFocusInteractionRequested;
+                }
+
+                removeFocusInteraction = value;
+                if (removeFocusInteraction != null)
+                {
+                    removeFocusInteraction.Requested += OnRemoveFocusInteractionRequested;
+                }
+            }
+        }
+
         protected override void InitStylesAndContent()
         {
             base.InitStylesAndContent();
@@ -124,13 +143,28 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(DeliveryThereButton).For(v => v.BindVisible()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
             bindingSet.Bind(DeliveryPriceLabel).For(v => v.BindVisible()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
             bindingSet.Bind(DeliveryThereButton).For(v => v.BindTouchUpInside()).To(vm => vm.ConfirmAddress);
+            bindingSet.Bind(this).For(v => v.RemoveFocusInteraction).To(vm => vm.RemoveFocusInteraction);
 
             bindingSet.Apply();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            if (disposing)
+            {
+                RemoveFocusInteraction = null;
+            }
         }
 
         private void OnItemsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             UpdateZones();
+        }
+
+        private void OnRemoveFocusInteractionRequested(object _, EventArgs __)
+        {
+            searchSuggestionsController.SearchBar.EndEditing(true);
         }
 
         private void UpdateZones()
@@ -181,4 +215,3 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
         }
     }
 }
-

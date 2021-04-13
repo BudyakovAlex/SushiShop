@@ -42,6 +42,7 @@ namespace SushiShop.Core.ViewModels.Orders
             this.dialog = dialog;
             Suggestions = new MvxObservableCollection<OrderDeliverySuggestionItemViewModel>();
 
+            RemoveFocusInteraction = new MvxInteraction();
             ConfirmAddress = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmAddressAsync);
             TryLoadPlacemarkCommand = new SafeAsyncCommand<Coordinates>(ExecutionStateWrapper, TryLoadPlacemarkAsync);
         }
@@ -66,6 +67,8 @@ namespace SushiShop.Core.ViewModels.Orders
         public double Latitude => _city?.Latitude ?? Constants.Map.MapStartPointLatitude;
 
         public double Longitude => _city?.Longitude ?? Constants.Map.MapStartPointLongitude;
+
+        public MvxInteraction RemoveFocusInteraction { get; }
 
         private OrderDeliverySuggestionItemViewModel? selectedLocation;
         public OrderDeliverySuggestionItemViewModel? SelectedLocation
@@ -105,9 +108,17 @@ namespace SushiShop.Core.ViewModels.Orders
 
         private Task SelectAsync(OrderDeliverySuggestionItemViewModel viewModel)
         {
-            SelectedLocation = viewModel;
+            if (viewModel.Suggestion.IsHouseAddress)
+            {
+                SelectedLocation = viewModel;
+                Suggestions.Clear();
+                AddressQuery = null;
+                RemoveFocusInteraction.Raise();
+                return Task.CompletedTask;
+            }
+
             Suggestions.Clear();
-            AddressQuery = null;
+            AddressQuery = viewModel.Address;
 
             return Task.CompletedTask;
         }
