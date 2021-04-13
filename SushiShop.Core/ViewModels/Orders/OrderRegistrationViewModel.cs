@@ -17,6 +17,7 @@ using SushiShop.Core.ViewModels.Orders.Sections;
 using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using SushiShop.Core.ViewModels.Payment;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -24,6 +25,7 @@ namespace SushiShop.Core.ViewModels.Orders
 {
     public class OrderRegistrationViewModel : BaseItemsPageViewModel<BaseOrderSectionViewModel, Data.Models.Cart.Cart, bool>
     {
+        private readonly IOrdersManager ordersManager;
         private readonly IProfileManager profileManager;
         private readonly IUserSession userSession;
         private readonly IDialog dialog;
@@ -36,6 +38,7 @@ namespace SushiShop.Core.ViewModels.Orders
             IUserSession userSession,
             IDialog dialog)
         {
+            this.ordersManager = ordersManager;
             this.profileManager = profileManager;
             this.userSession = userSession;
             this.dialog = dialog;
@@ -92,25 +95,26 @@ namespace SushiShop.Core.ViewModels.Orders
             Items.ForEach(item => item.SetProfileInfo(getDiscountTask.Result.Data, getProfileTask.Result.Data));
         }
 
-        private Task OrderConfirmedAsync(OrderConfirmed orderConfirmed)
+        private async Task OrderConfirmedAsync(OrderConfirmed orderConfirmed, string phone)
         {
             isChanged = true;
 
-            return orderConfirmed.ConfirmationInfo.PaymentUrl.IsNotNullNorEmpty()
-                ? PayForOrderAsync(orderConfirmed)
-                : ProduceThanksForOrderSectionAsync(orderConfirmed);
+            await ProduceThanksForOrderSectionAsync(orderConfirmed);
+
+            if (orderConfirmed.ConfirmationInfo.PaymentUrl.IsNotNullNorEmpty())
+            {
+                await PayForOrderAsync(orderConfirmed, phone);
+            }
         }
 
-        private async Task PayForOrderAsync(OrderConfirmed orderConfirmed)
+        private async Task PayForOrderAsync(OrderConfirmed orderConfirmed, string phone)
         {
-            var isPaymentConfirmed = await NavigationManager.NavigateAsync<PaymentViewModel, string, bool>(orderConfirmed.ConfirmationInfo.PaymentUrl!);
-            if (!isPaymentConfirmed)
+            await NavigationManager.NavigateAsync<PaymentViewModel, string, bool>(orderConfirmed.ConfirmationInfo.PaymentUrl!);
+            var response = await ordersManager.CheckOrderPaymentAsync(orderConfirmed.OrderNumber, phone);
+            if (response.Errors.Any())
             {
-                await dialog.ShowToastAsync(AppStrings.OrderCreationError);
-                return;
+                await dialog.ShowToastAsync(response.Errors.First());
             }
-
-            await ProduceThanksForOrderSectionAsync(orderConfirmed);
         }
 
         private Task ProduceThanksForOrderSectionAsync(OrderConfirmed orderConfirmed)

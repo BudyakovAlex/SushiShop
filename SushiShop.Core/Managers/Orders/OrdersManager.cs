@@ -71,5 +71,13 @@ namespace SushiShop.Core.Managers.Orders
             var data = response.Data!.SuccessData?.Map();
             return new Response<Data.Models.Cart.Cart?>(isSuccessful: true, data);
         }
+
+        public async Task<Response<bool>> CheckOrderPaymentAsync(long id, string phone)
+        {
+            var response = await ordersService.CheckOrderPaymentAsync(id, phone, CancellationToken.None);
+
+            var errors = response.Data!.Errors ?? Array.Empty<string>();
+            return new Response<bool>(isSuccessful: true, errors.Length == 0, errors);
+        }
     }
 }

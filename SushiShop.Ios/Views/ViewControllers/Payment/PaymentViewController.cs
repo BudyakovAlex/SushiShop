@@ -1,6 +1,7 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using Foundation;
 using MvvmCross.Platforms.Ios.Binding;
+using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Payment;
 using SushiShop.Ios.Common;
@@ -10,6 +11,7 @@ using WebKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Payment
 {
+    [MvxModalPresentation(WrapInNavigationController = true)]
     public partial class PaymentViewController : BaseViewController<PaymentViewModel>, IWKNavigationDelegate
     {
         private UIButton backButton;
@@ -50,12 +52,17 @@ namespace SushiShop.Ios.Views.ViewControllers.Payment
         public void DidFinishNavigation(WKWebView webView, WKNavigation navigation)
         {
             var canConfirmPayment = webView.Url.AbsoluteString.Contains(Core.Common.Constants.Rest.PaymentOkResource);
-            if (!canConfirmPayment)
+            if (canConfirmPayment)
             {
+                ViewModel.ConfirmPaymentCommand?.Execute(null);
                 return;
             }
 
-            ViewModel.ConfirmPaymentCommand?.Execute(null);
+            var isPaymentError = webView.Url.AbsoluteString.Contains(Core.Common.Constants.Rest.PaymentErrorResource);
+            if (isPaymentError)
+            {
+                ViewModel.CloseCommand?.Execute(null);
+            }
         }
     }
 }

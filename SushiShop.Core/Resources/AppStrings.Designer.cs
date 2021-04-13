@@ -575,12 +575,6 @@ namespace SushiShop.Core.Resources {
             }
         }
         
-        public static string OrderCreationError {
-            get {
-                return ResourceManager.GetString("OrderCreationError", resourceCulture);
-            }
-        }
-        
         public static string OrderPayment {
             get {
                 return ResourceManager.GetString("OrderPayment", resourceCulture);

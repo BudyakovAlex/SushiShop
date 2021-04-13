@@ -18,13 +18,13 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 {
     public abstract class BaseOrderSectionViewModel : BaseViewModel
     {
-        private readonly Func<OrderConfirmed, Task> confirmOrderFunc;
+        private readonly Func<OrderConfirmed, string, Task> confirmOrderFunc;
 
         public BaseOrderSectionViewModel(
             IOrdersManager ordersManager,
             IUserSession userSession,
             IDialog dialog,
-            Func<OrderConfirmed, Task> confirmOrderFunc)
+            Func<OrderConfirmed, string, Task> confirmOrderFunc)
         {
             OrdersManager = ordersManager;
             UserSession = userSession;
@@ -207,7 +207,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
                 return;
             }
 
-            var confirmTask = confirmOrderFunc?.Invoke(orderConfirmed) ?? Task.CompletedTask;
+            var confirmTask = confirmOrderFunc?.Invoke(orderConfirmed, Phone!) ?? Task.CompletedTask;
             await confirmTask;
         }
     }

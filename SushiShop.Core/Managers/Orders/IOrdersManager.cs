@@ -14,5 +14,7 @@ namespace SushiShop.Core.Managers.Orders
         Task<Response<Data.Models.Cart.Cart?>> RepeatOrderAsync(long id, string? city);
 
         Task<Response<OrderConfirmed?>> CreateOrderAsync(OrderRequest orderRequest);
+
+        Task<Response<bool>> CheckOrderPaymentAsync(long id, string phone);
     }
 }
