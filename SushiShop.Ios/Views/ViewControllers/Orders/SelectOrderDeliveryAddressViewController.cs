@@ -165,6 +165,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
         private void OnRemoveFocusInteractionRequested(object _, EventArgs __)
         {
             searchSuggestionsController.SearchBar.EndEditing(true);
+            searchSuggestionsController.Active = false;
         }
 
         private void UpdateZones()
