@@ -11,14 +11,10 @@
         android:layout_height="wrap_content">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:theme="@style/ToolbarText"
             android:layout_width="match_parent"
             android:layout_height="?android:actionBarSize"
             android:background="?android:windowBackground"
-            app:navigationIcon="@drawable/ic_back"/>
+            android:theme="@style/ToolbarText"
+            app:navigationIcon="@drawable/ic_back" />
     </com.google.android.material.appbar.AppBarLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@drawable/dropshadow" />
 </LinearLayout>

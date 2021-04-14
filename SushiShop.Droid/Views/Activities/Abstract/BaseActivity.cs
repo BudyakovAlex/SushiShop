@@ -1,7 +1,6 @@
 ﻿using Android.Content.PM;
 using Android.Views;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
-using MvvmCross.ViewModels;
 
 namespace SushiShop.Droid.Views.Activities.Abstract
 {

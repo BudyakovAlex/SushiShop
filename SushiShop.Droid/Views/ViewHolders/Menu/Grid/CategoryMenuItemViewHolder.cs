@@ -1,6 +1,7 @@
 ﻿using Android.Views;
 using Android.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
+using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Droid.Extensions;
@@ -35,6 +36,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Grid
 
             bindingSet.Bind(imageView).For(v => v.BindAdaptedUrl()).To(vm => vm.ImageUrl);
             bindingSet.Bind(titleTextView).For(v => v.Text).To(vm => vm.Title);
+            bindingSet.Bind(imageView).For(v => v.BindClick()).To(vm => vm.ShowDetailsCommand);
         }
     }
 }

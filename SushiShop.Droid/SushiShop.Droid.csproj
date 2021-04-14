@@ -25,6 +25,7 @@
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -36,7 +37,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -92,11 +93,21 @@
     <Compile Include="TargetBindings\ImageViewUrlTargetBinding.cs" />
     <Compile Include="Extensions\BindingExtensions.cs" />
     <Compile Include="Views\ViewHolders\Menu\Grid\MenuPromotionItemViewHolder.cs" />
+    <Compile Include="Views\Fragments\Menu\ProductsFragment.cs" />
+    <Compile Include="TargetBindings\BackNavigationItemTargetBinding.cs" />
+    <Compile Include="Views\ViewHolders\Menu\Products\MenuProductItemViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Menu\Products\FilteredProdutsItemViewHolder.cs" />
     <Compile Include="Platform\Listeners\GlideRequestListener.cs" />
     <Compile Include="Views\Decorators\MenuGridItemDecorator.cs" />
     <Compile Include="Views\Controls\StepperView.cs" />
     <Compile Include="Views\Activities\Toppings\ToppingsActivity.cs" />
     <Compile Include="Views\ViewHolders\Toppings\ToppingItemViewHolder.cs" />
+    <Compile Include="Views\Decorators\SpacesItemDecoration.cs" />
+    <Compile Include="Views\Listeners\SnapOnScrollListener.cs" />
+    <Compile Include="Views\Fragments\Menu\ProductDetailsFragment.cs" />
+    <Compile Include="Enums\BehaviorScrollListener.cs" />
+    <Compile Include="Views\ViewHolders\Menu\Products\RelatedProductItemViewHolder.cs" />
+    <Compile Include="Views\Adapters\ProductsTabsAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -356,7 +367,15 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_products.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable\ic_placeholder.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\layout_toolbar_shadow.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -364,7 +383,15 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_products_filtered_products_list.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable\bg_button_gradient.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_products_product.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -377,6 +404,30 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\ic_minus.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_product_details.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bg_back_button.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_back_white.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_product_tab.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bg_product_details.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bg_primary_button.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -438,11 +489,15 @@
     <Folder Include="Views\LayoutManagers\" />
     <Folder Include="TargetBindings\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Views\ViewHolders\Menu\Products\" />
     <Folder Include="Platform\" />
     <Folder Include="Platform\Listeners\" />
     <Folder Include="Views\Decorators\" />
     <Folder Include="Views\Activities\Toppings\" />
     <Folder Include="Views\ViewHolders\Toppings\" />
+    <Folder Include="Views\Listeners\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Views\Adapters\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
