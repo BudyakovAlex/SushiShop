@@ -8,5 +8,7 @@ namespace SushiShop.Droid.Extensions
         public static string BindUrl(this ImageView _) => ImageViewUrlTargetBinding.DefaultImageViewUrlTargetBinding;
 
         public static string BindAdaptedUrl(this ImageView _) => ImageViewUrlTargetBinding.AdaptedImageViewUrlTargetBinding;
+
+        public static string BindBackNavigationItemCommand(this AndroidX.AppCompat.Widget.Toolbar _) => BackNavigaitonItemTargetBinding.DefaultBackNavigaitonItemTargetBinding;
     }
 }

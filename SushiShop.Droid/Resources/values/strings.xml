@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="app_name">SushiShop</string>
+    <string name="calories">Ккал</string>
+    <string name="carbohydrates">Углеводы</string>
+    <string name="fats">Жиры</string>
+    <string name="proteins">Белки</string>
+    <string name="to_cart">В корзину</string>
+    <string name="buy_with_this_product">с этим товаром покупают</string>
 </resources>

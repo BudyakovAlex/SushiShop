@@ -26,6 +26,7 @@ namespace SushiShop.Droid
 
             registry.RegisterCustomBindingFactory<ImageView>(ImageViewUrlTargetBinding.DefaultImageViewUrlTargetBinding, view => new ImageViewUrlTargetBinding(view, false));
             registry.RegisterCustomBindingFactory<ImageView>(ImageViewUrlTargetBinding.AdaptedImageViewUrlTargetBinding, view => new ImageViewUrlTargetBinding(view, true));
+            registry.RegisterCustomBindingFactory<AndroidX.AppCompat.Widget.Toolbar>(BackNavigaitonItemTargetBinding.DefaultBackNavigaitonItemTargetBinding, view => new BackNavigaitonItemTargetBinding(view));
         }
     }
 }
