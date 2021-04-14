@@ -79,8 +79,10 @@ namespace SushiShop.Core.ViewModels.ProductDetails
         public bool IsHiddenStepper
         {
             get => isHiddenStepper;
-            set => SetProperty(ref isHiddenStepper, value);
+            set => SetProperty(ref isHiddenStepper, value, () => RaisePropertyChanged(nameof(IsStepperVisible)));
         }
+
+        public bool IsStepperVisible => !IsHiddenStepper;
 
         protected override bool DefaultResult => hasChanged;
 

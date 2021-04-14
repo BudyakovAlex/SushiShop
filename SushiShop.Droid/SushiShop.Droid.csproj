@@ -108,6 +108,7 @@
     <Compile Include="Enums\BehaviorScrollListener.cs" />
     <Compile Include="Views\ViewHolders\Menu\Products\RelatedProductItemViewHolder.cs" />
     <Compile Include="Views\Adapters\ProductsTabsAdapter.cs" />
+    <Compile Include="Views\Controls\BigStepperView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -427,7 +428,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bg_primary_button.xml">
+    <AndroidResource Include="Resources\layout\item_simple_menu.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

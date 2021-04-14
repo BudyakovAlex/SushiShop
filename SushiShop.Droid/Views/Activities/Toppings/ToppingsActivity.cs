@@ -4,13 +4,13 @@ using AndroidX.AppCompat.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Activities;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.CardProduct.Items;
 using SushiShop.Core.ViewModels.ProductDetails;
+using SushiShop.Droid.Views.Activities.Abstract;
 using SushiShop.Droid.Views.ViewHolders.Toppings;
 
 namespace SushiShop.Droid.Views.Activities.Toppings

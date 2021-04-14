@@ -7,16 +7,18 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.Core.Content.Resources;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
 using MvvmCross.Base;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Binding;
 using SushiShop.Core.ViewModels.Common;
 using System;
+using System.Threading.Tasks;
 
 namespace SushiShop.Droid.Views.Controls
 {
-    [Register(nameof(SushiShop) + "." + nameof(StepperView))]
-    public class StepperView : LinearLayout, IMvxBindingContextOwner, IMvxDataConsumer
+    [Register(nameof(SushiShop) + "." + nameof(BigStepperView))]
+    public class BigStepperView : FrameLayout, IMvxBindingContextOwner, IMvxDataConsumer
     {
         private TextView valueTextView;
         private LayoutParams incrementImageLayoutParams;
@@ -27,29 +29,41 @@ namespace SushiShop.Droid.Views.Controls
 
         private int imageSize;
 
-        public StepperView(Context context, IAttributeSet attrs) : base(context, attrs)
+        public BigStepperView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
             Initialize();
         }
 
-        protected StepperView(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        protected BigStepperView(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
         {
             Initialize();
         }
 
-        public StepperView(Context context) : base(context)
+        public BigStepperView(Context context) : base(context)
         {
             Initialize();
         }
 
-        public StepperView(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
+        public BigStepperView(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
         {
             Initialize();
         }
 
-        public StepperView(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(context, attrs, defStyleAttr, defStyleRes)
+        public BigStepperView(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(context, attrs, defStyleAttr, defStyleRes)
         {
             Initialize();
+        }
+
+        private string title;
+        public string Title
+        {
+            get => title;
+            set
+            {
+                title = value;
+                SetControlsState();
+                RequestLayout();
+            }
         }
 
         public IMvxBindingContext BindingContext { get; set; }
@@ -87,7 +101,7 @@ namespace SushiShop.Droid.Views.Controls
                 decrementImageView.Visibility = ViewStates.Visible;
                 incrementImageView.Visibility = ViewStates.Visible;
 
-                var margin = (int)Context.DpToPx(4);
+                var margin = (int)Context.DpToPx(16);
                 decrementImageLayoutParams.MarginStart = margin;
                 incrementImageLayoutParams.MarginEnd = margin;
 
@@ -101,30 +115,29 @@ namespace SushiShop.Droid.Views.Controls
             }
 
             decrementImageView.Visibility = ViewStates.Gone;
-            valueTextView.Visibility = ViewStates.Gone;
-            incrementImageView.Visibility = ViewStates.Visible;
+            incrementImageView.Visibility = ViewStates.Gone;
 
-            incrementImageLayoutParams.MarginEnd = 0;
-            incrementImageView.LayoutParameters = incrementImageLayoutParams;
-
-            SetOnClickListener(null);
-            return;
+            SetTitle(Title);
+            SetOnClickListener(new ViewOnClickListener((v) =>
+            {
+                ViewModel?.AddCommand?.Execute();
+                return Task.CompletedTask;
+            }));
         }
 
         private void Initialize()
         {
             imageSize = (int)Context.DpToPx(32);
-            
+
             BindingContext = new MvxBindingContext();
 
-            this.SetRoundedCorners(Context.DpToPx(16));
+            this.SetRoundedCorners(Context.DpToPx(25));
 
             var layoutTransition = new LayoutTransition();
             layoutTransition.EnableTransitionType(LayoutTransitionType.Changing | LayoutTransitionType.Appearing | LayoutTransitionType.Disappearing);
 
             LayoutTransition = layoutTransition;
             SetBackgroundResource(Resource.Drawable.bg_button_gradient);
-            Orientation = Orientation.Horizontal;
 
             InitializeDecrementImage();
             InitializeValueTextView();
@@ -135,8 +148,9 @@ namespace SushiShop.Droid.Views.Controls
 
         private void Bind()
         {
-            using var bindingSet = this.CreateBindingSet<StepperView, StepperViewModel>();
+            using var bindingSet = this.CreateBindingSet<BigStepperView, StepperViewModel>();
 
+            bindingSet.Bind(this).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(this).For(v => v.Count).To(vm => vm.Count);
 
             bindingSet.Bind(decrementImageView).For(v => v.BindClick()).To(vm => vm.RemoveCommand);
@@ -151,7 +165,9 @@ namespace SushiShop.Droid.Views.Controls
                    ViewGroup.LayoutParams.WrapContent,
                    ViewGroup.LayoutParams.WrapContent)
                 {
-                    Gravity = GravityFlags.CenterVertical
+                    Gravity = GravityFlags.Center,
+                    MarginStart = imageSize,
+                    MarginEnd = imageSize
                 },
                 TextSize = 14
             };
@@ -166,7 +182,7 @@ namespace SushiShop.Droid.Views.Controls
         {
             incrementImageLayoutParams = new LayoutParams(imageSize, imageSize)
             {
-                Gravity = GravityFlags.CenterVertical
+                Gravity = GravityFlags.CenterVertical | GravityFlags.End
             };
 
             incrementImageView = new ImageView(Context)
@@ -183,12 +199,12 @@ namespace SushiShop.Droid.Views.Controls
         {
             decrementImageLayoutParams = new LayoutParams(imageSize, imageSize)
             {
-                Gravity = GravityFlags.CenterVertical
+                Gravity = GravityFlags.CenterVertical | GravityFlags.Start
             };
 
             decrementImageView = new ImageView(Context)
             {
-                LayoutParameters = decrementImageLayoutParams,               
+                LayoutParameters = decrementImageLayoutParams,
             };
 
             decrementImageView.SetImageResource(Resource.Drawable.ic_minus);

@@ -4,11 +4,14 @@ using Android.Views;
 using Android.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
+using MvvmCross.Binding.Combiners;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Core.ViewModels.ProductDetails;
@@ -36,9 +39,10 @@ namespace SushiShop.Droid.Views.Fragments.Menu
         private TextView carbohydratesTextVoew;
         private TextView caloriesTextView;
         private MvxRecyclerView relatedProductsRecyclerView;
-        private int itemSpace;
-        private StepperView stepperView;
+        private BigStepperView stepperView;
         private Button addToBasketButton;
+
+        private int itemSpace;
 
         public ProductDetailsFragment()
             : base(Resource.Layout.fragment_product_details)
@@ -60,10 +64,12 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             fatsTextView = view.FindViewById<TextView>(Resource.Id.fats_text_view);
             carbohydratesTextVoew = view.FindViewById<TextView>(Resource.Id.carbohydrates_text_view);
             caloriesTextView = view.FindViewById<TextView>(Resource.Id.calories_text_view);
-            stepperView = view.FindViewById<StepperView>(Resource.Id.stepper_view);
+            stepperView = view.FindViewById<BigStepperView>(Resource.Id.stepper_view);
             addToBasketButton = view.FindViewById<Button>(Resource.Id.add_to_basket_button);
+            addToBasketButton.SetRoundedCorners(Context.DpToPx(25));
+            addToBasketButton.Text = AppStrings.AddToCart;
 
-            productOldPriceTextView.PaintFlags |= Android.Graphics.PaintFlags.StrikeThruText;
+            productOldPriceTextView.PaintFlags |= PaintFlags.StrikeThruText;
             itemSpace = (int)view.Context.Resources.GetDimension(Resource.Dimension.product_item_margin);
             InitializeRelatedProductsRecyclerView();
         }
@@ -86,9 +92,16 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             bindingSet.Bind(carbohydratesTextVoew).For(v => v.Text).To(vm => vm.Carbohydrates);
             bindingSet.Bind(caloriesTextView).For(v => v.Text).To(vm => vm.Calories);
             bindingSet.Bind(relatedProductsRecyclerView).For(v => v.ItemsSource).To(vm => vm.RelatedItems);
-            bindingSet.Bind(stepperView).For(v => v.DataContext).To(vm => vm.StepperViewModel);
-            bindingSet.Bind(stepperView).For(v => v.BindHidden()).To(vm => vm.IsHiddenStepper);
+
             bindingSet.Bind(addToBasketButton).For(v => v.BindClick()).To(vm => vm.AddToCartCommand);
+            bindingSet.Bind(addToBasketButton).For(v => v.BindHidden()).ByCombining(new MvxOrValueCombiner(),
+                                                                                    vm => vm.IsStepperVisible,
+                                                                                    vm => vm.IsReadOnly);
+
+            bindingSet.Bind(stepperView).For(v => v.DataContext).To(vm => vm.StepperViewModel);
+            bindingSet.Bind(stepperView).For(v => v.BindHidden()).ByCombining(new MvxOrValueCombiner(),
+                                                                              vm => vm.IsHiddenStepper,
+                                                                              vm => vm.IsReadOnly);
         }
 
         private void InitializeRelatedProductsRecyclerView()

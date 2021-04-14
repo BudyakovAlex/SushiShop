@@ -83,8 +83,8 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             listRecyclerView.SetLayoutManager(gridLayoutManager);
 
             listRecyclerView.ItemTemplateSelector = new TemplateSelector()
+                .AddElement<CategoryMenuItemViewModel, SimpleMenuItemViewHolder>(Resource.Layout.item_simple_menu)
                 .AddElement<MenuActionItemViewModel, SimpleMenuActionItemViewHolder>(Resource.Layout.item_simple_menu_action)
-                .AddElement<CategoryMenuItemViewModel, SimpleMenuItemViewHolder>(Resource.Layout.item_simple_menu_action)
                 .AddElement<GroupsMenuItemViewModel, SimpleMenuGroupsViewHolder>(Resource.Layout.item_grouped_menu);
         }
 

@@ -36,6 +36,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Simple
             using var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(titleTextView).For(v => v.Text).To(v => v.Title);
+            bindingSet.Bind(titleTextView).For(v => v.BindClick()).To(v => v.ShowDetailsCommand);
             bindingSet.Bind(view).For(v => v.BindClick()).To(v => v.ShowDetailsCommand);
         }
     }
