@@ -12,7 +12,6 @@ using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using SushiShop.Core.Resources;
-using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Core.ViewModels.ProductDetails;
 using SushiShop.Droid.Extensions;
@@ -23,8 +22,9 @@ using SushiShop.Droid.Views.ViewHolders.Menu.Products;
 namespace SushiShop.Droid.Views.Fragments.Menu
 {
     [MvxFragmentPresentation(
+        FragmentContentId = Resource.Id.container_view,
         AddToBackStack = true,
-        ActivityHostViewModelType = typeof(MainViewModel))]
+        IsCacheableFragment = true)]
     public class ProductDetailsFragment : BaseFragment<ProductDetailsViewModel>
     {
         private ImageView backImageView;
@@ -68,6 +68,13 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             addToBasketButton = view.FindViewById<Button>(Resource.Id.add_to_basket_button);
             addToBasketButton.SetRoundedCorners(Context.DpToPx(25));
             addToBasketButton.Text = AppStrings.AddToCart;
+            backImageView.SetRoundedCorners(Context.DpToPx(20));
+            view.FindViewById<LinearLayout>(Resource.Id.details_linear_layout).SetRoundedCorners(Context.DpToPx(4));
+            view.FindViewById<TextView>(Resource.Id.protein_title_text_view).Text = AppStrings.Protein;
+            view.FindViewById<TextView>(Resource.Id.fats_title_text_view).Text = AppStrings.Fats;
+            view.FindViewById<TextView>(Resource.Id.carbohydrates_title_text_view).Text = AppStrings.Carbohydrates;
+            view.FindViewById<TextView>(Resource.Id.calories_title_text_view).Text = AppStrings.Ccal;
+            view.FindViewById<TextView>(Resource.Id.title_another_products).Text = AppStrings.BuyWithThisProduct;
 
             productOldPriceTextView.PaintFlags |= PaintFlags.StrikeThruText;
             itemSpace = (int)view.Context.Resources.GetDimension(Resource.Dimension.product_item_margin);

@@ -3,13 +3,13 @@ using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
 using MvvmCross.Commands;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
-using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Menu;
 using SushiShop.Droid.Enums;
 using SushiShop.Droid.Extensions;
@@ -21,8 +21,9 @@ using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 namespace SushiShop.Droid.Views.Fragments.Menu
 {
     [MvxFragmentPresentation(
+        FragmentContentId = Resource.Id.container_view,
         AddToBackStack = true,
-        ActivityHostViewModelType = typeof(MainViewModel))]
+        IsCacheableFragment = true)]
     public class ProductsFragment : BaseFragment<ProductsViewModel>
     {
         private Toolbar toolbar;
@@ -71,6 +72,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             tabsRecyclerView.Adapter = productsTabsAdapter = new ProductsTabsAdapter((IMvxAndroidBindingContext)BindingContext);
             tabsRecyclerView.ItemTemplateId = Resource.Layout.item_product_tab;
             productsTabsAdapter.ItemClick = new MvxCommand<int>(OnTabClick);
+            tabsRecyclerView.OffsetLeftAndRight((int)Context.DpToPx(8));
         }
 
         private void InitializeProductsRecyclerView()
@@ -92,11 +94,13 @@ namespace SushiShop.Droid.Views.Fragments.Menu
         private void OnSnapPagerPositionChanged(int position)
         {
             productsTabsAdapter.SelectedIndex = position;
+            tabsLayoutManager.ScrollToPosition(position);
         }
 
         private void OnTabClick(int position)
         {
             productsRecyclerView.ScrollToPosition(position);
+            tabsLayoutManager.ScrollToPosition(position);
             scrollListener.Position = position;
         }
     }

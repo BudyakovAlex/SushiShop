@@ -444,4 +444,7 @@
   <data name="DevelopedAt" xml:space="preserve">
     <value>разработано в</value>
   </data>
+  <data name="BuyWithThisProduct" xml:space="preserve">
+    <value>с этим товаром покупают</value>
+  </data>
 </root>
