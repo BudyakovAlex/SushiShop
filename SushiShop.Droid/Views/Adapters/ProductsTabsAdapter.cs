@@ -2,6 +2,7 @@
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using static AndroidX.RecyclerView.Widget.RecyclerView;
@@ -24,6 +25,8 @@ namespace SushiShop.Droid.Views.Adapters
         {
         }
 
+        public event EventHandler SelectedIndexChanged;
+
         private int selectedIndex = -1;
         public int SelectedIndex
         {
@@ -38,6 +41,8 @@ namespace SushiShop.Droid.Views.Adapters
                 {
                     ItemClick?.Execute(selectedIndex);
                 }
+
+                SelectedIndexChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -65,6 +70,7 @@ namespace SushiShop.Droid.Views.Adapters
             var textView = viewHolder.ItemView.FindViewById<TextView>(Resource.Id.tab_text_view);
             textView.Text = (viewHolder as MvxRecyclerViewHolder)?.DataContext?.ToString(); ;
             indicatorView.Visibility = viewHolder.LayoutPosition == selectedIndex ? ViewStates.Visible : ViewStates.Gone;
+            indicatorView.SetRoundedCorners(viewHolder.ItemView.Context.DpToPx(2));
         }
     }
 }

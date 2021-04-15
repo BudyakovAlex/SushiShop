@@ -109,6 +109,7 @@
     <Compile Include="Views\ViewHolders\Menu\Products\RelatedProductItemViewHolder.cs" />
     <Compile Include="Views\Adapters\ProductsTabsAdapter.cs" />
     <Compile Include="Views\Controls\BigStepperView.cs" />
+    <Compile Include="Views\Listeners\HideTabLayoutRecyclerViewScfrollListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -412,19 +413,11 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bg_back_button.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\drawable\ic_back_white.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\item_product_tab.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bg_product_details.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

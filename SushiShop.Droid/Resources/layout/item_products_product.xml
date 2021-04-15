@@ -31,6 +31,7 @@
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/font_family_sf_pro_display_regular"
             android:textColor="#000000"
+            android:textFontWeight="400"
             android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,18 +53,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font_family_sf_pro_display_bold"
-                tools:text="1200 P"
                 android:textColor="@color/realBlack"
-                android:textSize="14dp" />
+                android:textFontWeight="700"
+                android:textSize="14dp"
+                tools:text="1200 P" />
 
             <TextView
                 android:id="@+id/old_price_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font_family_sf_pro_display_bold"
-                tools:text="1200 P"
                 android:textColor="@color/gr"
-                android:textSize="14dp" />
+                android:textFontWeight="700"
+                android:textSize="14dp"
+                tools:text="1200 P" />
         </LinearLayout>
 
         <SushiShop.StepperView

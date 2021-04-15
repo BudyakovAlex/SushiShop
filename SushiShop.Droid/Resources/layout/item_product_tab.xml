@@ -12,6 +12,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/font_family_sf_pro_display_medium"
         android:textColor="@color/black"
+        android:textFontWeight="500"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
