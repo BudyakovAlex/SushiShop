@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content.PM;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -9,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace SushiShop.Droid.Views.Activities
 {
-    [Activity]
+    [Activity(
+        LaunchMode = LaunchMode.SingleTop,
+        ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : BaseActivity<MainViewModel>
     {
         private static readonly int[] TabImageIds = new[]

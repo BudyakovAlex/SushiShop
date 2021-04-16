@@ -62,13 +62,13 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             bindingSet.Bind(chevronImageView).For(v => v.BindClick()).To(vm => vm.SelectCityCommand);
             bindingSet.Bind(changeModeImageView).For(v => v.BindClick()).To(vm => vm.SwitchPresentationCommand);
             bindingSet.Bind(changeModeImageView).For(v => v.BindDrawableId()).To(vm => vm.IsListMenuPresentation)
-                      .WithConversion((bool isListMode) => isListMode ? Resource.Drawable.ic_list : Resource.Drawable.ic_grid);
+                      .WithConversion((bool isListMode) => isListMode ? Resource.Drawable.ic_grid : Resource.Drawable.ic_list);
 
             bindingSet.Bind(listRecyclerView).For(v => v.ItemsSource).To(vm => vm.SimpleItems);
             bindingSet.Bind(gridRecyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
 
-            bindingSet.Bind(listRecyclerView).For(v => v.BindHidden()).To(vm => vm.IsListMenuPresentation);
-            bindingSet.Bind(gridRecyclerView).For(v => v.BindVisible()).To(vm => vm.IsListMenuPresentation);
+            bindingSet.Bind(listRecyclerView).For(v => v.BindVisible()).To(vm => vm.IsListMenuPresentation);
+            bindingSet.Bind(gridRecyclerView).For(v => v.BindHidden()).To(vm => vm.IsListMenuPresentation);
         }
 
         private void InitializeListRecyclerView()
