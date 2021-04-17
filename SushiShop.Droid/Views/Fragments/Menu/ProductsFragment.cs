@@ -27,6 +27,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
     public class ProductsFragment : BaseFragment<ProductsViewModel>
     {
         private Toolbar toolbar;
+        private View loadingOverlayView;
         private MvxRecyclerView tabsRecyclerView;
         private MvxRecyclerView productsRecyclerView;
         private MvxGuardedLinearLayoutManager productsLayoutManager;
@@ -44,7 +45,8 @@ namespace SushiShop.Droid.Views.Fragments.Menu
         {
             base.InitializeViewPoroperties(view, savedInstanceState);
 
-            toolbar = View.FindViewById<Toolbar>(Resource.Id.toolbar);
+            toolbar = view.FindViewById<Toolbar>(Resource.Id.toolbar);
+            loadingOverlayView = view.FindViewById<View>(Resource.Id.loading_overlay_view);
 
             InitializeTabsRecyclerView();
             InitializeProductsRecyclerView();
@@ -56,6 +58,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
 
             using var bindingSet = CreateBindingSet();
 
+            bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
             bindingSet.Bind(toolbar).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(productsRecyclerView).For(v => v.ItemsSource).To(vm => vm.Items);

@@ -33,6 +33,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
         private TextView toolbarTitleTextView;
         private ImageView chevronImageView;
         private ImageView changeModeImageView;
+        private View loadingOverlayView;
 
         public MenuFragment()
             : base(Resource.Layout.fragment_menu)
@@ -46,6 +47,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             toolbarTitleTextView = View.FindViewById<TextView>(Resource.Id.toolbar_title_text_view);
             chevronImageView = View.FindViewById<ImageView>(Resource.Id.chevron_image_view);
             changeModeImageView = View.FindViewById<ImageView>(Resource.Id.change_mode_image_view);
+            loadingOverlayView = View.FindViewById<View>(Resource.Id.loading_overlay_view);
 
             InitializeListRecyclerView();
             InitializeGridRecyclerView();
@@ -69,6 +71,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
 
             bindingSet.Bind(listRecyclerView).For(v => v.BindVisible()).To(vm => vm.IsListMenuPresentation);
             bindingSet.Bind(gridRecyclerView).For(v => v.BindHidden()).To(vm => vm.IsListMenuPresentation);
+            bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
         }
 
         private void InitializeListRecyclerView()

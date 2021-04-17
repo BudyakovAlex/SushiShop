@@ -27,6 +27,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
         IsCacheableFragment = true)]
     public class ProductDetailsFragment : BaseFragment<ProductDetailsViewModel>
     {
+        private View loadingOverlayView;
         private ImageView backImageView;
         private ImageView productImageView;
         private TextView productNameTextView;
@@ -53,6 +54,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
         {
             base.InitializeViewPoroperties(view, savedInstanceState);
 
+            loadingOverlayView = view.FindViewById<View>(Resource.Id.loading_overlay_view);
             backImageView = view.FindViewById<ImageView>(Resource.Id.back_image_view);
             productImageView = view.FindViewById<ImageView>(Resource.Id.product_image_view);
             productNameTextView = view.FindViewById<TextView>(Resource.Id.product_name_text_view);
@@ -87,6 +89,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
 
             using var bindingSet = CreateBindingSet();
 
+            bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
             bindingSet.Bind(backImageView).For(v => v.BindClick()).To(vm => vm.CloseCommand);
             bindingSet.Bind(productImageView).For(v => v.BindAdaptedUrl()).To(vm => vm.BackgroungImageUrl);
             bindingSet.Bind(productNameTextView).For(v => v.Text).To(vm => vm.Title);

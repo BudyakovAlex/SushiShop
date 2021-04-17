@@ -41,4 +41,11 @@
         android:background="@drawable/dropshadow"
         app:layout_constraintTop_toBottomOf="@+id/tabs_recycler_view"
         tools:layout_editor_absoluteX="0dp" />
+    <include
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/loading_overlay_view"
+        layout="@layout/layout_loading_overlay" />
 </androidx.constraintlayout.widget.ConstraintLayout>
