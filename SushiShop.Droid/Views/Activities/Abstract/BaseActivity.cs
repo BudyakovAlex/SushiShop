@@ -32,7 +32,6 @@ namespace SushiShop.Droid.Views.Activities.Abstract
 
         public override void OnBackPressed()
         {
-            base.OnBackPressed();
             ViewModel?.CloseCommand.Execute(null);
         }
     }

@@ -1,10 +1,12 @@
 ﻿using Android.Widget;
 using MvvmCross.Binding.Bindings.Target.Construction;
 using MvvmCross.Platforms.Android.Core;
+using MvvmCross.Platforms.Android.Presenters;
 using SushiShop.Core;
 using SushiShop.Core.IoC;
 using SushiShop.Core.Plugins;
 using SushiShop.Droid.Plugins;
+using SushiShop.Droid.Presenter;
 using SushiShop.Droid.TargetBindings;
 
 namespace SushiShop.Droid
@@ -27,6 +29,11 @@ namespace SushiShop.Droid
             registry.RegisterCustomBindingFactory<ImageView>(ImageViewUrlTargetBinding.DefaultImageViewUrlTargetBinding, view => new ImageViewUrlTargetBinding(view, false));
             registry.RegisterCustomBindingFactory<ImageView>(ImageViewUrlTargetBinding.AdaptedImageViewUrlTargetBinding, view => new ImageViewUrlTargetBinding(view, true));
             registry.RegisterCustomBindingFactory<AndroidX.AppCompat.Widget.Toolbar>(BackNavigaitonItemTargetBinding.DefaultBackNavigaitonItemTargetBinding, view => new BackNavigaitonItemTargetBinding(view));
+        }
+
+        protected override IMvxAndroidViewPresenter CreateViewPresenter()
+        {
+            return new CustomAndroidViewPresenter(AndroidViewAssemblies);
         }
     }
 }

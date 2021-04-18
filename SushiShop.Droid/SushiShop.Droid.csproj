@@ -39,6 +39,7 @@
     <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <LangVersion>8.0</LangVersion>
+    <AndroidSupportedAbis>x86</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -110,6 +111,7 @@
     <Compile Include="Views\Adapters\ProductsTabsAdapter.cs" />
     <Compile Include="Views\Controls\BigStepperView.cs" />
     <Compile Include="Views\Listeners\HideTabLayoutRecyclerViewScfrollListener.cs" />
+    <Compile Include="Presenter\CustomAndroidViewPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -496,6 +498,7 @@
     <Folder Include="Views\Listeners\" />
     <Folder Include="Enums\" />
     <Folder Include="Views\Adapters\" />
+    <Folder Include="Presenter\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
