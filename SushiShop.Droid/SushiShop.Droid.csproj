@@ -112,6 +112,7 @@
     <Compile Include="Views\Controls\BigStepperView.cs" />
     <Compile Include="Views\Listeners\HideTabLayoutRecyclerViewScfrollListener.cs" />
     <Compile Include="Presenter\CustomAndroidViewPresenter.cs" />
+    <Compile Include="LinkerPleaseInclude.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
