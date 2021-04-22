@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace SushiShop.Droid.Views.Activities
 {
     [Activity(
-        LaunchMode = LaunchMode.SingleTop,
+        LaunchMode = LaunchMode.SingleTask,
         ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : BaseActivity<MainViewModel>
     {
