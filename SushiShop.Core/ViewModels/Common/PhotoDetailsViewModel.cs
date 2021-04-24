@@ -1,19 +1,25 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+﻿using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
+using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Resources;
+using SushiShop.Core.ViewModels.Common.Items;
+using System;
+using System.Linq;
 
 namespace SushiShop.Core.ViewModels.Common
 {
-    public class PhotoDetailsViewModel : BasePageViewModel<string>
+    public class PhotoDetailsViewModel : BaseItemsPageViewModel<PhotoDetailsItemViewModel, PhotoDetailsNavigationParams>
     {
         public string Title => AppStrings.Photo;
 
-        public string ImageUrl { get; private set; } = string.Empty;
+        public int CurrentIndex { get; private set; }
 
-        public override void Prepare(string parameter)
+        public override void Prepare(PhotoDetailsNavigationParams parameters)
         {
-            ImageUrl = parameter;
+            var photos = parameters.Photos.Select(imagePath => new PhotoDetailsItemViewModel(imagePath)).ToArray();
 
-            RaisePropertyChanged(nameof(ImageUrl));
+            CurrentIndex = Array.IndexOf(parameters.Photos, parameters.CurrentPhoto);
+
+            Items.ReplaceWith(photos);
         }
     }
 }

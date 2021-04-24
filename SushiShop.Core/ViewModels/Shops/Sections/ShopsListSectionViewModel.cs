@@ -1,9 +1,11 @@
 ﻿using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Shops;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Shops.Items;
 using System;
@@ -24,6 +26,7 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
         private readonly bool isSelectionMode;
 
         private Dictionary<string, MetroShop[]>? metroShopsMappings;
+        private ShopItemViewModel[] orignalSource;
 
         private bool isDisposed;
 
@@ -41,13 +44,28 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
             Disposables = new CompositeDisposable();
             Items = new MvxObservableCollection<ShopItemViewModel>();
             NearestMetro = new MvxObservableCollection<MetroItemViewModel>();
+            orignalSource = Array.Empty<ShopItemViewModel>();
 
             NearestMetro.SubscribeToCollectionChanged(OnNearestMetroCollectionChanged).DisposeWith(Disposables);
 
             ClearNearestMetroCommand = new MvxCommand(() => NearestMetro.Clear());
+            ShowResultsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowResultsAsync);
         }
 
         public ICommand ClearNearestMetroCommand { get; }
+
+        public IMvxCommand ShowResultsCommand { get; }
+
+        private string query = string.Empty;
+        public string Query
+        {
+            get => query;
+            set
+            {
+                query = value;
+                ShowResultsCommand.Execute();
+            }
+        }
 
         public MvxObservableCollection<ShopItemViewModel> Items { get; }
 
@@ -66,7 +84,8 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
                 isSelectionMode,
                 showNearestMetroAction: ShowNearestMetro)).ToArray();
 
-            Items.ReplaceWith(viewModels);
+            orignalSource = viewModels;
+            Items.ReplaceWith(orignalSource);
         }
 
         public void SetMetroShops(Dictionary<string, MetroShop[]>? metroShopsMappings)
@@ -102,6 +121,25 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
             }
 
             return goToShopFunc?.Invoke(shops, itemViewModel.Text) ?? Task.CompletedTask;
+        }
+
+        private Task ShowResultsAsync()
+        {
+            if (string.IsNullOrEmpty(Query) ||
+                Query.Length < 2)
+            {
+                Items.ReplaceWith(orignalSource);
+                return Task.CompletedTask;
+            }
+
+            var itemsWithQueryOnStart = orignalSource.Where(item => item.Text.ToLower().StartsWith(Query.ToLower())).ToList();
+            var itemsWithQueryInMiddle = orignalSource.Where(item => item.Text.ToLower().Contains(Query.ToLower())).ToList();
+
+            var mergedItems = itemsWithQueryOnStart.Union(itemsWithQueryInMiddle)
+                                                   .DistinctBy(item => item.Text)
+                                                   .ToList();
+            Items.ReplaceWith(mergedItems);
+            return Task.CompletedTask;
         }
 
         protected virtual void Dispose(bool disposing)

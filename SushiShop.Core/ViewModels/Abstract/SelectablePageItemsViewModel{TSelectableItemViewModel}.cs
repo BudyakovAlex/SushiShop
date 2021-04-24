@@ -39,7 +39,6 @@ namespace SushiShop.Core.ViewModels.Abstract
         public bool IsSearchAvailable { get; protected set; }
 
         private string query = string.Empty;
-
         public string Query
         {
             get => query;

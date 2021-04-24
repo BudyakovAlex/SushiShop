@@ -14,12 +14,20 @@ namespace SushiShop.Ios.Views.Cells.Shops
 	{
 		[Outlet]
 		UIKit.UITableView ContentTableView { get; set; }
+
+		[Outlet]
+		UIKit.UISearchBar SearchBar { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (ContentTableView != null) {
 				ContentTableView.Dispose ();
 				ContentTableView = null;
+			}
+
+			if (SearchBar != null) {
+				SearchBar.Dispose ();
+				SearchBar = null;
 			}
 		}
 	}

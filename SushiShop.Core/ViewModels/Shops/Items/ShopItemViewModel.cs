@@ -86,7 +86,8 @@ namespace SushiShop.Core.ViewModels.Shops.Items
 
         private PhotoItemViewModel[] ProducePhotoViewModels()
         {
-            var viewModels = Key.Images.Select(item => new PhotoItemViewModel(item.JpgUrl!, canRemove: false)).ToArray();
+            var allImages = Key.Images.Select(item => item.JpgUrl!).ToArray();
+            var viewModels = Key.Images.Select(item => new PhotoItemViewModel(item.JpgUrl!, allImages, canRemove: false)).ToArray();
             return viewModels;
         }
 

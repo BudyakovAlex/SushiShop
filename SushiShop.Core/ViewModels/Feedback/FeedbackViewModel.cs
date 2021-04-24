@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Acr.UserDialogs;
+﻿using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.Common.Wrappers;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
@@ -14,6 +12,8 @@ using SushiShop.Core.Managers.Feedback;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common.Items;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Feedback
 {
@@ -153,18 +153,27 @@ namespace SushiShop.Core.ViewModels.Feedback
                 new DialogAction(AppStrings.UploadFromGallery, PickPhotoCommand));
         }
 
-        private PhotoItemViewModel ProduceFeedbackPhotoViewModel(string imageUrl) =>
-            new PhotoItemViewModel(imageUrl, RemovePhotoItem);
+        private PhotoItemViewModel ProduceFeedbackPhotoViewModel(string imageUrl, string[] allPhotos) =>
+            new PhotoItemViewModel(imageUrl, allPhotos , RemovePhotoItem);
 
         private void RemovePhotoItem(PhotoItemViewModel item)
         {
             Photos.Remove(item);
+
+            var allPhotos = Photos.Select(item => item.ImagePath).ToArray();
+            Photos.ForEach(item => item.SetAllImages(allPhotos.ToArray()));
+
             RaisePropertyChanged(nameof(HasPhotos));
         }
 
         private void AddPhoto(string imagePath)
         {
-            Photos.Add(ProduceFeedbackPhotoViewModel(imagePath));
+            var allPhotos = Photos.Select(item => item.ImagePath).ToList();
+            allPhotos.Add(imagePath);
+
+            Photos.ForEach(item => item.SetAllImages(allPhotos.ToArray()));
+
+            Photos.Add(ProduceFeedbackPhotoViewModel(imagePath, allPhotos.ToArray()));
             RaisePropertyChanged(nameof(HasPhotos));
         }
     }

@@ -338,6 +338,7 @@
         <Folder Include="Views\ViewControllers\Payment\" />
         <Folder Include="Assets.xcassets\ic_arrow_suggestion.imageset\" />
         <Folder Include="Views\ViewControllers\Common\Dialogs\" />
+        <Folder Include="Views\Cells\Common\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -398,6 +399,7 @@
     <InterfaceDefinition Include="Views\ViewControllers\Payment\PaymentViewController.xib" />
     <InterfaceDefinition Include="Views\ViewControllers\Orders\SelectOrderDeliveryAddressViewController.xib" />
     <InterfaceDefinition Include="Views\Cells\Orders\OrderDeliverySuggestionItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\Cells\Common\PhotoDetailsItemViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -686,6 +688,11 @@
     <Compile Include="Views\ViewControllers\Common\Dialogs\DatePickerViewController.cs" />
     <Compile Include="Delegates\OrderRegistrationScrollViewDelegate.cs" />
     <Compile Include="Views\ViewControllers\Orders\SelectOrderDeliverySearchController.cs" />
+    <Compile Include="Views\Cells\Common\PhotoDetailsItemViewCell.cs" />
+    <Compile Include="Views\Cells\Common\PhotoDetailsItemViewCell.designer.cs">
+      <DependentUpon>PhotoDetailsItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delegates\PhotoDetailsCollectionViewDelegateFlowLayout.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

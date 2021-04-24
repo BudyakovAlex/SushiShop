@@ -1,6 +1,7 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using SushiShop.Ios.Sources;
@@ -44,6 +45,7 @@ namespace SushiShop.Ios.Views.Cells.Shops
         {
             base.Initialize();
 
+            SearchBar.Placeholder = AppStrings.EnterAddress;
             tableViewSource = new TableViewSource(ContentTableView);
             tableViewSource.Register<ShopItemViewModel>(ShopItemViewCell.Nib, ShopItemViewCell.Key);
             ContentTableView.Source = tableViewSource;
@@ -57,6 +59,7 @@ namespace SushiShop.Ios.Views.Cells.Shops
 
             var bindingSet = this.CreateBindingSet<ShopsListSectionItemViewCell, ShopsListSectionViewModel>();
 
+            bindingSet.Bind(SearchBar).For(v => v.Text).To(vm => vm.Query);
             bindingSet.Bind(tableViewSource).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(nearestMetroView).For(v => v.MetrosCollection).To(vm => vm.NearestMetro);
             bindingSet.Bind(this).For(v => v.IsNearestMetroNotEmpty).To(vm => vm.IsNearestMetroNotEmpty);

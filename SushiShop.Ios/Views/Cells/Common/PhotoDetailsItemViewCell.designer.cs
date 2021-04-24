@@ -7,19 +7,19 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace SushiShop.Ios.Views.ViewControllers.Common
+namespace SushiShop.Ios.Views.Cells.Common
 {
-	[Register ("PhotoDetailsViewController")]
-	partial class PhotoDetailsViewController
+	[Register ("PhotoDetailsItemViewCell")]
+	partial class PhotoDetailsItemViewCell
 	{
 		[Outlet]
-		UIKit.UICollectionView PhotosCollectionView { get; set; }
+		FFImageLoading.Cross.MvxCachedImageView ImageView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (PhotosCollectionView != null) {
-				PhotosCollectionView.Dispose ();
-				PhotosCollectionView = null;
+			if (ImageView != null) {
+				ImageView.Dispose ();
+				ImageView = null;
 			}
 		}
 	}

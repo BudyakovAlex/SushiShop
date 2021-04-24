@@ -414,6 +414,9 @@
   <data name="EnterYourAddress" xml:space="preserve">
     <value>Введите ваш адрес</value>
   </data>
+  <data name="EnterAddress" xml:space="preserve">
+    <value>Введите адрес</value>
+  </data>
   <data name="PriceOfDelivery" xml:space="preserve">
     <value>Стоимость доставки</value>
   </data>
