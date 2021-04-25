@@ -65,30 +65,44 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <mvvmcross.droidx.recyclerview.MvxRecyclerView
-        android:id="@+id/list_recycler_view"
+    <mvvmcross.droidx.MvxSwipeRefreshLayout
+        android:id="@+id/list_refresh_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/background"
-        android:clipToPadding="false"
-        android:paddingStart="4dp"
-        android:paddingTop="22dp"
-        android:paddingEnd="4dp"
-        android:paddingBottom="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/app_bar">
 
-    <mvvmcross.droidx.recyclerview.MvxRecyclerView
-        android:id="@+id/grid_recycler_view"
+        <mvvmcross.droidx.recyclerview.MvxRecyclerView
+            android:id="@+id/list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background"
+            android:clipToPadding="false"
+            android:paddingStart="4dp"
+            android:paddingTop="22dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="14dp" />
+
+    </mvvmcross.droidx.MvxSwipeRefreshLayout>
+
+    <mvvmcross.droidx.MvxSwipeRefreshLayout
+        android:id="@+id/grid_refresh_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/app_bar">
+
+        <mvvmcross.droidx.recyclerview.MvxRecyclerView
+            android:id="@+id/grid_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background" />
+
+    </mvvmcross.droidx.MvxSwipeRefreshLayout>
 
     <View
         android:layout_width="match_parent"
@@ -99,10 +113,10 @@
         app:layout_constraintTop_toBottomOf="@+id/app_bar" />
 
     <include
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/loading_overlay_view"
-        layout="@layout/layout_loading_overlay" />
+        layout="@layout/layout_loading_overlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

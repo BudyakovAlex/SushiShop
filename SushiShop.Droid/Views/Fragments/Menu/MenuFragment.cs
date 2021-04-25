@@ -5,6 +5,7 @@ using AndroidX.RecyclerView.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
+using MvvmCross.DroidX;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
@@ -34,6 +35,8 @@ namespace SushiShop.Droid.Views.Fragments.Menu
         private ImageView chevronImageView;
         private ImageView changeModeImageView;
         private View loadingOverlayView;
+        private MvxSwipeRefreshLayout listSwipeRefreshLayout;
+        private MvxSwipeRefreshLayout gridSwipeRefreshLayout;
 
         public MenuFragment()
             : base(Resource.Layout.fragment_menu)
@@ -48,6 +51,9 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             chevronImageView = View.FindViewById<ImageView>(Resource.Id.chevron_image_view);
             changeModeImageView = View.FindViewById<ImageView>(Resource.Id.change_mode_image_view);
             loadingOverlayView = View.FindViewById<View>(Resource.Id.loading_overlay_view);
+
+            listSwipeRefreshLayout = View.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.list_refresh_layout);
+            gridSwipeRefreshLayout = View.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.grid_refresh_layout);
 
             InitializeListRecyclerView();
             InitializeGridRecyclerView();
@@ -69,9 +75,14 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             bindingSet.Bind(listRecyclerView).For(v => v.ItemsSource).To(vm => vm.SimpleItems);
             bindingSet.Bind(gridRecyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
 
-            bindingSet.Bind(listRecyclerView).For(v => v.BindVisible()).To(vm => vm.IsListMenuPresentation);
-            bindingSet.Bind(gridRecyclerView).For(v => v.BindHidden()).To(vm => vm.IsListMenuPresentation);
+            bindingSet.Bind(listSwipeRefreshLayout).For(v => v.BindVisible()).To(vm => vm.IsListMenuPresentation);
+            bindingSet.Bind(gridSwipeRefreshLayout).For(v => v.BindHidden()).To(vm => vm.IsListMenuPresentation);
             bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
+
+            bindingSet.Bind(listSwipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
+            bindingSet.Bind(gridSwipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
+            bindingSet.Bind(listSwipeRefreshLayout).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
+            bindingSet.Bind(gridSwipeRefreshLayout).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
         }
 
         private void InitializeListRecyclerView()
