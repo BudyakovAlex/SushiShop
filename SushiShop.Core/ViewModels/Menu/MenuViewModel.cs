@@ -144,6 +144,7 @@ namespace SushiShop.Core.ViewModels.Menu
 
                 if (lastKnownLocation is null)
                 {
+                    PreselectDefaultCity(cities);
                     return;
                 }
 
@@ -151,6 +152,7 @@ namespace SushiShop.Core.ViewModels.Menu
                 var firtPlacemark = placemarks.FirstOrDefault();
                 if (firtPlacemark is null)
                 {
+                    PreselectDefaultCity(cities);
                     return;
                 }
 
@@ -159,6 +161,7 @@ namespace SushiShop.Core.ViewModels.Menu
                                                                        .ToLowerInvariant()));
                 if (foundCity is null)
                 {
+                    PreselectDefaultCity(cities);
                     return;
                 }
 
@@ -166,20 +169,38 @@ namespace SushiShop.Core.ViewModels.Menu
                 var isConfirmed = await UserDialogs.Instance.ConfirmAsync(message, okText: AppStrings.Yes, cancelText: AppStrings.No);
                 if (!isConfirmed)
                 {
+                    PreselectDefaultCity(cities);
+                    SelectCityCommand.Execute();
                     return;
                 }
 
-                userSession.SetCity(foundCity);
                 city = foundCity;
+                userSession.SetCity(city);
 
                 await RaisePropertyChanged(nameof(CityName));
 
                 _ = ReloadDataAsync();
                 Messenger.Publish(new RefreshCartMessage(this));
             }
-            catch (Exception ex)
+            catch (PermissionException ex)
             {
                 Debug.WriteLine(ex);
+                PreselectDefaultCity(cities);
+                SelectCityCommand.Execute(); 
+            }
+        }
+
+        private void PreselectDefaultCity(City[] cities)
+        {
+            var foundCity = cities.FirstOrDefault(city => city.Name.ToLowerInvariant()
+                                                                   .Equals(Constants.Menu.DefaultCityName
+                                                                   .ToLowerInvariant()));
+            if (foundCity != null)
+            {
+                userSession.SetCity(foundCity);
+                city = foundCity;
+
+                _ = RaisePropertyChanged(nameof(CityName));
             }
         }
 
