@@ -78,6 +78,13 @@ namespace SushiShop.Core.ViewModels
                 NavigationManager.NavigateAsync<CartViewModel>(),
                 NavigationManager.NavigateAsync<ProfileViewModel>(),
                 NavigationManager.NavigateAsync<InfoViewModel>());
+
+            if (HasConnection)
+            {
+                return;
+            }
+
+            ShowNoInternetConeectionToast();
         }
 
         private void OnCartChanged()
@@ -90,10 +97,16 @@ namespace SushiShop.Core.ViewModels
             base.OnHasConnectionChanged(hasConnection);
             if (hasConnection)
             {
+                dialog.DismissToast();
                 return;
             }
 
-            _ = dialog.ShowToastAsync(AppStrings.NoInternetConnection);
+            ShowNoInternetConeectionToast();
+        }
+
+        private void ShowNoInternetConeectionToast()
+        {
+            _ = dialog.ShowToastAsync(AppStrings.NoInternetConnection, true);
         }
     }
 }

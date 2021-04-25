@@ -81,13 +81,13 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.MvvmCross">
-      <Version>1.0.86</Version>
+      <Version>1.0.89</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.Common">
-      <Version>1.0.86</Version>
+      <Version>1.0.89</Version>
     </PackageReference>
     <PackageReference Include="BuildApps.Core.Mobile.MvvmCross.UIKit.iOS">
-      <Version>1.0.86</Version>
+      <Version>1.0.89</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
       <Version>5.0.1</Version>

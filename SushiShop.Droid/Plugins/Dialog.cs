@@ -8,19 +8,23 @@ namespace SushiShop.Droid.Plugins
 {
     public class Dialog : IDialog
     {
+        public void DismissToast()
+        {
+        }
+
         public Task ShowActionSheetAsync(string title, string message, string cancelTitle, params DialogAction[] actions)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
 
         public Task<DateTime?> ShowDatePickerAsync(DateTime initialDate, DateTime? minDate, DateTime? maxDate, DatePickerMode mode = DatePickerMode.Date)
         {
-            throw new NotImplementedException();
+            return Task.FromResult<DateTime?>(null);
         }
 
-        public Task ShowToastAsync(string message)
+        public Task ShowToastAsync(string message, bool isEndless = false)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
     }
 }

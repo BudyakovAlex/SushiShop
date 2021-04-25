@@ -99,6 +99,13 @@ namespace SushiShop.Core.ViewModels.Cart
             _ = ExecutionStateWrapper.WrapAsync(RefreshDataAsync, awaitWhenBusy: true);
         }
 
+        protected override async Task<bool> TryToReloadDataWithConnectionAsync()
+        {
+            var wasConnectionBeforeLoad = HasConnection;
+            await RefreshDataAsync();
+            return wasConnectionBeforeLoad && HasConnection;
+        }
+
         protected override async Task RefreshDataAsync()
         {
             city = userSession.GetCity()?.Name;

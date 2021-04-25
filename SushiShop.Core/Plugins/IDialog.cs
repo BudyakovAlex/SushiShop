@@ -9,7 +9,9 @@ namespace SushiShop.Core.Plugins
     {
         Task ShowActionSheetAsync(string? title, string? message, string cancelTitle, params DialogAction[] actions);
 
-        Task ShowToastAsync(string message);
+        Task ShowToastAsync(string message, bool isEndless = false);
+
+        void DismissToast();
 
         Task<DateTime?> ShowDatePickerAsync(
             DateTime initialDate,

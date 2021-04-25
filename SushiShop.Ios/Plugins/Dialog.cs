@@ -20,6 +20,8 @@ namespace SushiShop.Ios.Plugins
     {
         private const double ToastDuration = 2d;
 
+        private TaskCompletionSource<bool>? toastDismissTaskCompletionSource;
+
         public bool IsToastShown { get; protected set; }
 
         public Task ShowActionSheetAsync(string? title, string? message, string cancelTitle, params DialogAction[] actions)
@@ -84,12 +86,11 @@ namespace SushiShop.Ios.Plugins
             return tcs.Task;
         }
 
-        public async Task ShowToastAsync(string message)
+        public async Task ShowToastAsync(string message, bool isEndless = false)
         {
             try
             {
-                var taskCompletionSource = new TaskCompletionSource<bool>();
-
+                toastDismissTaskCompletionSource = new TaskCompletionSource<bool>();
                 IsToastShown = true;
 
                 var keyWindow = UIApplication.SharedApplication.KeyWindow;
@@ -107,7 +108,7 @@ namespace SushiShop.Ios.Plugins
                     return;
                 }
 
-                var toast = new ToastView(message, taskCompletionSource)
+                var toast = new ToastView(message, isEndless, toastDismissTaskCompletionSource)
                 {
                     TranslatesAutoresizingMaskIntoConstraints = false
                 };
@@ -115,19 +116,19 @@ namespace SushiShop.Ios.Plugins
                 var superview = topViewController.View!;
                 superview.AddSubview(toast);
 
-                NSLayoutConstraint topConstraint;
+                var toastTopConstraint = toast.TopAnchor.ConstraintEqualTo(superview.SafeAreaLayoutGuide.TopAnchor);
                 NSLayoutConstraint.ActivateConstraints(new[]
                 {
                     toast.LeadingAnchor.ConstraintEqualTo(superview.LeadingAnchor),
-                    topConstraint = toast.TopAnchor.ConstraintEqualTo(superview.SafeAreaLayoutGuide.TopAnchor),
+                    toastTopConstraint,
                     toast.TrailingAnchor.ConstraintEqualTo(superview.TrailingAnchor)
                 });
 
                 superview.LayoutIfNeeded();
-                topConstraint.Constant = -toast.Bounds.Height;
+                toastTopConstraint.Constant = -toast.Bounds.Height;
                 superview.LayoutIfNeeded();
 
-                topConstraint.Constant = 0;
+                toastTopConstraint.Constant = 0;
                 UIView.Transition(
                     toast,
                     0.3d,
@@ -135,30 +136,45 @@ namespace SushiShop.Ios.Plugins
                     () => superview.LayoutIfNeeded(),
                     () => { });
 
-                DispatchQueue.MainQueue.DispatchAfter(
-                    new DispatchTime(DispatchTime.Now, TimeSpan.FromSeconds(ToastDuration)),
-                    () =>
-                    {
-                        topConstraint.Constant = -toast.Bounds.Height;
-                        UIView.Transition(
-                            toast,
-                            0.3d,
-                            UIViewAnimationOptions.CurveLinear,
-                            () => superview.LayoutIfNeeded(),
-                            () =>
-                            {
-                                toast.RemoveFromSuperview();
-                                IsToastShown = false;
-                                taskCompletionSource?.TrySetResult(true);
-                             });
-                    });
+                var dismissTask = isEndless ? toastDismissTaskCompletionSource!.Task : Task.Delay(TimeSpan.FromSeconds(ToastDuration));
+                await dismissTask;
 
-                await taskCompletionSource.Task;
+                DismissToast(
+                    toastTopConstraint,
+                    toast,
+                    superview);
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex);
             }
+        }
+
+        public void DismissToast()
+        {
+            toastDismissTaskCompletionSource?.TrySetResult(true);
+        }
+
+        private void DismissToast(
+            NSLayoutConstraint toastTopConstraint,
+            ToastView toast,
+            UIView superview)
+        {
+            DispatchQueue.MainQueue.DispatchAsync(
+                () =>
+                {
+                    toastTopConstraint.Constant = -toast.Bounds.Height;
+                    UIView.Transition(
+                        toast,
+                        0.3d,
+                        UIViewAnimationOptions.CurveLinear,
+                        () => superview.LayoutIfNeeded(),
+                        () =>
+                        {
+                            toast.RemoveFromSuperview();
+                            IsToastShown = false;
+                        });
+                });
         }
 
         private static UIViewController? GetTopViewController(UIWindow window)

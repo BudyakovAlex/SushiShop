@@ -83,6 +83,13 @@ namespace SushiShop.Core.ViewModels.Menu
             return Task.WhenAll(base.RefreshDataAsync(), ReloadDataAsync());
         }
 
+        protected override async Task<bool> TryToReloadDataWithConnectionAsync()
+        {
+            var wasConnectionBeforeLoad = HasConnection;
+            await ReloadDataAsync(true);
+            return wasConnectionBeforeLoad && HasConnection;
+        }
+
         private async Task ReloadDataAsync(bool shouldReloadUserLocation = false)
         {
             var citiesTask = citiesManager.GetCitiesAsync();
