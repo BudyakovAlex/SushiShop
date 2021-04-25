@@ -11,6 +11,13 @@
                 public const string DateWithTwentyFourTime = "d.MM.yyyy HH:mm";
                 public const string DateOfBirth = "dd.MM.yyyy";
             }
+
+            public static class Phone
+            {
+                public const char MaskCharacter = '#';
+
+                public const string MaskFormat = "+# (###) ###-##-##";
+            }
         }
     }
 }

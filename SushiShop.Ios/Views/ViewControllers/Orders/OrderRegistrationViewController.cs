@@ -12,6 +12,7 @@ using SushiShop.Core.ViewModels.Orders.Sections;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Extensions;
+using SushiShop.Ios.Formatters;
 using SushiShop.Ios.Views.Controls;
 using System.Linq;
 using UIKit;
@@ -66,6 +67,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             UserPhonePickUpTextField.Placeholder = UserPhoneDeliveryTextField.Placeholder = $"{AppStrings.Phone}*";
             CommentPickUpTextView.Placeholder = CommentDeliveryTextView.Placeholder = AppStrings.Comment;
             SpendPointsPickUpTextField.Placeholder = SpendPointsDeliveryTextField.Placeholder = AppStrings.Count;
+
+            _ = new PhoneNumberFormatter(UserPhonePickUpTextField);
+            _ = new PhoneNumberFormatter(UserPhoneDeliveryTextField);
 
             doneAccessoryView = new DoneAccessoryView(this.View, () => this.View.EndEditing(true));
             UserPhonePickUpTextField.InputAccessoryView = doneAccessoryView;

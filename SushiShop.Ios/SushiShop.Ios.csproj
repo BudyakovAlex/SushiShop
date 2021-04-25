@@ -342,6 +342,7 @@
         <Folder Include="Assets.xcassets\ic_arrow_suggestion.imageset\" />
         <Folder Include="Views\ViewControllers\Common\Dialogs\" />
         <Folder Include="Views\Cells\Common\" />
+        <Folder Include="Formatters\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -696,6 +697,7 @@
       <DependentUpon>PhotoDetailsItemViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Delegates\PhotoDetailsCollectionViewDelegateFlowLayout.cs" />
+    <Compile Include="Formatters\PhoneNumberFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

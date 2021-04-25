@@ -2,7 +2,9 @@
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
+using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.Plugins;
 using System;
@@ -118,7 +120,7 @@ namespace SushiShop.Core.ViewModels.Profile
             FullName = profile.FullName;
             Gender = profile.Gender;
             DateOfBirth = profile.DateOfBirth;
-            Phone = profile.Phone;
+            Phone = profile.Phone?.FilterByMask(Constants.Format.Phone.MaskFormat);
             Email = profile.Email;
             IsAllowSubscribe = profile.IsAllowSubscribe;
             IsAllowNotifications = profile.IsAllowNotifications;

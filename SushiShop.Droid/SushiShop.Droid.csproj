@@ -113,6 +113,7 @@
     <Compile Include="Views\Listeners\HideTabLayoutRecyclerViewScfrollListener.cs" />
     <Compile Include="Presenter\CustomAndroidViewPresenter.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
+    <Compile Include="Platform\Watchers\PhoneTextWatchers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -503,6 +504,7 @@
     <Folder Include="Enums\" />
     <Folder Include="Views\Adapters\" />
     <Folder Include="Presenter\" />
+    <Folder Include="Platform\Watchers\" />
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.txt" />

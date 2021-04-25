@@ -5,6 +5,7 @@ using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Data.Models.Profile;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
@@ -169,7 +170,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
                 return;
             }
 
-            Phone = detailedProfile.Phone;
+            Phone = detailedProfile.Phone?.FilterByMask(Constants.Format.Phone.MaskFormat);
             Name = detailedProfile.FirstName;
         }
 

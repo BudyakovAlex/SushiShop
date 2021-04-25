@@ -6,6 +6,7 @@ using SushiShop.Core.Converters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Ios.Common;
+using SushiShop.Ios.Formatters;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Controls;
 using UIKit;
@@ -32,6 +33,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             DateOfBirdthtextField.Placeholder = AppStrings.DateOfBirth;
             PhoneTextField.Placeholder = AppStrings.Phone;
             EmailTextField.Placeholder = AppStrings.Email;
+
+            _ = new PhoneNumberFormatter(PhoneTextField);
 
             genderPickerView = new UIPickerView()
             {

@@ -8,6 +8,7 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Extensions;
+using SushiShop.Ios.Formatters;
 using SushiShop.Ios.Views.Controls;
 using UIKit;
 
@@ -36,6 +37,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             DateOfBirthTextField.Placeholder = AppStrings.DateOfBirthRequired;
             PhoneTextField.Placeholder = AppStrings.PhoneRequired;
             EmailTextField.Placeholder = AppStrings.EmailRequired;
+            _ = new PhoneNumberFormatter(PhoneTextField);
 
             DateOfBirthTextField.InputView = dateOfBirthDatePicker = new UIDatePicker()
             {
