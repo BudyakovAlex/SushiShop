@@ -2,6 +2,7 @@
 using CoreGraphics;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
+using MvvmCross.Platforms.Ios.Views;
 using SushiShop.Core.Converters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cart;
@@ -22,6 +23,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
         private TableViewSource toppingsTableViewSource;
         private TableViewSource packagesTableViewSource;
         private UIView footerView;
+        private MvxUIRefreshControl refreshControl;
 
         protected override bool HandlesKeyboardNotifications => true;
 
@@ -56,6 +58,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
 
             PromocodeTextField.Placeholder = AppStrings.Promocode;
             PromocodeTextField.InputAccessoryView = new DoneAccessoryView(View, () => ViewModel?.ApplyPromocodeCommand?.Execute());
+
+            refreshControl = new MvxUIRefreshControl();
+            ContentScrollView.RefreshControl = refreshControl;
         }
 
         protected override void Bind()
@@ -78,6 +83,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             bindingSet.Bind(ContentScrollView).For(v => v.BindVisibility()).To(vm => vm.IsEmptyBasket);
             bindingSet.Bind(this).For(v => v.IsHideFooterView).To(vm => vm.Sauces.Count)
                .WithConversion<AmountToBoolInvertVisibilityConverter>();
+            bindingSet.Bind(refreshControl).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
+            bindingSet.Bind(refreshControl).For(v => v.IsRefreshing).To(vm => vm.IsRefreshing);
 
             bindingSet.Apply();
         }

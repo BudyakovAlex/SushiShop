@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using BuildApps.Core.Mobile.Common.Extensions;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Managers.Promotions;
@@ -9,6 +6,8 @@ using SushiShop.Core.Messages;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Promotions.Items;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SushiShop.Core.ViewModels.Promotions
 {
@@ -51,7 +50,7 @@ namespace SushiShop.Core.ViewModels.Promotions
 
         private void OnCityChnaged(CityChangedMessage message)
         {
-            RefreshDataCommand.Execute();
+            _ = SafeExecutionWrapper.WrapAsync(() => ExecutionStateWrapper.WrapAsync(RefreshDataAsync));
         }
     }
 }

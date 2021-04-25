@@ -77,7 +77,7 @@ namespace SushiShop.Core.ViewModels.Menu
             {
                 var allItems = response.Data.Select(product => new ProductItemViewModel(cartManager, product, city?.Name, RefreshDataAsync) { ExecutionStateWrapper = ExecutionStateWrapper }).ToArray();
                 var filteredItems = Filters.IsEmpty()
-                    ? new FilteredProductsViewModel[] { new FilteredProductsViewModel(allItems) }
+                    ? new FilteredProductsViewModel[] { new FilteredProductsViewModel(allItems, RefreshDataAsync) }
                     : Filters.Select((_, index) => ProduceItemsByFilter(allItems, index)).ToArray();
 
                 Items.ReplaceWith(filteredItems);
@@ -88,13 +88,13 @@ namespace SushiShop.Core.ViewModels.Menu
         {
             if (index == 0)
             {
-                return new FilteredProductsViewModel(items);
+                return new FilteredProductsViewModel(items, RefreshDataAsync);
             }
 
             var parentId = category!.Children!.SubCategories[index - 1].Id;
             var filteredItems = items.Where(item => item.ParentId == parentId).ToArray();
 
-            return new FilteredProductsViewModel(filteredItems);
+            return new FilteredProductsViewModel(filteredItems, RefreshDataAsync);
         }
     }
 }

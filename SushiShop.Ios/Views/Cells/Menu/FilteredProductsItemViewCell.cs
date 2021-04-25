@@ -1,13 +1,14 @@
-﻿using System;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
+﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
+using MvvmCross.Platforms.Ios.Views;
 using SushiShop.Core.ViewModels.Menu;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Ios.Common;
 using SushiShop.Ios.Delegates;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.ViewControllers;
+using System;
 using UIKit;
 
 namespace SushiShop.Ios.Views.Cells.Menu
@@ -19,6 +20,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
 
         private MainViewController rootViewController = (MainViewController) UIApplication.SharedApplication.KeyWindow.RootViewController;
         private CollectionViewSource source;
+        private MvxUIRefreshControl refreshControl;
         private int scrollY;
 
         protected FilteredProductsItemViewCell(IntPtr handle)
@@ -53,6 +55,10 @@ namespace SushiShop.Ios.Views.Cells.Menu
 
             var bindingSet = this.CreateBindingSet<FilteredProductsItemViewCell, FilteredProductsViewModel>();
             bindingSet.Bind(source).For(v => v.ItemsSource).To(vm => vm.Items);
+
+            bindingSet.Bind(refreshControl).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
+            bindingSet.Bind(refreshControl).For(v => v.IsRefreshing).To(vm => vm.IsRefreshing);
+
             bindingSet.Apply();
         }
 
@@ -64,6 +70,9 @@ namespace SushiShop.Ios.Views.Cells.Menu
             ProductsCollectionView.Source = source;
             ProductsCollectionView.Delegate = new FilteredProductsCollectionViewDelegateFlowLayout(OnScrolled);
             ProductsCollectionView.ContentInset = new UIEdgeInsets(0f, 0f, Constants.UI.TabHeight, 0f);
+
+            refreshControl = new MvxUIRefreshControl();
+            ProductsCollectionView.RefreshControl = refreshControl;
         }
 
         private void OnScrolled(UIScrollView scrollView)

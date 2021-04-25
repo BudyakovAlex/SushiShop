@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.Wrappers;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
@@ -75,6 +76,11 @@ namespace SushiShop.Core.ViewModels.Menu
             await RaisePropertyChanged(nameof(CityName));
 
             _ = ExecutionStateWrapper.WrapAsync(() => ReloadDataAsync(true), awaitWhenBusy: true);
+        }
+
+        protected override Task RefreshDataAsync()
+        {
+            return Task.WhenAll(base.RefreshDataAsync(), ReloadDataAsync());
         }
 
         private async Task ReloadDataAsync(bool shouldReloadUserLocation = false)

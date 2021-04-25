@@ -1,6 +1,7 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
+using MvvmCross.Platforms.Ios.Views;
 using MvvmCross.ViewModels;
 using SushiShop.Core.ViewModels.Orders;
 using SushiShop.Core.ViewModels.Orders.Items;
@@ -16,6 +17,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
     public partial class MyOrdersViewController : BaseViewController<MyOrdersViewModel>
     {
         private TableViewSource _source;
+        private MvxUIRefreshControl refreshControl;
 
         private MvxInteraction _goToCartInteraction;
         public MvxInteraction GoToCartInteraction
@@ -51,6 +53,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(_source).For(v => v.LoadMoreCommand).To(vm => vm.Pagination.LoadMoreItemsCommand);
             bindingSet.Bind(LoadingIndicator).For(v => v.BindVisible()).To(vm => vm.IsLoading);
             bindingSet.Bind(this).For(v => v.GoToCartInteraction).To(vm => vm.GoToCartInteraction);
+            bindingSet.Bind(refreshControl).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
+            bindingSet.Bind(refreshControl).For(v => v.IsRefreshing).To(vm => vm.IsRefreshing);
 
             bindingSet.Apply();
         }
@@ -63,6 +67,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             TableView.Source = _source;
             TableView.RowHeight = OrderItemViewCell.Height;
             TableView.ContentInset = new UIEdgeInsets(6f, 0f, 0f, 0f);
+
+            refreshControl = new MvxUIRefreshControl();
+            TableView.RefreshControl = refreshControl;
         }
 
         private void OnGoToCartInteractionRequested(object sender, System.EventArgs e)

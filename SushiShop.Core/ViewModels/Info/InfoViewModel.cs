@@ -98,7 +98,7 @@ namespace SushiShop.Core.ViewModels.Info
 
         private void OnCityChnaged(CityChangedMessage message)
         {
-            RefreshDataCommand.Execute();
+            _ = SafeExecutionWrapper.WrapAsync(() => ExecutionStateWrapper.WrapAsync(RefreshDataAsync));
         }
 
         private Task OpenSiteInBrowserAsync()

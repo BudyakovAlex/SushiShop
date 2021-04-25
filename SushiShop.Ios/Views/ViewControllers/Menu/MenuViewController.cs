@@ -2,6 +2,7 @@
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
+using MvvmCross.Platforms.Ios.Views;
 using SushiShop.Core.Converters;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.ViewModels.Menu;
@@ -23,6 +24,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
         private UIView leftBarButtonItemView;
         private MenuCollectionViewSource collectionViewSource;
         private CollectionViewSource simpleListCollectionViewSource;
+
+        private MvxUIRefreshControl simpleListRefreshControl;
+        private MvxUIRefreshControl menuRefreshControl;
 
         protected override void InitStylesAndContent()
         {
@@ -60,6 +64,10 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
             bindingSet.Bind(SimpleListCollectionView).For(v => v.BindVisible()).To(vm => vm.IsListMenuPresentation);
             bindingSet.Bind(simpleListCollectionViewSource).For(v => v.ItemsSource).To(vm => vm.SimpleItems);
             bindingSet.Bind(LoadingIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
+            bindingSet.Bind(menuRefreshControl).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
+            bindingSet.Bind(simpleListRefreshControl).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
+            bindingSet.Bind(menuRefreshControl).For(v => v.IsRefreshing).To(vm => vm.IsRefreshing);
+            bindingSet.Bind(simpleListRefreshControl).For(v => v.IsRefreshing).To(vm => vm.IsRefreshing);
 
             bindingSet.Apply();
         }
@@ -97,6 +105,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
 
             CollectionView.Source = collectionViewSource;
             CollectionView.Delegate = new MenuCollectionViewDelegateFlowLayout(collectionViewSource);
+
+            menuRefreshControl = new MvxUIRefreshControl();
+            CollectionView.RefreshControl = menuRefreshControl;
         }
 
         private void InitializeSimpleListCollectionView()
@@ -108,6 +119,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Menu
 
             SimpleListCollectionView.Source = simpleListCollectionViewSource;
             SimpleListCollectionView.Delegate = new SimpleListMenuCollectionDelegateFlowLayout(simpleListCollectionViewSource);
+
+            simpleListRefreshControl = new MvxUIRefreshControl();
+            SimpleListCollectionView.RefreshControl = simpleListRefreshControl;
         }
 
         public override void ViewWillAppear(bool animated)

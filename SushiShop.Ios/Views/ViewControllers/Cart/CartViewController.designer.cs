@@ -58,11 +58,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
 				AddPackagesTitleLabel = null;
 			}
 
-			if (SelectPackageTitleContainerView != null) {
-				SelectPackageTitleContainerView.Dispose ();
-				SelectPackageTitleContainerView = null;
-			}
-
 			if (AddSauseContainerView != null) {
 				AddSauseContainerView.Dispose ();
 				AddSauseContainerView = null;
@@ -111,6 +106,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
 			if (PromocodeTextField != null) {
 				PromocodeTextField.Dispose ();
 				PromocodeTextField = null;
+			}
+
+			if (SelectPackageTitleContainerView != null) {
+				SelectPackageTitleContainerView.Dispose ();
+				SelectPackageTitleContainerView = null;
 			}
 
 			if (ToppingsTableView != null) {
