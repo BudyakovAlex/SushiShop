@@ -5,6 +5,7 @@ using AndroidX.RecyclerView.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
+using MvvmCross.Binding.Combiners;
 using MvvmCross.DroidX;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
@@ -77,7 +78,10 @@ namespace SushiShop.Droid.Views.Fragments.Menu
 
             bindingSet.Bind(listSwipeRefreshLayout).For(v => v.BindVisible()).To(vm => vm.IsListMenuPresentation);
             bindingSet.Bind(gridSwipeRefreshLayout).For(v => v.BindHidden()).To(vm => vm.IsListMenuPresentation);
-            bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
+            bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).ByCombining(
+                new MvxAndValueCombiner(),
+                vm => vm.IsBusy,
+                vm => vm.IsNotRefreshing);
 
             bindingSet.Bind(listSwipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
             bindingSet.Bind(gridSwipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
