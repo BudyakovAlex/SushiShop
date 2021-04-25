@@ -20,7 +20,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             IOrdersManager ordersManager,
             IUserSession userSession,
             IDialog dialog,
-            Func<OrderConfirmed, string, Task> confirmOrderFunc)
+            Func<OrderConfirmed, string, string, Task> confirmOrderFunc)
             : base(ordersManager, userSession, dialog, confirmOrderFunc)
         {
         }

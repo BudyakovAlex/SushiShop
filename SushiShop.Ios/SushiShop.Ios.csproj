@@ -98,6 +98,9 @@
     <PackageReference Include="Xamarin.GoogleMapsUtils">
       <Version>1.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.StoreReview">
+      <Version>3.2.0-beta</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">

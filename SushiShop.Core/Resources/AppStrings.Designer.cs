@@ -700,5 +700,17 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("BuyWithThisProduct", resourceCulture);
             }
         }
+        
+        public static string DoYouLikeSushiShopApp {
+            get {
+                return ResourceManager.GetString("DoYouLikeSushiShopApp", resourceCulture);
+            }
+        }
+        
+        public static string FeedbackFrom {
+            get {
+                return ResourceManager.GetString("FeedbackFrom", resourceCulture);
+            }
+        }
     }
 }

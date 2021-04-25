@@ -14,6 +14,7 @@
 
         public static class Info
         {
+            public const string FeedbackEmail = "test@email.com";
             public const string OfficePhone = "+7 (812) 493 4444";
             public const string DevelopersSite = "https://notissimus.com/";
         }

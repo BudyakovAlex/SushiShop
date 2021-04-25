@@ -17598,6 +17598,197 @@ namespace SushiShop.Droid
 			global::Plugin.Media.Resource.Styleable.GradientColor_android_tileMode = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_tileMode;
 			global::Plugin.Media.Resource.Styleable.GradientColor_android_type = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_type;
 			global::Plugin.Media.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::SushiShop.Droid.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
+			global::Plugin.StoreReview.Resource.Attribute.alpha = global::SushiShop.Droid.Resource.Attribute.alpha;
+			global::Plugin.StoreReview.Resource.Attribute.font = global::SushiShop.Droid.Resource.Attribute.font;
+			global::Plugin.StoreReview.Resource.Attribute.fontProviderAuthority = global::SushiShop.Droid.Resource.Attribute.fontProviderAuthority;
+			global::Plugin.StoreReview.Resource.Attribute.fontProviderCerts = global::SushiShop.Droid.Resource.Attribute.fontProviderCerts;
+			global::Plugin.StoreReview.Resource.Attribute.fontProviderFetchStrategy = global::SushiShop.Droid.Resource.Attribute.fontProviderFetchStrategy;
+			global::Plugin.StoreReview.Resource.Attribute.fontProviderFetchTimeout = global::SushiShop.Droid.Resource.Attribute.fontProviderFetchTimeout;
+			global::Plugin.StoreReview.Resource.Attribute.fontProviderPackage = global::SushiShop.Droid.Resource.Attribute.fontProviderPackage;
+			global::Plugin.StoreReview.Resource.Attribute.fontProviderQuery = global::SushiShop.Droid.Resource.Attribute.fontProviderQuery;
+			global::Plugin.StoreReview.Resource.Attribute.fontStyle = global::SushiShop.Droid.Resource.Attribute.fontStyle;
+			global::Plugin.StoreReview.Resource.Attribute.fontVariationSettings = global::SushiShop.Droid.Resource.Attribute.fontVariationSettings;
+			global::Plugin.StoreReview.Resource.Attribute.fontWeight = global::SushiShop.Droid.Resource.Attribute.fontWeight;
+			global::Plugin.StoreReview.Resource.Attribute.ttcIndex = global::SushiShop.Droid.Resource.Attribute.ttcIndex;
+			global::Plugin.StoreReview.Resource.Color.androidx_core_ripple_material_light = global::SushiShop.Droid.Resource.Color.androidx_core_ripple_material_light;
+			global::Plugin.StoreReview.Resource.Color.androidx_core_secondary_text_default_material_light = global::SushiShop.Droid.Resource.Color.androidx_core_secondary_text_default_material_light;
+			global::Plugin.StoreReview.Resource.Color.browser_actions_bg_grey = global::SushiShop.Droid.Resource.Color.browser_actions_bg_grey;
+			global::Plugin.StoreReview.Resource.Color.browser_actions_divider_color = global::SushiShop.Droid.Resource.Color.browser_actions_divider_color;
+			global::Plugin.StoreReview.Resource.Color.browser_actions_text_color = global::SushiShop.Droid.Resource.Color.browser_actions_text_color;
+			global::Plugin.StoreReview.Resource.Color.browser_actions_title_color = global::SushiShop.Droid.Resource.Color.browser_actions_title_color;
+			global::Plugin.StoreReview.Resource.Color.notification_action_color_filter = global::SushiShop.Droid.Resource.Color.notification_action_color_filter;
+			global::Plugin.StoreReview.Resource.Color.notification_icon_bg_color = global::SushiShop.Droid.Resource.Color.notification_icon_bg_color;
+			global::Plugin.StoreReview.Resource.Dimension.browser_actions_context_menu_max_width = global::SushiShop.Droid.Resource.Dimension.browser_actions_context_menu_max_width;
+			global::Plugin.StoreReview.Resource.Dimension.browser_actions_context_menu_min_padding = global::SushiShop.Droid.Resource.Dimension.browser_actions_context_menu_min_padding;
+			global::Plugin.StoreReview.Resource.Dimension.compat_button_inset_horizontal_material = global::SushiShop.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::Plugin.StoreReview.Resource.Dimension.compat_button_inset_vertical_material = global::SushiShop.Droid.Resource.Dimension.compat_button_inset_vertical_material;
+			global::Plugin.StoreReview.Resource.Dimension.compat_button_padding_horizontal_material = global::SushiShop.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::Plugin.StoreReview.Resource.Dimension.compat_button_padding_vertical_material = global::SushiShop.Droid.Resource.Dimension.compat_button_padding_vertical_material;
+			global::Plugin.StoreReview.Resource.Dimension.compat_control_corner_material = global::SushiShop.Droid.Resource.Dimension.compat_control_corner_material;
+			global::Plugin.StoreReview.Resource.Dimension.compat_notification_large_icon_max_height = global::SushiShop.Droid.Resource.Dimension.compat_notification_large_icon_max_height;
+			global::Plugin.StoreReview.Resource.Dimension.compat_notification_large_icon_max_width = global::SushiShop.Droid.Resource.Dimension.compat_notification_large_icon_max_width;
+			global::Plugin.StoreReview.Resource.Dimension.notification_action_icon_size = global::SushiShop.Droid.Resource.Dimension.notification_action_icon_size;
+			global::Plugin.StoreReview.Resource.Dimension.notification_action_text_size = global::SushiShop.Droid.Resource.Dimension.notification_action_text_size;
+			global::Plugin.StoreReview.Resource.Dimension.notification_big_circle_margin = global::SushiShop.Droid.Resource.Dimension.notification_big_circle_margin;
+			global::Plugin.StoreReview.Resource.Dimension.notification_content_margin_start = global::SushiShop.Droid.Resource.Dimension.notification_content_margin_start;
+			global::Plugin.StoreReview.Resource.Dimension.notification_large_icon_height = global::SushiShop.Droid.Resource.Dimension.notification_large_icon_height;
+			global::Plugin.StoreReview.Resource.Dimension.notification_large_icon_width = global::SushiShop.Droid.Resource.Dimension.notification_large_icon_width;
+			global::Plugin.StoreReview.Resource.Dimension.notification_main_column_padding_top = global::SushiShop.Droid.Resource.Dimension.notification_main_column_padding_top;
+			global::Plugin.StoreReview.Resource.Dimension.notification_media_narrow_margin = global::SushiShop.Droid.Resource.Dimension.notification_media_narrow_margin;
+			global::Plugin.StoreReview.Resource.Dimension.notification_right_icon_size = global::SushiShop.Droid.Resource.Dimension.notification_right_icon_size;
+			global::Plugin.StoreReview.Resource.Dimension.notification_right_side_padding_top = global::SushiShop.Droid.Resource.Dimension.notification_right_side_padding_top;
+			global::Plugin.StoreReview.Resource.Dimension.notification_small_icon_background_padding = global::SushiShop.Droid.Resource.Dimension.notification_small_icon_background_padding;
+			global::Plugin.StoreReview.Resource.Dimension.notification_small_icon_size_as_large = global::SushiShop.Droid.Resource.Dimension.notification_small_icon_size_as_large;
+			global::Plugin.StoreReview.Resource.Dimension.notification_subtext_size = global::SushiShop.Droid.Resource.Dimension.notification_subtext_size;
+			global::Plugin.StoreReview.Resource.Dimension.notification_top_pad = global::SushiShop.Droid.Resource.Dimension.notification_top_pad;
+			global::Plugin.StoreReview.Resource.Dimension.notification_top_pad_large_text = global::SushiShop.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::Plugin.StoreReview.Resource.Drawable.notification_action_background = global::SushiShop.Droid.Resource.Drawable.notification_action_background;
+			global::Plugin.StoreReview.Resource.Drawable.notification_bg = global::SushiShop.Droid.Resource.Drawable.notification_bg;
+			global::Plugin.StoreReview.Resource.Drawable.notification_bg_low = global::SushiShop.Droid.Resource.Drawable.notification_bg_low;
+			global::Plugin.StoreReview.Resource.Drawable.notification_bg_low_normal = global::SushiShop.Droid.Resource.Drawable.notification_bg_low_normal;
+			global::Plugin.StoreReview.Resource.Drawable.notification_bg_low_pressed = global::SushiShop.Droid.Resource.Drawable.notification_bg_low_pressed;
+			global::Plugin.StoreReview.Resource.Drawable.notification_bg_normal = global::SushiShop.Droid.Resource.Drawable.notification_bg_normal;
+			global::Plugin.StoreReview.Resource.Drawable.notification_bg_normal_pressed = global::SushiShop.Droid.Resource.Drawable.notification_bg_normal_pressed;
+			global::Plugin.StoreReview.Resource.Drawable.notification_icon_background = global::SushiShop.Droid.Resource.Drawable.notification_icon_background;
+			global::Plugin.StoreReview.Resource.Drawable.notification_template_icon_bg = global::SushiShop.Droid.Resource.Drawable.notification_template_icon_bg;
+			global::Plugin.StoreReview.Resource.Drawable.notification_template_icon_low_bg = global::SushiShop.Droid.Resource.Drawable.notification_template_icon_low_bg;
+			global::Plugin.StoreReview.Resource.Drawable.notification_tile_bg = global::SushiShop.Droid.Resource.Drawable.notification_tile_bg;
+			global::Plugin.StoreReview.Resource.Drawable.notify_panel_notification_icon_bg = global::SushiShop.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Plugin.StoreReview.Resource.Id.accessibility_action_clickable_span = global::SushiShop.Droid.Resource.Id.accessibility_action_clickable_span;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_0 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_0;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_1 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_1;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_10 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_10;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_11 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_11;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_12 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_12;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_13 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_13;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_14 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_14;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_15 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_15;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_16 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_16;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_17 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_17;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_18 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_18;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_19 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_19;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_2 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_2;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_20 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_20;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_21 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_21;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_22 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_22;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_23 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_23;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_24 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_24;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_25 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_25;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_26 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_26;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_27 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_27;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_28 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_28;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_29 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_29;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_3 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_3;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_30 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_30;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_31 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_31;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_4 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_4;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_5 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_5;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_6 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_6;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_7 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_7;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_8 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_8;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_9 = global::SushiShop.Droid.Resource.Id.accessibility_custom_action_9;
+			global::Plugin.StoreReview.Resource.Id.actions = global::SushiShop.Droid.Resource.Id.actions;
+			global::Plugin.StoreReview.Resource.Id.action_container = global::SushiShop.Droid.Resource.Id.action_container;
+			global::Plugin.StoreReview.Resource.Id.action_divider = global::SushiShop.Droid.Resource.Id.action_divider;
+			global::Plugin.StoreReview.Resource.Id.action_image = global::SushiShop.Droid.Resource.Id.action_image;
+			global::Plugin.StoreReview.Resource.Id.action_text = global::SushiShop.Droid.Resource.Id.action_text;
+			global::Plugin.StoreReview.Resource.Id.async = global::SushiShop.Droid.Resource.Id.async;
+			global::Plugin.StoreReview.Resource.Id.blocking = global::SushiShop.Droid.Resource.Id.blocking;
+			global::Plugin.StoreReview.Resource.Id.browser_actions_header_text = global::SushiShop.Droid.Resource.Id.browser_actions_header_text;
+			global::Plugin.StoreReview.Resource.Id.browser_actions_menu_items = global::SushiShop.Droid.Resource.Id.browser_actions_menu_items;
+			global::Plugin.StoreReview.Resource.Id.browser_actions_menu_item_icon = global::SushiShop.Droid.Resource.Id.browser_actions_menu_item_icon;
+			global::Plugin.StoreReview.Resource.Id.browser_actions_menu_item_text = global::SushiShop.Droid.Resource.Id.browser_actions_menu_item_text;
+			global::Plugin.StoreReview.Resource.Id.browser_actions_menu_view = global::SushiShop.Droid.Resource.Id.browser_actions_menu_view;
+			global::Plugin.StoreReview.Resource.Id.chronometer = global::SushiShop.Droid.Resource.Id.chronometer;
+			global::Plugin.StoreReview.Resource.Id.dialog_button = global::SushiShop.Droid.Resource.Id.dialog_button;
+			global::Plugin.StoreReview.Resource.Id.forever = global::SushiShop.Droid.Resource.Id.forever;
+			global::Plugin.StoreReview.Resource.Id.icon = global::SushiShop.Droid.Resource.Id.icon;
+			global::Plugin.StoreReview.Resource.Id.icon_group = global::SushiShop.Droid.Resource.Id.icon_group;
+			global::Plugin.StoreReview.Resource.Id.info = global::SushiShop.Droid.Resource.Id.info;
+			global::Plugin.StoreReview.Resource.Id.italic = global::SushiShop.Droid.Resource.Id.italic;
+			global::Plugin.StoreReview.Resource.Id.line1 = global::SushiShop.Droid.Resource.Id.line1;
+			global::Plugin.StoreReview.Resource.Id.line3 = global::SushiShop.Droid.Resource.Id.line3;
+			global::Plugin.StoreReview.Resource.Id.normal = global::SushiShop.Droid.Resource.Id.normal;
+			global::Plugin.StoreReview.Resource.Id.notification_background = global::SushiShop.Droid.Resource.Id.notification_background;
+			global::Plugin.StoreReview.Resource.Id.notification_main_column = global::SushiShop.Droid.Resource.Id.notification_main_column;
+			global::Plugin.StoreReview.Resource.Id.notification_main_column_container = global::SushiShop.Droid.Resource.Id.notification_main_column_container;
+			global::Plugin.StoreReview.Resource.Id.right_icon = global::SushiShop.Droid.Resource.Id.right_icon;
+			global::Plugin.StoreReview.Resource.Id.right_side = global::SushiShop.Droid.Resource.Id.right_side;
+			global::Plugin.StoreReview.Resource.Id.tag_accessibility_actions = global::SushiShop.Droid.Resource.Id.tag_accessibility_actions;
+			global::Plugin.StoreReview.Resource.Id.tag_accessibility_clickable_spans = global::SushiShop.Droid.Resource.Id.tag_accessibility_clickable_spans;
+			global::Plugin.StoreReview.Resource.Id.tag_accessibility_heading = global::SushiShop.Droid.Resource.Id.tag_accessibility_heading;
+			global::Plugin.StoreReview.Resource.Id.tag_accessibility_pane_title = global::SushiShop.Droid.Resource.Id.tag_accessibility_pane_title;
+			global::Plugin.StoreReview.Resource.Id.tag_screen_reader_focusable = global::SushiShop.Droid.Resource.Id.tag_screen_reader_focusable;
+			global::Plugin.StoreReview.Resource.Id.tag_transition_group = global::SushiShop.Droid.Resource.Id.tag_transition_group;
+			global::Plugin.StoreReview.Resource.Id.tag_unhandled_key_event_manager = global::SushiShop.Droid.Resource.Id.tag_unhandled_key_event_manager;
+			global::Plugin.StoreReview.Resource.Id.tag_unhandled_key_listeners = global::SushiShop.Droid.Resource.Id.tag_unhandled_key_listeners;
+			global::Plugin.StoreReview.Resource.Id.text = global::SushiShop.Droid.Resource.Id.text;
+			global::Plugin.StoreReview.Resource.Id.text2 = global::SushiShop.Droid.Resource.Id.text2;
+			global::Plugin.StoreReview.Resource.Id.time = global::SushiShop.Droid.Resource.Id.time;
+			global::Plugin.StoreReview.Resource.Id.title = global::SushiShop.Droid.Resource.Id.title;
+			global::Plugin.StoreReview.Resource.Integer.status_bar_notification_info_maxnum = global::SushiShop.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::Plugin.StoreReview.Resource.Layout.browser_actions_context_menu_page = global::SushiShop.Droid.Resource.Layout.browser_actions_context_menu_page;
+			global::Plugin.StoreReview.Resource.Layout.browser_actions_context_menu_row = global::SushiShop.Droid.Resource.Layout.browser_actions_context_menu_row;
+			global::Plugin.StoreReview.Resource.Layout.custom_dialog = global::SushiShop.Droid.Resource.Layout.custom_dialog;
+			global::Plugin.StoreReview.Resource.Layout.notification_action = global::SushiShop.Droid.Resource.Layout.notification_action;
+			global::Plugin.StoreReview.Resource.Layout.notification_action_tombstone = global::SushiShop.Droid.Resource.Layout.notification_action_tombstone;
+			global::Plugin.StoreReview.Resource.Layout.notification_template_custom_big = global::SushiShop.Droid.Resource.Layout.notification_template_custom_big;
+			global::Plugin.StoreReview.Resource.Layout.notification_template_icon_group = global::SushiShop.Droid.Resource.Layout.notification_template_icon_group;
+			global::Plugin.StoreReview.Resource.Layout.notification_template_part_chronometer = global::SushiShop.Droid.Resource.Layout.notification_template_part_chronometer;
+			global::Plugin.StoreReview.Resource.Layout.notification_template_part_time = global::SushiShop.Droid.Resource.Layout.notification_template_part_time;
+			global::Plugin.StoreReview.Resource.String.copy_toast_msg = global::SushiShop.Droid.Resource.String.copy_toast_msg;
+			global::Plugin.StoreReview.Resource.String.fallback_menu_item_copy_link = global::SushiShop.Droid.Resource.String.fallback_menu_item_copy_link;
+			global::Plugin.StoreReview.Resource.String.fallback_menu_item_open_in_browser = global::SushiShop.Droid.Resource.String.fallback_menu_item_open_in_browser;
+			global::Plugin.StoreReview.Resource.String.fallback_menu_item_share_link = global::SushiShop.Droid.Resource.String.fallback_menu_item_share_link;
+			global::Plugin.StoreReview.Resource.String.status_bar_notification_info_overflow = global::SushiShop.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::Plugin.StoreReview.Resource.Style.TextAppearance_Compat_Notification = global::SushiShop.Droid.Resource.Style.TextAppearance_Compat_Notification;
+			global::Plugin.StoreReview.Resource.Style.TextAppearance_Compat_Notification_Info = global::SushiShop.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::Plugin.StoreReview.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::SushiShop.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::Plugin.StoreReview.Resource.Style.TextAppearance_Compat_Notification_Time = global::SushiShop.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::Plugin.StoreReview.Resource.Style.TextAppearance_Compat_Notification_Title = global::SushiShop.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::Plugin.StoreReview.Resource.Style.Theme_PlayCore_Transparent = global::SushiShop.Droid.Resource.Style.Theme_PlayCore_Transparent;
+			global::Plugin.StoreReview.Resource.Style.Widget_Compat_NotificationActionContainer = global::SushiShop.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::Plugin.StoreReview.Resource.Style.Widget_Compat_NotificationActionText = global::SushiShop.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Plugin.StoreReview.Resource.Styleable.ColorStateListItem = global::SushiShop.Droid.Resource.Styleable.ColorStateListItem;
+			global::Plugin.StoreReview.Resource.Styleable.ColorStateListItem_alpha = global::SushiShop.Droid.Resource.Styleable.ColorStateListItem_alpha;
+			global::Plugin.StoreReview.Resource.Styleable.ColorStateListItem_android_alpha = global::SushiShop.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
+			global::Plugin.StoreReview.Resource.Styleable.ColorStateListItem_android_color = global::SushiShop.Droid.Resource.Styleable.ColorStateListItem_android_color;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamily = global::SushiShop.Droid.Resource.Styleable.FontFamily;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont_android_font = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_android_font;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont_android_fontStyle = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont_android_fontWeight = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_android_ttcIndex;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont_font = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_font;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont_fontStyle = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_fontVariationSettings;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont_fontWeight = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont_ttcIndex = global::SushiShop.Droid.Resource.Styleable.FontFamilyFont_ttcIndex;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamily_fontProviderAuthority = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamily_fontProviderCerts = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamily_fontProviderPackage = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Plugin.StoreReview.Resource.Styleable.FontFamily_fontProviderQuery = global::SushiShop.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor = global::SushiShop.Droid.Resource.Styleable.GradientColor;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColorItem = global::SushiShop.Droid.Resource.Styleable.GradientColorItem;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColorItem_android_color = global::SushiShop.Droid.Resource.Styleable.GradientColorItem_android_color;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColorItem_android_offset = global::SushiShop.Droid.Resource.Styleable.GradientColorItem_android_offset;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_centerColor = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_centerColor;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_centerX = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_centerX;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_centerY = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_centerY;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_endColor = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_endColor;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_endX = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_endX;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_endY = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_endY;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_gradientRadius = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_gradientRadius;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_startColor = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_startColor;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_startX = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_startX;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_startY = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_startY;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_tileMode = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_tileMode;
+			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_type = global::SushiShop.Droid.Resource.Styleable.GradientColor_android_type;
+			global::Plugin.StoreReview.Resource.Xml.image_share_filepaths = global::SushiShop.Droid.Resource.Xml.image_share_filepaths;
+			global::Plugin.StoreReview.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::SushiShop.Droid.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::SushiShop.Droid.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::SushiShop.Droid.Resource.Attribute.font;
 			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::SushiShop.Droid.Resource.Attribute.fontProviderAuthority;
@@ -24836,68 +25027,68 @@ namespace SushiShop.Droid
 			// aapt resource value: 0x7F0F0159
 			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131689817;
 			
-			// aapt resource value: 0x7F0F018C
-			public const int ThemeOverlay_AppCompat = 2131689868;
-			
 			// aapt resource value: 0x7F0F018D
-			public const int ThemeOverlay_AppCompat_ActionBar = 2131689869;
+			public const int ThemeOverlay_AppCompat = 2131689869;
 			
 			// aapt resource value: 0x7F0F018E
-			public const int ThemeOverlay_AppCompat_Dark = 2131689870;
+			public const int ThemeOverlay_AppCompat_ActionBar = 2131689870;
 			
 			// aapt resource value: 0x7F0F018F
-			public const int ThemeOverlay_AppCompat_Dark_ActionBar = 2131689871;
+			public const int ThemeOverlay_AppCompat_Dark = 2131689871;
 			
 			// aapt resource value: 0x7F0F0190
-			public const int ThemeOverlay_AppCompat_DayNight = 2131689872;
+			public const int ThemeOverlay_AppCompat_Dark_ActionBar = 2131689872;
 			
 			// aapt resource value: 0x7F0F0191
-			public const int ThemeOverlay_AppCompat_DayNight_ActionBar = 2131689873;
+			public const int ThemeOverlay_AppCompat_DayNight = 2131689873;
 			
 			// aapt resource value: 0x7F0F0192
-			public const int ThemeOverlay_AppCompat_Dialog = 2131689874;
+			public const int ThemeOverlay_AppCompat_DayNight_ActionBar = 2131689874;
 			
 			// aapt resource value: 0x7F0F0193
-			public const int ThemeOverlay_AppCompat_Dialog_Alert = 2131689875;
+			public const int ThemeOverlay_AppCompat_Dialog = 2131689875;
 			
 			// aapt resource value: 0x7F0F0194
-			public const int ThemeOverlay_AppCompat_Light = 2131689876;
+			public const int ThemeOverlay_AppCompat_Dialog_Alert = 2131689876;
 			
 			// aapt resource value: 0x7F0F0195
-			public const int ThemeOverlay_MaterialComponents = 2131689877;
+			public const int ThemeOverlay_AppCompat_Light = 2131689877;
 			
 			// aapt resource value: 0x7F0F0196
-			public const int ThemeOverlay_MaterialComponents_ActionBar = 2131689878;
+			public const int ThemeOverlay_MaterialComponents = 2131689878;
 			
 			// aapt resource value: 0x7F0F0197
-			public const int ThemeOverlay_MaterialComponents_Dark = 2131689879;
+			public const int ThemeOverlay_MaterialComponents_ActionBar = 2131689879;
 			
 			// aapt resource value: 0x7F0F0198
-			public const int ThemeOverlay_MaterialComponents_Dark_ActionBar = 2131689880;
+			public const int ThemeOverlay_MaterialComponents_Dark = 2131689880;
 			
 			// aapt resource value: 0x7F0F0199
-			public const int ThemeOverlay_MaterialComponents_Dialog = 2131689881;
+			public const int ThemeOverlay_MaterialComponents_Dark_ActionBar = 2131689881;
 			
 			// aapt resource value: 0x7F0F019A
-			public const int ThemeOverlay_MaterialComponents_Dialog_Alert = 2131689882;
+			public const int ThemeOverlay_MaterialComponents_Dialog = 2131689882;
 			
 			// aapt resource value: 0x7F0F019B
-			public const int ThemeOverlay_MaterialComponents_Light = 2131689883;
+			public const int ThemeOverlay_MaterialComponents_Dialog_Alert = 2131689883;
 			
 			// aapt resource value: 0x7F0F019C
-			public const int ThemeOverlay_MaterialComponents_TextInputEditText = 2131689884;
+			public const int ThemeOverlay_MaterialComponents_Light = 2131689884;
 			
 			// aapt resource value: 0x7F0F019D
-			public const int ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox = 2131689885;
+			public const int ThemeOverlay_MaterialComponents_TextInputEditText = 2131689885;
 			
 			// aapt resource value: 0x7F0F019E
-			public const int ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense = 2131689886;
+			public const int ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox = 2131689886;
 			
 			// aapt resource value: 0x7F0F019F
-			public const int ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox = 2131689887;
+			public const int ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense = 2131689887;
 			
 			// aapt resource value: 0x7F0F01A0
-			public const int ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense = 2131689888;
+			public const int ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox = 2131689888;
+			
+			// aapt resource value: 0x7F0F01A1
+			public const int ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense = 2131689889;
 			
 			// aapt resource value: 0x7F0F015A
 			public const int Theme_AppCompat = 2131689818;
@@ -25047,376 +25238,379 @@ namespace SushiShop.Droid
 			public const int Theme_MaterialComponents_NoActionBar_Bridge = 2131689866;
 			
 			// aapt resource value: 0x7F0F018B
-			public const int Theme_Splash = 2131689867;
+			public const int Theme_PlayCore_Transparent = 2131689867;
 			
-			// aapt resource value: 0x7F0F01A1
-			public const int ToolbarText = 2131689889;
+			// aapt resource value: 0x7F0F018C
+			public const int Theme_Splash = 2131689868;
 			
 			// aapt resource value: 0x7F0F01A2
-			public const int Widget_AppCompat_ActionBar = 2131689890;
+			public const int ToolbarText = 2131689890;
 			
 			// aapt resource value: 0x7F0F01A3
-			public const int Widget_AppCompat_ActionBar_Solid = 2131689891;
+			public const int Widget_AppCompat_ActionBar = 2131689891;
 			
 			// aapt resource value: 0x7F0F01A4
-			public const int Widget_AppCompat_ActionBar_TabBar = 2131689892;
+			public const int Widget_AppCompat_ActionBar_Solid = 2131689892;
 			
 			// aapt resource value: 0x7F0F01A5
-			public const int Widget_AppCompat_ActionBar_TabText = 2131689893;
+			public const int Widget_AppCompat_ActionBar_TabBar = 2131689893;
 			
 			// aapt resource value: 0x7F0F01A6
-			public const int Widget_AppCompat_ActionBar_TabView = 2131689894;
+			public const int Widget_AppCompat_ActionBar_TabText = 2131689894;
 			
 			// aapt resource value: 0x7F0F01A7
-			public const int Widget_AppCompat_ActionButton = 2131689895;
+			public const int Widget_AppCompat_ActionBar_TabView = 2131689895;
 			
 			// aapt resource value: 0x7F0F01A8
-			public const int Widget_AppCompat_ActionButton_CloseMode = 2131689896;
+			public const int Widget_AppCompat_ActionButton = 2131689896;
 			
 			// aapt resource value: 0x7F0F01A9
-			public const int Widget_AppCompat_ActionButton_Overflow = 2131689897;
+			public const int Widget_AppCompat_ActionButton_CloseMode = 2131689897;
 			
 			// aapt resource value: 0x7F0F01AA
-			public const int Widget_AppCompat_ActionMode = 2131689898;
+			public const int Widget_AppCompat_ActionButton_Overflow = 2131689898;
 			
 			// aapt resource value: 0x7F0F01AB
-			public const int Widget_AppCompat_ActivityChooserView = 2131689899;
+			public const int Widget_AppCompat_ActionMode = 2131689899;
 			
 			// aapt resource value: 0x7F0F01AC
-			public const int Widget_AppCompat_AutoCompleteTextView = 2131689900;
+			public const int Widget_AppCompat_ActivityChooserView = 2131689900;
 			
 			// aapt resource value: 0x7F0F01AD
-			public const int Widget_AppCompat_Button = 2131689901;
-			
-			// aapt resource value: 0x7F0F01B3
-			public const int Widget_AppCompat_ButtonBar = 2131689907;
-			
-			// aapt resource value: 0x7F0F01B4
-			public const int Widget_AppCompat_ButtonBar_AlertDialog = 2131689908;
+			public const int Widget_AppCompat_AutoCompleteTextView = 2131689901;
 			
 			// aapt resource value: 0x7F0F01AE
-			public const int Widget_AppCompat_Button_Borderless = 2131689902;
+			public const int Widget_AppCompat_Button = 2131689902;
 			
-			// aapt resource value: 0x7F0F01AF
-			public const int Widget_AppCompat_Button_Borderless_Colored = 2131689903;
-			
-			// aapt resource value: 0x7F0F01B0
-			public const int Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131689904;
-			
-			// aapt resource value: 0x7F0F01B1
-			public const int Widget_AppCompat_Button_Colored = 2131689905;
-			
-			// aapt resource value: 0x7F0F01B2
-			public const int Widget_AppCompat_Button_Small = 2131689906;
+			// aapt resource value: 0x7F0F01B4
+			public const int Widget_AppCompat_ButtonBar = 2131689908;
 			
 			// aapt resource value: 0x7F0F01B5
-			public const int Widget_AppCompat_CompoundButton_CheckBox = 2131689909;
+			public const int Widget_AppCompat_ButtonBar_AlertDialog = 2131689909;
+			
+			// aapt resource value: 0x7F0F01AF
+			public const int Widget_AppCompat_Button_Borderless = 2131689903;
+			
+			// aapt resource value: 0x7F0F01B0
+			public const int Widget_AppCompat_Button_Borderless_Colored = 2131689904;
+			
+			// aapt resource value: 0x7F0F01B1
+			public const int Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131689905;
+			
+			// aapt resource value: 0x7F0F01B2
+			public const int Widget_AppCompat_Button_Colored = 2131689906;
+			
+			// aapt resource value: 0x7F0F01B3
+			public const int Widget_AppCompat_Button_Small = 2131689907;
 			
 			// aapt resource value: 0x7F0F01B6
-			public const int Widget_AppCompat_CompoundButton_RadioButton = 2131689910;
+			public const int Widget_AppCompat_CompoundButton_CheckBox = 2131689910;
 			
 			// aapt resource value: 0x7F0F01B7
-			public const int Widget_AppCompat_CompoundButton_Switch = 2131689911;
+			public const int Widget_AppCompat_CompoundButton_RadioButton = 2131689911;
 			
 			// aapt resource value: 0x7F0F01B8
-			public const int Widget_AppCompat_DrawerArrowToggle = 2131689912;
+			public const int Widget_AppCompat_CompoundButton_Switch = 2131689912;
 			
 			// aapt resource value: 0x7F0F01B9
-			public const int Widget_AppCompat_DropDownItem_Spinner = 2131689913;
+			public const int Widget_AppCompat_DrawerArrowToggle = 2131689913;
 			
 			// aapt resource value: 0x7F0F01BA
-			public const int Widget_AppCompat_EditText = 2131689914;
+			public const int Widget_AppCompat_DropDownItem_Spinner = 2131689914;
 			
 			// aapt resource value: 0x7F0F01BB
-			public const int Widget_AppCompat_ImageButton = 2131689915;
+			public const int Widget_AppCompat_EditText = 2131689915;
 			
 			// aapt resource value: 0x7F0F01BC
-			public const int Widget_AppCompat_Light_ActionBar = 2131689916;
+			public const int Widget_AppCompat_ImageButton = 2131689916;
 			
 			// aapt resource value: 0x7F0F01BD
-			public const int Widget_AppCompat_Light_ActionBar_Solid = 2131689917;
+			public const int Widget_AppCompat_Light_ActionBar = 2131689917;
 			
 			// aapt resource value: 0x7F0F01BE
-			public const int Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131689918;
+			public const int Widget_AppCompat_Light_ActionBar_Solid = 2131689918;
 			
 			// aapt resource value: 0x7F0F01BF
-			public const int Widget_AppCompat_Light_ActionBar_TabBar = 2131689919;
+			public const int Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131689919;
 			
 			// aapt resource value: 0x7F0F01C0
-			public const int Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131689920;
+			public const int Widget_AppCompat_Light_ActionBar_TabBar = 2131689920;
 			
 			// aapt resource value: 0x7F0F01C1
-			public const int Widget_AppCompat_Light_ActionBar_TabText = 2131689921;
+			public const int Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131689921;
 			
 			// aapt resource value: 0x7F0F01C2
-			public const int Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131689922;
+			public const int Widget_AppCompat_Light_ActionBar_TabText = 2131689922;
 			
 			// aapt resource value: 0x7F0F01C3
-			public const int Widget_AppCompat_Light_ActionBar_TabView = 2131689923;
+			public const int Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131689923;
 			
 			// aapt resource value: 0x7F0F01C4
-			public const int Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131689924;
+			public const int Widget_AppCompat_Light_ActionBar_TabView = 2131689924;
 			
 			// aapt resource value: 0x7F0F01C5
-			public const int Widget_AppCompat_Light_ActionButton = 2131689925;
+			public const int Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131689925;
 			
 			// aapt resource value: 0x7F0F01C6
-			public const int Widget_AppCompat_Light_ActionButton_CloseMode = 2131689926;
+			public const int Widget_AppCompat_Light_ActionButton = 2131689926;
 			
 			// aapt resource value: 0x7F0F01C7
-			public const int Widget_AppCompat_Light_ActionButton_Overflow = 2131689927;
+			public const int Widget_AppCompat_Light_ActionButton_CloseMode = 2131689927;
 			
 			// aapt resource value: 0x7F0F01C8
-			public const int Widget_AppCompat_Light_ActionMode_Inverse = 2131689928;
+			public const int Widget_AppCompat_Light_ActionButton_Overflow = 2131689928;
 			
 			// aapt resource value: 0x7F0F01C9
-			public const int Widget_AppCompat_Light_ActivityChooserView = 2131689929;
+			public const int Widget_AppCompat_Light_ActionMode_Inverse = 2131689929;
 			
 			// aapt resource value: 0x7F0F01CA
-			public const int Widget_AppCompat_Light_AutoCompleteTextView = 2131689930;
+			public const int Widget_AppCompat_Light_ActivityChooserView = 2131689930;
 			
 			// aapt resource value: 0x7F0F01CB
-			public const int Widget_AppCompat_Light_DropDownItem_Spinner = 2131689931;
+			public const int Widget_AppCompat_Light_AutoCompleteTextView = 2131689931;
 			
 			// aapt resource value: 0x7F0F01CC
-			public const int Widget_AppCompat_Light_ListPopupWindow = 2131689932;
+			public const int Widget_AppCompat_Light_DropDownItem_Spinner = 2131689932;
 			
 			// aapt resource value: 0x7F0F01CD
-			public const int Widget_AppCompat_Light_ListView_DropDown = 2131689933;
+			public const int Widget_AppCompat_Light_ListPopupWindow = 2131689933;
 			
 			// aapt resource value: 0x7F0F01CE
-			public const int Widget_AppCompat_Light_PopupMenu = 2131689934;
+			public const int Widget_AppCompat_Light_ListView_DropDown = 2131689934;
 			
 			// aapt resource value: 0x7F0F01CF
-			public const int Widget_AppCompat_Light_PopupMenu_Overflow = 2131689935;
+			public const int Widget_AppCompat_Light_PopupMenu = 2131689935;
 			
 			// aapt resource value: 0x7F0F01D0
-			public const int Widget_AppCompat_Light_SearchView = 2131689936;
+			public const int Widget_AppCompat_Light_PopupMenu_Overflow = 2131689936;
 			
 			// aapt resource value: 0x7F0F01D1
-			public const int Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131689937;
+			public const int Widget_AppCompat_Light_SearchView = 2131689937;
 			
 			// aapt resource value: 0x7F0F01D2
-			public const int Widget_AppCompat_ListMenuView = 2131689938;
+			public const int Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131689938;
 			
 			// aapt resource value: 0x7F0F01D3
-			public const int Widget_AppCompat_ListPopupWindow = 2131689939;
+			public const int Widget_AppCompat_ListMenuView = 2131689939;
 			
 			// aapt resource value: 0x7F0F01D4
-			public const int Widget_AppCompat_ListView = 2131689940;
+			public const int Widget_AppCompat_ListPopupWindow = 2131689940;
 			
 			// aapt resource value: 0x7F0F01D5
-			public const int Widget_AppCompat_ListView_DropDown = 2131689941;
+			public const int Widget_AppCompat_ListView = 2131689941;
 			
 			// aapt resource value: 0x7F0F01D6
-			public const int Widget_AppCompat_ListView_Menu = 2131689942;
+			public const int Widget_AppCompat_ListView_DropDown = 2131689942;
 			
 			// aapt resource value: 0x7F0F01D7
-			public const int Widget_AppCompat_PopupMenu = 2131689943;
+			public const int Widget_AppCompat_ListView_Menu = 2131689943;
 			
 			// aapt resource value: 0x7F0F01D8
-			public const int Widget_AppCompat_PopupMenu_Overflow = 2131689944;
+			public const int Widget_AppCompat_PopupMenu = 2131689944;
 			
 			// aapt resource value: 0x7F0F01D9
-			public const int Widget_AppCompat_PopupWindow = 2131689945;
+			public const int Widget_AppCompat_PopupMenu_Overflow = 2131689945;
 			
 			// aapt resource value: 0x7F0F01DA
-			public const int Widget_AppCompat_ProgressBar = 2131689946;
+			public const int Widget_AppCompat_PopupWindow = 2131689946;
 			
 			// aapt resource value: 0x7F0F01DB
-			public const int Widget_AppCompat_ProgressBar_Horizontal = 2131689947;
+			public const int Widget_AppCompat_ProgressBar = 2131689947;
 			
 			// aapt resource value: 0x7F0F01DC
-			public const int Widget_AppCompat_RatingBar = 2131689948;
+			public const int Widget_AppCompat_ProgressBar_Horizontal = 2131689948;
 			
 			// aapt resource value: 0x7F0F01DD
-			public const int Widget_AppCompat_RatingBar_Indicator = 2131689949;
+			public const int Widget_AppCompat_RatingBar = 2131689949;
 			
 			// aapt resource value: 0x7F0F01DE
-			public const int Widget_AppCompat_RatingBar_Small = 2131689950;
+			public const int Widget_AppCompat_RatingBar_Indicator = 2131689950;
 			
 			// aapt resource value: 0x7F0F01DF
-			public const int Widget_AppCompat_SearchView = 2131689951;
+			public const int Widget_AppCompat_RatingBar_Small = 2131689951;
 			
 			// aapt resource value: 0x7F0F01E0
-			public const int Widget_AppCompat_SearchView_ActionBar = 2131689952;
+			public const int Widget_AppCompat_SearchView = 2131689952;
 			
 			// aapt resource value: 0x7F0F01E1
-			public const int Widget_AppCompat_SeekBar = 2131689953;
+			public const int Widget_AppCompat_SearchView_ActionBar = 2131689953;
 			
 			// aapt resource value: 0x7F0F01E2
-			public const int Widget_AppCompat_SeekBar_Discrete = 2131689954;
+			public const int Widget_AppCompat_SeekBar = 2131689954;
 			
 			// aapt resource value: 0x7F0F01E3
-			public const int Widget_AppCompat_Spinner = 2131689955;
+			public const int Widget_AppCompat_SeekBar_Discrete = 2131689955;
 			
 			// aapt resource value: 0x7F0F01E4
-			public const int Widget_AppCompat_Spinner_DropDown = 2131689956;
+			public const int Widget_AppCompat_Spinner = 2131689956;
 			
 			// aapt resource value: 0x7F0F01E5
-			public const int Widget_AppCompat_Spinner_DropDown_ActionBar = 2131689957;
+			public const int Widget_AppCompat_Spinner_DropDown = 2131689957;
 			
 			// aapt resource value: 0x7F0F01E6
-			public const int Widget_AppCompat_Spinner_Underlined = 2131689958;
+			public const int Widget_AppCompat_Spinner_DropDown_ActionBar = 2131689958;
 			
 			// aapt resource value: 0x7F0F01E7
-			public const int Widget_AppCompat_TextView = 2131689959;
+			public const int Widget_AppCompat_Spinner_Underlined = 2131689959;
 			
 			// aapt resource value: 0x7F0F01E8
-			public const int Widget_AppCompat_TextView_SpinnerItem = 2131689960;
+			public const int Widget_AppCompat_TextView = 2131689960;
 			
 			// aapt resource value: 0x7F0F01E9
-			public const int Widget_AppCompat_Toolbar = 2131689961;
+			public const int Widget_AppCompat_TextView_SpinnerItem = 2131689961;
 			
 			// aapt resource value: 0x7F0F01EA
-			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131689962;
+			public const int Widget_AppCompat_Toolbar = 2131689962;
 			
 			// aapt resource value: 0x7F0F01EB
-			public const int Widget_Compat_NotificationActionContainer = 2131689963;
+			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131689963;
 			
 			// aapt resource value: 0x7F0F01EC
-			public const int Widget_Compat_NotificationActionText = 2131689964;
+			public const int Widget_Compat_NotificationActionContainer = 2131689964;
 			
 			// aapt resource value: 0x7F0F01ED
-			public const int Widget_Design_AppBarLayout = 2131689965;
+			public const int Widget_Compat_NotificationActionText = 2131689965;
 			
 			// aapt resource value: 0x7F0F01EE
-			public const int Widget_Design_BottomNavigationView = 2131689966;
+			public const int Widget_Design_AppBarLayout = 2131689966;
 			
 			// aapt resource value: 0x7F0F01EF
-			public const int Widget_Design_BottomSheet_Modal = 2131689967;
+			public const int Widget_Design_BottomNavigationView = 2131689967;
 			
 			// aapt resource value: 0x7F0F01F0
-			public const int Widget_Design_CollapsingToolbar = 2131689968;
+			public const int Widget_Design_BottomSheet_Modal = 2131689968;
 			
 			// aapt resource value: 0x7F0F01F1
-			public const int Widget_Design_FloatingActionButton = 2131689969;
+			public const int Widget_Design_CollapsingToolbar = 2131689969;
 			
 			// aapt resource value: 0x7F0F01F2
-			public const int Widget_Design_NavigationView = 2131689970;
+			public const int Widget_Design_FloatingActionButton = 2131689970;
 			
 			// aapt resource value: 0x7F0F01F3
-			public const int Widget_Design_ScrimInsetsFrameLayout = 2131689971;
+			public const int Widget_Design_NavigationView = 2131689971;
 			
 			// aapt resource value: 0x7F0F01F4
-			public const int Widget_Design_Snackbar = 2131689972;
+			public const int Widget_Design_ScrimInsetsFrameLayout = 2131689972;
 			
 			// aapt resource value: 0x7F0F01F5
-			public const int Widget_Design_TabLayout = 2131689973;
+			public const int Widget_Design_Snackbar = 2131689973;
 			
 			// aapt resource value: 0x7F0F01F6
-			public const int Widget_Design_TextInputLayout = 2131689974;
+			public const int Widget_Design_TabLayout = 2131689974;
 			
 			// aapt resource value: 0x7F0F01F7
-			public const int Widget_MaterialComponents_BottomAppBar = 2131689975;
+			public const int Widget_Design_TextInputLayout = 2131689975;
 			
 			// aapt resource value: 0x7F0F01F8
-			public const int Widget_MaterialComponents_BottomAppBar_Colored = 2131689976;
+			public const int Widget_MaterialComponents_BottomAppBar = 2131689976;
 			
 			// aapt resource value: 0x7F0F01F9
-			public const int Widget_MaterialComponents_BottomNavigationView = 2131689977;
+			public const int Widget_MaterialComponents_BottomAppBar_Colored = 2131689977;
 			
 			// aapt resource value: 0x7F0F01FA
-			public const int Widget_MaterialComponents_BottomNavigationView_Colored = 2131689978;
+			public const int Widget_MaterialComponents_BottomNavigationView = 2131689978;
 			
 			// aapt resource value: 0x7F0F01FB
-			public const int Widget_MaterialComponents_BottomSheet_Modal = 2131689979;
+			public const int Widget_MaterialComponents_BottomNavigationView_Colored = 2131689979;
 			
 			// aapt resource value: 0x7F0F01FC
-			public const int Widget_MaterialComponents_Button = 2131689980;
+			public const int Widget_MaterialComponents_BottomSheet_Modal = 2131689980;
 			
 			// aapt resource value: 0x7F0F01FD
-			public const int Widget_MaterialComponents_Button_Icon = 2131689981;
+			public const int Widget_MaterialComponents_Button = 2131689981;
 			
 			// aapt resource value: 0x7F0F01FE
-			public const int Widget_MaterialComponents_Button_OutlinedButton = 2131689982;
+			public const int Widget_MaterialComponents_Button_Icon = 2131689982;
 			
 			// aapt resource value: 0x7F0F01FF
-			public const int Widget_MaterialComponents_Button_OutlinedButton_Icon = 2131689983;
+			public const int Widget_MaterialComponents_Button_OutlinedButton = 2131689983;
 			
 			// aapt resource value: 0x7F0F0200
-			public const int Widget_MaterialComponents_Button_TextButton = 2131689984;
+			public const int Widget_MaterialComponents_Button_OutlinedButton_Icon = 2131689984;
 			
 			// aapt resource value: 0x7F0F0201
-			public const int Widget_MaterialComponents_Button_TextButton_Dialog = 2131689985;
+			public const int Widget_MaterialComponents_Button_TextButton = 2131689985;
 			
 			// aapt resource value: 0x7F0F0202
-			public const int Widget_MaterialComponents_Button_TextButton_Dialog_Icon = 2131689986;
+			public const int Widget_MaterialComponents_Button_TextButton_Dialog = 2131689986;
 			
 			// aapt resource value: 0x7F0F0203
-			public const int Widget_MaterialComponents_Button_TextButton_Icon = 2131689987;
+			public const int Widget_MaterialComponents_Button_TextButton_Dialog_Icon = 2131689987;
 			
 			// aapt resource value: 0x7F0F0204
-			public const int Widget_MaterialComponents_Button_UnelevatedButton = 2131689988;
+			public const int Widget_MaterialComponents_Button_TextButton_Icon = 2131689988;
 			
 			// aapt resource value: 0x7F0F0205
-			public const int Widget_MaterialComponents_Button_UnelevatedButton_Icon = 2131689989;
+			public const int Widget_MaterialComponents_Button_UnelevatedButton = 2131689989;
 			
 			// aapt resource value: 0x7F0F0206
-			public const int Widget_MaterialComponents_CardView = 2131689990;
-			
-			// aapt resource value: 0x7F0F020B
-			public const int Widget_MaterialComponents_ChipGroup = 2131689995;
+			public const int Widget_MaterialComponents_Button_UnelevatedButton_Icon = 2131689990;
 			
 			// aapt resource value: 0x7F0F0207
-			public const int Widget_MaterialComponents_Chip_Action = 2131689991;
-			
-			// aapt resource value: 0x7F0F0208
-			public const int Widget_MaterialComponents_Chip_Choice = 2131689992;
-			
-			// aapt resource value: 0x7F0F0209
-			public const int Widget_MaterialComponents_Chip_Entry = 2131689993;
-			
-			// aapt resource value: 0x7F0F020A
-			public const int Widget_MaterialComponents_Chip_Filter = 2131689994;
+			public const int Widget_MaterialComponents_CardView = 2131689991;
 			
 			// aapt resource value: 0x7F0F020C
-			public const int Widget_MaterialComponents_FloatingActionButton = 2131689996;
+			public const int Widget_MaterialComponents_ChipGroup = 2131689996;
+			
+			// aapt resource value: 0x7F0F0208
+			public const int Widget_MaterialComponents_Chip_Action = 2131689992;
+			
+			// aapt resource value: 0x7F0F0209
+			public const int Widget_MaterialComponents_Chip_Choice = 2131689993;
+			
+			// aapt resource value: 0x7F0F020A
+			public const int Widget_MaterialComponents_Chip_Entry = 2131689994;
+			
+			// aapt resource value: 0x7F0F020B
+			public const int Widget_MaterialComponents_Chip_Filter = 2131689995;
 			
 			// aapt resource value: 0x7F0F020D
-			public const int Widget_MaterialComponents_NavigationView = 2131689997;
+			public const int Widget_MaterialComponents_FloatingActionButton = 2131689997;
 			
 			// aapt resource value: 0x7F0F020E
-			public const int Widget_MaterialComponents_Snackbar = 2131689998;
+			public const int Widget_MaterialComponents_NavigationView = 2131689998;
 			
 			// aapt resource value: 0x7F0F020F
-			public const int Widget_MaterialComponents_Snackbar_FullWidth = 2131689999;
+			public const int Widget_MaterialComponents_Snackbar = 2131689999;
 			
 			// aapt resource value: 0x7F0F0210
-			public const int Widget_MaterialComponents_TabLayout = 2131690000;
+			public const int Widget_MaterialComponents_Snackbar_FullWidth = 2131690000;
 			
 			// aapt resource value: 0x7F0F0211
-			public const int Widget_MaterialComponents_TabLayout_Colored = 2131690001;
+			public const int Widget_MaterialComponents_TabLayout = 2131690001;
 			
 			// aapt resource value: 0x7F0F0212
-			public const int Widget_MaterialComponents_TextInputEditText_FilledBox = 2131690002;
+			public const int Widget_MaterialComponents_TabLayout_Colored = 2131690002;
 			
 			// aapt resource value: 0x7F0F0213
-			public const int Widget_MaterialComponents_TextInputEditText_FilledBox_Dense = 2131690003;
+			public const int Widget_MaterialComponents_TextInputEditText_FilledBox = 2131690003;
 			
 			// aapt resource value: 0x7F0F0214
-			public const int Widget_MaterialComponents_TextInputEditText_OutlinedBox = 2131690004;
+			public const int Widget_MaterialComponents_TextInputEditText_FilledBox_Dense = 2131690004;
 			
 			// aapt resource value: 0x7F0F0215
-			public const int Widget_MaterialComponents_TextInputEditText_OutlinedBox_Dense = 2131690005;
+			public const int Widget_MaterialComponents_TextInputEditText_OutlinedBox = 2131690005;
 			
 			// aapt resource value: 0x7F0F0216
-			public const int Widget_MaterialComponents_TextInputLayout_FilledBox = 2131690006;
+			public const int Widget_MaterialComponents_TextInputEditText_OutlinedBox_Dense = 2131690006;
 			
 			// aapt resource value: 0x7F0F0217
-			public const int Widget_MaterialComponents_TextInputLayout_FilledBox_Dense = 2131690007;
+			public const int Widget_MaterialComponents_TextInputLayout_FilledBox = 2131690007;
 			
 			// aapt resource value: 0x7F0F0218
-			public const int Widget_MaterialComponents_TextInputLayout_OutlinedBox = 2131690008;
+			public const int Widget_MaterialComponents_TextInputLayout_FilledBox_Dense = 2131690008;
 			
 			// aapt resource value: 0x7F0F0219
-			public const int Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense = 2131690009;
+			public const int Widget_MaterialComponents_TextInputLayout_OutlinedBox = 2131690009;
 			
 			// aapt resource value: 0x7F0F021A
-			public const int Widget_MaterialComponents_Toolbar = 2131690010;
+			public const int Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense = 2131690010;
 			
 			// aapt resource value: 0x7F0F021B
-			public const int Widget_Support_CoordinatorLayout = 2131690011;
+			public const int Widget_MaterialComponents_Toolbar = 2131690011;
+			
+			// aapt resource value: 0x7F0F021C
+			public const int Widget_Support_CoordinatorLayout = 2131690012;
 			
 			static Style()
 			{

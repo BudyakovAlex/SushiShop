@@ -450,4 +450,10 @@
   <data name="BuyWithThisProduct" xml:space="preserve">
     <value>с этим товаром покупают</value>
   </data>
+   <data name="DoYouLikeSushiShopApp" xml:space="preserve">
+    <value>Вам нравится приложение Сушишоп?</value>
+  </data>
+  <data name="FeedbackFrom" xml:space="preserve">
+    <value>Отзыв от:</value>
+  </data>
 </root>

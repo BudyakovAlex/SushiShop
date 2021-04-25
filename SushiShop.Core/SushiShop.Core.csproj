@@ -21,6 +21,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="MimeTypesMap" Version="1.0.8" />
+    <PackageReference Include="Plugin.StoreReview" Version="3.2.0-beta" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppStrings.resx">
