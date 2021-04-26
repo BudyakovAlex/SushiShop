@@ -16,9 +16,12 @@ namespace SushiShop.Core.Services.Http.Shops
             this.httpService = httpService;
         }
 
-        public Task<HttpResponse<ResponseDto<Dictionary<string, MetroShopDto[]>>>> GetMetroShopsAsync(string? city, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<Dictionary<string, MetroShopDto[]>>>> GetMetroShopsAsync(
+            string? city,
+            bool shouldCheckHasPizzaInShop,
+            CancellationToken cancellationToken)
         {
-            var body = new { City = city };
+            var body = new { City = city, BasketHasPizza = shouldCheckHasPizzaInShop };
             return httpService.ExecuteAsync<ResponseDto<Dictionary<string, MetroShopDto[]>>>(
                 Method.Post,
                 Constants.Rest.MetroShopsResource,
@@ -41,9 +44,9 @@ namespace SushiShop.Core.Services.Http.Shops
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<ShopDto[]>>> GetShopsAsync(string? city, CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ShopDto[]>>> GetShopsAsync(string? city, bool shouldCheckHasPizzaInShop, CancellationToken cancellationToken)
         {
-            var body = new { City = city };
+            var body = new { City = city, BasketHasPizza = shouldCheckHasPizzaInShop };
             return httpService.ExecuteAsync<ResponseDto<ShopDto[]>>(
                 Method.Post,
                 Constants.Rest.ShopsResource,

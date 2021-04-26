@@ -8,9 +8,12 @@ namespace SushiShop.Core.Services.Http.Shops
 {
     public interface IShopsService
     {
-        Task<HttpResponse<ResponseDto<ShopDto[]>>> GetShopsAsync(string? city, CancellationToken cancellationToken);
+        Task<HttpResponse<ResponseDto<ShopDto[]>>> GetShopsAsync(string? city, bool shouldCheckHasPizzaInShop, CancellationToken cancellationToken);
 
-        Task<HttpResponse<ResponseDto<Dictionary<string, MetroShopDto[]>>>> GetMetroShopsAsync(string? city, CancellationToken cancellationToken);
+        Task<HttpResponse<ResponseDto<Dictionary<string, MetroShopDto[]>>>> GetMetroShopsAsync(
+            string? city,
+            bool shouldCheckHasPizzaInShop,
+            CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<ShopDto>>> GetShopAsync(
             long id,

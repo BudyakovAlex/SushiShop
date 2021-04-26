@@ -86,7 +86,7 @@ namespace SushiShop.Core.ViewModels.Orders
         protected override async Task RefreshDataAsync()
         {
             var city = userSession.GetCity();
-            var response = await shopsManager.GetShopsAsync(city?.Name);
+            var response = await shopsManager.GetShopsAsync(city?.Name, true);
             if (!response.IsSuccessful)
             {
                 var error = response.Errors.FirstOrDefault();

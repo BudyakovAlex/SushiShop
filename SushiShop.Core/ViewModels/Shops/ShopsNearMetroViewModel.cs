@@ -67,7 +67,7 @@ namespace SushiShop.Core.ViewModels.Shops
             await base.InitializeAsync();
 
             var city = userSession.GetCity();
-            var response = await shopsManager.GetMetroShopsAsync(city?.Name);
+            var response = await shopsManager.GetMetroShopsAsync(city?.Name, isSelectionMode);
             if (!response.IsSuccessful)
             {
                 var error = response.Errors.FirstOrDefault();

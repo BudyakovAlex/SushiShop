@@ -19,9 +19,9 @@ namespace SushiShop.Core.Managers.Shops
             this.shopsService = shopsService;
         }
 
-        public async Task<Response<Dictionary<string, MetroShop[]>>> GetMetroShopsAsync(string? city)
+        public async Task<Response<Dictionary<string, MetroShop[]>>> GetMetroShopsAsync(string? city, bool shouldCheckHasPizzaInShop)
         {
-            var response = await shopsService.GetMetroShopsAsync(city, CancellationToken.None);
+            var response = await shopsService.GetMetroShopsAsync(city, shouldCheckHasPizzaInShop, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.ToDictionary(kv => kv.Key, kv => kv.Value.Select(item => item.Map()).ToArray()) ?? new Dictionary<string, MetroShop[]>();
@@ -43,9 +43,9 @@ namespace SushiShop.Core.Managers.Shops
             return new Response<Shop?>(isSuccessful: false, null, response.Data?.Errors ?? Array.Empty<string>());
         }
 
-        public async Task<Response<Shop[]>> GetShopsAsync(string? city)
+        public async Task<Response<Shop[]>> GetShopsAsync(string? city, bool shouldCheckHasPizzaInShop)
         {
-            var response = await shopsService.GetShopsAsync(city, CancellationToken.None);
+            var response = await shopsService.GetShopsAsync(city, shouldCheckHasPizzaInShop, CancellationToken.None);
             if (response.IsSuccessful)
             {
                 var data = response.Data!.SuccessData?.Select(metro => metro.Map()).ToArray() ?? Array.Empty<Shop>();

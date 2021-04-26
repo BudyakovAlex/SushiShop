@@ -79,8 +79,8 @@ namespace SushiShop.Core.ViewModels.Info
             Items.ReplaceWith(ProduceSectionsViewModels(city, isMetroAvailable));
             TabsTitles.ReplaceWith(ProduceSectionsTitles(isMetroAvailable));
 
-            var getShopsTask = shopsManager.GetShopsAsync(city?.Name);
-            var getMetroShopsTask = shopsManager.GetMetroShopsAsync(city?.Name);
+            var getShopsTask = shopsManager.GetShopsAsync(city?.Name, IsSelectionMode);
+            var getMetroShopsTask = shopsManager.GetMetroShopsAsync(city?.Name, IsSelectionMode);
             await Task.WhenAll(getShopsTask, getMetroShopsTask, RaisePropertyChanged(nameof(TabsTitles)));
 
             if (!getShopsTask.Result.IsSuccessful
