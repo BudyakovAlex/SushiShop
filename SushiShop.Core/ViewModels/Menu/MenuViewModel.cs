@@ -109,8 +109,9 @@ namespace SushiShop.Core.ViewModels.Menu
             Items.Clear();
             SimpleItems.Clear();
 
+            var availableCategoriesForMainMenu = categoryItems.Where(item => item.ShouldShowOnMainMenu).ToArray();
             Items.Add(new MenuPromotionListItemViewModel(promotionItems) { ExecutionStateWrapper = ExecutionStateWrapper });
-            Items.AddRange(categoryItems);
+            Items.AddRange(availableCategoriesForMainMenu);
 
             var groupMenuItemViewModels = menuTask.Result.Data.Stickers
                 .Select(sticker => new GroupMenuItemViewModel(sticker) { ExecutionStateWrapper = ExecutionStateWrapper })

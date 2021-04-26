@@ -343,6 +343,7 @@
         <Folder Include="Views\ViewControllers\Common\Dialogs\" />
         <Folder Include="Views\Cells\Common\" />
         <Folder Include="Formatters\" />
+        <Folder Include="Views\ViewControllers\Abstract\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -698,6 +699,7 @@
     </Compile>
     <Compile Include="Delegates\PhotoDetailsCollectionViewDelegateFlowLayout.cs" />
     <Compile Include="Formatters\PhoneNumberFormatter.cs" />
+    <Compile Include="Views\ViewControllers\Abstract\IRefreshableViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

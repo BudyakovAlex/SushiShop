@@ -8,7 +8,8 @@ namespace SushiShop.Core.Data.Models.Cart
         public Cart(
             Guid basketId, 
             string? city, 
-            string? priceGroup, 
+            string? priceGroup,
+            string? warningMessage,
             long totalCount, 
             decimal totalSum,
             decimal discount,
@@ -19,6 +20,7 @@ namespace SushiShop.Core.Data.Models.Cart
             BasketId = basketId;
             City = city;
             PriceGroup =  priceGroup;
+            WarningMessage = warningMessage;
             TotalCount = totalCount;
             TotalSum = totalSum;
             Discount = discount;
@@ -32,6 +34,8 @@ namespace SushiShop.Core.Data.Models.Cart
         public string? City { get; }
 
         public string? PriceGroup { get; }
+
+        public string? WarningMessage { get; }
 
         public long TotalCount { get; }
 

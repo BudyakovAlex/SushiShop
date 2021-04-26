@@ -19,7 +19,8 @@ namespace SushiShop.Core.Mappers
                 dto.MenuIndex,
                 dto.ItemsCount,
                 dto.CategoryIcon?.Map(),
-                dto.Children?.Map());
+                dto.Children?.Map(),
+                dto.ShouldShowOnMainMenu);
         }
     }
 }

@@ -11,13 +11,14 @@ using SushiShop.Ios.Common;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Cells.Cart;
 using SushiShop.Ios.Views.Controls;
+using SushiShop.Ios.Views.ViewControllers.Abstract;
 using System.Linq;
 using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers.Cart
 {
     [MvxTabPresentation(WrapInNavigationController = true)]
-    public partial class CartViewController : BaseViewControllerWithKeyboard<CartViewModel>
+    public partial class CartViewController : BaseViewControllerWithKeyboard<CartViewModel>, IRefreshableViewController
     {
         private TableViewSource productsTableViewSource;
         private TableViewSource toppingsTableViewSource;
@@ -130,6 +131,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             {
                 mainViewController.TabIndex = Constants.UI.MainViewTabIndex;
             }
+        }
+
+        void IRefreshableViewController.Refresh()
+        {
+            ViewModel?.ShowWarningCommand.Execute();
         }
     }
 }

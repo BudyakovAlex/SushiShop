@@ -12,6 +12,9 @@ namespace SushiShop.Core.Data.Dtos.Cart
         [JsonProperty("city")]
         public string? City { get; set; }
 
+        [JsonProperty("warningMessage")]
+        public string? WarningMessage { get; set; }
+
         [JsonProperty("priceGroup")]
         public string? PriceGroup { get; set; }
 

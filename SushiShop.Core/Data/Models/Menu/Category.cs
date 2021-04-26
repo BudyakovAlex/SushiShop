@@ -16,7 +16,8 @@ namespace SushiShop.Core.Data.Models.Menu
             int menuIndex,
             int itemsCount,
             ImageInfo? categoryIcon,
-            CategoryChildren? children)
+            CategoryChildren? children,
+            bool shouldShowOnMainMenu)
         {
             Id = id;
             PageTitle = pageTitle;
@@ -29,6 +30,7 @@ namespace SushiShop.Core.Data.Models.Menu
             ItemsCount = itemsCount;
             CategoryIcon = categoryIcon;
             Children = children;
+            ShouldShowOnMainMenu = shouldShowOnMainMenu;
         }
 
         public long Id { get; }
@@ -52,5 +54,7 @@ namespace SushiShop.Core.Data.Models.Menu
         public ImageInfo? CategoryIcon { get; }
 
         public CategoryChildren? Children { get; }
+
+        public bool ShouldShowOnMainMenu { get; }
     }
 }

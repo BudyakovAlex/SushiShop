@@ -39,6 +39,7 @@ namespace SushiShop.Core.ViewModels.Cart
         private Data.Models.Cart.Cart? cart;
 
         private string? city;
+        private bool shouldShowWarningMessage;
 
         public CartViewModel(
             ICartManager cartManager,
@@ -59,14 +60,17 @@ namespace SushiShop.Core.ViewModels.Cart
             CheckoutCommand = new SafeAsyncCommand(ExecutionStateWrapper, CheckoutAsync);
             AddSaucesCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddSaucesAsync);
             ApplyPromocodeCommand = new SafeAsyncCommand(ExecutionStateWrapper, ApplyPromocodeAsync);
+            ShowWarningCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowWarningAsync);
 
             Messenger.Subscribe<RefreshCartMessage>(OnCartChanged).DisposeWith(Disposables);
             Messenger.Subscribe<CartProductChangedMessage>(OnCartProductChanged).DisposeWith(Disposables);
+            Messenger.Subscribe<CityChangedMessage>(OnCityChnaged).DisposeWith(Disposables);
         }
 
         public IMvxCommand AddSaucesCommand { get; }
         public IMvxCommand CheckoutCommand { get; }
         public IMvxCommand ApplyPromocodeCommand { get; }
+        public IMvxCommand ShowWarningCommand { get; }
 
         public MvxObservableCollection<CartProductItemViewModel> Products { get; }
 
@@ -268,6 +272,21 @@ namespace SushiShop.Core.ViewModels.Cart
             }
 
             await RefreshDataAsync();
+        }
+
+        private void OnCityChnaged(CityChangedMessage obj) =>
+            shouldShowWarningMessage = true;
+
+        private Task ShowWarningAsync()
+        {
+            if (!shouldShowWarningMessage ||
+                (cart?.WarningMessage.IsNullOrEmpty() ?? false))
+            {
+                return Task.CompletedTask;
+            }
+
+            shouldShowWarningMessage = false;
+            return userDialogs.AlertAsync(cart!.WarningMessage);
         }
     }
 }

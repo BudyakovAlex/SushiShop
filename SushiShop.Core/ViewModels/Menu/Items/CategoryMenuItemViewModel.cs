@@ -21,7 +21,10 @@ namespace SushiShop.Core.ViewModels.Menu.Items
         public IMvxAsyncCommand ShowDetailsCommand { get; }
 
         public string Title => category.PageTitle;
+
         public string ImageUrl => category.CategoryIcon?.JpgUrl ?? string.Empty;
+
+        public bool ShouldShowOnMainMenu => category.ShouldShowOnMainMenu;
 
         private Task ShowDetailsAsync()
         {

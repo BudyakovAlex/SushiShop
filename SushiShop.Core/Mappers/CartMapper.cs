@@ -12,6 +12,7 @@ namespace SushiShop.Core.Mappers
                 cartDto.BasketId,
                 cartDto.City,
                 cartDto.PriceGroup,
+                cartDto.WarningMessage,
                 cartDto.TotalCount,
                 cartDto.TotalSum,
                 cartDto.Discount,

@@ -15,6 +15,7 @@ using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.ViewModels;
 using SushiShop.Ios.Common;
+using SushiShop.Ios.Views.ViewControllers.Abstract;
 using UIKit;
 
 namespace SushiShop.Ios.Views.ViewControllers
@@ -236,6 +237,12 @@ namespace SushiShop.Ios.Views.ViewControllers
             if (viewController != null)
             {
                 childContainer.BringSubviewToFront(viewController.View);
+            }
+
+            if (viewController is UINavigationController navigationController &&
+                navigationController.VisibleViewController is IRefreshableViewController refreshableViewController)
+            {
+                refreshableViewController.Refresh();
             }
         }
 
