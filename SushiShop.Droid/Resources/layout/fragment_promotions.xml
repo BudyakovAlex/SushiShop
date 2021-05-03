@@ -3,12 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/background">
-
-    <include layout="@layout/layout_toolbar_shadow"
+    <LinearLayout
+        android:id="@+id/app_bar_container"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                android:background="?android:windowBackground"
+                android:theme="@style/ToolbarText" >
+                <TextView
+                    android:id="@+id/toolbar_title_text_view"
+                    style="@style/ToolbarText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Promotions" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/dropshadow" />
+    </LinearLayout>
 
     <mvvmcross.droidx.MvxSwipeRefreshLayout
         android:id="@+id/refresh_layout"
@@ -17,7 +49,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar">
+        app:layout_constraintTop_toBottomOf="@+id/app_bar_container">
 
         <mvvmcross.droidx.recyclerview.MvxRecyclerView
             android:id="@+id/recycler_view"
@@ -25,9 +57,10 @@
             android:layout_height="match_parent"
             android:background="@color/background"
             android:clipToPadding="false"
-            android:paddingStart="4dp"
-            android:paddingTop="22dp"
-            android:paddingEnd="4dp"
+            android:clipChildren="false"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
             android:paddingBottom="14dp" />
 
     </mvvmcross.droidx.MvxSwipeRefreshLayout>

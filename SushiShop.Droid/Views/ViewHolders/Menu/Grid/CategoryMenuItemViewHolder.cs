@@ -23,7 +23,6 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Grid
             base.DoInit(view);
 
             imageView = view.FindViewById<ImageView>(Resource.Id.image_view);
-            imageView.SetRoundedCorners(view.Context.DpToPx(6));
 
             titleTextView = view.FindViewById<TextView>(Resource.Id.title_text_view);
         }

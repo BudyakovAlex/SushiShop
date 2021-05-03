@@ -115,6 +115,7 @@
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Platform\Watchers\PhoneTextWatchers.cs" />
     <Compile Include="Views\ViewHolders\Promotions\PromotionItemViewHolder.cs" />
+    <Compile Include="Views\Activities\Promotions\PromotionDetailsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -438,6 +439,14 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bg_shadow_overlay.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_promotion_details.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -511,6 +520,7 @@
     <Folder Include="Presenter\" />
     <Folder Include="Platform\Watchers\" />
     <Folder Include="Views\ViewHolders\Promotions\" />
+    <Folder Include="Views\Activities\Promotions\" />
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.txt" />

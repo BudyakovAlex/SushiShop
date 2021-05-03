@@ -1,5 +1,7 @@
 ﻿using Android.OS;
 using Android.Views;
+using Android.Widget;
+using AndroidX.AppCompat.Widget;
 using AndroidX.RecyclerView.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
@@ -25,6 +27,7 @@ namespace SushiShop.Droid.Views.Fragments.Promotions
     {
         private MvxRecyclerView recyclerView;
         private MvxSwipeRefreshLayout swipeRefreshLayout;
+        private TextView toolbarTitleTextView;
         private View loadingOverlayView;
 
         public PromotionsFragment()
@@ -37,8 +40,8 @@ namespace SushiShop.Droid.Views.Fragments.Promotions
             base.InitializeViewPoroperties(view, savedInstanceState);
 
             loadingOverlayView = View.FindViewById<View>(Resource.Id.loading_overlay_view);
-
-            swipeRefreshLayout = View.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.list_refresh_layout);
+            swipeRefreshLayout = View.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.refresh_layout);
+            toolbarTitleTextView = View.FindViewById<TextView>(Resource.Id.toolbar_title_text_view);
 
             InitializeListRecyclerView();
         }
@@ -49,6 +52,7 @@ namespace SushiShop.Droid.Views.Fragments.Promotions
 
             using var bindingSet = CreateBindingSet();
 
+            bindingSet.Bind(toolbarTitleTextView).For(v => v.Text).To(vm => vm.Title);
             bindingSet.Bind(recyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
             bindingSet.Bind(swipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
@@ -79,11 +83,11 @@ namespace SushiShop.Droid.Views.Fragments.Promotions
 
             if (position % 3 == 0)
             {
-                return 1;
+                return 2;
             }
             else
             {
-                return 2;
+                return 1;
             }
         }
     }
