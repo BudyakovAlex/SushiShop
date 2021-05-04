@@ -22,19 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?android:actionBarSize"
                 android:background="?android:windowBackground"
-                android:theme="@style/ToolbarText" >
-                <TextView
-                    android:id="@+id/toolbar_title_text_view"
-                    style="@style/ToolbarText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Promotions" />
-            </androidx.appcompat.widget.Toolbar>
+                android:theme="@style/ToolbarText" />
         </com.google.android.material.appbar.AppBarLayout>
         <View
             android:layout_width="match_parent"
@@ -59,7 +47,7 @@
             android:clipToPadding="false"
             android:clipChildren="false"
             android:paddingStart="8dp"
-            android:paddingTop="8dp"
+            android:paddingTop="4dp"
             android:paddingEnd="8dp"
             android:paddingBottom="14dp" />
 

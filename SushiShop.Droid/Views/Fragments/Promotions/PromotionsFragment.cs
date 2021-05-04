@@ -1,7 +1,5 @@
 ﻿using Android.OS;
 using Android.Views;
-using Android.Widget;
-using AndroidX.AppCompat.Widget;
 using AndroidX.RecyclerView.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
@@ -16,6 +14,7 @@ using SushiShop.Core.ViewModels.Promotions;
 using SushiShop.Core.ViewModels.Promotions.Items;
 using SushiShop.Droid.Views.LayoutManagers;
 using SushiShop.Droid.Views.ViewHolders.Promotions;
+using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Fragments.Promotions
 {
@@ -27,7 +26,7 @@ namespace SushiShop.Droid.Views.Fragments.Promotions
     {
         private MvxRecyclerView recyclerView;
         private MvxSwipeRefreshLayout swipeRefreshLayout;
-        private TextView toolbarTitleTextView;
+        private Toolbar toolbar;
         private View loadingOverlayView;
 
         public PromotionsFragment()
@@ -41,7 +40,7 @@ namespace SushiShop.Droid.Views.Fragments.Promotions
 
             loadingOverlayView = View.FindViewById<View>(Resource.Id.loading_overlay_view);
             swipeRefreshLayout = View.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.refresh_layout);
-            toolbarTitleTextView = View.FindViewById<TextView>(Resource.Id.toolbar_title_text_view);
+            toolbar = View.FindViewById<Toolbar>(Resource.Id.toolbar);
 
             InitializeListRecyclerView();
         }
@@ -52,7 +51,7 @@ namespace SushiShop.Droid.Views.Fragments.Promotions
 
             using var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(toolbarTitleTextView).For(v => v.Text).To(vm => vm.Title);
+            bindingSet.Bind(toolbar).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(recyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
             bindingSet.Bind(swipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
