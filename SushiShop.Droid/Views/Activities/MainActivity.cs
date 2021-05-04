@@ -6,6 +6,9 @@ using Android.Widget;
 using Google.Android.Material.Tabs;
 using SushiShop.Core.ViewModels;
 using SushiShop.Droid.Views.Activities.Abstract;
+using SushiShop.Droid.Views.Controls;
+using SushiShop.Droid.Views.Fragments.Abstract;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SushiShop.Droid.Views.Activities
@@ -13,7 +16,7 @@ namespace SushiShop.Droid.Views.Activities
     [Activity(
         LaunchMode = LaunchMode.SingleTask,
         ScreenOrientation = ScreenOrientation.Portrait)]
-    public class MainActivity : BaseActivity<MainViewModel>
+    public class MainActivity : BaseActivity<MainViewModel>, TabLayout.IOnTabSelectedListener
     {
         private static readonly int[] TabImageIds = new[]
         {
@@ -29,11 +32,39 @@ namespace SushiShop.Droid.Views.Activities
         {
         }
 
+        public void OnTabReselected(TabLayout.Tab tab)
+        {
+        }
+
+        public void OnTabSelected(TabLayout.Tab tab)
+        {
+            var tabFragments = SupportFragmentManager.Fragments.OfType<ITabFragment>().ToArray();
+            for (var i = 0; i < tabFragments.Length; i++)
+            {
+                var tabFragment = tabFragments.ElementAtOrDefault(i);
+                if (tabFragment is null)
+                {
+                    return;
+                }
+
+                tabFragment.IsActivated = i == tab.Position;
+            }
+        }
+
+        public void OnTabUnselected(TabLayout.Tab tab)
+        {
+        }
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
+            var viewPager = FindViewById<NonScrollableViewPager>(Resource.Id.main_view_pager);
+            viewPager.OffscreenPageLimit = 5;
+
             var tabLayout = FindViewById<TabLayout>(Resource.Id.main_tab_layout);
+            tabLayout.AddOnTabSelectedListener(this);
+
             _ = InitializeTabsAsync(bundle, tabLayout);
         }
 
@@ -57,6 +88,17 @@ namespace SushiShop.Droid.Views.Activities
                 var tab = tabLayout.GetTabAt(i);
                 tab.SetCustomView(view);
             }
+
+            _view.PostDelayed(() =>
+            {
+                var firstFragment = SupportFragmentManager.Fragments.OfType<ITabFragment>().FirstOrDefault();
+                if (firstFragment is null)
+                {
+                    return;
+                }
+
+                firstFragment.IsActivated = true;
+            }, 1000);
         }
     }
 }

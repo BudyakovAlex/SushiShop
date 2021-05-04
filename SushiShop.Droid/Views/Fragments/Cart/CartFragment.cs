@@ -2,6 +2,7 @@
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Cart;
+using SushiShop.Droid.Views.Fragments.Abstract;
 
 namespace SushiShop.Droid.Views.Fragments.Cart
 {
@@ -9,11 +10,13 @@ namespace SushiShop.Droid.Views.Fragments.Cart
         TabLayoutResourceId = Resource.Id.main_tab_layout,
         ViewPagerResourceId = Resource.Id.main_view_pager,
         ActivityHostViewModelType = typeof(MainViewModel))]
-    public class CartFragment : BaseFragment<CartViewModel>
+    public class CartFragment : BaseFragment<CartViewModel>, ITabFragment
     {
         public CartFragment()
             : base(Resource.Layout.fragment_cart)
         {
         }
+
+        public bool IsActivated { get; set; }
     }
 }

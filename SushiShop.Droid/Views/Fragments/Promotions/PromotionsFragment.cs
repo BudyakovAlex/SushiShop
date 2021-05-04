@@ -12,6 +12,7 @@ using MvvmCross.Platforms.Android.Presenters.Attributes;
 using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Promotions;
 using SushiShop.Core.ViewModels.Promotions.Items;
+using SushiShop.Droid.Views.Fragments.Abstract;
 using SushiShop.Droid.Views.LayoutManagers;
 using SushiShop.Droid.Views.ViewHolders.Promotions;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
@@ -22,7 +23,7 @@ namespace SushiShop.Droid.Views.Fragments.Promotions
         TabLayoutResourceId = Resource.Id.main_tab_layout,
         ViewPagerResourceId = Resource.Id.main_view_pager,
         ActivityHostViewModelType = typeof(MainViewModel))]
-    public class PromotionsFragment : BaseFragment<PromotionsViewModel>
+    public class PromotionsFragment : BaseFragment<PromotionsViewModel>, ITabFragment
     {
         private MvxRecyclerView recyclerView;
         private MvxSwipeRefreshLayout swipeRefreshLayout;
@@ -33,6 +34,8 @@ namespace SushiShop.Droid.Views.Fragments.Promotions
             : base(Resource.Layout.fragment_promotions)
         {
         }
+
+        public bool IsActivated { get; set; }
 
         protected override void InitializeViewPoroperties(View view, Bundle savedInstanceState)
         {

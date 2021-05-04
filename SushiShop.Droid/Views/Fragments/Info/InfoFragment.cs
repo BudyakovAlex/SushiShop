@@ -2,6 +2,7 @@
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Info;
+using SushiShop.Droid.Views.Fragments.Abstract;
 
 namespace SushiShop.Droid.Views.Fragments.Info
 {
@@ -9,11 +10,13 @@ namespace SushiShop.Droid.Views.Fragments.Info
         TabLayoutResourceId = Resource.Id.main_tab_layout,
         ViewPagerResourceId = Resource.Id.main_view_pager,
         ActivityHostViewModelType = typeof(MainViewModel))]
-    public class InfoFragment : BaseFragment<InfoViewModel>
+    public class InfoFragment : BaseFragment<InfoViewModel>, ITabFragment
     {
         public InfoFragment()
             : base(Resource.Layout.fragment_info)
         {
         }
+
+        public bool IsActivated { get; set; }
     }
 }

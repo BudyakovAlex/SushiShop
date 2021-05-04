@@ -2,13 +2,14 @@
 using Android.Widget;
 using AndroidX.CoordinatorLayout.Widget;
 using AndroidX.RecyclerView.Widget;
+using AndroidX.ViewPager.Widget;
 using SushiShop.Droid.Views.Activities;
 
 namespace SushiShop.Droid.Views.Listeners
 {
     public class HideTabLayoutRecyclerViewScrollListener : RecyclerView.OnScrollListener
     {
-        private FrameLayout frameLayout;
+        private ViewPager viewPager;
         private LinearLayout bottomLinearLayout;
 
         public HideTabLayoutRecyclerViewScrollListener()
@@ -24,9 +25,9 @@ namespace SushiShop.Droid.Views.Listeners
                 return;
             }
 
-            if (frameLayout == null)
+            if (viewPager == null)
             {
-                frameLayout = mainActivity.FindViewById<FrameLayout>(Resource.Id.container_view);
+                viewPager = mainActivity.FindViewById<ViewPager>(Resource.Id.main_view_pager);
             }
 
             if (bottomLinearLayout == null)
@@ -44,13 +45,13 @@ namespace SushiShop.Droid.Views.Listeners
 
         private void SetPosition(float margin)
         {
-            if (bottomLinearLayout == null || frameLayout == null)
+            if (bottomLinearLayout == null || viewPager == null)
             {
                 return;
             }
 
             bottomLinearLayout.TranslationY = margin;
-            frameLayout.LayoutParameters = new CoordinatorLayout.LayoutParams(frameLayout.LayoutParameters)
+            viewPager.LayoutParameters = new CoordinatorLayout.LayoutParams(viewPager.LayoutParameters)
             {
                 BottomMargin = bottomLinearLayout.Height - (int)bottomLinearLayout.TranslationY
             };

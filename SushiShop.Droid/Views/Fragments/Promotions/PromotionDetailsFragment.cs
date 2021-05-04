@@ -1,18 +1,19 @@
-﻿using Android.App;
+﻿using Android.OS;
 using Android.Views;
 using Android.Webkit;
 using Android.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
 using MvvmCross.Platforms.Android.Binding;
 using SushiShop.Core.ViewModels.Promotions;
 using SushiShop.Droid.Extensions;
-using SushiShop.Droid.Views.Activities.Abstract;
+using SushiShop.Droid.Presenter.Attributes;
 using SushiShop.Droid.Views.Controls;
 
 namespace SushiShop.Droid.Views.Activities.Promotions
 {
-    [Activity]
-    public class PromotionDetailsActivity : BaseActivity<PromotionDetailsViewModel>
+    [NestedFragmentPresentation(FragmentContentId = Resource.Id.container_view)]
+    public class PromotionDetailsFragment : BaseFragment<PromotionDetailsViewModel>
     {
         private TextView dateTextView;
         private TextView titleTextView;
@@ -22,22 +23,22 @@ namespace SushiShop.Droid.Views.Activities.Promotions
         private BigStepperView stepperView;
         private View loadingOverlayView;
 
-        public PromotionDetailsActivity() : base(Resource.Layout.activity_promotion_details)
+        public PromotionDetailsFragment() : base(Resource.Layout.fragment_promotion_details)
         {
         }
 
-        protected override void InitializeViewPoroperties()
+        protected override void InitializeViewPoroperties(View view, Bundle savedInstanceState)
         {
-            base.InitializeViewPoroperties();
+            base.InitializeViewPoroperties(view, savedInstanceState);
 
-            dateTextView = FindViewById<TextView>(Resource.Id.date_text_view);
-            titleTextView = FindViewById<TextView>(Resource.Id.title_text_view);
-            imageView = FindViewById<ImageView>(Resource.Id.image_view);
-            contentTextView = FindViewById<WebView>(Resource.Id.content_view);
-            stepperView = FindViewById<BigStepperView>(Resource.Id.stepper_view);
-            loadingOverlayView = FindViewById<View>(Resource.Id.loading_overlay_view);
-            backImageView = FindViewById<ImageView>(Resource.Id.back_image_view);
-            backImageView.SetRoundedCorners(this.DpToPx(20));
+            dateTextView = view.FindViewById<TextView>(Resource.Id.date_text_view);
+            titleTextView = view.FindViewById<TextView>(Resource.Id.title_text_view);
+            imageView = view.FindViewById<ImageView>(Resource.Id.image_view);
+            contentTextView = view.FindViewById<WebView>(Resource.Id.content_view);
+            stepperView = view.FindViewById<BigStepperView>(Resource.Id.stepper_view);
+            loadingOverlayView = view.FindViewById<View>(Resource.Id.loading_overlay_view);
+            backImageView = view.FindViewById<ImageView>(Resource.Id.back_image_view);
+            backImageView.SetRoundedCorners(Context.DpToPx(20));
         }
 
         protected override void Bind()
