@@ -16,6 +16,7 @@ using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Menu;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Droid.Views.Decorators;
+using SushiShop.Droid.Views.Fragments.Abstract;
 using SushiShop.Droid.Views.LayoutManagers;
 using SushiShop.Droid.Views.ViewHolders.Menu.Grid;
 using SushiShop.Droid.Views.ViewHolders.Menu.Simple;
@@ -26,7 +27,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
         TabLayoutResourceId = Resource.Id.main_tab_layout,
         ViewPagerResourceId = Resource.Id.main_view_pager,
         ActivityHostViewModelType = typeof(MainViewModel))]
-    public class MenuFragment : BaseFragment<MenuViewModel>
+    public class MenuFragment : BaseFragment<MenuViewModel>, ITabFragment
     {
         private RecycleViewBindableAdapter listAdapter;
         private MvxRecyclerView listRecyclerView;
@@ -43,6 +44,8 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             : base(Resource.Layout.fragment_menu)
         {
         }
+
+        public bool IsActivated { get; set; }
 
         protected override void InitializeViewPoroperties(View view, Bundle savedInstanceState)
         {

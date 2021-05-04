@@ -115,12 +115,14 @@
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Platform\Watchers\PhoneTextWatchers.cs" />
     <Compile Include="Views\ViewHolders\Promotions\PromotionItemViewHolder.cs" />
-    <Compile Include="Views\Activities\Promotions\PromotionDetailsActivity.cs" />
     <Compile Include="Views\Controls\PagesIndicatorView.cs" />
     <Compile Include="Platform\Listeners\RecyclerViewOnScrollListener.cs" />
     <Compile Include="Views\ViewHolders\Cart\CartProductItemViewHolder.cs" />
     <Compile Include="Views\ViewHolders\Cart\CartToppingItemViewHolder.cs" />
     <Compile Include="Views\ViewHolders\Cart\CartPackItemViewHolder.cs" />
+    <Compile Include="Views\Fragments\Promotions\PromotionDetailsFragment.cs" />
+    <Compile Include="Presenter\Attributes\NestedFragmentPresentationAttribute.cs" />
+    <Compile Include="Views\Fragments\Abstract\ITabFragment.cs" />
     <Compile Include="Views\ViewHolders\Cart\CartProductToppingItemViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -449,7 +451,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\activity_promotion_details.xml">
+    <AndroidResource Include="Resources\layout\fragment_promotion_details.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -558,8 +560,9 @@
     <Folder Include="Presenter\" />
     <Folder Include="Platform\Watchers\" />
     <Folder Include="Views\ViewHolders\Promotions\" />
-    <Folder Include="Views\Activities\Promotions\" />
+    <Folder Include="Presenter\Attributes\" />
     <Folder Include="Views\ViewHolders\Cart\" />
+    <Folder Include="Views\Fragments\Abstract\" />
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.txt" />

@@ -16,6 +16,7 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Cart;
 using SushiShop.Core.ViewModels.Cart.Items;
+using SushiShop.Droid.Views.Fragments.Abstract;
 using SushiShop.Droid.Views.ViewHolders.Cart;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
@@ -25,7 +26,7 @@ namespace SushiShop.Droid.Views.Fragments.Cart
         TabLayoutResourceId = Resource.Id.main_tab_layout,
         ViewPagerResourceId = Resource.Id.main_view_pager,
         ActivityHostViewModelType = typeof(MainViewModel))]
-    public class CartFragment : BaseFragment<CartViewModel>
+    public class CartFragment : BaseFragment<CartViewModel>, ITabFragment
     {
         private Toolbar toolbar;
         private MvxRecyclerView productsRecyclerView;
@@ -43,6 +44,8 @@ namespace SushiShop.Droid.Views.Fragments.Cart
             : base(Resource.Layout.fragment_cart)
         {
         }
+
+        public bool IsActivated { get; set; }
 
         protected override void InitializeViewPoroperties(View view, Bundle savedInstanceState)
         {

@@ -44,7 +44,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Grid
         {
             recyclerView = parentView.FindViewById<MvxRecyclerView>(Resource.Id.recycler_view);
             recyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
-            recyclerView.SetLayoutManager(new LinearLayoutManager(view.Context, LinearLayoutManager.Horizontal, false));
+            recyclerView.SetLayoutManager(new MvxGuardedLinearLayoutManager(view.Context) { Orientation = LinearLayoutManager.Horizontal });
             recyclerView.ItemTemplateSelector = new TemplateSelector()
                 .AddElement<MenuPromotionItemViewModel, MenuPromotionItemViewHolder>(Resource.Layout.item_menu_promotion);
 

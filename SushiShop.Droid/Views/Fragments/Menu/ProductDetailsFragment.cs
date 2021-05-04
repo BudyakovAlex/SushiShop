@@ -10,21 +10,18 @@ using MvvmCross.Binding.Combiners;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
-using MvvmCross.Platforms.Android.Presenters.Attributes;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Core.ViewModels.ProductDetails;
 using SushiShop.Droid.Extensions;
+using SushiShop.Droid.Presenter.Attributes;
 using SushiShop.Droid.Views.Controls;
 using SushiShop.Droid.Views.Decorators;
 using SushiShop.Droid.Views.ViewHolders.Menu.Products;
 
 namespace SushiShop.Droid.Views.Fragments.Menu
 {
-    [MvxFragmentPresentation(
-        FragmentContentId = Resource.Id.container_view,
-        AddToBackStack = true,
-        IsCacheableFragment = true)]
+    [NestedFragmentPresentation(FragmentContentId = Resource.Id.container_view)]
     public class ProductDetailsFragment : BaseFragment<ProductDetailsViewModel>
     {
         private View loadingOverlayView;

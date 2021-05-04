@@ -9,10 +9,10 @@ using MvvmCross.Commands;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
-using MvvmCross.Platforms.Android.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Menu;
 using SushiShop.Droid.Enums;
 using SushiShop.Droid.Extensions;
+using SushiShop.Droid.Presenter.Attributes;
 using SushiShop.Droid.Views.Adapters;
 using SushiShop.Droid.Views.Listeners;
 using SushiShop.Droid.Views.ViewHolders.Menu.Products;
@@ -20,10 +20,7 @@ using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Fragments.Menu
 {
-    [MvxFragmentPresentation(
-        FragmentContentId = Resource.Id.container_view,
-        AddToBackStack = true,
-        IsCacheableFragment = true)]
+    [NestedFragmentPresentation(FragmentContentId = Resource.Id.container_view)]
     public class ProductsFragment : BaseFragment<ProductsViewModel>
     {
         private Toolbar toolbar;
