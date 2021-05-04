@@ -116,6 +116,8 @@
     <Compile Include="Platform\Watchers\PhoneTextWatchers.cs" />
     <Compile Include="Views\ViewHolders\Promotions\PromotionItemViewHolder.cs" />
     <Compile Include="Views\Activities\Promotions\PromotionDetailsActivity.cs" />
+    <Compile Include="Views\Controls\PagesIndicatorView.cs" />
+    <Compile Include="Platform\Listeners\RecyclerViewOnScrollListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -444,6 +446,14 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_promotion_details.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_page_indicator_active.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_page_indicator_inactive.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

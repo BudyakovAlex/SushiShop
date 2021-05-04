@@ -5,6 +5,7 @@ using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Menu.Items;
+using SushiShop.Droid.Views.Controls;
 using SushiShop.Droid.Views.ViewHolders.Abstract;
 
 namespace SushiShop.Droid.Views.ViewHolders.Menu.Grid
@@ -13,6 +14,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Grid
     {
         private MvxRecyclerView recyclerView;
         private View view;
+        private PagesIndicatorView pagesIndicatorView;
 
         public MenuPromotionListItemViewHolder(View view, IMvxAndroidBindingContext context) : base(view, context)
         {
@@ -24,6 +26,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Grid
 
             this.view = view;
 
+            pagesIndicatorView = view.FindViewById<PagesIndicatorView>(Resource.Id.pages_indicator_view);
             InitializeRecyclerView(view);
         }
 
@@ -34,6 +37,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Grid
             using var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(recyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
+            bindingSet.Bind(pagesIndicatorView).For(v => v.Items).To(vm => vm.Items);
         }
 
         private void InitializeRecyclerView(View parentView)
@@ -46,6 +50,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Grid
 
             var snap = new PagerSnapHelper();
             snap.AttachToRecyclerView(recyclerView);
+            pagesIndicatorView.AttachToRecyclerView(recyclerView);
         }
     }
 }
