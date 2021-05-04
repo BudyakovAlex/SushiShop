@@ -456,4 +456,13 @@
   <data name="FeedbackFrom" xml:space="preserve">
     <value>Отзыв от:</value>
   </data>
+  <data name="ChoosePackage" xml:space="preserve">
+    <value>Выбрать пакет</value>
+  </data>
+  <data name="CheckoutOrder" xml:space="preserve">
+    <value>Оформить заказ</value>
+  </data>
+  <data name="EmptyCart" xml:space="preserve">
+    <value>В корзине пусто</value>
+  </data>
 </root>

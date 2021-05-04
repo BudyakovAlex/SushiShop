@@ -1,4 +1,257 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/app_bar_container"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                android:background="?android:windowBackground"
+                android:theme="@style/ToolbarText" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_container">
+
+        <mvvmcross.droidx.MvxSwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/background">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <mvvmcross.droidx.recyclerview.MvxRecyclerView
+                        android:id="@+id/products_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white" />
+
+                    <mvvmcross.droidx.recyclerview.MvxRecyclerView
+                        android:id="@+id/toppings_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white" />
+
+                    <LinearLayout
+                        android:id="@+id/add_sauce_linear_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="19dp"
+                            android:layout_marginBottom="19dp"
+                            android:src="@drawable/ic_plus"
+                            app:tint="@color/orange2" />
+
+                        <TextView
+                            android:id="@+id/add_sauce_text_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="18dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/sf_pro_display_medium"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="16dp"
+                            tools:text="Добавить соус" />
+
+                        <ImageView
+                            android:layout_width="6dp"
+                            android:layout_height="12dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:src="@drawable/ic_chevron_right" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/choose_package_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/sf_pro_display_bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gray2"
+                        android:textSize="10dp"
+                        tools:text="ВЫБРАТЬ ПАКЕТ" />
+
+                    <mvvmcross.droidx.recyclerview.MvxRecyclerView
+                        android:id="@+id/packages_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/white"
+                        android:paddingTop="10dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/promocode_input_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:textColorHint="@color/gr"
+                            tools:hint="Промокод">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/promocode_edit_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/sf_pro_display_regular"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:textColor="@color/black" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </mvvmcross.droidx.MvxSwipeRefreshLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/total_price_title_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textFontWeight="400"
+                    android:textSize="16dp"
+                    tools:text="Итого:" />
+
+                <TextView
+                    android:id="@+id/total_price_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_display_bold"
+                    android:textColor="@color/black"
+                    android:textFontWeight="700"
+                    android:textSize="20dp"
+                    tools:text="1360 P" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/checkout_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_button_gradient"
+                android:fontFamily="@font/font_family_sf_pro_display_medium"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+                android:textSize="18dp"
+                tools:text="Оформить заказ" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/empty_basket_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_container">
+
+        <ImageView
+            android:id="@+id/empty_basket_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="23dp"
+            android:src="@drawable/ic_empty_cart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/empty_cart_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginTop="23dp"
+            android:textSize="16dp"
+            android:fontFamily="@font/font_family_sf_pro_display_regular"
+            android:textFontWeight="400"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/empty_basket_image_view"
+            tools:text="В корзине пусто" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/dropshadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_container" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
