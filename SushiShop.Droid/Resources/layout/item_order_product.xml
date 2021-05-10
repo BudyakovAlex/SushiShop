@@ -1,1 +1,105 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/product_image_view"
+        android:layout_width="68dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        tools:src="@drawable/bg_button_gradient"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
+    <TextView
+        android:id="@+id/product_name_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/font_family_sf_pro_display_regular"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@id/barrier_horizontal"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/product_image_view"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Набор запеченый Калифорния" />
+
+    <TextView
+        android:id="@+id/old_price_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/font_family_sf_pro_display_medium"
+        android:textColor="@color/gr"
+        android:textFontWeight="500"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@id/price_text_view"
+        app:layout_constraintEnd_toStartOf="@id/price_text_view"
+        app:layout_constraintTop_toTopOf="@id/product_image_view"
+        tools:text="1777 P" />
+
+    <TextView
+        android:id="@+id/price_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/font_family_sf_pro_display_bold"
+        android:textColor="@color/black"
+        android:textFontWeight="700"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/product_image_view"
+        tools:text="2333 P" />
+
+    <TextView
+        android:id="@+id/product_weight_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="@id/product_name_text_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="250 г" />
+
+    <TextView
+        android:id="@+id/count_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/font_family_sf_pro_display_bold"
+        android:textColor="@color/black"
+        android:textFontWeight="700"
+        android:textSize="16dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="1 шт" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="old_price_text_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/gr2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
