@@ -1,9 +1,14 @@
-﻿using System;
+﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
+using SushiShop.Core.ViewModels.Orders;
+using SushiShop.Droid.Presenter.Attributes;
+
 namespace SushiShop.Droid.Views.Fragments.Orders
 {
-    public class OrderDetailsFragment
+
+    [NestedFragmentPresentation(FragmentContentId = Resource.Id.container_view)]
+    public class OrderDetailsFragment : BaseFragment<OrderDetailsViewModel>
     {
-        public OrderDetailsFragment()
+        public OrderDetailsFragment() : base(resourceId)
         {
         }
     }
