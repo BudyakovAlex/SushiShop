@@ -124,6 +124,9 @@
     <Compile Include="Presenter\Attributes\NestedFragmentPresentationAttribute.cs" />
     <Compile Include="Views\Fragments\Abstract\ITabFragment.cs" />
     <Compile Include="Views\ViewHolders\Cart\CartProductToppingItemViewHolder.cs" />
+    <Compile Include="Views\Fragments\Orders\MyOrdersFragment.cs" />
+    <Compile Include="Views\Fragments\Orders\OrderDetailsFragment.cs" />
+    <Compile Include="Views\Fragments\Orders\OrderCompositionFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -487,6 +490,26 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_my_orders.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_order.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_order_details.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_order_composition.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_order_product.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -563,6 +586,7 @@
     <Folder Include="Presenter\Attributes\" />
     <Folder Include="Views\ViewHolders\Cart\" />
     <Folder Include="Views\Fragments\Abstract\" />
+    <Folder Include="Views\Fragments\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.txt" />
