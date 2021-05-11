@@ -85,9 +85,12 @@ namespace SushiShop.Droid.Views.Fragments.Cart
 
             bindingSet.Bind(toolbar).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(addSaucesLinearLayout).For(v => v.BindClick()).To(vm => vm.AddSaucesCommand);
+            bindingSet.Bind(addSaucesLinearLayout).For(v => v.BindVisible()).To(vm => vm.CanAddSauses);
             bindingSet.Bind(productsRecyclerView).For(v => v.ItemsSource).To(vm => vm.Products);
             bindingSet.Bind(toppingsRecyclerView).For(v => v.ItemsSource).To(vm => vm.Sauces);
             bindingSet.Bind(packagesRecyclerView).For(v => v.ItemsSource).To(vm => vm.Packages);
+            bindingSet.Bind(packagesRecyclerView).For(v => v.BindVisible()).To(vm => vm.CanAddPackages);
+            bindingSet.Bind(choosePackageTextView).For(v => v.BindVisible()).To(vm => vm.CanAddPackages);
             bindingSet.Bind(promocodeEditText).For(v => v.Text).To(vm => vm.Promocode);
             bindingSet.Bind(checkoutButton).For(v => v.BindClick()).To(vm => vm.CheckoutCommand);
             bindingSet.Bind(totalPriceTextView).For(v => v.Text).To(vm => vm.TotalPrice);

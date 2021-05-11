@@ -3,11 +3,13 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using Google.Android.Material.Tabs;
 using SushiShop.Core.ViewModels;
 using SushiShop.Droid.Views.Activities.Abstract;
 using SushiShop.Droid.Views.Controls;
 using SushiShop.Droid.Views.Fragments.Abstract;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,6 +20,8 @@ namespace SushiShop.Droid.Views.Activities
         ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : BaseActivity<MainViewModel>, TabLayout.IOnTabSelectedListener
     {
+        private const int CartTabIndex = 2;
+
         private static readonly int[] TabImageIds = new[]
         {
             Resource.Drawable.ic_menu,
@@ -27,9 +31,16 @@ namespace SushiShop.Droid.Views.Activities
             Resource.Drawable.ic_info,
         };
 
+        private TabLayout tabLayout;
+
         public MainActivity()
             : base(Resource.Layout.activity_main)
         {
+        }
+
+        public long BadgeCount
+        {
+            set => SetCartBadgeCount(value);
         }
 
         public void OnTabReselected(TabLayout.Tab tab)
@@ -62,10 +73,19 @@ namespace SushiShop.Droid.Views.Activities
             var viewPager = FindViewById<NonScrollableViewPager>(Resource.Id.main_view_pager);
             viewPager.OffscreenPageLimit = 5;
 
-            var tabLayout = FindViewById<TabLayout>(Resource.Id.main_tab_layout);
+            tabLayout = FindViewById<TabLayout>(Resource.Id.main_tab_layout);
             tabLayout.AddOnTabSelectedListener(this);
 
             _ = InitializeTabsAsync(bundle, tabLayout);
+        }
+
+        protected override void Bind()
+        {
+            base.Bind();
+
+            using var bindingSet = CreateBindingSet();
+
+            bindingSet.Bind(this).For(nameof(BadgeCount)).To(vm => vm.CartItemsTotalCount);
         }
 
         private async Task InitializeTabsAsync(Bundle bundle, TabLayout tabLayout)
@@ -99,6 +119,27 @@ namespace SushiShop.Droid.Views.Activities
 
                 firstFragment.IsActivated = true;
             }, 1000);
+        }
+
+        private void SetCartBadgeCount(long value)
+        {
+            var tab = tabLayout.GetTabAt(CartTabIndex);
+            if (tab == null)
+            {
+                return;
+            }
+
+            var badgeTextView = tab.CustomView.FindViewById<TextView>(Resource.Id.badge_text_view);
+            var badgeView = tab.CustomView.FindViewById<View>(Resource.Id.badge_view);
+
+            badgeTextView.SetText(value.ToString(), null);
+            badgeTextView.Measure(0, 0);
+            badgeTextView.Visibility = badgeView.Visibility = value <= 0 ? ViewStates.Gone : ViewStates.Visible;
+
+            var size = Math.Max(badgeTextView.MeasuredHeight, badgeTextView.MeasuredWidth);
+            badgeView.LayoutParameters.Width = size;
+            badgeView.LayoutParameters.Height = size;
+            badgeView.SetRoundedCorners(size / 2);
         }
     }
 }
