@@ -8,6 +8,7 @@ using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
 using Google.Android.Material.TextField;
+using MvvmCross.DroidX;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
@@ -39,6 +40,7 @@ namespace SushiShop.Droid.Views.Fragments.Cart
         private AppCompatButton checkoutButton;
         private TextView totalPriceTextView;
         private ConstraintLayout emptyCartConstraintLayout;
+        private MvxSwipeRefreshLayout swipeRefreshLayout;
 
         public CartFragment()
             : base(Resource.Layout.fragment_cart)
@@ -59,6 +61,7 @@ namespace SushiShop.Droid.Views.Fragments.Cart
             checkoutButton = view.FindViewById<AppCompatButton>(Resource.Id.checkout_button);
             totalPriceTextView = view.FindViewById<TextView>(Resource.Id.total_price_text_view);
             emptyCartConstraintLayout = view.FindViewById<ConstraintLayout>(Resource.Id.empty_basket_constraint_layout);
+            swipeRefreshLayout = view.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.swipe_refresh_layout);
 
             choosePackageTextView.Text = AppStrings.ChoosePackage;
             promocodeInputLayout.Hint = AppStrings.Promocode;
@@ -89,6 +92,8 @@ namespace SushiShop.Droid.Views.Fragments.Cart
             bindingSet.Bind(checkoutButton).For(v => v.BindClick()).To(vm => vm.CheckoutCommand);
             bindingSet.Bind(totalPriceTextView).For(v => v.Text).To(vm => vm.TotalPrice);
             bindingSet.Bind(emptyCartConstraintLayout).For(v => v.BindVisible()).To(vm => vm.IsEmptyBasket);
+            bindingSet.Bind(swipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
+            bindingSet.Bind(swipeRefreshLayout).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
         }
 
         private void InitializeProductsRecyclerView()
