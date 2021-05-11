@@ -56,6 +56,7 @@ namespace SushiShop.Core.Common
 
             public const string OrderCreateResource = "order/create";
             public const string OrderCheckPaymentResource = "order/check-payment";
+            public const string OrderCalculateDiscountResource = "order/calc-discount";
 
             public const string PaymentOkResource = "payment-ok";
             public const string PaymentErrorResource = "payment-error";

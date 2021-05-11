@@ -29,6 +29,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
         private UIButton backButton;
         private DoneAccessoryView doneAccessoryView;
+        private DoneAccessoryView phoneTextFieldDeliveryDoneAccessoryView;
+        private DoneAccessoryView phoneTextFieldPickUpDoneAccessoryView;
 
         protected override bool HandlesKeyboardNotifications => true;
 
@@ -71,10 +73,24 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             _ = new PhoneNumberFormatter(UserPhonePickUpTextField);
             _ = new PhoneNumberFormatter(UserPhoneDeliveryTextField);
 
+            phoneTextFieldDeliveryDoneAccessoryView = new DoneAccessoryView(this.View, () =>
+            {
+                this.View.EndEditing(true);
+                ViewModel?.DeliveryOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+            });
+
+            phoneTextFieldPickUpDoneAccessoryView = new DoneAccessoryView(this.View, () =>
+            {
+                this.View.EndEditing(true);
+                ViewModel?.PickupOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+            });
+
             doneAccessoryView = new DoneAccessoryView(this.View, () => this.View.EndEditing(true));
-            UserPhonePickUpTextField.InputAccessoryView = doneAccessoryView;
+
+            UserPhonePickUpTextField.InputAccessoryView = phoneTextFieldPickUpDoneAccessoryView;
+            UserPhoneDeliveryTextField.InputAccessoryView = phoneTextFieldDeliveryDoneAccessoryView;
+
             UserNamePickUpTextField.InputAccessoryView = doneAccessoryView;
-            UserPhoneDeliveryTextField.InputAccessoryView = doneAccessoryView;
             UserNameDeliveryTextField.InputAccessoryView = doneAccessoryView;
             SpendPointsPickUpTextField.InputAccessoryView = doneAccessoryView;
             SpendPointsDeliveryTextField.InputAccessoryView = doneAccessoryView;
@@ -126,7 +142,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(ShopAddressPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ShopAddress);
             bindingSet.Bind(ShopPhonePickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ShopPhone);
             bindingSet.Bind(ShopTimeWorkingPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ShopTimeWorking);
-            bindingSet.Bind(ChooseTimePickUpView).For(v => v.BindTap()).To(vm => vm.PickupOrderSectionViewModel.SelectReceiveDateTime);
+            bindingSet.Bind(ChooseTimePickUpView).For(v => v.BindTap()).To(vm => vm.PickupOrderSectionViewModel.SelectReceiveDateTimeCommand);
             bindingSet.Bind(ReceiveTimePickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ReceiveDateTimePresentation);
             bindingSet.Bind(AboutAddressDeliveryView).For(v => v.BindVisible()).To(vm => vm.DeliveryOrderSectionViewModel.DeliveryAddress)
                 .WithConversion<StringToBoolConverter>();
@@ -136,7 +152,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(EntranceDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Section);
             bindingSet.Bind(IntercomDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Intercom);
             bindingSet.Bind(FloorDeliveryTextField).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.Floor);
-            bindingSet.Bind(ChooseTimeDeliveryView).For(v => v.BindTap()).To(vm => vm.DeliveryOrderSectionViewModel.SelectReceiveDateTime);
+            bindingSet.Bind(ChooseTimeDeliveryView).For(v => v.BindTap()).To(vm => vm.DeliveryOrderSectionViewModel.SelectReceiveDateTimeCommand);
             bindingSet.Bind(ReceiveTimeDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.ReceiveDateTimePresentation);
 
             bindingSet.Bind(UserNamePickUpTextField).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.Name).TwoWay();
@@ -187,6 +203,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(ScoresDiscountPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ScoresDiscount);
             bindingSet.Bind(PriceToPayPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.PriceToPay);
             bindingSet.Bind(ConfirmOrderPickUpButton).For(v => v.BindTouchUpInside()).To(vm => vm.PickupOrderSectionViewModel.ConfirmOrderCommand);
+            bindingSet.Bind(DiscountByCardPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.DiscountByCardPresentation);
 
             bindingSet.Bind(ProductsPriceDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.ProductsPrice);
             bindingSet.Bind(PriceDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.DeliveryPrice);
@@ -194,6 +211,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(ScoresDiscountDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.ScoresDiscount);
             bindingSet.Bind(PriceToPayDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.PriceToPay);
             bindingSet.Bind(ConfirmOrderDeliveryButton).For(v => v.BindTouchUpInside()).To(vm => vm.DeliveryOrderSectionViewModel.ConfirmOrderCommand);
+            bindingSet.Bind(DiscountByCartDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.DiscountByCardPresentation);
 
             bindingSet.Bind(ThanksOrderImageView).For(v => v.ImagePath).To(vm => vm.OrderThanksSectionViewModel.Image);
             bindingSet.Bind(ThanksOrderTitleLabel).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.Title);

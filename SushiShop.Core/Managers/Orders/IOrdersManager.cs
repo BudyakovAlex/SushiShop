@@ -16,5 +16,7 @@ namespace SushiShop.Core.Managers.Orders
         Task<Response<OrderConfirmed?>> CreateOrderAsync(OrderRequest orderRequest);
 
         Task<Response<bool>> CheckOrderPaymentAsync(long id, string phone);
+
+        Task<Response<decimal>> CalculateDiscountAsync(string? phone);
     }
 }

@@ -22,5 +22,7 @@ namespace SushiShop.Core.Services.Http.Orders
         Task<HttpResponse<ResponseDto<OrderConfirmedDto>>> CreateOrderAsync(OrderRequestDto orderRequest, CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<object>>> CheckOrderPaymentAsync(long id, string phone, CancellationToken cancellationToken);
+
+        Task<HttpResponse<ResponseDto<object>>> CalculateDiscountAsync(string? phone, string city, Guid basketId, CancellationToken cancellationToken);
     }
 }
