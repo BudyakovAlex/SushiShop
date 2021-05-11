@@ -8,6 +8,7 @@ using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
 using Google.Android.Material.TextField;
+using MvvmCross.DroidX;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
@@ -39,6 +40,7 @@ namespace SushiShop.Droid.Views.Fragments.Cart
         private AppCompatButton checkoutButton;
         private TextView totalPriceTextView;
         private ConstraintLayout emptyCartConstraintLayout;
+        private MvxSwipeRefreshLayout swipeRefreshLayout;
 
         public CartFragment()
             : base(Resource.Layout.fragment_cart)
@@ -59,6 +61,7 @@ namespace SushiShop.Droid.Views.Fragments.Cart
             checkoutButton = view.FindViewById<AppCompatButton>(Resource.Id.checkout_button);
             totalPriceTextView = view.FindViewById<TextView>(Resource.Id.total_price_text_view);
             emptyCartConstraintLayout = view.FindViewById<ConstraintLayout>(Resource.Id.empty_basket_constraint_layout);
+            swipeRefreshLayout = view.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.swipe_refresh_layout);
 
             choosePackageTextView.Text = AppStrings.ChoosePackage;
             promocodeInputLayout.Hint = AppStrings.Promocode;
@@ -82,13 +85,18 @@ namespace SushiShop.Droid.Views.Fragments.Cart
 
             bindingSet.Bind(toolbar).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(addSaucesLinearLayout).For(v => v.BindClick()).To(vm => vm.AddSaucesCommand);
+            bindingSet.Bind(addSaucesLinearLayout).For(v => v.BindVisible()).To(vm => vm.CanAddSauses);
             bindingSet.Bind(productsRecyclerView).For(v => v.ItemsSource).To(vm => vm.Products);
             bindingSet.Bind(toppingsRecyclerView).For(v => v.ItemsSource).To(vm => vm.Sauces);
             bindingSet.Bind(packagesRecyclerView).For(v => v.ItemsSource).To(vm => vm.Packages);
+            bindingSet.Bind(packagesRecyclerView).For(v => v.BindVisible()).To(vm => vm.CanAddPackages);
+            bindingSet.Bind(choosePackageTextView).For(v => v.BindVisible()).To(vm => vm.CanAddPackages);
             bindingSet.Bind(promocodeEditText).For(v => v.Text).To(vm => vm.Promocode);
             bindingSet.Bind(checkoutButton).For(v => v.BindClick()).To(vm => vm.CheckoutCommand);
             bindingSet.Bind(totalPriceTextView).For(v => v.Text).To(vm => vm.TotalPrice);
             bindingSet.Bind(emptyCartConstraintLayout).For(v => v.BindVisible()).To(vm => vm.IsEmptyBasket);
+            bindingSet.Bind(swipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
+            bindingSet.Bind(swipeRefreshLayout).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
         }
 
         private void InitializeProductsRecyclerView()

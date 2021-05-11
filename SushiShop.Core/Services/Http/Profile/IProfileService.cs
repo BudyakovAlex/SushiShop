@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using SushiShop.Core.Data.Dtos.Profile;
 using SushiShop.Core.Data.Http;
@@ -16,7 +17,7 @@ namespace SushiShop.Core.Services.Http.Profile
         Task<HttpResponse<ResponseDto<DetailedProfileDto>>> GetProfileAsync(CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<ProfileDiscountDto>>> GetDiscountAsync(CancellationToken cancellationToken);
-        
+
         Task<HttpResponse<ResponseDto<DetailedProfileDto>>> SaveProfileAsync(ProfileDto profileDto, CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<string>>> UploadPhotoAsync(string imagePath, CancellationToken cancellationToken);

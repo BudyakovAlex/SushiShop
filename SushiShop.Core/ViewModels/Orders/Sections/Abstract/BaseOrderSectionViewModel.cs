@@ -38,7 +38,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             ChangePaymentMethodCommand = new MvxCommand<PaymentMethod>((newPayementType) => PaymentMethod = newPayementType);
             ConfirmOrderCommand = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmOrderInternalAsync);
             SelectAddressCommand = new SafeAsyncCommand(ExecutionStateWrapper, SelectAddressAsync);
-            SelectReceiveDateTime = new SafeAsyncCommand(ExecutionStateWrapper, SelectReceiveDateTimeAsync);
+            SelectReceiveDateTimeCommand = new SafeAsyncCommand(ExecutionStateWrapper, SelectReceiveDateTimeAsync);
+            RefreshDiscountByCartCommand = new SafeAsyncCommand(ExecutionStateWrapper, RefreshDiscountByCartAsync);
         }
 
         public IMvxCommand<PaymentMethod> ChangePaymentMethodCommand { get; }
@@ -47,7 +48,9 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         public ICommand SelectAddressCommand { get; }
 
-        public ICommand SelectReceiveDateTime { get; }
+        public ICommand SelectReceiveDateTimeCommand { get; }
+
+        public ICommand RefreshDiscountByCartCommand { get; }
 
         private string? name = string.Empty;
         public string? Name
@@ -102,6 +105,13 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             set => SetProperty(ref receiveDateTime, value, () => RaisePropertyChanged(nameof(ReceiveDateTimePresentation)));
         }
 
+        private decimal discountByCard;
+        public decimal DiscountByCard
+        {
+            get => discountByCard;
+            set => SetProperty(ref discountByCard, value, OnDiscountByCardChanged);
+        }
+
         public string? AvailableScoresPresentation { get; private set; }
 
         public string ProductsPrice => $"{Cart?.TotalSum} {Cart?.Currency?.Symbol}";
@@ -109,7 +119,9 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         public string DiscountByPromocode => Cart?.Discount > 0 ? $"- {Cart?.Discount} {Cart?.Currency?.Symbol}" : $"{Cart?.Discount} {Cart?.Currency?.Symbol}";
 
         public string? ScoresDiscount => ScoresToApply > 0 ? $"- {ScoresToApply} {Cart?.Currency?.Symbol}" : $"{ScoresToApply} {Cart?.Currency?.Symbol}";
-        
+
+        public string? DiscountByCardPresentation => DiscountByCard > 0 ? $"- {DiscountByCard} {Cart?.Currency?.Symbol}" : $"{DiscountByCard} {Cart?.Currency?.Symbol}";
+
         public bool CanApplyScores { get; private set; }
 
         public string? ReceiveDateTimePresentation => GetReceiveTimePresentation();
@@ -144,6 +156,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         {
             SetDiscount(discount);
             SetProfile(detailedProfile);
+
+            _ = SafeExecutionWrapper.WrapAsync(RefreshDiscountByCartAsync);
         }
 
         protected abstract Task<OrderConfirmed?> ConfirmOrderAsync();
@@ -157,10 +171,27 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             RaisePropertyChanged(nameof(PriceToPay));
         }
 
+        private void OnDiscountByCardChanged()
+        {
+            RaisePropertyChanged(nameof(DiscountByCardPresentation));
+            RaisePropertyChanged(nameof(PriceToPay));
+        }
+
         private async Task SelectReceiveDateTimeAsync()
         {
             var selectedDate = ReceiveDateTime ?? MinDateTimeForPicker;
             ReceiveDateTime = await Dialog.ShowDatePickerAsync(selectedDate, MinDateTimeForPicker, MinDateTimeForPicker.AddDays(7), DatePickerMode.DateAndTime);
+        }
+
+        private async Task RefreshDiscountByCartAsync()
+        {
+            var response = await OrdersManager.CalculateDiscountAsync(Phone);
+            if (!response.IsSuccessful)
+            {
+                return;
+            }
+
+            DiscountByCard = response.Data;
         }
 
         private void SetProfile(DetailedProfile? detailedProfile)

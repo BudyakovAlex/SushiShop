@@ -72,13 +72,17 @@ namespace SushiShop.Droid.Presenter
 
         protected override Task<bool> CloseActivity(IMvxViewModel viewModel, MvxActivityPresentationAttribute? attribute)
         {
-            if (CurrentActivity!.SupportFragmentManager.BackStackEntryCount != 0)
+            var currentFragment = FindVisibleFragment();
+            if (currentFragment != null)
             {
-                if (CurrentFragmentManager!.Fragments.LastOrDefault() is MvxFragment mvxFragment &&
-                    mvxFragment.ViewModel is BasePageViewModel basePageViewModel)
+                if (currentFragment.ChildFragmentManager.BackStackEntryCount != 0)
                 {
-                    basePageViewModel?.CloseCommand?.Execute(null);
-                    return Task.FromResult(true);
+                    if (currentFragment.ChildFragmentManager!.Fragments.LastOrDefault() is MvxFragment mvxFragment &&
+                        mvxFragment.ViewModel is BasePageViewModel basePageViewModel)
+                    {
+                        basePageViewModel?.CloseCommand?.Execute(null);
+                        return Task.FromResult(true);
+                    }
                 }
             }
 

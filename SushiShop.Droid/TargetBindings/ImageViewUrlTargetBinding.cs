@@ -1,4 +1,5 @@
-﻿using Android.Widget;
+﻿using System;
+using Android.Widget;
 using Bumptech.Glide;
 using MvvmCross.Platforms.Android.Binding.Target;
 
@@ -36,17 +37,23 @@ namespace SushiShop.Droid.TargetBindings
 
         private void LoadImage(string url)
         {
-            if (!isSizeAdapted)
+            try
             {
-                Glide.With(Target.Context).Load(url).Into(Target);
-                return;
-            }
+                if (!isSizeAdapted)
+                {
+                    Glide.With(Target.Context).Load(url).Into(Target);
+                    return;
+                }
 
-            Glide.With(Target.Context)
-                .Load(url)
-                .Placeholder(Resource.Drawable.ic_placeholder)
-                .Error(Resource.Drawable.ic_placeholder)
-                .Into(Target);
+                Glide.With(Target.Context)
+                    .Load(url)
+                    .Placeholder(Resource.Drawable.ic_placeholder)
+                    .Error(Resource.Drawable.ic_placeholder)
+                    .Into(Target);
+            }
+            catch
+            {
+            }
         }
 
         private string GetImagePath(string imageUrl)
