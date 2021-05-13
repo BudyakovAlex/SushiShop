@@ -1,9 +1,11 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
+using SushiShop.Ios.Common;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Controls;
 using System;
@@ -45,7 +47,18 @@ namespace SushiShop.Ios.Views.Cells.Shops
         {
             base.Initialize();
 
-            SearchBar.Placeholder = AppStrings.EnterAddress;
+            SearchBar.SearchTextField.AttributedPlaceholder = new NSAttributedString(
+                AppStrings.EnterAddress,
+                font: Font.Create(FontStyle.Regular, 15f),
+                foregroundColor: Colors.GrayPlaceholder);
+            SearchBar.SetImageforSearchBarIcon(
+                UIImage.FromBundle(ImageNames.Search),
+                UISearchBarIcon.Search,
+                UIControlState.Normal);
+
+            SearchBar.SearchTextPositionAdjustment = new UIOffset(5, 0);
+            SearchBar.SetPositionAdjustmentforSearchBarIcon(new UIOffset(5, 0), UISearchBarIcon.Search);
+
             tableViewSource = new TableViewSource(ContentTableView);
             tableViewSource.Register<ShopItemViewModel>(ShopItemViewCell.Nib, ShopItemViewCell.Key);
             ContentTableView.Source = tableViewSource;

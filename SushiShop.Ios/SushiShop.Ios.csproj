@@ -267,6 +267,8 @@
     <ImageAsset Include="Assets.xcassets\ic_close_white.imageset\ic_close_white.pdf" />
     <ImageAsset Include="Assets.xcassets\ic_arrow_suggestion.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ic_arrow_suggestion.imageset\Group 4.pdf" />
+    <ImageAsset Include="Assets.xcassets\ic_search.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_search.imageset\ic_search.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -344,6 +346,7 @@
         <Folder Include="Views\Cells\Common\" />
         <Folder Include="Formatters\" />
         <Folder Include="Views\ViewControllers\Abstract\" />
+        <Folder Include="Assets.xcassets\ic_search.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
