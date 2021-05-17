@@ -465,4 +465,25 @@
   <data name="EmptyCart" xml:space="preserve">
     <value>В корзине пусто</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Продолжить</value>
+  </data>
+  <data name="PushNotifications" xml:space="preserve">
+    <value>Push уведомления</value>
+  </data>
+  <data name="EmailNotifications" xml:space="preserve">
+    <value>Email уведомления</value>
+  </data>
+  <data name="SmsNotifications" xml:space="preserve">
+    <value>Sms уведомления</value>
+  </data>
+  <data name="ReceiveNotificationsAboutNewsAndPromotions" xml:space="preserve">
+    <value>Получать уведомления о последних новостях и акциях</value>
+  </data>
 </root>

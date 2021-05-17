@@ -40,6 +40,9 @@
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <LangVersion>8.0</LangVersion>
     <AndroidSupportedAbis>x86;armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
+    <AndroidSigningKeyPass></AndroidSigningKeyPass>
+    <PublicSign>false</PublicSign>
+    <PlatformTarget>anycpu</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -124,6 +127,14 @@
     <Compile Include="Presenter\Attributes\NestedFragmentPresentationAttribute.cs" />
     <Compile Include="Views\Fragments\Abstract\ITabFragment.cs" />
     <Compile Include="Views\ViewHolders\Cart\CartProductToppingItemViewHolder.cs" />
+    <Compile Include="Views\Activities\Profile\ConfirmCodeActivity.cs" />
+    <Compile Include="Views\Activities\Profile\RegistrationActivity.cs" />
+    <Compile Include="Views\Fragments\Profile\BonusProgramFragment.cs" />
+    <Compile Include="Views\OutlineProviders\TopCornersOutlineProvider.cs" />
+    <Compile Include="Views\Activities\Profile\EditProfileActivity.cs" />
+    <Compile Include="Views\Spans\LinkSpan.cs" />
+    <Compile Include="Extensions\ViewExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -487,6 +498,30 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bg_button_outlined.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_exit.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_confirm_code.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_registration.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_bonus_program.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_edit_profile.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -563,6 +598,9 @@
     <Folder Include="Presenter\Attributes\" />
     <Folder Include="Views\ViewHolders\Cart\" />
     <Folder Include="Views\Fragments\Abstract\" />
+    <Folder Include="Views\Activities\Profile\" />
+    <Folder Include="Views\OutlineProviders\" />
+    <Folder Include="Views\Spans\" />
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.txt" />
