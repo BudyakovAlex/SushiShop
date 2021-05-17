@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/white">
 
     <include
         android:id="@+id/toolbar_container"
-        layout="@layout/layout_toolbar"
+        layout="@layout/layout_toolbar_shadow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,17 +21,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <LinearLayout
+            android:background="@color/background"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/order_composition_container_view"
             android:layout_width="match_parent"
             android:background="@color/white"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/order_composition_title_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -51,9 +53,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintBottom_toBottomOf="@+id/order_composition_title_text_view"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/order_composition_title_text_view"
                 app:srcCompat="@drawable/ic_chevron_right" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -142,16 +144,17 @@
 
                 <TextView
                     android:id="@+id/preferred_delivery_time_title_text_view"
-                    android:layout_width="61dp"
+                    android:layout_width="match_parent"
                     android:layout_height="21dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/sf_pro_display_regular"
                     android:textColor="@color/gray2"
                     android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="№50342" />
+                    tools:text="Желаемое время получения" />
 
                 <TextView
                     android:id="@+id/preferred_delivery_time_text_view"
@@ -162,7 +165,7 @@
                     android:textColor="@color/black"
                     android:fontFamily="@font/sf_pro_display_regular"
                     android:textSize="16dp"
-                    android:textFontWeight="700"
+                    android:textFontWeight="500"
                     android:layout_marginBottom="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -187,30 +190,32 @@
 
                 <TextView
                     android:id="@+id/delivery_title_text_view"
-                    android:layout_width="61dp"
+                    android:layout_width="match_parent"
                     android:layout_height="21dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/sf_pro_display_regular"
                     android:textColor="@color/gray2"
                     android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="№Способ получения" />
 
                 <TextView
                     android:id="@+id/delivery_text_view"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sf_pro_display_regular"
                     android:textSize="16dp"
-                    android:textFontWeight="700"
+                    android:textFontWeight="500"
                     android:layout_marginBottom="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/delivery_title_text_view"
                     tools:text="Магазин" />
 
@@ -226,6 +231,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/address_container_view"
                 android:layout_width="match_parent"
                 android:background="@color/white"
                 android:layout_marginTop="10dp"
@@ -233,7 +239,7 @@
 
                 <TextView
                     android:id="@+id/address_title_text_view"
-                    android:layout_width="61dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="21dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
@@ -242,7 +248,7 @@
                     android:textSize="16dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="№Способ получения" />
+                    tools:text="Адрес" />
 
                 <TextView
                     android:id="@+id/city_text_view"
@@ -253,11 +259,11 @@
                     android:textColor="@color/black"
                     android:fontFamily="@font/sf_pro_display_regular"
                     android:textSize="14dp"
-                    android:textFontWeight="700"
+                    android:textFontWeight="500"
                     android:layout_marginBottom="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/address_title_text_view"
-                    tools:text="Магазин" />
+                    tools:text=" г Санкт-Петербург, ул Садовая, 33" />
 
                 <TextView
                     android:id="@+id/contacts_text_view"
@@ -268,11 +274,11 @@
                     android:textColor="@color/black"
                     android:fontFamily="@font/sf_pro_display_regular"
                     android:textSize="14dp"
-                    android:textFontWeight="700"
+                    android:textFontWeight="500"
                     android:layout_marginBottom="27dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/city_text_view"
-                    tools:text="Магазин" />
+                    tools:text="+7 812 493-44-44" />
 
                 <TextView
                     android:id="@+id/working_time_text_view"
@@ -283,17 +289,128 @@
                     android:textColor="@color/black"
                     android:fontFamily="@font/sf_pro_display_regular"
                     android:textSize="14dp"
-                    android:textFontWeight="700"
+                    android:textFontWeight="500"
                     android:layout_marginBottom="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/contacts_text_view"
-                    tools:text="Магазин" />
+                    tools:text="10:00 - 23:00" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/products_price_title_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:textSize="16dp"
+                    android:textFontWeight="500"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Товары:" />
+
+                <TextView
+                    android:id="@+id/delivery_price_title_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:textSize="16dp"
+                    android:textFontWeight="500"
+                    android:layout_marginBottom="27dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/products_price_title_text_view"
+                    tools:text="Самовывоз:" />
+
+                <TextView
+                    android:id="@+id/total_price_title_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:textSize="16dp"
+                    android:textFontWeight="500"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/delivery_price_title_text_view"
+                    tools:text="Итого:" />
+
+                <TextView
+                    android:id="@+id/products_price_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:textSize="16dp"
+                    android:textFontWeight="500"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Товары:" />
+
+                <TextView
+                    android:id="@+id/delivery_price_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:textSize="16dp"
+                    android:textFontWeight="500"
+                    android:layout_marginBottom="27dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/products_price_text_view"
+                    tools:text="Бесплатно" />
+
+                <TextView
+                    android:id="@+id/total_price_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:textSize="20dp"
+                    android:textFontWeight="700"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/delivery_price_text_view"
+                    tools:text="1 360 ₽" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/repeat_button"
+        style="@style/PrimaryButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <include
         android:id="@+id/loading_overlay_view"

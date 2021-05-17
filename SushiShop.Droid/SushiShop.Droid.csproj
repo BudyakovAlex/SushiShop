@@ -127,6 +127,9 @@
     <Compile Include="Views\Fragments\Orders\MyOrdersFragment.cs" />
     <Compile Include="Views\Fragments\Orders\OrderDetailsFragment.cs" />
     <Compile Include="Views\Fragments\Orders\OrderCompositionFragment.cs" />
+    <Compile Include="Views\ViewHolders\Orders\OrderItemViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Orders\OrderProductItemViewHolder.cs" />
+    <Compile Include="Views\Fragments\Feedback\FeedbackFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -510,6 +513,10 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_feedback.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -587,6 +594,8 @@
     <Folder Include="Views\ViewHolders\Cart\" />
     <Folder Include="Views\Fragments\Abstract\" />
     <Folder Include="Views\Fragments\Orders\" />
+    <Folder Include="Views\ViewHolders\Orders\" />
+    <Folder Include="Views\Fragments\Feedback\" />
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.txt" />
