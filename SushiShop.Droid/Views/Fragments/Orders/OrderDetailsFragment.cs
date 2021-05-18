@@ -5,15 +5,16 @@ using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
 using MvvmCross.Platforms.Android.Binding;
 using SushiShop.Core.ViewModels.Orders;
+using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Presenter.Attributes;
 
 namespace SushiShop.Droid.Views.Fragments.Orders
 {
 
-    [NestedFragmentPresentation(FragmentContentId = Resource.Id.container_view)]
+    [NestedFragmentPresentation(FragmentContentId = Resource.Id.orders_container_view)]
     public class OrderDetailsFragment : BaseFragment<OrderDetailsViewModel>
     {
-        private Toolbar toolbar;
+        private AndroidX.AppCompat.Widget.Toolbar toolbar;
         private View loadingOverlayView;
         private View addressContainerView;
         private View compositionContainerView;
@@ -46,7 +47,7 @@ namespace SushiShop.Droid.Views.Fragments.Orders
         {
             base.InitializeViewPoroperties(view, savedInstanceState);
 
-            toolbar = view.FindViewById<Toolbar>(Resource.Id.toolbar);
+            toolbar = view.FindViewById<AndroidX.AppCompat.Widget.Toolbar>(Resource.Id.toolbar);
             loadingOverlayView = view.FindViewById<View>(Resource.Id.loading_overlay_view);
 
             addressContainerView = view.FindViewById<View>(Resource.Id.address_container_view);
@@ -85,7 +86,7 @@ namespace SushiShop.Droid.Views.Fragments.Orders
             using var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(toolbar).For(v => v.Title).To(v => v.Title);
-
+            bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(orderCompositionTitleTextView).For(v => v.Text).To(vm => vm.ShowOrderCompositionTitle);
             bindingSet.Bind(compositionContainerView).For(v => v.BindClick()).To(vm => vm.ShowOrderCompositionCommand);
             bindingSet.Bind(numberTextView).For(v => v.Text).To(vm => vm.OrderNumber);

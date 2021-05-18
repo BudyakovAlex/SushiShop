@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using AndroidX.AppCompat.Widget;
+using AndroidX.RecyclerView.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using MvvmCross.DroidX.RecyclerView;
@@ -18,7 +19,7 @@ namespace SushiShop.Droid.Views.Activities.Common
         private MvxRecyclerView recyclerView;
         private Toolbar toolbar;
 
-        public PhotoDetailsActivity() : base(Resource.Layout.activity_toppings_selection)
+        public PhotoDetailsActivity() : base(Resource.Layout.activity_photo_details)
         {
         }
 
@@ -47,8 +48,12 @@ namespace SushiShop.Droid.Views.Activities.Common
         {
             recyclerView = FindViewById<MvxRecyclerView>(Resource.Id.recycler_view);
             recyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
+            recyclerView.SetLayoutManager(new MvxGuardedLinearLayoutManager(this) { Orientation = LinearLayoutManager.Horizontal });
             recyclerView.ItemTemplateSelector = new TemplateSelector()
                 .AddElement<PhotoDetailsItemViewModel, PhotoDetailsItemViewHolder>(Resource.Layout.item_photo_details);
+
+            var snapHelper = new PagerSnapHelper();
+            snapHelper.AttachToRecyclerView(recyclerView);
         }
     }
 }

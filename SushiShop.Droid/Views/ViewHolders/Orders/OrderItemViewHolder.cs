@@ -11,6 +11,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
 {
     public class OrderItemViewHolder : CardViewHolder<OrderItemViewModel>
     {
+        private View view;
         private TextView orderNumberTextView;
         private TextView dateTextView;
         private TextView statusTextView;
@@ -26,6 +27,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
         {
             base.DoInit(view);
 
+            this.view = view;
             orderNumberTextView = view.FindViewById<TextView>(Resource.Id.order_number_text_view);
             dateTextView = view.FindViewById<TextView>(Resource.Id.date_text_view);
             statusTextView = view.FindViewById<TextView>(Resource.Id.status_text_view);
@@ -44,6 +46,8 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             using var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(repeatButton).For(v => v.BindClick()).To(vm => vm.RepeatOrderCommand);
+            bindingSet.Bind(repeatButton).For(v => v.BindVisible()).To(vm => vm.CanRepeat);
+            bindingSet.Bind(view).For(v => v.BindClick()).To(vm => vm.ShowDetailsCommand);
             bindingSet.Bind(orderNumberTextView).For(v => v.Text).To(vm => vm.OrderNumber);
             bindingSet.Bind(dateTextView).For(v => v.Text).To(vm => vm.OrderDateTime);
             bindingSet.Bind(statusTextView).For(v => v.Text).To(vm => vm.Status);

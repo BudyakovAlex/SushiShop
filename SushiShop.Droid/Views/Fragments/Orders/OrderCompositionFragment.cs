@@ -9,12 +9,13 @@ using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Orders;
 using SushiShop.Core.ViewModels.Orders.Items;
+using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Presenter.Attributes;
 using SushiShop.Droid.Views.ViewHolders.Orders;
 
 namespace SushiShop.Droid.Views.Fragments.Orders
 {
-    [NestedFragmentPresentation(FragmentContentId = Resource.Id.container_view)]
+    [NestedFragmentPresentation(FragmentContentId = Resource.Id.order_details_container_view)]
     public class OrderCompositionFragment : BaseFragment<OrderCompositionViewModel>
     {
         private Toolbar toolbar;
@@ -43,6 +44,7 @@ namespace SushiShop.Droid.Views.Fragments.Orders
 
             bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(v => v.IsBusy);
             bindingSet.Bind(toolbar).For(v => v.Title).To(v => v.Title);
+            bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(recyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
         }
 

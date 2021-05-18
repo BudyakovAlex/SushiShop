@@ -10,6 +10,7 @@ using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Orders;
 using SushiShop.Core.ViewModels.Orders.Items;
+using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Presenter.Attributes;
 using SushiShop.Droid.Views.ViewHolders.Orders;
 
@@ -46,6 +47,7 @@ namespace SushiShop.Droid.Views.Fragments.Orders
 
             bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(v => v.IsBusy);
             bindingSet.Bind(toolbar).For(v => v.Title).To(v => v.Title);
+            bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(recyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(swipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
             bindingSet.Bind(swipeRefreshLayout).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);

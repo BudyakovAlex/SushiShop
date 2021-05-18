@@ -79,6 +79,8 @@
         android:layout_height="36dp"
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="14dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
     <View

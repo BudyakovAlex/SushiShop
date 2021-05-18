@@ -10,8 +10,10 @@ using Google.Android.Material.TextField;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
+using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Droid.Presenter.Attributes;
+using SushiShop.Droid.Views.ViewHolders.Feedback;
 
 namespace SushiShop.Droid.Views.Fragments.Feedback
 {
@@ -76,7 +78,7 @@ namespace SushiShop.Droid.Views.Fragments.Feedback
             recyclerView.SetLayoutManager(new MvxGuardedLinearLayoutManager(Context) { Orientation = LinearLayoutManager.Horizontal });
             recyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
             recyclerView.ItemTemplateSelector = new TemplateSelector()
-                .AddElement<OrderItemViewModel, OrderItemViewHolder>(Resource.Layout.item_order);
+                .AddElement<PhotoItemViewModel, FeedbackPhotoItemViewHolder>(Resource.Layout.item_order);
         }
     }
 }

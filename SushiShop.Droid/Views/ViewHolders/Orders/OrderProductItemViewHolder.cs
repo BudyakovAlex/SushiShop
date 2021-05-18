@@ -1,5 +1,6 @@
 ﻿using Android.Views;
 using Android.Widget;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Orders.Items;
 using SushiShop.Droid.Extensions;
@@ -30,6 +31,8 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             priceTextView = view.FindViewById<TextView>(Resource.Id.price_text_view);
             productWeightTextView = view.FindViewById<TextView>(Resource.Id.product_weight_text_view);
             countTextView = view.FindViewById<TextView>(Resource.Id.count_text_view);
+
+            productImageView.SetRoundedCorners(view.Context.DpToPx(6f));
         }
 
         public override void BindData()
