@@ -78,7 +78,7 @@ namespace SushiShop.Droid.Views.Fragments.Feedback
             recyclerView.SetLayoutManager(new MvxGuardedLinearLayoutManager(Context) { Orientation = LinearLayoutManager.Horizontal });
             recyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
             recyclerView.ItemTemplateSelector = new TemplateSelector()
-                .AddElement<PhotoItemViewModel, FeedbackPhotoItemViewHolder>(Resource.Layout.item_order);
+                .AddElement<PhotoItemViewModel, FeedbackPhotoItemViewHolder>(Resource.Layout.item_feedback_photo);
         }
     }
 }

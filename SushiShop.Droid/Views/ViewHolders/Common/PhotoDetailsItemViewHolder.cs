@@ -2,7 +2,7 @@
 using Android.Views;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
 using Bumptech.Glide;
-using ImageViews.Photo;
+using UK.CO.Senab.Photoview;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Droid.Views.Listeners;
