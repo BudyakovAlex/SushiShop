@@ -84,5 +84,15 @@ namespace SushiShop.Core.Services.Http.Orders
                 body,
                 cancellationToken);
         }
+
+        public Task<HttpResponse<ResponseDto<object>>> CalculateDiscountAsync(string? phone, string city, Guid basketId, CancellationToken cancellationToken)
+        {
+            var body = new { phone, city, basketId };
+            return httpService.ExecuteAsync<ResponseDto<object>>(
+                Method.Post,
+                Constants.Rest.OrderCalculateDiscountResource,
+                body,
+                cancellationToken);
+        }
     }
 }

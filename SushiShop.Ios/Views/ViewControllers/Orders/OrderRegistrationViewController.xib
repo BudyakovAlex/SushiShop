@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,6 +38,8 @@
                 <outlet property="CountOfCutleryPickUpStepperView" destination="wuz-Hr-Tfc" id="jHn-Vd-yT9"/>
                 <outlet property="CountOfScoresDeliveryLabel" destination="gIY-fG-IRW" id="mDH-Hh-E1X"/>
                 <outlet property="CountOfScoresPickUpLabel" destination="CTP-lf-QCC" id="N71-Sl-2hj"/>
+                <outlet property="DiscountByCardPickUpLabel" destination="uRd-67-41C" id="zIw-nS-UvD"/>
+                <outlet property="DiscountByCartDeliveryLabel" destination="6Wt-uw-hwN" id="Z5e-O5-mmj"/>
                 <outlet property="DiscountByPromocodeDeliveryLabel" destination="pUM-E5-ljz" id="EeA-wR-KrT"/>
                 <outlet property="DiscountByPromocodePickUpLabel" destination="FYf-05-FY7" id="dxy-KP-J1i"/>
                 <outlet property="EntranceDeliveryTextField" destination="U2B-w7-ToG" id="0b7-VS-gOM"/>
@@ -110,7 +112,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="or5-pc-S4h">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1755.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1780"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="АДРЕС МАГАЗИНА" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYD-Lc-XAl">
                                                     <rect key="frame" x="16" y="8" width="382" height="12"/>
@@ -582,7 +584,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m14-ie-tJH">
-                                                    <rect key="frame" x="0.0" y="1430.5" width="414" height="325"/>
+                                                    <rect key="frame" x="0.0" y="1430.5" width="414" height="349.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Товары:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-im-LXe">
                                                             <rect key="frame" x="16" y="20" width="56" height="19.5"/>
@@ -603,19 +605,19 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Списано баллами:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPj-ge-4t7">
-                                                            <rect key="frame" x="16" y="93.5" width="131.5" height="19.5"/>
+                                                            <rect key="frame" x="16" y="118" width="131.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итого:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvV-c6-hxx">
-                                                            <rect key="frame" x="16" y="119" width="46.5" height="19.5"/>
+                                                            <rect key="frame" x="16" y="143.5" width="46.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9v-uK-hG8" customClass="PrimaryButton">
-                                                            <rect key="frame" x="16" y="151.5" width="382" height="50"/>
+                                                            <rect key="frame" x="16" y="176" width="382" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="Rg1-iy-lVd"/>
                                                             </constraints>
@@ -625,7 +627,7 @@
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V26-d2-1cd">
-                                                            <rect key="frame" x="16" y="213.5" width="382" height="95.5"/>
+                                                            <rect key="frame" x="16" y="238" width="382" height="95.5"/>
                                                             <string key="text">Завершая оформление заказа, я даю своё согласие на обработку персональных данных и подтверждаю оформление с условиями публичной оферты, пользовательского соглашения и  политики конфиденциальности</string>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <color key="textColor" red="0.52156862749999999" green="0.52941176469999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -650,14 +652,26 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-mL-tWG">
-                                                            <rect key="frame" x="346" y="93.5" width="52" height="19.5"/>
+                                                            <rect key="frame" x="346" y="118" width="52" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 000 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s96-5P-b8v">
-                                                            <rect key="frame" x="335" y="118" width="63" height="21.5"/>
+                                                            <rect key="frame" x="335" y="142.5" width="63" height="21.5"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скидка по карте:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pF-kt-lQn">
+                                                            <rect key="frame" x="16" y="93.5" width="120.5" height="19.5"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRd-67-41C">
+                                                            <rect key="frame" x="346" y="93.5" width="52" height="19.5"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -677,20 +691,24 @@
                                                         <constraint firstAttribute="trailing" secondItem="Zk6-PO-qig" secondAttribute="trailing" constant="16" id="Hbu-MI-8sV"/>
                                                         <constraint firstItem="s96-5P-b8v" firstAttribute="top" secondItem="yhd-mL-tWG" secondAttribute="bottom" constant="5" id="Hge-WF-fi0"/>
                                                         <constraint firstItem="V26-d2-1cd" firstAttribute="top" secondItem="P9v-uK-hG8" secondAttribute="bottom" constant="12" id="Klp-Ny-lft"/>
+                                                        <constraint firstItem="4pF-kt-lQn" firstAttribute="top" secondItem="o5c-uy-WP7" secondAttribute="bottom" constant="5" id="WOT-Mm-2XP"/>
                                                         <constraint firstItem="PQf-jN-W1Q" firstAttribute="centerY" secondItem="bq3-X4-8iF" secondAttribute="centerY" id="ZZi-OF-LTr"/>
                                                         <constraint firstAttribute="trailing" secondItem="PQf-jN-W1Q" secondAttribute="trailing" constant="16" id="aVC-l4-GeJ"/>
                                                         <constraint firstAttribute="trailing" secondItem="P9v-uK-hG8" secondAttribute="trailing" constant="16" id="e4B-T6-W52"/>
+                                                        <constraint firstItem="uRd-67-41C" firstAttribute="centerY" secondItem="4pF-kt-lQn" secondAttribute="centerY" id="eyx-jx-BYQ"/>
                                                         <constraint firstItem="rPj-ge-4t7" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="h3Q-ga-mrb"/>
                                                         <constraint firstAttribute="bottom" secondItem="V26-d2-1cd" secondAttribute="bottom" constant="16" id="jzp-o6-vMj"/>
                                                         <constraint firstAttribute="trailing" secondItem="yhd-mL-tWG" secondAttribute="trailing" constant="16" id="kfm-7X-Bes"/>
+                                                        <constraint firstAttribute="trailing" secondItem="uRd-67-41C" secondAttribute="trailing" constant="16" id="nFY-x6-Qhu"/>
                                                         <constraint firstItem="FYf-05-FY7" firstAttribute="centerY" secondItem="o5c-uy-WP7" secondAttribute="centerY" id="nxV-aM-gYW"/>
                                                         <constraint firstItem="P9v-uK-hG8" firstAttribute="top" secondItem="s96-5P-b8v" secondAttribute="bottom" constant="12" id="tCi-nu-62j"/>
                                                         <constraint firstItem="kvV-c6-hxx" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="uFg-Q5-ESp"/>
-                                                        <constraint firstItem="rPj-ge-4t7" firstAttribute="top" secondItem="o5c-uy-WP7" secondAttribute="bottom" constant="5" id="uan-G6-Eg2"/>
+                                                        <constraint firstItem="rPj-ge-4t7" firstAttribute="top" secondItem="4pF-kt-lQn" secondAttribute="bottom" constant="5" id="uql-oQ-4PZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="V26-d2-1cd" secondAttribute="trailing" constant="16" id="vBD-LB-GyH"/>
                                                         <constraint firstItem="Eks-im-LXe" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="wTf-zc-7PW"/>
                                                         <constraint firstAttribute="trailing" secondItem="s96-5P-b8v" secondAttribute="trailing" constant="16" id="x8A-ii-uPN"/>
                                                         <constraint firstItem="yhd-mL-tWG" firstAttribute="centerY" secondItem="rPj-ge-4t7" secondAttribute="centerY" id="yWY-2J-QSj"/>
+                                                        <constraint firstItem="4pF-kt-lQn" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="zEh-m7-nfr"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -746,7 +764,7 @@
                                     <rect key="frame" x="414" y="0.0" width="414" height="774"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEn-tQ-Vwl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1789.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1814"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="АДРЕС ДОСТАВКИ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eB-8V-7zA">
                                                     <rect key="frame" x="16" y="8" width="382" height="12"/>
@@ -1137,7 +1155,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Giw-t5-a2S">
-                                                    <rect key="frame" x="0.0" y="1464.5" width="414" height="325"/>
+                                                    <rect key="frame" x="0.0" y="1464.5" width="414" height="349.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Товары:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwU-0k-hj1">
                                                             <rect key="frame" x="16" y="20" width="56" height="19.5"/>
@@ -1158,19 +1176,19 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Списано баллами:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mls-yp-qAE">
-                                                            <rect key="frame" x="16" y="93.5" width="131.5" height="19.5"/>
+                                                            <rect key="frame" x="16" y="118" width="131.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итого:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-Lm-q9H">
-                                                            <rect key="frame" x="16" y="119" width="46.5" height="19.5"/>
+                                                            <rect key="frame" x="16" y="143.5" width="46.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H42-HI-bue" customClass="PrimaryButton">
-                                                            <rect key="frame" x="16" y="151.5" width="382" height="50"/>
+                                                            <rect key="frame" x="16" y="176" width="382" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="Pnk-7r-5lh"/>
                                                             </constraints>
@@ -1180,7 +1198,7 @@
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh8-ks-9UW">
-                                                            <rect key="frame" x="16" y="213.5" width="382" height="95.5"/>
+                                                            <rect key="frame" x="16" y="238" width="382" height="95.5"/>
                                                             <string key="text">Завершая оформление заказа, я даю своё согласие на обработку персональных данных и подтверждаю оформление с условиями публичной оферты, пользовательского соглашения и  политики конфиденциальности</string>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <color key="textColor" red="0.52156862745098043" green="0.52941176470588236" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
@@ -1205,14 +1223,26 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8j-fQ-o6h">
-                                                            <rect key="frame" x="346" y="93.5" width="52" height="19.5"/>
+                                                            <rect key="frame" x="346" y="118" width="52" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 000 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoO-Z2-Uv7">
-                                                            <rect key="frame" x="335" y="118" width="63" height="21.5"/>
+                                                            <rect key="frame" x="335" y="142.5" width="63" height="21.5"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скидка по карте:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6V-AI-Y5V">
+                                                            <rect key="frame" x="16" y="93.5" width="120.5" height="19.5"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wt-uw-hwN">
+                                                            <rect key="frame" x="346" y="93.5" width="52" height="19.5"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1227,11 +1257,15 @@
                                                         <constraint firstItem="pUM-E5-ljz" firstAttribute="centerY" secondItem="IQL-qg-0OF" secondAttribute="centerY" id="Hmk-Xk-k6K"/>
                                                         <constraint firstAttribute="trailing" secondItem="gh8-ks-9UW" secondAttribute="trailing" constant="16" id="Icd-8N-4of"/>
                                                         <constraint firstItem="HQh-Fu-4fX" firstAttribute="centerY" secondItem="ZdU-Vq-PI7" secondAttribute="centerY" id="LDr-ro-d0Y"/>
+                                                        <constraint firstItem="Mls-yp-qAE" firstAttribute="top" secondItem="g6V-AI-Y5V" secondAttribute="bottom" constant="5" id="NUu-FI-j94"/>
                                                         <constraint firstItem="OoO-Z2-Uv7" firstAttribute="top" secondItem="h8j-fQ-o6h" secondAttribute="bottom" constant="5" id="ORY-8B-A09"/>
                                                         <constraint firstItem="x8d-Lm-q9H" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="QZS-0b-uQ0"/>
                                                         <constraint firstItem="ZdU-Vq-PI7" firstAttribute="top" secondItem="XwU-0k-hj1" secondAttribute="bottom" constant="5" id="SeG-7m-ZhX"/>
+                                                        <constraint firstItem="6Wt-uw-hwN" firstAttribute="centerY" secondItem="g6V-AI-Y5V" secondAttribute="centerY" id="ShK-Ke-3ns"/>
                                                         <constraint firstItem="h8j-fQ-o6h" firstAttribute="centerY" secondItem="Mls-yp-qAE" secondAttribute="centerY" id="X7G-db-NWT"/>
+                                                        <constraint firstItem="g6V-AI-Y5V" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="a4s-bq-Vr2"/>
                                                         <constraint firstItem="IQL-qg-0OF" firstAttribute="top" secondItem="ZdU-Vq-PI7" secondAttribute="bottom" constant="5" id="aCN-d8-OKy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="6Wt-uw-hwN" secondAttribute="trailing" constant="16" id="bEk-qv-VdY"/>
                                                         <constraint firstItem="H42-HI-bue" firstAttribute="top" secondItem="OoO-Z2-Uv7" secondAttribute="bottom" constant="12" id="i2y-RD-g4E"/>
                                                         <constraint firstAttribute="trailing" secondItem="pUM-E5-ljz" secondAttribute="trailing" constant="16" id="ifh-Gi-rw8"/>
                                                         <constraint firstAttribute="trailing" secondItem="H42-HI-bue" secondAttribute="trailing" constant="16" id="jVd-KN-Fi3"/>
@@ -1239,11 +1273,11 @@
                                                         <constraint firstAttribute="trailing" secondItem="umW-U5-i5i" secondAttribute="trailing" constant="16" id="jpv-Bh-WXa"/>
                                                         <constraint firstAttribute="trailing" secondItem="HQh-Fu-4fX" secondAttribute="trailing" constant="16" id="nRo-8X-EMa"/>
                                                         <constraint firstItem="gh8-ks-9UW" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="oTo-CW-v21"/>
-                                                        <constraint firstItem="Mls-yp-qAE" firstAttribute="top" secondItem="IQL-qg-0OF" secondAttribute="bottom" constant="5" id="pjk-G7-D86"/>
                                                         <constraint firstItem="Mls-yp-qAE" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="rDU-2B-xme"/>
                                                         <constraint firstItem="ZdU-Vq-PI7" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="sh0-Cf-8PJ"/>
                                                         <constraint firstItem="umW-U5-i5i" firstAttribute="centerY" secondItem="XwU-0k-hj1" secondAttribute="centerY" id="vTZ-u5-9QD"/>
                                                         <constraint firstItem="gh8-ks-9UW" firstAttribute="top" secondItem="H42-HI-bue" secondAttribute="bottom" constant="12" id="xXl-2u-dsL"/>
+                                                        <constraint firstItem="g6V-AI-Y5V" firstAttribute="top" secondItem="IQL-qg-0OF" secondAttribute="bottom" constant="5" id="zQW-yZ-ilG"/>
                                                         <constraint firstItem="XwU-0k-hj1" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="zSn-91-odu"/>
                                                         <constraint firstItem="XwU-0k-hj1" firstAttribute="top" secondItem="Giw-t5-a2S" secondAttribute="top" constant="20" id="zbH-rV-01L"/>
                                                     </constraints>

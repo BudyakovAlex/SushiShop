@@ -5,7 +5,6 @@ using AndroidX.RecyclerView.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
 using Google.Android.Material.TextField;
 using MvvmCross.DroidX.RecyclerView;
@@ -13,8 +12,6 @@ using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Droid.Presenter.Attributes;
-using System;
-using System.Threading.Tasks;
 
 namespace SushiShop.Droid.Views.Fragments.Feedback
 {
@@ -48,7 +45,6 @@ namespace SushiShop.Droid.Views.Fragments.Feedback
             orderNumberEditText = view.FindViewById<EditText>(Resource.Id.order_number_edit_text);
             questionEditText = view.FindViewById<EditText>(Resource.Id.question_edit_text);
             pickPhotoContainerView = view.FindViewById<View>(Resource.Id.pick_photo_container_view);
-            pickPhotoContainerView.SetOnClickListener(new ViewOnClickListener(OnPickPhotoContainerViewClicked));
 
             confirmButton = view.FindViewById<Button>(Resource.Id.confirm_button);
             confirmButton.SetRoundedCorners(Context.DpToPx(25));
@@ -70,6 +66,7 @@ namespace SushiShop.Droid.Views.Fragments.Feedback
             bindingSet.Bind(orderNumberEditText).For(v => v.Text).To(vm => vm.OrderNumber);
             bindingSet.Bind(questionTextInputLayout).For(v => v.Hint).To(vm => vm.QuestionPlaceholder);
             bindingSet.Bind(orderNumberTextInputLayout).For(v => v.Hint).To(vm => vm.OrderNumberPlaceholder);
+            bindingSet.Bind(pickPhotoContainerView).For(v => v.BindClick()).To(vm => vm.UploadPhotosCommand);
             bindingSet.Bind(confirmButton).For(v => v.BindClick()).To(vm => vm.SendFeedbackCommand);
         }
 
@@ -80,11 +77,6 @@ namespace SushiShop.Droid.Views.Fragments.Feedback
             recyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
             recyclerView.ItemTemplateSelector = new TemplateSelector()
                 .AddElement<OrderItemViewModel, OrderItemViewHolder>(Resource.Layout.item_order);
-        }
-
-        private Task OnPickPhotoContainerViewClicked(View containerView)
-        {
-            throw new NotImplementedException();
         }
     }
 }

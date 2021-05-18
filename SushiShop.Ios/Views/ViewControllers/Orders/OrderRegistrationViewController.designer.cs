@@ -64,6 +64,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UILabel CountOfScoresPickUpLabel { get; set; }
 
 		[Outlet]
+		UIKit.UILabel DiscountByCardPickUpLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel DiscountByCartDeliveryLabel { get; set; }
+
+		[Outlet]
 		UIKit.UILabel DiscountByPromocodeDeliveryLabel { get; set; }
 
 		[Outlet]
@@ -286,6 +292,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				CountOfScoresDeliveryLabel = null;
 			}
 
+			if (DiscountByCardPickUpLabel != null) {
+				DiscountByCardPickUpLabel.Dispose ();
+				DiscountByCardPickUpLabel = null;
+			}
+
+			if (DiscountByCartDeliveryLabel != null) {
+				DiscountByCartDeliveryLabel.Dispose ();
+				DiscountByCartDeliveryLabel = null;
+			}
+
 			if (CountOfScoresPickUpLabel != null) {
 				CountOfScoresPickUpLabel.Dispose ();
 				CountOfScoresPickUpLabel = null;
@@ -314,6 +330,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (IntercomDeliveryTextField != null) {
 				IntercomDeliveryTextField.Dispose ();
 				IntercomDeliveryTextField = null;
+			}
+
+			if (LoadingOverlayView != null) {
+				LoadingOverlayView.Dispose ();
+				LoadingOverlayView = null;
 			}
 
 			if (OnlinePaymentDeliveryImageView != null) {
@@ -519,11 +540,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (UserPhonePickUpTextField != null) {
 				UserPhonePickUpTextField.Dispose ();
 				UserPhonePickUpTextField = null;
-			}
-
-			if (LoadingOverlayView != null) {
-				LoadingOverlayView.Dispose ();
-				LoadingOverlayView = null;
 			}
 		}
 	}

@@ -93,7 +93,6 @@ namespace SushiShop.Core.ViewModels.Profile
         }
 
         public IMvxCommand RegisterCommand { get; }
-
         public IMvxCommand ShowPrivacyPolicyCommand { get; }
 
         private async Task RegisterAsync()

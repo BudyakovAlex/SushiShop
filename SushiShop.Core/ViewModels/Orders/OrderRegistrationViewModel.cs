@@ -196,7 +196,7 @@ namespace SushiShop.Core.ViewModels.Orders
             }
 
             //TODO: remove test mode after testflight
-            await CrossStoreReview.Current.RequestReview(true);
+            await CrossStoreReview.Current.RequestReview(false);
         }
     }
 }

@@ -19,6 +19,8 @@ namespace SushiShop.Droid.Presenter
 {
     public class CustomAndroidViewPresenter : MvxAndroidViewPresenter
     {
+        private int countOpenedFragments = 0;
+
         public CustomAndroidViewPresenter(IEnumerable<Assembly> androidViewAssemblies) : base(androidViewAssemblies)
         {
         }
@@ -70,19 +72,50 @@ namespace SushiShop.Droid.Presenter
             return firstTabFragment as Fragment;
         }
 
-        protected override Task<bool> CloseActivity(IMvxViewModel viewModel, MvxActivityPresentationAttribute? attribute)
+        protected override async Task<bool> CloseActivity(IMvxViewModel viewModel, MvxActivityPresentationAttribute? attribute)
         {
-            if (CurrentActivity!.SupportFragmentManager.BackStackEntryCount != 0)
+            static bool closeLastFragment(FragmentManager fragmentManager)
             {
-                if (CurrentFragmentManager!.Fragments.LastOrDefault() is MvxFragment mvxFragment &&
+                var fragment = fragmentManager!.Fragments.LastOrDefault();
+                if (fragment is MvxFragment mvxFragment &&
                     mvxFragment.ViewModel is BasePageViewModel basePageViewModel)
                 {
                     basePageViewModel?.CloseCommand?.Execute(null);
-                    return Task.FromResult(true);
+                    return true;
+                }
+
+                return false;
+            }
+
+            if (countOpenedFragments > 0 && CurrentFragmentManager != null)
+            {
+                if (closeLastFragment(CurrentFragmentManager))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                var fragmentManager = FindVisibleFragment()?.ChildFragmentManager;
+                if (fragmentManager != null && fragmentManager.BackStackEntryCount != 0 && closeLastFragment(fragmentManager))
+                {
+                    return true;
                 }
             }
 
-            return base.CloseActivity(viewModel, attribute);
+            return await base.CloseActivity(viewModel, attribute);
+        }
+
+        protected override Task<bool> ShowFragment(Type view, MvxFragmentPresentationAttribute attribute, MvxViewModelRequest request)
+        {
+            countOpenedFragments++;
+            return base.ShowFragment(view, attribute, request);
+        }
+
+        protected override Task<bool> CloseFragment(IMvxViewModel viewModel, MvxFragmentPresentationAttribute attribute)
+        {
+            countOpenedFragments--;
+            return base.CloseFragment(viewModel, attribute);
         }
     }
 }
