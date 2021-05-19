@@ -13,6 +13,7 @@ using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Core.ViewModels.Feedback;
+using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Presenter.Attributes;
 using SushiShop.Droid.Views.ViewHolders.Feedback;
 
@@ -65,6 +66,7 @@ namespace SushiShop.Droid.Views.Fragments.Feedback
 
             bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(v => v.IsBusy);
             bindingSet.Bind(toolbar).For(v => v.Title).To(v => v.Title);
+            bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(v => v.CloseCommand);
             bindingSet.Bind(recyclerView).For(v => v.ItemsSource).To(vm => vm.Photos);
 
             bindingSet.Bind(questionEditText).For(v => v.Text).To(vm => vm.Question);
