@@ -10,6 +10,7 @@ using Google.Android.Material.TextField;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Droid.Presenter.Attributes;
@@ -28,6 +29,7 @@ namespace SushiShop.Droid.Views.Fragments.Feedback
         private EditText orderNumberEditText;
         private EditText questionEditText;
         private View pickPhotoContainerView;
+        private TextView pickPhotoTextView;
         private Button confirmButton;
 
         public FeedbackFragment() : base(Resource.Layout.fragment_feedback)
@@ -47,6 +49,7 @@ namespace SushiShop.Droid.Views.Fragments.Feedback
             orderNumberEditText = view.FindViewById<EditText>(Resource.Id.order_number_edit_text);
             questionEditText = view.FindViewById<EditText>(Resource.Id.question_edit_text);
             pickPhotoContainerView = view.FindViewById<View>(Resource.Id.pick_photo_container_view);
+            pickPhotoTextView = view.FindViewById<TextView>(Resource.Id.pick_photo_text_view);
 
             confirmButton = view.FindViewById<Button>(Resource.Id.confirm_button);
             confirmButton.SetRoundedCorners(Context.DpToPx(25));
@@ -69,6 +72,7 @@ namespace SushiShop.Droid.Views.Fragments.Feedback
             bindingSet.Bind(questionTextInputLayout).For(v => v.Hint).To(vm => vm.QuestionPlaceholder);
             bindingSet.Bind(orderNumberTextInputLayout).For(v => v.Hint).To(vm => vm.OrderNumberPlaceholder);
             bindingSet.Bind(pickPhotoContainerView).For(v => v.BindClick()).To(vm => vm.UploadPhotosCommand);
+            bindingSet.Bind(pickPhotoTextView).For(v => v.Text).To(vm => vm.UploadPhotosTitle);
             bindingSet.Bind(confirmButton).For(v => v.BindClick()).To(vm => vm.SendFeedbackCommand);
             bindingSet.Bind(confirmButton).For(v => v.Text).To(vm => vm.SendFeedbackTitle);
         }
