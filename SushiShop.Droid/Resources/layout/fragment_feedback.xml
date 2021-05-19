@@ -95,6 +95,10 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
+        android:clipToPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pick_photo_container_view" />

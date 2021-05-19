@@ -30,7 +30,6 @@ namespace SushiShop.Droid.Views.Activities.Common
             InitializeRecyclerView();
 
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
         }
 
         protected override void Bind()

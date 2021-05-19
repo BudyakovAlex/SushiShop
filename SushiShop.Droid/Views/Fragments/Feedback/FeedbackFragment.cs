@@ -70,6 +70,7 @@ namespace SushiShop.Droid.Views.Fragments.Feedback
             bindingSet.Bind(orderNumberTextInputLayout).For(v => v.Hint).To(vm => vm.OrderNumberPlaceholder);
             bindingSet.Bind(pickPhotoContainerView).For(v => v.BindClick()).To(vm => vm.UploadPhotosCommand);
             bindingSet.Bind(confirmButton).For(v => v.BindClick()).To(vm => vm.SendFeedbackCommand);
+            bindingSet.Bind(confirmButton).For(v => v.Text).To(vm => vm.SendFeedbackTitle);
         }
 
         private void InitializeRecyclerView(View view)

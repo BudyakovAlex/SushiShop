@@ -1,5 +1,6 @@
 ﻿using Android.Views;
 using Android.Widget;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Common.Items;
@@ -25,6 +26,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Feedback
             this.view = view;
             photoImageView = view.FindViewById<ImageView>(Resource.Id.photo_image_view);
             deleteImageView = view.FindViewById<ImageView>(Resource.Id.delete_image_view);
+            photoImageView.SetRoundedCorners(view.Context.DpToPx(4f));
         }
 
         public override void BindData()
