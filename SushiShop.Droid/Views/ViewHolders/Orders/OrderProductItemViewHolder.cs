@@ -41,7 +41,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
 
             using var bindingSet = CreateBindingSet();
 
-            bindingSet.Bind(productImageView).For(v => v.BindUrl()).To(vm => vm.ImageUrl);
+            bindingSet.Bind(productImageView).For(v => v.BindAdaptedUrl()).To(vm => vm.ImageUrl);
             bindingSet.Bind(productNameTextView).For(v => v.Text).To(vm => vm.Title);
             bindingSet.Bind(oldPriceTextView).For(v => v.Text).To(vm => vm.OldPrice);
             bindingSet.Bind(priceTextView).For(v => v.Text).To(vm => vm.Price);
