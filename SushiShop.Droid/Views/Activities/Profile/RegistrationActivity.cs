@@ -16,6 +16,7 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Views.Activities.Abstract;
+using SushiShop.Droid.Views.Listeners;
 using SushiShop.Droid.Views.Spans;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
@@ -55,6 +56,7 @@ namespace SushiShop.Droid.Views.Activities.Profile
             smsNotificationsSwitch = FindViewById<SwitchCompat>(Resource.Id.sms_notifications_switch);
             registerButton = FindViewById<AppCompatButton>(Resource.Id.register_button);
 
+            nameTextEditText.SetOnKeyListener(new ViewOnKeyListener(OnNameEditTextKeyListener));
             dateOfBirthTextEditText.InputType = InputTypes.Null;
             dateOfBirthTextEditText.SetOnClickListener(new ViewOnClickListener(OnBirthdayTextEditTextClick));
             registerButton.Text = AppStrings.Register;
@@ -87,8 +89,7 @@ namespace SushiShop.Droid.Views.Activities.Profile
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(nameTextEditText).For(v => v.Text).To(vm => vm.FullName);
             bindingSet.Bind(dateOfBirthTextEditText).For(v => v.Text).To(vm => vm.DateOfBirth)
-                .WithConversion<DateTimeToStringConverter>()
-                .TwoWay();
+                .WithConversion<DateTimeToStringConverter>();
             bindingSet.Bind(phoneTextEditText).For(v => v.Text).To(vm => vm.Phone);
             bindingSet.Bind(emailTextEditText).For(v => v.Text).To(vm => vm.Email);
             bindingSet.Bind(pushNotificationsSwitch).For(v => v.BindChecked()).To(vm => vm.IsAcceptPushNotifications);
@@ -107,11 +108,29 @@ namespace SushiShop.Droid.Views.Activities.Profile
         private void OnDatePickerDialogSelectDate(object sender, DatePickerDialog.DateSetEventArgs e)
         {
             ViewModel.DateOfBirth = e.Date;
+            phoneTextEditText.RequestFocus();
         }
 
         private void OnLinkSpanClick()
         {
             ViewModel?.ShowPrivacyPolicyCommand?.Execute();
+        }
+
+        private bool OnNameEditTextKeyListener(View view, Keycode keyCode, KeyEvent e)
+        {
+            if (e.Action == KeyEventActions.Down)
+            {
+                switch (keyCode)
+                {
+                    case Keycode.DpadCenter:
+                    case Keycode.Enter:
+                        return dateOfBirthTextEditText.CallOnClick();
+                    default:
+                        break;
+                }
+            }
+
+            return false;
         }
     }
 }

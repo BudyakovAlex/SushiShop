@@ -5,14 +5,15 @@ using AndroidX.AppCompat.Widget;
 using AndroidX.ConstraintLayout.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
+using Bumptech.Glide;
 using Google.Android.Material.TextField;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Profile;
-using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Views.Fragments.Abstract;
+using SushiShop.Droid.Views.Listeners;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Fragments.Profile
@@ -39,6 +40,26 @@ namespace SushiShop.Droid.Views.Fragments.Profile
         public ProfileFragment()
             : base(Resource.Layout.fragment_profile)
         {
+        }
+
+        public string ProfileUrl
+        {
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    Glide
+                        .With(userImageView.Context)
+                        .Load(value)
+                        .Placeholder(Resource.Drawable.ic_profile_avatar)
+                        .Error(Resource.Drawable.ic_profile_avatar)
+                        .Into(userImageView);
+                }
+                else
+                {
+                    userImageView.SetImageResource(Resource.Drawable.ic_profile_avatar);
+                }
+            }
         }
 
         public bool IsActivated { get; set; }
@@ -68,6 +89,8 @@ namespace SushiShop.Droid.Views.Fragments.Profile
             myOrdersConstraintLayout.FindViewById<TextView>(Resource.Id.my_orders_text_view).Text = AppStrings.MyOrders;
             feedbackConstraintLayout.FindViewById<TextView>(Resource.Id.feedback_text_view).Text = AppStrings.Feedback;
 
+            phoneEmailEditText.SetOnKeyListener(new ViewOnKeyListener(OnPhoneEmailEditTextKeyListener));
+
             loginButton.SetRoundedCorners(Context.DpToPx(25));
             discountButton.SetRoundedCorners(Context.DpToPx(18));
             userImageView.SetRoundedCorners(Context.DpToPx(35));
@@ -87,7 +110,7 @@ namespace SushiShop.Droid.Views.Fragments.Profile
             bindingSet.Bind(loginButton).For(v => v.BindHidden()).To(vm => vm.IsAuthorized);
             bindingSet.Bind(registerButton).For(v => v.BindHidden()).To(vm => vm.IsAuthorized);
             bindingSet.Bind(phoneEmailTextInputLayout).For(v => v.BindHidden()).To(vm => vm.IsAuthorized);
-            bindingSet.Bind(userImageView).For(v => v.BindAdaptedUrl()).To(vm => vm.Avatar);
+            bindingSet.Bind(this).For(nameof(ProfileUrl)).To(vm => vm.Avatar);
             bindingSet.Bind(userImageView).For(v => v.BindClick()).To(vm => vm.ChooseNewImageCommand);
             bindingSet.Bind(userImageView).For(v => v.BindVisible()).To(vm => vm.IsAuthorized);
             bindingSet.Bind(profileNameTextView).For(v => v.Text).To(vm => vm.Username);
@@ -101,6 +124,23 @@ namespace SushiShop.Droid.Views.Fragments.Profile
             bindingSet.Bind(myOrdersConstraintLayout).For(v => v.BindVisible()).To(vm => vm.IsAuthorized);
             bindingSet.Bind(feedbackConstraintLayout).For(v => v.BindClick()).To(vm => vm.ShowFeedbackCommand);
             bindingSet.Bind(feedbackConstraintLayout).For(v => v.BindVisible()).To(vm => vm.IsAuthorized);
+        }
+
+        private bool OnPhoneEmailEditTextKeyListener(View view, Keycode keyCode, KeyEvent e)
+        {
+            if (e.Action == KeyEventActions.Down)
+            {
+                switch (keyCode)
+                {
+                    case Keycode.DpadCenter:
+                    case Keycode.Enter:
+                        return loginButton.CallOnClick();
+                    default:
+                        break;
+                }
+            }
+
+            return false;
         }
     }
 }

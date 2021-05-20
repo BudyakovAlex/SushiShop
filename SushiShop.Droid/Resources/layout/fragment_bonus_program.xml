@@ -26,11 +26,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="25dp"
+            android:fontFamily="@font/sf_pro_display_bold"
             android:textColor="@color/orange2"
+            android:textFontWeight="500"
             android:textSize="16dp"
             tools:text="Бонусная программа" />
 
-        <LinearLayout
+        <mvvmcross.droidx.recyclerview.MvxRecyclerView
+            android:id="@+id/images_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="23dp" />
@@ -39,7 +42,7 @@
             android:id="@+id/content_web_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:scrollbars="vertical"/>
+            android:layout_marginTop="0dp"
+            android:scrollbars="vertical" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

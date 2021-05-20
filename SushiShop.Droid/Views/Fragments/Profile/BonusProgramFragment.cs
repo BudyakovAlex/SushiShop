@@ -1,16 +1,23 @@
-﻿using Android.OS;
+﻿using Android.Graphics;
+using Android.OS;
 using Android.Views;
 using Android.Webkit;
 using Android.Widget;
 using AndroidX.ConstraintLayout.Widget;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
+using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
+using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using SushiShop.Core.ViewModels.Profile;
+using SushiShop.Core.ViewModels.Profile.Items;
 using SushiShop.Droid.Extensions;
-using SushiShop.Droid.Views.OutlineProviders;
+using SushiShop.Droid.Views.Decorators;
+using SushiShop.Droid.Views.ViewHolders.Profile;
 
 namespace SushiShop.Droid.Views.Fragments.Profile
 {
@@ -21,6 +28,7 @@ namespace SushiShop.Droid.Views.Fragments.Profile
         private TextView titleTextView;
         private LinearLayout contentLinearLayout;
         private WebView webView;
+        private MvxRecyclerView imagesRecyclerView;
         private bool isMoved;
         private float startY;
         private bool webViewAtTop = true;
@@ -42,6 +50,7 @@ namespace SushiShop.Droid.Views.Fragments.Profile
             webView = view.FindViewById<WebView>(Resource.Id.content_web_view);
             titleTextView = view.FindViewById<TextView>(Resource.Id.title_text_view);
             contentLinearLayout = view.FindViewById<LinearLayout>(Resource.Id.content_linear_layout);
+            InitializeImagesRecyclerView();
 
             contentLinearLayout.SetOnTouchListener(new ViewOnTouchListener((v, e) =>
             {
@@ -63,6 +72,7 @@ namespace SushiShop.Droid.Views.Fragments.Profile
             bindingSet.Bind(this).For(nameof(Content)).To(vm => vm.Content);
             bindingSet.Bind(titleTextView).For(v => v.Text).To(vm => vm.Title);
             bindingSet.Bind(backgroundView).For(v => v.BindClick()).To(vm => vm.CloseCommand);
+            bindingSet.Bind(imagesRecyclerView).For(v => v.ItemsSource).To(vm => vm.Images);
         }
 
         public override void OnDestroy()
@@ -74,6 +84,33 @@ namespace SushiShop.Droid.Views.Fragments.Profile
                 webView.Touch -= WebViewTouch;
                 webView.ScrollChange -= WebViewScrollChange;
             }
+        }
+
+        private void InitializeImagesRecyclerView()
+        {
+            imagesRecyclerView = View.FindViewById<MvxRecyclerView>(Resource.Id.images_recycler_view);
+
+            imagesRecyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
+            imagesRecyclerView.ItemTemplateSelector = new TemplateSelector()
+                .AddElement<BonusProgramImageItemViewModel, ImageBonusProgramItemViewHolder>(Resource.Layout.item_image_bouns_program);
+            var layoutManager = new MvxGuardedLinearLayoutManager(Context) { Orientation = MvxGuardedLinearLayoutManager.Horizontal };
+            imagesRecyclerView.SetLayoutManager(layoutManager);
+            imagesRecyclerView.AddItemDecoration(new SpacesItemDecoration(CalculateItemSpace));
+        }
+
+        private Rect CalculateItemSpace(int position, Rect rect)
+        {
+            if (position == 0)
+            {
+                rect.Left = (int)View.Context.DpToPx(35);
+            }
+            else
+            {
+                var width = (int)View.Context.DpToPx(35);
+                rect.Left = (int)(View.Width - width * 2 - View.Context.DpToPx(70) * 3) / 2;
+            }
+
+            return rect;
         }
 
         private void WebViewScrollChange(object sender, View.ScrollChangeEventArgs e)

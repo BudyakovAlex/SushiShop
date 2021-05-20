@@ -1,5 +1,4 @@
-﻿using Acr.UserDialogs;
-using BuildApps.Core.Mobile.Common.Extensions;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Managers.CommonInfo;

@@ -65,8 +65,12 @@
                 <outlet property="ReceiveTimePickUpLabel" destination="ccs-VR-sTv" id="fSi-EU-eVM"/>
                 <outlet property="RootScrollView" destination="eN4-JG-GsH" id="sdc-mh-Xcf"/>
                 <outlet property="ScoresDeliveryView" destination="wTb-4U-T71" id="C0Z-DC-s0U"/>
+                <outlet property="ScoresDiscountContainerDeliveryView" destination="YSx-1P-Z4c" id="u4O-Pz-GNO"/>
+                <outlet property="ScoresDiscountContainerPickUpView" destination="hzf-s3-mkQ" id="ikc-7w-mZD"/>
                 <outlet property="ScoresDiscountDeliveryLabel" destination="h8j-fQ-o6h" id="fkc-5n-OLI"/>
                 <outlet property="ScoresDiscountPickUpLabel" destination="yhd-mL-tWG" id="DeZ-ZH-Au1"/>
+                <outlet property="ScoresDiscountTitleDeliveryLabel" destination="Mls-yp-qAE" id="IO4-aO-hNn"/>
+                <outlet property="ScoresDiscountTitlePickUpLabel" destination="rPj-ge-4t7" id="rQ6-cO-g2E"/>
                 <outlet property="ScoresPickUpView" destination="Nzs-MB-Xri" id="3G6-3i-cTs"/>
                 <outlet property="ShopAddressPickUpLabel" destination="63i-nt-pK9" id="laa-Wz-OkS"/>
                 <outlet property="ShopPhonePickUpLabel" destination="gby-Bt-CpX" id="wLa-Fb-AMK"/>
@@ -112,7 +116,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="or5-pc-S4h">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1780"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="2525"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="АДРЕС МАГАЗИНА" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYD-Lc-XAl">
                                                     <rect key="frame" x="16" y="8" width="382" height="12"/>
@@ -584,40 +588,165 @@
                                                     </constraints>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m14-ie-tJH">
-                                                    <rect key="frame" x="0.0" y="1430.5" width="414" height="349.5"/>
+                                                    <rect key="frame" x="0.0" y="1430.5" width="414" height="1094.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Товары:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-im-LXe">
-                                                            <rect key="frame" x="16" y="20" width="56" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Самовывоз:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bq3-X4-8iF">
-                                                            <rect key="frame" x="16" y="44.5" width="85" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скидка по промокоду:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5c-uy-WP7">
-                                                            <rect key="frame" x="16" y="69" width="159.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Списано баллами:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPj-ge-4t7">
-                                                            <rect key="frame" x="16" y="118" width="131.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итого:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvV-c6-hxx">
-                                                            <rect key="frame" x="16" y="143.5" width="46.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MUU-qL-Dz0">
+                                                            <rect key="frame" x="16" y="20" width="382" height="889"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ot-Mz-yfG">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Товары:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-im-LXe">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1 350 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zk6-PO-qig">
+                                                                            <rect key="frame" x="165" y="61.5" width="52" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="Zk6-PO-qig" firstAttribute="centerY" secondItem="Eks-im-LXe" secondAttribute="centerY" id="2Ik-Nl-AFg"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Eks-im-LXe" secondAttribute="bottom" id="Km2-F4-YMJ"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="Zk6-PO-qig" secondAttribute="trailing" id="WYd-mh-msG"/>
+                                                                        <constraint firstItem="Eks-im-LXe" firstAttribute="top" secondItem="8ot-Mz-yfG" secondAttribute="top" id="gO1-ub-R7M"/>
+                                                                        <constraint firstItem="Eks-im-LXe" firstAttribute="leading" secondItem="8ot-Mz-yfG" secondAttribute="leading" id="tIZ-dv-gQr"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ae-TZ-TLa">
+                                                                    <rect key="frame" x="0.0" y="149" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Самовывоз:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bq3-X4-8iF">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="85" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Бесплатно" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQf-jN-W1Q">
+                                                                            <rect key="frame" x="306" y="62.5" width="76" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="bq3-X4-8iF" firstAttribute="leading" secondItem="1Ae-TZ-TLa" secondAttribute="leading" id="5OC-9y-W2M"/>
+                                                                        <constraint firstItem="bq3-X4-8iF" firstAttribute="top" secondItem="1Ae-TZ-TLa" secondAttribute="top" id="E2h-aY-u0d"/>
+                                                                        <constraint firstItem="PQf-jN-W1Q" firstAttribute="centerY" secondItem="bq3-X4-8iF" secondAttribute="centerY" id="R4F-cx-NtY"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="bq3-X4-8iF" secondAttribute="bottom" id="Wea-wc-9uZ"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="PQf-jN-W1Q" secondAttribute="trailing" id="y7A-3K-2vw"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hQ-dB-iXr">
+                                                                    <rect key="frame" x="0.0" y="298" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скидка по промокоду:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5c-uy-WP7">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="159.5" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 50 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYf-05-FY7">
+                                                                            <rect key="frame" x="339.5" y="62.5" width="42.5" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="o5c-uy-WP7" firstAttribute="top" secondItem="0hQ-dB-iXr" secondAttribute="top" id="GRD-zt-cnW"/>
+                                                                        <constraint firstItem="FYf-05-FY7" firstAttribute="centerY" secondItem="o5c-uy-WP7" secondAttribute="centerY" id="OYZ-xL-Dty"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="FYf-05-FY7" secondAttribute="trailing" id="WL7-MS-8Zu"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="o5c-uy-WP7" secondAttribute="bottom" id="mdQ-70-4Fg"/>
+                                                                        <constraint firstItem="o5c-uy-WP7" firstAttribute="leading" secondItem="0hQ-dB-iXr" secondAttribute="leading" id="nb5-nT-Anz"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUk-yf-ohi">
+                                                                    <rect key="frame" x="0.0" y="447" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скидка по карте:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pF-kt-lQn">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="120.5" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRd-67-41C">
+                                                                            <rect key="frame" x="330" y="62.5" width="52" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="uRd-67-41C" secondAttribute="trailing" id="2Ce-iN-e5b"/>
+                                                                        <constraint firstItem="uRd-67-41C" firstAttribute="centerY" secondItem="4pF-kt-lQn" secondAttribute="centerY" id="5O9-3n-QBu"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="4pF-kt-lQn" secondAttribute="bottom" id="AU9-mR-ALL"/>
+                                                                        <constraint firstItem="4pF-kt-lQn" firstAttribute="top" secondItem="mUk-yf-ohi" secondAttribute="top" id="RSR-AI-g6n"/>
+                                                                        <constraint firstItem="4pF-kt-lQn" firstAttribute="leading" secondItem="mUk-yf-ohi" secondAttribute="leading" id="cJ0-oO-IQX"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzf-s3-mkQ">
+                                                                    <rect key="frame" x="0.0" y="596" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Списано баллами:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPj-ge-4t7">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="131.5" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-mL-tWG">
+                                                                            <rect key="frame" x="330" y="62.5" width="52" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="yhd-mL-tWG" firstAttribute="centerY" secondItem="rPj-ge-4t7" secondAttribute="centerY" id="Hp4-a2-b46"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="rPj-ge-4t7" secondAttribute="bottom" id="QmO-vD-P06"/>
+                                                                        <constraint firstItem="rPj-ge-4t7" firstAttribute="leading" secondItem="hzf-s3-mkQ" secondAttribute="leading" id="j4T-ay-cPh"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="yhd-mL-tWG" secondAttribute="trailing" id="kVf-I8-Oek"/>
+                                                                        <constraint firstItem="rPj-ge-4t7" firstAttribute="top" secondItem="hzf-s3-mkQ" secondAttribute="top" id="r66-Wq-DDF"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzp-tP-EgK">
+                                                                    <rect key="frame" x="0.0" y="745" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итого:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvV-c6-hxx">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 000 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s96-5P-b8v">
+                                                                            <rect key="frame" x="319" y="61.5" width="63" height="21.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="bottom" secondItem="kvV-c6-hxx" secondAttribute="bottom" id="Y33-md-FHA"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="s96-5P-b8v" secondAttribute="trailing" id="Z20-uU-z44"/>
+                                                                        <constraint firstItem="s96-5P-b8v" firstAttribute="centerY" secondItem="kvV-c6-hxx" secondAttribute="centerY" id="bfs-mf-nzH"/>
+                                                                        <constraint firstItem="kvV-c6-hxx" firstAttribute="top" secondItem="Kzp-tP-EgK" secondAttribute="top" id="tY5-NX-e7F"/>
+                                                                        <constraint firstItem="kvV-c6-hxx" firstAttribute="leading" secondItem="Kzp-tP-EgK" secondAttribute="leading" id="u3g-Bg-Qeq"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
+                                                        </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9v-uK-hG8" customClass="PrimaryButton">
-                                                            <rect key="frame" x="16" y="176" width="382" height="50"/>
+                                                            <rect key="frame" x="16" y="921" width="382" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="Rg1-iy-lVd"/>
                                                             </constraints>
@@ -627,88 +756,25 @@
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V26-d2-1cd">
-                                                            <rect key="frame" x="16" y="238" width="382" height="95.5"/>
+                                                            <rect key="frame" x="16" y="983" width="382" height="95.5"/>
                                                             <string key="text">Завершая оформление заказа, я даю своё согласие на обработку персональных данных и подтверждаю оформление с условиями публичной оферты, пользовательского соглашения и  политики конфиденциальности</string>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <color key="textColor" red="0.52156862749999999" green="0.52941176469999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 350 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zk6-PO-qig">
-                                                            <rect key="frame" x="346" y="20" width="52" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Бесплатно" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQf-jN-W1Q">
-                                                            <rect key="frame" x="322" y="44.5" width="76" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 50 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYf-05-FY7">
-                                                            <rect key="frame" x="355.5" y="69" width="42.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-mL-tWG">
-                                                            <rect key="frame" x="346" y="118" width="52" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 000 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s96-5P-b8v">
-                                                            <rect key="frame" x="335" y="142.5" width="63" height="21.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скидка по карте:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pF-kt-lQn">
-                                                            <rect key="frame" x="16" y="93.5" width="120.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRd-67-41C">
-                                                            <rect key="frame" x="346" y="93.5" width="52" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="kvV-c6-hxx" firstAttribute="centerY" secondItem="s96-5P-b8v" secondAttribute="centerY" id="77v-SP-njD"/>
-                                                        <constraint firstItem="o5c-uy-WP7" firstAttribute="top" secondItem="bq3-X4-8iF" secondAttribute="bottom" constant="5" id="8zK-Uu-ROw"/>
-                                                        <constraint firstItem="bq3-X4-8iF" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="AhM-DX-2ip"/>
-                                                        <constraint firstItem="o5c-uy-WP7" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="BZV-H9-eRd"/>
-                                                        <constraint firstItem="Zk6-PO-qig" firstAttribute="centerY" secondItem="Eks-im-LXe" secondAttribute="centerY" id="CMV-AD-VhM"/>
                                                         <constraint firstItem="P9v-uK-hG8" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="DP3-i6-r0X"/>
-                                                        <constraint firstAttribute="trailing" secondItem="FYf-05-FY7" secondAttribute="trailing" constant="16" id="EcL-2Z-WLi"/>
-                                                        <constraint firstItem="bq3-X4-8iF" firstAttribute="top" secondItem="Eks-im-LXe" secondAttribute="bottom" constant="5" id="FB4-Jm-Lkj"/>
                                                         <constraint firstItem="V26-d2-1cd" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="FuV-3f-pzj"/>
-                                                        <constraint firstItem="Eks-im-LXe" firstAttribute="top" secondItem="m14-ie-tJH" secondAttribute="top" constant="20" id="HDM-Ah-Ttr"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Zk6-PO-qig" secondAttribute="trailing" constant="16" id="Hbu-MI-8sV"/>
-                                                        <constraint firstItem="s96-5P-b8v" firstAttribute="top" secondItem="yhd-mL-tWG" secondAttribute="bottom" constant="5" id="Hge-WF-fi0"/>
                                                         <constraint firstItem="V26-d2-1cd" firstAttribute="top" secondItem="P9v-uK-hG8" secondAttribute="bottom" constant="12" id="Klp-Ny-lft"/>
-                                                        <constraint firstItem="4pF-kt-lQn" firstAttribute="top" secondItem="o5c-uy-WP7" secondAttribute="bottom" constant="5" id="WOT-Mm-2XP"/>
-                                                        <constraint firstItem="PQf-jN-W1Q" firstAttribute="centerY" secondItem="bq3-X4-8iF" secondAttribute="centerY" id="ZZi-OF-LTr"/>
-                                                        <constraint firstAttribute="trailing" secondItem="PQf-jN-W1Q" secondAttribute="trailing" constant="16" id="aVC-l4-GeJ"/>
+                                                        <constraint firstItem="MUU-qL-Dz0" firstAttribute="top" secondItem="m14-ie-tJH" secondAttribute="top" constant="20" id="LDY-q6-8mD"/>
+                                                        <constraint firstAttribute="trailing" secondItem="MUU-qL-Dz0" secondAttribute="trailing" constant="16" id="PZP-Nu-179"/>
+                                                        <constraint firstItem="MUU-qL-Dz0" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="a4a-jn-5eK"/>
                                                         <constraint firstAttribute="trailing" secondItem="P9v-uK-hG8" secondAttribute="trailing" constant="16" id="e4B-T6-W52"/>
-                                                        <constraint firstItem="uRd-67-41C" firstAttribute="centerY" secondItem="4pF-kt-lQn" secondAttribute="centerY" id="eyx-jx-BYQ"/>
-                                                        <constraint firstItem="rPj-ge-4t7" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="h3Q-ga-mrb"/>
                                                         <constraint firstAttribute="bottom" secondItem="V26-d2-1cd" secondAttribute="bottom" constant="16" id="jzp-o6-vMj"/>
-                                                        <constraint firstAttribute="trailing" secondItem="yhd-mL-tWG" secondAttribute="trailing" constant="16" id="kfm-7X-Bes"/>
-                                                        <constraint firstAttribute="trailing" secondItem="uRd-67-41C" secondAttribute="trailing" constant="16" id="nFY-x6-Qhu"/>
-                                                        <constraint firstItem="FYf-05-FY7" firstAttribute="centerY" secondItem="o5c-uy-WP7" secondAttribute="centerY" id="nxV-aM-gYW"/>
-                                                        <constraint firstItem="P9v-uK-hG8" firstAttribute="top" secondItem="s96-5P-b8v" secondAttribute="bottom" constant="12" id="tCi-nu-62j"/>
-                                                        <constraint firstItem="kvV-c6-hxx" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="uFg-Q5-ESp"/>
-                                                        <constraint firstItem="rPj-ge-4t7" firstAttribute="top" secondItem="4pF-kt-lQn" secondAttribute="bottom" constant="5" id="uql-oQ-4PZ"/>
+                                                        <constraint firstItem="P9v-uK-hG8" firstAttribute="top" secondItem="MUU-qL-Dz0" secondAttribute="bottom" constant="12" id="kC7-qt-jw3"/>
                                                         <constraint firstAttribute="trailing" secondItem="V26-d2-1cd" secondAttribute="trailing" constant="16" id="vBD-LB-GyH"/>
-                                                        <constraint firstItem="Eks-im-LXe" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="wTf-zc-7PW"/>
-                                                        <constraint firstAttribute="trailing" secondItem="s96-5P-b8v" secondAttribute="trailing" constant="16" id="x8A-ii-uPN"/>
-                                                        <constraint firstItem="yhd-mL-tWG" firstAttribute="centerY" secondItem="rPj-ge-4t7" secondAttribute="centerY" id="yWY-2J-QSj"/>
-                                                        <constraint firstItem="4pF-kt-lQn" firstAttribute="leading" secondItem="m14-ie-tJH" secondAttribute="leading" constant="16" id="zEh-m7-nfr"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -764,7 +830,7 @@
                                     <rect key="frame" x="414" y="0.0" width="414" height="774"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEn-tQ-Vwl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1814"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="2559"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="АДРЕС ДОСТАВКИ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eB-8V-7zA">
                                                     <rect key="frame" x="16" y="8" width="382" height="12"/>
@@ -1155,40 +1221,165 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Giw-t5-a2S">
-                                                    <rect key="frame" x="0.0" y="1464.5" width="414" height="349.5"/>
+                                                    <rect key="frame" x="0.0" y="1464.5" width="414" height="1094.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Товары:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwU-0k-hj1">
-                                                            <rect key="frame" x="16" y="20" width="56" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доставка:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdU-Vq-PI7">
-                                                            <rect key="frame" x="16" y="44.5" width="71" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скидка по промокоду:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQL-qg-0OF">
-                                                            <rect key="frame" x="16" y="69" width="159.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Списано баллами:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mls-yp-qAE">
-                                                            <rect key="frame" x="16" y="118" width="131.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итого:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-Lm-q9H">
-                                                            <rect key="frame" x="16" y="143.5" width="46.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LeC-VJ-JG1">
+                                                            <rect key="frame" x="16" y="20" width="382" height="889"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0At-C5-0XS">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Товары:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwU-0k-hj1">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 350 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umW-U5-i5i">
+                                                                            <rect key="frame" x="330" y="62.5" width="52" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="umW-U5-i5i" firstAttribute="centerY" secondItem="XwU-0k-hj1" secondAttribute="centerY" id="1JI-7v-LkA"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="umW-U5-i5i" secondAttribute="trailing" id="eaH-cD-utD"/>
+                                                                        <constraint firstItem="XwU-0k-hj1" firstAttribute="top" secondItem="0At-C5-0XS" secondAttribute="top" id="io8-HG-ebz"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="XwU-0k-hj1" secondAttribute="bottom" id="ja7-N7-zbx"/>
+                                                                        <constraint firstItem="XwU-0k-hj1" firstAttribute="leading" secondItem="0At-C5-0XS" secondAttribute="leading" id="s4b-QV-X0M"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6w-pR-VhT">
+                                                                    <rect key="frame" x="0.0" y="149" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доставка:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdU-Vq-PI7">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="71" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQh-Fu-4fX">
+                                                                            <rect key="frame" x="349.5" y="62.5" width="32.5" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="HQh-Fu-4fX" firstAttribute="centerY" secondItem="ZdU-Vq-PI7" secondAttribute="centerY" id="8Hh-7U-NvQ"/>
+                                                                        <constraint firstItem="ZdU-Vq-PI7" firstAttribute="leading" secondItem="u6w-pR-VhT" secondAttribute="leading" id="AvY-u3-LjE"/>
+                                                                        <constraint firstItem="ZdU-Vq-PI7" firstAttribute="top" secondItem="u6w-pR-VhT" secondAttribute="top" id="aVA-A2-Sei"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="ZdU-Vq-PI7" secondAttribute="bottom" id="bCp-fD-bAF"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="HQh-Fu-4fX" secondAttribute="trailing" id="rW9-bJ-3cb"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMC-4A-nBQ">
+                                                                    <rect key="frame" x="0.0" y="298" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скидка по промокоду:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQL-qg-0OF">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="159.5" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 50 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUM-E5-ljz">
+                                                                            <rect key="frame" x="339.5" y="62.5" width="42.5" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="IQL-qg-0OF" firstAttribute="leading" secondItem="hMC-4A-nBQ" secondAttribute="leading" id="1BB-Ji-ki3"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="pUM-E5-ljz" secondAttribute="trailing" id="5zv-AD-81n"/>
+                                                                        <constraint firstItem="pUM-E5-ljz" firstAttribute="centerY" secondItem="IQL-qg-0OF" secondAttribute="centerY" id="AwX-NI-qIN"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="IQL-qg-0OF" secondAttribute="bottom" id="ZhV-Ml-qF0"/>
+                                                                        <constraint firstItem="IQL-qg-0OF" firstAttribute="top" secondItem="hMC-4A-nBQ" secondAttribute="top" id="pVJ-NZ-uEQ"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5B-Uc-ML3">
+                                                                    <rect key="frame" x="0.0" y="447" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скидка по карте:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6V-AI-Y5V">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="120.5" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wt-uw-hwN">
+                                                                            <rect key="frame" x="330" y="62.5" width="52" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="g6V-AI-Y5V" firstAttribute="top" secondItem="n5B-Uc-ML3" secondAttribute="top" id="RYm-da-P0b"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="6Wt-uw-hwN" secondAttribute="trailing" id="cVA-wz-e9C"/>
+                                                                        <constraint firstItem="g6V-AI-Y5V" firstAttribute="leading" secondItem="n5B-Uc-ML3" secondAttribute="leading" id="cWa-IO-LUc"/>
+                                                                        <constraint firstItem="6Wt-uw-hwN" firstAttribute="centerY" secondItem="g6V-AI-Y5V" secondAttribute="centerY" id="ngM-jj-vIc"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="g6V-AI-Y5V" secondAttribute="bottom" id="wz9-wX-qAm"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSx-1P-Z4c">
+                                                                    <rect key="frame" x="0.0" y="596" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Списано баллами:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mls-yp-qAE">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="131.5" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8j-fQ-o6h">
+                                                                            <rect key="frame" x="330" y="62.5" width="52" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="Mls-yp-qAE" firstAttribute="top" secondItem="YSx-1P-Z4c" secondAttribute="top" id="5mi-88-FsE"/>
+                                                                        <constraint firstItem="h8j-fQ-o6h" firstAttribute="centerY" secondItem="Mls-yp-qAE" secondAttribute="centerY" id="WDj-gL-E7R"/>
+                                                                        <constraint firstItem="Mls-yp-qAE" firstAttribute="leading" secondItem="YSx-1P-Z4c" secondAttribute="leading" id="eaG-VU-g3X"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="h8j-fQ-o6h" secondAttribute="trailing" id="mQG-Ll-5UE"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Mls-yp-qAE" secondAttribute="bottom" id="toa-yw-WM4"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gK7-86-4oa">
+                                                                    <rect key="frame" x="0.0" y="745" width="382" height="144"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итого:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-Lm-q9H">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="144"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 000 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoO-Z2-Uv7">
+                                                                            <rect key="frame" x="319" y="61.5" width="63" height="21.5"/>
+                                                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="x8d-Lm-q9H" firstAttribute="top" secondItem="gK7-86-4oa" secondAttribute="top" id="YBO-s7-CjI"/>
+                                                                        <constraint firstItem="x8d-Lm-q9H" firstAttribute="leading" secondItem="gK7-86-4oa" secondAttribute="leading" id="aLu-xk-e3h"/>
+                                                                        <constraint firstItem="OoO-Z2-Uv7" firstAttribute="centerY" secondItem="x8d-Lm-q9H" secondAttribute="centerY" id="cOF-Z9-TK2"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="OoO-Z2-Uv7" secondAttribute="trailing" id="s8C-6r-oVc"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="x8d-Lm-q9H" secondAttribute="bottom" id="y8I-vi-z6n"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
+                                                        </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H42-HI-bue" customClass="PrimaryButton">
-                                                            <rect key="frame" x="16" y="176" width="382" height="50"/>
+                                                            <rect key="frame" x="16" y="921" width="382" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="Pnk-7r-5lh"/>
                                                             </constraints>
@@ -1198,88 +1389,25 @@
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh8-ks-9UW">
-                                                            <rect key="frame" x="16" y="238" width="382" height="95.5"/>
+                                                            <rect key="frame" x="16" y="983" width="382" height="95.5"/>
                                                             <string key="text">Завершая оформление заказа, я даю своё согласие на обработку персональных данных и подтверждаю оформление с условиями публичной оферты, пользовательского соглашения и  политики конфиденциальности</string>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <color key="textColor" red="0.52156862745098043" green="0.52941176470588236" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 350 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umW-U5-i5i">
-                                                            <rect key="frame" x="346" y="20" width="52" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQh-Fu-4fX">
-                                                            <rect key="frame" x="365.5" y="44.5" width="32.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 50 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUM-E5-ljz">
-                                                            <rect key="frame" x="355.5" y="69" width="42.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8j-fQ-o6h">
-                                                            <rect key="frame" x="346" y="118" width="52" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 000 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoO-Z2-Uv7">
-                                                            <rect key="frame" x="335" y="142.5" width="63" height="21.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скидка по карте:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6V-AI-Y5V">
-                                                            <rect key="frame" x="16" y="93.5" width="120.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 300 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wt-uw-hwN">
-                                                            <rect key="frame" x="346" y="93.5" width="52" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                                            <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="gh8-ks-9UW" secondAttribute="bottom" constant="16" id="0rW-tW-Jah"/>
-                                                        <constraint firstItem="IQL-qg-0OF" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="2ed-NC-z4N"/>
-                                                        <constraint firstAttribute="trailing" secondItem="h8j-fQ-o6h" secondAttribute="trailing" constant="16" id="3WB-85-bIL"/>
-                                                        <constraint firstItem="x8d-Lm-q9H" firstAttribute="centerY" secondItem="OoO-Z2-Uv7" secondAttribute="centerY" id="7Bf-FW-GaI"/>
                                                         <constraint firstItem="H42-HI-bue" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="CH9-L2-xSU"/>
-                                                        <constraint firstItem="pUM-E5-ljz" firstAttribute="centerY" secondItem="IQL-qg-0OF" secondAttribute="centerY" id="Hmk-Xk-k6K"/>
                                                         <constraint firstAttribute="trailing" secondItem="gh8-ks-9UW" secondAttribute="trailing" constant="16" id="Icd-8N-4of"/>
-                                                        <constraint firstItem="HQh-Fu-4fX" firstAttribute="centerY" secondItem="ZdU-Vq-PI7" secondAttribute="centerY" id="LDr-ro-d0Y"/>
-                                                        <constraint firstItem="Mls-yp-qAE" firstAttribute="top" secondItem="g6V-AI-Y5V" secondAttribute="bottom" constant="5" id="NUu-FI-j94"/>
-                                                        <constraint firstItem="OoO-Z2-Uv7" firstAttribute="top" secondItem="h8j-fQ-o6h" secondAttribute="bottom" constant="5" id="ORY-8B-A09"/>
-                                                        <constraint firstItem="x8d-Lm-q9H" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="QZS-0b-uQ0"/>
-                                                        <constraint firstItem="ZdU-Vq-PI7" firstAttribute="top" secondItem="XwU-0k-hj1" secondAttribute="bottom" constant="5" id="SeG-7m-ZhX"/>
-                                                        <constraint firstItem="6Wt-uw-hwN" firstAttribute="centerY" secondItem="g6V-AI-Y5V" secondAttribute="centerY" id="ShK-Ke-3ns"/>
-                                                        <constraint firstItem="h8j-fQ-o6h" firstAttribute="centerY" secondItem="Mls-yp-qAE" secondAttribute="centerY" id="X7G-db-NWT"/>
-                                                        <constraint firstItem="g6V-AI-Y5V" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="a4s-bq-Vr2"/>
-                                                        <constraint firstItem="IQL-qg-0OF" firstAttribute="top" secondItem="ZdU-Vq-PI7" secondAttribute="bottom" constant="5" id="aCN-d8-OKy"/>
-                                                        <constraint firstAttribute="trailing" secondItem="6Wt-uw-hwN" secondAttribute="trailing" constant="16" id="bEk-qv-VdY"/>
-                                                        <constraint firstItem="H42-HI-bue" firstAttribute="top" secondItem="OoO-Z2-Uv7" secondAttribute="bottom" constant="12" id="i2y-RD-g4E"/>
-                                                        <constraint firstAttribute="trailing" secondItem="pUM-E5-ljz" secondAttribute="trailing" constant="16" id="ifh-Gi-rw8"/>
+                                                        <constraint firstItem="H42-HI-bue" firstAttribute="top" secondItem="LeC-VJ-JG1" secondAttribute="bottom" constant="12" id="LJE-tY-uQB"/>
+                                                        <constraint firstItem="LeC-VJ-JG1" firstAttribute="top" secondItem="Giw-t5-a2S" secondAttribute="top" constant="20" id="b1m-Ho-Gc3"/>
+                                                        <constraint firstItem="LeC-VJ-JG1" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="gvn-1a-qHk"/>
                                                         <constraint firstAttribute="trailing" secondItem="H42-HI-bue" secondAttribute="trailing" constant="16" id="jVd-KN-Fi3"/>
-                                                        <constraint firstAttribute="trailing" secondItem="OoO-Z2-Uv7" secondAttribute="trailing" constant="16" id="jg2-vb-5dP"/>
-                                                        <constraint firstAttribute="trailing" secondItem="umW-U5-i5i" secondAttribute="trailing" constant="16" id="jpv-Bh-WXa"/>
-                                                        <constraint firstAttribute="trailing" secondItem="HQh-Fu-4fX" secondAttribute="trailing" constant="16" id="nRo-8X-EMa"/>
                                                         <constraint firstItem="gh8-ks-9UW" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="oTo-CW-v21"/>
-                                                        <constraint firstItem="Mls-yp-qAE" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="rDU-2B-xme"/>
-                                                        <constraint firstItem="ZdU-Vq-PI7" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="sh0-Cf-8PJ"/>
-                                                        <constraint firstItem="umW-U5-i5i" firstAttribute="centerY" secondItem="XwU-0k-hj1" secondAttribute="centerY" id="vTZ-u5-9QD"/>
+                                                        <constraint firstAttribute="trailing" secondItem="LeC-VJ-JG1" secondAttribute="trailing" constant="16" id="u5R-1z-kbQ"/>
                                                         <constraint firstItem="gh8-ks-9UW" firstAttribute="top" secondItem="H42-HI-bue" secondAttribute="bottom" constant="12" id="xXl-2u-dsL"/>
-                                                        <constraint firstItem="g6V-AI-Y5V" firstAttribute="top" secondItem="IQL-qg-0OF" secondAttribute="bottom" constant="5" id="zQW-yZ-ilG"/>
-                                                        <constraint firstItem="XwU-0k-hj1" firstAttribute="leading" secondItem="Giw-t5-a2S" secondAttribute="leading" constant="16" id="zSn-91-odu"/>
-                                                        <constraint firstItem="XwU-0k-hj1" firstAttribute="top" secondItem="Giw-t5-a2S" secondAttribute="top" constant="20" id="zbH-rV-01L"/>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kAE-kS-NIT">

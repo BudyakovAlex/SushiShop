@@ -9,6 +9,7 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Views.Activities.Abstract;
+using SushiShop.Droid.Views.Listeners;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Activities.Profile
@@ -42,6 +43,8 @@ namespace SushiShop.Droid.Views.Activities.Profile
 
             confirmButton.Text = AppStrings.Continue;
             toolbar.Title = AppStrings.AcceptPhoneTitle;
+
+            codeEditText.SetOnKeyListener(new ViewOnKeyListener(OnCodeEditTextKeyListener));
         }
 
         protected override void Bind()
@@ -56,6 +59,23 @@ namespace SushiShop.Droid.Views.Activities.Profile
             bindingSet.Bind(confirmButton).For(v => v.BindClick()).To(vm => vm.ContinueCommand);
             bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
+        }
+
+        private bool OnCodeEditTextKeyListener(View view, Keycode keyCode, KeyEvent e)
+        {
+            if (e.Action == KeyEventActions.Down)
+            {
+                switch (keyCode)
+                {
+                    case Keycode.DpadCenter:
+                    case Keycode.Enter:
+                        return confirmButton.CallOnClick();
+                    default:
+                        break;
+                }
+            }
+
+            return false;
         }
     }
 }

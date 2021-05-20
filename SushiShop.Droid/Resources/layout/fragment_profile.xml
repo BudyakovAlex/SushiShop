@@ -75,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_pro_display_regular"
+                android:inputType="textEmailAddress"
                 android:lines="1"
                 android:maxLines="1"
                 android:textColor="@color/black" />
@@ -122,28 +123,39 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginTop="40dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            app:colorControlActivated="@null"
+            app:colorControlHighlight="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/app_bar_container" />
+            app:layout_constraintTop_toBottomOf="@id/app_bar_container"
+            tools:src="@drawable/ic_profile_avatar" />
 
         <TextView
             android:id="@+id/profile_name_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:textColor="@color/black"
+            android:textFontWeight="700"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/user_image_view" />
+            app:layout_constraintTop_toBottomOf="@id/user_image_view"
+            tools:text="Александр" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/discount_button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:layout_marginStart="110dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="110dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/bg_button_gradient"
             android:fontFamily="@font/font_family_sf_pro_display_medium"
+            android:paddingStart="26dp"
+            android:paddingEnd="26dp"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textFontWeight="500"
