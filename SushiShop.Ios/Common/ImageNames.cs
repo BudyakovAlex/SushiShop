@@ -26,5 +26,6 @@
         public const string UserProfilePlaceholder = "ic_user_default";
         public const string DefaultMarker = "ic_default_marker";
         public const string SelectedMarker = "ic_selected_marker";
+        public const string Search = "ic_search";
     }
 }

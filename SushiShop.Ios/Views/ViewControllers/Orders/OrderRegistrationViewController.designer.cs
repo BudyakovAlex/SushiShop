@@ -64,6 +64,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UILabel CountOfScoresPickUpLabel { get; set; }
 
 		[Outlet]
+		UIKit.UILabel DiscountByCardPickUpLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel DiscountByCartDeliveryLabel { get; set; }
+
+		[Outlet]
 		UIKit.UILabel DiscountByPromocodeDeliveryLabel { get; set; }
 
 		[Outlet]
@@ -139,10 +145,22 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UIView ScoresDeliveryView { get; set; }
 
 		[Outlet]
+		UIKit.UIView ScoresDiscountContainerDeliveryView { get; set; }
+
+		[Outlet]
+		UIKit.UIView ScoresDiscountContainerPickUpView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel ScoresDiscountDeliveryLabel { get; set; }
 
 		[Outlet]
 		UIKit.UILabel ScoresDiscountPickUpLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ScoresDiscountTitleDeliveryLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ScoresDiscountTitlePickUpLabel { get; set; }
 
 		[Outlet]
 		UIKit.UIView ScoresPickUpView { get; set; }
@@ -291,6 +309,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				CountOfScoresPickUpLabel = null;
 			}
 
+			if (DiscountByCardPickUpLabel != null) {
+				DiscountByCardPickUpLabel.Dispose ();
+				DiscountByCardPickUpLabel = null;
+			}
+
+			if (DiscountByCartDeliveryLabel != null) {
+				DiscountByCartDeliveryLabel.Dispose ();
+				DiscountByCartDeliveryLabel = null;
+			}
+
 			if (DiscountByPromocodeDeliveryLabel != null) {
 				DiscountByPromocodeDeliveryLabel.Dispose ();
 				DiscountByPromocodeDeliveryLabel = null;
@@ -314,6 +342,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (IntercomDeliveryTextField != null) {
 				IntercomDeliveryTextField.Dispose ();
 				IntercomDeliveryTextField = null;
+			}
+
+			if (LoadingOverlayView != null) {
+				LoadingOverlayView.Dispose ();
+				LoadingOverlayView = null;
 			}
 
 			if (OnlinePaymentDeliveryImageView != null) {
@@ -521,9 +554,24 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				UserPhonePickUpTextField = null;
 			}
 
-			if (LoadingOverlayView != null) {
-				LoadingOverlayView.Dispose ();
-				LoadingOverlayView = null;
+			if (ScoresDiscountTitlePickUpLabel != null) {
+				ScoresDiscountTitlePickUpLabel.Dispose ();
+				ScoresDiscountTitlePickUpLabel = null;
+			}
+
+			if (ScoresDiscountTitleDeliveryLabel != null) {
+				ScoresDiscountTitleDeliveryLabel.Dispose ();
+				ScoresDiscountTitleDeliveryLabel = null;
+			}
+
+			if (ScoresDiscountContainerDeliveryView != null) {
+				ScoresDiscountContainerDeliveryView.Dispose ();
+				ScoresDiscountContainerDeliveryView = null;
+			}
+
+			if (ScoresDiscountContainerPickUpView != null) {
+				ScoresDiscountContainerPickUpView.Dispose ();
+				ScoresDiscountContainerPickUpView = null;
 			}
 		}
 	}

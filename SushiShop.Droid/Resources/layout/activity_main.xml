@@ -1,37 +1,42 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinator"
+    android:id="@+id/container_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <SushiShop.NonScrollableViewPager
-        android:id="@+id/main_view_pager"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"/>
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/bottom_linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="vertical">
-
-        <View
+        <SushiShop.NonScrollableViewPager
+            android:id="@+id/main_view_pager"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/orange2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/main_tab_layout" />
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/main_tab_layout"
+        <LinearLayout
+            android:id="@+id/bottom_linear_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:tabIndicator="@null"
-            app:tabMode="fixed" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/orange2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/main_tab_layout" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/main_tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:tabIndicator="@null"
+                app:tabMode="fixed" />
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

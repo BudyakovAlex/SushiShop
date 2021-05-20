@@ -79,5 +79,20 @@ namespace SushiShop.Core.Managers.Orders
             var errors = response.Data!.Errors ?? Array.Empty<string>();
             return new Response<bool>(isSuccessful: true, errors.Length == 0, errors);
         }
+
+        public async Task<Response<decimal>> CalculateDiscountAsync(string? phone)
+        {
+            var city = userSession.GetCity();
+            var basketId = userSession.GetCartId();
+
+            var response = await ordersService.CalculateDiscountAsync(phone, city!.Name, basketId, CancellationToken.None);
+            if (response.IsSuccessful &&
+                decimal.TryParse(response.Data!.SuccessData!.ToString(), out var discount))
+            {
+                return new Response<decimal>(isSuccessful: true, discount);
+            }
+
+            return new Response<decimal>(isSuccessful: false, 0);
+        }
     }
 }

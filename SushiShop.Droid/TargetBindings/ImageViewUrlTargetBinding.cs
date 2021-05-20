@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Android.Widget;
 using Bumptech.Glide;
 using MvvmCross.Platforms.Android.Binding.Target;
@@ -46,10 +47,10 @@ namespace SushiShop.Droid.TargetBindings
                 }
 
                 Glide.With(Target.Context)
-                    .Load(url)
-                    .Placeholder(Resource.Drawable.ic_placeholder)
-                    .Error(Resource.Drawable.ic_placeholder)
-                    .Into(Target);
+                     .Load(url)
+                     .Placeholder(Resource.Drawable.ic_placeholder)
+                     .Error(Resource.Drawable.ic_placeholder)
+                     .Into(Target);
             }
             catch
             {

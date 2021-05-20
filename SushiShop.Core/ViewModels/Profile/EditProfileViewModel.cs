@@ -4,9 +4,11 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Data.Models.Plugins;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.Plugins;
+using SushiShop.Core.Resources;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,7 +22,9 @@ namespace SushiShop.Core.ViewModels.Profile
 
         private Data.Models.Profile.DetailedProfile? profile;
 
-        public EditProfileViewModel(IProfileManager profileManager, IDialog dialog)
+        public EditProfileViewModel(
+            IProfileManager profileManager,
+            IDialog dialog)
         {
             this.profileManager = profileManager;
             this.dialog = dialog;

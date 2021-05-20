@@ -31,7 +31,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         public string? ShopTimeWorking => $"{selectedShop?.DeliveryTime}";
 
-        public override string PriceToPay => $"{Cart?.TotalSum - Cart?.Discount - ScoresToApply} {Cart?.Currency?.Symbol}";
+        public override string PriceToPay => $"{Cart?.TotalSum - Cart?.Discount - ScoresToApply - DiscountByCard} {Cart?.Currency?.Symbol}";
 
         protected override DateTime MinDateTimeForPicker => selectedShop is null
             ? base.MinDateTimeForPicker
