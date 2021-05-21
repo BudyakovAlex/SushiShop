@@ -145,10 +145,22 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UIView ScoresDeliveryView { get; set; }
 
 		[Outlet]
+		UIKit.UIView ScoresDiscountContainerDeliveryView { get; set; }
+
+		[Outlet]
+		UIKit.UIView ScoresDiscountContainerPickUpView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel ScoresDiscountDeliveryLabel { get; set; }
 
 		[Outlet]
 		UIKit.UILabel ScoresDiscountPickUpLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ScoresDiscountTitleDeliveryLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ScoresDiscountTitlePickUpLabel { get; set; }
 
 		[Outlet]
 		UIKit.UIView ScoresPickUpView { get; set; }
@@ -292,6 +304,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				CountOfScoresDeliveryLabel = null;
 			}
 
+			if (CountOfScoresPickUpLabel != null) {
+				CountOfScoresPickUpLabel.Dispose ();
+				CountOfScoresPickUpLabel = null;
+			}
+
 			if (DiscountByCardPickUpLabel != null) {
 				DiscountByCardPickUpLabel.Dispose ();
 				DiscountByCardPickUpLabel = null;
@@ -300,11 +317,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (DiscountByCartDeliveryLabel != null) {
 				DiscountByCartDeliveryLabel.Dispose ();
 				DiscountByCartDeliveryLabel = null;
-			}
-
-			if (CountOfScoresPickUpLabel != null) {
-				CountOfScoresPickUpLabel.Dispose ();
-				CountOfScoresPickUpLabel = null;
 			}
 
 			if (DiscountByPromocodeDeliveryLabel != null) {
@@ -540,6 +552,26 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (UserPhonePickUpTextField != null) {
 				UserPhonePickUpTextField.Dispose ();
 				UserPhonePickUpTextField = null;
+			}
+
+			if (ScoresDiscountTitlePickUpLabel != null) {
+				ScoresDiscountTitlePickUpLabel.Dispose ();
+				ScoresDiscountTitlePickUpLabel = null;
+			}
+
+			if (ScoresDiscountTitleDeliveryLabel != null) {
+				ScoresDiscountTitleDeliveryLabel.Dispose ();
+				ScoresDiscountTitleDeliveryLabel = null;
+			}
+
+			if (ScoresDiscountContainerDeliveryView != null) {
+				ScoresDiscountContainerDeliveryView.Dispose ();
+				ScoresDiscountContainerDeliveryView = null;
+			}
+
+			if (ScoresDiscountContainerPickUpView != null) {
+				ScoresDiscountContainerPickUpView.Dispose ();
+				ScoresDiscountContainerPickUpView = null;
 			}
 		}
 	}

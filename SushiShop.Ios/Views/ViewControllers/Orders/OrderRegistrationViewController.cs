@@ -201,6 +201,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(ProductsPricePickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ProductsPrice);
             bindingSet.Bind(DiscountByPromocodePickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.DiscountByPromocode);
             bindingSet.Bind(ScoresDiscountPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.ScoresDiscount);
+            bindingSet.Bind(ScoresDiscountContainerPickUpView).For(v => v.BindVisible()).To(vm => vm.PickupOrderSectionViewModel.ShouldApplyScores);
             bindingSet.Bind(PriceToPayPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.PriceToPay);
             bindingSet.Bind(ConfirmOrderPickUpButton).For(v => v.BindTouchUpInside()).To(vm => vm.PickupOrderSectionViewModel.ConfirmOrderCommand);
             bindingSet.Bind(DiscountByCardPickUpLabel).For(v => v.Text).To(vm => vm.PickupOrderSectionViewModel.DiscountByCardPresentation);
@@ -209,6 +210,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(PriceDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.DeliveryPrice);
             bindingSet.Bind(DiscountByPromocodeDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.DiscountByPromocode);
             bindingSet.Bind(ScoresDiscountDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.ScoresDiscount);
+            bindingSet.Bind(ScoresDiscountContainerDeliveryView).For(v => v.BindVisible()).To(vm => vm.DeliveryOrderSectionViewModel.ShouldApplyScores);
             bindingSet.Bind(PriceToPayDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.PriceToPay);
             bindingSet.Bind(ConfirmOrderDeliveryButton).For(v => v.BindTouchUpInside()).To(vm => vm.DeliveryOrderSectionViewModel.ConfirmOrderCommand);
             bindingSet.Bind(DiscountByCartDeliveryLabel).For(v => v.Text).To(vm => vm.DeliveryOrderSectionViewModel.DiscountByCardPresentation);
