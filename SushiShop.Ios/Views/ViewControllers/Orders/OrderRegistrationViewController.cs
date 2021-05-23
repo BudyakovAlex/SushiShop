@@ -89,6 +89,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
             UserPhonePickUpTextField.InputAccessoryView = phoneTextFieldPickUpDoneAccessoryView;
             UserPhoneDeliveryTextField.InputAccessoryView = phoneTextFieldDeliveryDoneAccessoryView;
+            UserPhonePickUpTextField.EditingDidEnd += (o, e) => ViewModel?.PickupOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+            UserPhoneDeliveryTextField.EditingDidEnd += (o, e) => ViewModel?.DeliveryOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
 
             UserNamePickUpTextField.InputAccessoryView = doneAccessoryView;
             UserNameDeliveryTextField.InputAccessoryView = doneAccessoryView;
