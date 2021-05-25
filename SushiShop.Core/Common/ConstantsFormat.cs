@@ -16,7 +16,7 @@
             {
                 public const char MaskCharacter = '#';
 
-                public const string MaskFormat = "+# (###) ###-##-##";
+                public const string MaskFormat = "+7 (###) ###-##-##";
             }
         }
     }

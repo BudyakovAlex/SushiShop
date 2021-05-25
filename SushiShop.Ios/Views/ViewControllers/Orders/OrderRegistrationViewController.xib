@@ -38,6 +38,7 @@
                 <outlet property="CountOfCutleryPickUpStepperView" destination="wuz-Hr-Tfc" id="jHn-Vd-yT9"/>
                 <outlet property="CountOfScoresDeliveryLabel" destination="gIY-fG-IRW" id="mDH-Hh-E1X"/>
                 <outlet property="CountOfScoresPickUpLabel" destination="CTP-lf-QCC" id="N71-Sl-2hj"/>
+                <outlet property="DeliveryContainerView" destination="qEn-tQ-Vwl" id="XEm-Xx-J1Y"/>
                 <outlet property="DiscountByCardPickUpLabel" destination="uRd-67-41C" id="zIw-nS-UvD"/>
                 <outlet property="DiscountByCartDeliveryLabel" destination="6Wt-uw-hwN" id="Z5e-O5-mmj"/>
                 <outlet property="DiscountByPromocodeDeliveryLabel" destination="pUM-E5-ljz" id="EeA-wR-KrT"/>
@@ -54,6 +55,7 @@
                 <outlet property="OnlinePaymentDeliveryView" destination="bfP-rH-6y1" id="H81-VE-qfP"/>
                 <outlet property="OnlinePaymentPickUpImageView" destination="kbh-Px-aa8" id="0Xs-X3-Lzr"/>
                 <outlet property="OnlinePaymentPickUpView" destination="k7d-c8-nX5" id="bae-iE-8s1"/>
+                <outlet property="PickUpContainerView" destination="or5-pc-S4h" id="ng5-f0-fe9"/>
                 <outlet property="PriceDeliveryLabel" destination="HQh-Fu-4fX" id="iQM-TN-4bu"/>
                 <outlet property="PriceToPayDeliveryLabel" destination="OoO-Z2-Uv7" id="kMe-m9-csJ"/>
                 <outlet property="PriceToPayPickUpLabel" destination="s96-5P-b8v" id="aPd-1N-mO9"/>

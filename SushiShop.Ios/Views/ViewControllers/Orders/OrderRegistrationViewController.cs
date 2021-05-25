@@ -60,7 +60,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             scrollableTabsView.IsFixedTabs = true;
             scrollableTabsView.OnTabChangedAfterTapAction = OnTabChangedAfterTap;
             RootScrollView.Delegate = new OrderRegistrationScrollViewDelegate(OnDecelerated);
-           
+
             AppartmentDeliveryTextField.Placeholder = $"{AppStrings.Apartment}";
             EntranceDeliveryTextField.Placeholder = $"{AppStrings.Entrance}";
             IntercomDeliveryTextField.Placeholder = $"{AppStrings.Intercom}";
@@ -89,8 +89,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
             UserPhonePickUpTextField.InputAccessoryView = phoneTextFieldPickUpDoneAccessoryView;
             UserPhoneDeliveryTextField.InputAccessoryView = phoneTextFieldDeliveryDoneAccessoryView;
-            UserPhonePickUpTextField.EditingDidEnd += (o, e) => ViewModel?.PickupOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
-            UserPhoneDeliveryTextField.EditingDidEnd += (o, e) => ViewModel?.DeliveryOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+            SetupViewsTouches();
 
             UserNamePickUpTextField.InputAccessoryView = doneAccessoryView;
             UserNameDeliveryTextField.InputAccessoryView = doneAccessoryView;
@@ -225,6 +224,39 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(this).For(nameof(OrderThanksSection)).To(vm => vm.OrderThanksSectionViewModel);
 
             bindingSet.Apply();
+        }
+
+        private void SetupViewsTouches()
+        {
+            UserPhonePickUpTextField.EditingDidEnd += (o, e) =>
+            {
+                ViewModel?.PickupOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+            };
+
+            UserPhoneDeliveryTextField.EditingDidEnd += (o, e) =>
+            {
+                ViewModel?.DeliveryOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+            };
+
+            DeliveryContainerView.AddGestureRecognizer(new UITapGestureRecognizer(() =>
+            {
+                if (!UserPhoneDeliveryTextField.IsEditing)
+                {
+                    return;
+                }
+
+                ViewModel?.DeliveryOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+            }));
+
+            PickUpContainerView.AddGestureRecognizer(new UITapGestureRecognizer(() =>
+            {
+                if (!UserPhonePickUpTextField.IsEditing)
+                {
+                    return;
+                }
+
+                ViewModel?.DeliveryOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+            }));
         }
 
         private void OnTabChangedAfterTap()
