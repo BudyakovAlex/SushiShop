@@ -64,6 +64,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UILabel CountOfScoresPickUpLabel { get; set; }
 
 		[Outlet]
+		UIKit.UIView DeliveryContainerView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel DiscountByCardPickUpLabel { get; set; }
 
 		[Outlet]
@@ -110,6 +113,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
 		[Outlet]
 		UIKit.UIView OnPointPaymentPickUpView { get; set; }
+
+		[Outlet]
+		UIKit.UIView PickUpContainerView { get; set; }
 
 		[Outlet]
 		UIKit.UILabel PriceDeliveryLabel { get; set; }
@@ -224,6 +230,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (PickUpContainerView != null) {
+				PickUpContainerView.Dispose ();
+				PickUpContainerView = null;
+			}
+
 			if (AboutAddressDeliveryView != null) {
 				AboutAddressDeliveryView.Dispose ();
 				AboutAddressDeliveryView = null;
@@ -444,6 +455,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				ScoresDeliveryView = null;
 			}
 
+			if (ScoresDiscountContainerDeliveryView != null) {
+				ScoresDiscountContainerDeliveryView.Dispose ();
+				ScoresDiscountContainerDeliveryView = null;
+			}
+
+			if (ScoresDiscountContainerPickUpView != null) {
+				ScoresDiscountContainerPickUpView.Dispose ();
+				ScoresDiscountContainerPickUpView = null;
+			}
+
 			if (ScoresDiscountDeliveryLabel != null) {
 				ScoresDiscountDeliveryLabel.Dispose ();
 				ScoresDiscountDeliveryLabel = null;
@@ -452,6 +473,16 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (ScoresDiscountPickUpLabel != null) {
 				ScoresDiscountPickUpLabel.Dispose ();
 				ScoresDiscountPickUpLabel = null;
+			}
+
+			if (ScoresDiscountTitleDeliveryLabel != null) {
+				ScoresDiscountTitleDeliveryLabel.Dispose ();
+				ScoresDiscountTitleDeliveryLabel = null;
+			}
+
+			if (ScoresDiscountTitlePickUpLabel != null) {
+				ScoresDiscountTitlePickUpLabel.Dispose ();
+				ScoresDiscountTitlePickUpLabel = null;
 			}
 
 			if (ScoresPickUpView != null) {
@@ -554,24 +585,9 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				UserPhonePickUpTextField = null;
 			}
 
-			if (ScoresDiscountTitlePickUpLabel != null) {
-				ScoresDiscountTitlePickUpLabel.Dispose ();
-				ScoresDiscountTitlePickUpLabel = null;
-			}
-
-			if (ScoresDiscountTitleDeliveryLabel != null) {
-				ScoresDiscountTitleDeliveryLabel.Dispose ();
-				ScoresDiscountTitleDeliveryLabel = null;
-			}
-
-			if (ScoresDiscountContainerDeliveryView != null) {
-				ScoresDiscountContainerDeliveryView.Dispose ();
-				ScoresDiscountContainerDeliveryView = null;
-			}
-
-			if (ScoresDiscountContainerPickUpView != null) {
-				ScoresDiscountContainerPickUpView.Dispose ();
-				ScoresDiscountContainerPickUpView = null;
+			if (DeliveryContainerView != null) {
+				DeliveryContainerView.Dispose ();
+				DeliveryContainerView = null;
 			}
 		}
 	}
