@@ -51,6 +51,8 @@ namespace SushiShop.Core.ViewModels.Orders
             IsLoading = true;
 
             Pagination.Reset();
+            Items.Clear();
+
             await LoadMoreItemsAsync(0, Constants.Common.DefaultPaginationSize);
 
             IsLoading = false;

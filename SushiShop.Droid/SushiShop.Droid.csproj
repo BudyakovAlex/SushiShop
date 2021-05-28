@@ -146,6 +146,8 @@
     <Compile Include="Views\Listeners\ScaleListener.cs" />
     <Compile Include="Views\Listeners\ViewOnKeyListener.cs" />
     <Compile Include="Views\ViewHolders\Profile\ImageBonusProgramItemViewHolder.cs" />
+    <Compile Include="Views\Controls\EndlessRecyclerView.cs" />
+    <Compile Include="Platform\Listeners\EndlessScrollChangedListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

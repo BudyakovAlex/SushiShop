@@ -152,7 +152,7 @@ namespace SushiShop.Core.ViewModels.Menu
 
                 if (lastKnownLocation is null)
                 {
-                    PreselectDefaultCity(cities);
+                    await PreselectDefaultCityWithConfirmationAsync(cities);
                     return;
                 }
 
@@ -160,7 +160,7 @@ namespace SushiShop.Core.ViewModels.Menu
                 var firtPlacemark = placemarks.FirstOrDefault();
                 if (firtPlacemark is null)
                 {
-                    PreselectDefaultCity(cities);
+                    await PreselectDefaultCityWithConfirmationAsync(cities);
                     return;
                 }
 
@@ -169,7 +169,7 @@ namespace SushiShop.Core.ViewModels.Menu
                                                                        .ToLowerInvariant()));
                 if (foundCity is null)
                 {
-                    PreselectDefaultCity(cities);
+                    await PreselectDefaultCityWithConfirmationAsync(cities);
                     return;
                 }
 
@@ -190,7 +190,7 @@ namespace SushiShop.Core.ViewModels.Menu
                 _ = ReloadDataAsync();
                 Messenger.Publish(new RefreshCartMessage(this));
             }
-            catch (PermissionException ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
                 PreselectDefaultCity(cities);
@@ -209,6 +209,20 @@ namespace SushiShop.Core.ViewModels.Menu
                 city = foundCity;
 
                 _ = RaisePropertyChanged(nameof(CityName));
+            }
+        }
+
+        private async Task PreselectDefaultCityWithConfirmationAsync(City[] cities)
+        {
+            PreselectDefaultCity(cities);
+
+            var message = string.Format(AppStrings.IsItYourCityQuestionTemplate, CityName);
+            var isConfirmed = await UserDialogs.Instance.ConfirmAsync(message, okText: AppStrings.Yes, cancelText: AppStrings.No);
+            if (!isConfirmed)
+            {
+                PreselectDefaultCity(cities);
+                SelectCityCommand.Execute();
+                return;
             }
         }
 
