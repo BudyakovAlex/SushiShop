@@ -115,7 +115,7 @@
     <Compile Include="Views\Listeners\HideTabLayoutRecyclerViewScfrollListener.cs" />
     <Compile Include="Presenter\CustomAndroidViewPresenter.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
-    <Compile Include="Platform\Watchers\PhoneTextWatchers.cs" />
+    <Compile Include="Platform\Watchers\PhoneTextWatcher.cs" />
     <Compile Include="Views\ViewHolders\Promotions\PromotionItemViewHolder.cs" />
     <Compile Include="Views\Controls\PagesIndicatorView.cs" />
     <Compile Include="Platform\Listeners\RecyclerViewOnScrollListener.cs" />

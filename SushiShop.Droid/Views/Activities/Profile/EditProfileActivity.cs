@@ -18,6 +18,7 @@ using SushiShop.Core.Plugins;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Droid.Extensions;
+using SushiShop.Droid.Platform.Watchers;
 using SushiShop.Droid.Views.Activities.Abstract;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
@@ -54,6 +55,7 @@ namespace SushiShop.Droid.Views.Activities.Profile
             phoneNotificationsSwitch = FindViewById<SwitchCompat>(Resource.Id.sms_notifications_switch);
             emailNotificationSwitch = FindViewById<SwitchCompat>(Resource.Id.email_notifications_switch);
 
+            phoneEditText.AddTextChangedListener(new PhoneTextWatcher(phoneEditText));
             genderEditText.InputType = InputTypes.Null;
 
             saveTextView.Text = AppStrings.Save;
