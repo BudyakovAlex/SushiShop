@@ -1,13 +1,10 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Android.App;
+﻿using Android.App;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
 using Google.Android.Material.TextField;
-using MvvmCross;
 using MvvmCross.Commands;
 using MvvmCross.Platforms.Android.Binding;
 using SushiShop.Core.Converters;
@@ -20,6 +17,8 @@ using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Platform.Watchers;
 using SushiShop.Droid.Views.Activities.Abstract;
+using System.Linq;
+using System.Threading.Tasks;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Activities.Profile
