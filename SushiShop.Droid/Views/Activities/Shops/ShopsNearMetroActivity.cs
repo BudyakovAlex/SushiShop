@@ -30,11 +30,11 @@ namespace SushiShop.Droid.Views.Activities.Shops
                 isNearestMetroNotEmpty = value;
                 if (value)
                 {
-                    nearestMetroView.Show();
+                    //nearestMetroView.Show();
                     return;
                 }
 
-                nearestMetroView.Hide();
+                //nearestMetroView.Hide();
             }
         }
 
@@ -57,9 +57,9 @@ namespace SushiShop.Droid.Views.Activities.Shops
             bindingSet.Bind(toolbar).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(recyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
 
-            bindingSet.Bind(nearestMetroView).For(v => v.MetrosCollection).To(vm => vm.NearestMetro);
+            //bindingSet.Bind(nearestMetroView).For(v => v.MetrosCollection).To(vm => vm.NearestMetro);
             bindingSet.Bind(this).For(v => v.IsNearestMetroNotEmpty).To(vm => vm.IsNearestMetroNotEmpty);
-            bindingSet.Bind(nearestMetroView).For(v => v.CloseCommand).To(vm => vm.ClearNearestMetroCommand);
+            //bindingSet.Bind(nearestMetroView).For(v => v.CloseCommand).To(vm => vm.ClearNearestMetroCommand);
         }
 
         private void InitializeRecyclerView()
