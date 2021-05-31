@@ -15,6 +15,7 @@ using SushiShop.Core.Converters;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Droid.Extensions;
+using SushiShop.Droid.Platform.Watchers;
 using SushiShop.Droid.Views.Activities.Abstract;
 using SushiShop.Droid.Views.Listeners;
 using SushiShop.Droid.Views.Spans;
@@ -55,6 +56,8 @@ namespace SushiShop.Droid.Views.Activities.Profile
             emailNotificationsSwitch = FindViewById<SwitchCompat>(Resource.Id.email_notifications_switch);
             smsNotificationsSwitch = FindViewById<SwitchCompat>(Resource.Id.sms_notifications_switch);
             registerButton = FindViewById<AppCompatButton>(Resource.Id.register_button);
+
+            phoneTextEditText.AddTextChangedListener(new PhoneTextWatcher(phoneTextEditText));
 
             nameTextEditText.SetOnKeyListener(new ViewOnKeyListener(OnNameEditTextKeyListener));
             dateOfBirthTextEditText.InputType = InputTypes.Null;

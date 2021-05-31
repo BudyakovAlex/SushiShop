@@ -5,13 +5,13 @@ using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
 using MvvmCross.DroidX;
-using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Orders;
 using SushiShop.Core.ViewModels.Orders.Items;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Presenter.Attributes;
+using SushiShop.Droid.Views.Controls;
 using SushiShop.Droid.Views.ViewHolders.Orders;
 
 namespace SushiShop.Droid.Views.Fragments.Orders
@@ -22,7 +22,7 @@ namespace SushiShop.Droid.Views.Fragments.Orders
         private Toolbar toolbar;
         private View loadingOverlayView;
         private MvxSwipeRefreshLayout swipeRefreshLayout;
-        private MvxRecyclerView recyclerView;
+        private EndlessRecyclerView recyclerView;
 
         public MyOrdersFragment() : base(Resource.Layout.fragment_my_orders)
         {
@@ -49,13 +49,15 @@ namespace SushiShop.Droid.Views.Fragments.Orders
             bindingSet.Bind(toolbar).For(v => v.Title).To(v => v.Title);
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(recyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
+            bindingSet.Bind(recyclerView).For(v => v.LoadMoreItemsCommand).To(vm => vm.Pagination.LoadMoreItemsCommand);
             bindingSet.Bind(swipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
             bindingSet.Bind(swipeRefreshLayout).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
         }
 
         private void InitializeRecyclerView(View view)
         {
-            recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.recycler_view);
+            recyclerView = view.FindViewById<EndlessRecyclerView>(Resource.Id.recycler_view);
+            recyclerView.HasNextPage = true;
             recyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
             recyclerView.ItemTemplateSelector = new TemplateSelector()
                 .AddElement<OrderItemViewModel, OrderItemViewHolder>(Resource.Layout.item_order);
