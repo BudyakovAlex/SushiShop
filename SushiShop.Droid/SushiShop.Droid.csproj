@@ -151,6 +151,7 @@
     <Compile Include="Views\Activities\Shops\ShopsNearMetroActivity.cs" />
     <Compile Include="Views\Controls\NearestMetroView.cs" />
     <Compile Include="Views\ViewHolders\Shops\NearestMetroItemViewHolder.cs" />
+    <Compile Include="Views\Activities\Shops\ShopOnMapActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -595,6 +596,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\item_nearest_metro.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_shop_on_map.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
