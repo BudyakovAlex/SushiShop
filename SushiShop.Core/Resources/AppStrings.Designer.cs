@@ -772,5 +772,11 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("ReceiveNotificationsAboutNewsAndPromotions", resourceCulture);
             }
         }
+        
+        public static string NearestMetroStation {
+            get {
+                return ResourceManager.GetString("NearestMetroStation", resourceCulture);
+            }
+        }
     }
 }
