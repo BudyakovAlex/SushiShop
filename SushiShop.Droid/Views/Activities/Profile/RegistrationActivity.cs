@@ -75,7 +75,7 @@ namespace SushiShop.Droid.Views.Activities.Profile
             registerButton.SetRoundedCorners(this.DpToPx(25));
 
             var spannableString = new SpannableString(AppStrings.PrivacyPolicyConfirmation);
-            var clickableSpan = new LinkSpan(OnLinkSpanClick);
+            var clickableSpan = new LinkSpan((_) => OnLinkSpanClick());
             spannableString.SetSpan(clickableSpan, StartClickablePrivacyPolicy, EndClickablePrivacyPolicy, SpanTypes.ExclusiveExclusive);
             var textView = FindViewById<TextView>(Resource.Id.terms_text_view);
             textView.SetText(spannableString, TextView.BufferType.Spannable);
