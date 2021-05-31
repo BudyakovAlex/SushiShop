@@ -11,7 +11,7 @@ using SushiShop.Droid.Presenter.Attributes;
 namespace SushiShop.Droid.Views.Fragments.Orders
 {
 
-    [NestedFragmentPresentation(FragmentContentId = Resource.Id.orders_container_view)]
+    [NestedFragmentPresentation(FragmentContentId = Resource.Id.container_view)]
     public class OrderDetailsFragment : BaseFragment<OrderDetailsViewModel>
     {
         private AndroidX.AppCompat.Widget.Toolbar toolbar;
