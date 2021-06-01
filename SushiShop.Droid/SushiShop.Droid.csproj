@@ -159,6 +159,7 @@
     <Compile Include="Views\ViewHolders\Shops\Sections\MetroSectionViewHolder.cs" />
     <Compile Include="Views\ViewHolders\Shops\Sections\ShopsListSectionViewHolder.cs" />
     <Compile Include="Views\ViewHolders\Shops\Sections\ShopsOnMapSectionViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Shops\MetroItemViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -647,6 +648,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\item_shops_tab.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_metro.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
