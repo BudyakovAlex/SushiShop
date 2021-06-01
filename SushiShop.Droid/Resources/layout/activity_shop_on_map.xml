@@ -5,19 +5,13 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
-    
+
     <include
         android:id="@+id/toolbar_container"
         layout="@layout/layout_toolbar_shadow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <mvvmcross.droidx.recyclerview.MvxRecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal" />
 
     <include
         android:id="@+id/loading_overlay_view"
@@ -27,12 +21,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <SushiShop.NearestMetroView
-        android:id="@+id/nearest_metro_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_height="0dp"
-        android:layout_width="0dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

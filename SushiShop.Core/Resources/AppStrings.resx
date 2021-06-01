@@ -486,4 +486,7 @@
   <data name="ReceiveNotificationsAboutNewsAndPromotions" xml:space="preserve">
     <value>Получать уведомления о последних новостях и акциях</value>
   </data>
+  <data name="NearestMetroStation" xml:space="preserve">
+    <value>Ближайшие станции метро</value>
+  </data>
 </root>

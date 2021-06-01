@@ -230,32 +230,46 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
         {
             UserPhonePickUpTextField.EditingDidEnd += (o, e) =>
             {
-                ViewModel?.PickupOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+                if (ViewModel?.PickupOrderSectionViewModel is null)
+                {
+                    return;
+                }
+
+                ViewModel.PickupOrderSectionViewModel.Phone = UserPhonePickUpTextField.Text;
+                ViewModel.PickupOrderSectionViewModel.RefreshDiscountByCartCommand.Execute(null);
             };
 
             UserPhoneDeliveryTextField.EditingDidEnd += (o, e) =>
             {
-                ViewModel?.DeliveryOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+                if (ViewModel?.DeliveryOrderSectionViewModel is null)
+                {
+                    return;
+                }
+
+                ViewModel.DeliveryOrderSectionViewModel.Phone = UserPhonePickUpTextField.Text;
+                ViewModel.DeliveryOrderSectionViewModel.RefreshDiscountByCartCommand.Execute(null);
             };
 
             DeliveryContainerView.AddGestureRecognizer(new UITapGestureRecognizer(() =>
             {
-                if (!UserPhoneDeliveryTextField.IsEditing)
+                if (!UserPhoneDeliveryTextField.IsEditing || ViewModel?.DeliveryOrderSectionViewModel is null)
                 {
                     return;
                 }
 
-                ViewModel?.DeliveryOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+                ViewModel.DeliveryOrderSectionViewModel.Phone = UserPhonePickUpTextField.Text;
+                ViewModel.DeliveryOrderSectionViewModel.RefreshDiscountByCartCommand.Execute(null);
             }));
 
             PickUpContainerView.AddGestureRecognizer(new UITapGestureRecognizer(() =>
             {
-                if (!UserPhonePickUpTextField.IsEditing)
+                if (!UserPhonePickUpTextField.IsEditing || ViewModel?.PickupOrderSectionViewModel is null)
                 {
                     return;
                 }
 
-                ViewModel?.DeliveryOrderSectionViewModel?.RefreshDiscountByCartCommand.Execute(null);
+                ViewModel.PickupOrderSectionViewModel.Phone = UserPhonePickUpTextField.Text;
+                ViewModel.PickupOrderSectionViewModel.RefreshDiscountByCartCommand.Execute(null);
             }));
         }
 
