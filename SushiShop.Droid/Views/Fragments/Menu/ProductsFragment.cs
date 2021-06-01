@@ -31,7 +31,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
         private MvxGuardedLinearLayoutManager tabsLayoutManager;
         private PagerSnapHelper snapHelper;
         private SnapOnScrollListener scrollListener;
-        private ProductsTabsAdapter productsTabsAdapter;
+        private TabsAdapter productsTabsAdapter;
 
         public ProductsFragment()
             : base(Resource.Layout.fragment_products)
@@ -69,7 +69,7 @@ namespace SushiShop.Droid.Views.Fragments.Menu
             tabsRecyclerView = View.FindViewById<MvxRecyclerView>(Resource.Id.tabs_recycler_view);
             tabsLayoutManager = new MvxGuardedLinearLayoutManager(Context) { Orientation = MvxGuardedLinearLayoutManager.Horizontal };
             tabsRecyclerView.SetLayoutManager(tabsLayoutManager);
-            tabsRecyclerView.Adapter = productsTabsAdapter = new ProductsTabsAdapter((IMvxAndroidBindingContext)BindingContext);
+            tabsRecyclerView.Adapter = productsTabsAdapter = new TabsAdapter((IMvxAndroidBindingContext)BindingContext, Resource.Layout.item_product_tab);
             tabsRecyclerView.ItemTemplateId = Resource.Layout.item_product_tab;
             productsTabsAdapter.ItemClick = new MvxCommand<int>(OnTabClick);
             tabsRecyclerView.OffsetLeftAndRight((int)Context.DpToPx(8));
