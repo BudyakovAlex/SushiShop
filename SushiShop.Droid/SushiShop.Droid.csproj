@@ -146,6 +146,8 @@
     <Compile Include="Views\Listeners\ScaleListener.cs" />
     <Compile Include="Views\Listeners\ViewOnKeyListener.cs" />
     <Compile Include="Views\ViewHolders\Profile\ImageBonusProgramItemViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Info\InfoMenuItemViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Info\SocialNetworkItemViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -585,6 +587,14 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_info_menu.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_info_social_network.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -677,6 +687,7 @@
     <Folder Include="Views\Activities\Common\" />
     <Folder Include="Views\ViewHolders\Profile\" />
     <Folder Include="Resources\xml\" />
+    <Folder Include="Views\ViewHolders\Info\" />
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.txt" />
