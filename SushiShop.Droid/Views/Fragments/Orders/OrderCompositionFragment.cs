@@ -15,7 +15,7 @@ using SushiShop.Droid.Views.ViewHolders.Orders;
 
 namespace SushiShop.Droid.Views.Fragments.Orders
 {
-    [NestedFragmentPresentation(FragmentContentId = Resource.Id.order_details_container_view)]
+    [NestedFragmentPresentation(FragmentContentId = Resource.Id.container_view)]
     public class OrderCompositionFragment : BaseFragment<OrderCompositionViewModel>
     {
         private Toolbar toolbar;

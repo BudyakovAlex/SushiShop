@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/title_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:ellipsize="end"
+        android:textColor="@color/black"
+        android:textFontWeight="600"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ленинградская обл, Всеволожский р-н,
+г Кудрово, Европейский пр-кт, д 3" />
+
+    <TextView
+        android:id="@+id/phone_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_text_view"
+        tools:text="8(981)835-50-20" />
+
+    <TextView
+        android:id="@+id/working_hours_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_text_view"
+        tools:text="10:00 – 23:00" />
+
+    <ImageView
+        android:id="@+id/show_nearest_metro_image_view"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="@drawable/bg_button_gradient"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_metro"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/working_hours_text_view"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/show_on_map_image_view"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="9dp"
+        android:background="@drawable/bg_button_gradient"
+        android:src="@drawable/ic_shop_marker"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="12dp"
+        app:layout_goneMarginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/show_nearest_metro_image_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/working_hours_text_view" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/gr2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
