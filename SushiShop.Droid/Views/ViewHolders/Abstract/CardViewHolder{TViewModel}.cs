@@ -20,7 +20,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Abstract
             return this.CreateBindingSet<CardViewHolder<TViewModel>, TViewModel>();
         }
 
-        protected override void DoInit(View view)
+        /* protected override void DoInit(View view)
         {
             base.DoInit(view);
 
@@ -30,6 +30,6 @@ namespace SushiShop.Droid.Views.ViewHolders.Abstract
             contentFrameLayout.SetRoundedCorners(view.Context.DpToPx(4));
 
             titleTextView = view.FindViewById<TextView>(Resource.Id.title_text_view);
-        }
+        } */
     }
 }

@@ -9,19 +9,21 @@ using static AndroidX.RecyclerView.Widget.RecyclerView;
 
 namespace SushiShop.Droid.Views.Adapters
 {
-    public class ProductsTabsAdapter : MvxRecyclerAdapter
+    public class TabsAdapter : MvxRecyclerAdapter
     {
+        private readonly long resourceLayoutId;
         private bool isClick;
 
-        public ProductsTabsAdapter()
+        public TabsAdapter()
         {
         }
 
-        public ProductsTabsAdapter(IMvxAndroidBindingContext bindingContext) : base(bindingContext)
+        public TabsAdapter(IMvxAndroidBindingContext bindingContext, long resourceLayoutId) : base(bindingContext)
         {
+            this.resourceLayoutId = resourceLayoutId;
         }
 
-        protected ProductsTabsAdapter(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        protected TabsAdapter(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
         {
         }
 
@@ -61,7 +63,7 @@ namespace SushiShop.Droid.Views.Adapters
 
         public override long GetItemId(int position)
         {
-            return Resource.Layout.item_product_tab;
+            return resourceLayoutId;
         }
 
         private void ChangeBackgroundSelectedItem(ViewHolder viewHolder)
