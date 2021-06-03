@@ -42,7 +42,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops
             showNearestMetroImageView = view.FindViewById<ImageView>(Resource.Id.show_nearest_metro_image_view);
             showOnMapImageView = view.FindViewById<ImageView>(Resource.Id.show_on_map_image_view);
 
-            var cornerRadius = view.Context.PxToDp(24);
+            var cornerRadius = view.Context.DpToPx(24);
             showNearestMetroImageView.SetRoundedCorners(cornerRadius);
             showOnMapImageView.SetRoundedCorners(cornerRadius);
         }
