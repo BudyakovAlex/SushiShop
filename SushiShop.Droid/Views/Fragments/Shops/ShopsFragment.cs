@@ -58,9 +58,9 @@ namespace SushiShop.Droid.Views.Fragments.Shops
             using var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(tabsRecyclerView).For(v => v.ItemsSource).To(vm => vm.TabsTitles);
+            bindingSet.Bind(contentRecyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(tabsAdapter).For(v => v.SelectedIndex).To(vm => vm.SelectedIndex).TwoWay();
-            bindingSet.Bind(contentRecyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(tabsLayoutManager).For(v => v.SpanCount).To(vm => vm.TabsTitles.Count);
         }
 
@@ -71,7 +71,7 @@ namespace SushiShop.Droid.Views.Fragments.Shops
 
             tabsRecyclerView.Adapter = tabsAdapter = new TabsAdapter((IMvxAndroidBindingContext)BindingContext, Resource.Layout.item_shops_tab);
             tabsRecyclerView.ItemTemplateId = Resource.Layout.item_shops_tab;
-            tabsRecyclerView.ItemClick = new MvxCommand<int>(OnTabClick);
+            contentRecyclerView.ItemClick = new MvxCommand<int>(OnTabClick);
         }
         
         private void InitializeContentRecyclerView()

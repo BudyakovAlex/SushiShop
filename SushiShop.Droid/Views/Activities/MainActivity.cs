@@ -123,7 +123,7 @@ namespace SushiShop.Droid.Views.Activities
 
         private void SetCartBadgeCount(long value)
         {
-            var tab = tabLayout.GetTabAt(CartTabIndex);
+            var tab = tabLayout?.GetTabAt(CartTabIndex);
             if (tab == null)
             {
                 return;

@@ -1,5 +1,4 @@
 ﻿using Android.Views;
-using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using SushiShop.Droid.Views.ViewHolders.Abstract;
@@ -8,8 +7,6 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
 {
     public class ShopsOnMapSectionViewHolder : CardViewHolder<ShopsOnMapSectionViewModel>
     {
-        private MvxRecyclerView recyclerView;
-
         public ShopsOnMapSectionViewHolder(View view, IMvxAndroidBindingContext context) : base(view, context)
         {
         }
