@@ -1,5 +1,8 @@
 ﻿using Android.App;
+using Android.Views;
 using AndroidX.AppCompat.Widget;
+using MvvmCross.Binding.Combiners;
+using MvvmCross.Platforms.Android.Binding;
 using SushiShop.Core.ViewModels.Shops;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Droid.Extensions;
@@ -12,6 +15,7 @@ namespace SushiShop.Droid.Views.Activities.Shops
     public class ShopOnMapActivity : BaseActivity<ShopOnMapViewModel>
     {
         private Toolbar toolbar;
+        private View loadingOverlayView;
 
         public ShopOnMapActivity() : base(Resource.Layout.activity_shop_on_map)
         {
@@ -27,6 +31,7 @@ namespace SushiShop.Droid.Views.Activities.Shops
             base.InitializeViewPoroperties();
 
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            loadingOverlayView = FindViewById<View>(Resource.Id.loading_overlay_view);
         }
 
         protected override void Bind()
@@ -38,6 +43,10 @@ namespace SushiShop.Droid.Views.Activities.Shops
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(toolbar).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(this).For(nameof(SelectedItemViewModel)).To(vm => vm.ShopItemViewModel);
+            bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).ByCombining(
+                new MvxAndValueCombiner(),
+                vm => vm.IsBusy,
+                vm => vm.IsNotRefreshing);
         }
 
         private void UpdateMarker(ShopItemViewModel viewModel)
