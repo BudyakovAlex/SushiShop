@@ -1,6 +1,7 @@
 ﻿using Android.Graphics;
 using Android.Text;
 using Android.Text.Method;
+using Android.Text.Style;
 using Android.Views;
 using Android.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
@@ -42,7 +43,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops
             showNearestMetroImageView = view.FindViewById<ImageView>(Resource.Id.show_nearest_metro_image_view);
             showOnMapImageView = view.FindViewById<ImageView>(Resource.Id.show_on_map_image_view);
 
-            var cornerRadius = view.Context.PxToDp(24);
+            var cornerRadius = view.Context.DpToPx(24);
             showNearestMetroImageView.SetRoundedCorners(cornerRadius);
             showOnMapImageView.SetRoundedCorners(cornerRadius);
         }
@@ -67,7 +68,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops
 
         private void SetPhonesSpannableString(string[] phones)
         {
-            if (phones == null)
+            if (phones is null)
             {
                 return;
             }
@@ -78,8 +79,11 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops
             foreach (var phone in phones)
             {
                 var startIndex = joinedText.IndexOf(phone);
-                var clickableSpan = new LinkSpan(OnLinkSpanClick, phone);
+                var clickableSpan = new LinkSpan(OnLinkSpanClick, phone, false);
                 spannableString.SetSpan(clickableSpan, startIndex, startIndex + phone.Length, SpanTypes.ExclusiveExclusive);
+
+                var foregroundColorSpan = new ForegroundColorSpan(new Color(phoneTextView.CurrentTextColor));
+                spannableString.SetSpan(foregroundColorSpan, startIndex, startIndex + phone.Length, SpanTypes.ExclusiveExclusive);
             }
 
             phoneTextView.MovementMethod = LinkMovementMethod.Instance;

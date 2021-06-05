@@ -82,27 +82,31 @@ namespace SushiShop.Droid.Views.Controls
             InitializeTitleTextView();
             InitializeRecyclerView();
 
+            SetOnClickListener(new ViewOnClickListener(OnContainerClickedAsync));
+
             Hide();
         }
 
         private void InitializeContainerLinearLayout()
         {
+            var frameLayoutParams = new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MatchParent,
+                    ViewGroup.LayoutParams.WrapContent, GravityFlags.Bottom);
+
             containerLayout = new LinearLayout(Context)
             {
-                LayoutParameters = new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MatchParent,
-                    ViewGroup.LayoutParams.WrapContent),
+                LayoutParameters = frameLayoutParams,
                 Orientation = Orientation.Vertical
             };
 
             containerLayout.SetTopRoundedCorners(Context.DpToPx(25));
-            containerLayout.SetBackgroundResource(Resource.Color.semitransparentBlack);
-            containerLayout.SetGravity(GravityFlags.Bottom);
-            containerLayout.SetOnClickListener(new ViewOnClickListener(OnContainerClickedAsync));
+            containerLayout.SetBackgroundResource(Resource.Color.white);
+            AddView(containerLayout);
         }
 
         private Task OnContainerClickedAsync(View _)
         {
+            Hide();
             CloseCommand?.Execute(null);
 
             return Task.CompletedTask;
@@ -143,8 +147,10 @@ namespace SushiShop.Droid.Views.Controls
                    ViewGroup.LayoutParams.MatchParent,
                    ViewGroup.LayoutParams.WrapContent)
                 {
-                    TopMargin = topMargin
+                    TopMargin = topMargin,
                 },
+
+                NestedScrollingEnabled = false
             };
 
             containerLayout.AddView(recyclerView);

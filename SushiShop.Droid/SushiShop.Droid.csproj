@@ -160,6 +160,7 @@
     <Compile Include="Views\ViewHolders\Shops\Sections\ShopsListSectionViewHolder.cs" />
     <Compile Include="Views\ViewHolders\Shops\Sections\ShopsOnMapSectionViewHolder.cs" />
     <Compile Include="Views\LayoutManagers\ScrollableMvxGuardedLinearLayoutManager.cs" />
+    <Compile Include="Views\ViewHolders\Shops\MetroItemViewHolder.cs" />
     <Compile Include="Helpers\HideTabLayoutHelper.cs" />
     <Compile Include="Views\Listeners\ViewPropertyAnimatorUpdateListener.cs" />
   </ItemGroup>
@@ -650,6 +651,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\item_shops_tab.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_metro.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

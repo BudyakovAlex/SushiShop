@@ -188,6 +188,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             var response = await OrdersManager.CalculateDiscountAsync(Phone);
             if (!response.IsSuccessful)
             {
+                DiscountByCard = 0;
                 return;
             }
 

@@ -38,8 +38,9 @@ namespace SushiShop.Ios.Formatters
                     changedString = changedString.Substring(0, location);
                 }
             }
-
-            textField.Text = changedString.FilterByMask(Constants.Format.Phone.MaskFormat);
+ 
+            var filteredText = changedString.FilterByMask(Constants.Format.Phone.MaskFormat);
+            textField.Text = filteredText;
             return false;
         }
     }

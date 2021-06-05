@@ -1,8 +1,11 @@
 ﻿using Android.App;
+using Android.Views;
 using AndroidX.AppCompat.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
+using MvvmCross.Binding.Combiners;
 using MvvmCross.DroidX.RecyclerView;
+using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Shops;
 using SushiShop.Core.ViewModels.Shops.Items;
@@ -18,6 +21,7 @@ namespace SushiShop.Droid.Views.Activities.Shops
     {
         private Toolbar toolbar;
         private NearestMetroView nearestMetroView;
+        private View loadingOverlayView;
         private MvxRecyclerView recyclerView;
 
         public ShopsNearMetroActivity() : base(Resource.Layout.activity_shops_near_metro)
@@ -49,6 +53,7 @@ namespace SushiShop.Droid.Views.Activities.Shops
 
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             nearestMetroView = FindViewById<NearestMetroView>(Resource.Id.nearest_metro_view);
+            loadingOverlayView = FindViewById<View>(Resource.Id.loading_overlay_view);
         }
 
         protected override void Bind()
@@ -60,6 +65,10 @@ namespace SushiShop.Droid.Views.Activities.Shops
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(toolbar).For(v => v.Title).To(vm => vm.Title);
             bindingSet.Bind(recyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
+            bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).ByCombining(
+                new MvxAndValueCombiner(),
+                vm => vm.IsBusy,
+                vm => vm.IsNotRefreshing);
 
             bindingSet.Bind(nearestMetroView).For(v => v.MetrosCollection).To(vm => vm.NearestMetro);
             bindingSet.Bind(this).For(v => v.IsNearestMetroNotEmpty).To(vm => vm.IsNearestMetroNotEmpty);
