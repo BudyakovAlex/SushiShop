@@ -244,7 +244,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
             {
                 var markerOptions = new MarkerOptions();
                 markerOptions.SetPosition(new LatLng(item.Latitude, item.Longitude));
-                markerOptions.SetIcon(GetBitmapDescriptor(item.IsSelected ? Resource.Drawable.ic_selected_marker : Resource.Drawable.ic_default_marker));
+                markerOptions.SetIcon(ItemView.Context.DrawableToBitmapDescriptor(item.IsSelected ? Resource.Drawable.ic_selected_marker : Resource.Drawable.ic_default_marker));
                 var marker = googleMap.AddMarker(markerOptions);
                 marker.Tag = new WrappedObject<ShopItemViewModel>(item);
             }
@@ -286,16 +286,6 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
             infoShopLinearLayout.LayoutParameters = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MatchParent, height);
             infoShopLinearLayout.TranslationY = ItemView.Height + ItemView.Context.DpToPx(50) - height;
             infoShopLinearLayout.Visibility = ViewStates.Visible;
-        }
-
-        private BitmapDescriptor GetBitmapDescriptor(int id)
-        {
-            var vectorDrawable = ItemView.Context.GetDrawable(id);
-            vectorDrawable.SetBounds(0, 0, vectorDrawable.IntrinsicWidth, vectorDrawable.IntrinsicHeight);
-            var bm = Bitmap.CreateBitmap(vectorDrawable.IntrinsicWidth, vectorDrawable.IntrinsicHeight, Bitmap.Config.Argb8888);
-            Canvas canvas = new Canvas(bm);
-            vectorDrawable.Draw(canvas);
-            return BitmapDescriptorFactory.FromBitmap(bm);
         }
 
         private void SetCamera()
@@ -372,6 +362,11 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
                     }
 
                     break;
+            }
+
+            if (!isMoved)
+            {
+                return;
             }
 
             infoShopLinearLayout.LayoutParameters = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MatchParent, height);

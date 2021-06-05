@@ -163,6 +163,7 @@
     <Compile Include="Views\ViewHolders\Shops\MetroItemViewHolder.cs" />
     <Compile Include="Helpers\HideTabLayoutHelper.cs" />
     <Compile Include="Views\Listeners\ViewPropertyAnimatorUpdateListener.cs" />
+    <Compile Include="Extensions\DrawableExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

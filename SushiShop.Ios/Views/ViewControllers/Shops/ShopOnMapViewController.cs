@@ -91,7 +91,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
                 var marker = Marker.FromPosition(position);
                 marker.Map = mapView;
                 marker.Icon = UIImage.FromBundle(ImageNames.DefaultMarker);
-                mapView.MoveCamera(CameraUpdate.SetTarget(position, 10));
+                mapView.MoveCamera(CameraUpdate.SetTarget(position, Core.Common.Constants.Map.DefaultZoomFactor));
                 if (!viewModel.IsSelectionMode)
                 {
                     SetShopDetailsBottomViewDataContext();
