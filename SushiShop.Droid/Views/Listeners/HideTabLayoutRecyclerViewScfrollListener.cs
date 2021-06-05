@@ -1,17 +1,10 @@
-﻿using System;
-using Android.Widget;
-using AndroidX.CoordinatorLayout.Widget;
-using AndroidX.RecyclerView.Widget;
-using AndroidX.ViewPager.Widget;
-using SushiShop.Droid.Views.Activities;
+﻿using AndroidX.RecyclerView.Widget;
+using SushiShop.Droid.Helpers;
 
 namespace SushiShop.Droid.Views.Listeners
 {
     public class HideTabLayoutRecyclerViewScrollListener : RecyclerView.OnScrollListener
     {
-        private ViewPager viewPager;
-        private LinearLayout bottomLinearLayout;
-
         public HideTabLayoutRecyclerViewScrollListener()
         {
         }
@@ -20,41 +13,12 @@ namespace SushiShop.Droid.Views.Listeners
         {
             base.OnScrolled(recyclerView, dx, dy);
 
-            if (!(recyclerView.Context is MainActivity mainActivity))
-            {
-                return;
-            }
-
-            if (viewPager == null)
-            {
-                viewPager = mainActivity.FindViewById<ViewPager>(Resource.Id.main_view_pager);
-            }
-
-            if (bottomLinearLayout == null)
-            {
-                bottomLinearLayout = mainActivity.FindViewById<LinearLayout>(Resource.Id.bottom_linear_layout);
-            }
-
-            SetPosition(Math.Max(0, Math.Min(bottomLinearLayout.Height, bottomLinearLayout.TranslationY + dy)));
+            HideTabLayoutHelper.Instance.SetPosition(dy);
         }
 
-        public void ResetPosition()
+        public void Show()
         {
-            SetPosition(0);
-        }
-
-        private void SetPosition(float margin)
-        {
-            if (bottomLinearLayout == null || viewPager == null)
-            {
-                return;
-            }
-
-            bottomLinearLayout.TranslationY = margin;
-            viewPager.LayoutParameters = new CoordinatorLayout.LayoutParams(viewPager.LayoutParameters)
-            {
-                BottomMargin = bottomLinearLayout.Height - (int)bottomLinearLayout.TranslationY
-            };
+            HideTabLayoutHelper.Instance.Show();
         }
     }
 }

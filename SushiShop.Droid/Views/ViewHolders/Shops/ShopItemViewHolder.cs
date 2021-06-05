@@ -67,6 +67,11 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops
 
         private void SetPhonesSpannableString(string[] phones)
         {
+            if (phones == null)
+            {
+                return;
+            }
+
             var joinedText = string.Join(", ", phones);
             var spannableString = new SpannableString(joinedText);
 

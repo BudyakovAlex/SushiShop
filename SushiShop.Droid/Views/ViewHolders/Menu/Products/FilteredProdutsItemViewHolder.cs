@@ -1,7 +1,6 @@
 ﻿using Android.Graphics;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
-using AndroidX.SwipeRefreshLayout.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using MvvmCross.Commands;
@@ -63,7 +62,14 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Products
 
         private void OnItemClick()
         {
-            tabLayoutRecyclerViewRecyclerViewListener.ResetPosition();
+            tabLayoutRecyclerViewRecyclerViewListener.Show();
+        }
+
+        public override void OnDetachedFromWindow()
+        {
+            base.OnDetachedFromWindow();
+
+            tabLayoutRecyclerViewRecyclerViewListener.Show();
         }
 
         private Rect CalculateItemMargin(int position, Rect rect)
