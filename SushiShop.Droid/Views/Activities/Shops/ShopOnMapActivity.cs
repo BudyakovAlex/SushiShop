@@ -4,7 +4,6 @@ using SushiShop.Core.ViewModels.Shops;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Views.Activities.Abstract;
-using System;
 
 namespace SushiShop.Droid.Views.Activities.Shops
 {

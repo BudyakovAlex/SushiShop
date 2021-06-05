@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Specialized;
-using Acr.UserDialogs;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Graphics;
