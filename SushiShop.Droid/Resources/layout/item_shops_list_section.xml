@@ -47,4 +47,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_card_view" />
 
+    <SushiShop.NearestMetroView
+        android:id="@+id/nearest_metro_view"
+        android:elevation="6dp"
+        android:translationZ="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/semitransparentBlack"
+        android:layout_height="0dp"
+        android:layout_width="0dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
