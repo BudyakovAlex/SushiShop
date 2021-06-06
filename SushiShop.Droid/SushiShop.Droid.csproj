@@ -161,9 +161,11 @@
     <Compile Include="Views\ViewHolders\Shops\Sections\ShopsOnMapSectionViewHolder.cs" />
     <Compile Include="Views\LayoutManagers\ScrollableMvxGuardedLinearLayoutManager.cs" />
     <Compile Include="Views\ViewHolders\Shops\MetroItemViewHolder.cs" />
-    <Compile Include="Helpers\HideTabLayoutHelper.cs" />
     <Compile Include="Views\Listeners\ViewPropertyAnimatorUpdateListener.cs" />
     <Compile Include="Extensions\DrawableExtension.cs" />
+    <Compile Include="Enums\ScrollDirection.cs" />
+    <Compile Include="Views\Controllers\TabLayoutController.cs" />
+    <Compile Include="Views\Controllers\ITabLayoutController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -767,7 +769,7 @@
     <Folder Include="Views\ViewHolders\Shops\" />
     <Folder Include="Views\Fragments\Shops\" />
     <Folder Include="Views\ViewHolders\Shops\Sections\" />
-    <Folder Include="Helpers\" />
+    <Folder Include="Views\Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.txt" />

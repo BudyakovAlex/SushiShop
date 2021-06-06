@@ -2,10 +2,8 @@
 using System.Collections.Specialized;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
-using Android.Graphics;
 using Android.Views;
 using Android.Widget;
-using AndroidX.ConstraintLayout.Widget;
 using AndroidX.Core.View;
 using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
@@ -23,7 +21,7 @@ using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using SushiShop.Droid.Extensions;
-using SushiShop.Droid.Helpers;
+using SushiShop.Droid.Views.Controllers;
 using SushiShop.Droid.Views.ViewHolders.Abstract;
 using SushiShop.Droid.Views.ViewHolders.Feedback;
 
@@ -31,6 +29,8 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
 {
     public class ShopsOnMapSectionViewHolder : CardViewHolder<ShopsOnMapSectionViewModel>, IOnMapReadyCallback
     {
+        private ITabLayoutController tabLayoutController;
+
         private GoogleMap googleMap;
         private SupportMapFragment mapFragment;
         private IDisposable subscription;
@@ -111,6 +111,8 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
         {
             base.DoInit(view);
 
+            tabLayoutController = MvvmCross.Mvx.IoCProvider.Resolve<ITabLayoutController>();
+
             infoShopLinearLayout = view.FindViewById<LinearLayout>(Resource.Id.info_shop_linear_layout);
             titleShopTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.title_shop_text_view);
             phoneShopTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.phone_shop_text_view);
@@ -128,9 +130,8 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
             galleryShopTitleTextView.Text = AppStrings.Gallery;
 
             infoShopLinearLayout.SetTopRoundedCorners(view.Context.DpToPx(25));
-
-            infoShopLinearLayout.SetOnTouchListener(new ViewOnTouchListener(OnInfoShopLinearLayoutTouch));
             infoShopLinearLayout.Visibility = ViewStates.Gone;
+            infoShopLinearLayout.SetOnTouchListener(new ViewOnTouchListener(OnInfoShopLinearLayoutTouch));
             contentShopScrollView.SetOnTouchListener(new ViewOnTouchListener(OnInfoShopScrollViewTouch));
             OpenOrHideShopDetailsView();
         }
@@ -254,10 +255,10 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
         {
             if (ViewModel?.SelectedItem == null)
             {
-                HideTabLayoutHelper.Instance.Show();
+                tabLayoutController.Show();
                 ViewCompat.Animate(infoShopLinearLayout)
                     .SetDuration(250)
-                    .TranslationY(ItemView.Height)
+                    .TranslationY(infoShopLinearLayout.Height)
                     .WithEndAction(new Runnable(() =>
                     {
                         infoShopLinearLayout.Visibility = ViewStates.Gone;
@@ -266,7 +267,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
                 return;
             }
 
-            HideTabLayoutHelper.Instance.Hide();
+            tabLayoutController.Hide();
 
             titleShopTextView.Text = ViewModel.SelectedItem.LongTitle;
             phoneShopTextView.Text = ViewModel.SelectedItem.Phone;
@@ -277,13 +278,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
             driveWayShopTextView.Visibility = driveWayShopTitleTextView.Visibility = ViewModel.SelectedItem.HasDriveWay ? ViewStates.Visible : ViewStates.Gone;
             galleryShopTitleTextView.Visibility = galleryShopRecyclerView.Visibility = ViewModel.SelectedItem.HasPhotos ? ViewStates.Visible : ViewStates.Gone;
 
-            if (infoShopLinearLayout.Visibility == ViewStates.Visible)
-            {
-                return;
-            }
-
             var height = (ItemView.Height + (int)ItemView.Context.DpToPx(50)) / 3;
-            infoShopLinearLayout.LayoutParameters = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MatchParent, height);
             infoShopLinearLayout.TranslationY = ItemView.Height + ItemView.Context.DpToPx(50) - height;
             infoShopLinearLayout.Visibility = ViewStates.Visible;
         }
@@ -369,7 +364,6 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
                 return;
             }
 
-            infoShopLinearLayout.LayoutParameters = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MatchParent, height);
             infoShopLinearLayout.TranslationY = ItemView.Height - height;
         }
 

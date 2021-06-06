@@ -2,18 +2,13 @@
 using Android.Content;
 using Android.Runtime;
 using MvvmCross.DroidX.RecyclerView;
+using SushiShop.Droid.Enums;
 
 namespace SushiShop.Droid.Views.LayoutManagers
 {
     public class ScrollableMvxGuardedLinearLayoutManager : MvxGuardedLinearLayoutManager
     {
-        public enum ScrollDirection
-        {
-            Vertical,
-            Horizontal
-        }
-
-        private Func<ScrollDirection, bool> canScrollFunc;
+        private readonly Func<ScrollDirection, bool> canScrollFunc;
 
         public ScrollableMvxGuardedLinearLayoutManager(Context context, Func<ScrollDirection, bool> canScrollFunc) : base(context)
         {

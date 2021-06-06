@@ -8,6 +8,7 @@ using SushiShop.Core.Plugins;
 using SushiShop.Droid.Plugins;
 using SushiShop.Droid.Presenter;
 using SushiShop.Droid.TargetBindings;
+using SushiShop.Droid.Views.Controllers;
 
 namespace SushiShop.Droid
 {
@@ -20,6 +21,7 @@ namespace SushiShop.Droid
             var container = CompositionRoot.Container;
 
             container.RegisterSingleton<IDialog, Dialog>();
+            container.RegisterSingleton<ITabLayoutController, TabLayoutController>();
         }
 
         protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)

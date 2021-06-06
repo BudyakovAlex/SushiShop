@@ -6,9 +6,9 @@ using AndroidX.ViewPager.Widget;
 using SushiShop.Droid.Views.Activities;
 using SushiShop.Droid.Views.Listeners;
 
-namespace SushiShop.Droid.Helpers
+namespace SushiShop.Droid.Views.Controllers
 {
-    public class HideTabLayoutHelper
+    public class TabLayoutController : ITabLayoutController
     {
         private const int AnimationDuration = 250;
 
@@ -16,22 +16,8 @@ namespace SushiShop.Droid.Helpers
         private LinearLayout bottomLinearLayout;
         private bool isHidden;
 
-        private HideTabLayoutHelper()
+        public TabLayoutController()
         {
-        }
-
-        private static HideTabLayoutHelper _instance;
-        public static HideTabLayoutHelper Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new HideTabLayoutHelper();
-                }
-
-                return _instance;
-            }
         }
 
         public void Show()
