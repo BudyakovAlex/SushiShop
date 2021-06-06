@@ -14,7 +14,7 @@ namespace SushiShop.Droid.Helpers
 
         private ViewPager viewPager;
         private LinearLayout bottomLinearLayout;
-        private bool isHide;
+        private bool isHidden;
 
         private HideTabLayoutHelper()
         {
@@ -36,36 +36,36 @@ namespace SushiShop.Droid.Helpers
 
         public void Show()
         {
-            if (!isHide || !CheckMembers())
+            if (!isHidden || !CheckAreMembersValid())
             {
                 return;
             }
 
-            isHide = false;
+            isHidden = false;
             SetPosition(-bottomLinearLayout.Height, true);
         }
 
         public void Hide()
         {
-            if (isHide || !CheckMembers())
+            if (isHidden || !CheckAreMembersValid())
             {
                 return;
             }
 
-            isHide = true;
+            isHidden = true;
             SetPosition(bottomLinearLayout.Height, true);
         }
 
-        public void SetPosition(float margin, bool animate = false)
+        public void SetPosition(float margin, bool shouldAnimate = false)
         {
-            if (!CheckMembers())
+            if (!CheckAreMembersValid())
             {
                 return;
             }
 
             margin = Math.Max(0, Math.Min(bottomLinearLayout.Height, bottomLinearLayout.TranslationY + margin));
             ViewCompat.Animate(bottomLinearLayout)
-                .SetDuration(animate ? AnimationDuration : 0)
+                .SetDuration(shouldAnimate ? AnimationDuration : 0)
                 .TranslationY(margin)
                 .SetUpdateListener(new ViewPropertyAnimatorUpdateListener(view =>
                 {
@@ -77,7 +77,7 @@ namespace SushiShop.Droid.Helpers
                 .Start();
         }
 
-        private bool CheckMembers()
+        private bool CheckAreMembersValid()
         {
             if (!(Xamarin.Essentials.Platform.CurrentActivity is MainActivity mainActivity))
             {
@@ -94,7 +94,7 @@ namespace SushiShop.Droid.Helpers
                 bottomLinearLayout = mainActivity.FindViewById<LinearLayout>(Resource.Id.bottom_linear_layout);
             }
 
-            return !(viewPager == null || bottomLinearLayout == null);
+            return viewPager != null || bottomLinearLayout != null;
         }
     }
 }

@@ -107,15 +107,12 @@ namespace SushiShop.Droid.Views.Fragments.Shops
 
         private bool CanScrollContentRecyclerView(ScrollableMvxGuardedLinearLayoutManager.ScrollDirection scrollDirection)
         {
-            switch (scrollDirection)
+            return scrollDirection switch
             {
-                case ScrollableMvxGuardedLinearLayoutManager.ScrollDirection.Horizontal:
-                    return ViewModel.SelectedIndex != 0;
-                case ScrollableMvxGuardedLinearLayoutManager.ScrollDirection.Vertical:
-                    return false;
-                default:
-                    return true;
-            }
+                ScrollableMvxGuardedLinearLayoutManager.ScrollDirection.Horizontal => ViewModel.SelectedIndex != 0,
+                ScrollableMvxGuardedLinearLayoutManager.ScrollDirection.Vertical => false,
+                _ => true,
+            };
         }
     }
 }
