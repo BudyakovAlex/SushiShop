@@ -1,4 +1,5 @@
 ﻿using AndroidX.RecyclerView.Widget;
+using SushiShop.Core.IoC;
 using SushiShop.Droid.Views.Controllers;
 
 namespace SushiShop.Droid.Views.Listeners
@@ -9,7 +10,7 @@ namespace SushiShop.Droid.Views.Listeners
 
         public HideTabLayoutRecyclerViewScrollListener()
         {
-            tabLayoutController = MvvmCross.Mvx.IoCProvider.Resolve<ITabLayoutController>();
+            tabLayoutController = CompositionRoot.Container.Resolve<ITabLayoutController>();
         }
 
         public override void OnScrolled(RecyclerView recyclerView, int dx, int dy)
