@@ -19,17 +19,5 @@ namespace SushiShop.Droid.Views.ViewHolders.Abstract
         {
             return this.CreateBindingSet<CardViewHolder<TViewModel>, TViewModel>();
         }
-
-        /* protected override void DoInit(View view)
-        {
-            base.DoInit(view);
-
-            this.view = view;
-
-            var contentFrameLayout = view.FindViewById<FrameLayout>(Resource.Id.content_frame_layout);
-            contentFrameLayout.SetRoundedCorners(view.Context.DpToPx(4));
-
-            titleTextView = view.FindViewById<TextView>(Resource.Id.title_text_view);
-        } */
     }
 }
