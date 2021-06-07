@@ -36,7 +36,10 @@ namespace SushiShop.Droid.Views.Activities
         public MainActivity()
             : base(Resource.Layout.activity_main)
         {
+            Instance = this;
         }
+
+        public static MainActivity Instance { get; private set; }
 
         public long BadgeCount
         {

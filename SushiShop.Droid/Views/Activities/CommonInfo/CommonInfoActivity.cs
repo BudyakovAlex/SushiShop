@@ -27,7 +27,6 @@ namespace SushiShop.Droid.Views.Activities.CommonInfo
 
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
-            webView.SetBackgroundColor(Color.Red);
         }
 
         protected override void Bind()

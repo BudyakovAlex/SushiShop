@@ -27,7 +27,6 @@ namespace SushiShop.Droid.Views.Controllers
                 return;
             }
 
-            isHidden = false;
             SetPosition(-bottomLinearLayout.Height, true);
         }
 
@@ -38,7 +37,6 @@ namespace SushiShop.Droid.Views.Controllers
                 return;
             }
 
-            isHidden = true;
             SetPosition(bottomLinearLayout.Height, true);
         }
 
@@ -50,6 +48,8 @@ namespace SushiShop.Droid.Views.Controllers
             }
 
             margin = Math.Max(0, Math.Min(bottomLinearLayout.Height, bottomLinearLayout.TranslationY + margin));
+            isHidden = margin == bottomLinearLayout.Height;
+
             ViewCompat.Animate(bottomLinearLayout)
                 .SetDuration(shouldAnimate ? AnimationDuration : 0)
                 .TranslationY(margin)
@@ -65,19 +65,14 @@ namespace SushiShop.Droid.Views.Controllers
 
         private bool CheckAreMembersValid()
         {
-            if (!(Xamarin.Essentials.Platform.CurrentActivity is MainActivity mainActivity))
-            {
-                return false;
-            }
-
             if (viewPager == null)
             {
-                viewPager = mainActivity.FindViewById<ViewPager>(Resource.Id.main_view_pager);
+                viewPager = MainActivity.Instance.FindViewById<ViewPager>(Resource.Id.main_view_pager);
             }
 
             if (bottomLinearLayout == null)
             {
-                bottomLinearLayout = mainActivity.FindViewById<LinearLayout>(Resource.Id.bottom_linear_layout);
+                bottomLinearLayout = MainActivity.Instance.FindViewById<LinearLayout>(Resource.Id.bottom_linear_layout);
             }
 
             return viewPager != null || bottomLinearLayout != null;
