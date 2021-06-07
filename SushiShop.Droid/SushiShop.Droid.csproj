@@ -166,6 +166,7 @@
     <Compile Include="Enums\ScrollDirection.cs" />
     <Compile Include="Views\Controllers\TabLayoutController.cs" />
     <Compile Include="Views\Controllers\ITabLayoutController.cs" />
+    <Compile Include="Views\Controls\ShopDetailsBottomView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -666,6 +667,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\ic_selected_marker.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\layout_shop_details.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

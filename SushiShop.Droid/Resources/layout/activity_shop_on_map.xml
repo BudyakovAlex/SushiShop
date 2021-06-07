@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
 
     <include
@@ -22,115 +21,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_container" />
 
-    <LinearLayout
-        android:id="@+id/info_shop_linear_layout"
+    <FrameLayout
+        android:id="@+id/container_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="18dp"
-        android:background="@color/white"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_container"
-        app:layout_constraintVertical_bias="1">
-
-        <View
-            android:layout_width="70dp"
-            android:layout_height="4dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:background="@color/gr2" />
-
-        <ScrollView
-            android:id="@+id/content_shop_scroll_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/title_shop_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:fontFamily="@font/sf_pro_display_bold"
-                    android:textColor="@color/black"
-                    android:textFontWeight="500"
-                    android:textSize="18dp"
-                    tools:text="Лиговский проспект" />
-
-                <TextView
-                    android:id="@+id/phone_shop_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="16dp"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    tools:text="8(981)535-50-20" />
-
-                <TextView
-                    android:id="@+id/time_working_shop_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    tools:text="10:00-22:30" />
-
-                <TextView
-                    android:id="@+id/drive_way_shop_title_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginEnd="16dp"
-                    android:fontFamily="@font/sf_pro_display_bold"
-                    android:textColor="@color/black"
-                    android:textFontWeight="500"
-                    android:textSize="16dp"
-                    tools:text="Проезд:" />
-
-                <TextView
-                    android:id="@+id/drive_way_shop_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="16dp"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    tools:text="очень длинный текст, для того чтобы пользователь наконец понял где находится этот магазин" />
-
-                <TextView
-                    android:id="@+id/gallery_title_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="16dp"
-                    android:fontFamily="@font/sf_pro_display_bold"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    tools:text="Галерея:" />
-
-                <mvvmcross.droidx.recyclerview.MvxRecyclerView
-                    android:id="@+id/gallery_recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="30dp" />
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/toolbar_container" />
 
     <View
         android:layout_width="match_parent"

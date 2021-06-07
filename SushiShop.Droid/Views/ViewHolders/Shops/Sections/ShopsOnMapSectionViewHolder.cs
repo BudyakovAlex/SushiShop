@@ -3,50 +3,25 @@ using System.Collections.Specialized;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Views;
-using Android.Widget;
-using AndroidX.Core.View;
 using BuildApps.Core.Mobile.Common.Extensions;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
-using Java.Lang;
-using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Views;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Common;
-using SushiShop.Core.Resources;
-using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using SushiShop.Droid.Extensions;
-using SushiShop.Droid.Views.Controllers;
+using SushiShop.Droid.Views.Controls;
 using SushiShop.Droid.Views.ViewHolders.Abstract;
-using SushiShop.Droid.Views.ViewHolders.Feedback;
 
 namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
 {
     public class ShopsOnMapSectionViewHolder : CardViewHolder<ShopsOnMapSectionViewModel>, IOnMapReadyCallback
     {
-        private ITabLayoutController tabLayoutController;
-
         private GoogleMap googleMap;
         private SupportMapFragment mapFragment;
         private IDisposable subscription;
-        private LinearLayout infoShopLinearLayout;
-        private TextView titleShopTextView;
-        private TextView phoneShopTextView;
-        private TextView timeWorkingShopTextView;
-        private TextView driveWayShopTitleTextView;
-        private TextView driveWayShopTextView;
-        private TextView galleryShopTitleTextView;
-        private MvxRecyclerView galleryShopRecyclerView;
-        private ScrollView contentShopScrollView;
-        private bool isMoved;
-        private float startRawY;
-        private float startViewY;
-        private bool isExpandedInfoShop;
+        private ShopDetailsBottomView shopDetailsBottomView;
 
         public ShopsOnMapSectionViewHolder(View view, IMvxAndroidBindingContext context) : base(view, context)
         {
@@ -111,28 +86,10 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
         {
             base.DoInit(view);
 
-            tabLayoutController = MvvmCross.Mvx.IoCProvider.Resolve<ITabLayoutController>();
-
-            infoShopLinearLayout = view.FindViewById<LinearLayout>(Resource.Id.info_shop_linear_layout);
-            titleShopTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.title_shop_text_view);
-            phoneShopTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.phone_shop_text_view);
-            timeWorkingShopTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.time_working_shop_text_view);
-            driveWayShopTitleTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.drive_way_shop_title_text_view);
-            driveWayShopTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.drive_way_shop_text_view);
-            galleryShopTitleTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.gallery_title_text_view);
-            galleryShopRecyclerView = infoShopLinearLayout.FindViewById<MvxRecyclerView>(Resource.Id.gallery_recycler_view);
-            contentShopScrollView = infoShopLinearLayout.FindViewById<ScrollView>(Resource.Id.content_shop_scroll_view);
+            shopDetailsBottomView = new ShopDetailsBottomView(ItemView.Context, BindingContext);
+            shopDetailsBottomView.HideEvent += OnShopDetailsBottomViewHide;
 
             InitializeMap();
-            InitializeGalleryRecyclerView();
-
-            driveWayShopTitleTextView.Text = AppStrings.DriveWay;
-            galleryShopTitleTextView.Text = AppStrings.Gallery;
-
-            infoShopLinearLayout.SetTopRoundedCorners(view.Context.DpToPx(25));
-            infoShopLinearLayout.Visibility = ViewStates.Gone;
-            infoShopLinearLayout.SetOnTouchListener(new ViewOnTouchListener(OnInfoShopLinearLayoutTouch));
-            contentShopScrollView.SetOnTouchListener(new ViewOnTouchListener(OnInfoShopScrollViewTouch));
             OpenOrHideShopDetailsView();
         }
 
@@ -170,6 +127,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
                 subscription?.Dispose();
                 googleMap.MarkerClick -= OnMarkerClick;
                 googleMap.MapClick -= OnMapClick;
+                shopDetailsBottomView.HideEvent -= OnShopDetailsBottomViewHide;
             }
         }
 
@@ -193,16 +151,6 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
             mapFragment.GetMapAsync(this);
         }
 
-        private void InitializeGalleryRecyclerView()
-        {
-            galleryShopRecyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
-            galleryShopRecyclerView.ItemTemplateSelector = new TemplateSelector()
-                .AddElement<PhotoItemViewModel, FeedbackPhotoItemViewHolder>(Resource.Layout.item_feedback_photo);
-
-            var layoutManager = new MvxGuardedLinearLayoutManager(ItemView.Context) { Orientation = MvxGuardedLinearLayoutManager.Horizontal };
-            galleryShopRecyclerView.SetLayoutManager(layoutManager);
-        }
-
         private void OnMarkerClick(object sender, GoogleMap.MarkerClickEventArgs e)
         {
             if (e.Marker.Tag.IsNotNull() && e.Marker.Tag is WrappedObject<ShopItemViewModel> wrappedObject)
@@ -212,6 +160,11 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
         }
 
         private void OnMapClick(object sender, GoogleMap.MapClickEventArgs e)
+        {
+            SetMarker(ViewModel?.SelectedItem);
+        }
+
+        private void OnShopDetailsBottomViewHide(object sender, EventArgs e)
         {
             SetMarker(ViewModel?.SelectedItem);
         }
@@ -255,32 +208,12 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
         {
             if (ViewModel?.SelectedItem == null)
             {
-                tabLayoutController.Show();
-                ViewCompat.Animate(infoShopLinearLayout)
-                    .SetDuration(250)
-                    .TranslationY(infoShopLinearLayout.Height)
-                    .WithEndAction(new Runnable(() =>
-                    {
-                        infoShopLinearLayout.Visibility = ViewStates.Gone;
-                    }))
-                    .Start();
+                shopDetailsBottomView.Hide();
                 return;
             }
 
-            tabLayoutController.Hide();
-
-            titleShopTextView.Text = ViewModel.SelectedItem.LongTitle;
-            phoneShopTextView.Text = ViewModel.SelectedItem.Phone;
-            timeWorkingShopTextView.Text = ViewModel.SelectedItem.WorkingTime;
-            driveWayShopTextView.Text = ViewModel.SelectedItem.DriveWay;
-            galleryShopRecyclerView.ItemsSource = ViewModel.SelectedItem.Photos;
-
-            driveWayShopTextView.Visibility = driveWayShopTitleTextView.Visibility = ViewModel.SelectedItem.HasDriveWay ? ViewStates.Visible : ViewStates.Gone;
-            galleryShopTitleTextView.Visibility = galleryShopRecyclerView.Visibility = ViewModel.SelectedItem.HasPhotos ? ViewStates.Visible : ViewStates.Gone;
-
-            var height = (ItemView.Height + (int)ItemView.Context.DpToPx(50)) / 3;
-            infoShopLinearLayout.TranslationY = ItemView.Height + ItemView.Context.DpToPx(50) - height;
-            infoShopLinearLayout.Visibility = ViewStates.Visible;
+            shopDetailsBottomView.SetData(ViewModel.SelectedItem);
+            shopDetailsBottomView.Show();
         }
 
         private void SetCamera()
@@ -289,82 +222,6 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
             var currentZoom = zoom == 0 ? Core.Common.Constants.Map.DefaultZoomFactor : zoom;
             var cameraPosition = CameraPosition.FromLatLngZoom(coordinates, currentZoom);
             googleMap?.MoveCamera(CameraUpdateFactory.NewCameraPosition(cameraPosition));
-        }
-
-        private bool OnInfoShopLinearLayoutTouch(View view, MotionEvent e)
-        {
-            ActionTouch(e);
-            return false;
-        }
-
-        private bool OnInfoShopScrollViewTouch(View view, MotionEvent e)
-        {
-            ActionTouch(e);
-            return false;
-        }
-
-        private void ActionTouch(MotionEvent e)
-        {
-            int height = 0;
-            switch (e.ActionMasked)
-            {
-                case MotionEventActions.Down:
-                    startRawY = e.RawY;
-                    startViewY = e.GetY();
-                    isMoved = false;
-                    break;
-                case MotionEventActions.Move:
-                    isMoved = true;
-                    var location = new int[2];
-                    ItemView.GetLocationOnScreen(location);
-                    height = ItemView.Height - ((int)e.RawY - location[1] - (int)startViewY);
-
-                    if (height < ItemView.Height)
-                    {
-                        contentShopScrollView.ScrollTo(0, 0);
-                    }
-
-                    if (height > ItemView.Height - ItemView.Context.DpToPx(18))
-                    {
-                        return;
-                    }
-
-                    break;
-                case MotionEventActions.Up:
-                case MotionEventActions.Cancel:
-                    if (!isMoved)
-                    {
-                        break;
-                    }
-
-                    if (e.RawY > startRawY)
-                    {
-                        if (isExpandedInfoShop)
-                        {
-                            height = (int)(ItemView.Height * 0.3);
-                            isExpandedInfoShop = !isExpandedInfoShop;
-                        }
-                        else
-                        {
-                            SetMarker(ViewModel?.SelectedItem);
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        height = ItemView.Height - (int)ItemView.Context.DpToPx(18);
-                        isExpandedInfoShop = !isExpandedInfoShop;
-                    }
-
-                    break;
-            }
-
-            if (!isMoved)
-            {
-                return;
-            }
-
-            infoShopLinearLayout.TranslationY = ItemView.Height - height;
         }
 
         private class WrappedObject<TData> : Java.Lang.Object
