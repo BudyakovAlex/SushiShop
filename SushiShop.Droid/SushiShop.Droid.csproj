@@ -110,7 +110,7 @@
     <Compile Include="Views\Fragments\Menu\ProductDetailsFragment.cs" />
     <Compile Include="Enums\BehaviorScrollListener.cs" />
     <Compile Include="Views\ViewHolders\Menu\Products\RelatedProductItemViewHolder.cs" />
-    <Compile Include="Views\Adapters\ProductsTabsAdapter.cs" />
+    <Compile Include="Views\Adapters\TabsAdapter.cs" />
     <Compile Include="Views\Controls\BigStepperView.cs" />
     <Compile Include="Views\Listeners\HideTabLayoutRecyclerViewScfrollListener.cs" />
     <Compile Include="Presenter\CustomAndroidViewPresenter.cs" />
@@ -146,10 +146,27 @@
     <Compile Include="Views\Listeners\ScaleListener.cs" />
     <Compile Include="Views\Listeners\ViewOnKeyListener.cs" />
     <Compile Include="Views\ViewHolders\Profile\ImageBonusProgramItemViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Info\InfoMenuItemViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Info\SocialNetworkItemViewHolder.cs" />
     <Compile Include="Views\Controls\EndlessRecyclerView.cs" />
     <Compile Include="Platform\Listeners\EndlessScrollChangedListener.cs" />
     <Compile Include="Views\Activities\Shops\ShopsNearMetroActivity.cs" />
     <Compile Include="Views\Controls\NearestMetroView.cs" />
+    <Compile Include="Views\ViewHolders\Shops\NearestMetroItemViewHolder.cs" />
+    <Compile Include="Views\Activities\Shops\ShopOnMapActivity.cs" />
+    <Compile Include="Views\ViewHolders\Shops\ShopItemViewHolder.cs" />
+    <Compile Include="Views\Fragments\Shops\ShopsFragment.cs" />
+    <Compile Include="Views\ViewHolders\Shops\Sections\MetroSectionViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Shops\Sections\ShopsListSectionViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Shops\Sections\ShopsOnMapSectionViewHolder.cs" />
+    <Compile Include="Views\LayoutManagers\ScrollableMvxGuardedLinearLayoutManager.cs" />
+    <Compile Include="Views\ViewHolders\Shops\MetroItemViewHolder.cs" />
+    <Compile Include="Views\Listeners\ViewPropertyAnimatorUpdateListener.cs" />
+    <Compile Include="Extensions\DrawableExtension.cs" />
+    <Compile Include="Enums\ScrollDirection.cs" />
+    <Compile Include="Views\Controllers\TabLayoutController.cs" />
+    <Compile Include="Views\Controllers\ITabLayoutController.cs" />
+    <Compile Include="Views\Controls\ShopDetailsBottomView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -589,7 +606,71 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_info_menu.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_shops_near_metro.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_info_social_network.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_nearest_metro.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_shop_on_map.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_shop.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_metro.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_shop_marker.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_shops.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_metro_section.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_shops_list_section.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_shops_on_map_section.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_shops_tab.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_metro.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_default_marker.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_selected_marker.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\layout_shop_details.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -640,6 +721,9 @@
     <PackageReference Include="Xamarin.Android.PhotoView">
       <Version>2.1.4</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.GooglePlayServices.Maps">
+      <Version>117.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">
@@ -685,7 +769,12 @@
     <Folder Include="Views\Activities\Common\" />
     <Folder Include="Views\ViewHolders\Profile\" />
     <Folder Include="Resources\xml\" />
+    <Folder Include="Views\ViewHolders\Info\" />
     <Folder Include="Views\Activities\Shops\" />
+    <Folder Include="Views\ViewHolders\Shops\" />
+    <Folder Include="Views\Fragments\Shops\" />
+    <Folder Include="Views\ViewHolders\Shops\Sections\" />
+    <Folder Include="Views\Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.txt" />

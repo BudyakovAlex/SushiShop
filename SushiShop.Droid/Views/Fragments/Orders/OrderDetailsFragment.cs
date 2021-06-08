@@ -86,7 +86,7 @@ namespace SushiShop.Droid.Views.Fragments.Orders
             using var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(toolbar).For(v => v.Title).To(v => v.Title);
-            bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
+            bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand).OneTime();
             bindingSet.Bind(orderCompositionTitleTextView).For(v => v.Text).To(vm => vm.ShowOrderCompositionTitle);
             bindingSet.Bind(compositionContainerView).For(v => v.BindClick()).To(vm => vm.ShowOrderCompositionCommand);
             bindingSet.Bind(numberTextView).For(v => v.Text).To(vm => vm.OrderNumber);

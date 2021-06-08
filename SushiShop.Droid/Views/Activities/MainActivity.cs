@@ -36,7 +36,10 @@ namespace SushiShop.Droid.Views.Activities
         public MainActivity()
             : base(Resource.Layout.activity_main)
         {
+            Instance = this;
         }
+
+        public static MainActivity Instance { get; private set; }
 
         public long BadgeCount
         {
@@ -123,7 +126,7 @@ namespace SushiShop.Droid.Views.Activities
 
         private void SetCartBadgeCount(long value)
         {
-            var tab = tabLayout.GetTabAt(CartTabIndex);
+            var tab = tabLayout?.GetTabAt(CartTabIndex);
             if (tab == null)
             {
                 return;

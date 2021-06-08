@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using Android.Widget;
+﻿using Android.Widget;
 using Bumptech.Glide;
 using MvvmCross.Platforms.Android.Binding.Target;
 

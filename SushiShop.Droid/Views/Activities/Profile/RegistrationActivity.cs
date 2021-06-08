@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Android.App;
+﻿using Android.App;
 using Android.Graphics;
 using Android.Text;
 using Android.Text.Method;
@@ -19,6 +17,8 @@ using SushiShop.Droid.Platform.Watchers;
 using SushiShop.Droid.Views.Activities.Abstract;
 using SushiShop.Droid.Views.Listeners;
 using SushiShop.Droid.Views.Spans;
+using System;
+using System.Threading.Tasks;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Activities.Profile
@@ -61,7 +61,7 @@ namespace SushiShop.Droid.Views.Activities.Profile
 
             nameTextEditText.SetOnKeyListener(new ViewOnKeyListener(OnNameEditTextKeyListener));
             dateOfBirthTextEditText.InputType = InputTypes.Null;
-            dateOfBirthTextEditText.SetOnClickListener(new ViewOnClickListener(OnBirthdayTextEditTextClick));
+            dateOfBirthTextEditText.SetOnClickListener(new ViewOnClickListener(OnBirthdayTextEditTextClickedAsync));
             registerButton.Text = AppStrings.Register;
             toolbar.Title = AppStrings.Registration;
             FindViewById<TextInputLayout>(Resource.Id.name_text_input_layout).Hint = AppStrings.NameAndSurnameRequired;
@@ -75,7 +75,7 @@ namespace SushiShop.Droid.Views.Activities.Profile
             registerButton.SetRoundedCorners(this.DpToPx(25));
 
             var spannableString = new SpannableString(AppStrings.PrivacyPolicyConfirmation);
-            var clickableSpan = new LinkSpan(OnLinkSpanClick);
+            var clickableSpan = new LinkSpan((_) => OnLinkSpanClick());
             spannableString.SetSpan(clickableSpan, StartClickablePrivacyPolicy, EndClickablePrivacyPolicy, SpanTypes.ExclusiveExclusive);
             var textView = FindViewById<TextView>(Resource.Id.terms_text_view);
             textView.SetText(spannableString, TextView.BufferType.Spannable);
@@ -98,9 +98,10 @@ namespace SushiShop.Droid.Views.Activities.Profile
             bindingSet.Bind(pushNotificationsSwitch).For(v => v.BindChecked()).To(vm => vm.IsAcceptPushNotifications);
             bindingSet.Bind(emailNotificationsSwitch).For(v => v.BindChecked()).To(vm => vm.IsAcceptEmailNotifications);
             bindingSet.Bind(smsNotificationsSwitch).For(v => v.BindChecked()).To(vm => vm.IsAcceptSmsNotifications);
+            bindingSet.Bind(registerButton).For(v => v.BindClick()).To(vm => vm.RegisterCommand);
         }
 
-        private async Task OnBirthdayTextEditTextClick(View view)
+        private async Task OnBirthdayTextEditTextClickedAsync(View view)
         {
             var date = ViewModel?.DateOfBirth ?? DateTime.Now;
             var datePickerDialog = new DatePickerDialog(this, OnDatePickerDialogSelectDate, date.Year, date.Month, date.Day);

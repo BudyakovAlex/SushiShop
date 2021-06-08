@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Graphics;
 using Android.Webkit;
 using AndroidX.AppCompat.Widget;
 using MvvmCross.Platforms.Android.Binding;
