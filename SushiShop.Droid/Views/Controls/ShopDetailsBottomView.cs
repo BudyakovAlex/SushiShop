@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Android.Content;
 using Android.Runtime;
 using Android.Views;
@@ -43,6 +44,7 @@ namespace SushiShop.Droid.Views.Controls
         private float startViewY;
         private bool isExpandedInfoShop;
         private bool isShowedView;
+        private bool isFirstOpen = true;
 
         public event EventHandler HideEvent;
 
@@ -69,6 +71,11 @@ namespace SushiShop.Droid.Views.Controls
             if (isShowedView)
             {
                 return;
+            }
+
+            if (isFirstOpen)
+            {
+                infoShopLinearLayout.TranslationY = containerFrameLayout.Height;
             }
 
             isShowedView = true;
