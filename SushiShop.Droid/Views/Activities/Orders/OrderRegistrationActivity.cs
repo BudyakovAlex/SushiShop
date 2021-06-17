@@ -1,30 +1,31 @@
-﻿using Android.OS;
+﻿using Android.App;
 using Android.Views;
+using AndroidX.AppCompat.Widget;
 using AndroidX.RecyclerView.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
+using MvvmCross.Binding.Combiners;
 using MvvmCross.Commands;
 using MvvmCross.DroidX.RecyclerView;
+using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.Resources;
-using SushiShop.Core.ViewModels.Info;
-using SushiShop.Core.ViewModels.Shops.Sections;
+using SushiShop.Core.ViewModels.Orders;
+using SushiShop.Core.ViewModels.Orders.Sections;
 using SushiShop.Droid.Enums;
 using SushiShop.Droid.Extensions;
-using SushiShop.Droid.Presenter.Attributes;
+using SushiShop.Droid.Views.Activities.Abstract;
 using SushiShop.Droid.Views.Adapters;
-using SushiShop.Droid.Views.LayoutManagers;
 using SushiShop.Droid.Views.Listeners;
-using SushiShop.Droid.Views.ViewHolders.Shops.Sections;
-using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
+using SushiShop.Droid.Views.ViewHolders.Orders;
 
-namespace SushiShop.Droid.Views.Fragments.Shops
+namespace SushiShop.Droid.Views.Activities.Orders
 {
-    [NestedFragmentPresentation(FragmentContentId = Resource.Id.container_view)]
-    public class ShopsFragment : BaseFragment<ShopsViewModel>
+    [Activity]
+    public class OrderRegistrationActivity : BaseActivity<OrderRegistrationViewModel>
     {
         private Toolbar toolbar;
+        private View loadingOverlayView;
         private MvxRecyclerView tabsRecyclerView;
         private MvxRecyclerView contentRecyclerView;
         private TabsAdapter tabsAdapter;
@@ -33,23 +34,23 @@ namespace SushiShop.Droid.Views.Fragments.Shops
         private SnapOnScrollListener scrollListener;
         private PagerSnapHelper snapHelper;
 
-        public ShopsFragment()
-            : base(Resource.Layout.fragment_shops)
+        public OrderRegistrationActivity() : base(Resource.Layout.activity_order_registration)
         {
         }
 
-        protected override void InitializeViewPoroperties(View view, Bundle savedInstanceState)
+        protected override void InitializeViewPoroperties()
         {
-            base.InitializeViewPoroperties(view, savedInstanceState);
+            base.InitializeViewPoroperties();
 
-            tabsRecyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.shops_tabs_recycler_view);
-            contentRecyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.shops_content_recycler_view);
-            toolbar = view.FindViewById<Toolbar>(Resource.Id.toolbar);
+            loadingOverlayView = FindViewById<View>(Resource.Id.loading_overlay_view);
+            tabsRecyclerView = FindViewById<MvxRecyclerView>(Resource.Id.tabs_recycler_view);
+            contentRecyclerView = FindViewById<MvxRecyclerView>(Resource.Id.content_recycler_view);
+            toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 
             InitializeTabsRecyclerView();
             InitializeContentRecyclerView();
 
-            toolbar.Title = AppStrings.Shops;
+            toolbar.Title = AppStrings.OrderRegistrationTitle;
         }
 
         protected override void Bind()
@@ -61,28 +62,32 @@ namespace SushiShop.Droid.Views.Fragments.Shops
             bindingSet.Bind(tabsRecyclerView).For(v => v.ItemsSource).To(vm => vm.TabsTitles);
             bindingSet.Bind(contentRecyclerView).For(v => v.ItemsSource).To(vm => vm.Items);
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
-            bindingSet.Bind(tabsAdapter).For(v => v.SelectedIndex).To(vm => vm.SelectedIndex).TwoWay();
             bindingSet.Bind(tabsLayoutManager).For(v => v.SpanCount).To(vm => vm.TabsTitles.Count);
+            bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).ByCombining(
+                new MvxOrValueCombiner(),
+                vm => vm.PickupOrderSectionViewModel.ExecutionStateWrapper.IsBusy,
+                vm => vm.DeliveryOrderSectionViewModel.ExecutionStateWrapper.IsBusy);
         }
 
         private void InitializeTabsRecyclerView()
         {
-            tabsLayoutManager = new MvxGuardedGridLayoutManager(Context, 3);
+            tabsLayoutManager = new MvxGuardedGridLayoutManager(this, 2);
             tabsRecyclerView.SetLayoutManager(tabsLayoutManager);
 
             tabsRecyclerView.Adapter = tabsAdapter = new TabsAdapter((IMvxAndroidBindingContext)BindingContext, Resource.Layout.item_tab);
             tabsRecyclerView.ItemTemplateId = Resource.Layout.item_tab;
             tabsAdapter.ItemClick = new MvxCommand<int>(OnTabClick);
+            tabsAdapter.SelectedIndex = 0;
         }
-        
+
         private void InitializeContentRecyclerView()
         {
             contentRecyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
             contentRecyclerView.ItemTemplateSelector = new TemplateSelector()
-                .AddElement<MetroSectionViewModel, MetroSectionViewHolder>(Resource.Layout.item_metro_section)
-                .AddElement<ShopsListSectionViewModel, ShopsListSectionViewHolder>(Resource.Layout.item_shops_list_section)
-                .AddElement<ShopsOnMapSectionViewModel, ShopsOnMapSectionViewHolder>(Resource.Layout.item_shops_on_map_section);
-            contentLayoutManager = new ScrollableMvxGuardedLinearLayoutManager(Context, CanScrollContentRecyclerView) { Orientation = MvxGuardedLinearLayoutManager.Horizontal };
+                .AddElement<DeliveryOrderSectionViewModel, DeliveryOrderSectionViewHolder>(Resource.Layout.item_delivery_order_section)
+                .AddElement<PickupOrderSectionViewModel, PickupOrderSectionViewHolder>(Resource.Layout.item_pickup_order_section);
+
+            contentLayoutManager = new MvxGuardedLinearLayoutManager(this) { Orientation = LinearLayoutManager.Horizontal };
             contentRecyclerView.SetLayoutManager(contentLayoutManager);
 
             snapHelper = new PagerSnapHelper();
@@ -103,16 +108,6 @@ namespace SushiShop.Droid.Views.Fragments.Shops
         {
             tabsAdapter.SelectedIndex = position;
             tabsLayoutManager.ScrollToPosition(position);
-        }
-
-        private bool CanScrollContentRecyclerView(ScrollDirection scrollDirection)
-        {
-            return scrollDirection switch
-            {
-                ScrollDirection.Horizontal => ViewModel.SelectedIndex != 0,
-                ScrollDirection.Vertical => false,
-                _ => true,
-            };
         }
     }
 }
