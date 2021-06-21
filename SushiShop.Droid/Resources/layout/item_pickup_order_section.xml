@@ -515,5 +515,223 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/summary_container_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment_method_container_view">
+
+            <View android:id="@+id/summary_divider_view"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="10dp"
+                android:layout_width="0dp"
+                android:background="@color/background"/>
+
+            <TextView
+                android:id="@+id/products_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:layout_marginTop="14dp"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/summary_divider_view"
+                tools:text="Товары:" />
+
+            <TextView
+                android:id="@+id/pickup_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:layout_marginTop="8dp"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/products_title_text_view"
+                tools:text="Самовывоз:" />
+
+            <TextView
+                android:id="@+id/discount_by_promocode_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:layout_marginTop="8dp"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pickup_title_text_view"
+                tools:text="Скидка по промокоду:" />
+
+            <TextView
+                android:id="@+id/discount_by_card_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:layout_marginTop="8dp"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/discount_by_promocode_title_text_view"
+                tools:text="Скидка по карте:" />
+
+            <TextView
+                android:id="@+id/applied_scores_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:layout_marginTop="8dp"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/discount_by_card_title_text_view"
+                tools:text="Списанно баллов:" />
+
+            <TextView
+                android:id="@+id/total_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:layout_marginTop="8dp"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/applied_scores_title_text_view"
+                tools:text="Итого:" />
+
+            <TextView
+                android:id="@+id/products_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:layout_marginTop="14dp"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/summary_divider_view"
+                tools:text="1 360 ₽" />
+
+            <TextView
+                android:id="@+id/pickup_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:layout_marginTop="8dp"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/products_text_view"
+                tools:text="Бесплатно" />
+
+            <TextView
+                android:id="@+id/discount_by_promocode_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:layout_marginTop="8dp"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pickup_text_view"
+                tools:text="-160 ₽" />
+
+            <TextView
+                android:id="@+id/discount_by_card_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:layout_marginTop="8dp"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/discount_by_promocode_text_view"
+                tools:text="-160 ₽" />
+
+            <TextView
+                android:id="@+id/applied_scores_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:layout_marginTop="8dp"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/discount_by_card_text_view"
+                tools:text="-160 ₽" />
+
+            <TextView
+                android:id="@+id/total_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:layout_marginTop="8dp"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/applied_scores_text_view"
+                tools:text="1 160 ₽" />
+
+            <Button
+                android:id="@+id/confirm_button"
+                style="@style/PrimaryButton"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="14dp"
+                tools:text="Оформить заказ"
+                app:layout_constraintTop_toBottomOf="@+id/total_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/privacy_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textColor="@color/gray4"
+                android:textFontWeight="400"
+                android:layout_marginTop="15dp"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirm_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="Завершая оформление заказа, я даю своё согласие на обработку персональных данных и подтверждаю оформление с условиями публичной оферты, пользовательского соглашения и  политики конфиденциальности" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
