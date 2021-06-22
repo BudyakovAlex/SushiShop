@@ -240,6 +240,9 @@
   <data name="PersonalData" xml:space="preserve">
     <value>Личные данные</value>
   </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Предпочтения</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Имя</value>
   </data>
@@ -293,6 +296,9 @@
   </data>
   <data name="PreferredDeliveryTime" xml:space="preserve">
     <value>Желаемое время получения</value>
+  </data>
+  <data name="OrderTime" xml:space="preserve">
+    <value>Время заказа</value>
   </data>
   <data name="Address" xml:space="preserve">
     <value>Адрес</value>
@@ -420,8 +426,14 @@
   <data name="PriceOfDelivery" xml:space="preserve">
     <value>Стоимость доставки</value>
   </data>
+  <data name="PickDeliveryAddress" xml:space="preserve">
+    <value>Выберите адрес доставки</value>
+  </data>
   <data name="Delivery" xml:space="preserve">
     <value>Доставка</value>
+  </data>
+  <data name="ShopAddress" xml:space="preserve">
+    <value>Адрес магазина</value>
   </data>
   <data name="Pickup" xml:space="preserve">
     <value>Самовывоз</value>
@@ -488,5 +500,35 @@
   </data>
   <data name="NearestMetroStation" xml:space="preserve">
     <value>Ближайшие станции метро</value>
+  </data>
+  <data name="PickAt" xml:space="preserve">
+    <value>Заберу</value>
+  </data>
+  <data name="DevicesCount" xml:space="preserve">
+    <value>Количество приборов</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>Способ оплаты</value>
+  </data>
+  <data name="OnPickup" xml:space="preserve">
+    <value>При получении</value>
+  </data>
+  <data name="CashPaymentDescription" xml:space="preserve">
+    <value>Наличными, банк.картой, подар.картой</value>
+  </data>
+   <data name="Online" xml:space="preserve">
+    <value>Онлайн</value>
+  </data>
+  <data name="OnlinePaymentDescription" xml:space="preserve">
+    <value>Visa, Mastercard, Мир</value>
+  </data>
+  <data name="DiscountByPromocode" xml:space="preserve">
+    <value>Скидка по промокоду:</value>
+  </data>
+  <data name="DiscountByCard" xml:space="preserve">
+    <value>Скидка по карте:</value>
+  </data>
+  <data name="AppliedScores" xml:space="preserve">
+    <value>Списанно баллов:</value>
   </data>
 </root>
