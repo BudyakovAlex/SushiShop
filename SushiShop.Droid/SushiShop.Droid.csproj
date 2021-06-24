@@ -171,6 +171,7 @@
     <Compile Include="Views\ViewHolders\Orders\DeliveryOrderSectionViewHolder.cs" />
     <Compile Include="Views\ViewHolders\Orders\PickupOrderSectionViewHolder.cs" />
     <Compile Include="Views\Activities\Orders\SelectOrderDeliveryAddressActivity.cs" />
+    <Compile Include="Views\Activities\Orders\OrderDeliverySuggestionItemViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -695,6 +696,14 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\ic_map_arrow.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_order_delivery_suggestion.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_clear.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

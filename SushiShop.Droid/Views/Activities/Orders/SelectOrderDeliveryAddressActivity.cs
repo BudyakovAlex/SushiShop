@@ -1,19 +1,29 @@
 ﻿using Android.App;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
+using Android.Views;
+using Android.Widget;
 using AndroidX.AppCompat.Widget;
 using AndroidX.Core.Content;
 using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
 using Google.Android.Material.TextField;
 using MvvmCross.DroidX.RecyclerView;
+using MvvmCross.Platforms.Android.Binding;
+using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Common;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders;
 using SushiShop.Core.ViewModels.Orders.Items;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Views.Activities.Abstract;
 using System;
 using System.Collections.Specialized;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace SushiShop.Droid.Views.Activities.Orders
@@ -26,8 +36,15 @@ namespace SushiShop.Droid.Views.Activities.Orders
         private GoogleMap googleMap;
         private SupportMapFragment mapFragment;
         private MvxRecyclerView suggestionsRecyclerView;
-        private Toolbar toolbar;
+        private AndroidX.AppCompat.Widget.Toolbar toolbar;
         private TextInputEditText searchEditText;
+        private View bottomInfoConstraintLayout;
+        private TextView addressTextView;
+        private TextView deliveryPriceTextView;
+        private TextView messageTextView;
+        private ImageView clearImageView;
+        private View dividerView;
+        private AppCompatButton addButton;
 
         public SelectOrderDeliveryAddressActivity() : base(Resource.Layout.activity_common_info)
         {
@@ -37,7 +54,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
         {
             set
             {
-                AboutPointView.Hidden = !value;
+                bottomInfoConstraintLayout.Visibility = value ? ViewStates.Visible : ViewStates.Gone;
                 UpdateZones();
             }
         }
@@ -78,9 +95,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
         }
 
         public void OnMapClick(LatLng point)
-        {
-            ViewModel?.TryLoadPlacemarkCommand?.Execute(new Coordinates(point.Longitude, point.Latitude));
-        }
+            => ViewModel?.TryLoadPlacemarkCommand?.Execute(new Coordinates(point.Longitude, point.Latitude));
 
         public void OnMapReady(GoogleMap googleMap)
         {
@@ -96,9 +111,22 @@ namespace SushiShop.Droid.Views.Activities.Orders
         {
             base.InitializeViewPoroperties();
 
-            suggestionsRecyclerView = FindViewById<MvxRecyclerView>(Resource.Id.recycler_view);
-            toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             searchEditText = FindViewById<TextInputEditText>(Resource.Id.search_edit_text);
+            addressTextView = FindViewById<TextView>(Resource.Id.address_text_view);
+            deliveryPriceTextView = FindViewById<TextView>(Resource.Id.delivery_price_text_view);
+            addButton = FindViewById<AppCompatButton>(Resource.Id.add_button);
+            dividerView = FindViewById<View>(Resource.Id.divider_view);
+            messageTextView = FindViewById<TextView>(Resource.Id.message_text_view);
+            messageTextView.Text = AppStrings.BadDeliveryAddressLocation;
+            clearImageView = FindViewById<ImageView>(Resource.Id.clear_image_view);
+            clearImageView.SetOnClickListener(new ViewOnClickListener(OnClearImageViewClickedAsync));
+            toolbar = FindViewById<AndroidX.AppCompat.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = AppStrings.SelectOrderDeliveryTitle;
+            bottomInfoConstraintLayout = FindViewById<View>(Resource.Id.bottom_info_constraint_layout);
+            bottomInfoConstraintLayout.SetTopRoundedCorners(this.DpToPx(10));
+
+            InitializeRecyclerView();
+            InitializeMap();
         }
 
         protected override void Bind()
@@ -109,15 +137,18 @@ namespace SushiShop.Droid.Views.Activities.Orders
 
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(searchEditText).For(v => v.Text).To(vm => vm.AddressQuery);
-            bindingSet.Bind(searchSuggestionsTableViewSource).For(v => v.ItemsSource).To(vm => vm.Suggestions);
+            bindingSet.Bind(suggestionsRecyclerView).For(v => v.ItemsSource).To(vm => vm.Suggestions);
+
             bindingSet.Bind(this).For(nameof(HasSelectedLocation)).To(vm => vm.HasSelectedLocation);
             bindingSet.Bind(this).For(nameof(Items)).To(vm => vm.Items);
-            bindingSet.Bind(AddressSelectedPointLabel).For(v => v.Text).To(vm => vm.SelectedLocation.Address);
-            bindingSet.Bind(DeliveryPriceLabel).For(v => v.Text).To(vm => vm.SelectedLocation.DeliveryPrice);
-            bindingSet.Bind(BadLocationLabel).For(v => v.BindHidden()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
-            bindingSet.Bind(DeliveryThereButton).For(v => v.BindVisible()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
-            bindingSet.Bind(DeliveryPriceLabel).For(v => v.BindVisible()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
-            bindingSet.Bind(DeliveryThereButton).For(v => v.BindTouchUpInside()).To(vm => vm.ConfirmAddress);
+            bindingSet.Bind(dividerView).For(v => v.BindHidden()).To(vm => vm.IsSuggestionsEmpty);
+            bindingSet.Bind(suggestionsRecyclerView).For(v => v.BindHidden()).To(vm => vm.IsSuggestionsEmpty);
+            bindingSet.Bind(addressTextView).For(v => v.Text).To(vm => vm.SelectedLocation.Address);
+            bindingSet.Bind(deliveryPriceTextView).For(v => v.Text).To(vm => vm.SelectedLocation.DeliveryPrice);
+            bindingSet.Bind(messageTextView).For(v => v.BindHidden()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
+            bindingSet.Bind(deliveryPriceTextView).For(v => v.BindVisible()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
+            bindingSet.Bind(addButton).For(v => v.BindVisible()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
+            bindingSet.Bind(addButton).For(v => v.BindClick()).To(vm => vm.ConfirmAddressCommand);
             bindingSet.Bind(this).For(v => v.RemoveFocusInteraction).To(vm => vm.RemoveFocusInteraction);
 
             bindingSet.Apply();
@@ -134,6 +165,20 @@ namespace SushiShop.Droid.Views.Activities.Orders
             }
         }
 
+        private Task OnClearImageViewClickedAsync(View _)
+        {
+            searchEditText.Text = string.Empty;
+            return Task.CompletedTask;
+        }
+
+        private void InitializeRecyclerView()
+        {
+            suggestionsRecyclerView = FindViewById<MvxRecyclerView>(Resource.Id.recycler_view);
+            suggestionsRecyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
+            suggestionsRecyclerView.ItemTemplateSelector = new TemplateSelector()
+                .AddElement<OrderDeliverySuggestionItemViewModel, OrderDeliverySuggestionItemViewHolder>(Resource.Layout.item_order_delivery_suggestion);
+        }
+
         private void InitializeMap()
         {
             mapFragment = SupportMapFragment.NewInstance();
@@ -146,14 +191,10 @@ namespace SushiShop.Droid.Views.Activities.Orders
         }
 
         private void OnItemsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            UpdateZones();
-        }
+            => UpdateZones();
 
         private void OnRemoveFocusInteractionRequested(object _, EventArgs __)
-        {
-            searchEditText.ClearFocus();
-        }
+            => searchEditText.ClearFocus();
 
         private void UpdateZones()
         {

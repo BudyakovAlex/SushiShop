@@ -531,4 +531,7 @@
   <data name="AppliedScores" xml:space="preserve">
     <value>Списанно баллов:</value>
   </data>
+  <data name="BadDeliveryAddressLocation" xml:space="preserve">
+    <value>К сожалею этот адрес не входит в зону доставки</value>
+  </data>
 </root>

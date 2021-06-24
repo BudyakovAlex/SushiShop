@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
 
     <include
@@ -38,7 +39,7 @@
         android:layout_marginEnd="8dp"
         android:elevation="4dp"
         android:translationZ="4dp"
-        app:cardBackgroundColor="@color/gray"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,23 +51,41 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/search_edit_text"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:backgroundTint="@android:color/transparent"
-                android:drawableStart="@drawable/ic_search"
-                android:drawablePadding="30dp"
-                android:fontFamily="@font/sf_pro_display_regular"
-                android:lines="1"
-                android:maxLines="1"
-                android:textColor="@color/black"
-                android:textColorHint="@color/gr"
-                android:textSize="16dp" />
+                android:layout_height="48dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_search"
+                    android:drawablePadding="30dp"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:paddingEnd="60dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gr"
+                    tools:text="Some text here"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/clear_image_view"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_clear"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:scaleType="center"/>
+            </FrameLayout>
 
             <View
+                android:id="@+id/divider_view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/background" />
@@ -74,7 +93,9 @@
             <mvvmcross.droidx.recyclerview.MvxRecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="12dp"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -94,11 +115,89 @@
         android:src="@drawable/ic_map_arrow"
         android:layout_marginEnd="20dp"/>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_info_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/address_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="17dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:textFontWeight="600"
+            android:textSize="18dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            tools:text="Санкт-Петербург, Проспект Луначарского, 48"/>
+
+        <TextView
+            android:id="@+id/delivery_price_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/address_text_view"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:textFontWeight="400"
+            android:textSize="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            tools:text="Стоимость доставки: 99 ₽"/>
+
+        <TextView
+            android:id="@+id/message_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/address_text_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:textFontWeight="400"
+            android:textSize="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="20dp"
+            tools:text="К сожалею этот адрес не входит в зону доставки"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_button_gradient"
+            android:fontFamily="@font/font_family_sf_pro_display_medium"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="500"
+            android:textSize="18dp"
+            android:layout_marginTop="17dp"
+            tools:text="Доставить сюда"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/delivery_price_text_view"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <include
         android:id="@+id/loading_overlay_view"
         layout="@layout/layout_loading_overlay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
