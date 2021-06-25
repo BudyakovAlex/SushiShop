@@ -1,6 +1,6 @@
 ﻿using Android.App;
 using Android.Views;
-using AndroidX.AppCompat.Widget;
+using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
@@ -18,6 +18,7 @@ using SushiShop.Droid.Views.Activities.Abstract;
 using SushiShop.Droid.Views.Adapters;
 using SushiShop.Droid.Views.Listeners;
 using SushiShop.Droid.Views.ViewHolders.Orders;
+using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Activities.Orders
 {
@@ -33,9 +34,24 @@ namespace SushiShop.Droid.Views.Activities.Orders
         private MvxGuardedLinearLayoutManager contentLayoutManager;
         private SnapOnScrollListener scrollListener;
         private PagerSnapHelper snapHelper;
+        private View thanksOrderContainerView;
+        private TextView thanksOrderTitleTextView;
+        private TextView thanksOrderContentTextView;
+        private TextView thanksOrderNumberTitleTextView;
+        private TextView thanksOrderNumberTextView;
+        private ImageView thanksOrderImageView;
+        private Button goToCartButton;
 
         public OrderRegistrationActivity() : base(Resource.Layout.activity_order_registration)
         {
+        }
+
+        public OrderThanksSectionViewModel OrderThanksSection
+        {
+            set
+            {
+                thanksOrderContainerView.Visibility = value is null ? ViewStates.Gone : ViewStates.Visible;
+            }
         }
 
         protected override void InitializeViewPoroperties()
@@ -46,6 +62,14 @@ namespace SushiShop.Droid.Views.Activities.Orders
             tabsRecyclerView = FindViewById<MvxRecyclerView>(Resource.Id.tabs_recycler_view);
             contentRecyclerView = FindViewById<MvxRecyclerView>(Resource.Id.content_recycler_view);
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+
+            thanksOrderContainerView = FindViewById<View>(Resource.Id.success_message_container_view);
+            thanksOrderTitleTextView = FindViewById<TextView>(Resource.Id.thanks_for_order_text_view);
+            thanksOrderContentTextView = FindViewById<TextView>(Resource.Id.description_text_view);
+            thanksOrderNumberTitleTextView = FindViewById<TextView>(Resource.Id.order_number_title_text_view);
+            thanksOrderNumberTextView = FindViewById<TextView>(Resource.Id.order_number_text_view);
+            thanksOrderImageView = FindViewById<ImageView>(Resource.Id.order_registered_image_view);
+            goToCartButton = FindViewById<Button>(Resource.Id.go_to_cart_button);
 
             InitializeTabsRecyclerView();
             InitializeContentRecyclerView();
@@ -67,6 +91,13 @@ namespace SushiShop.Droid.Views.Activities.Orders
                 new MvxOrValueCombiner(),
                 vm => vm.PickupOrderSectionViewModel.ExecutionStateWrapper.IsBusy,
                 vm => vm.DeliveryOrderSectionViewModel.ExecutionStateWrapper.IsBusy);
+
+            bindingSet.Bind(thanksOrderImageView).For(v => v.BindUrl()).To(vm => vm.OrderThanksSectionViewModel.Image);
+            bindingSet.Bind(thanksOrderTitleTextView).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.Title);
+            bindingSet.Bind(thanksOrderContentTextView).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.Content);
+            bindingSet.Bind(thanksOrderNumberTitleTextView).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.OrderNumberTitle);
+            bindingSet.Bind(thanksOrderNumberTextView).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.OrderNumber);
+            bindingSet.Bind(this).For(nameof(OrderThanksSection)).To(vm => vm.OrderThanksSectionViewModel);
         }
 
         private void InitializeTabsRecyclerView()
