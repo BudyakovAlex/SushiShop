@@ -1,9 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-using Android.Content;
+﻿using Android.Content;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AndroidX.AppCompat.Widget;
 using AndroidX.Core.View;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
@@ -19,6 +18,8 @@ using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Views.ViewHolders.Feedback;
+using System;
+using System.Threading.Tasks;
 
 namespace SushiShop.Droid.Views.Controls
 {
@@ -38,6 +39,7 @@ namespace SushiShop.Droid.Views.Controls
         private TextView galleryShopTitleTextView;
         private MvxRecyclerView galleryShopRecyclerView;
         private ScrollView contentShopScrollView;
+        private AppCompatButton pickupThereButton;
         private FrameLayout containerFrameLayout;
         private bool isMoved;
         private float startRawY;
@@ -112,9 +114,17 @@ namespace SushiShop.Droid.Views.Controls
             timeWorkingShopTextView.Text = viewModel.WorkingTime;
             driveWayShopTextView.Text = viewModel.DriveWay;
             galleryShopRecyclerView.ItemsSource = viewModel.Photos;
+            pickupThereButton.Visibility = viewModel.IsSelectionMode ? ViewStates.Visible : ViewStates.Gone;
+            pickupThereButton.SetOnClickListener(new ViewOnClickListener((view) => OnPickupButtonClickedAsync(viewModel)));
 
             driveWayShopTextView.Visibility = driveWayShopTitleTextView.Visibility = viewModel.HasDriveWay ? ViewStates.Visible : ViewStates.Gone;
             galleryShopTitleTextView.Visibility = galleryShopRecyclerView.Visibility = viewModel.HasPhotos ? ViewStates.Visible : ViewStates.Gone;
+        }
+
+        private Task OnPickupButtonClickedAsync(ShopItemViewModel viewModel)
+        {
+            viewModel?.ConfirmSelectionCommand.Execute(null);
+            return Task.CompletedTask;
         }
 
         private void Initialize()
@@ -133,6 +143,7 @@ namespace SushiShop.Droid.Views.Controls
             galleryShopTitleTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.gallery_title_text_view);
             galleryShopRecyclerView = infoShopLinearLayout.FindViewById<MvxRecyclerView>(Resource.Id.gallery_recycler_view);
             contentShopScrollView = infoShopLinearLayout.FindViewById<ScrollView>(Resource.Id.content_shop_scroll_view);
+            pickupThereButton = infoShopLinearLayout.FindViewById<AppCompatButton>(Resource.Id.pickup_there_button);
 
             driveWayShopTitleTextView.Text = AppStrings.DriveWay;
             galleryShopTitleTextView.Text = AppStrings.Gallery;

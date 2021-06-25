@@ -20,6 +20,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops
         private TextView phoneTextView;
         private ImageView showNearestMetroImageView;
         private ImageView showOnMapImageView;
+        private Button pickupThereButton;
 
         public ShopItemViewHolder(View view, IMvxAndroidBindingContext context) : base(view, context)
         {
@@ -42,6 +43,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops
 
             showNearestMetroImageView = view.FindViewById<ImageView>(Resource.Id.show_nearest_metro_image_view);
             showOnMapImageView = view.FindViewById<ImageView>(Resource.Id.show_on_map_image_view);
+            pickupThereButton = view.FindViewById<Button>(Resource.Id.pickup_there_button);
 
             var cornerRadius = view.Context.DpToPx(24);
             showNearestMetroImageView.SetRoundedCorners(cornerRadius);
