@@ -36,7 +36,7 @@ namespace SushiShop.Droid.Presenter
             var currentFragment = FindVisibleFragment();
             if (currentFragment is null)
             {
-                return Task.FromResult(false);
+                return CloseFragment(viewModel, attribute);
             }
 
             currentFragment.ChildFragmentManager.PopBackStack();
@@ -48,7 +48,7 @@ namespace SushiShop.Droid.Presenter
             var fragmentHost = FindVisibleFragment();
             if (fragmentHost == null)
             {
-                return Task.FromResult(false);
+                return ShowFragment(view, attribute, request);
             }
 
             PerformShowFragmentTransaction(fragmentHost.ChildFragmentManager, attribute, request);

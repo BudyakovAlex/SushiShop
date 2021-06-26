@@ -7,6 +7,7 @@ using Android.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Droid.Views.Spans;
 using SushiShop.Droid.Views.ViewHolders.Abstract;
@@ -44,6 +45,8 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops
             showNearestMetroImageView = view.FindViewById<ImageView>(Resource.Id.show_nearest_metro_image_view);
             showOnMapImageView = view.FindViewById<ImageView>(Resource.Id.show_on_map_image_view);
             pickupThereButton = view.FindViewById<Button>(Resource.Id.pickup_there_button);
+            pickupThereButton.SetRoundedCorners(view.Context.DpToPx(19));
+            pickupThereButton.Text = AppStrings.TakeThere;
 
             var cornerRadius = view.Context.DpToPx(24);
             showNearestMetroImageView.SetRoundedCorners(cornerRadius);
@@ -62,10 +65,8 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops
             bindingSet.Bind(showNearestMetroImageView).For(v => v.BindClick()).To(vm => vm.ShowNearestMetroCommand);
             bindingSet.Bind(showNearestMetroImageView).For(v => v.BindVisible()).To(vm => vm.HasNearestMetro);
             bindingSet.Bind(showOnMapImageView).For(v => v.BindClick()).To(vm => vm.GoToMapCommand);
-
-            //TODO: uncomment when will be ready on UI
-            //bindingSet.Bind(PickupThereButton).For(v => v.BindClick()).To(vm => vm.ConfirmSelectionCommand);
-            //bindingSet.Bind(PickupThereButton).For(v => v.BindVisible()).To(vm => vm.IsSelectionMode);
+            bindingSet.Bind(pickupThereButton).For(v => v.BindClick()).To(vm => vm.ConfirmSelectionCommand);
+            bindingSet.Bind(pickupThereButton).For(v => v.BindVisible()).To(vm => vm.IsSelectionMode);
         }
 
         private void SetPhonesSpannableString(string[] phones)

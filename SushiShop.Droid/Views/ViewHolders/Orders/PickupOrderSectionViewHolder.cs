@@ -167,9 +167,9 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
 
             var foregroundColorArgb = view.Context.GetColor(Resource.Color.gray4);
             var foregroundSpan = new ForegroundColorSpan(new Color(foregroundColorArgb));
-            spannableString.SetSpan(foregroundSpan, 108, 134, SpanTypes.ExclusiveExclusive);
-            spannableString.SetSpan(foregroundSpan, 136, 164, SpanTypes.ExclusiveExclusive);
-            spannableString.SetSpan(foregroundSpan, 167, 194, SpanTypes.ExclusiveExclusive);
+            spannableString.SetSpan(new ForegroundColorSpan(new Color(foregroundColorArgb)), 108, 134, SpanTypes.ExclusiveExclusive);
+            spannableString.SetSpan(new ForegroundColorSpan(new Color(foregroundColorArgb)), 136, 164, SpanTypes.ExclusiveExclusive);
+            spannableString.SetSpan(new ForegroundColorSpan(new Color(foregroundColorArgb)), 167, 194, SpanTypes.ExclusiveExclusive);
 
             privacyTextView = view.FindViewById<TextView>(Resource.Id.privacy_text_view);
             privacyTextView.SetText(spannableString, TextView.BufferType.Spannable);

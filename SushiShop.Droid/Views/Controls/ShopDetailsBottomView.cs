@@ -3,6 +3,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.Widget;
+using AndroidX.ConstraintLayout.Widget;
 using AndroidX.Core.View;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
@@ -30,7 +31,7 @@ namespace SushiShop.Droid.Views.Controls
         private const float CollapsedViewPercent = 0.7f;
 
         private IMvxBindingContext bindingContext;
-        private LinearLayout infoShopLinearLayout;
+        private ConstraintLayout infoShopConstraintLayout;
         private TextView titleShopTextView;
         private TextView phoneShopTextView;
         private TextView timeWorkingShopTextView;
@@ -77,16 +78,16 @@ namespace SushiShop.Droid.Views.Controls
 
             if (isFirstOpen)
             {
-                infoShopLinearLayout.TranslationY = containerFrameLayout.Height;
+                infoShopConstraintLayout.TranslationY = containerFrameLayout.Height;
             }
 
             isShowedView = true;
-            ViewCompat.Animate(infoShopLinearLayout)
+            ViewCompat.Animate(infoShopConstraintLayout)
                     .SetDuration(250)
                     .WithStartAction(new Runnable(() =>
                     {
                         containerFrameLayout.AddView(this, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MatchParent, (int)Context.DpToPx(1200)));
-                        infoShopLinearLayout.Visibility = ViewStates.Visible;
+                        infoShopConstraintLayout.Visibility = ViewStates.Visible;
                     }))
                     .TranslationY(containerFrameLayout.Height * CollapsedViewPercent)
                     .Start();
@@ -95,12 +96,12 @@ namespace SushiShop.Droid.Views.Controls
         public void Hide()
         {
             isShowedView = false;
-            ViewCompat.Animate(infoShopLinearLayout)
+            ViewCompat.Animate(infoShopConstraintLayout)
                     .SetDuration(250)
                     .TranslationY(containerFrameLayout.Height)
                     .WithEndAction(new Runnable(() =>
                     {
-                        infoShopLinearLayout.Visibility = ViewStates.Gone;
+                        infoShopConstraintLayout.Visibility = ViewStates.Gone;
                         HideEvent?.Invoke(this, EventArgs.Empty);
                         containerFrameLayout.RemoveView(this);
                     }))
@@ -134,23 +135,24 @@ namespace SushiShop.Droid.Views.Controls
 
             containerFrameLayout = (Context as MvxActivity).FindViewById<FrameLayout>(Resource.Id.container_view);
 
-            infoShopLinearLayout = view.FindViewById<LinearLayout>(Resource.Id.info_shop_linear_layout);
-            titleShopTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.title_shop_text_view);
-            phoneShopTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.phone_shop_text_view);
-            timeWorkingShopTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.time_working_shop_text_view);
-            driveWayShopTitleTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.drive_way_shop_title_text_view);
-            driveWayShopTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.drive_way_shop_text_view);
-            galleryShopTitleTextView = infoShopLinearLayout.FindViewById<TextView>(Resource.Id.gallery_title_text_view);
-            galleryShopRecyclerView = infoShopLinearLayout.FindViewById<MvxRecyclerView>(Resource.Id.gallery_recycler_view);
-            contentShopScrollView = infoShopLinearLayout.FindViewById<ScrollView>(Resource.Id.content_shop_scroll_view);
-            pickupThereButton = infoShopLinearLayout.FindViewById<AppCompatButton>(Resource.Id.pickup_there_button);
+            infoShopConstraintLayout = view.FindViewById<ConstraintLayout>(Resource.Id.info_shop_constraint_layout);
+            titleShopTextView = infoShopConstraintLayout.FindViewById<TextView>(Resource.Id.title_shop_text_view);
+            phoneShopTextView = infoShopConstraintLayout.FindViewById<TextView>(Resource.Id.phone_shop_text_view);
+            timeWorkingShopTextView = infoShopConstraintLayout.FindViewById<TextView>(Resource.Id.time_working_shop_text_view);
+            driveWayShopTitleTextView = infoShopConstraintLayout.FindViewById<TextView>(Resource.Id.drive_way_shop_title_text_view);
+            driveWayShopTextView = infoShopConstraintLayout.FindViewById<TextView>(Resource.Id.drive_way_shop_text_view);
+            galleryShopTitleTextView = infoShopConstraintLayout.FindViewById<TextView>(Resource.Id.gallery_title_text_view);
+            galleryShopRecyclerView = infoShopConstraintLayout.FindViewById<MvxRecyclerView>(Resource.Id.gallery_recycler_view);
+            contentShopScrollView = infoShopConstraintLayout.FindViewById<ScrollView>(Resource.Id.content_shop_scroll_view);
+            pickupThereButton = infoShopConstraintLayout.FindViewById<AppCompatButton>(Resource.Id.pickup_there_button);
 
+            pickupThereButton.Text = AppStrings.TakeThere;
             driveWayShopTitleTextView.Text = AppStrings.DriveWay;
             galleryShopTitleTextView.Text = AppStrings.Gallery;
 
-            infoShopLinearLayout.SetTopRoundedCorners(view.Context.DpToPx(25));
-            infoShopLinearLayout.Visibility = ViewStates.Gone;
-            infoShopLinearLayout.SetOnTouchListener(new ViewOnTouchListener(OnInfoShopLinearLayoutTouch));
+            infoShopConstraintLayout.SetTopRoundedCorners(view.Context.DpToPx(25));
+            infoShopConstraintLayout.Visibility = ViewStates.Gone;
+            infoShopConstraintLayout.SetOnTouchListener(new ViewOnTouchListener(OnInfoShopLinearLayoutTouch));
             contentShopScrollView.SetOnTouchListener(new ViewOnTouchListener(OnInfoShopScrollViewTouch));
 
             InitializeGalleryRecyclerView();
@@ -193,7 +195,8 @@ namespace SushiShop.Droid.Views.Controls
 
                 case MotionEventActions.Move:
                     isMoved = true;
-                    infoShopLinearLayout.TranslationY = e.RawY - startViewY;
+                    infoShopConstraintLayout.TranslationY = e.RawY - startViewY;
+                    pickupThereButton.TranslationY = -(infoShopConstraintLayout.TranslationY + pickupThereButton.Height);
                     return;
 
                 case MotionEventActions.Cancel:
@@ -208,7 +211,7 @@ namespace SushiShop.Droid.Views.Controls
                     {
                         if (isExpandedInfoShop || !CanClose)
                         {
-                            infoShopLinearLayout.Animate()
+                            infoShopConstraintLayout.Animate()
                                 .TranslationY(containerFrameLayout.Height * CollapsedViewPercent)
                                 .SetDuration(AnimationDuration)
                                 .Start();
@@ -221,7 +224,7 @@ namespace SushiShop.Droid.Views.Controls
                     }
                     else
                     {
-                        infoShopLinearLayout.Animate()
+                        infoShopConstraintLayout.Animate()
                                 .TranslationY(containerFrameLayout.Height * ExpandedViewPercent)
                                 .SetDuration(AnimationDuration)
                                 .Start();

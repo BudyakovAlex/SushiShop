@@ -874,5 +874,17 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("BadDeliveryAddressLocation", resourceCulture);
             }
         }
+        
+        public static string DeliverThere {
+            get {
+                return ResourceManager.GetString("DeliverThere", resourceCulture);
+            }
+        }
+        
+        public static string TakeThere {
+            get {
+                return ResourceManager.GetString("TakeThere", resourceCulture);
+            }
+        }
     }
 }

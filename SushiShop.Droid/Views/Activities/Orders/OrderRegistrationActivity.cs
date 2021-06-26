@@ -19,13 +19,12 @@ using SushiShop.Droid.Views.Activities.Abstract;
 using SushiShop.Droid.Views.Adapters;
 using SushiShop.Droid.Views.Listeners;
 using SushiShop.Droid.Views.ViewHolders.Orders;
-using System;
 using System.Threading.Tasks;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Activities.Orders
 {
-    [Activity]
+    [Activity(WindowSoftInputMode = SoftInput.AdjustResize)]
     public class OrderRegistrationActivity : BaseActivity<OrderRegistrationViewModel>
     {
         private Toolbar toolbar;

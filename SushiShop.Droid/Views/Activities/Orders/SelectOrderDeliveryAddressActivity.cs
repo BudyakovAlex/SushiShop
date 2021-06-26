@@ -2,6 +2,7 @@
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using AndroidX.AppCompat.Widget;
 using AndroidX.Core.Content;
@@ -11,6 +12,7 @@ using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
 using Google.Android.Material.TextField;
+using MvvmCross.Binding.Combiners;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
@@ -28,7 +30,7 @@ using Xamarin.Essentials;
 
 namespace SushiShop.Droid.Views.Activities.Orders
 {
-    [Activity]
+    [Activity(WindowSoftInputMode = SoftInput.AdjustResize)]
     public class SelectOrderDeliveryAddressActivity : BaseActivity<SelectOrderDeliveryAddressViewModel>, IOnMapReadyCallback, GoogleMap.IOnMapClickListener
     {
         private IDisposable subscription;
@@ -37,6 +39,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
         private SupportMapFragment mapFragment;
         private MvxRecyclerView suggestionsRecyclerView;
         private AndroidX.AppCompat.Widget.Toolbar toolbar;
+        private View loadingOverlayView;
         private TextInputEditText searchEditText;
         private View bottomInfoConstraintLayout;
         private TextView addressTextView;
@@ -101,20 +104,25 @@ namespace SushiShop.Droid.Views.Activities.Orders
         {
             this.googleMap = googleMap;
             this.googleMap.SetOnMapClickListener(this);
+            googleMap.MyLocationEnabled = true;
+            
+            UpdateZones();
 
             var target = new LatLng(Core.Common.Constants.Map.MapStartPointLatitude, Core.Common.Constants.Map.MapStartPointLongitude);
-            var cameraPosition = CameraPosition.FromLatLngZoom(target, 5);
-            googleMap?.MoveCamera(CameraUpdateFactory.NewCameraPosition(cameraPosition));
+            var cameraPosition = CameraPosition.FromLatLngZoom(target, ViewModel?.ZoomFactor ?? Core.Common.Constants.Map.DefaultZoomFactor);
+            googleMap.MoveCamera(CameraUpdateFactory.NewCameraPosition(cameraPosition));
         }
 
         protected override void InitializeViewPoroperties()
         {
             base.InitializeViewPoroperties();
 
+            loadingOverlayView = FindViewById<View>(Resource.Id.loading_overlay_view);
             searchEditText = FindViewById<TextInputEditText>(Resource.Id.search_edit_text);
             addressTextView = FindViewById<TextView>(Resource.Id.address_text_view);
             deliveryPriceTextView = FindViewById<TextView>(Resource.Id.delivery_price_text_view);
             addButton = FindViewById<AppCompatButton>(Resource.Id.add_button);
+            addButton.Text = AppStrings.DeliverThere;
             dividerView = FindViewById<View>(Resource.Id.divider_view);
             messageTextView = FindViewById<TextView>(Resource.Id.message_text_view);
             messageTextView.Text = AppStrings.BadDeliveryAddressLocation;
@@ -136,9 +144,12 @@ namespace SushiShop.Droid.Views.Activities.Orders
             var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
-            bindingSet.Bind(searchEditText).For(v => v.Text).To(vm => vm.AddressQuery);
+            bindingSet.Bind(searchEditText).For(v => v.Text).To(vm => vm.AddressQuery).TwoWay();
             bindingSet.Bind(suggestionsRecyclerView).For(v => v.ItemsSource).To(vm => vm.Suggestions);
-
+            bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).ByCombining(
+                new MvxAndValueCombiner(),
+                vm => vm.IsBusy,
+                vm => vm.IsNotRefreshing);
             bindingSet.Bind(this).For(nameof(HasSelectedLocation)).To(vm => vm.HasSelectedLocation);
             bindingSet.Bind(this).For(nameof(Items)).To(vm => vm.Items);
             bindingSet.Bind(dividerView).For(v => v.BindHidden()).To(vm => vm.IsSuggestionsEmpty);
@@ -194,12 +205,20 @@ namespace SushiShop.Droid.Views.Activities.Orders
             => UpdateZones();
 
         private void OnRemoveFocusInteractionRequested(object _, EventArgs __)
-            => searchEditText.ClearFocus();
+        {
+            var manager= (InputMethodManager)GetSystemService(InputMethodService);
+            manager.HideSoftInputFromWindow(searchEditText.WindowToken, HideSoftInputFlags.None);
+        }
 
         private void UpdateZones()
         {
             MainThread.BeginInvokeOnMainThread(() =>
             {
+                if (googleMap is null || items is null)
+                {
+                    return;
+                }
+
                 googleMap.Clear();
 
                 foreach (var item in items)

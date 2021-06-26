@@ -537,4 +537,10 @@
   <data name="BadDeliveryAddressLocation" xml:space="preserve">
     <value>К сожалею этот адрес не входит в зону доставки</value>
   </data>
+  <data name="DeliverThere" xml:space="preserve">
+    <value>Доставить сюда</value>
+  </data>
+  <data name="TakeThere" xml:space="preserve">
+    <value>Заберу здесь</value>
+  </data>
 </root>
