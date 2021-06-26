@@ -5,7 +5,10 @@ using Android.Views;
 using Android.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using Google.Android.Material.TextField;
+using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
+using SushiShop.Core.Converters;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders.Sections;
 using SushiShop.Droid.Views.Controls;
@@ -16,31 +19,35 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
 {
     public class DeliveryOrderSectionViewHolder : CardViewHolder<DeliveryOrderSectionViewModel>
     {
-        private View _selectLocationContainerView;
-        private View _locationContainerView;
-        private TextView _addressTextView;
-        private TextView _deliveryPriceTextView;
-        private TextView _timeTextView;
-        private TextInputEditText _flatEditText;
-        private TextInputEditText _entranceEditText;
-        private TextInputEditText _intercomEditText;
-        private TextInputEditText _floorEditText;
-        private TextInputEditText _nameEditText;
-        private TextInputEditText _phoneEditText;
-        private StepperView _devicesStepperView;
-        private TextInputEditText _commentsEditText;
-        private View _cashContainerView;
-        private View _onlineContainerView;
-        private ImageView _cashImageView;
-        private ImageView _onlineImageView;
-        private TextView _productsTextView;
-        private TextView _pickupTextView;
-        private TextView _discountByPromocodeTextView;
-        private TextView _discountByCardTextView;
-        private TextView _appliedScoresTextView;
-        private TextView _totalTextView;
-        private Button _confirmButton;
-        private TextView _privacyTextView;
+        private View selectLocationContainerView;
+        private View locationContainerView;
+        private View selectTimeContainerView;
+        private TextView addressTextView;
+        private TextView deliveryPriceTextView;
+        private TextView timeTextView;
+        private TextInputEditText flatEditText;
+        private TextInputEditText entranceEditText;
+        private TextInputEditText intercomEditText;
+        private TextInputEditText floorEditText;
+        private TextInputEditText nameEditText;
+        private TextInputEditText phoneEditText;
+        private StepperView devicesStepperView;
+        private TextInputEditText commentsEditText;
+        private View cashContainerView;
+        private View onlineContainerView;
+        private ImageView cashImageView;
+        private ImageView onlineImageView;
+        private TextView productsTextView;
+        private TextView pickupTextView;
+        private TextView discountByPromocodeTextView;
+        private TextView discountByCardTextView;
+        private TextView appliedScoresTextView;
+        private TextView totalTextView;
+        private Button confirmButton;
+        private TextView privacyTextView;
+        private TextView discountByPromocodeTitleTextView;
+        private TextView discountByCardTitleTextView;
+        private TextView appliedScoresTitleTextView;
 
         public DeliveryOrderSectionViewHolder(View view, IMvxAndroidBindingContext context) : base(view, context)
         {
@@ -50,34 +57,35 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
         {
             base.DoInit(view);
 
-            _selectLocationContainerView = view.FindViewById<View>(Resource.Id.select_location_container_view);
-            _locationContainerView = view.FindViewById<View>(Resource.Id.location_container_view);
-            _addressTextView = view.FindViewById<TextView>(Resource.Id.address_text_view);
-            _deliveryPriceTextView = view.FindViewById<TextView>(Resource.Id.delivery_price_text_view);
-            _timeTextView = view.FindViewById<TextView>(Resource.Id.time_text_view);
+            selectLocationContainerView = view.FindViewById<View>(Resource.Id.select_location_container_view);
+            locationContainerView = view.FindViewById<View>(Resource.Id.location_container_view);
+            selectTimeContainerView = view.FindViewById<View>(Resource.Id.select_time_container_view);
+            addressTextView = view.FindViewById<TextView>(Resource.Id.address_text_view);
+            deliveryPriceTextView = view.FindViewById<TextView>(Resource.Id.delivery_price_text_view);
+            timeTextView = view.FindViewById<TextView>(Resource.Id.time_text_view);
 
-            _flatEditText = view.FindViewById<TextInputEditText>(Resource.Id.flat_edit_text);
-            _entranceEditText = view.FindViewById<TextInputEditText>(Resource.Id.entrance_edit_text);
-            _intercomEditText = view.FindViewById<TextInputEditText>(Resource.Id.intercom_edit_text);
-            _floorEditText = view.FindViewById<TextInputEditText>(Resource.Id.floor_edit_text);
-            _nameEditText = view.FindViewById<TextInputEditText>(Resource.Id.name_edit_text);
-            _phoneEditText = view.FindViewById<TextInputEditText>(Resource.Id.phone_edit_text);
-            _devicesStepperView = view.FindViewById<StepperView>(Resource.Id.devices_stepper_view);
-            _commentsEditText = view.FindViewById<TextInputEditText>(Resource.Id.comments_edit_text);
-            _cashContainerView = view.FindViewById<View>(Resource.Id.cash_container_view);
-            _onlineContainerView = view.FindViewById<View>(Resource.Id.online_container_view);
-            _cashImageView = view.FindViewById<ImageView>(Resource.Id.cash_image_view);
-            _onlineImageView = view.FindViewById<ImageView>(Resource.Id.online_image_view);
+            flatEditText = view.FindViewById<TextInputEditText>(Resource.Id.flat_edit_text);
+            entranceEditText = view.FindViewById<TextInputEditText>(Resource.Id.entrance_edit_text);
+            intercomEditText = view.FindViewById<TextInputEditText>(Resource.Id.intercom_edit_text);
+            floorEditText = view.FindViewById<TextInputEditText>(Resource.Id.floor_edit_text);
+            nameEditText = view.FindViewById<TextInputEditText>(Resource.Id.name_edit_text);
+            phoneEditText = view.FindViewById<TextInputEditText>(Resource.Id.phone_edit_text);
+            devicesStepperView = view.FindViewById<StepperView>(Resource.Id.devices_stepper_view);
+            commentsEditText = view.FindViewById<TextInputEditText>(Resource.Id.comments_edit_text);
+            cashContainerView = view.FindViewById<View>(Resource.Id.cash_container_view);
+            onlineContainerView = view.FindViewById<View>(Resource.Id.online_container_view);
+            cashImageView = view.FindViewById<ImageView>(Resource.Id.cash_image_view);
+            onlineImageView = view.FindViewById<ImageView>(Resource.Id.online_image_view);
 
-            _productsTextView = view.FindViewById<TextView>(Resource.Id.products_text_view);
-            _pickupTextView = view.FindViewById<TextView>(Resource.Id.pickup_text_view);
-            _discountByPromocodeTextView = view.FindViewById<TextView>(Resource.Id.discount_by_promocode_text_view);
-            _discountByCardTextView = view.FindViewById<TextView>(Resource.Id.discount_by_card_text_view);
-            _appliedScoresTextView = view.FindViewById<TextView>(Resource.Id.applied_scores_text_view);
-            _totalTextView = view.FindViewById<TextView>(Resource.Id.total_title_text_view);
-            _confirmButton = view.FindViewById<Button>(Resource.Id.confirm_button);
-            _confirmButton.SetRoundedCorners(view.Context.DpToPx(25));
-            _confirmButton.Text = AppStrings.CheckoutOrder;
+            productsTextView = view.FindViewById<TextView>(Resource.Id.products_text_view);
+            pickupTextView = view.FindViewById<TextView>(Resource.Id.pickup_text_view);
+            discountByPromocodeTextView = view.FindViewById<TextView>(Resource.Id.discount_by_promocode_text_view);
+            discountByCardTextView = view.FindViewById<TextView>(Resource.Id.discount_by_card_text_view);
+            appliedScoresTextView = view.FindViewById<TextView>(Resource.Id.applied_scores_text_view);
+            totalTextView = view.FindViewById<TextView>(Resource.Id.total_title_text_view);
+            confirmButton = view.FindViewById<Button>(Resource.Id.confirm_button);
+            confirmButton.SetRoundedCorners(view.Context.DpToPx(25));
+            confirmButton.Text = AppStrings.CheckoutOrder;
 
             view.FindViewById<TextInputLayout>(Resource.Id.flat_text_input_layout).Hint = AppStrings.Apartment;
             view.FindViewById<TextInputLayout>(Resource.Id.entrance_text_input_layout).Hint = AppStrings.Entrance;
@@ -102,9 +110,12 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
 
             view.FindViewById<TextView>(Resource.Id.products_title_text_view).Text = $"{AppStrings.Products}:";
             view.FindViewById<TextView>(Resource.Id.pickup_title_text_view).Text = $"{AppStrings.Pickup};";
-            view.FindViewById<TextView>(Resource.Id.discount_by_promocode_title_text_view).Text = AppStrings.DiscountByPromocode;
-            view.FindViewById<TextView>(Resource.Id.discount_by_card_title_text_view).Text = AppStrings.DiscountByCard;
-            view.FindViewById<TextView>(Resource.Id.applied_scores_title_text_view).Text = AppStrings.AppliedScores;
+            discountByPromocodeTitleTextView = view.FindViewById<TextView>(Resource.Id.discount_by_promocode_title_text_view);
+            discountByPromocodeTitleTextView.Text = AppStrings.DiscountByPromocode;
+            discountByCardTitleTextView = view.FindViewById<TextView>(Resource.Id.discount_by_card_title_text_view);
+            discountByCardTitleTextView.Text = AppStrings.DiscountByCard;
+            appliedScoresTitleTextView = view.FindViewById<TextView>(Resource.Id.applied_scores_title_text_view);
+            appliedScoresTitleTextView.Text = AppStrings.AppliedScores;
             view.FindViewById<TextView>(Resource.Id.total_title_text_view).Text = $"{AppStrings.Total}:";
 
             SetupPrivacyTextView(view);
@@ -113,6 +124,48 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
         public override void BindData()
         {
             base.BindData();
+
+            using var bindingSet = CreateBindingSet();
+
+            bindingSet.Bind(selectLocationContainerView).For(v => v.BindClick()).To(vm => vm.SelectAddressCommand);
+            bindingSet.Bind(locationContainerView).For(v => v.BindVisible()).To(vm => vm.DeliveryAddress)
+                      .WithConversion<StringToBoolConverter>();
+            bindingSet.Bind(addressTextView).For(v => v.Text).To(vm => vm.DeliveryAddress);
+            bindingSet.Bind(deliveryPriceTextView).For(v => v.Text).To(vm => vm.DeliveryPrice);
+            bindingSet.Bind(flatEditText).For(v => v.Text).To(vm => vm.Flat);
+            bindingSet.Bind(entranceEditText).For(v => v.Text).To(vm => vm.Section);
+            bindingSet.Bind(intercomEditText).For(v => v.Text).To(vm => vm.Intercom);
+            bindingSet.Bind(floorEditText).For(v => v.Text).To(vm => vm.Floor);
+            bindingSet.Bind(selectTimeContainerView).For(v => v.BindClick()).To(vm => vm.SelectReceiveDateTimeCommand);
+            bindingSet.Bind(timeTextView).For(v => v.Text).To(vm => vm.ReceiveDateTimePresentation);
+            bindingSet.Bind(nameEditText).For(v => v.Text).To(vm => vm.Name).TwoWay();
+            bindingSet.Bind(phoneEditText).For(v => v.Text).To(vm => vm.Phone).TwoWay();
+            bindingSet.Bind(devicesStepperView).For(v => v.DataContext).To(vm => vm.СutleryStepperViewModel);
+            bindingSet.Bind(commentsEditText).For(v => v.Text).To(vm => vm.Comments).TwoWay();
+            bindingSet.Bind(cashImageView).For(v => v.BindVisible()).To(vm => vm.PaymentMethod)
+                      .WithConversion<PaymentMethodToVisibleConverter>(PaymentMethod.OnPoint);
+            bindingSet.Bind(onlineImageView).For(v => v.BindVisible()).To(vm => vm.PaymentMethod)
+                      .WithConversion<PaymentMethodToVisibleConverter>(PaymentMethod.Online);
+            bindingSet.Bind(cashContainerView).For(v => v.BindClick()).To(vm => vm.ChangePaymentMethodCommand)
+                      .CommandParameter(PaymentMethod.OnPoint);
+            bindingSet.Bind(onlineContainerView).For(v => v.BindClick()).To(vm => vm.ChangePaymentMethodCommand)
+                      .CommandParameter(PaymentMethod.Online);
+
+            bindingSet.Bind(productsTextView).For(v => v.Text).To(vm => vm.ProductsPrice);
+            bindingSet.Bind(pickupTextView).For(v => v.Text).To(vm => vm.DeliveryPrice);
+            bindingSet.Bind(discountByPromocodeTextView).For(v => v.Text).To(vm => vm.DiscountByPromocode);
+            bindingSet.Bind(discountByCardTextView).For(v => v.Text).To(vm => vm.DiscountByCardPresentation);
+            bindingSet.Bind(appliedScoresTextView).For(v => v.Text).To(vm => vm.ScoresToApply);
+
+            bindingSet.Bind(discountByPromocodeTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
+            bindingSet.Bind(discountByCardTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
+            bindingSet.Bind(discountByPromocodeTitleTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
+            bindingSet.Bind(discountByCardTitleTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
+            bindingSet.Bind(appliedScoresTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
+            bindingSet.Bind(appliedScoresTitleTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
+
+            bindingSet.Bind(totalTextView).For(v => v.Text).To(vm => vm.PriceToPay);
+            bindingSet.Bind(confirmButton).For(v => v.BindClick()).To(vm => vm.ConfirmOrderCommand);
         }
 
         private void SetupPrivacyTextView(View view)
@@ -125,10 +178,10 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             spannableString.SetSpan(termsOfThePublicOfferLinkSpan, 136, 164, SpanTypes.ExclusiveExclusive);
             spannableString.SetSpan(userAgreementLinkSpan, 167, 194, SpanTypes.ExclusiveExclusive);
 
-            _privacyTextView = view.FindViewById<TextView>(Resource.Id.privacy_text_view);
-            _privacyTextView.SetText(spannableString, TextView.BufferType.Spannable);
-            _privacyTextView.MovementMethod = LinkMovementMethod.Instance;
-            _privacyTextView.SetHighlightColor(Color.Transparent);
+            privacyTextView = view.FindViewById<TextView>(Resource.Id.privacy_text_view);
+            privacyTextView.SetText(spannableString, TextView.BufferType.Spannable);
+            privacyTextView.MovementMethod = LinkMovementMethod.Instance;
+            privacyTextView.SetHighlightColor(Color.Transparent);
         }
     }
 }
