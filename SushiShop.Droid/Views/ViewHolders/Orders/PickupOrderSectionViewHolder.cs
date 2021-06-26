@@ -1,6 +1,7 @@
 ﻿using Android.Graphics;
 using Android.Text;
 using Android.Text.Method;
+using Android.Text.Style;
 using Android.Views;
 using Android.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
@@ -80,16 +81,12 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             confirmButton.Text = AppStrings.CheckoutOrder;
 
             view.FindViewById<TextView>(Resource.Id.pickup_text_view).Text = AppStrings.Free;
-            view.FindViewById<TextInputLayout>(Resource.Id.flat_text_input_layout).Hint = AppStrings.Apartment;
-            view.FindViewById<TextInputLayout>(Resource.Id.entrance_text_input_layout).Hint = AppStrings.Entrance;
-            view.FindViewById<TextInputLayout>(Resource.Id.intercom_text_input_layout).Hint = AppStrings.Intercom;
-            view.FindViewById<TextInputLayout>(Resource.Id.floor_text_input_layout).Hint = AppStrings.Floor;
             view.FindViewById<TextInputLayout>(Resource.Id.name_text_input_layout).Hint = $"{AppStrings.Name}*";
             view.FindViewById<TextInputLayout>(Resource.Id.phone_text_input_layout).Hint = $"{AppStrings.Phone}*";
             view.FindViewById<TextInputLayout>(Resource.Id.comments_text_input_layout).Hint = AppStrings.Comment;
 
             view.FindViewById<TextView>(Resource.Id.address_title_text_view).Text = AppStrings.ShopAddress;
-            view.FindViewById<TextView>(Resource.Id.pick_delivery_location_text_view).Text = AppStrings.PickDeliveryAddress;
+            view.FindViewById<TextView>(Resource.Id.pick_shop_text_view).Text = AppStrings.PickShop;
             view.FindViewById<TextView>(Resource.Id.time_title_text_view).Text = AppStrings.OrderTime;
             view.FindViewById<TextView>(Resource.Id.pick_time_title_text_view).Text = AppStrings.PickAt;
             view.FindViewById<TextView>(Resource.Id.personal_data_title_text_view).Text = AppStrings.PersonalData;
@@ -163,9 +160,16 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             var policyLinkSpan = new LinkSpan(_ => ViewModel?.ShowPrivacyPolicyCommand?.Execute(null), isUnderlineText: true);
             var termsOfThePublicOfferLinkSpan = new LinkSpan(_ => ViewModel?.ShowPublicOfferCommand?.Execute(null), isUnderlineText: true);
             var userAgreementLinkSpan = new LinkSpan(_ => ViewModel?.ShowUserAgreementCommand?.Execute(null), isUnderlineText: true);
+
             spannableString.SetSpan(policyLinkSpan, 108, 134, SpanTypes.ExclusiveExclusive);
             spannableString.SetSpan(termsOfThePublicOfferLinkSpan, 136, 164, SpanTypes.ExclusiveExclusive);
             spannableString.SetSpan(userAgreementLinkSpan, 167, 194, SpanTypes.ExclusiveExclusive);
+
+            var foregroundColorArgb = view.Context.GetColor(Resource.Color.gray4);
+            var foregroundSpan = new ForegroundColorSpan(new Color(foregroundColorArgb));
+            spannableString.SetSpan(foregroundSpan, 108, 134, SpanTypes.ExclusiveExclusive);
+            spannableString.SetSpan(foregroundSpan, 136, 164, SpanTypes.ExclusiveExclusive);
+            spannableString.SetSpan(foregroundSpan, 167, 194, SpanTypes.ExclusiveExclusive);
 
             privacyTextView = view.FindViewById<TextView>(Resource.Id.privacy_text_view);
             privacyTextView.SetText(spannableString, TextView.BufferType.Spannable);

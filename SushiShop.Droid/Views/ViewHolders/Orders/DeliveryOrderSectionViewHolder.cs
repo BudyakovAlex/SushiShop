@@ -1,8 +1,10 @@
 ﻿using Android.Graphics;
 using Android.Text;
 using Android.Text.Method;
+using Android.Text.Style;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Core.Content;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using Google.Android.Material.TextField;
 using MvvmCross.Platforms.Android.Binding;
@@ -174,9 +176,15 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             var policyLinkSpan = new LinkSpan(_ => ViewModel?.ShowPrivacyPolicyCommand?.Execute(null), isUnderlineText: true);
             var termsOfThePublicOfferLinkSpan = new LinkSpan(_ => ViewModel?.ShowPublicOfferCommand?.Execute(null), isUnderlineText: true);
             var userAgreementLinkSpan = new LinkSpan(_ => ViewModel?.ShowUserAgreementCommand?.Execute(null), isUnderlineText: true);
+
             spannableString.SetSpan(policyLinkSpan, 108, 134, SpanTypes.ExclusiveExclusive);
             spannableString.SetSpan(termsOfThePublicOfferLinkSpan, 136, 164, SpanTypes.ExclusiveExclusive);
             spannableString.SetSpan(userAgreementLinkSpan, 167, 194, SpanTypes.ExclusiveExclusive);
+
+            var foregroundColorArgb = view.Context.GetColor(Resource.Color.gray4);
+            spannableString.SetSpan(new ForegroundColorSpan(new Color(foregroundColorArgb)), 108, 134, SpanTypes.ExclusiveExclusive);
+            spannableString.SetSpan(new ForegroundColorSpan(new Color(foregroundColorArgb)), 136, 164, SpanTypes.ExclusiveExclusive);
+            spannableString.SetSpan(new ForegroundColorSpan(new Color(foregroundColorArgb)), 167, 194, SpanTypes.ExclusiveExclusive);
 
             privacyTextView = view.FindViewById<TextView>(Resource.Id.privacy_text_view);
             privacyTextView.SetText(spannableString, TextView.BufferType.Spannable);

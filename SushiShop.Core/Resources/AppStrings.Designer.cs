@@ -671,6 +671,12 @@ namespace SushiShop.Core.Resources {
             }
         }
         
+        public static string PickShop {
+            get {
+                return ResourceManager.GetString("PickShop", resourceCulture);
+            }
+        }
+        
         public static string ShopAddress {
             get {
                 return ResourceManager.GetString("ShopAddress", resourceCulture);

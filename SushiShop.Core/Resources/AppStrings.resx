@@ -429,6 +429,9 @@
   <data name="PickDeliveryAddress" xml:space="preserve">
     <value>Выберите адрес доставки</value>
   </data>
+   <data name="PickShop" xml:space="preserve">
+    <value>Выберите магазин</value>
+  </data>
   <data name="Delivery" xml:space="preserve">
     <value>Доставка</value>
   </data>

@@ -49,8 +49,11 @@ namespace SushiShop.Droid.Views.Activities
 
         public void ShowCartTab()
         {
-            viewPager.SetCurrentItem(CartTabIndex, false);
-            tabLayout.GetTabAt(CartTabIndex)?.Select();
+            viewPager.Post(() =>
+            {
+                viewPager.SetCurrentItem(CartTabIndex, false);
+                tabLayout.GetTabAt(CartTabIndex)?.Select();
+            });
         }
 
         public void OnTabReselected(TabLayout.Tab tab)

@@ -46,7 +46,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
         private View dividerView;
         private AppCompatButton addButton;
 
-        public SelectOrderDeliveryAddressActivity() : base(Resource.Layout.activity_common_info)
+        public SelectOrderDeliveryAddressActivity() : base(Resource.Layout.activitiy_select_order_delivery_address)
         {
         }
 
