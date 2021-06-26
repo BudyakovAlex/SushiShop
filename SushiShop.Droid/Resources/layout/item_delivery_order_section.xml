@@ -707,6 +707,7 @@
                 android:textFontWeight="500"
                 android:layout_marginTop="8dp"
                 android:textSize="16dp"
+                app:layout_goneMarginTop="14dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/applied_scores_title_text_view"
                 tools:text="Итого:" />
@@ -791,6 +792,7 @@
                 android:textFontWeight="700"
                 android:layout_marginTop="8dp"
                 android:textSize="20dp"
+                app:layout_goneMarginTop="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/applied_scores_text_view"
                 tools:text="1 160 ₽" />

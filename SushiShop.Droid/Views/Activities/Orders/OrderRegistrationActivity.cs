@@ -4,6 +4,7 @@ using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
 using MvvmCross.Binding.Combiners;
 using MvvmCross.Commands;
 using MvvmCross.DroidX.RecyclerView;
@@ -18,6 +19,8 @@ using SushiShop.Droid.Views.Activities.Abstract;
 using SushiShop.Droid.Views.Adapters;
 using SushiShop.Droid.Views.Listeners;
 using SushiShop.Droid.Views.ViewHolders.Orders;
+using System;
+using System.Threading.Tasks;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Activities.Orders
@@ -70,6 +73,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
             thanksOrderNumberTextView = FindViewById<TextView>(Resource.Id.order_number_text_view);
             thanksOrderImageView = FindViewById<ImageView>(Resource.Id.order_registered_image_view);
             goToCartButton = FindViewById<Button>(Resource.Id.go_to_cart_button);
+            goToCartButton.SetOnClickListener(new ViewOnClickListener(OnGoToCartButtonTappedAsync));
 
             InitializeTabsRecyclerView();
             InitializeContentRecyclerView();
@@ -98,6 +102,13 @@ namespace SushiShop.Droid.Views.Activities.Orders
             bindingSet.Bind(thanksOrderNumberTitleTextView).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.OrderNumberTitle);
             bindingSet.Bind(thanksOrderNumberTextView).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.OrderNumber);
             bindingSet.Bind(this).For(nameof(OrderThanksSection)).To(vm => vm.OrderThanksSectionViewModel);
+        }
+
+        private Task OnGoToCartButtonTappedAsync(View _)
+        {
+            MainActivity.Instance.ShowCartTab();
+            ViewModel?.CloseCommand.Execute(null);
+            return Task.CompletedTask;
         }
 
         private void InitializeTabsRecyclerView()

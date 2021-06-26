@@ -32,6 +32,7 @@ namespace SushiShop.Droid.Views.Activities
         };
 
         private TabLayout tabLayout;
+        private NonScrollableViewPager viewPager;
 
         public MainActivity()
             : base(Resource.Layout.activity_main)
@@ -44,6 +45,12 @@ namespace SushiShop.Droid.Views.Activities
         public long BadgeCount
         {
             set => SetCartBadgeCount(value);
+        }
+
+        public void ShowCartTab()
+        {
+            viewPager.SetCurrentItem(CartTabIndex, false);
+            tabLayout.GetTabAt(CartTabIndex)?.Select();
         }
 
         public void OnTabReselected(TabLayout.Tab tab)
@@ -73,7 +80,7 @@ namespace SushiShop.Droid.Views.Activities
         {
             base.OnCreate(bundle);
 
-            var viewPager = FindViewById<NonScrollableViewPager>(Resource.Id.main_view_pager);
+            viewPager = FindViewById<NonScrollableViewPager>(Resource.Id.main_view_pager);
             viewPager.OffscreenPageLimit = 5;
 
             tabLayout = FindViewById<TabLayout>(Resource.Id.main_tab_layout);
