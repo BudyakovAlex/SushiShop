@@ -171,7 +171,7 @@
     <Compile Include="Views\ViewHolders\Orders\DeliveryOrderSectionViewHolder.cs" />
     <Compile Include="Views\ViewHolders\Orders\PickupOrderSectionViewHolder.cs" />
     <Compile Include="Views\Activities\Orders\SelectOrderDeliveryAddressActivity.cs" />
-    <Compile Include="Views\Activities\Orders\OrderDeliverySuggestionItemViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Orders\OrderDeliverySuggestionItemViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

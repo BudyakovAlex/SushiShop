@@ -18,7 +18,7 @@ using SushiShop.Droid.Views.ViewHolders.Abstract;
 
 namespace SushiShop.Droid.Views.ViewHolders.Orders
 {
-    public class DeliveryOrderSectionViewHolder : CardViewHolder<DeliveryOrderSectionViewModel>
+    public class DeliveryOrderSectionViewHolder : CardViewHolder<DeliveryOrderSectionViewModel>, View.IOnFocusChangeListener
     {
         private View selectLocationContainerView;
         private View locationContainerView;
@@ -88,6 +88,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             confirmButton = view.FindViewById<Button>(Resource.Id.confirm_button);
             confirmButton.SetRoundedCorners(view.Context.DpToPx(25));
             confirmButton.Text = AppStrings.CheckoutOrder;
+            phoneEditText.OnFocusChangeListener = this;
 
             view.FindViewById<TextView>(Resource.Id.total_title_text_view).Text = AppStrings.Total;
             view.FindViewById<TextInputLayout>(Resource.Id.flat_text_input_layout).Hint = AppStrings.Apartment;
@@ -189,6 +190,16 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             privacyTextView.SetText(spannableString, TextView.BufferType.Spannable);
             privacyTextView.MovementMethod = LinkMovementMethod.Instance;
             privacyTextView.SetHighlightColor(Color.Transparent);
+        }
+
+        void View.IOnFocusChangeListener.OnFocusChange(View v, bool hasFocus)
+        {
+            if (hasFocus)
+            {
+                return;
+            }
+
+            ViewModel?.RefreshDiscountByCartCommand.Execute(null);
         }
     }
 }

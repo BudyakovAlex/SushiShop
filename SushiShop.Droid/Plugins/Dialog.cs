@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using Android.App;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Plugins;
 using SushiShop.Core.Plugins;
@@ -36,15 +37,46 @@ namespace SushiShop.Droid.Plugins
 
         public async Task<DateTime?> ShowDatePickerAsync(DateTime initialDate, DateTime? minDate, DateTime? maxDate, DatePickerMode mode = DatePickerMode.Date)
         {
-            var result = await userDialogs.DatePromptAsync(
+            if (mode == DatePickerMode.Date)
+            {
+                var result = await userDialogs.DatePromptAsync(
+                    new DatePromptConfig()
+                    {
+                        SelectedDate = initialDate,
+                        MinimumDate = minDate,
+                        MaximumDate = maxDate,
+                    });
+
+                return result.Value;
+            }
+
+            var dateResult = await userDialogs.DatePromptAsync(
                 new DatePromptConfig()
                 {
                     SelectedDate = initialDate,
                     MinimumDate = minDate,
-                    MaximumDate = maxDate
+                    MaximumDate = maxDate,
                 });
 
-            return result.Value;
+            if (!dateResult.Ok)
+            {
+                return null;
+            }
+
+            var timeResult = await userDialogs.TimePromptAsync(
+                new TimePromptConfig()
+                {
+                    Use24HourClock = true,
+                    SelectedTime = initialDate.TimeOfDay
+                });
+
+            if (!timeResult.Ok)
+            {
+                return null;
+            }
+
+            var selectedDate = dateResult.Value.Date.Add(timeResult.Value);
+            return selectedDate;
         }
 
         public Task ShowToastAsync(string message, bool isEndless = false)

@@ -34,7 +34,8 @@ namespace SushiShop.Droid.Presenter
         protected virtual Task<bool> CloseNestedFragmentAsync(IMvxViewModel viewModel, NestedFragmentPresentationAttribute attribute)
         {
             var currentFragment = FindVisibleFragment();
-            if (currentFragment is null)
+            if (currentFragment is null ||
+                currentFragment.ChildFragmentManager.BackStackEntryCount == 0)
             {
                 return CloseFragment(viewModel, attribute);
             }
