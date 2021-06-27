@@ -1,7 +1,13 @@
 ﻿using Acr.UserDialogs;
 using Android.App;
+using Android.Content;
 using Android.Graphics;
+using Android.Util;
+using Android.Views;
 using Android.Widget;
+using AndroidX.Core.Content.Resources;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
 using Google.Android.Material.Snackbar;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Plugins;
@@ -103,19 +109,62 @@ namespace SushiShop.Droid.Plugins
             {
                 var length = isEndless ? Snackbar.LengthIndefinite : Snackbar.LengthLong;
                 lastSnackBar = Snackbar.Make(view, message, length);
+
+                var taskCompletionSource = new TaskCompletionSource<bool>();
+
+                lastSnackBar.AddCallback(new SnackbarCallback(() => taskCompletionSource?.TrySetResult(true)));
+                var containerView = lastSnackBar.View as FrameLayout;
+                containerView.SetBackgroundColor(new Color(activity.GetColor(Resource.Color.orange)));
+                var linearLayout = containerView.GetChildAt(0) as LinearLayout;
+                if (linearLayout != null)
+                {
+                    var textView = linearLayout.GetChildAt(0) as TextView;
+                    if (textView != null)
+                    {
+                        var textViewLayoutParams = textView.LayoutParameters as ViewGroup.MarginLayoutParams;
+                        textViewLayoutParams.MarginEnd = (int)activity.DpToPx(66);
+                        textView.LayoutParameters = textViewLayoutParams;
+
+                        var typeface = ResourcesCompat.GetFont(containerView.Context, Resource.Font.sf_pro_display_medium);
+                        textView.SetTypeface(typeface, TypefaceStyle.Normal);
+                        textView.SetTextSize(ComplexUnitType.Dip, 16);
+                    }
+
+                    if (!isEndless)
+                    {
+                        InitializeCloseImageView(activity, containerView);
+                    }
+                }
+
+                lastSnackBar.Show();
+
+                await taskCompletionSource.Task;
             }
             catch
             {
                 return;
             }
+        }
 
-            var taskCompletionSource = new TaskCompletionSource<bool>();
+        private void InitializeCloseImageView(Context context, FrameLayout containerView)
+        {
+            var imageView = new ImageView(containerView.Context);
+            imageView.SetImageResource(Resource.Drawable.ic_delete_transparent);
+            imageView.SetOnClickListener(new ViewOnClickListener(OnDismissImageClickedAsync));
+            imageView.SetScaleType(ImageView.ScaleType.Center);
 
-            lastSnackBar.AddCallback(new SnackbarCallback(() => taskCompletionSource?.TrySetResult(true)));
-            lastSnackBar.View.SetBackgroundColor(new Color(activity.GetColor(Resource.Color.orange)));
-            lastSnackBar.Show();
+            var imageSize = (int)context.DpToPx(40);
+            containerView.AddView(imageView, new FrameLayout.LayoutParams(imageSize, imageSize)
+            {
+                MarginEnd = (int)context.DpToPx(8),
+                Gravity = GravityFlags.End | GravityFlags.CenterVertical
+            });
+        }
 
-            await taskCompletionSource.Task;
+        private Task OnDismissImageClickedAsync(View _)
+        {
+            DismissToast();
+            return Task.CompletedTask;
         }
 
         private class SnackbarCallback : Snackbar.Callback
