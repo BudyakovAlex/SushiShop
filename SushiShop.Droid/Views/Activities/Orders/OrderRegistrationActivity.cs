@@ -17,6 +17,7 @@ using SushiShop.Droid.Enums;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Views.Activities.Abstract;
 using SushiShop.Droid.Views.Adapters;
+using SushiShop.Droid.Views.LayoutManagers;
 using SushiShop.Droid.Views.Listeners;
 using SushiShop.Droid.Views.ViewHolders.Orders;
 using System.Threading.Tasks;
@@ -128,7 +129,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
                 .AddElement<DeliveryOrderSectionViewModel, DeliveryOrderSectionViewHolder>(Resource.Layout.item_delivery_order_section)
                 .AddElement<PickupOrderSectionViewModel, PickupOrderSectionViewHolder>(Resource.Layout.item_pickup_order_section);
 
-            contentLayoutManager = new MvxGuardedLinearLayoutManager(this) { Orientation = LinearLayoutManager.Horizontal };
+            contentLayoutManager = new ScrollableMvxGuardedLinearLayoutManager(this, CanScrollContentRecyclerView) { Orientation = LinearLayoutManager.Horizontal};
             contentRecyclerView.SetLayoutManager(contentLayoutManager);
 
             snapHelper = new PagerSnapHelper();
@@ -149,6 +150,15 @@ namespace SushiShop.Droid.Views.Activities.Orders
         {
             tabsAdapter.SelectedIndex = position;
             tabsLayoutManager.ScrollToPosition(position);
+        }
+
+        private bool CanScrollContentRecyclerView(ScrollDirection scrollDirection)
+        {
+            return scrollDirection switch
+            {
+                ScrollDirection.Vertical => false,
+                _ => true,
+            };
         }
     }
 }

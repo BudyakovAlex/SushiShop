@@ -18,7 +18,7 @@ namespace SushiShop.Core.Mappers
                 ToNullableDateTimeOffset(dto.UnpubDate),
                 DateTimeOffset.FromUnixTimeSeconds(dto.CreatedOn),
                 dto.Url!,
-                dto.SaleShowOnHome,
+                dto.ShouldShowOnHome,
                 dto.SaleSquareImage!.Map(),
                 dto.SaleRectangularImage!.Map(),
                 dto.CityMulti!,

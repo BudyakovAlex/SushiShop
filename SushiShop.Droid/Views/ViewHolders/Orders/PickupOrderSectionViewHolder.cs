@@ -75,7 +75,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             discountByPromocodeTextView = view.FindViewById<TextView>(Resource.Id.discount_by_promocode_text_view);
             discountByCardTextView = view.FindViewById<TextView>(Resource.Id.discount_by_card_text_view);
             appliedScoresTextView = view.FindViewById<TextView>(Resource.Id.applied_scores_text_view);
-            totalTextView = view.FindViewById<TextView>(Resource.Id.total_title_text_view);
+            totalTextView = view.FindViewById<TextView>(Resource.Id.total_text_view);
             confirmButton = view.FindViewById<Button>(Resource.Id.confirm_button);
             confirmButton.SetRoundedCorners(view.Context.DpToPx(25));
             confirmButton.Text = AppStrings.CheckoutOrder;
@@ -97,16 +97,20 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             view.FindViewById<TextView>(Resource.Id.cash_description_text_view).Text = AppStrings.CashPaymentDescription;
             view.FindViewById<TextView>(Resource.Id.online_text_view).Text = AppStrings.Online;
             view.FindViewById<TextView>(Resource.Id.online_description_text_view).Text = AppStrings.OnlinePaymentDescription;
+            view.FindViewById<TextView>(Resource.Id.total_title_text_view).Text = AppStrings.Total;
 
             view.FindViewById<TextView>(Resource.Id.products_title_text_view).Text = $"{AppStrings.Products}:";
-            view.FindViewById<TextView>(Resource.Id.pickup_title_text_view).Text = $"{AppStrings.Pickup};";
+            view.FindViewById<TextView>(Resource.Id.pickup_title_text_view).Text = $"{AppStrings.Pickup}:";
             discountByPromocodeTitleTextView = view.FindViewById<TextView>(Resource.Id.discount_by_promocode_title_text_view);
             discountByPromocodeTitleTextView.Text = AppStrings.DiscountByPromocode;
             discountByCardTitleTextView = view.FindViewById<TextView>(Resource.Id.discount_by_card_title_text_view);
             discountByCardTitleTextView.Text = AppStrings.DiscountByCard;
             appliedScoresTitleTextView = view.FindViewById<TextView>(Resource.Id.applied_scores_title_text_view);
             appliedScoresTitleTextView.Text = AppStrings.AppliedScores;
+
             view.FindViewById<TextView>(Resource.Id.total_title_text_view).Text = $"{AppStrings.Total}:";
+            appliedScoresTitleTextView.Visibility = ViewStates.Gone;
+            appliedScoresTextView.Visibility = ViewStates.Gone;
 
             SetupPrivacyTextView(view);
         }
@@ -119,6 +123,8 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
 
             bindingSet.Bind(selectLocationContainerView).For(v => v.BindClick()).To(vm => vm.SelectAddressCommand);
             bindingSet.Bind(locationContainerView).For(v => v.BindVisible()).To(vm => vm.ShopAddress)
+                      .WithConversion<StringToBoolConverter>();
+            bindingSet.Bind(selectTimeContainerView).For(v => v.BindVisible()).To(vm => vm.ShopAddress)
                       .WithConversion<StringToBoolConverter>();
             bindingSet.Bind(addressTextView).For(v => v.Text).To(vm => vm.ShopAddress);
             bindingSet.Bind(phoneTextView).For(v => v.Text).To(vm => vm.ShopPhone);
@@ -142,13 +148,6 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             bindingSet.Bind(discountByPromocodeTextView).For(v => v.Text).To(vm => vm.DiscountByPromocode);
             bindingSet.Bind(discountByCardTextView).For(v => v.Text).To(vm => vm.DiscountByCardPresentation);
             bindingSet.Bind(appliedScoresTextView).For(v => v.Text).To(vm => vm.ScoresToApply);
-
-            bindingSet.Bind(discountByPromocodeTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
-            bindingSet.Bind(discountByCardTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
-            bindingSet.Bind(discountByPromocodeTitleTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
-            bindingSet.Bind(discountByCardTitleTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
-            bindingSet.Bind(appliedScoresTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
-            bindingSet.Bind(appliedScoresTitleTextView).For(v => v.BindVisible()).To(vm => vm.ShouldApplyScores);
 
             bindingSet.Bind(totalTextView).For(v => v.Text).To(vm => vm.PriceToPay);
             bindingSet.Bind(confirmButton).For(v => v.BindClick()).To(vm => vm.ConfirmOrderCommand);

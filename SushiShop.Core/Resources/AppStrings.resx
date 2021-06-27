@@ -348,9 +348,6 @@
   <data name="Delivery" xml:space="preserve">
     <value>Доставка</value>
   </data>
-  <data name="Pickup" xml:space="preserve">
-    <value>Самовывоз</value>
-  </data>
   <data name="FreeOfCharge" xml:space="preserve">
     <value>Бесплатно</value>
   </data>

@@ -509,12 +509,6 @@ namespace SushiShop.Core.Resources {
             }
         }
         
-        public static string Pickup {
-            get {
-                return ResourceManager.GetString("Pickup", resourceCulture);
-            }
-        }
-        
         public static string FreeOfCharge {
             get {
                 return ResourceManager.GetString("FreeOfCharge", resourceCulture);
@@ -680,6 +674,12 @@ namespace SushiShop.Core.Resources {
         public static string ShopAddress {
             get {
                 return ResourceManager.GetString("ShopAddress", resourceCulture);
+            }
+        }
+        
+        public static string Pickup {
+            get {
+                return ResourceManager.GetString("Pickup", resourceCulture);
             }
         }
         

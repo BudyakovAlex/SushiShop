@@ -17,6 +17,7 @@ using SushiShop.Droid.Views.Adapters;
 using SushiShop.Droid.Views.LayoutManagers;
 using SushiShop.Droid.Views.Listeners;
 using SushiShop.Droid.Views.ViewHolders.Shops.Sections;
+using System;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Fragments.Shops
@@ -109,10 +110,21 @@ namespace SushiShop.Droid.Views.Fragments.Shops
         {
             return scrollDirection switch
             {
-                ScrollDirection.Horizontal => ViewModel.SelectedIndex != 0,
+                ScrollDirection.Horizontal => CheckCanScrollHorizontally(),
                 ScrollDirection.Vertical => false,
                 _ => true,
             };
+        }
+
+        private bool CheckCanScrollHorizontally()
+        {
+            if (ViewModel is null)
+            {
+                return false;
+            }
+
+            var disabledIndexToScroll = ViewModel.IsSelectionMode ? 1 : 0;
+            return ViewModel.SelectedIndex != disabledIndexToScroll;
         }
     }
 }
