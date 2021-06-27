@@ -1,5 +1,8 @@
 ﻿using Acr.UserDialogs;
 using Android.App;
+using Android.Graphics;
+using Android.Widget;
+using Google.Android.Material.Snackbar;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Plugins;
 using SushiShop.Core.Plugins;
@@ -12,15 +15,15 @@ namespace SushiShop.Droid.Plugins
     public class Dialog : IDialog
     {
         private readonly IUserDialogs userDialogs;
+        private Snackbar lastSnackBar;
 
         public Dialog(IUserDialogs userDialogs)
         {
             this.userDialogs = userDialogs;
         }
 
-        public void DismissToast()
-        {
-        }
+        public void DismissToast() =>
+            lastSnackBar?.Dismiss();
 
         public async Task ShowActionSheetAsync(string title, string message, string cancelTitle, params DialogAction[] actions)
         {
@@ -79,9 +82,56 @@ namespace SushiShop.Droid.Plugins
             return selectedDate;
         }
 
-        public Task ShowToastAsync(string message, bool isEndless = false)
+        public async Task ShowToastAsync(string message, bool isEndless = false)
         {
-            return Task.CompletedTask;
+            var activity = Xamarin.Essentials.Platform.CurrentActivity;
+            if (activity?.Window?.DecorView is null)
+            {
+                return;
+            }
+
+            var view = activity.Window.DecorView.FindViewById(Android.Resource.Id.Content);
+            if (view is null)
+            {
+                return;
+            }
+
+            var resource = view.Context.Resources;
+            var coordinator = view.FindViewById(Resource.Id.coordinator);
+
+            try
+            {
+                var length = isEndless ? Snackbar.LengthIndefinite : Snackbar.LengthLong;
+                lastSnackBar = Snackbar.Make(view, message, length);
+            }
+            catch
+            {
+                return;
+            }
+
+            var taskCompletionSource = new TaskCompletionSource<bool>();
+
+            lastSnackBar.AddCallback(new SnackbarCallback(() => taskCompletionSource?.TrySetResult(true)));
+            lastSnackBar.View.SetBackgroundColor(new Color(activity.GetColor(Resource.Color.orange)));
+            lastSnackBar.Show();
+
+            await taskCompletionSource.Task;
+        }
+
+        private class SnackbarCallback : Snackbar.Callback
+        {
+            private readonly Action dismissAction;
+
+            public SnackbarCallback(Action dismissAction)
+            {
+                this.dismissAction = dismissAction;
+            }
+
+            public override void OnDismissed(Snackbar transientBottomBar, int @event)
+            {
+                base.OnDismissed(transientBottomBar, @event);
+                dismissAction?.Invoke();
+            }
         }
     }
 }

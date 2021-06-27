@@ -1,8 +1,6 @@
 ﻿using Android.App;
-using Android.Graphics;
 using Android.Webkit;
 using AndroidX.AppCompat.Widget;
-using MvvmCross.Platforms.Android.Binding;
 using SushiShop.Core.ViewModels.Common;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Views.Activities.Abstract;
