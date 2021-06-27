@@ -4,6 +4,7 @@ using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
 using MvvmCross.Binding.Combiners;
 using MvvmCross.Commands;
@@ -74,6 +75,8 @@ namespace SushiShop.Droid.Views.Activities.Orders
             thanksOrderImageView = FindViewById<ImageView>(Resource.Id.order_registered_image_view);
             goToCartButton = FindViewById<Button>(Resource.Id.go_to_cart_button);
             goToCartButton.SetOnClickListener(new ViewOnClickListener(OnGoToCartButtonTappedAsync));
+            goToCartButton.Text = AppStrings.OnMainPage;
+            goToCartButton.SetRoundedCorners(this.DpToPx(25));
 
             InitializeTabsRecyclerView();
             InitializeContentRecyclerView();
@@ -106,8 +109,8 @@ namespace SushiShop.Droid.Views.Activities.Orders
 
         private Task OnGoToCartButtonTappedAsync(View _)
         {
-            MainActivity.Instance.ShowCartTab();
             ViewModel?.CloseCommand.Execute(null);
+            MainActivity.Instance.ShowMainTab();
             return Task.CompletedTask;
         }
 

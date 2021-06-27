@@ -47,10 +47,11 @@
 
             <ImageView
                 android:id="@+id/order_registered_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="157dp"
+                android:layout_height="137dp"
                 android:layout_marginTop="106dp"
                 android:src="@drawable/img_order_registered"
+                android:scaleType="center"
                 app:layout_constraintBottom_toTopOf="@+id/thanks_for_order_text_view"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -87,16 +88,28 @@
                 android:textColor="@color/black"
                 android:textFontWeight="400"
                 android:textSize="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/order_number_title_text_view"
+                app:layout_constraintBottom_toTopOf="@+id/order_info_container_view"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/thanks_for_order_text_view"
                 tools:text="Ваш заказ оформлен \nи находится в обработке" />
 
+            <LinearLayout
+                android:id="@+id/order_info_container_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/go_to_cart_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description_text_view">
+
             <TextView
                 android:id="@+id/order_number_title_text_view"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="2dp"
@@ -105,17 +118,12 @@
                 android:textColor="@color/gray2"
                 android:textFontWeight="400"
                 android:textSize="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/go_to_cart_button"
-                app:layout_constraintEnd_toStartOf="@+id/order_number_text_view"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/description_text_view"
+
                 tools:text="Номер заказа:" />
 
             <TextView
                 android:id="@+id/order_number_text_view"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="50dp"
@@ -124,12 +132,8 @@
                 android:textColor="@color/black"
                 android:textFontWeight="400"
                 android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/order_number_title_text_view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/order_number_title_text_view"
-                app:layout_constraintTop_toTopOf="@+id/order_number_title_text_view"
                 tools:text="212332112" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/go_to_cart_button"
@@ -144,7 +148,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/order_number_title_text_view" />
+                app:layout_constraintTop_toBottomOf="@+id/order_info_container_view" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

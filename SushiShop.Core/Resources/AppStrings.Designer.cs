@@ -886,5 +886,11 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("TakeThere", resourceCulture);
             }
         }
+        
+        public static string OnMainPage {
+            get {
+                return ResourceManager.GetString("OnMainPage", resourceCulture);
+            }
+        }
     }
 }

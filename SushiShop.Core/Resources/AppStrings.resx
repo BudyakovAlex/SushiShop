@@ -540,4 +540,7 @@
   <data name="TakeThere" xml:space="preserve">
     <value>Заберу здесь</value>
   </data>
+  <data name="OnMainPage" xml:space="preserve">
+    <value>На главную</value>
+  </data>
 </root>

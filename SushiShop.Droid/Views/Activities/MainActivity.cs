@@ -21,6 +21,7 @@ namespace SushiShop.Droid.Views.Activities
     public class MainActivity : BaseActivity<MainViewModel>, TabLayout.IOnTabSelectedListener
     {
         private const int CartTabIndex = 2;
+        private const int ViewAppearingDelayMilliseconds = 600;
 
         private static readonly int[] TabImageIds = new[]
         {
@@ -47,13 +48,13 @@ namespace SushiShop.Droid.Views.Activities
             set => SetCartBadgeCount(value);
         }
 
-        public void ShowCartTab()
+        public void ShowMainTab()
         {
-            viewPager.Post(() =>
+            viewPager.PostDelayed(() =>
             {
-                viewPager.SetCurrentItem(CartTabIndex, false);
-                tabLayout.GetTabAt(CartTabIndex)?.Select();
-            });
+                viewPager.SetCurrentItem(0, false);
+                tabLayout.GetTabAt(0)?.Select();
+            }, ViewAppearingDelayMilliseconds);
         }
 
         public void OnTabReselected(TabLayout.Tab tab)

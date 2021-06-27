@@ -67,7 +67,7 @@ namespace SushiShop.Droid.Plugins
                 new TimePromptConfig()
                 {
                     Use24HourClock = true,
-                    SelectedTime = initialDate.TimeOfDay
+                    SelectedTime = initialDate.TimeOfDay,
                 });
 
             if (!timeResult.Ok)
