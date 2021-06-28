@@ -49,17 +49,31 @@ namespace SushiShop.Core.ViewModels.Orders
             this.userSession = userSession;
             this.dialog = dialog;
 
-            Items.AddRange(new BaseOrderSectionViewModel[]
-            {
-                PickupOrderSectionViewModel = new PickupOrderSectionViewModel(ordersManager, userSession, dialog, OrderConfirmedAsync),
-                DeliveryOrderSectionViewModel = new DeliveryOrderSectionViewModel(ordersManager, userSession, dialog, OrderConfirmedAsync)
-            });
-
-            TabsTitles.AddRange(new[] { AppStrings.ReceiveInShop, AppStrings.СourierDelivery });
-
             ShowPrivacyPolicyCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPrivacyPolicyAsync);
             ShowUserAgreementCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowUserAgreementAsync);
             ShowPublicOfferCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPublicOfferAsync);
+
+            Items.AddRange(new BaseOrderSectionViewModel[]
+            {
+                PickupOrderSectionViewModel = new PickupOrderSectionViewModel(
+                    ordersManager,
+                    userSession,
+                    dialog,
+                    ShowPrivacyPolicyCommand,
+                    ShowUserAgreementCommand,
+                    ShowPublicOfferCommand,
+                    OrderConfirmedAsync),
+                DeliveryOrderSectionViewModel = new DeliveryOrderSectionViewModel(
+                    ordersManager,
+                    userSession,
+                    dialog,
+                    ShowPrivacyPolicyCommand,
+                    ShowUserAgreementCommand,
+                    ShowPublicOfferCommand,
+                    OrderConfirmedAsync)
+            });
+
+            TabsTitles.AddRange(new[] { AppStrings.ReceiveInShop, AppStrings.СourierDelivery });
         }
 
         protected override bool DefaultResult => isChanged;

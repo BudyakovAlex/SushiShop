@@ -25,11 +25,17 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             IOrdersManager ordersManager,
             IUserSession userSession,
             IDialog dialog,
+            ICommand showPrivacyPolicyCommand,
+            ICommand showUserAgreementCommand,
+            ICommand showPublicOfferCommand,
             Func<OrderConfirmed, string, string, Task> confirmOrderFunc)
         {
             OrdersManager = ordersManager;
             UserSession = userSession;
             Dialog = dialog;
+            ShowPrivacyPolicyCommand = showPrivacyPolicyCommand;
+            ShowUserAgreementCommand = showUserAgreementCommand;
+            ShowPublicOfferCommand = showPublicOfferCommand;
 
             this.confirmOrderFunc = confirmOrderFunc;
 
@@ -51,6 +57,12 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
         public ICommand SelectReceiveDateTimeCommand { get; }
 
         public ICommand RefreshDiscountByCartCommand { get; }
+
+        public ICommand ShowPrivacyPolicyCommand { get; }
+
+        public ICommand ShowUserAgreementCommand { get; }
+
+        public ICommand ShowPublicOfferCommand { get; }
 
         private string? name = string.Empty;
         public string? Name

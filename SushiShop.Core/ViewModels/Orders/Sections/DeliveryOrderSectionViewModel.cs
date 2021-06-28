@@ -8,6 +8,7 @@ using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SushiShop.Core.ViewModels.Orders.Sections
 {
@@ -19,8 +20,18 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             IOrdersManager ordersManager,
             IUserSession userSession,
             IDialog dialog,
+            ICommand showPrivacyPolicyCommand,
+            ICommand showUserAgreementCommand,
+            ICommand showPublicOfferCommand,
             Func<OrderConfirmed, string, string, Task> confirmOrderFunc)
-            : base(ordersManager, userSession, dialog, confirmOrderFunc)
+            : base(
+                  ordersManager,
+                  userSession,
+                  dialog,
+                  showPrivacyPolicyCommand,
+                  showUserAgreementCommand,
+                  showPublicOfferCommand,
+                  confirmOrderFunc)
         {
         }
 

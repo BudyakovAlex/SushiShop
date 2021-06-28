@@ -28,7 +28,8 @@ namespace SushiShop.Core.Data.Dtos.Promotions
 
         public string? Url { get; set; }
 
-        public string? SaleShowOnHome { get; set; }
+        [JsonProperty("saleShowOnHome")]
+        public bool? ShouldShowOnHome { get; set; }
 
         public ImageInfoDto? SaleSquareImage { get; set; }
 

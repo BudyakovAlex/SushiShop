@@ -21,6 +21,7 @@ namespace SushiShop.Droid.Views.Activities
     public class MainActivity : BaseActivity<MainViewModel>, TabLayout.IOnTabSelectedListener
     {
         private const int CartTabIndex = 2;
+        private const int ViewAppearingDelayMilliseconds = 600;
 
         private static readonly int[] TabImageIds = new[]
         {
@@ -32,6 +33,7 @@ namespace SushiShop.Droid.Views.Activities
         };
 
         private TabLayout tabLayout;
+        private NonScrollableViewPager viewPager;
 
         public MainActivity()
             : base(Resource.Layout.activity_main)
@@ -44,6 +46,15 @@ namespace SushiShop.Droid.Views.Activities
         public long BadgeCount
         {
             set => SetCartBadgeCount(value);
+        }
+
+        public void ShowMainTab()
+        {
+            viewPager.PostDelayed(() =>
+            {
+                viewPager.SetCurrentItem(0, false);
+                tabLayout.GetTabAt(0)?.Select();
+            }, ViewAppearingDelayMilliseconds);
         }
 
         public void OnTabReselected(TabLayout.Tab tab)
@@ -73,7 +84,7 @@ namespace SushiShop.Droid.Views.Activities
         {
             base.OnCreate(bundle);
 
-            var viewPager = FindViewById<NonScrollableViewPager>(Resource.Id.main_view_pager);
+            viewPager = FindViewById<NonScrollableViewPager>(Resource.Id.main_view_pager);
             viewPager.OffscreenPageLimit = 5;
 
             tabLayout = FindViewById<TabLayout>(Resource.Id.main_tab_layout);

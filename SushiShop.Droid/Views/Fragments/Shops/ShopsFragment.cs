@@ -17,6 +17,7 @@ using SushiShop.Droid.Views.Adapters;
 using SushiShop.Droid.Views.LayoutManagers;
 using SushiShop.Droid.Views.Listeners;
 using SushiShop.Droid.Views.ViewHolders.Shops.Sections;
+using System;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Fragments.Shops
@@ -70,8 +71,8 @@ namespace SushiShop.Droid.Views.Fragments.Shops
             tabsLayoutManager = new MvxGuardedGridLayoutManager(Context, 3);
             tabsRecyclerView.SetLayoutManager(tabsLayoutManager);
 
-            tabsRecyclerView.Adapter = tabsAdapter = new TabsAdapter((IMvxAndroidBindingContext)BindingContext, Resource.Layout.item_shops_tab);
-            tabsRecyclerView.ItemTemplateId = Resource.Layout.item_shops_tab;
+            tabsRecyclerView.Adapter = tabsAdapter = new TabsAdapter((IMvxAndroidBindingContext)BindingContext, Resource.Layout.item_tab);
+            tabsRecyclerView.ItemTemplateId = Resource.Layout.item_tab;
             tabsAdapter.ItemClick = new MvxCommand<int>(OnTabClick);
         }
         
@@ -109,10 +110,21 @@ namespace SushiShop.Droid.Views.Fragments.Shops
         {
             return scrollDirection switch
             {
-                ScrollDirection.Horizontal => ViewModel.SelectedIndex != 0,
+                ScrollDirection.Horizontal => CheckCanScrollHorizontally(),
                 ScrollDirection.Vertical => false,
                 _ => true,
             };
+        }
+
+        private bool CheckCanScrollHorizontally()
+        {
+            if (ViewModel is null)
+            {
+                return false;
+            }
+
+            var disabledIndexToScroll = ViewModel.IsSelectionMode ? 1 : 0;
+            return ViewModel.SelectedIndex != disabledIndexToScroll;
         }
     }
 }

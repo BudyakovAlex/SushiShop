@@ -142,7 +142,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(BadLocationLabel).For(v => v.BindHidden()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
             bindingSet.Bind(DeliveryThereButton).For(v => v.BindVisible()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
             bindingSet.Bind(DeliveryPriceLabel).For(v => v.BindVisible()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
-            bindingSet.Bind(DeliveryThereButton).For(v => v.BindTouchUpInside()).To(vm => vm.ConfirmAddress);
+            bindingSet.Bind(DeliveryThereButton).For(v => v.BindTouchUpInside()).To(vm => vm.ConfirmAddressCommand);
             bindingSet.Bind(this).For(v => v.RemoveFocusInteraction).To(vm => vm.RemoveFocusInteraction);
 
             bindingSet.Apply();

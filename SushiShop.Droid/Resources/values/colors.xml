@@ -6,6 +6,8 @@
     <color name="colorPrimaryDark">#1B3147</color>
     <color name="colorAccent">#3498db</color>
     <color name="orange2">#FF6713</color>
+    <color name="orange">#FA695B</color>
+    <color name="orange2QuarterTransparent">#4DFF6713</color>
     <color name="black">#17181B</color>
     <color name="semitransparentBlack">#80000000</color>
     <color name="gray">#F2F2F7</color>

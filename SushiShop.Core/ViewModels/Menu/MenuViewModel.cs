@@ -103,6 +103,7 @@ namespace SushiShop.Core.ViewModels.Menu
                 .ToArray();
 
             var promotionItems = promotionsTask.Result.Data
+                .Where(promotion => promotion.ShouldShowOnHome ?? true)
                 .Select(promotion => new MenuPromotionItemViewModel(promotion) { ExecutionStateWrapper = ExecutionStateWrapper })
                 .ToArray();
 

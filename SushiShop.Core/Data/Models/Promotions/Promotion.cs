@@ -17,7 +17,7 @@ namespace SushiShop.Core.Data.Models.Promotions
             DateTimeOffset? publicationEndDate,
             DateTimeOffset createdOn,
             string url,
-            string? showOnHome,
+            bool? shouldShowOnHome,
             ImageInfo squareImageInfo,
             ImageInfo rectangularImageInfo,
             string[] cities,
@@ -33,7 +33,7 @@ namespace SushiShop.Core.Data.Models.Promotions
             PublicationEndDate = publicationEndDate;
             CreatedOn = createdOn;
             Url = url;
-            ShowOnHome = showOnHome;
+            ShouldShowOnHome = shouldShowOnHome;
             SquareImageInfo = squareImageInfo;
             RectangularImageInfo = rectangularImageInfo;
             Cities = cities;
@@ -50,7 +50,7 @@ namespace SushiShop.Core.Data.Models.Promotions
         public DateTimeOffset? PublicationEndDate { get; }
         public DateTimeOffset CreatedOn { get; }
         public string Url { get; }
-        public string? ShowOnHome { get; }
+        public bool? ShouldShowOnHome { get; }
         public ImageInfo SquareImageInfo { get; }
         public ImageInfo RectangularImageInfo { get; }
         public string[] Cities { get; }

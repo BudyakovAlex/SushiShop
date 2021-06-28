@@ -167,6 +167,12 @@
     <Compile Include="Views\Controllers\TabLayoutController.cs" />
     <Compile Include="Views\Controllers\ITabLayoutController.cs" />
     <Compile Include="Views\Controls\ShopDetailsBottomView.cs" />
+    <Compile Include="Views\Activities\Orders\OrderRegistrationActivity.cs" />
+    <Compile Include="Views\ViewHolders\Orders\DeliveryOrderSectionViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Orders\PickupOrderSectionViewHolder.cs" />
+    <Compile Include="Views\Activities\Orders\SelectOrderDeliveryAddressActivity.cs" />
+    <Compile Include="Views\ViewHolders\Orders\OrderDeliverySuggestionItemViewHolder.cs" />
+    <Compile Include="Views\Activities\Payment\PaymentActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -654,7 +660,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\item_shops_tab.xml">
+    <AndroidResource Include="Resources\layout\item_tab.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -671,6 +677,46 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\layout_shop_details.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_order_registration.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_delivery_order_section.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_pickup_order_section.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activitiy_select_order_delivery_address.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_map_arrow.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_order_delivery_suggestion.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_clear.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\img_order_registered.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_payment.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_delete_transparent.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -775,6 +821,8 @@
     <Folder Include="Views\Fragments\Shops\" />
     <Folder Include="Views\ViewHolders\Shops\Sections\" />
     <Folder Include="Views\Controllers\" />
+    <Folder Include="Views\Activities\Orders\" />
+    <Folder Include="Views\Activities\Payment\" />
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.txt" />

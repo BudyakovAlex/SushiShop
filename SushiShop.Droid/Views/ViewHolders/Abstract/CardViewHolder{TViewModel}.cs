@@ -13,7 +13,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Abstract
         {
         }
 
-        public TViewModel ViewModel => BindingContext as TViewModel;
+        public TViewModel ViewModel => BindingContext.DataContext as TViewModel;
 
         public MvxFluentBindingDescriptionSet<CardViewHolder<TViewModel>, TViewModel> CreateBindingSet()
         {
