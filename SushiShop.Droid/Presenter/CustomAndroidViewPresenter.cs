@@ -34,9 +34,10 @@ namespace SushiShop.Droid.Presenter
         protected virtual Task<bool> CloseNestedFragmentAsync(IMvxViewModel viewModel, NestedFragmentPresentationAttribute attribute)
         {
             var currentFragment = FindVisibleFragment();
-            if (currentFragment is null)
+            if (currentFragment is null ||
+                currentFragment.ChildFragmentManager.BackStackEntryCount == 0)
             {
-                return Task.FromResult(false);
+                return CloseFragment(viewModel, attribute);
             }
 
             currentFragment.ChildFragmentManager.PopBackStack();
@@ -48,7 +49,7 @@ namespace SushiShop.Droid.Presenter
             var fragmentHost = FindVisibleFragment();
             if (fragmentHost == null)
             {
-                return Task.FromResult(false);
+                return ShowFragment(view, attribute, request);
             }
 
             PerformShowFragmentTransaction(fragmentHost.ChildFragmentManager, attribute, request);

@@ -11,6 +11,7 @@ using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.ViewModels.Orders.Items;
 using System;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -40,12 +41,16 @@ namespace SushiShop.Core.ViewModels.Orders
             this.citiesManager = citiesManager;
             this.userSession = userSession;
             this.dialog = dialog;
+
             Suggestions = new MvxObservableCollection<OrderDeliverySuggestionItemViewModel>();
+            Suggestions.SubscribeToCollectionChanged(OnSuggestionsCollectionChanged).DisposeWith(Disposables);
 
             RemoveFocusInteraction = new MvxInteraction();
-            ConfirmAddress = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmAddressAsync);
+            ConfirmAddressCommand = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmAddressAsync);
             TryLoadPlacemarkCommand = new SafeAsyncCommand<Coordinates>(ExecutionStateWrapper, TryLoadPlacemarkAsync);
         }
+
+        public bool IsSuggestionsEmpty => Suggestions.IsEmpty();
 
         private string? addressQuery;
         public string? AddressQuery
@@ -54,7 +59,7 @@ namespace SushiShop.Core.ViewModels.Orders
             set => SetProperty(ref addressQuery, value, () => _ = OnAddressQueryChangedAsync(value));
         }
 
-        public ICommand ConfirmAddress { get; }
+        public ICommand ConfirmAddressCommand { get; }
 
         public ICommand TryLoadPlacemarkCommand { get; }
 
@@ -104,6 +109,11 @@ namespace SushiShop.Core.ViewModels.Orders
                 .ToArray();
 
             Items.ReplaceWith(deliveryZonesViewModels);
+        }
+
+        private void OnSuggestionsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            _ = RaisePropertyChanged(nameof(IsSuggestionsEmpty));
         }
 
         private Task SelectAsync(OrderDeliverySuggestionItemViewModel viewModel)

@@ -37,6 +37,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Feedback
 
             bindingSet.Bind(photoImageView).For(v => v.BindUrl()).To(vm => vm.ImagePath);
             bindingSet.Bind(deleteImageView).For(v => v.BindClick()).To(vm => vm.RemoveCommand);
+            bindingSet.Bind(deleteImageView).For(v => v.BindVisible()).To(vm => vm.CanRemove);
             bindingSet.Bind(view).For(v => v.BindClick()).To(vm => vm.ShowDetailsCommand);
         }
     }

@@ -57,6 +57,7 @@ namespace SushiShop.Droid.Views.Fragments.Info
             view.FindViewById<Toolbar>(Resource.Id.toolbar).Title = AppStrings.Info;
             officeLinearLayout.FindViewById<TextView>(Resource.Id.office_title_text_view).Text = AppStrings.Office;
             shopsLinearLayout.FindViewById<TextView>(Resource.Id.shops_title_text_view).Text = AppStrings.Shops;
+            view.FindViewById<TextView>(Resource.Id.designed_at_text_view).Text = AppStrings.DevelopedAt;
         }
 
         protected override void Bind()

@@ -16,6 +16,7 @@ using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Info
 {
@@ -236,7 +237,7 @@ namespace SushiShop.Core.ViewModels.Info
                 return;
             }
 
-            await NavigationManager.CloseAsync(this, selectedShop);
+            await NavigationManager.CloseWithDelayAsync(this, selectedShop);
         }
 
         private async Task GoToShopAsync(MetroShop[] shops, string title)
@@ -249,12 +250,12 @@ namespace SushiShop.Core.ViewModels.Info
                 return;
             }
 
-            await NavigationManager.CloseAsync(this, selectedShop);
+            await NavigationManager.CloseWithDelayAsync(this, selectedShop);
         }
 
         private Task ConfirmSelectionAsync(Shop shop)
         {
-            return NavigationManager.CloseAsync(this, shop);
+            return NavigationManager.CloseWithDelayAsync(this, shop);
         }
     }
 }

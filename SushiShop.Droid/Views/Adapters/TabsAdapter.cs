@@ -1,7 +1,10 @@
 ﻿using System;
+using Android.Content.Res;
+using Android.Graphics;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Core.Content;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
@@ -70,7 +73,17 @@ namespace SushiShop.Droid.Views.Adapters
         {
             var indicatorView = viewHolder.ItemView.FindViewById<View>(Resource.Id.indicator_tab);
             var textView = viewHolder.ItemView.FindViewById<TextView>(Resource.Id.tab_text_view);
-            textView.Text = (viewHolder as MvxRecyclerViewHolder)?.DataContext?.ToString(); ;
+
+            var selectedTextColorArgb = ContextCompat.GetColor(viewHolder.ItemView.Context, Resource.Color.black);
+            var unselectedTextColorArgb = ContextCompat.GetColor(viewHolder.ItemView.Context, Resource.Color.gr);
+
+            var textColorArgb = viewHolder.LayoutPosition == selectedIndex
+                ? selectedTextColorArgb
+                : unselectedTextColorArgb;
+
+            textView.SetTextColor(ColorStateList.ValueOf(new Color(textColorArgb)));
+            textView.Text = (viewHolder as MvxRecyclerViewHolder)?.DataContext?.ToString();
+
             indicatorView.Visibility = viewHolder.LayoutPosition == selectedIndex ? ViewStates.Visible : ViewStates.Gone;
             indicatorView.SetRoundedCorners(viewHolder.ItemView.Context.DpToPx(2));
         }

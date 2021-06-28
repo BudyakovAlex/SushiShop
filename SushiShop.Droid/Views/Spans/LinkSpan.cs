@@ -1,4 +1,5 @@
 ﻿using System;
+using Android.Graphics;
 using Android.Text;
 using Android.Text.Style;
 using Android.Views;
@@ -12,7 +13,9 @@ namespace SushiShop.Droid.Views.Spans
         private readonly string text;
         private readonly bool isUnderlineText;
 
-        public LinkSpan(Action<string> action, string text = null, bool isUnderlineText = true)
+        public LinkSpan(Action<string> action,
+            string text = null,
+            bool isUnderlineText = true)
         {
             this.action = action;
             this.text = text;

@@ -4,6 +4,7 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Models.Shops;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Shops;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Plugins;
@@ -99,7 +100,7 @@ namespace SushiShop.Core.ViewModels.Shops
             }
 
             NearestMetro.Clear();
-            await NavigationManager.CloseAsync(this, selectedShop);
+            await NavigationManager.CloseWithDelayAsync(this, selectedShop);
         }
 
         private async Task GoToShopAsync(MetroItemViewModel itemViewModel)
@@ -112,7 +113,7 @@ namespace SushiShop.Core.ViewModels.Shops
                 return;
             }
 
-            var navigationParameter = new ShopsNearMetroNavigationParameters(shops, Title, isSelectionMode);
+            var navigationParameter = new ShopsNearMetroNavigationParameters(shops, itemViewModel.Text, isSelectionMode);
             var selectedShop = await NavigationManager.NavigateAsync<ShopsNearMetroViewModel, ShopsNearMetroNavigationParameters, Shop>(navigationParameter);
             if (!isSelectionMode ||
                 selectedShop is null)
@@ -121,13 +122,13 @@ namespace SushiShop.Core.ViewModels.Shops
             }
 
             NearestMetro.Clear();
-            await NavigationManager.CloseAsync(this, selectedShop);
+            await NavigationManager.CloseWithDelayAsync(this, selectedShop);
         }
 
         private Task ConfirmSelectionAsync(Shop shop)
         {
             NearestMetro.Clear();
-            return NavigationManager.CloseAsync(this, shop);
+            return NavigationManager.CloseWithDelayAsync(this, shop);
         }
 
         private void ShowNearestMetro(Shop shop)

@@ -82,6 +82,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/working_hours_text_view" />
 
+    <Button
+        android:id="@+id/pickup_there_button"
+        style="@style/PrimaryButton"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <View
         android:layout_width="0dp"
         android:layout_height="1dp"
