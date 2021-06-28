@@ -36,6 +36,7 @@ namespace SushiShop.Droid.Views.Fragments.Profile
         private ConstraintLayout editProfileConstraintLayout;
         private ConstraintLayout myOrdersConstraintLayout;
         private ConstraintLayout feedbackConstraintLayout;
+        private View loadingOverlayView;
 
         public ProfileFragment()
             : base(Resource.Layout.fragment_profile)
@@ -80,6 +81,7 @@ namespace SushiShop.Droid.Views.Fragments.Profile
             editProfileConstraintLayout = view.FindViewById<ConstraintLayout>(Resource.Id.edit_profile_constraint_layout);
             myOrdersConstraintLayout = view.FindViewById<ConstraintLayout>(Resource.Id.my_orders_constraint_layout);
             feedbackConstraintLayout = view.FindViewById<ConstraintLayout>(Resource.Id.feedback_constraint_layout);
+            loadingOverlayView = View.FindViewById<View>(Resource.Id.loading_overlay_view);
 
             phoneEmailTextInputLayout.Hint = AppStrings.ProfileLoginPlaceholder;
             loginButton.Text = AppStrings.Login;
@@ -124,6 +126,7 @@ namespace SushiShop.Droid.Views.Fragments.Profile
             bindingSet.Bind(myOrdersConstraintLayout).For(v => v.BindVisible()).To(vm => vm.IsAuthorized);
             bindingSet.Bind(feedbackConstraintLayout).For(v => v.BindClick()).To(vm => vm.ShowFeedbackCommand);
             bindingSet.Bind(feedbackConstraintLayout).For(v => v.BindVisible()).To(vm => vm.IsAuthorized);
+            bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
         }
 
         private bool OnPhoneEmailEditTextKeyListener(View view, Keycode keyCode, KeyEvent e)

@@ -38,6 +38,7 @@ namespace SushiShop.Droid.Views.Activities.Profile
         private SwitchCompat emailNotificationsSwitch;
         private SwitchCompat smsNotificationsSwitch;
         private AppCompatButton registerButton;
+        private View loadingOverlayView;
 
         public RegistrationActivity() : base(Resource.Layout.activity_registration)
         {
@@ -56,6 +57,7 @@ namespace SushiShop.Droid.Views.Activities.Profile
             emailNotificationsSwitch = FindViewById<SwitchCompat>(Resource.Id.email_notifications_switch);
             smsNotificationsSwitch = FindViewById<SwitchCompat>(Resource.Id.sms_notifications_switch);
             registerButton = FindViewById<AppCompatButton>(Resource.Id.register_button);
+            loadingOverlayView = FindViewById<View>(Resource.Id.loading_overlay_view);
 
             phoneTextEditText.AddTextChangedListener(new PhoneTextWatcher(phoneTextEditText));
 
@@ -99,14 +101,16 @@ namespace SushiShop.Droid.Views.Activities.Profile
             bindingSet.Bind(emailNotificationsSwitch).For(v => v.BindChecked()).To(vm => vm.IsAcceptEmailNotifications);
             bindingSet.Bind(smsNotificationsSwitch).For(v => v.BindChecked()).To(vm => vm.IsAcceptSmsNotifications);
             bindingSet.Bind(registerButton).For(v => v.BindClick()).To(vm => vm.RegisterCommand);
+            bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
         }
 
-        private async Task OnBirthdayTextEditTextClickedAsync(View view)
+        private Task OnBirthdayTextEditTextClickedAsync(View view)
         {
             var date = ViewModel?.DateOfBirth ?? DateTime.Now;
             var datePickerDialog = new DatePickerDialog(this, OnDatePickerDialogSelectDate, date.Year, date.Month, date.Day);
             datePickerDialog.DatePicker.MaxDate = DateTime.Now.ToDialogPickerDate();
             datePickerDialog.Show();
+            return Task.CompletedTask;
         }
 
         private void OnDatePickerDialogSelectDate(object sender, DatePickerDialog.DateSetEventArgs e)
