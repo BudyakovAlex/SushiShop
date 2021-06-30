@@ -132,6 +132,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
             toolbar.Title = AppStrings.SelectOrderDeliveryTitle;
             bottomInfoConstraintLayout = FindViewById<View>(Resource.Id.bottom_info_constraint_layout);
             bottomInfoConstraintLayout.SetTopRoundedCorners(this.DpToPx(10));
+            searchEditText.Hint = AppStrings.EnterYourAddress;
 
             InitializeRecyclerView();
             InitializeMap();

@@ -1,11 +1,11 @@
-﻿using Android.Gms.Tasks;
-using Android.Views;
+﻿using Android.Views;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using Google.Android.Material.TextField;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.IoC;
+using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using SushiShop.Droid.Views.Controllers;
@@ -59,6 +59,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
             searchEditText = view.FindViewById<TextInputEditText>(Resource.Id.search_edit_text);
             shopsListRecyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.shops_list_recycler_view);
             nearestMetroView = view.FindViewById<NearestMetroView>(Resource.Id.nearest_metro_view);
+            searchEditText.Hint = AppStrings.EnterAddress;
 
             InitializeShopsListRecyckerView();
         }

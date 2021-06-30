@@ -432,6 +432,9 @@
   <data name="Delivery" xml:space="preserve">
     <value>Доставка</value>
   </data>
+  <data name="DeliveryAddress" xml:space="preserve">
+    <value>Адрес доставки</value>
+  </data>
   <data name="ShopAddress" xml:space="preserve">
     <value>Адрес магазина</value>
   </data>
@@ -542,5 +545,8 @@
   </data>
   <data name="OnMainPage" xml:space="preserve">
     <value>На главную</value>
+  </data>
+  <data name="GoToMenuPage" xml:space="preserve">
+    <value>Перейти в меню</value>
   </data>
 </root>

@@ -244,6 +244,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/empty_basket_image_view"
             tools:text="В корзине пусто" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/go_to_menu_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/bg_button_gradient"
+            android:fontFamily="@font/font_family_sf_pro_display_medium"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="500"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Перейти в меню" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View

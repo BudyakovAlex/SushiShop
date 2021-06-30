@@ -99,7 +99,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             view.FindViewById<TextInputLayout>(Resource.Id.phone_text_input_layout).Hint = $"{AppStrings.Phone}*";
             view.FindViewById<TextInputLayout>(Resource.Id.comments_text_input_layout).Hint = AppStrings.Comment;
 
-            view.FindViewById<TextView>(Resource.Id.address_title_text_view).Text = AppStrings.ShopAddress;
+            view.FindViewById<TextView>(Resource.Id.address_title_text_view).Text = AppStrings.DeliveryAddress;
             view.FindViewById<TextView>(Resource.Id.pick_delivery_location_text_view).Text = AppStrings.PickDeliveryAddress;
             view.FindViewById<TextView>(Resource.Id.time_title_text_view).Text = AppStrings.OrderTime;
             view.FindViewById<TextView>(Resource.Id.pick_time_title_text_view).Text = AppStrings.PickAt;
