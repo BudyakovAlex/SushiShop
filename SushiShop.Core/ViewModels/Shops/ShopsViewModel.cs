@@ -16,7 +16,6 @@ using SushiShop.Core.ViewModels.Shops.Items;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Info
 {
@@ -49,7 +48,7 @@ namespace SushiShop.Core.ViewModels.Info
             set => SetProperty(ref selectedIndex, value, OnSelectedIndexChanged);
         }
 
-        private string? title;
+        private string? title = AppStrings.Shops;
         public string? Title
         {
             get => title;
