@@ -150,6 +150,8 @@
                                 android:fontFamily="@font/sf_pro_display_regular"
                                 android:lines="1"
                                 android:maxLines="1"
+                                android:inputType="text"
+                                android:imeOptions="actionDone"
                                 android:textColor="@color/black" />
 
                         </com.google.android.material.textfield.TextInputLayout>

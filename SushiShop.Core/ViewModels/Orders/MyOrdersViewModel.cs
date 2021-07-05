@@ -53,13 +53,15 @@ namespace SushiShop.Core.ViewModels.Orders
             Pagination.Reset();
             Items.Clear();
 
-            await LoadMoreItemsAsync(0, Constants.Common.DefaultPaginationSize);
+            await Pagination.LoadMoreItemsCommand.ExecuteAsync();
 
             IsLoading = false;
         }
 
         private async Task<int> LoadMoreItemsAsync(int paginationIndex, int paginationSize)
         {
+            System.Diagnostics.Debug.WriteLine(paginationIndex);
+
             var response = await ordersManager.GetMyOrdersAsync(paginationIndex, paginationSize).ConfigureAwait(false);
             if (!response.IsSuccessful)
             {
