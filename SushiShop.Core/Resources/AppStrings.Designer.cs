@@ -671,6 +671,12 @@ namespace SushiShop.Core.Resources {
             }
         }
         
+        public static string DeliveryAddress {
+            get {
+                return ResourceManager.GetString("DeliveryAddress", resourceCulture);
+            }
+        }
+        
         public static string ShopAddress {
             get {
                 return ResourceManager.GetString("ShopAddress", resourceCulture);
@@ -890,6 +896,12 @@ namespace SushiShop.Core.Resources {
         public static string OnMainPage {
             get {
                 return ResourceManager.GetString("OnMainPage", resourceCulture);
+            }
+        }
+        
+        public static string GoToMenuPage {
+            get {
+                return ResourceManager.GetString("GoToMenuPage", resourceCulture);
             }
         }
     }

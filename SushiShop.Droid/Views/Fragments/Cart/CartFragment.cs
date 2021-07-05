@@ -1,11 +1,14 @@
 ﻿using Android.OS;
+using Android.Runtime;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using AndroidX.AppCompat.Widget;
 using AndroidX.ConstraintLayout.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Listeners;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
 using Google.Android.Material.TextField;
 using MvvmCross.DroidX;
@@ -17,8 +20,10 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Cart;
 using SushiShop.Core.ViewModels.Cart.Items;
+using SushiShop.Droid.Views.Activities;
 using SushiShop.Droid.Views.Fragments.Abstract;
 using SushiShop.Droid.Views.ViewHolders.Cart;
+using System.Threading.Tasks;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Fragments.Cart
@@ -27,7 +32,7 @@ namespace SushiShop.Droid.Views.Fragments.Cart
         TabLayoutResourceId = Resource.Id.main_tab_layout,
         ViewPagerResourceId = Resource.Id.main_view_pager,
         ActivityHostViewModelType = typeof(MainViewModel))]
-    public class CartFragment : BaseFragment<CartViewModel>, ITabFragment
+    public class CartFragment : BaseFragment<CartViewModel>, ITabFragment, View.IOnFocusChangeListener, TextView.IOnEditorActionListener
     {
         private Toolbar toolbar;
         private MvxRecyclerView productsRecyclerView;
@@ -41,6 +46,7 @@ namespace SushiShop.Droid.Views.Fragments.Cart
         private TextView totalPriceTextView;
         private ConstraintLayout emptyCartConstraintLayout;
         private MvxSwipeRefreshLayout swipeRefreshLayout;
+        private AppCompatButton goToMenuButton;
 
         public CartFragment()
             : base(Resource.Layout.fragment_cart)
@@ -62,19 +68,47 @@ namespace SushiShop.Droid.Views.Fragments.Cart
             totalPriceTextView = view.FindViewById<TextView>(Resource.Id.total_price_text_view);
             emptyCartConstraintLayout = view.FindViewById<ConstraintLayout>(Resource.Id.empty_basket_constraint_layout);
             swipeRefreshLayout = view.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.swipe_refresh_layout);
+            goToMenuButton = view.FindViewById<AppCompatButton>(Resource.Id.go_to_menu_button);
+            goToMenuButton.SetOnClickListener(new ViewOnClickListener(OnGoToMenuButtonClickedAsync));
+            promocodeEditText.OnFocusChangeListener = this;
+            promocodeEditText.SetOnEditorActionListener(this);
 
             choosePackageTextView.Text = AppStrings.ChoosePackage;
             promocodeInputLayout.Hint = AppStrings.Promocode;
             view.FindViewById<TextView>(Resource.Id.add_sauce_text_view).Text = AppStrings.AddSauce;
             checkoutButton.Text = AppStrings.CheckoutOrder;
+            goToMenuButton.Text = AppStrings.GoToMenuPage;
             view.FindViewById<TextView>(Resource.Id.total_price_title_text_view).Text = $"{AppStrings.Total}:";
             view.FindViewById<TextView>(Resource.Id.empty_cart_text_view).Text = AppStrings.EmptyCart;
 
-            checkoutButton.SetRoundedCorners(Context.DpToPx(25));
+            var cornerRadius = Context.DpToPx(25);
+            checkoutButton.SetRoundedCorners(cornerRadius);
+            goToMenuButton.SetRoundedCorners(cornerRadius);
 
             InitializeProductsRecyclerView();
             InitializeSaucesRecyclerView();
             InitializePackagesRecyclerView();
+        }
+
+        public void OnFocusChange(View _, bool hasFocus)
+        {
+            if (hasFocus)
+            {
+                return;
+            }
+
+            ViewModel?.ApplyPromocodeCommand.CanExecute();
+        }
+
+        public bool OnEditorAction(TextView v, ImeAction actionId, KeyEvent e)
+        {
+            if (actionId != ImeAction.Done)
+            {
+                return false;
+            }
+
+            ViewModel?.ApplyPromocodeCommand.Execute();
+            return true;
         }
 
         protected override void Bind()
@@ -121,6 +155,12 @@ namespace SushiShop.Droid.Views.Fragments.Cart
             packagesRecyclerView.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
             packagesRecyclerView.ItemTemplateSelector = new TemplateSelector()
                 .AddElement<CartPackItemViewModel, CartPackItemViewHolder>(Resource.Layout.item_cart_pack);
+        }
+
+        private Task OnGoToMenuButtonClickedAsync(View _)
+        {
+            MainActivity.Instance.ShowMainTab();
+            return Task.CompletedTask;
         }
     }
 }
