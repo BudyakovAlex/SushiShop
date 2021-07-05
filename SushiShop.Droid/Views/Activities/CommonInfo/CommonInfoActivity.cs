@@ -36,6 +36,8 @@ namespace SushiShop.Droid.Views.Activities.CommonInfo
 
             webView = FindViewById<WebView>(Resource.Id.web_view);
             webView.Settings.JavaScriptEnabled = true;
+            webView.Settings.LoadWithOverviewMode = true;
+            webView.Settings.UseWideViewPort = true;
 
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
         }
