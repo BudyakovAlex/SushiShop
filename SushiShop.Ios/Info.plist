@@ -7,7 +7,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>14.5</string>
+	<string>14.4</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -63,6 +63,6 @@
 	<key>CFBundleDisplayName</key>
 	<string>Сушишоп</string>
 	<key>CFBundleVersion</key>
-	<string>69</string>
+	<string>70</string>
 </dict>
 </plist>
