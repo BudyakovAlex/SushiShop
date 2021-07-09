@@ -82,7 +82,7 @@ namespace SushiShop.Core.ViewModels.Cart
 
         public long CountProductsInCart => cart?.TotalCount ?? 0;
 
-        public string TotalPrice => $"{cart?.TotalSum ?? 0} {cart?.Currency!.Symbol}";
+        public string TotalPrice => GetTotalPrice();
 
         public bool IsEmptyBasket => cart?.Products?.Length == 0;
 
@@ -158,6 +158,12 @@ namespace SushiShop.Core.ViewModels.Cart
             _ = RaisePropertyChanged(nameof(CountProductsInCart));
             _ = RaisePropertyChanged(nameof(TotalPrice));
             _ = RaisePropertyChanged(nameof(IsEmptyBasket));
+        }
+
+        private string GetTotalPrice()
+        {
+            var totalPrice = cart is null ? 0 : cart.TotalSum - cart.Discount;
+            return $"{totalPrice} {cart?.Currency!.Symbol}";
         }
 
         private void RefreshSausesCountState(int count, long sauseId)
