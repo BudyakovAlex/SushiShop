@@ -209,6 +209,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
         {
             var manager= (InputMethodManager)GetSystemService(InputMethodService);
             manager.HideSoftInputFromWindow(searchEditText.WindowToken, HideSoftInputFlags.None);
+            searchEditText.SetSelection(searchEditText.Text.Length);
         }
 
         private void UpdateZones()

@@ -12,6 +12,7 @@ using SushiShop.Core.Converters;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders.Sections;
+using SushiShop.Droid.Platform.Watchers;
 using SushiShop.Droid.Views.Controls;
 using SushiShop.Droid.Views.Spans;
 using SushiShop.Droid.Views.ViewHolders.Abstract;
@@ -89,6 +90,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             confirmButton.SetRoundedCorners(view.Context.DpToPx(25));
             confirmButton.Text = AppStrings.CheckoutOrder;
             phoneEditText.OnFocusChangeListener = this;
+            phoneEditText.AddTextChangedListener(new PhoneTextWatcher(phoneEditText));
 
             view.FindViewById<TextView>(Resource.Id.total_title_text_view).Text = AppStrings.Total;
             view.FindViewById<TextInputLayout>(Resource.Id.flat_text_input_layout).Hint = AppStrings.Apartment;
@@ -102,7 +104,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             view.FindViewById<TextView>(Resource.Id.address_title_text_view).Text = AppStrings.DeliveryAddress;
             view.FindViewById<TextView>(Resource.Id.pick_delivery_location_text_view).Text = AppStrings.PickDeliveryAddress;
             view.FindViewById<TextView>(Resource.Id.time_title_text_view).Text = AppStrings.OrderTime;
-            view.FindViewById<TextView>(Resource.Id.pick_time_title_text_view).Text = AppStrings.PickAt;
+            view.FindViewById<TextView>(Resource.Id.pick_time_title_text_view).Text = AppStrings.Delivery;
             view.FindViewById<TextView>(Resource.Id.personal_data_title_text_view).Text = AppStrings.PersonalData;
             view.FindViewById<TextView>(Resource.Id.preferred_info_title_text_view).Text = AppStrings.Preferences;
             view.FindViewById<TextView>(Resource.Id.devices_title_text_view).Text = AppStrings.DevicesCount;
