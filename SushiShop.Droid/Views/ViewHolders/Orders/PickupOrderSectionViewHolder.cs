@@ -12,6 +12,7 @@ using SushiShop.Core.Converters;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Orders.Sections;
+using SushiShop.Droid.Platform.Watchers;
 using SushiShop.Droid.Views.Controls;
 using SushiShop.Droid.Views.Spans;
 using SushiShop.Droid.Views.ViewHolders.Abstract;
@@ -80,6 +81,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             confirmButton.SetRoundedCorners(view.Context.DpToPx(25));
             confirmButton.Text = AppStrings.CheckoutOrder;
             phoneEditText.OnFocusChangeListener = this;
+            phoneEditText.AddTextChangedListener(new PhoneTextWatcher(phoneEditText));
 
             view.FindViewById<TextView>(Resource.Id.pickup_text_view).Text = AppStrings.Free;
             view.FindViewById<TextInputLayout>(Resource.Id.name_text_input_layout).Hint = $"{AppStrings.Name}*";

@@ -82,11 +82,17 @@ namespace SushiShop.Droid.Views.Activities.Profile
                 .WithConversion<GenderTypeToStringConverter>();
             bindingSet.Bind(dateOfBirthEditText).For(v => v.Text).To(vm => vm.DateOfBirth)
                 .WithConversion<DateTimeToStringConverter>();
-            bindingSet.Bind(phoneEditText).For(v => v.Text).To(vm => vm.Phone);
-            bindingSet.Bind(emailEditText).For(v => v.Text).To(vm => vm.Email);
             bindingSet.Bind(phoneNotificationsSwitch).For(v => v.BindChecked()).To(vm => vm.IsAllowNotifications);
             bindingSet.Bind(emailNotificationSwitch).For(v => v.BindChecked()).To(vm => vm.IsAllowSubscribe);
+            bindingSet.Bind(emailEditText).For(v => v.Text).To(vm => vm.Email);
             bindingSet.Bind(saveTextView).For(v => v.BindClick()).To(vm => vm.SaveCommand);
+
+            bindingSet.Bind(phoneEditText).For(v => v.Text).To(vm => vm.Phone);
+            bindingSet.Bind(phoneEditText).For(v => v.Enabled).To(vm => vm.CanChangePhone);
+            bindingSet.Bind(phoneEditText).For(v => v.InputType).To(vm => vm.CanChangePhone)
+                .WithBoolConversion(InputTypes.ClassPhone, InputTypes.Null);
+            bindingSet.Bind(phoneEditText).For(v => v.Alpha).To(vm => vm.CanChangePhone)
+               .WithConversion(new BoolToValueConverter<float>(1, 0.3f));
         }
 
         private Task OnGenderEditTextClickedAsync(View view)

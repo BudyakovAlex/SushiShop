@@ -33,7 +33,14 @@ namespace SushiShop.Droid.Platform.Watchers
                 : editText.SelectionStart;
 
             editText.Text = editText.Text.FilterByMask(Constants.Format.Phone.MaskFormat);
-            editText.SetSelection(Math.Min(selectionPosition, editText.Text.Length));
+            if (s.Length() < 4)
+            {
+                editText.SetSelection(editText.Text.Length);
+            }
+            else
+            {
+                editText.SetSelection(Math.Min(selectionPosition, editText.Text.Length));
+            }
 
             editText.AddTextChangedListener(this);
         }
