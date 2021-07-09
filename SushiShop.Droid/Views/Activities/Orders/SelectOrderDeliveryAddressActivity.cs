@@ -97,6 +97,25 @@ namespace SushiShop.Droid.Views.Activities.Orders
             }
         }
 
+        private MvxInteraction restoreCursorInteraction;
+        public MvxInteraction RestoreCursorInteraction
+        {
+            get => restoreCursorInteraction;
+            set
+            {
+                if (restoreCursorInteraction != null)
+                {
+                    restoreCursorInteraction.Requested -= OnResetCursorInteractionRequested;
+                }
+
+                restoreCursorInteraction = value;
+                if (restoreCursorInteraction != null)
+                {
+                    restoreCursorInteraction.Requested += OnResetCursorInteractionRequested;
+                }
+            }
+        }
+
         public void OnMapClick(LatLng point)
             => ViewModel?.TryLoadPlacemarkCommand?.Execute(new Coordinates(point.Longitude, point.Latitude));
 
@@ -162,6 +181,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
             bindingSet.Bind(addButton).For(v => v.BindVisible()).To(vm => vm.SelectedLocation.IsDeliveryAvailable);
             bindingSet.Bind(addButton).For(v => v.BindClick()).To(vm => vm.ConfirmAddressCommand);
             bindingSet.Bind(this).For(v => v.RemoveFocusInteraction).To(vm => vm.RemoveFocusInteraction);
+            bindingSet.Bind(this).For(v => v.RestoreCursorInteraction).To(vm => vm.RestoreCursorInteraction);
 
             bindingSet.Apply();
         }
@@ -209,7 +229,14 @@ namespace SushiShop.Droid.Views.Activities.Orders
         {
             var manager= (InputMethodManager)GetSystemService(InputMethodService);
             manager.HideSoftInputFromWindow(searchEditText.WindowToken, HideSoftInputFlags.None);
-            searchEditText.SetSelection(searchEditText.Text.Length);
+        }
+
+        private void OnResetCursorInteractionRequested(object _, EventArgs __)
+        {
+            searchEditText.Post(() =>
+            {
+                searchEditText.SetSelection(searchEditText.Text.Length);
+            });
         }
 
         private void UpdateZones()
