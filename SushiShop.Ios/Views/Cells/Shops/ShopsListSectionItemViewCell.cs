@@ -1,4 +1,5 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
+﻿using BuildApps.Core.Mobile.Common.Extensions;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
 using SushiShop.Core.Data.Enums;
@@ -9,6 +10,7 @@ using SushiShop.Ios.Common;
 using SushiShop.Ios.Sources;
 using SushiShop.Ios.Views.Controls;
 using System;
+using System.Reactive.Disposables;
 using UIKit;
 
 namespace SushiShop.Ios.Views.Cells.Shops
@@ -17,6 +19,8 @@ namespace SushiShop.Ios.Views.Cells.Shops
     {
         public static readonly NSString Key = new NSString(nameof(ShopsListSectionItemViewCell));
         public static readonly UINib Nib = UINib.FromName(Key, NSBundle.MainBundle);
+
+        private readonly CompositeDisposable disposables;
 
         private TableViewSource tableViewSource;
         private NearestMetroView nearestMetroView;
@@ -41,6 +45,7 @@ namespace SushiShop.Ios.Views.Cells.Shops
         protected ShopsListSectionItemViewCell(IntPtr handle)
             : base(handle)
         {
+            disposables = new CompositeDisposable();
         }
 
         protected override void Initialize()
@@ -58,10 +63,16 @@ namespace SushiShop.Ios.Views.Cells.Shops
 
             SearchBar.SearchTextPositionAdjustment = new UIOffset(5, 0);
             SearchBar.SetPositionAdjustmentforSearchBarIcon(new UIOffset(5, 0), UISearchBarIcon.Search);
+            SearchBar.SubscribeToEvent(
+                OnSearchButtonClicked,
+                (searchBar, handler) => searchBar.SearchButtonClicked += handler,
+                (searchBar, handler) => searchBar.SearchButtonClicked -= handler)
+                .DisposeWith(disposables);
 
             tableViewSource = new TableViewSource(ContentTableView);
             tableViewSource.Register<ShopItemViewModel>(ShopItemViewCell.Nib, ShopItemViewCell.Key);
             ContentTableView.Source = tableViewSource;
+            ContentTableView.KeyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag;
 
             nearestMetroView = NearestMetroView.Create();
         }
@@ -80,5 +91,18 @@ namespace SushiShop.Ios.Views.Cells.Shops
 
             bindingSet.Apply();
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            if (disposing)
+            {
+                disposables?.Dispose();
+            }
+        }
+
+        private void OnSearchButtonClicked(object _, EventArgs __) =>
+            SearchBar.EndEditing(true);
     }
 }
