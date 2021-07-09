@@ -379,6 +379,7 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:lines="1"
                         android:maxLines="1"
+                        android:inputType="phone"
                         android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>

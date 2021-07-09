@@ -144,9 +144,12 @@ namespace SushiShop.Droid.Views.Activities.Orders
 
         private void OnTabClick(int position)
         {
-            contentRecyclerView.ScrollToPosition(position);
-            tabsLayoutManager.ScrollToPosition(position);
-            scrollListener.Position = position;
+            contentRecyclerView.Post(() =>
+            {
+                contentRecyclerView.ScrollToPosition(position);
+                tabsLayoutManager.ScrollToPosition(position);
+                scrollListener.Position = position;
+            });
         }
 
         private void OnSnapPagerPositionChanged(int position)
