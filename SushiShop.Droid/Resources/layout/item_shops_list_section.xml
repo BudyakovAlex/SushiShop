@@ -32,6 +32,7 @@
             android:drawablePadding="30dp"
             android:fontFamily="@font/sf_pro_display_regular"
             android:lines="1"
+            android:imeOptions="actionSearch"
             android:maxLines="1"
             android:textColor="@color/black"
             android:textColorHint="@color/gr"

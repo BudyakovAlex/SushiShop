@@ -46,6 +46,7 @@ namespace SushiShop.Core.ViewModels.Orders
             Suggestions.SubscribeToCollectionChanged(OnSuggestionsCollectionChanged).DisposeWith(Disposables);
 
             RemoveFocusInteraction = new MvxInteraction();
+            RestoreCursorInteraction = new MvxInteraction();
             ConfirmAddressCommand = new SafeAsyncCommand(ExecutionStateWrapper, ConfirmAddressAsync);
             TryLoadPlacemarkCommand = new SafeAsyncCommand<Coordinates>(ExecutionStateWrapper, TryLoadPlacemarkAsync);
         }
@@ -74,6 +75,7 @@ namespace SushiShop.Core.ViewModels.Orders
         public double Longitude => _city?.Longitude ?? Constants.Map.MapStartPointLongitude;
 
         public MvxInteraction RemoveFocusInteraction { get; }
+        public MvxInteraction RestoreCursorInteraction { get; }
 
         private OrderDeliverySuggestionItemViewModel? selectedLocation;
         public OrderDeliverySuggestionItemViewModel? SelectedLocation
@@ -129,7 +131,7 @@ namespace SushiShop.Core.ViewModels.Orders
 
             Suggestions.Clear();
             AddressQuery = viewModel.Address;
-
+            RestoreCursorInteraction.Raise();
             return Task.CompletedTask;
         }
 

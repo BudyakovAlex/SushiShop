@@ -48,6 +48,7 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
 
             NearestMetro.SubscribeToCollectionChanged(OnNearestMetroCollectionChanged).DisposeWith(Disposables);
 
+            RemoveFocusInteraction = new MvxInteraction();
             ClearNearestMetroCommand = new MvxCommand(() => NearestMetro.Clear());
             ShowResultsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowResultsAsync);
         }
@@ -55,6 +56,8 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
         public ICommand ClearNearestMetroCommand { get; }
 
         public IMvxCommand ShowResultsCommand { get; }
+
+        public MvxInteraction RemoveFocusInteraction { get; }
 
         private string query = string.Empty;
         public string Query
@@ -79,7 +82,7 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
         {
             var viewModels = shops.Select(item => new ShopItemViewModel(
                 item,
-                goToMapFunc,
+                GoToMapAsync,
                 confirmSelectionFunc,
                 isSelectionMode,
                 showNearestMetroAction: ShowNearestMetro)).ToArray();
@@ -93,6 +96,12 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
             this.metroShopsMappings = metroShopsMappings;
         }
 
+        private Task GoToMapAsync(Shop shop)
+        {
+            RemoveFocusInteraction.Raise();
+            return goToMapFunc(shop);
+        }
+
         private void OnNearestMetroCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             RaisePropertyChanged(nameof(IsNearestMetroNotEmpty));
@@ -100,6 +109,7 @@ namespace SushiShop.Core.ViewModels.Shops.Sections
 
         private void ShowNearestMetro(Shop shop)
         {
+            RemoveFocusInteraction.Raise();
             if (shop.Metro.Length == 0)
             {
                 UserDialogs.Instance.Alert(AppStrings.NoNearestMetro);
