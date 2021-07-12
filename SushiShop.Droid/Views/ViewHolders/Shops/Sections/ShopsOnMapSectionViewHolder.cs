@@ -218,7 +218,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Shops.Sections
 
         private void SetCamera()
         {
-            var coordinates = new LatLng(centerCoordinates.Latitude ?? 0, centerCoordinates.Longitude ?? 0);
+            var coordinates = new LatLng(centerCoordinates?.Latitude ?? 0, centerCoordinates?.Longitude ?? 0);
             var currentZoom = zoom == 0 ? Core.Common.Constants.Map.DefaultZoomFactor : zoom;
             var cameraPosition = CameraPosition.FromLatLngZoom(coordinates, currentZoom);
             googleMap?.MoveCamera(CameraUpdateFactory.NewCameraPosition(cameraPosition));

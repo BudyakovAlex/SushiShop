@@ -2,6 +2,7 @@
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
+using MvvmCross.ViewModels;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Shops.Items;
@@ -42,6 +43,25 @@ namespace SushiShop.Ios.Views.Cells.Shops
             }
         }
 
+        private MvxInteraction removeFocusInteraction;
+        public MvxInteraction RemoveFocusInteraction
+        {
+            get => removeFocusInteraction;
+            set
+            {
+                if (removeFocusInteraction != null)
+                {
+                    removeFocusInteraction.Requested -= OnRemoveFocusInteractionRequested;
+                }
+
+                removeFocusInteraction = value;
+                if (removeFocusInteraction != null)
+                {
+                    removeFocusInteraction.Requested += OnRemoveFocusInteractionRequested;
+                }
+            }
+        }
+
         protected ShopsListSectionItemViewCell(IntPtr handle)
             : base(handle)
         {
@@ -73,6 +93,7 @@ namespace SushiShop.Ios.Views.Cells.Shops
             tableViewSource.Register<ShopItemViewModel>(ShopItemViewCell.Nib, ShopItemViewCell.Key);
             ContentTableView.Source = tableViewSource;
             ContentTableView.KeyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag;
+            ContentTableView.AddGestureRecognizer(new UITapGestureRecognizer(() => SearchBar.EndEditing(true)));
 
             nearestMetroView = NearestMetroView.Create();
         }
@@ -88,6 +109,7 @@ namespace SushiShop.Ios.Views.Cells.Shops
             bindingSet.Bind(nearestMetroView).For(v => v.MetrosCollection).To(vm => vm.NearestMetro);
             bindingSet.Bind(this).For(v => v.IsNearestMetroNotEmpty).To(vm => vm.IsNearestMetroNotEmpty);
             bindingSet.Bind(nearestMetroView).For(v => v.CloseCommand).To(vm => vm.ClearNearestMetroCommand);
+            bindingSet.Bind(this).For(v => v.RemoveFocusInteraction).To(vm => vm.RemoveFocusInteraction);
 
             bindingSet.Apply();
         }
@@ -103,6 +125,9 @@ namespace SushiShop.Ios.Views.Cells.Shops
         }
 
         private void OnSearchButtonClicked(object _, EventArgs __) =>
+            SearchBar.EndEditing(true);
+
+        private void OnRemoveFocusInteractionRequested(object sender, EventArgs e) =>
             SearchBar.EndEditing(true);
     }
 }

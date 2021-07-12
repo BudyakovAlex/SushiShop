@@ -225,11 +225,8 @@ namespace SushiShop.Droid.Views.Activities.Orders
         private void OnItemsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
             => UpdateZones();
 
-        private void OnRemoveFocusInteractionRequested(object _, EventArgs __)
-        {
-            var manager= (InputMethodManager)GetSystemService(InputMethodService);
-            manager.HideSoftInputFromWindow(searchEditText.WindowToken, HideSoftInputFlags.None);
-        }
+        private void OnRemoveFocusInteractionRequested(object _, EventArgs __) =>
+            this.HideKeyboard(searchEditText.WindowToken);
 
         private void OnResetCursorInteractionRequested(object _, EventArgs __)
         {
