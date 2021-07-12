@@ -117,7 +117,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/bg_button_gradient"
         android:fontFamily="@font/font_family_sf_pro_display_medium"
         android:textAllCaps="false"
         android:textColor="@color/white"

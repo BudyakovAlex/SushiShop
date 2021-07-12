@@ -1,9 +1,11 @@
 ﻿using Android.Content;
+using Android.Graphics;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.Widget;
 using AndroidX.ConstraintLayout.Widget;
+using AndroidX.Core.Content.Resources;
 using AndroidX.Core.View;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
@@ -87,6 +89,12 @@ namespace SushiShop.Droid.Views.Controls
                     .WithStartAction(new Runnable(() =>
                     {
                         containerFrameLayout.AddView(this, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MatchParent, (int)Context.DpToPx(1200)));
+
+                        var pickupButtonLayoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MatchParent, (int)Context.DpToPx(50))
+                        {
+                            Gravity = GravityFlags.Bottom
+                        };
+                        containerFrameLayout.AddView(pickupThereButton, pickupButtonLayoutParams);
                         infoShopConstraintLayout.Visibility = ViewStates.Visible;
                     }))
                     .TranslationY(containerFrameLayout.Height * CollapsedViewPercent)
@@ -104,6 +112,7 @@ namespace SushiShop.Droid.Views.Controls
                         infoShopConstraintLayout.Visibility = ViewStates.Gone;
                         HideEvent?.Invoke(this, EventArgs.Empty);
                         containerFrameLayout.RemoveView(this);
+                        containerFrameLayout.RemoveView(pickupThereButton);
                     }))
                     .Start();
         }
@@ -144,9 +153,7 @@ namespace SushiShop.Droid.Views.Controls
             galleryShopTitleTextView = infoShopConstraintLayout.FindViewById<TextView>(Resource.Id.gallery_title_text_view);
             galleryShopRecyclerView = infoShopConstraintLayout.FindViewById<MvxRecyclerView>(Resource.Id.gallery_recycler_view);
             contentShopScrollView = infoShopConstraintLayout.FindViewById<ScrollView>(Resource.Id.content_shop_scroll_view);
-            pickupThereButton = infoShopConstraintLayout.FindViewById<AppCompatButton>(Resource.Id.pickup_there_button);
 
-            pickupThereButton.Text = AppStrings.TakeThere;
             driveWayShopTitleTextView.Text = AppStrings.DriveWay;
             galleryShopTitleTextView.Text = AppStrings.Gallery;
 
@@ -156,8 +163,22 @@ namespace SushiShop.Droid.Views.Controls
             contentShopScrollView.SetOnTouchListener(new ViewOnTouchListener(OnInfoShopScrollViewTouch));
 
             InitializeGalleryRecyclerView();
+            InitializePickThereButton();
 
             AddView(view, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MatchParent, LinearLayout.LayoutParams.MatchParent));
+        }
+
+        private void InitializePickThereButton()
+        {
+            pickupThereButton = new AppCompatButton(Context);
+            pickupThereButton.SetBackgroundResource(Resource.Drawable.bg_button_gradient);
+            pickupThereButton.SetAllCaps(false);
+            pickupThereButton.SetTextColor(Color.White);
+            pickupThereButton.TextSize = 18;
+
+            var typeface = ResourcesCompat.GetFont(Context, Resource.Font.sf_pro_display_medium);
+            pickupThereButton.SetTypeface(typeface, TypefaceStyle.Normal);
+            pickupThereButton.Text = AppStrings.TakeThere;
         }
 
         private void InitializeGalleryRecyclerView()
@@ -196,7 +217,6 @@ namespace SushiShop.Droid.Views.Controls
                 case MotionEventActions.Move:
                     isMoved = true;
                     infoShopConstraintLayout.TranslationY = e.RawY - startViewY;
-                    pickupThereButton.TranslationY = -(infoShopConstraintLayout.TranslationY + pickupThereButton.Height);
                     return;
 
                 case MotionEventActions.Cancel:

@@ -173,6 +173,7 @@
     <Compile Include="Views\Activities\Orders\SelectOrderDeliveryAddressActivity.cs" />
     <Compile Include="Views\ViewHolders\Orders\OrderDeliverySuggestionItemViewHolder.cs" />
     <Compile Include="Views\Activities\Payment\PaymentActivity.cs" />
+    <Compile Include="Extensions\ContextExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
