@@ -64,6 +64,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Shops
 
         private void OnTabChangedAfterTap()
         {
+            View.EndEditing(true);
             var indexPath = NSIndexPath.FromRowSection(tabsScrollableTabView.SelectedIndex, 0);
             contentCollectionView.ScrollToItem(indexPath, UICollectionViewScrollPosition.CenteredHorizontally, true);
         }
