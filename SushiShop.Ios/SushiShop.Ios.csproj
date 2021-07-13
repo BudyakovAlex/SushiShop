@@ -106,45 +106,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\ic_splash_logo.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -269,6 +230,35 @@
     <ImageAsset Include="Assets.xcassets\ic_arrow_suggestion.imageset\Group 4.pdf" />
     <ImageAsset Include="Assets.xcassets\ic_search.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ic_search.imageset\ic_search.pdf" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\16.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\16%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\32.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\32%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\128.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\128%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\App_store_1024_1x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Notifications_20_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Notifications_20_3x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Settings_29_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Settings_29_3x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Spotlight_40_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Spotlight_40_3x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_App_60_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_App_60_3x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Notifications_20_1x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Notifications_20_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Settings_29_1x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Settings_29_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Spotlight_40_1x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Spotlight_40_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_App_76_1x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_App_76_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Pro_App_83.5_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\App_store_1024_1x-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
