@@ -43,6 +43,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             AddToCartCommand = new SafeAsyncCommand(ExecutionStateWrapper, AddToCartAsync);
 
             Messenger.Subscribe<OrderCreatedMessage>(OnOrderCreated).DisposeWith(Disposables);
+            Messenger.Subscribe<RefreshProductsMessage>(OnCartChanged).DisposeWith(Disposables);
         }
 
         public IMvxCommand AddToCartCommand { get; }
@@ -169,6 +170,35 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             }
 
             product!.Uid = response.Data.Uid;
+        }
+
+        private void OnCartChanged(RefreshProductsMessage message)
+        {
+            if (message.Sender == this)
+            {
+                return;
+            }
+
+            _ = ExecutionStateWrapper.WrapAsync(() => 
+                SafeExecutionWrapper.WrapAsync(ReloadProductDetailsAsync),
+                awaitWhenBusy: true);
+        }
+
+        private async Task ReloadProductDetailsAsync()
+        {
+            var response = await productsManager.GetProductAsync(id, city);
+            if (!response.IsSuccessful || response.Data?.CountInBasket > 0)
+            {
+                return;
+            }
+
+            StepperViewModel.Count = 0;
+            IsHiddenStepper = true;
+
+            product = response.Data;
+            toppings = product?.Params?.AvailableToppings?.ToList() ?? new List<Topping>();
+
+            await RaiseAllPropertiesChanged();
         }
     }
 }
