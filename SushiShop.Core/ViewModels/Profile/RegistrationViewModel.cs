@@ -4,6 +4,7 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Plugins;
@@ -141,7 +142,7 @@ namespace SushiShop.Core.ViewModels.Profile
                 return;
             }
 
-            await NavigationManager.CloseAsync(this, true);
+            await NavigationManager.CloseWithDelayAsync(this, true);
         }
 
         private Task ShowPrivacyPolicyAsync()
