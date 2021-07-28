@@ -17,6 +17,7 @@ using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Platform.Watchers;
 using SushiShop.Droid.Views.Activities.Abstract;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
@@ -49,6 +50,8 @@ namespace SushiShop.Droid.Views.Activities.Profile
             nameEditText = FindViewById<TextInputEditText>(Resource.Id.name_edit_text);
             genderEditText = FindViewById<TextInputEditText>(Resource.Id.gender_edit_text);
             dateOfBirthEditText = FindViewById<TextInputEditText>(Resource.Id.date_of_birth_edit_text);
+            dateOfBirthEditText.InputType = InputTypes.Null;
+            dateOfBirthEditText.SetOnClickListener(new ViewOnClickListener(OnDateOfBirthEditTextClickedAsync));
             phoneEditText = FindViewById<TextInputEditText>(Resource.Id.phone_edit_text);
             emailEditText = FindViewById<TextInputEditText>(Resource.Id.email_edit_text);
             phoneNotificationsSwitch = FindViewById<SwitchCompat>(Resource.Id.sms_notifications_switch);
@@ -95,9 +98,6 @@ namespace SushiShop.Droid.Views.Activities.Profile
 
             bindingSet.Bind(dateOfBirthEditText).For(v => v.Text).To(vm => vm.DateOfBirth)
                 .WithConversion<DateTimeToStringConverter>();
-            bindingSet.Bind(dateOfBirthEditText).For(v => v.Enabled).To(vm => vm.CanChangeDateOfBirth);
-            bindingSet.Bind(dateOfBirthEditText).For(v => v.InputType).To(vm => vm.CanChangeDateOfBirth)
-                .WithBoolConversion(InputTypes.ClassText, InputTypes.Null);
             bindingSet.Bind(dateOfBirthEditText).For(v => v.Alpha).To(vm => vm.CanChangeDateOfBirth)
                 .WithConversion(new BoolToValueConverter<float>(1, 0.3f));
         }
@@ -116,5 +116,22 @@ namespace SushiShop.Droid.Views.Activities.Profile
 
             return Task.CompletedTask;
         }
+
+        private Task OnDateOfBirthEditTextClickedAsync(View _)
+        {
+            if (!ViewModel?.CanChangeDateOfBirth ?? false)
+            {
+                return Task.CompletedTask;
+            }
+
+            var date = ViewModel?.DateOfBirth ?? DateTime.Now;
+            var datePickerDialog = new DatePickerDialog(this, OnDatePickerDialogSelectDate, date.Year, date.Month, date.Day);
+            datePickerDialog.DatePicker.MaxDate = DateTime.Now.ToDialogPickerDate();
+            datePickerDialog.Show();
+            return Task.CompletedTask;
+        }
+
+        private void OnDatePickerDialogSelectDate(object sender, DatePickerDialog.DateSetEventArgs e) =>
+            ViewModel.DateOfBirth = e.Date;
     }
 }
