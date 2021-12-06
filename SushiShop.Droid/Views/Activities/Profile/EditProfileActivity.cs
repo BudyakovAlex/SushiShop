@@ -83,7 +83,7 @@ namespace SushiShop.Droid.Views.Activities.Profile
             bindingSet.Bind(nameEditText).For(v => v.Text).To(vm => vm.FullName);
             bindingSet.Bind(genderEditText).For(v => v.Text).To(vm => vm.Gender)
                 .WithConversion<GenderTypeToStringConverter>();
-          
+
             bindingSet.Bind(phoneNotificationsSwitch).For(v => v.BindChecked()).To(vm => vm.IsAllowNotifications);
             bindingSet.Bind(emailNotificationSwitch).For(v => v.BindChecked()).To(vm => vm.IsAllowSubscribe);
             bindingSet.Bind(emailEditText).For(v => v.Text).To(vm => vm.Email);
@@ -125,7 +125,7 @@ namespace SushiShop.Droid.Views.Activities.Profile
             }
 
             var date = ViewModel?.DateOfBirth ?? DateTime.Now;
-            var datePickerDialog = new DatePickerDialog(this, OnDatePickerDialogSelectDate, date.Year, date.Month, date.Day);
+            var datePickerDialog = new DatePickerDialog(this, OnDatePickerDialogSelectDate, date.Year, date.Month - 1, date.Day);
             datePickerDialog.DatePicker.MaxDate = DateTime.Now.ToDialogPickerDate();
             datePickerDialog.Show();
             return Task.CompletedTask;

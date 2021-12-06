@@ -10,7 +10,10 @@ using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.ViewModels.Common;
 using SushiShop.Core.ViewModels.ProductDetails;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
+using BuildApps.Core.Mobile.Common.Extensions;
+using MvvmCross.ViewModels;
 
 namespace SushiShop.Core.ViewModels.Menu.Items
 {
@@ -33,6 +36,10 @@ namespace SushiShop.Core.ViewModels.Menu.Items
             this.city = city;
             this.refreshDataFunc = refreshDataFunc;
 
+            StickerParams[] stickers = product.Params?.Stickers;
+            if(!stickers.IsNullOrEmpty<StickerParams>())
+                Stickers = new MvxObservableCollection<StickerViewModel>(stickers.Select(item => new StickerViewModel(item)));
+
             StepperViewModel = new StepperViewModel(product.CountInBasket, OnCountChangedAsync);
             ShowDetailsCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowDetailsAsync);
         }
@@ -41,7 +48,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 
         public StepperViewModel StepperViewModel { get; }
 
-        public StickerParams[]? Stickers => product.Params?.Stickers;
+        public MvxObservableCollection<StickerViewModel>? Stickers { get; }
 
         public string? ImageUrl => product.MainImageInfo?.JpgUrl;
 
@@ -55,7 +62,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
 
         private async Task ShowDetailsAsync()
         {
-            var parameters = new CardProductNavigationParameters(product.Id, null);
+            var parameters = new CardProductNavigationParameters(product.Id, city);
             var shouldRefresh = await NavigationManager.NavigateAsync<ProductDetailsViewModel, CardProductNavigationParameters, bool>(parameters);
             if (!shouldRefresh)
             {

@@ -1,9 +1,8 @@
-﻿using BuildApps.Core.Mobile.MvvmCross.Commands;
+﻿using System;
+using System.Windows.Input;
+using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using SushiShop.Core.Data.Models.Orders;
-using System;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace SushiShop.Core.ViewModels.Orders.Sections
 {
@@ -12,7 +11,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         public OrderThanksSectionViewModel(
             OrderConfirmationInfo orderConfirmationInfo,
             long orderNumber,
-            Func<Task> goToRootFunc)
+            string phone,
+            Action<long,string> goToRootFunc)
         {
             Image = orderConfirmationInfo.Image;
             Title = orderConfirmationInfo.Title;
@@ -20,7 +20,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             OrderNumber = orderNumber;
             OrderNumberTitle = orderConfirmationInfo.OrderNumberTitle;
 
-            GoToRootCommand = new SafeAsyncCommand(ExecutionStateWrapper, goToRootFunc);
+            GoToRootCommand = new SafeAsyncCommand(ExecutionStateWrapper,async () => goToRootFunc(orderNumber, phone));
         }
 
         public ICommand GoToRootCommand { get; }

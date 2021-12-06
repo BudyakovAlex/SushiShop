@@ -26,6 +26,11 @@ using SushiShop.Droid.Views.Activities.Abstract;
 using System;
 using System.Collections.Specialized;
 using System.Threading.Tasks;
+using Acr.UserDialogs.Infrastructure;
+using Android;
+using Android.Content.PM;
+using Java.Lang;
+using SushiShop.Core;
 using Xamarin.Essentials;
 
 namespace SushiShop.Droid.Views.Activities.Orders
@@ -51,6 +56,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
 
         public SelectOrderDeliveryAddressActivity() : base(Resource.Layout.activitiy_select_order_delivery_address)
         {
+            
         }
 
         public bool HasSelectedLocation
@@ -123,10 +129,11 @@ namespace SushiShop.Droid.Views.Activities.Orders
         {
             this.googleMap = googleMap;
             this.googleMap.SetOnMapClickListener(this);
-            googleMap.MyLocationEnabled = true;
+            googleMap.MyLocationEnabled = 
+                CheckSelfPermission(Manifest.Permission.AccessFineLocation) == Permission.Granted;
             
             UpdateZones();
-
+            
             var target = new LatLng(Core.Common.Constants.Map.MapStartPointLatitude, Core.Common.Constants.Map.MapStartPointLongitude);
             var cameraPosition = CameraPosition.FromLatLngZoom(target, ViewModel?.ZoomFactor ?? Core.Common.Constants.Map.DefaultZoomFactor);
             googleMap.MoveCamera(CameraUpdateFactory.NewCameraPosition(cameraPosition));
@@ -153,6 +160,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
             bottomInfoConstraintLayout.SetTopRoundedCorners(this.DpToPx(10));
             searchEditText.Hint = AppStrings.EnterYourAddress;
 
+            
             InitializeRecyclerView();
             InitializeMap();
         }
@@ -218,7 +226,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
                 .BeginTransaction()
                 .Add(Resource.Id.map_container, mapFragment)
                 .Commit();
-
+            
             mapFragment.GetMapAsync(this);
         }
 

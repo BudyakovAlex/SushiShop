@@ -22,6 +22,17 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
+        <mvvmcross.droidx.recyclerview.MvxRecyclerView
+            android:id="@+id/stickers_recycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/product_image_view"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="18dp"
+            android:orientation="horizontal" />
+        
         <TextView
             android:id="@+id/product_text_view"
             android:layout_width="0dp"

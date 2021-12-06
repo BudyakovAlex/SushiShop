@@ -109,7 +109,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
 
         private Task OnGoToCartButtonTappedAsync(View _)
         {
-            ViewModel?.CloseCommand.Execute(null);
+            ViewModel.OrderThanksSectionViewModel.GoToRootCommand.Execute(null);
             MainActivity.Instance.ShowMainTab();
             return Task.CompletedTask;
         }

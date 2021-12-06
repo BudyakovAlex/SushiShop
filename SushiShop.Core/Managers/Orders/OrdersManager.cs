@@ -76,7 +76,7 @@ namespace SushiShop.Core.Managers.Orders
         {
             var response = await ordersService.CheckOrderPaymentAsync(id, phone, CancellationToken.None);
 
-            var errors = response.Data!.Errors ?? Array.Empty<string>();
+            var errors = response.Data?.Errors ?? Array.Empty<string>();
             return new Response<bool>(isSuccessful: true, errors.Length == 0, errors);
         }
 

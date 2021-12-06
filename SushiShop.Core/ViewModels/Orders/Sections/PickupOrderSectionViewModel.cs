@@ -46,7 +46,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 
         protected override DateTime MinDateTimeForPicker => selectedShop is null
             ? base.MinDateTimeForPicker
-            : base.MinDateTimeForPicker.AddMinutes(selectedShop.CookingTime + selectedShop.DeliveryTime);
+            : base.MinDateTimeForPicker.AddMinutes(selectedShop.CookingTime);
 
         protected override int MinimumMinutesToReceiveOrder => selectedShop is null ? 0 : selectedShop.CookingTime;
 

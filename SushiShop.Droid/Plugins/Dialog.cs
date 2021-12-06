@@ -71,7 +71,7 @@ namespace SushiShop.Droid.Plugins
             {
                 return null;
             }
-
+            
             var timeResult = await userDialogs.TimePromptAsync(
                 new TimePromptConfig()
                 {
@@ -79,7 +79,7 @@ namespace SushiShop.Droid.Plugins
                     SelectedTime = initialDate.TimeOfDay,
                 });
 
-            if (!timeResult.Ok)
+            if (!timeResult.Ok || timeResult.Value.TotalSeconds + 60.0 < minDate?.TimeOfDay.TotalSeconds)
             {
                 return null;
             }

@@ -24,7 +24,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items.Abstract
 
         private readonly Currency? currency;
 
-        private readonly string? city;
+        protected readonly string? city;
         private readonly Action<int, long>? refreshCountStateAction;
 
         protected BaseCartProductItemViewModel(

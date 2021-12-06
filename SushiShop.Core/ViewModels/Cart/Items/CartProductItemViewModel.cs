@@ -38,7 +38,7 @@ namespace SushiShop.Core.ViewModels.Cart.Items
                 return Task.CompletedTask;
             }
 
-            var parameters = new CardProductNavigationParameters(Product.Id, null, Product.IsReadOnly, true);
+            var parameters = new CardProductNavigationParameters(Product.Id, city, Product.IsReadOnly, true);
             return NavigationManager.NavigateAsync<ProductDetailsViewModel, CardProductNavigationParameters>(parameters);
         }
 

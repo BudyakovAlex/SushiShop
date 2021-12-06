@@ -1,13 +1,25 @@
-﻿using Android.Views;
+﻿using Android.App;
+using Android.Content;
+using Android.Views;
 using Android.Widget;
 using AndroidX.CardView.Widget;
+using AndroidX.RecyclerView.Widget;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapter.TemplateSelectors;
+using BuildApps.Core.Mobile.MvvmCross.UIKit.Adapters;
+using MvvmCross.Commands;
+using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
+using SushiShop.Core.Data.Models.Stickers;
 using SushiShop.Core.ViewModels.Menu.Items;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Views.Controls;
 using SushiShop.Droid.Views.ViewHolders.Abstract;
 using SushiShop.Core.Extensions;
+using SushiShop.Droid.Views.Activities;
+using SushiShop.Droid.Views.Adapters;
+using SushiShop.Droid.Views.Decorators;
+using SushiShop.Droid.Views.Listeners;
 
 namespace SushiShop.Droid.Views.ViewHolders.Menu.Products
 {
@@ -19,6 +31,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Products
         private TextView priceTextView;
         private TextView oldPriceTextView;
         private CardView productCardView;
+        private MvxRecyclerView stickersRecycler;
 
         public MenuProductItemViewHolder(View view, IMvxAndroidBindingContext context) : base(view, context)
         {
@@ -34,7 +47,13 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Products
             priceTextView = view.FindViewById<TextView>(Resource.Id.price_text_view);
             oldPriceTextView = view.FindViewById<TextView>(Resource.Id.old_price_text_view);
             productCardView = view.FindViewById<CardView>(Resource.Id.product_card_view);
-
+            
+            stickersRecycler = view.FindViewById<MvxRecyclerView>(Resource.Id.stickers_recycler);
+            stickersRecycler.Adapter = new RecycleViewBindableAdapter((IMvxAndroidBindingContext)BindingContext);
+            stickersRecycler.ItemTemplateSelector = new TemplateSelector()
+                .AddElement<StickerViewModel, ProductStickerViewHolder>(Resource.Layout.item_product_sticker_item);
+            stickersRecycler.SetLayoutManager(new LinearLayoutManager(view.Context, LinearLayoutManager.Horizontal, false));
+            
             oldPriceTextView.PaintFlags |= Android.Graphics.PaintFlags.StrikeThruText;
         }
 
@@ -44,6 +63,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Products
 
             using var bindingSet = CreateBindingSet();
 
+            bindingSet.Bind(stickersRecycler).For(v => v.ItemsSource).To(vm => vm.Stickers);
             bindingSet.Bind(productImageView).For(v => v.BindAdaptedUrl()).To(vm => vm.ImageUrl);
             bindingSet.Bind(productNameTextView).For(v => v.Text).To(vm => vm.Title);
             bindingSet.Bind(stepperView).For(v => v.DataContext).To(vm => vm.StepperViewModel);

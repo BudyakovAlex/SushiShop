@@ -123,7 +123,7 @@ namespace SushiShop.Core.ViewModels.Orders
         {
             isChanged = true;
 
-            await ProduceThanksForOrderSectionAsync(orderConfirmed);
+            await ProduceThanksForOrderSectionAsync(orderConfirmed, phone);
 
             if (orderConfirmed.ConfirmationInfo.PaymentUrl.IsNotNullNorEmpty())
             {
@@ -135,31 +135,53 @@ namespace SushiShop.Core.ViewModels.Orders
 
         private async Task PayForOrderAsync(OrderConfirmed orderConfirmed, string phone)
         {
-            await NavigationManager.NavigateAsync<PaymentViewModel, string, bool>(orderConfirmed.ConfirmationInfo.PaymentUrl!);
-            var response = await ordersManager.CheckOrderPaymentAsync(orderConfirmed.OrderNumber, phone);
-            if (response.Errors.Any())
+            if(DeviceInfo.Platform==DevicePlatform.Android)
+                await Browser.OpenAsync(orderConfirmed.ConfirmationInfo.PaymentUrl,BrowserLaunchMode.SystemPreferred);
+            else
             {
-                await dialog.ShowToastAsync(response.Errors.First());
+                await NavigationManager.NavigateAsync<PaymentViewModel, string, bool>(orderConfirmed.ConfirmationInfo.PaymentUrl!);
+                var response = await ordersManager.CheckOrderPaymentAsync(orderConfirmed.OrderNumber, phone);
+                if (response.Errors.Any())
+                {
+                    await dialog.ShowToastAsync(response.Errors.First());
+                }
             }
         }
 
-        private Task ProduceThanksForOrderSectionAsync(OrderConfirmed orderConfirmed)
+        private Task ProduceThanksForOrderSectionAsync(OrderConfirmed orderConfirmed, string phone)
         {
             OrderThanksSectionViewModel = new OrderThanksSectionViewModel(
                orderConfirmed.ConfirmationInfo,
                orderConfirmed.OrderNumber,
+               phone,
                GoToRootAsync);
 
             return RaisePropertyChanged(nameof(OrderThanksSectionViewModel));
         }
 
-        private Task GoToRootAsync()
+        private async void GoToRootAsync(long orderNumber, string phone)
         {
+
             Messenger.Publish(new RefreshCartMessage(this));
             Messenger.Publish(new RefreshProductsMessage(this));
             Messenger.Publish(new OrderCreatedMessage(this));
 
-            return NavigationManager.CloseAsync(this, false);
+            if (DeviceInfo.Platform == DevicePlatform.Android)
+            {
+                var response = await ordersManager.CheckOrderPaymentAsync(orderNumber, phone);
+                if (response.Errors.Any())
+                {
+                    await dialog.ShowToastAsync(response.Errors.First());
+                }
+                else
+                {
+                    await NavigationManager.CloseAsync(this, false);
+                }
+            }
+            else
+            {
+                await NavigationManager.CloseAsync(this, false);
+            }
         }
 
         private Task ShowPrivacyPolicyAsync()
@@ -204,7 +226,7 @@ namespace SushiShop.Core.ViewModels.Orders
                 var actualUsername = profile?.FirstName ?? username;
                 var actualPhone = profile?.Phone ?? phone;
 
-                var feedbackSubject = $"{AppStrings.FeedbackFrom} {actualUsername}, {actualPhone}";
+                var feedbackSubject = $"{AppStrings.FeedbackFrom}, {DeviceInfo.Platform}, {actualUsername}, {actualPhone}";
                 await Email.ComposeAsync(feedbackSubject, string.Empty, Constants.Info.FeedbackEmail);
                 return;
             }

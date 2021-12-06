@@ -54,6 +54,7 @@ Global
 		{D04B19AF-DEF7-46C7-8755-ED44785F75E1}.Release|iPhone.Build.0 = Release|iPhone
 		{D04B19AF-DEF7-46C7-8755-ED44785F75E1}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{D04B19AF-DEF7-46C7-8755-ED44785F75E1}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{D04B19AF-DEF7-46C7-8755-ED44785F75E1}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

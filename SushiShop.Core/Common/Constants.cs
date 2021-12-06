@@ -14,7 +14,7 @@
 
         public static class Info
         {
-            public const string FeedbackEmail = "claim@sushishop.ru";
+            public const string FeedbackEmail = "office@sushishop.ru";
             public const string OfficePhone = "+7 (812) 493 4444";
             public const string DevelopersSite = "https://notissimus.com/";
         }

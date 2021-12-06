@@ -1,4 +1,5 @@
 ﻿using Android.Widget;
+using AndroidX.CardView.Widget;
 using MvvmCross.Binding.Bindings.Target.Construction;
 using MvvmCross.Platforms.Android.Core;
 using MvvmCross.Platforms.Android.Presenters;
@@ -30,6 +31,7 @@ namespace SushiShop.Droid
 
             registry.RegisterCustomBindingFactory<ImageView>(ImageViewUrlTargetBinding.DefaultImageViewUrlTargetBinding, view => new ImageViewUrlTargetBinding(view, false));
             registry.RegisterCustomBindingFactory<ImageView>(ImageViewUrlTargetBinding.AdaptedImageViewUrlTargetBinding, view => new ImageViewUrlTargetBinding(view, true));
+            registry.RegisterCustomBindingFactory<CardView>(nameof(CardView.CardBackgroundColor), view => new CardViewBackgroundColorTargetBinding(view));
             registry.RegisterCustomBindingFactory<AndroidX.AppCompat.Widget.Toolbar>(BackNavigaitonItemTargetBinding.DefaultBackNavigaitonItemTargetBinding, view => new BackNavigaitonItemTargetBinding(view));
         }
 
