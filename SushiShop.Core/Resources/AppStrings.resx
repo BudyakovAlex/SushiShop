@@ -549,4 +549,7 @@
   <data name="GoToMenuPage" xml:space="preserve">
     <value>Перейти в меню</value>
   </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Применить</value>
+  </data>
 </root>

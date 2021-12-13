@@ -904,5 +904,11 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("GoToMenuPage", resourceCulture);
             }
         }
+        
+        public static string Apply {
+            get {
+                return ResourceManager.GetString("Apply", resourceCulture);
+            }
+        }
     }
 }

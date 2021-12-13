@@ -128,3 +128,4 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+SushiShop.Droid/Resources/Resource.designer.cs

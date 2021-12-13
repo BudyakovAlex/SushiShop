@@ -90,12 +90,25 @@ namespace SushiShop.Core.ViewModels.Cart
 
         public bool CanAddPackages { get; private set; } = true;
 
+        public string? PromocodeDescription => $"{AppStrings.Promocode} {cart?.Promocode?.Code}";
+
+        public string? PromocodePrice => GetPromocodePrice();
+
         private string promocode = string.Empty;
         public string Promocode
         {
             get => promocode;
-            set => SetProperty(ref promocode, value);
+            set => SetProperty(ref promocode, value, () => IsValidPromocode = true);
         }
+
+        private bool isValidPromocode = true;
+        public bool IsValidPromocode
+        {
+            get => isValidPromocode;
+            set => SetProperty(ref isValidPromocode, value);
+        }
+
+        public bool IsPromocodeApplyed => cart?.Promocode?.DiscountPercent != null;
 
         public override async Task InitializeAsync()
         {
@@ -158,6 +171,9 @@ namespace SushiShop.Core.ViewModels.Cart
             _ = RaisePropertyChanged(nameof(CountProductsInCart));
             _ = RaisePropertyChanged(nameof(TotalPrice));
             _ = RaisePropertyChanged(nameof(IsEmptyBasket));
+            _ = RaisePropertyChanged(nameof(PromocodeDescription));
+            _ = RaisePropertyChanged(nameof(PromocodePrice));
+            _ = RaisePropertyChanged(nameof(IsPromocodeApplyed));
         }
 
         private string GetTotalPrice()
@@ -232,7 +248,7 @@ namespace SushiShop.Core.ViewModels.Cart
 
         private async Task ApplyPromocodeAsync()
         {
-            if (Promocode.IsNullOrEmpty())
+            if (Promocode.IsNullOrEmpty() && !IsPromocodeApplyed)
             {
                 return;
             }
@@ -240,6 +256,7 @@ namespace SushiShop.Core.ViewModels.Cart
             var response = await cartManager.GetCartPromocodeAsync(city, Promocode);
             if (response.Data is null)
             {
+                IsValidPromocode = false;
                 var error = response.Errors.FirstOrDefault();
                 if (error.IsNullOrEmpty())
                 {
@@ -293,6 +310,21 @@ namespace SushiShop.Core.ViewModels.Cart
 
             shouldShowWarningMessage = false;
             return userDialogs.AlertAsync(cart!.WarningMessage);
+        }
+
+        private string? GetPromocodePrice()
+        {
+            if (cart?.Promocode?.DiscountFixed != null && cart?.Promocode?.DiscountFixed != 0)
+            {
+                return $"-{cart?.Promocode?.DiscountFixed} {cart?.Currency?.Symbol}";
+            }
+
+            if (cart?.Promocode?.DiscountPercent != null && cart?.Promocode?.DiscountPercent != 0)
+            {
+                return $"-{cart?.Promocode?.DiscountPercent} %";
+            }
+
+            return null;
         }
     }
 }

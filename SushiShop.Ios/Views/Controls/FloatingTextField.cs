@@ -10,6 +10,8 @@ namespace SushiShop.Ios.Views.Controls
     [Register(nameof(FloatingTextField))]
     public class FloatingTextField : UITextField
     {
+        public static UIColor DefaultPlaceholderColor = Colors.Gray4;
+
         private const float ScaleFloatingLabel = 0.8f;
 
         private CALayer bottomLine;
@@ -22,6 +24,12 @@ namespace SushiShop.Ios.Views.Controls
         {
             get => floatingLabel.Text;
             set => SetFloatingLabelText(value);
+        }
+
+        public UIColor PlaceholderColor
+        {
+            get => floatingLabel.TextColor;
+            set => floatingLabel.TextColor = value;
         }
 
         public FloatingTextField()
@@ -100,6 +108,18 @@ namespace SushiShop.Ios.Views.Controls
             UpdatePlaceholer();
         }
 
+        public override bool BecomeFirstResponder()
+        {
+            bottomLine.BackgroundColor = Colors.Orange2.CGColor;
+            return base.BecomeFirstResponder();
+        }
+
+        public override bool ResignFirstResponder()
+        {
+            bottomLine.BackgroundColor = Colors.Gray2.CGColor;
+            return base.ResignFirstResponder();
+        }
+
         private void Initialize()
         {
             BorderStyle = UITextBorderStyle.None;
@@ -111,7 +131,7 @@ namespace SushiShop.Ios.Views.Controls
             floatingLabel = new UILabel()
             {
                 Font = Font,
-                TextColor = Colors.Gray4
+                TextColor = DefaultPlaceholderColor
             };
 
             AddSubview(floatingLabel);

@@ -1,5 +1,4 @@
 ﻿using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
@@ -47,6 +46,10 @@ namespace SushiShop.Droid.Views.Fragments.Cart
         private ConstraintLayout emptyCartConstraintLayout;
         private MvxSwipeRefreshLayout swipeRefreshLayout;
         private AppCompatButton goToMenuButton;
+        private AppCompatButton applyPromocodeButton;
+        private TextView appliedPromocodeTitleTextView;
+        private TextView appliedPromocodePriceTextView;
+        private LinearLayout appliedPromocodeLinearLayout;
 
         public CartFragment()
             : base(Resource.Layout.fragment_cart)
@@ -69,10 +72,16 @@ namespace SushiShop.Droid.Views.Fragments.Cart
             emptyCartConstraintLayout = view.FindViewById<ConstraintLayout>(Resource.Id.empty_basket_constraint_layout);
             swipeRefreshLayout = view.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.swipe_refresh_layout);
             goToMenuButton = view.FindViewById<AppCompatButton>(Resource.Id.go_to_menu_button);
+            applyPromocodeButton = view.FindViewById<AppCompatButton>(Resource.Id.apply_promocode_button);
+            appliedPromocodeTitleTextView = view.FindViewById<TextView>(Resource.Id.applied_promocode_title_text_view);
+            appliedPromocodePriceTextView = view.FindViewById<TextView>(Resource.Id.applied_promocode_price_text_view);
+            appliedPromocodeLinearLayout = view.FindViewById<LinearLayout>(Resource.Id.applied_promocode_linear_layout);
+
             goToMenuButton.SetOnClickListener(new ViewOnClickListener(OnGoToMenuButtonClickedAsync));
             promocodeEditText.OnFocusChangeListener = this;
             promocodeEditText.SetOnEditorActionListener(this);
 
+            applyPromocodeButton.Text = AppStrings.Apply;
             choosePackageTextView.Text = AppStrings.ChoosePackage;
             promocodeInputLayout.Hint = AppStrings.Promocode;
             view.FindViewById<TextView>(Resource.Id.add_sauce_text_view).Text = AppStrings.AddSauce;
@@ -84,6 +93,7 @@ namespace SushiShop.Droid.Views.Fragments.Cart
             var cornerRadius = Context.DpToPx(25);
             checkoutButton.SetRoundedCorners(cornerRadius);
             goToMenuButton.SetRoundedCorners(cornerRadius);
+            applyPromocodeButton.SetRoundedCorners(Context.DpToPx(16));
 
             InitializeProductsRecyclerView();
             InitializeSaucesRecyclerView();
@@ -131,6 +141,10 @@ namespace SushiShop.Droid.Views.Fragments.Cart
             bindingSet.Bind(emptyCartConstraintLayout).For(v => v.BindVisible()).To(vm => vm.IsEmptyBasket);
             bindingSet.Bind(swipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
             bindingSet.Bind(swipeRefreshLayout).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
+            bindingSet.Bind(applyPromocodeButton).For(v => v.BindClick()).To(vm => vm.ApplyPromocodeCommand);
+            bindingSet.Bind(appliedPromocodeTitleTextView).For(v => v.Text).To(vm => vm.PromocodeDescription);
+            bindingSet.Bind(appliedPromocodePriceTextView).For(v => v.Text).To(vm => vm.PromocodePrice);
+            bindingSet.Bind(appliedPromocodeLinearLayout).For(v => v.BindVisible()).To(vm => vm.IsPromocodeApplyed);
         }
 
         private void InitializeProductsRecyclerView()

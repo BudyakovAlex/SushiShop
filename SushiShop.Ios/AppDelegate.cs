@@ -18,6 +18,8 @@ namespace SushiShop.Ios
 
             MapServices.ProvideApiKey(Core.Common.Constants.Map.MapKey);
 
+            UINavigationBarStyles.SetDefaultAppearance();
+
             return true;
         }
     }

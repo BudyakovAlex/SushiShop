@@ -22,6 +22,18 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
 		UIKit.UIView AddSauseView { get; set; }
 
 		[Outlet]
+		UIKit.UILabel ApplyedPromocodePriceLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ApplyedPromocodeTitle { get; set; }
+
+		[Outlet]
+		UIKit.UIView ApplyedPromocodeView { get; set; }
+
+		[Outlet]
+		SushiShop.Ios.Views.Controls.PrimaryButton ApplyPromocodeButton { get; set; }
+
+		[Outlet]
 		UIKit.UIView BottomCheckoutView { get; set; }
 
 		[Outlet]
@@ -53,6 +65,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ApplyPromocodeButton != null) {
+				ApplyPromocodeButton.Dispose ();
+				ApplyPromocodeButton = null;
+			}
+
 			if (AddPackagesTitleLabel != null) {
 				AddPackagesTitleLabel.Dispose ();
 				AddPackagesTitleLabel = null;
@@ -66,6 +83,21 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
 			if (AddSauseView != null) {
 				AddSauseView.Dispose ();
 				AddSauseView = null;
+			}
+
+			if (ApplyedPromocodePriceLabel != null) {
+				ApplyedPromocodePriceLabel.Dispose ();
+				ApplyedPromocodePriceLabel = null;
+			}
+
+			if (ApplyedPromocodeTitle != null) {
+				ApplyedPromocodeTitle.Dispose ();
+				ApplyedPromocodeTitle = null;
+			}
+
+			if (ApplyedPromocodeView != null) {
+				ApplyedPromocodeView.Dispose ();
+				ApplyedPromocodeView = null;
 			}
 
 			if (BottomCheckoutView != null) {
