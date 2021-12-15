@@ -60,6 +60,8 @@ namespace SushiShop.Core.Common
 
             public const string PaymentOkResource = "payment-ok";
             public const string PaymentErrorResource = "payment-error";
+
+            public const string AppVersionResource = "app/version";
         }
     }
 }
