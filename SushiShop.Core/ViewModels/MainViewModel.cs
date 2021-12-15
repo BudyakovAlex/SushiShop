@@ -89,7 +89,7 @@ namespace SushiShop.Core.ViewModels
                 NavigationManager.NavigateAsync<ProfileViewModel>(),
                 NavigationManager.NavigateAsync<InfoViewModel>());
 
-            _ = ShowApplocationUpdateConfirmationIfNeededAsync();
+            _ = ShowApplicationUpdateConfirmationIfNeededAsync();
 
             if (HasConnection)
             {
@@ -121,7 +121,7 @@ namespace SushiShop.Core.ViewModels
             _ = dialog.ShowToastAsync(AppStrings.NoInternetConnection, true);
         }
 
-        private async Task ShowApplocationUpdateConfirmationIfNeededAsync()
+        private async Task ShowApplicationUpdateConfirmationIfNeededAsync()
         {
             await Task.Delay(ViewModelLoadingDelayMs);
 
