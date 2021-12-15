@@ -1,7 +1,9 @@
-﻿using BuildApps.Core.Mobile.Common.Extensions;
+﻿using Acr.UserDialogs;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using MvvmCross.Commands;
 using SushiShop.Core.Managers.Cart;
+using SushiShop.Core.Managers.CommonInfo;
 using SushiShop.Core.Messages;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
@@ -12,24 +14,32 @@ using SushiShop.Core.ViewModels.Menu;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Core.ViewModels.Promotions;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels
 {
     public class MainViewModel : BasePageViewModel
     {
+        private const int ViewModelLoadingDelayMs = 2500;
+
         private readonly ICartManager cartManager;
+        private readonly ICommonInfoManager commonInfoManager;
         private readonly IUserSession userSession;
         private readonly IDialog dialog;
+        private readonly IUserDialogs userDialogs;
 
         public MainViewModel(
             ICartManager cartManager,
+            ICommonInfoManager commonInfoManager,
             IUserSession userSession,
-            IDialog dialog)
+            IDialog dialog,
+            IUserDialogs userDialogs)
         {
             this.cartManager = cartManager;
+            this.commonInfoManager = commonInfoManager;
             this.userSession = userSession;
             this.dialog = dialog;
-
+            this.userDialogs = userDialogs;
             LoadTabsCommand = new MvxAsyncCommand(LoadTabsAsync);
             Messenger.Subscribe<RefreshCartMessage>((msg) => OnCartChanged()).DisposeWith(Disposables);
             Messenger.Subscribe<CartProductChangedMessage>((msg) => OnCartChanged()).DisposeWith(Disposables);
@@ -79,6 +89,8 @@ namespace SushiShop.Core.ViewModels
                 NavigationManager.NavigateAsync<ProfileViewModel>(),
                 NavigationManager.NavigateAsync<InfoViewModel>());
 
+            _ = ShowApplocationUpdateConfirmationIfNeededAsync();
+
             if (HasConnection)
             {
                 return;
@@ -107,6 +119,31 @@ namespace SushiShop.Core.ViewModels
         private void ShowNoInternetConeectionToast()
         {
             _ = dialog.ShowToastAsync(AppStrings.NoInternetConnection, true);
+        }
+
+        private async Task ShowApplocationUpdateConfirmationIfNeededAsync()
+        {
+            await Task.Delay(ViewModelLoadingDelayMs);
+
+            var applicationInformationResult = await commonInfoManager.GetApplicationInformationAsync();
+            if (!applicationInformationResult.IsSuccessful ||
+                !applicationInformationResult.Data.ShouldUpdate)
+            {
+                return;
+            }
+
+            //HACK: to avoid design issue
+            var shouldUpdate = await userDialogs.ConfirmAsync(string.Empty, applicationInformationResult.Data.Message, cancelText: AppStrings.Yes, okText: AppStrings.No);
+            if (shouldUpdate)
+            {
+                return;
+            }
+
+            var updateAppUrl = DeviceInfo.Platform == DevicePlatform.Android
+                ? applicationInformationResult.Data.Platforms.Android.Url
+                : applicationInformationResult.Data.Platforms.Ios.Url;
+
+            await Browser.OpenAsync(updateAppUrl, BrowserLaunchMode.External);
         }
     }
 }

@@ -123,5 +123,24 @@ namespace SushiShop.Core.Managers.CommonInfo
 
             return new Response<LinkedImage[]>(isSuccessful: false, Array.Empty<LinkedImage>(), response.Data?.Errors ?? Array.Empty<string>());
         }
+
+        public async Task<Response<ApplicationInformation>> GetApplicationInformationAsync()
+        {
+            var response = await commonInfoService.GetApplicationInformationAsync(CancellationToken.None);
+            if (response.IsSuccessful)
+            {
+                var data = response.Data!.SuccessData!.Map();
+                return new Response<ApplicationInformation>(isSuccessful: true, data);
+            }
+
+            return new Response<ApplicationInformation>(
+                isSuccessful: false,
+                new ApplicationInformation(
+                    false,
+                    string.Empty,
+                    new Platforms(
+                        new PlatformInformation(string.Empty, -1, string.Empty),
+                        new PlatformInformation(string.Empty, -1, string.Empty))));
+        }
     }
 }

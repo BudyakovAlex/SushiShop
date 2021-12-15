@@ -21,5 +21,7 @@ namespace SushiShop.Core.Managers.CommonInfo
         Task<Response<Content>> GetBonusesContentAsync();
 
         Task<Response<LinkedImage[]>> GetBonusesImagesAsync();
+
+        Task<Response<ApplicationInformation>> GetApplicationInformationAsync();
     }
 }
