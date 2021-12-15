@@ -910,5 +910,17 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("Apply", resourceCulture);
             }
         }
+        
+        public static string ReceiveCode {
+            get {
+                return ResourceManager.GetString("ReceiveCode", resourceCulture);
+            }
+        }
+        
+        public static string ReceiveNewCallAfterSecondsTemplate {
+            get {
+                return ResourceManager.GetString("ReceiveNewCallAfterSecondsTemplate", resourceCulture);
+            }
+        }
     }
 }

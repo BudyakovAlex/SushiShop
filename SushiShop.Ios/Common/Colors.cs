@@ -23,5 +23,7 @@ namespace SushiShop.Ios.Common
         public static UIColor TransparentWhite => UIColor.White.ColorWithAlpha(0.2f);
 
         public static UIColor Green1 => UIColor.FromRGB(33, 150, 83);
+
+        public static UIColor Red => UIColor.FromRGB(255, 48, 29);
     }
 }

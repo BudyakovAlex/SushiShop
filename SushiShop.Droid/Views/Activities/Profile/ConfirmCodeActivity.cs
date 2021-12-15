@@ -1,4 +1,7 @@
 ﻿using Android.App;
+using Android.Graphics;
+using Android.Text;
+using Android.Text.Style;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.Widget;
@@ -23,9 +26,17 @@ namespace SushiShop.Droid.Views.Activities.Profile
         private TextInputEditText codeEditText;
         private AppCompatButton confirmButton;
         private View loadingOverlayView;
+        private TextView messageToReceiveNewMessageTextView;
+        private AppCompatButton sendNewCodeButton;
 
-        public ConfirmCodeActivity() : base(Resource.Layout.activity_confirm_code)
+        public ConfirmCodeActivity()
+            : base(Resource.Layout.activity_confirm_code)
         {
+        }
+
+        public int SecondsToSendNewMessage
+        {
+            set => UpdateTextMessageAndVisibilityControls(value);
         }
 
         protected override void InitializeViewPoroperties()
@@ -38,11 +49,15 @@ namespace SushiShop.Droid.Views.Activities.Profile
             codeEditText = FindViewById<TextInputEditText>(Resource.Id.confirm_code_edit_text);
             confirmButton = FindViewById<AppCompatButton>(Resource.Id.confirm_code_button);
             loadingOverlayView = FindViewById<View>(Resource.Id.loading_overlay_view);
+            messageToReceiveNewMessageTextView = FindViewById<TextView>(Resource.Id.message_to_receive_new_code_text_view);
+            sendNewCodeButton = FindViewById<AppCompatButton>(Resource.Id.send_new_code_button);
 
             confirmButton.SetRoundedCorners(this.DpToPx(25));
+            sendNewCodeButton.SetRoundedCorners(this.DpToPx(25));
 
             confirmButton.Text = AppStrings.Continue;
             toolbar.Title = AppStrings.AcceptPhoneTitle;
+            sendNewCodeButton.Text = AppStrings.ReceiveCode;
 
             codeEditText.SetOnKeyListener(new ViewOnKeyListener(OnCodeEditTextKeyListener));
         }
@@ -59,6 +74,8 @@ namespace SushiShop.Droid.Views.Activities.Profile
             bindingSet.Bind(confirmButton).For(v => v.BindClick()).To(vm => vm.ContinueCommand);
             bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
+            bindingSet.Bind(sendNewCodeButton).For(v => v.BindClick()).To(vm => vm.SendCodeCommnad);
+            bindingSet.Bind(this).For(nameof(SecondsToSendNewMessage)).To(vm => vm.SecondsToSendNewMessage);
         }
 
         private bool OnCodeEditTextKeyListener(View view, Keycode keyCode, KeyEvent e)
@@ -76,6 +93,17 @@ namespace SushiShop.Droid.Views.Activities.Profile
             }
 
             return false;
+        }
+
+        private void UpdateTextMessageAndVisibilityControls(int seconds)
+        {
+            var formattedString = string.Format(AppStrings.ReceiveNewCallAfterSecondsTemplate, seconds);
+            var spannableString = new SpannableString(formattedString);
+            spannableString.SetSpan(new ForegroundColorSpan(Color.Black), 0, 27, SpanTypes.ExclusiveExclusive);
+            spannableString.SetSpan(new ForegroundColorSpan(Color.Red), 27, spannableString.Length(), SpanTypes.ExclusiveExclusive);
+            messageToReceiveNewMessageTextView.SetText(spannableString, TextView.BufferType.Spannable);
+            sendNewCodeButton.Visibility = seconds != 0 ? ViewStates.Gone : ViewStates.Visible;
+            messageToReceiveNewMessageTextView.Visibility = seconds == 0 ? ViewStates.Gone : ViewStates.Visible;
         }
     }
 }

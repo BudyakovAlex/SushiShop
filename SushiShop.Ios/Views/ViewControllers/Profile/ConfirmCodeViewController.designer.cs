@@ -23,6 +23,12 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 
 		[Outlet]
 		UIKit.UIActivityIndicatorView LoadingActivityIndicator { get; set; }
+
+		[Outlet]
+		UIKit.UILabel MessageToReceiveNewCodeLabel { get; set; }
+
+		[Outlet]
+		SushiShop.Ios.Views.Controls.PrimaryButton SendNewCodeButton { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -31,19 +37,29 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				CodeTextField = null;
 			}
 
-			if (ContinueButton != null) {
-				ContinueButton.Dispose ();
-				ContinueButton = null;
-			}
-
 			if (ConfirmationMessageLabel != null) {
 				ConfirmationMessageLabel.Dispose ();
 				ConfirmationMessageLabel = null;
 			}
 
+			if (ContinueButton != null) {
+				ContinueButton.Dispose ();
+				ContinueButton = null;
+			}
+
 			if (LoadingActivityIndicator != null) {
 				LoadingActivityIndicator.Dispose ();
 				LoadingActivityIndicator = null;
+			}
+
+			if (SendNewCodeButton != null) {
+				SendNewCodeButton.Dispose ();
+				SendNewCodeButton = null;
+			}
+
+			if (MessageToReceiveNewCodeLabel != null) {
+				MessageToReceiveNewCodeLabel.Dispose ();
+				MessageToReceiveNewCodeLabel = null;
 			}
 		}
 	}

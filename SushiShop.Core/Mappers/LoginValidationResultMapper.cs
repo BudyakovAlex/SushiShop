@@ -14,7 +14,8 @@ namespace SushiShop.Core.Mappers
                 dto.Message,
                 dto.Placeholder,
                 dto.IsPhone,
-                dto.IsEmail);
+                dto.IsEmail,
+                dto.RepeatCodeTimeout);
         }
     }
 }

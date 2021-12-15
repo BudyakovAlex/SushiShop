@@ -8,6 +8,8 @@ namespace SushiShop.Core.Managers.Profile
     {
         Task<Response<LoginValidationResult?>> CheckIsLoginAvailableAsync(string? login);
 
+        Task<Response<LoginValidationResult?>> SendCodeAsync(string? login);
+
         Task<Response<AuthorizationData?>> AuthorizeAsync(string login, string pass);
 
         Task<Response<ConfirmationResult?>> RegistrationAsync(Data.Models.Profile.Profile profile);

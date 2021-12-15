@@ -552,4 +552,10 @@
   <data name="Apply" xml:space="preserve">
     <value>Применить</value>
   </data>
+  <data name="ReceiveCode" xml:space="preserve">
+    <value>Получить код</value>
+  </data>
+  <data name="ReceiveNewCallAfterSecondsTemplate" xml:space="preserve">
+    <value>Получить новый звонок через {0} сек.</value>
+  </data>
 </root>

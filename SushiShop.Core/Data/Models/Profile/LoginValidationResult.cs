@@ -9,7 +9,8 @@
             string? message,
             string? placeholder,
             bool isPhone,
-            bool isEmail)
+            bool isEmail,
+            int repeateCodeTimeout)
         {
             IsAuthByPhone = isAuthByPhone;
             IsAuthByEmail = isAuthByEmail;
@@ -18,6 +19,7 @@
             Placeholder = placeholder;
             IsPhone = isPhone;
             IsEmail = isEmail;
+            RepeatCodeTimeout = repeateCodeTimeout;
         }
 
         public bool IsAuthByPhone { get; }
@@ -33,5 +35,7 @@
         public bool IsPhone { get; }
 
         public bool IsEmail { get; }
+
+        public int RepeatCodeTimeout { get; }
     }
 }

@@ -10,7 +10,6 @@ using Google.Android.Material.TextField;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
-using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common.Items;
 using SushiShop.Core.ViewModels.Feedback;
 using SushiShop.Droid.Extensions;

@@ -24,5 +24,8 @@ namespace SushiShop.Core.Data.Dtos.Profile
 
         [JsonProperty("isEmail")]
         public bool IsEmail { get; set; }
+
+        [JsonProperty("repeatCodeTimeout")]
+        public int RepeatCodeTimeout { get; set; }
     }
 }

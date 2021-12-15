@@ -1,4 +1,5 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using Foundation;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using SushiShop.Core.Resources;
@@ -17,11 +18,17 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
     {
         private UIButton backButton;
 
+        public int SecondsToSendNewMessage
+        {
+            set => UpdateTextMessageAndVisibilityControls(value);
+        }
+
         protected override void InitStylesAndContent()
         {
             base.InitStylesAndContent();
 
             Title = AppStrings.AcceptPhoneTitle;
+            SendNewCodeButton.SetTitle(AppStrings.ReceiveCode, UIControlState.Normal);
             CodeTextField.InputAccessoryView = new DoneAccessoryView(View, () => ViewModel?.ContinueCommand?.Execute());
         }
 
@@ -43,7 +50,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
         {
             base.Bind();
 
-            var bindingSet = CreateBindingSet();
+            using var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.CloseCommand);
             bindingSet.Bind(ContinueButton).For(v => v.BindTouchUpInside()).To(vm => vm.ContinueCommand);
@@ -51,8 +58,18 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             bindingSet.Bind(CodeTextField).For(v => v.Placeholder).To(vm => vm.Placeholder);
             bindingSet.Bind(ConfirmationMessageLabel).For(v => v.Text).To(vm => vm.Message);
             bindingSet.Bind(LoadingActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
+            bindingSet.Bind(SendNewCodeButton).For(v => v.BindTouchUpInside()).To(vm => vm.SendCodeCommnad);
+            bindingSet.Bind(this).For(nameof(SecondsToSendNewMessage)).To(vm => vm.SecondsToSendNewMessage);
+        }
 
-            bindingSet.Apply();
+        private void UpdateTextMessageAndVisibilityControls(int seconds)
+        {
+            var formattedString = string.Format(AppStrings.ReceiveNewCallAfterSecondsTemplate, seconds);
+            var mutableString = new NSMutableAttributedString(formattedString);
+            mutableString.AddAttribute(UIStringAttributeKey.ForegroundColor, Colors.Red, new NSRange(27, mutableString.Length - 27));
+            MessageToReceiveNewCodeLabel.AttributedText = mutableString;
+            SendNewCodeButton.Hidden = seconds != 0;
+            MessageToReceiveNewCodeLabel.Hidden = seconds == 0;
         }
     }
 }
