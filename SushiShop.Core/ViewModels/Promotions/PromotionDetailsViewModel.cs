@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading.Tasks;
+using BuildApps.Core.Mobile.Common.Extensions;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
 using SushiShop.Core.Common;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Promotions;
 using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.Managers.Cart;
@@ -33,6 +35,10 @@ namespace SushiShop.Core.ViewModels.Promotions
             this.promotionsManager = promotionsManager;
             this.userSession = userSession;
             this.cartManager = cartManager;
+
+            Messenger.Subscribe<RefreshProductsMessage>(OnCartChanged).DisposeWith(Disposables);
+            Messenger.Subscribe<OrderCreatedMessage>(OnOrderCreated).DisposeWith(Disposables);
+            Messenger.Subscribe<CartProductChangedMessage>(OnCartProductChanged).DisposeWith(Disposables);
         }
 
         private StepperViewModel? stepperViewModel;
@@ -137,6 +143,36 @@ namespace SushiShop.Core.ViewModels.Promotions
                 AppStrings.FromToDateFormat,
                 GetLongDateString(startDate),
                 GetLongDateString(endDate));
+        }
+
+        private void OnCartChanged(RefreshProductsMessage message)
+        {
+            if (message.Sender == this)
+            {
+                return;
+            }
+
+            _ = ExecutionStateWrapper.WrapAsync(() =>
+                SafeExecutionWrapper.WrapAsync(LoadDataAsync),
+                awaitWhenBusy: true);
+        }
+
+        private void OnOrderCreated(OrderCreatedMessage _) =>
+            StepperViewModel!.Count = 0;
+
+        private void OnCartProductChanged(CartProductChangedMessage message)
+        {
+            if (message.CartProduct.Id != promotion!.Product!.Id)
+            {
+                return;
+            }
+
+            StepperViewModel!.Count = message.ProductChangeAction switch
+            {
+                ProductChangeAction.Add => StepperViewModel.Count + 1,
+                ProductChangeAction.Remove => StepperViewModel.Count - 1,
+                _ => StepperViewModel.Count
+            };
         }
     }
 }
