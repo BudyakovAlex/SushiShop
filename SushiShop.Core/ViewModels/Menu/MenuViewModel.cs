@@ -1,4 +1,9 @@
-﻿using Acr.UserDialogs;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using Acr.UserDialogs;
 using BuildApps.Core.Mobile.Common.Wrappers;
 using BuildApps.Core.Mobile.MvvmCross.Commands;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
@@ -8,6 +13,7 @@ using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Managers.Cities;
+using SushiShop.Core.Managers.CommonInfo;
 using SushiShop.Core.Managers.Menu;
 using SushiShop.Core.Managers.Promotions;
 using SushiShop.Core.Messages;
@@ -17,11 +23,6 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cities;
 using SushiShop.Core.ViewModels.Cities.Items;
 using SushiShop.Core.ViewModels.Menu.Items;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Menu
@@ -31,6 +32,7 @@ namespace SushiShop.Core.ViewModels.Menu
         private readonly IMenuManager menuManager;
         private readonly IPromotionsManager promotionsManager;
         private readonly ICitiesManager citiesManager;
+        private readonly ICommonInfoManager commonInfoManager;
         private readonly IUserSession userSession;
 
         private City? city;
@@ -39,11 +41,13 @@ namespace SushiShop.Core.ViewModels.Menu
             IMenuManager menuManager,
             IPromotionsManager promotionsManager,
             ICitiesManager citiesManager,
+            ICommonInfoManager commonInfoManager,
             IUserSession userSession)
         {
             this.menuManager = menuManager;
             this.promotionsManager = promotionsManager;
             this.citiesManager = citiesManager;
+            this.commonInfoManager = commonInfoManager;
             this.userSession = userSession;
 
             Items = new MvxObservableCollection<BaseViewModel>();
@@ -127,6 +131,8 @@ namespace SushiShop.Core.ViewModels.Menu
                 new MenuActionItemViewModel(ActionType.Vacancies, city) { ExecutionStateWrapper = ExecutionStateWrapper }
             });
 
+            await ShowApplicationUpdateConfirmationIfNeededAsync();
+
             if (!shouldReloadUserLocation)
             {
                 return;
@@ -139,16 +145,16 @@ namespace SushiShop.Core.ViewModels.Menu
         {
             try
             {
-                if (city != null)
-                {
-                    return;
-                }
-
                 var lastKnownLocation = await Geolocation.GetLastKnownLocationAsync();
                 if (lastKnownLocation is null)
                 {
                     var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(3));
                     lastKnownLocation = await Geolocation.GetLocationAsync(request);
+                }
+
+                if (lastKnownLocation is null && city != null)
+                {
+                    return;
                 }
 
                 if (lastKnownLocation is null)
@@ -159,6 +165,11 @@ namespace SushiShop.Core.ViewModels.Menu
 
                 var placemarks = await Geocoding.GetPlacemarksAsync(lastKnownLocation);
                 var firtPlacemark = placemarks.FirstOrDefault();
+                if (firtPlacemark is null && city != null)
+                {
+                    return;
+                }
+
                 if (firtPlacemark is null)
                 {
                     await PreselectDefaultCityWithConfirmationAsync(cities);
@@ -168,6 +179,12 @@ namespace SushiShop.Core.ViewModels.Menu
                 var foundCity = cities.FirstOrDefault(city => city.Name.ToLowerInvariant()
                                                                        .Equals(firtPlacemark.SubAdminArea
                                                                        .ToLowerInvariant()));
+                if ((foundCity is null && city != null) ||
+                    (foundCity != null && foundCity.Id == city?.Id))
+                {
+                    return;
+                }
+
                 if (foundCity is null)
                 {
                     await PreselectDefaultCityWithConfirmationAsync(cities);
@@ -244,6 +261,29 @@ namespace SushiShop.Core.ViewModels.Menu
 
             Messenger.Publish(new CityChangedMessage(this));
             Messenger.Publish(new RefreshCartMessage(this));
+        }
+
+        private async Task ShowApplicationUpdateConfirmationIfNeededAsync()
+        {
+            var applicationInformationResult = await commonInfoManager.GetApplicationInformationAsync();
+            if (!applicationInformationResult.IsSuccessful ||
+                !applicationInformationResult.Data.ShouldUpdate)
+            {
+                return;
+            }
+
+            //HACK: to avoid design issue
+            var shouldUpdate = await UserDialogs.Instance.ConfirmAsync(string.Empty, applicationInformationResult.Data.Message, cancelText: AppStrings.Yes, okText: AppStrings.No);
+            if (shouldUpdate)
+            {
+                return;
+            }
+
+            var updateAppUrl = DeviceInfo.Platform == DevicePlatform.Android
+                ? applicationInformationResult.Data.Platforms.Android.Url
+                : applicationInformationResult.Data.Platforms.Ios.Url;
+
+            await Browser.OpenAsync(updateAppUrl, BrowserLaunchMode.External);
         }
     }
 }
