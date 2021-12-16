@@ -11,7 +11,6 @@ using Plugin.Media.Abstractions;
 using SushiShop.Core.Data.Models.Plugins;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Profile;
-using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Resources;
@@ -116,10 +115,7 @@ namespace SushiShop.Core.ViewModels.Profile
         {
             await base.RefreshDataAsync();
 
-            var token = userSession.GetToken();
-            var isUserAuthorized = token != null && token.ExpiresAt > DateTime.Now;
-
-            IsAuthorized = isUserAuthorized;
+            IsAuthorized = userSession.CheckIsValidToken();
             if (!IsAuthorized)
             {
                 return;

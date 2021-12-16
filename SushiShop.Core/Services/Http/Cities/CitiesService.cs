@@ -16,9 +16,19 @@ namespace SushiShop.Core.Services.Http.Cities
             this.httpService = httpService;
         }
 
-        public async Task<HttpResponse<ResponseDto<CityDto[]>>> GetCitiesAsync(CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<AvailableReceiveMethodsDto>>> GetAvailableReceiveMethodsAsync(string? city, CancellationToken cancellationToken)
         {
-            return await httpService.ExecuteAsync<ResponseDto<CityDto[]>>(
+            var body = new { city };
+            return httpService.ExecuteAsync<ResponseDto<AvailableReceiveMethodsDto>>(
+                Method.Post,
+                Constants.Rest.CitiesOrderReceiveMethodsResource,
+                body,
+                cancellationToken);
+        }
+
+        public Task<HttpResponse<ResponseDto<CityDto[]>>> GetCitiesAsync(CancellationToken cancellationToken)
+        {
+            return httpService.ExecuteAsync<ResponseDto<CityDto[]>>(
                 Method.Post,
                 Constants.Rest.CitiesResource,
                 null,

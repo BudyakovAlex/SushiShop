@@ -12,6 +12,7 @@ using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.Managers.Promotions;
 using SushiShop.Core.Managers.Shops;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Providers.UserOrderPreferences;
 using SushiShop.Core.Services.Http;
 using SushiShop.Core.Services.Http.Cart;
 using SushiShop.Core.Services.Http.Cities;
@@ -68,6 +69,7 @@ namespace SushiShop.Core.IoC
             base.RegisterDependencies();
 
             Container.RegisterSingleton<IUserSession, UserSession>();
+            Container.RegisterSingleton<IUserOrderPreferencesProvider, UserOrderPreferencesProvider>();
             Container.RegisterSingleton(() => CrossMedia.Current);
             Container.RegisterSingleton(() => UserDialogs.Instance);
         }

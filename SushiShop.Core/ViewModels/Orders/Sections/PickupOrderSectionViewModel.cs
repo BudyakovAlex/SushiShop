@@ -2,8 +2,10 @@
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Providers.UserOrderPreferences;
 using SushiShop.Core.ViewModels.Info;
 using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using System;
@@ -21,6 +23,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             IOrdersManager ordersManager,
             IUserSession userSession,
             IDialog dialog,
+            IProfileManager profileManager,
+            IUserOrderPreferencesProvider userCredentials,
             ICommand showPrivacyPolicyCommand,
             ICommand showUserAgreementCommand,
             ICommand showPublicOfferCommand,
@@ -29,11 +33,14 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
                   ordersManager,
                   userSession,
                   dialog,
+                  profileManager,
+                  userCredentials,
                   showPrivacyPolicyCommand,
                   showUserAgreementCommand,
                   showPublicOfferCommand,
                   confirmOrderFunc)
         {
+            selectedShop = userCredentials.GetShop();
         }
 
         public string? ShopAddress => selectedShop?.LongTitle;
@@ -65,7 +72,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
                 PaymentMethod,
                 null,
                 0,
-                true,
+                ShouldCallMeBack,
                 ShouldApplyScores,
                 ScoresToApply);
 
@@ -88,6 +95,10 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         protected override async Task SelectAddressAsync()
         {
             selectedShop = await NavigationManager.NavigateAsync<ShopsViewModel, bool, Shop>(true);
+            if (selectedShop != null)
+            {
+                UserOrderPreferences.SetShop(selectedShop);
+            }
 
             await Task.WhenAll(
                 RaisePropertyChanged(nameof(ShopAddress)),

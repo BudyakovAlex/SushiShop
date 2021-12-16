@@ -17,5 +17,7 @@ namespace SushiShop.Core.Providers
         Token? GetToken();
 
         void SetToken(Token? token);
+
+        bool CheckIsValidToken();
     }
 }

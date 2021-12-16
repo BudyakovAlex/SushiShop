@@ -51,6 +51,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             }
         }
 
+        public int AvailableItemsCount
+        {
+            set => RootScrollView.ScrollEnabled = value == 2;
+        }
+
         protected override void InitStylesAndContent()
         {
             base.InitStylesAndContent();
@@ -69,6 +74,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             UserPhonePickUpTextField.Placeholder = UserPhoneDeliveryTextField.Placeholder = $"{AppStrings.Phone}*";
             CommentPickUpTextView.Placeholder = CommentDeliveryTextView.Placeholder = AppStrings.Comment;
             SpendPointsPickUpTextField.Placeholder = SpendPointsDeliveryTextField.Placeholder = AppStrings.Count;
+            NeedCallOperatorPickUpLabel.Text = NeedCallOperatorDeliveryLabel.Text = AppStrings.NeedCallOperator;
 
             _ = new PhoneNumberFormatter(UserPhonePickUpTextField);
             _ = new PhoneNumberFormatter(UserPhoneDeliveryTextField);
@@ -126,7 +132,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
         {
             base.Bind();
 
-            var bindingSet = CreateBindingSet();
+            using var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.CloseCommand);
             bindingSet.Bind(LoadingOverlayView).For(v => v.BindVisible()).ByCombining(new MvxOrValueCombiner(),
@@ -134,6 +140,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
                                                                                       vm => vm.DeliveryOrderSectionViewModel.ExecutionStateWrapper.IsBusy);
 
             bindingSet.Bind(scrollableTabsView).For(v => v.Items).To(vm => vm.TabsTitles);
+            bindingSet.Bind(scrollableTabsView).For(v => v.SelectedIndex).To(vm => vm.SelectedTab).TwoWay();
 
             bindingSet.Bind(ChooseAddressPickUpView).For(v => v.BindTap()).To(vm => vm.PickupOrderSectionViewModel.SelectAddressCommand);
             bindingSet.Bind(ChooseAddressDeliveryView).For(v => v.BindTap()).To(vm => vm.DeliveryOrderSectionViewModel.SelectAddressCommand);
@@ -223,7 +230,10 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
             bindingSet.Bind(ThanksOrderNumberLabel).For(v => v.Text).To(vm => vm.OrderThanksSectionViewModel.OrderNumber);
             bindingSet.Bind(this).For(nameof(OrderThanksSection)).To(vm => vm.OrderThanksSectionViewModel);
 
-            bindingSet.Apply();
+            bindingSet.Bind(NeedCallOperatorPickUpSwitch).For(v => v.BindOn()).To(vm => vm.PickupOrderSectionViewModel.ShouldCallMeBack);
+            bindingSet.Bind(NeedCallOperatorDeliverySwitch).For(v => v.BindOn()).To(vm => vm.DeliveryOrderSectionViewModel.ShouldCallMeBack);
+
+            bindingSet.Bind(this).For(nameof(AvailableItemsCount)).To(vm => vm.Items.Count);
         }
 
         private void SetupViewsTouches()

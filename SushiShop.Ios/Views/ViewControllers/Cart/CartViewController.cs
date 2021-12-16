@@ -39,11 +39,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             }
         }
 
-        public bool IsValidPromocode
-        {
-            set => PromocodeTextField.PlaceholderColor = value ? FloatingTextField.DefaultPlaceholderColor : Colors.Orange2;
-        }
-
         protected override void InitNavigationItem(UINavigationItem navigationItem)
         {
             base.InitNavigationItem(navigationItem);
@@ -63,6 +58,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             GoToMenuButton.AddGestureRecognizer(new UITapGestureRecognizer(OnGoToMenuButtonTapped));
 
             PromocodeTextField.Placeholder = AppStrings.Promocode;
+            PromocodeTextField.InputAccessoryView = new DoneAccessoryView(View, () => ViewModel?.ApplyPromocodeCommand?.Execute());
 
             refreshControl = new MvxUIRefreshControl();
             ContentScrollView.RefreshControl = refreshControl;
@@ -72,7 +68,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
         {
             base.Bind();
 
-            using var bindingSet = CreateBindingSet();
+            var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(productsTableViewSource).For(v => v.ItemsSource).To(vm => vm.Products);
             bindingSet.Bind(toppingsTableViewSource).For(v => v.ItemsSource).To(vm => vm.Sauces);
@@ -90,11 +86,8 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
                .WithConversion<AmountToBoolInvertVisibilityConverter>();
             bindingSet.Bind(refreshControl).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
             bindingSet.Bind(refreshControl).For(v => v.IsRefreshing).To(vm => vm.IsRefreshing);
-            bindingSet.Bind(ApplyPromocodeButton).For(v => v.BindTap()).To(vm => vm.ApplyPromocodeCommand);
-            bindingSet.Bind(this).For(nameof(IsValidPromocode)).To(vm => vm.IsValidPromocode);
-            bindingSet.Bind(ApplyedPromocodeTitle).For(v => v.Text).To(vm => vm.PromocodeDescription);
-            bindingSet.Bind(ApplyedPromocodePriceLabel).For(v => v.Text).To(vm => vm.PromocodePrice);
-            bindingSet.Bind(ApplyedPromocodeView).For(v => v.BindVisible()).To(vm => vm.IsPromocodeApplyed);
+
+            bindingSet.Apply();
         }
 
         public override void ViewDidAppear(bool animated)

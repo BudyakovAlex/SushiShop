@@ -922,5 +922,12 @@ namespace SushiShop.Core.Resources {
                 return ResourceManager.GetString("ReceiveNewCallAfterSecondsTemplate", resourceCulture);
             }
         }
+
+        public static string NeedCallOperator
+        {
+            get {
+                return ResourceManager.GetString("NeedCallOperator", resourceCulture);
+            }
+        }
     }
 }

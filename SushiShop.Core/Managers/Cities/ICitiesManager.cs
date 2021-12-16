@@ -13,5 +13,7 @@ namespace SushiShop.Core.Managers.Cities
         Task<Response<AddressSuggestion[]>> SearchAddressAsync(string? city, string query, CancellationToken token);
 
         Task<Response<AddressSuggestion[]>> SearchByLocationAsync(Coordinates coordinates, CancellationToken token);
+
+        Task<Response<AvailableReceiveMethods?>> GetAvailableReceiveMethodsAsync();
     }
 }

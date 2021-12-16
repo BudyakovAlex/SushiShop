@@ -103,5 +103,10 @@ namespace SushiShop.Core.Providers
                 Preferences.Set(Constants.Preferences.TokenKey, json);
             }
         }
+
+        public bool CheckIsValidToken()
+        {
+            return token != null && token.ExpiresAt > DateTime.Now;
+        }
     }
 }

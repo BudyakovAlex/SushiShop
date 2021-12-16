@@ -13,5 +13,7 @@ namespace SushiShop.Core.Services.Http.Cities
         Task<HttpResponse<ResponseDto<AddressSuggestionDto[]>>> SearchAddressAsync(string? city, string query, CancellationToken cancellationToken);
 
         Task<HttpResponse<ResponseDto<AddressSuggestionDto[]>>> SearchByCoordinatesAsync(CoordinatesDto coordinates, CancellationToken cancellationToken);
+
+        Task<HttpResponse<ResponseDto<AvailableReceiveMethodsDto>>> GetAvailableReceiveMethodsAsync(string? city, CancellationToken cancellationToken);
     }
 }

@@ -2,8 +2,10 @@
 using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Providers.UserOrderPreferences;
 using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using System;
 using System.Linq;
@@ -20,6 +22,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             IOrdersManager ordersManager,
             IUserSession userSession,
             IDialog dialog,
+            IProfileManager profileManager,
+            IUserOrderPreferencesProvider userCredentials,
             ICommand showPrivacyPolicyCommand,
             ICommand showUserAgreementCommand,
             ICommand showPublicOfferCommand,
@@ -28,12 +32,23 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
                   ordersManager,
                   userSession,
                   dialog,
+                  profileManager,
+                  userCredentials,
                   showPrivacyPolicyCommand,
                   showUserAgreementCommand,
                   showPublicOfferCommand,
                   confirmOrderFunc)
         {
+            addressSuggestion = userCredentials.GetAddressSuggestion();
+            Flat = userCredentials.Flat;
+            Floor = userCredentials.Floor;
+            Section = userCredentials.Section;
+            Intercom = userCredentials.Intercom;
         }
+
+        public string? DeliveryAddress => addressSuggestion?.FullAddress;
+
+        public string? DeliveryPrice => $"{addressSuggestion?.DeliveryPrice ?? 0} {Cart?.Currency?.Symbol}";
 
         private string? flat;
         public string? Flat
@@ -48,12 +63,6 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             get => section;
             set => SetProperty(ref section, value);
         }
-
-        public override string PriceToPay => $"{(addressSuggestion?.DeliveryPrice ?? 0) + Cart?.TotalSum - Cart?.Discount - ScoresToApply - DiscountByCard} {Cart?.Currency?.Symbol}";
-
-        public string? DeliveryAddress => addressSuggestion?.FullAddress;
-
-        public string? DeliveryPrice => $"{addressSuggestion?.DeliveryPrice ?? 0} {Cart?.Currency?.Symbol}";
 
         private string? floor;
         public string? Floor
@@ -74,6 +83,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             : base.MinDateTimeForPicker.AddMinutes(addressSuggestion.CookingTime + addressSuggestion.DeliveryTime);
 
         protected override int MinimumMinutesToReceiveOrder => addressSuggestion is null ? 0 : addressSuggestion.DeliveryTime;
+
+        public override string PriceToPay => $"{(addressSuggestion?.DeliveryPrice ?? 0) + Cart?.TotalSum - Cart?.Discount - ScoresToApply - DiscountByCard} {Cart?.Currency?.Symbol}";
 
         public override void Prepare(Data.Models.Cart.Cart cart)
         {
@@ -105,7 +116,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
                 PaymentMethod,
                 deliveryRequest,
                 0,
-                true,
+                ShouldCallMeBack,
                 ShouldApplyScores,
                 ScoresToApply);
 
@@ -128,11 +139,26 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         protected override async Task SelectAddressAsync()
         {
             addressSuggestion = await NavigationManager.NavigateAsync<SelectOrderDeliveryAddressViewModel, AddressSuggestion?, AddressSuggestion>(addressSuggestion);
+            if (addressSuggestion != null)
+            {
+                UserOrderPreferences.SetAddressSuggestion(addressSuggestion);
+            }
+
             await Task.WhenAll(
                 RaisePropertyChanged(nameof(DeliveryAddress)),
                 RaisePropertyChanged(nameof(DeliveryPrice)),
                 RaisePropertyChanged(nameof(PriceToPay)),
                 RaisePropertyChanged(nameof(ReceiveDateTimePresentation)));
+        }
+
+        public override void SaveData()
+        {
+            base.SaveData();
+
+            UserOrderPreferences.Flat = Flat;
+            UserOrderPreferences.Floor = Floor;
+            UserOrderPreferences.Intercom = Intercom;
+            UserOrderPreferences.Section = Section;
         }
     }
 }

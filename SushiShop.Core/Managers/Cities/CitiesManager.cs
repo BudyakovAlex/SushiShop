@@ -6,6 +6,7 @@ using SushiShop.Core.Data.Http;
 using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Common;
 using SushiShop.Core.Mappers;
+using SushiShop.Core.Providers;
 using SushiShop.Core.Services.Http.Cities;
 
 namespace SushiShop.Core.Managers.Cities
@@ -13,10 +14,14 @@ namespace SushiShop.Core.Managers.Cities
     public class CitiesManager : ICitiesManager
     {
         private readonly ICitiesService citiesService;
+        private readonly IUserSession userSession;
 
-        public CitiesManager(ICitiesService citiesService)
+        public CitiesManager(
+            ICitiesService citiesService,
+            IUserSession userSession)
         {
             this.citiesService = citiesService;
+            this.userSession = userSession;
         }
 
         public async Task<Response<City[]>> GetCitiesAsync()
@@ -53,6 +58,19 @@ namespace SushiShop.Core.Managers.Cities
             }
 
             return new Response<AddressSuggestion[]>(isSuccessful: false, Array.Empty<AddressSuggestion>());
+        }
+
+        public async Task<Response<AvailableReceiveMethods?>> GetAvailableReceiveMethodsAsync()
+        {
+            var city = userSession.GetCity();
+            var response = await citiesService.GetAvailableReceiveMethodsAsync(city?.Name, CancellationToken.None);
+            if (response.IsSuccessful && response.Data!.SuccessData != null)
+            {
+                var data = response.Data!.SuccessData!.Map();
+                return new Response<AvailableReceiveMethods?>(true, data);
+            }
+
+            return new Response<AvailableReceiveMethods?>(false, null, response.Data!.Errors);
         }
     }
 }

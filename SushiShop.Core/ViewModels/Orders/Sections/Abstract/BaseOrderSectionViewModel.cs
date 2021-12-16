@@ -7,8 +7,10 @@ using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Data.Models.Profile;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Managers.Orders;
+using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Providers.UserOrderPreferences;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
 using System;
@@ -19,20 +21,25 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 {
     public abstract class BaseOrderSectionViewModel : BaseViewModel
     {
+        private readonly IProfileManager profileManager;
         private readonly Func<OrderConfirmed, string, string, Task> confirmOrderFunc;
 
         public BaseOrderSectionViewModel(
             IOrdersManager ordersManager,
             IUserSession userSession,
             IDialog dialog,
+            IProfileManager profileManager,
+            IUserOrderPreferencesProvider userOrderPreferences,
             ICommand showPrivacyPolicyCommand,
             ICommand showUserAgreementCommand,
             ICommand showPublicOfferCommand,
             Func<OrderConfirmed, string, string, Task> confirmOrderFunc)
         {
+            this.profileManager = profileManager;
             OrdersManager = ordersManager;
             UserSession = userSession;
             Dialog = dialog;
+            UserOrderPreferences = userOrderPreferences;
             ShowPrivacyPolicyCommand = showPrivacyPolicyCommand;
             ShowUserAgreementCommand = showUserAgreementCommand;
             ShowPublicOfferCommand = showPublicOfferCommand;
@@ -46,6 +53,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             SelectAddressCommand = new SafeAsyncCommand(ExecutionStateWrapper, SelectAddressAsync);
             SelectReceiveDateTimeCommand = new SafeAsyncCommand(ExecutionStateWrapper, SelectReceiveDateTimeAsync);
             RefreshDiscountByCartCommand = new SafeAsyncCommand(ExecutionStateWrapper, RefreshDiscountByCartAsync);
+
+            _ = TrySetUserCredentialsAsync();
         }
 
         public IMvxCommand<PaymentMethod> ChangePaymentMethodCommand { get; }
@@ -124,6 +133,13 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
             set => SetProperty(ref discountByCard, value, OnDiscountByCardChanged);
         }
 
+        private bool shouldCallMeback = true;
+        public bool ShouldCallMeBack
+        {
+            get => shouldCallMeback;
+            set => SetProperty(ref shouldCallMeback, value);
+        }
+
         public string? AvailableScoresPresentation { get; private set; }
 
         public string ProductsPrice => $"{Cart?.TotalSum} {Cart?.Currency?.Symbol}";
@@ -154,6 +170,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         protected IDialog Dialog { get; }
 
+        protected IUserOrderPreferencesProvider UserOrderPreferences { get; }
+
         protected abstract int MinimumMinutesToReceiveOrder { get; }
 
         public virtual void Prepare(Data.Models.Cart.Cart cart)
@@ -162,6 +180,12 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
             RaisePropertyChanged(nameof(ProductsPrice));
             RaisePropertyChanged(nameof(DiscountByPromocode));
+        }
+
+        public virtual void SaveData()
+        {
+            UserOrderPreferences.PhoneNumber = Phone;
+            UserOrderPreferences.UserName = Name;
         }
 
         public void SetProfileInfo(ProfileDiscount? discount, DetailedProfile? detailedProfile)
@@ -254,6 +278,23 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
             var confirmTask = confirmOrderFunc?.Invoke(orderConfirmed, Phone!, Name!) ?? Task.CompletedTask;
             await confirmTask;
+        }
+
+        private async Task TrySetUserCredentialsAsync()
+        {
+            if (UserSession.CheckIsValidToken())
+            {
+                var userData = await profileManager.GetProfileAsync();
+                if (userData.IsSuccessful && userData.Data != null)
+                {
+                    Name = userData.Data.FullName;
+                    Phone = userData.Data.Phone;
+                    return;
+                }
+            }
+
+            Name = UserOrderPreferences.UserName;
+            Phone = UserOrderPreferences.PhoneNumber;
         }
     }
 }

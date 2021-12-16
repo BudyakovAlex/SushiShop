@@ -12,6 +12,7 @@ using SushiShop.Core.Data.Models.Toppings;
 using SushiShop.Core.Extensions;
 using SushiShop.Core.Factories.Cart;
 using SushiShop.Core.Managers.Cart;
+using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.Messages;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Plugins;
@@ -34,6 +35,7 @@ namespace SushiShop.Core.ViewModels.Cart
         private readonly ICartItemsViewModelsFactory viewModelsFactory;
         private readonly IDialog dialog;
         private readonly IUserDialogs userDialogs;
+        private readonly ICitiesManager citiesManager;
 
         private Topping[]? sauses;
         private Data.Models.Cart.Cart? cart;
@@ -45,13 +47,15 @@ namespace SushiShop.Core.ViewModels.Cart
             ICartManager cartManager,
             IUserSession userSession,
             ICartItemsViewModelsFactory viewModelsFactory,
-            IDialog dialog)
+            IDialog dialog,
+            ICitiesManager citiesManager)
         {
             this.cartManager = cartManager;
             this.userSession = userSession;
             this.viewModelsFactory = viewModelsFactory;
             this.dialog = dialog;
             this.userDialogs = UserDialogs.Instance;
+            this.citiesManager = citiesManager;
 
             Products = new MvxObservableCollection<CartProductItemViewModel>();
             Sauces = new MvxObservableCollection<CartToppingItemViewModel>();
@@ -264,7 +268,7 @@ namespace SushiShop.Core.ViewModels.Cart
                 }
 
                 await dialog.ShowToastAsync(error);
-                return;   
+                return;
             }
 
             await userDialogs.AlertAsync(AppStrings.PromocodeApplied);
@@ -288,7 +292,21 @@ namespace SushiShop.Core.ViewModels.Cart
 
         private async Task CheckoutAsync()
         {
-            var shouldRefresh = await NavigationManager.NavigateAsync<OrderRegistrationViewModel, Data.Models.Cart.Cart, bool>(cart!);
+            var response = await citiesManager.GetAvailableReceiveMethodsAsync();
+            if (response.Data is null)
+            {
+                var error = response.Errors.FirstOrDefault();
+                if (error.IsNullOrEmpty())
+                {
+                    return;
+                }
+
+                await dialog.ShowToastAsync(error);
+                return;
+            }
+
+            var parameter = new OrderRegistrationNavigationParameter(cart!, response.Data!);
+            var shouldRefresh = await NavigationManager.NavigateAsync<OrderRegistrationViewModel, OrderRegistrationNavigationParameter, bool>(parameter);
             if (shouldRefresh)
             {
                 return;

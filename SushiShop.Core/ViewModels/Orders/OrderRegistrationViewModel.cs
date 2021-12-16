@@ -5,6 +5,7 @@ using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract.Items;
 using Plugin.StoreReview;
 using SushiShop.Core.Common;
 using SushiShop.Core.Data.Enums;
+using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Data.Models.Profile;
 using SushiShop.Core.Extensions;
@@ -14,6 +15,7 @@ using SushiShop.Core.Messages;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Providers.UserOrderPreferences;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Common;
 using SushiShop.Core.ViewModels.Orders.Sections;
@@ -27,12 +29,13 @@ using Xamarin.Essentials;
 
 namespace SushiShop.Core.ViewModels.Orders
 {
-    public class OrderRegistrationViewModel : BaseItemsPageViewModel<BaseOrderSectionViewModel, Data.Models.Cart.Cart, bool>
+    public class OrderRegistrationViewModel : BaseItemsPageViewModel<BaseOrderSectionViewModel, OrderRegistrationNavigationParameter, bool>
     {
         private readonly IOrdersManager ordersManager;
         private readonly IProfileManager profileManager;
         private readonly IUserSession userSession;
         private readonly IDialog dialog;
+        private readonly IUserOrderPreferencesProvider userOrderPreferences;
 
         private DetailedProfile? profile;
 
@@ -42,49 +45,38 @@ namespace SushiShop.Core.ViewModels.Orders
             IOrdersManager ordersManager,
             IProfileManager profileManager,
             IUserSession userSession,
-            IDialog dialog)
+            IDialog dialog,
+            IUserOrderPreferencesProvider userOrderPreferences)
         {
             this.ordersManager = ordersManager;
             this.profileManager = profileManager;
             this.userSession = userSession;
             this.dialog = dialog;
+            this.userOrderPreferences = userOrderPreferences;
 
             ShowPrivacyPolicyCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPrivacyPolicyAsync);
             ShowUserAgreementCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowUserAgreementAsync);
             ShowPublicOfferCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPublicOfferAsync);
 
-            Items.AddRange(new BaseOrderSectionViewModel[]
-            {
-                PickupOrderSectionViewModel = new PickupOrderSectionViewModel(
-                    ordersManager,
-                    userSession,
-                    dialog,
-                    ShowPrivacyPolicyCommand,
-                    ShowUserAgreementCommand,
-                    ShowPublicOfferCommand,
-                    OrderConfirmedAsync),
-                DeliveryOrderSectionViewModel = new DeliveryOrderSectionViewModel(
-                    ordersManager,
-                    userSession,
-                    dialog,
-                    ShowPrivacyPolicyCommand,
-                    ShowUserAgreementCommand,
-                    ShowPublicOfferCommand,
-                    OrderConfirmedAsync)
-            });
-
-            TabsTitles.AddRange(new[] { AppStrings.ReceiveInShop, AppStrings.СourierDelivery });
+            TabsTitles = new List<string>();
         }
 
         protected override bool DefaultResult => isChanged;
 
-        public List<string> TabsTitles { get; } = new List<string>();
+        public List<string> TabsTitles { get; }
 
         public OrderThanksSectionViewModel? OrderThanksSectionViewModel { get; set; }
 
-        public PickupOrderSectionViewModel PickupOrderSectionViewModel { get; }
+        public PickupOrderSectionViewModel? PickupOrderSectionViewModel { get; private set; }
 
-        public DeliveryOrderSectionViewModel DeliveryOrderSectionViewModel { get; }
+        public DeliveryOrderSectionViewModel? DeliveryOrderSectionViewModel { get; private set; }
+
+        private int selectedTab;
+        public int SelectedTab
+        {
+            get => selectedTab;
+            set => SetProperty(ref selectedTab, value);
+        }
 
         public ICommand ShowPrivacyPolicyCommand { get; }
 
@@ -92,9 +84,10 @@ namespace SushiShop.Core.ViewModels.Orders
 
         public ICommand ShowPublicOfferCommand { get; }
 
-        public override void Prepare(Data.Models.Cart.Cart parameter)
+        public override void Prepare(OrderRegistrationNavigationParameter parameter)
         {
-            Items.ForEach(item => item.Prepare(parameter));
+            SetAvailableTabs(parameter.AvailableReceiveMethods);
+            Items.ForEach(item => item.Prepare(parameter.Cart));
         }
 
         public override async Task InitializeAsync()
@@ -116,6 +109,12 @@ namespace SushiShop.Core.ViewModels.Orders
             Items.ForEach(item => item.SetProfileInfo(getDiscountTask.Result.Data, getProfileTask.Result.Data));
         }
 
+        protected override Task CloseAsync(bool? isPlatform)
+        {
+            Items.ForEach(item => item.SaveData());
+            return base.CloseAsync(isPlatform);
+        }
+
         private async Task OrderConfirmedAsync(
             OrderConfirmed orderConfirmed,
             string phone,
@@ -135,8 +134,10 @@ namespace SushiShop.Core.ViewModels.Orders
 
         private async Task PayForOrderAsync(OrderConfirmed orderConfirmed, string phone)
         {
-            if(DeviceInfo.Platform==DevicePlatform.Android)
-                await Browser.OpenAsync(orderConfirmed.ConfirmationInfo.PaymentUrl,BrowserLaunchMode.SystemPreferred);
+            if (DeviceInfo.Platform == DevicePlatform.Android)
+            {
+                await Browser.OpenAsync(orderConfirmed.ConfirmationInfo.PaymentUrl, BrowserLaunchMode.SystemPreferred);
+            }
             else
             {
                 await NavigationManager.NavigateAsync<PaymentViewModel, string, bool>(orderConfirmed.ConfirmationInfo.PaymentUrl!);
@@ -161,7 +162,6 @@ namespace SushiShop.Core.ViewModels.Orders
 
         private async void GoToRootAsync(long orderNumber, string phone)
         {
-
             Messenger.Publish(new RefreshCartMessage(this));
             Messenger.Publish(new RefreshProductsMessage(this));
             Messenger.Publish(new OrderCreatedMessage(this));
@@ -233,6 +233,41 @@ namespace SushiShop.Core.ViewModels.Orders
 
             //TODO: remove test mode after testflight
             await CrossStoreReview.Current.RequestReview(false);
+        }
+
+        private void SetAvailableTabs(AvailableReceiveMethods availableReceiveMethods)
+        {
+            if (availableReceiveMethods.CanDelivery)
+            {
+                PickupOrderSectionViewModel = new PickupOrderSectionViewModel(
+                    ordersManager,
+                    userSession,
+                    dialog,
+                    profileManager,
+                    userOrderPreferences,
+                    ShowPrivacyPolicyCommand,
+                    ShowUserAgreementCommand,
+                    ShowPublicOfferCommand,
+                    OrderConfirmedAsync);
+                Items.Add(PickupOrderSectionViewModel);
+                TabsTitles.Add(AppStrings.ReceiveInShop);
+            }
+
+            if (availableReceiveMethods.CanPickup)
+            {
+                DeliveryOrderSectionViewModel = new DeliveryOrderSectionViewModel(
+                    ordersManager,
+                    userSession,
+                    dialog,
+                    profileManager,
+                    userOrderPreferences,
+                    ShowPrivacyPolicyCommand,
+                    ShowUserAgreementCommand,
+                    ShowPublicOfferCommand,
+                    OrderConfirmedAsync);
+                Items.Add(DeliveryOrderSectionViewModel);
+                TabsTitles.Add(AppStrings.СourierDelivery);
+            }
         }
     }
 }

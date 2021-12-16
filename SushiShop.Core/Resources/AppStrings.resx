@@ -555,6 +555,9 @@
   <data name="ReceiveCode" xml:space="preserve">
     <value>Получить код</value>
   </data>
+   <data name="NeedCallOperator" xml:space="preserve">
+    <value>Требуется звонок оператора</value>
+  </data>
   <data name="ReceiveNewCallAfterSecondsTemplate" xml:space="preserve">
     <value>Получить новый звонок через {0} сек.</value>
   </data>

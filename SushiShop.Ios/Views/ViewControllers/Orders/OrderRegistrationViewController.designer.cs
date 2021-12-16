@@ -91,6 +91,18 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		UIKit.UIView LoadingOverlayView { get; set; }
 
 		[Outlet]
+		UIKit.UILabel NeedCallOperatorDeliveryLabel { get; set; }
+
+		[Outlet]
+		UIKit.UISwitch NeedCallOperatorDeliverySwitch { get; set; }
+
+		[Outlet]
+		UIKit.UILabel NeedCallOperatorPickUpLabel { get; set; }
+
+		[Outlet]
+		UIKit.UISwitch NeedCallOperatorPickUpSwitch { get; set; }
+
+		[Outlet]
 		UIKit.UIImageView OnlinePaymentDeliveryImageView { get; set; }
 
 		[Outlet]
@@ -230,11 +242,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (PickUpContainerView != null) {
-				PickUpContainerView.Dispose ();
-				PickUpContainerView = null;
-			}
-
 			if (AboutAddressDeliveryView != null) {
 				AboutAddressDeliveryView.Dispose ();
 				AboutAddressDeliveryView = null;
@@ -320,6 +327,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				CountOfScoresPickUpLabel = null;
 			}
 
+			if (DeliveryContainerView != null) {
+				DeliveryContainerView.Dispose ();
+				DeliveryContainerView = null;
+			}
+
 			if (DiscountByCardPickUpLabel != null) {
 				DiscountByCardPickUpLabel.Dispose ();
 				DiscountByCardPickUpLabel = null;
@@ -398,6 +410,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 			if (OnPointPaymentPickUpView != null) {
 				OnPointPaymentPickUpView.Dispose ();
 				OnPointPaymentPickUpView = null;
+			}
+
+			if (PickUpContainerView != null) {
+				PickUpContainerView.Dispose ();
+				PickUpContainerView = null;
 			}
 
 			if (PriceDeliveryLabel != null) {
@@ -585,9 +602,24 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 				UserPhonePickUpTextField = null;
 			}
 
-			if (DeliveryContainerView != null) {
-				DeliveryContainerView.Dispose ();
-				DeliveryContainerView = null;
+			if (NeedCallOperatorPickUpLabel != null) {
+				NeedCallOperatorPickUpLabel.Dispose ();
+				NeedCallOperatorPickUpLabel = null;
+			}
+
+			if (NeedCallOperatorPickUpSwitch != null) {
+				NeedCallOperatorPickUpSwitch.Dispose ();
+				NeedCallOperatorPickUpSwitch = null;
+			}
+
+			if (NeedCallOperatorDeliveryLabel != null) {
+				NeedCallOperatorDeliveryLabel.Dispose ();
+				NeedCallOperatorDeliveryLabel = null;
+			}
+
+			if (NeedCallOperatorDeliverySwitch != null) {
+				NeedCallOperatorDeliverySwitch.Dispose ();
+				NeedCallOperatorDeliverySwitch = null;
 			}
 		}
 	}

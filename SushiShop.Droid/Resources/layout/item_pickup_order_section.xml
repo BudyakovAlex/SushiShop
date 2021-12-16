@@ -524,12 +524,53 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/need_call_operator_container"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				app:layout_constraintTop_toBottomOf="@id/payment_method_container_view"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent">
+
+				<View
+					android:id="@+id/call_operator_divider_view"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					android:layout_height="10dp"
+					android:layout_width="0dp"
+					android:background="@color/background"/>
+
+				<androidx.appcompat.widget.SwitchCompat
+					android:id="@+id/need_call_operator_switch"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="16dp"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/call_operator_divider_view" />
+
+				<TextView
+					android:id="@+id/need_call_operator_text_view"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:fontFamily="@font/font_family_sf_pro_display_medium"
+					android:textSize="16dp"
+					android:textColor="@color/black"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/call_operator_divider_view" 
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toStartOf="@id/need_call_operator_switch"/>
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/summary_container_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/payment_method_container_view">
+                app:layout_constraintTop_toBottomOf="@+id/need_call_operator_container">
 
                 <View android:id="@+id/summary_divider_view"
                     app:layout_constraintTop_toTopOf="parent"

@@ -4,6 +4,7 @@ using Android.Text.Method;
 using Android.Text.Style;
 using Android.Views;
 using Android.Widget;
+using AndroidX.AppCompat.Widget;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
 using Google.Android.Material.TextField;
 using MvvmCross.Platforms.Android.Binding;
@@ -46,6 +47,7 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
         private TextView discountByPromocodeTitleTextView;
         private TextView discountByCardTitleTextView;
         private TextView appliedScoresTitleTextView;
+        private SwitchCompat needCallOperatorSwitch;
 
         public PickupOrderSectionViewHolder(View view, IMvxAndroidBindingContext context) : base(view, context)
         {
@@ -71,6 +73,8 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             onlineContainerView = view.FindViewById<View>(Resource.Id.online_container_view);
             cashImageView = view.FindViewById<ImageView>(Resource.Id.cash_image_view);
             onlineImageView = view.FindViewById<ImageView>(Resource.Id.online_image_view);
+
+            needCallOperatorSwitch = view.FindViewById<SwitchCompat>(Resource.Id.need_call_operator_switch);
 
             productsTextView = view.FindViewById<TextView>(Resource.Id.products_text_view);
             discountByPromocodeTextView = view.FindViewById<TextView>(Resource.Id.discount_by_promocode_text_view);
@@ -101,6 +105,8 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
             view.FindViewById<TextView>(Resource.Id.online_text_view).Text = AppStrings.Online;
             view.FindViewById<TextView>(Resource.Id.online_description_text_view).Text = AppStrings.OnlinePaymentDescription;
             view.FindViewById<TextView>(Resource.Id.total_title_text_view).Text = AppStrings.Total;
+
+            view.FindViewById<TextView>(Resource.Id.need_call_operator_text_view).Text = AppStrings.NeedCallOperator;
 
             view.FindViewById<TextView>(Resource.Id.products_title_text_view).Text = $"{AppStrings.Products}:";
             view.FindViewById<TextView>(Resource.Id.pickup_title_text_view).Text = $"{AppStrings.Pickup}:";
@@ -154,6 +160,8 @@ namespace SushiShop.Droid.Views.ViewHolders.Orders
 
             bindingSet.Bind(totalTextView).For(v => v.Text).To(vm => vm.PriceToPay);
             bindingSet.Bind(confirmButton).For(v => v.BindClick()).To(vm => vm.ConfirmOrderCommand);
+
+            bindingSet.Bind(needCallOperatorSwitch).For(v => v.BindChecked()).To(vm => vm.ShouldCallMeBack);
         }
 
         private void SetupPrivacyTextView(View view)
