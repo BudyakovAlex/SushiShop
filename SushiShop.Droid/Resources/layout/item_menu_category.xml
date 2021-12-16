@@ -19,21 +19,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/gr" />
-        <View
-            android:background="@drawable/bg_shadow_overlay"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+
         <TextView
             android:id="@+id/title_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="21dp"
+            android:layout_gravity="top"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/font_family_sf_pro_display_medium"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textFontWeight="500"
             android:textSize="18dp"
             tools:text="Some text" />
+
     </FrameLayout>
+
 </androidx.cardview.widget.CardView>

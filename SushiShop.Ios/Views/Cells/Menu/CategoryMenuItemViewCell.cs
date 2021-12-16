@@ -1,7 +1,5 @@
 ﻿using System;
 using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Cells;
-using CoreAnimation;
-using CoreGraphics;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding;
@@ -17,8 +15,6 @@ namespace SushiShop.Ios.Views.Cells.Menu
         public static readonly NSString Key = new NSString(nameof(CategoryMenuItemViewCell));
         public static readonly UINib Nib = UINib.FromName(Key, NSBundle.MainBundle);
 
-        private CAGradientLayer overlayLayer;
-
         protected CategoryMenuItemViewCell(IntPtr handle)
             : base(handle)
         {
@@ -32,13 +28,6 @@ namespace SushiShop.Ios.Views.Cells.Menu
             {
                 Layer.ShadowPath = UIBezierPath.FromRoundedRect(Bounds, Constants.UI.CornerRadius).CGPath;
             }
-
-            if (overlayLayer.Frame != Bounds)
-            {
-                CATransaction.DisableActions = true;
-                overlayLayer.Frame = Bounds;
-                CATransaction.DisableActions = false;
-            }
         }
 
         protected override void Initialize()
@@ -51,37 +40,20 @@ namespace SushiShop.Ios.Views.Cells.Menu
             ContentView.BackgroundColor = Colors.White;
             ContentView.Layer.CornerRadius = Constants.UI.CornerRadius;
 
-            overlayLayer = CreateOverlayLayer();
-            ContentView.Layer.InsertSublayerBelow(overlayLayer, Label.Layer);
-
             ImageView.SetPlaceholders();
+
+            Label.TextColor = Colors.FigmaBlack;
         }
 
         protected override void Bind()
         {
             base.Bind();
 
-            var bindingSet = this.CreateBindingSet<CategoryMenuItemViewCell, CategoryMenuItemViewModel>();
+            using var bindingSet = this.CreateBindingSet<CategoryMenuItemViewCell, CategoryMenuItemViewModel>();
 
             bindingSet.Bind(this).For(v => v.BindTap()).To(vm => vm.ShowDetailsCommand);
             bindingSet.Bind(ImageView).For(v => v.ImageUrl).To(vm => vm.ImageUrl);
             bindingSet.Bind(Label).For(v => v.Text).To(vm => vm.Title);
-
-            bindingSet.Apply();
         }
-
-        private CAGradientLayer CreateOverlayLayer() =>
-            new CAGradientLayer
-            {
-                Colors = new[]
-                {
-                    Colors.RealBlack.ColorWithAlpha(0f).CGColor,
-                    Colors.RealBlack.ColorWithAlpha(0f).CGColor,
-                    Colors.RealBlack.ColorWithAlpha(0.31f).CGColor,
-                    Colors.RealBlack.ColorWithAlpha(0.56f).CGColor,
-                },
-                StartPoint = new CGPoint(1f, 0f),
-                EndPoint = new CGPoint(1f, 1f)
-            };
     }
 }
