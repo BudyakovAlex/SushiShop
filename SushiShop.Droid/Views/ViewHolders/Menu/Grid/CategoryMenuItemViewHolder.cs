@@ -26,13 +26,6 @@ namespace SushiShop.Droid.Views.ViewHolders.Menu.Grid
             imageView = view.FindViewById<ImageView>(Resource.Id.image_view);
 
             titleTextView = view.FindViewById<TextView>(Resource.Id.title_text_view);
-            //var themeColorResource = Xamarin.Essentials.AppInfo.RequestedTheme == Xamarin.Essentials.AppTheme.Light
-            //    ? Resource.Color.black
-            //    : Resource.Color.black;
-
-            //var argbColor = ResourcesCompat.GetColor(view.Context.Resources, themeColorResource, null);
-            //var titleTextColor = new Color(argbColor);
-            //titleTextView.SetTextColor(titleTextColor);
         }
 
         public override void BindData()
