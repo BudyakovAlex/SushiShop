@@ -42,7 +42,7 @@ namespace SushiShop.Ios.Views.Cells.Menu
 
             ImageView.SetPlaceholders();
 
-            Label.TextColor = Colors.FigmaBlack;
+            Label.TextColor = Colors.Gray5;
         }
 
         protected override void Bind()

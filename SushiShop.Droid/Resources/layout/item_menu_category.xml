@@ -29,7 +29,7 @@
             android:forceDarkAllowed="false"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/font_family_sf_pro_display_medium"
-            android:textColor="@color/black"
+            android:textColor="@color/blackWithoutInvert"
             android:textFontWeight="500"
             android:textSize="18dp"
             tools:text="Some text" />

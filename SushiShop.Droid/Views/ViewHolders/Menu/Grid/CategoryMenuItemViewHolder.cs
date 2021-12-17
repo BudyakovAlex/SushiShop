@@ -1,6 +1,7 @@
-﻿using Android.Views;
+﻿using Android.Graphics;
+using Android.Views;
 using Android.Widget;
-using BuildApps.Core.Mobile.MvvmCross.UIKit.Extensions;
+using AndroidX.Core.Content.Resources;
 using MvvmCross.Platforms.Android.Binding;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using SushiShop.Core.ViewModels.Menu.Items;

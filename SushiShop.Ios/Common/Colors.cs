@@ -17,6 +17,8 @@ namespace SushiShop.Ios.Common
         public static UIColor Gray2 => UIColor.FromRGB(229, 229, 237);
         public static UIColor GrayPlaceholder => UIColor.FromRGBA(194, 196, 206, 255);
 
+        public static UIColor Gray5 => UIColor.FromRGB(135, 135, 135);
+
         public static UIColor OrangeGradientStart => UIColor.FromRGB(248, 139, 91);
         public static UIColor OrangeGradientEnd => UIColor.FromRGB(250, 103, 89);
         public static UIColor TransparentBlack => UIColor.Black.ColorWithAlpha(0.4f);
