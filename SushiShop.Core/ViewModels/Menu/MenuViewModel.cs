@@ -131,12 +131,12 @@ namespace SushiShop.Core.ViewModels.Menu
                 new MenuActionItemViewModel(ActionType.Vacancies, city) { ExecutionStateWrapper = ExecutionStateWrapper }
             });
 
-            await ShowApplicationUpdateConfirmationIfNeededAsync();
-
             if (!shouldReloadUserLocation)
             {
                 return;
             }
+
+            await ShowApplicationUpdateConfirmationIfNeededAsync();
 
             _ = TryRefreshGelolocationAsync(citiesTask.Result.Data);
         }
