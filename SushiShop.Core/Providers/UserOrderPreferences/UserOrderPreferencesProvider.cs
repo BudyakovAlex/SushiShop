@@ -48,7 +48,7 @@ namespace SushiShop.Core.Providers.UserOrderPreferences
             return GetSerializedData<AddressSuggestion>(Constants.Preferences.AddressSuggestionKey);
         }
 
-        public void SetAddressSuggestion(AddressSuggestion addressSuggestion)
+        public void SetAddressSuggestion(AddressSuggestion? addressSuggestion)
         {
             SaveDataWithSerialization(addressSuggestion, Constants.Preferences.AddressSuggestionKey);
         }
@@ -58,7 +58,7 @@ namespace SushiShop.Core.Providers.UserOrderPreferences
             return GetSerializedData<Shop>(Constants.Preferences.ShopKey);
         }
 
-        public void SetShop(Shop shop)
+        public void SetShop(Shop? shop)
         {
             SaveDataWithSerialization(shop, Constants.Preferences.ShopKey);
         }
@@ -69,7 +69,7 @@ namespace SushiShop.Core.Providers.UserOrderPreferences
             return savedData != null ? Json.Deserialize<TObject>(savedData) : default;
         }
 
-        private void SaveDataWithSerialization(object data, string preferencesKey)
+        private void SaveDataWithSerialization(object? data, string preferencesKey)
         {
             var serializedAddressSuggestion = Json.Serialize(data);
             Preferences.Set(preferencesKey, serializedAddressSuggestion);
@@ -77,6 +77,14 @@ namespace SushiShop.Core.Providers.UserOrderPreferences
 
         public void ClearAll()
         {
+            PhoneNumber = null;
+            UserName = null;
+            Flat = null;
+            Section = null;
+            Floor = null;
+            Intercom = null;
+            SetAddressSuggestion(null);
+            SetShop(null);
         }
     }
 }

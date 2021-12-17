@@ -19,6 +19,7 @@ using SushiShop.Core.Managers.Promotions;
 using SushiShop.Core.Messages;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Providers.UserOrderPreferences;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cities;
 using SushiShop.Core.ViewModels.Cities.Items;
@@ -34,6 +35,7 @@ namespace SushiShop.Core.ViewModels.Menu
         private readonly ICitiesManager citiesManager;
         private readonly ICommonInfoManager commonInfoManager;
         private readonly IUserSession userSession;
+        private readonly IUserOrderPreferencesProvider userOrderPreferencesProvider;
 
         private City? city;
 
@@ -42,13 +44,15 @@ namespace SushiShop.Core.ViewModels.Menu
             IPromotionsManager promotionsManager,
             ICitiesManager citiesManager,
             ICommonInfoManager commonInfoManager,
-            IUserSession userSession)
+            IUserSession userSession,
+            IUserOrderPreferencesProvider userOrderPreferencesProvider)
         {
             this.menuManager = menuManager;
             this.promotionsManager = promotionsManager;
             this.citiesManager = citiesManager;
             this.commonInfoManager = commonInfoManager;
             this.userSession = userSession;
+            this.userOrderPreferencesProvider = userOrderPreferencesProvider;
 
             Items = new MvxObservableCollection<BaseViewModel>();
             SimpleItems = new MvxObservableCollection<BaseViewModel>();
@@ -201,7 +205,7 @@ namespace SushiShop.Core.ViewModels.Menu
                 }
 
                 city = foundCity;
-                userSession.SetCity(city);
+                SetCityAndClearPreferencesIfNeeded(city);
 
                 await RaisePropertyChanged(nameof(CityName));
 
@@ -223,7 +227,7 @@ namespace SushiShop.Core.ViewModels.Menu
                                                                    .ToLowerInvariant()));
             if (foundCity != null)
             {
-                userSession.SetCity(foundCity);
+                SetCityAndClearPreferencesIfNeeded(foundCity);
                 city = foundCity;
 
                 _ = RaisePropertyChanged(nameof(CityName));
@@ -255,7 +259,7 @@ namespace SushiShop.Core.ViewModels.Menu
             }
 
             city = result.First().City;
-            userSession.SetCity(city);
+            SetCityAndClearPreferencesIfNeeded(city);
             await RaisePropertyChanged(nameof(CityName));
             await ReloadDataAsync();
 
@@ -284,6 +288,18 @@ namespace SushiShop.Core.ViewModels.Menu
                 : applicationInformationResult.Data.Platforms.Ios.Url;
 
             await Browser.OpenAsync(updateAppUrl, BrowserLaunchMode.External);
+        }
+
+        private void SetCityAndClearPreferencesIfNeeded(City? city)
+        {
+            var previousCity = userSession.GetCity();
+            userSession.SetCity(city);
+            if (previousCity?.Id == city?.Id)
+            {
+                return;
+            }
+
+            userOrderPreferencesProvider.ClearAll();
         }
     }
 }

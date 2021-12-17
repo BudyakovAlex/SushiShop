@@ -17,13 +17,13 @@ namespace SushiShop.Core.Providers.UserOrderPreferences
 
         string? Intercom { get; set; }
 
-        void SetAddressSuggestion(AddressSuggestion addressSuggestion);
+        void SetAddressSuggestion(AddressSuggestion? addressSuggestion);
 
         AddressSuggestion? GetAddressSuggestion();
 
         Shop? GetShop();
 
-        void SetShop(Shop shop);
+        void SetShop(Shop? shop);
 
         void ClearAll();
     }
