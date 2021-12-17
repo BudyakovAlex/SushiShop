@@ -103,6 +103,7 @@ namespace SushiShop.Droid.Views.Fragments.Shops
         {
             tabsAdapter.SelectedIndex = position;
             tabsLayoutManager.ScrollToPosition(position);
+            contentRecyclerView.ScrollToPosition(position);
         }
 
         private bool CanScrollContentRecyclerView(ScrollDirection scrollDirection)

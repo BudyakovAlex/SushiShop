@@ -2,7 +2,6 @@
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Views;
-using Android.Views.InputMethods;
 using Android.Widget;
 using AndroidX.AppCompat.Widget;
 using AndroidX.Core.Content;
@@ -26,11 +25,8 @@ using SushiShop.Droid.Views.Activities.Abstract;
 using System;
 using System.Collections.Specialized;
 using System.Threading.Tasks;
-using Acr.UserDialogs.Infrastructure;
 using Android;
 using Android.Content.PM;
-using Java.Lang;
-using SushiShop.Core;
 using Xamarin.Essentials;
 
 namespace SushiShop.Droid.Views.Activities.Orders
@@ -54,7 +50,8 @@ namespace SushiShop.Droid.Views.Activities.Orders
         private View dividerView;
         private AppCompatButton addButton;
 
-        public SelectOrderDeliveryAddressActivity() : base(Resource.Layout.activitiy_select_order_delivery_address)
+        public SelectOrderDeliveryAddressActivity()
+            : base(Resource.Layout.activitiy_select_order_delivery_address)
         {
             
         }
@@ -160,7 +157,6 @@ namespace SushiShop.Droid.Views.Activities.Orders
             bottomInfoConstraintLayout.SetTopRoundedCorners(this.DpToPx(10));
             searchEditText.Hint = AppStrings.EnterYourAddress;
 
-            
             InitializeRecyclerView();
             InitializeMap();
         }
@@ -169,7 +165,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
         {
             base.Bind();
 
-            var bindingSet = CreateBindingSet();
+            using var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(searchEditText).For(v => v.Text).To(vm => vm.AddressQuery).TwoWay();
@@ -190,8 +186,6 @@ namespace SushiShop.Droid.Views.Activities.Orders
             bindingSet.Bind(addButton).For(v => v.BindClick()).To(vm => vm.ConfirmAddressCommand);
             bindingSet.Bind(this).For(v => v.RemoveFocusInteraction).To(vm => vm.RemoveFocusInteraction);
             bindingSet.Bind(this).For(v => v.RestoreCursorInteraction).To(vm => vm.RestoreCursorInteraction);
-
-            bindingSet.Apply();
         }
 
         protected override void Dispose(bool disposing)
@@ -286,8 +280,11 @@ namespace SushiShop.Droid.Views.Activities.Orders
                 }
                 else
                 {
-                    var cameraPosition = CameraPosition.FromLatLngZoom(new LatLng(ViewModel.Latitude, ViewModel.Longitude), ViewModel.ZoomFactor);
-                    googleMap.MoveCamera(CameraUpdateFactory.NewCameraPosition(cameraPosition));
+                    mapFragment.View.Post(() =>
+                    {
+                        var cameraPosition = CameraPosition.FromLatLngZoom(new LatLng(ViewModel.Latitude, ViewModel.Longitude), ViewModel.ZoomFactor);
+                        googleMap.MoveCamera(CameraUpdateFactory.NewCameraPosition(cameraPosition));
+                    });
                     isZoomedOnStart = true;
                 }
             });
