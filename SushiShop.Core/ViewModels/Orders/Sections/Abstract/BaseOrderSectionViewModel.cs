@@ -174,6 +174,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         protected abstract int MinimumMinutesToReceiveOrder { get; }
 
+        protected abstract OrderTabType TabType { get; }
+
         public virtual void Prepare(Data.Models.Cart.Cart cart)
         {
             Cart = cart;
@@ -184,8 +186,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
 
         public virtual void SaveData()
         {
-            UserOrderPreferences.PhoneNumber = Phone;
-            UserOrderPreferences.UserName = Name;
+            UserOrderPreferences.SetPhoneNumber(Phone, TabType);
+            UserOrderPreferences.SetUserName(Name, TabType);
         }
 
         public void SetProfileInfo(ProfileDiscount? discount, DetailedProfile? detailedProfile)
@@ -293,8 +295,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections.Abstract
                 }
             }
 
-            Name = UserOrderPreferences.UserName;
-            Phone = UserOrderPreferences.PhoneNumber;
+            Name = UserOrderPreferences.GetUserName(TabType);
+            Phone = UserOrderPreferences.GetPhoneNumber(TabType);
         }
     }
 }

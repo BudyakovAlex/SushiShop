@@ -1,4 +1,5 @@
 ﻿using BuildApps.Core.Mobile.Common.Extensions;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Data.Models.Shops;
 using SushiShop.Core.Managers.Orders;
@@ -56,6 +57,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             : base.MinDateTimeForPicker.AddMinutes(selectedShop.CookingTime);
 
         protected override int MinimumMinutesToReceiveOrder => selectedShop is null ? 0 : selectedShop.CookingTime;
+
+        protected override OrderTabType TabType => OrderTabType.Pickup;
 
         protected override async Task<OrderConfirmed?> ConfirmOrderAsync()
         {

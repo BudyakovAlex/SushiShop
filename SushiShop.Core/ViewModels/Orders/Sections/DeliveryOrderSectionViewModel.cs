@@ -1,4 +1,5 @@
 ﻿using BuildApps.Core.Mobile.Common.Extensions;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Managers.Orders;
@@ -85,6 +86,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         protected override int MinimumMinutesToReceiveOrder => addressSuggestion is null ? 0 : addressSuggestion.DeliveryTime;
 
         public override string PriceToPay => $"{(addressSuggestion?.DeliveryPrice ?? 0) + Cart?.TotalSum - Cart?.Discount - ScoresToApply - DiscountByCard} {Cart?.Currency?.Symbol}";
+
+        protected override OrderTabType TabType => OrderTabType.Delivery;
 
         public override void Prepare(Data.Models.Cart.Cart cart)
         {

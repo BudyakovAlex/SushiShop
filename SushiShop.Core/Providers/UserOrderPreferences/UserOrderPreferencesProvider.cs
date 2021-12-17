@@ -1,4 +1,5 @@
 using SushiShop.Core.Common;
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Shops;
 using Xamarin.Essentials;
@@ -7,18 +8,6 @@ namespace SushiShop.Core.Providers.UserOrderPreferences
 {
     public class UserOrderPreferencesProvider : IUserOrderPreferencesProvider
     {
-        public string? PhoneNumber
-        {
-            get => Preferences.Get(Constants.Preferences.PhoneNumberKey, null);
-            set => Preferences.Set(Constants.Preferences.PhoneNumberKey, value);
-        }
-
-        public string? UserName
-        {
-            get => Preferences.Get(Constants.Preferences.UserNameKey, null);
-            set => Preferences.Set(Constants.Preferences.UserNameKey, value);
-        }
-
         public string? Flat
         {
             get => Preferences.Get(Constants.Preferences.FlatKey, null);
@@ -77,14 +66,36 @@ namespace SushiShop.Core.Providers.UserOrderPreferences
 
         public void ClearAll()
         {
-            PhoneNumber = null;
-            UserName = null;
             Flat = null;
             Section = null;
             Floor = null;
             Intercom = null;
             SetAddressSuggestion(null);
             SetShop(null);
+            SetPhoneNumber(null, OrderTabType.Delivery);
+            SetPhoneNumber(null, OrderTabType.Pickup);
+            SetUserName(null, OrderTabType.Delivery);
+            SetUserName(null, OrderTabType.Pickup);
+        }
+
+        public void SetPhoneNumber(string? phone, OrderTabType orderTabType)
+        {
+            Preferences.Set($"{Constants.Preferences.PhoneNumberKey}{orderTabType}", phone);
+        }
+
+        public void SetUserName(string? name, OrderTabType orderTabType)
+        {
+            Preferences.Set($"{Constants.Preferences.UserNameKey}{orderTabType}", name);
+        }
+
+        public string? GetPhoneNumber(OrderTabType orderTabType)
+        {
+            return Preferences.Get($"{Constants.Preferences.PhoneNumberKey}{orderTabType}", null);
+        }
+
+        public string? GetUserName(OrderTabType orderTabType)
+        {
+            return Preferences.Get($"{Constants.Preferences.UserNameKey}{orderTabType}", null);
         }
     }
 }

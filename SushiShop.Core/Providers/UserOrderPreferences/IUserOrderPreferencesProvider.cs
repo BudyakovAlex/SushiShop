@@ -1,3 +1,4 @@
+using SushiShop.Core.Data.Enums;
 using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Shops;
 
@@ -5,9 +6,13 @@ namespace SushiShop.Core.Providers.UserOrderPreferences
 {
     public interface IUserOrderPreferencesProvider
     {
-        string? PhoneNumber { get; set; }
+        void SetPhoneNumber(string? phone, OrderTabType orderTabType);
 
-        string? UserName { get; set; }
+        void SetUserName(string? name, OrderTabType orderTabType);
+
+        string? GetPhoneNumber(OrderTabType orderTabType);
+
+        string? GetUserName(OrderTabType orderTabType);
 
         string? Flat { get; set; }
 
