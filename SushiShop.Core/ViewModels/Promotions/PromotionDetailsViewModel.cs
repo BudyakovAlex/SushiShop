@@ -36,7 +36,7 @@ namespace SushiShop.Core.ViewModels.Promotions
             this.userSession = userSession;
             this.cartManager = cartManager;
 
-            Messenger.Subscribe<RefreshProductsMessage>(OnCartChanged).DisposeWith(Disposables);
+            Messenger.Subscribe<RefreshCartMessage>(OnCartChanged).DisposeWith(Disposables);
             Messenger.Subscribe<OrderCreatedMessage>(OnOrderCreated).DisposeWith(Disposables);
             Messenger.Subscribe<CartProductChangedMessage>(OnCartProductChanged).DisposeWith(Disposables);
         }
@@ -96,6 +96,7 @@ namespace SushiShop.Core.ViewModels.Promotions
             }
 
             Messenger.Publish(new RefreshCartMessage(this));
+            Messenger.Publish(new RefreshProductsMessage(this));
             product.Uid = response.Data.Uid;
         }
 
@@ -145,7 +146,7 @@ namespace SushiShop.Core.ViewModels.Promotions
                 GetLongDateString(endDate));
         }
 
-        private void OnCartChanged(RefreshProductsMessage message)
+        private void OnCartChanged(RefreshCartMessage message)
         {
             if (message.Sender == this)
             {
