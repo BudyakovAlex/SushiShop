@@ -7,7 +7,6 @@ using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.Fragments;
 using MvvmCross.Commands;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
-using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Info;
 using SushiShop.Core.ViewModels.Shops.Sections;
 using SushiShop.Droid.Enums;
@@ -17,7 +16,6 @@ using SushiShop.Droid.Views.Adapters;
 using SushiShop.Droid.Views.LayoutManagers;
 using SushiShop.Droid.Views.Listeners;
 using SushiShop.Droid.Views.ViewHolders.Shops.Sections;
-using System;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Fragments.Shops

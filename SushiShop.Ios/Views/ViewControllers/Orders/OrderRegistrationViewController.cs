@@ -1,4 +1,5 @@
 ﻿using BuildApps.Core.Mobile.MvvmCross.UIKit.Views.ViewControllers;
+using CoreFoundation;
 using CoreGraphics;
 using Foundation;
 using MvvmCross.Binding.Combiners;
@@ -53,7 +54,24 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
         public int AvailableItemsCount
         {
-            set => RootScrollView.ScrollEnabled = value == 2;
+            set
+            {
+                var scrollEnabled = value == 2;
+                if (scrollEnabled)
+                {
+                    return;
+                }
+
+                if (ViewModel.DeliveryOrderSectionViewModel != null)
+                {
+                    DispatchQueue.MainQueue.DispatchAsync(() =>
+                    {
+                        RootScrollView.SetContentOffset(new CGPoint(RootScrollView.Frame.Width, 0), false);
+                    });
+                }
+
+                RootScrollView.ScrollEnabled = scrollEnabled;
+            }
         }
 
         protected override void InitStylesAndContent()
@@ -136,6 +154,7 @@ namespace SushiShop.Ios.Views.ViewControllers.Orders
 
             bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.CloseCommand);
             bindingSet.Bind(LoadingOverlayView).For(v => v.BindVisible()).ByCombining(new MvxOrValueCombiner(),
+                                                                                      vm => vm.ExecutionStateWrapper.IsBusy,
                                                                                       vm => vm.PickupOrderSectionViewModel.ExecutionStateWrapper.IsBusy,
                                                                                       vm => vm.DeliveryOrderSectionViewModel.ExecutionStateWrapper.IsBusy);
 

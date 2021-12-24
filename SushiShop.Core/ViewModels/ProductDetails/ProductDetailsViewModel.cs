@@ -44,6 +44,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
 
             Messenger.Subscribe<OrderCreatedMessage>(OnOrderCreated).DisposeWith(Disposables);
             Messenger.Subscribe<RefreshProductsMessage>(OnCartChanged).DisposeWith(Disposables);
+            Messenger.Subscribe<CartProductChangedMessage>(OnCartProductChanged).DisposeWith(Disposables);
         }
 
         public IMvxCommand AddToCartCommand { get; }
@@ -107,6 +108,8 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             product = getProductTask.Result.Data;
             var relatedProducts = getRelatedProductTask.Result.Data.ToList();
             toppings = product?.Params?.AvailableToppings?.ToList() ?? new List<Topping>();
+            StepperViewModel.Count = product?.CountInBasket ?? 0;
+            IsHiddenStepper = StepperViewModel.Count == 0;
 
             var viewModels = relatedProducts.Select(product => new ProductItemViewModel(cartManager, product, city, RefreshDataAsync)).ToList();
             RelatedItems.AddRange(viewModels);
@@ -133,7 +136,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
                 {
                     return;
                 }
-                
+
                 var navigationParams = new ToppingNavigationParameters(toppings, AppStrings.MakeItTastier, product!.Currency.Symbol);
                 var result = await NavigationManager.NavigateAsync<ToppingsViewModel, ToppingNavigationParameters, List<Topping>>(navigationParams);
                 if (result is null)
@@ -164,10 +167,7 @@ namespace SushiShop.Core.ViewModels.ProductDetails
 
             hasChanged = true;
             Messenger.Publish(new RefreshCartMessage(this));
-            if (isCartProduct)
-            {
-                Messenger.Publish(new RefreshProductsMessage(this));
-            }
+            Messenger.Publish(new RefreshProductsMessage(this));
 
             product!.Uid = response.Data.Uid;
         }
@@ -179,9 +179,19 @@ namespace SushiShop.Core.ViewModels.ProductDetails
                 return;
             }
 
-            _ = ExecutionStateWrapper.WrapAsync(() => 
+            _ = ExecutionStateWrapper.WrapAsync(() =>
                 SafeExecutionWrapper.WrapAsync(ReloadProductDetailsAsync),
                 awaitWhenBusy: true);
+        }
+
+        private void OnCartProductChanged(CartProductChangedMessage message)
+        {
+            if (message.CartProduct.Id == id)
+            {
+                _ = ExecutionStateWrapper.WrapAsync(() =>
+                SafeExecutionWrapper.WrapAsync(ReloadProductDetailsAsync),
+                awaitWhenBusy: true);
+            }
         }
 
         private async Task ReloadProductDetailsAsync()
@@ -189,6 +199,11 @@ namespace SushiShop.Core.ViewModels.ProductDetails
             var response = await productsManager.GetProductAsync(id, city);
             if (!response.IsSuccessful || response.Data?.CountInBasket > 0)
             {
+                if (response.Data?.CountInBasket != null)
+                {
+                    StepperViewModel.Count = response.Data!.CountInBasket!;
+                }
+
                 return;
             }
 

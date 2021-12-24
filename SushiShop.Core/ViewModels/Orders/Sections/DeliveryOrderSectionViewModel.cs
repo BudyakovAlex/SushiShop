@@ -4,6 +4,7 @@ using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Managers.Profile;
+using SushiShop.Core.Managers.Shops;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Providers.UserOrderPreferences;
@@ -17,6 +18,8 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
 {
     public class DeliveryOrderSectionViewModel : BaseOrderSectionViewModel
     {
+        private readonly IUserOrderPreferencesProvider userOrderPrefererncesProvider;
+
         private AddressSuggestion? addressSuggestion;
 
         public DeliveryOrderSectionViewModel(
@@ -24,7 +27,7 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
             IUserSession userSession,
             IDialog dialog,
             IProfileManager profileManager,
-            IUserOrderPreferencesProvider userCredentials,
+            IUserOrderPreferencesProvider userOrderPreferencesProvider,
             ICommand showPrivacyPolicyCommand,
             ICommand showUserAgreementCommand,
             ICommand showPublicOfferCommand,
@@ -34,17 +37,19 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
                   userSession,
                   dialog,
                   profileManager,
-                  userCredentials,
+                  userOrderPreferencesProvider,
                   showPrivacyPolicyCommand,
                   showUserAgreementCommand,
                   showPublicOfferCommand,
                   confirmOrderFunc)
         {
-            addressSuggestion = userCredentials.GetAddressSuggestion();
-            Flat = userCredentials.Flat;
-            Floor = userCredentials.Floor;
-            Section = userCredentials.Section;
-            Intercom = userCredentials.Intercom;
+            this.userOrderPrefererncesProvider = userOrderPreferencesProvider;
+
+            Flat = userOrderPreferencesProvider.Flat;
+            Floor = userOrderPreferencesProvider.Floor;
+            Section = userOrderPreferencesProvider.Section;
+            Intercom = userOrderPreferencesProvider.Intercom;
+            UpdateSuggesstionAddress();
         }
 
         public string? DeliveryAddress => addressSuggestion?.FullAddress;
@@ -88,6 +93,12 @@ namespace SushiShop.Core.ViewModels.Orders.Sections
         public override string PriceToPay => $"{(addressSuggestion?.DeliveryPrice ?? 0) + Cart?.TotalSum - Cart?.Discount - ScoresToApply - DiscountByCard} {Cart?.Currency?.Symbol}";
 
         protected override OrderTabType TabType => OrderTabType.Delivery;
+
+        public void UpdateSuggesstionAddress()
+        {
+            addressSuggestion = userOrderPrefererncesProvider.GetAddressSuggestion();
+            RaiseAllPropertiesChanged();
+        }
 
         public override void Prepare(Data.Models.Cart.Cart cart)
         {

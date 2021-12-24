@@ -18,6 +18,7 @@ using SushiShop.Core.Managers.Menu;
 using SushiShop.Core.Managers.Promotions;
 using SushiShop.Core.Messages;
 using SushiShop.Core.NavigationParameters;
+using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
 using SushiShop.Core.Providers.UserOrderPreferences;
 using SushiShop.Core.Resources;
@@ -36,6 +37,8 @@ namespace SushiShop.Core.ViewModels.Menu
         private readonly ICommonInfoManager commonInfoManager;
         private readonly IUserSession userSession;
         private readonly IUserOrderPreferencesProvider userOrderPreferencesProvider;
+        private readonly IUserDialogs userDialogs;
+        private readonly ILocation location;
 
         private City? city;
 
@@ -45,7 +48,9 @@ namespace SushiShop.Core.ViewModels.Menu
             ICitiesManager citiesManager,
             ICommonInfoManager commonInfoManager,
             IUserSession userSession,
-            IUserOrderPreferencesProvider userOrderPreferencesProvider)
+            IUserOrderPreferencesProvider userOrderPreferencesProvider,
+            IUserDialogs userDialogs,
+            ILocation location)
         {
             this.menuManager = menuManager;
             this.promotionsManager = promotionsManager;
@@ -53,6 +58,8 @@ namespace SushiShop.Core.ViewModels.Menu
             this.commonInfoManager = commonInfoManager;
             this.userSession = userSession;
             this.userOrderPreferencesProvider = userOrderPreferencesProvider;
+            this.userDialogs = userDialogs;
+            this.location = location;
 
             Items = new MvxObservableCollection<BaseViewModel>();
             SimpleItems = new MvxObservableCollection<BaseViewModel>();
@@ -152,8 +159,27 @@ namespace SushiShop.Core.ViewModels.Menu
                 var lastKnownLocation = await Geolocation.GetLastKnownLocationAsync();
                 if (lastKnownLocation is null)
                 {
-                    var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(3));
-                    lastKnownLocation = await Geolocation.GetLocationAsync(request);
+                    var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(3));
+                    try
+                    {
+                        lastKnownLocation = await Geolocation.GetLocationAsync(request);
+                    }
+                    catch (FeatureNotEnabledException)
+                    {
+                        var result = await userDialogs.ConfirmAsync("Сервис геолокации выключен, хотите включить?", null, "Да", "Нет");
+                        if (result)
+                        {
+                            await location.RequestEnableLocationServiceAsync();
+                            try
+                            {
+                                lastKnownLocation = await Geolocation.GetLocationAsync(request);
+                            }
+                            catch (FeatureNotEnabledException)
+                            {
+                                await userDialogs.AlertAsync("Не удалось определить ваше местоположение", null, "Ок");
+                            }
+                        }
+                    }
                 }
 
                 if (lastKnownLocation is null && city != null)
@@ -269,7 +295,9 @@ namespace SushiShop.Core.ViewModels.Menu
 
         private async Task ShowApplicationUpdateConfirmationIfNeededAsync()
         {
-            var applicationInformationResult = await commonInfoManager.GetApplicationInformationAsync();
+            var platform = DeviceInfo.Platform.ToString();
+            var version = VersionTracking.CurrentVersion;
+            var applicationInformationResult = await commonInfoManager.GetApplicationInformationAsync(platform, version);
             if (!applicationInformationResult.IsSuccessful ||
                 !applicationInformationResult.Data.ShouldUpdate)
             {

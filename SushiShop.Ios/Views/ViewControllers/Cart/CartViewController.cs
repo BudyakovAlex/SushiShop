@@ -61,7 +61,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
             SetFooterViewForTableViews();
 
             GoToMenuButton.AddGestureRecognizer(new UITapGestureRecognizer(OnGoToMenuButtonTapped));
-
+            ApplyPromocodeButton.AddGestureRecognizer(new UITapGestureRecognizer(() =>
+            {
+                ViewModel.ApplyPromocodeCommand.Execute();
+                UIApplication.SharedApplication.KeyWindow.EndEditing(true);
+            }));
             PromocodeTextField.Placeholder = AppStrings.Promocode;
 
             refreshControl = new MvxUIRefreshControl();
@@ -90,7 +94,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Cart
                .WithConversion<AmountToBoolInvertVisibilityConverter>();
             bindingSet.Bind(refreshControl).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
             bindingSet.Bind(refreshControl).For(v => v.IsRefreshing).To(vm => vm.IsRefreshing);
-            bindingSet.Bind(ApplyPromocodeButton).For(v => v.BindTap()).To(vm => vm.ApplyPromocodeCommand);
             bindingSet.Bind(this).For(nameof(IsValidPromocode)).To(vm => vm.IsValidPromocode);
             bindingSet.Bind(ApplyedPromocodeTitle).For(v => v.Text).To(vm => vm.PromocodeDescription);
             bindingSet.Bind(ApplyedPromocodePriceLabel).For(v => v.Text).To(vm => vm.PromocodePrice);

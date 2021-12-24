@@ -87,12 +87,13 @@ namespace SushiShop.Core.Services.Http.CommonInfo
                 cancellationToken);
         }
 
-        public Task<HttpResponse<ResponseDto<ApplicationInformationDto>>> GetApplicationInformationAsync(CancellationToken cancellationToken)
+        public Task<HttpResponse<ResponseDto<ApplicationInformationDto>>> GetApplicationInformationAsync(string platform, string version, CancellationToken cancellationToken)
         {
+            var body = new { platform, version };
             return httpService.ExecuteAsync<ResponseDto<ApplicationInformationDto>>(
                 Method.Post,
                 Constants.Rest.AppVersionResource,
-                null,
+                body,
                 cancellationToken);
         }
     }

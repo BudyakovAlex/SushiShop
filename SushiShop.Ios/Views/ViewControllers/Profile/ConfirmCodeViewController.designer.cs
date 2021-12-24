@@ -19,9 +19,6 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 		UIKit.UILabel ConfirmationMessageLabel { get; set; }
 
 		[Outlet]
-		SushiShop.Ios.Views.Controls.PrimaryButton ContinueButton { get; set; }
-
-		[Outlet]
 		UIKit.UIActivityIndicatorView LoadingActivityIndicator { get; set; }
 
 		[Outlet]
@@ -42,24 +39,19 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
 				ConfirmationMessageLabel = null;
 			}
 
-			if (ContinueButton != null) {
-				ContinueButton.Dispose ();
-				ContinueButton = null;
-			}
-
 			if (LoadingActivityIndicator != null) {
 				LoadingActivityIndicator.Dispose ();
 				LoadingActivityIndicator = null;
 			}
 
-			if (SendNewCodeButton != null) {
-				SendNewCodeButton.Dispose ();
-				SendNewCodeButton = null;
-			}
-
 			if (MessageToReceiveNewCodeLabel != null) {
 				MessageToReceiveNewCodeLabel.Dispose ();
 				MessageToReceiveNewCodeLabel = null;
+			}
+
+			if (SendNewCodeButton != null) {
+				SendNewCodeButton.Dispose ();
+				SendNewCodeButton = null;
 			}
 		}
 	}

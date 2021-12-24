@@ -22,6 +22,7 @@ namespace SushiShop.Droid
             var container = CompositionRoot.Container;
 
             container.RegisterSingleton<IDialog, Dialog>();
+            container.RegisterSingleton<ILocation, Location>();
             container.RegisterSingleton<ITabLayoutController, TabLayoutController>();
         }
 

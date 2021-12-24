@@ -32,8 +32,8 @@ namespace SushiShop.Core.ViewModels.Profile
             this.profileManager = profileManager;
             this.dialog = dialog;
 
-            ContinueCommand = new SafeAsyncCommand(ExecutionStateWrapper, ContinueAsync, () => Code.IsNotNullNorEmpty());
-            SendCodeCommnad = new MvxAsyncCommand(SendNewCodeAsync);
+            ContinueCommand = new SafeAsyncCommand(ExecutionStateWrapper, ContinueAsync);
+            SendCodeCommnad = new SafeAsyncCommand(ExecutionStateWrapper, SendNewCodeAsync);
         }
 
         private string? message;
@@ -54,7 +54,7 @@ namespace SushiShop.Core.ViewModels.Profile
         public string? Code
         {
             get => code;
-            set => SetProperty(ref code, value, ContinueCommand.RaiseCanExecuteChanged);
+            set => SetProperty(ref code, value, TryExecuteCheckCode);
         }
 
         private int secondsToSendNewMessage;
@@ -64,19 +64,24 @@ namespace SushiShop.Core.ViewModels.Profile
             set => SetProperty(ref secondsToSendNewMessage, value);
         }
 
+        private bool isValidCode = true;
+        public bool IsValidCode
+        {
+            get => isValidCode;
+            set => SetProperty(ref isValidCode, value);
+        }
+
         public IMvxCommand ContinueCommand { get; }
         public IMvxAsyncCommand SendCodeCommnad { get; }
 
         public override void Prepare(string parameter)
         {
             login = parameter;
-
-            RaisePropertyChanged(nameof(Message));
         }
 
         public override Task InitializeAsync()
         {
-            return SendCodeCommnad.ExecuteAsync();
+            return SendNewCodeAsync();
         }
 
         protected override void Dispose(bool disposing)
@@ -94,6 +99,8 @@ namespace SushiShop.Core.ViewModels.Profile
             var response = await profileManager.AuthorizeAsync(login, Code!);
             if (response.Data is null)
             {
+                Code = string.Empty;
+                IsValidCode = false;
                 var error = response.Errors.FirstOrDefault();
                 if (error.IsNullOrEmpty())
                 {
@@ -160,6 +167,15 @@ namespace SushiShop.Core.ViewModels.Profile
         {
             timer?.Stop();
             disposables?.Dispose();
+        }
+
+        private void TryExecuteCheckCode()
+        {
+            IsValidCode = true;
+            if (ContinueCommand.CanExecute() && Code?.Length == 4)
+            {
+                ContinueCommand.Execute();
+            }
         }
     }
 }

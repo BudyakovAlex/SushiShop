@@ -23,6 +23,11 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             set => UpdateTextMessageAndVisibilityControls(value);
         }
 
+        public bool IsValidCode
+        {
+            set => CodeTextField.PlaceholderColor = value ? FloatingTextField.DefaultPlaceholderColor : Colors.Orange2;
+        }
+
         protected override void InitStylesAndContent()
         {
             base.InitStylesAndContent();
@@ -53,13 +58,13 @@ namespace SushiShop.Ios.Views.ViewControllers.Profile
             using var bindingSet = CreateBindingSet();
 
             bindingSet.Bind(backButton).For(v => v.BindTouchUpInside()).To(vm => vm.CloseCommand);
-            bindingSet.Bind(ContinueButton).For(v => v.BindTouchUpInside()).To(vm => vm.ContinueCommand);
             bindingSet.Bind(CodeTextField).For(v => v.Text).To(vm => vm.Code);
             bindingSet.Bind(CodeTextField).For(v => v.Placeholder).To(vm => vm.Placeholder);
             bindingSet.Bind(ConfirmationMessageLabel).For(v => v.Text).To(vm => vm.Message);
             bindingSet.Bind(LoadingActivityIndicator).For(v => v.BindVisible()).To(vm => vm.IsBusy);
             bindingSet.Bind(SendNewCodeButton).For(v => v.BindTouchUpInside()).To(vm => vm.SendCodeCommnad);
             bindingSet.Bind(this).For(nameof(SecondsToSendNewMessage)).To(vm => vm.SecondsToSendNewMessage);
+            bindingSet.Bind(this).For(nameof(IsValidCode)).To(vm => vm.IsValidCode);
         }
 
         private void UpdateTextMessageAndVisibilityControls(int seconds)

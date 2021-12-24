@@ -53,7 +53,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
         public SelectOrderDeliveryAddressActivity()
             : base(Resource.Layout.activitiy_select_order_delivery_address)
         {
-            
+
         }
 
         public bool HasSelectedLocation
@@ -126,11 +126,11 @@ namespace SushiShop.Droid.Views.Activities.Orders
         {
             this.googleMap = googleMap;
             this.googleMap.SetOnMapClickListener(this);
-            googleMap.MyLocationEnabled = 
+            googleMap.MyLocationEnabled =
                 CheckSelfPermission(Manifest.Permission.AccessFineLocation) == Permission.Granted;
-            
+
             UpdateZones();
-            
+
             var target = new LatLng(Core.Common.Constants.Map.MapStartPointLatitude, Core.Common.Constants.Map.MapStartPointLongitude);
             var cameraPosition = CameraPosition.FromLatLngZoom(target, ViewModel?.ZoomFactor ?? Core.Common.Constants.Map.DefaultZoomFactor);
             googleMap.MoveCamera(CameraUpdateFactory.NewCameraPosition(cameraPosition));
@@ -220,7 +220,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
                 .BeginTransaction()
                 .Add(Resource.Id.map_container, mapFragment)
                 .Commit();
-            
+
             mapFragment.GetMapAsync(this);
         }
 
@@ -272,22 +272,26 @@ namespace SushiShop.Droid.Views.Activities.Orders
                     markerOptions.SetIcon(this.DrawableToBitmapDescriptor(Resource.Drawable.ic_selected_marker));
                     googleMap.AddMarker(markerOptions);
                     if (!isZoomedOnStart)
-                    { 
-                        var cameraPosition = CameraPosition.FromLatLngZoom(position, ViewModel.ZoomFactor);
-                        googleMap.MoveCamera(CameraUpdateFactory.NewCameraPosition(cameraPosition));
+                    {
+                        MoveCamera(position, ViewModel.ZoomFactor);
                         isZoomedOnStart = true;
                     }
                 }
                 else
                 {
-                    mapFragment.View.Post(() =>
-                    {
-                        var cameraPosition = CameraPosition.FromLatLngZoom(new LatLng(ViewModel.Latitude, ViewModel.Longitude), ViewModel.ZoomFactor);
-                        googleMap.MoveCamera(CameraUpdateFactory.NewCameraPosition(cameraPosition));
-                    });
+                    MoveCamera(new LatLng(ViewModel.Latitude, ViewModel.Longitude), ViewModel.ZoomFactor);
                     isZoomedOnStart = true;
                 }
             });
+
+            void MoveCamera(LatLng position, float zoomFactor)
+            {
+                mapFragment.View.Post(() =>
+                {
+                    var cameraPosition = CameraPosition.FromLatLngZoom(new LatLng(ViewModel.Latitude, ViewModel.Longitude), ViewModel.ZoomFactor);
+                    googleMap.MoveCamera(CameraUpdateFactory.NewCameraPosition(cameraPosition));
+                });
+            }
         }
     }
 }

@@ -12,7 +12,6 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Profile;
 using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Views.Activities.Abstract;
-using SushiShop.Droid.Views.Listeners;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SushiShop.Droid.Views.Activities.Profile
@@ -24,7 +23,6 @@ namespace SushiShop.Droid.Views.Activities.Profile
         private TextView confirmationMessageTextView;
         private TextInputLayout codeTextInputLayout;
         private TextInputEditText codeEditText;
-        private AppCompatButton confirmButton;
         private View loadingOverlayView;
         private TextView messageToReceiveNewMessageTextView;
         private AppCompatButton sendNewCodeButton;
@@ -47,19 +45,14 @@ namespace SushiShop.Droid.Views.Activities.Profile
             confirmationMessageTextView = FindViewById<TextView>(Resource.Id.confirmation_message_text_view);
             codeTextInputLayout = FindViewById<TextInputLayout>(Resource.Id.confirm_code_text_input_layout);
             codeEditText = FindViewById<TextInputEditText>(Resource.Id.confirm_code_edit_text);
-            confirmButton = FindViewById<AppCompatButton>(Resource.Id.confirm_code_button);
             loadingOverlayView = FindViewById<View>(Resource.Id.loading_overlay_view);
             messageToReceiveNewMessageTextView = FindViewById<TextView>(Resource.Id.message_to_receive_new_code_text_view);
             sendNewCodeButton = FindViewById<AppCompatButton>(Resource.Id.send_new_code_button);
 
-            confirmButton.SetRoundedCorners(this.DpToPx(25));
             sendNewCodeButton.SetRoundedCorners(this.DpToPx(25));
 
-            confirmButton.Text = AppStrings.Continue;
             toolbar.Title = AppStrings.AcceptPhoneTitle;
             sendNewCodeButton.Text = AppStrings.ReceiveCode;
-
-            codeEditText.SetOnKeyListener(new ViewOnKeyListener(OnCodeEditTextKeyListener));
         }
 
         protected override void Bind()
@@ -71,28 +64,10 @@ namespace SushiShop.Droid.Views.Activities.Profile
             bindingSet.Bind(confirmationMessageTextView).For(v => v.Text).To(vm => vm.Message);
             bindingSet.Bind(codeTextInputLayout).For(v => v.Hint).To(vm => vm.Placeholder);
             bindingSet.Bind(codeEditText).For(v => v.Text).To(vm => vm.Code);
-            bindingSet.Bind(confirmButton).For(v => v.BindClick()).To(vm => vm.ContinueCommand);
             bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).To(vm => vm.IsBusy);
             bindingSet.Bind(toolbar).For(v => v.BindBackNavigationItemCommand()).To(vm => vm.CloseCommand);
             bindingSet.Bind(sendNewCodeButton).For(v => v.BindClick()).To(vm => vm.SendCodeCommnad);
             bindingSet.Bind(this).For(nameof(SecondsToSendNewMessage)).To(vm => vm.SecondsToSendNewMessage);
-        }
-
-        private bool OnCodeEditTextKeyListener(View view, Keycode keyCode, KeyEvent e)
-        {
-            if (e.Action == KeyEventActions.Down)
-            {
-                switch (keyCode)
-                {
-                    case Keycode.DpadCenter:
-                    case Keycode.Enter:
-                        return confirmButton.CallOnClick();
-                    default:
-                        break;
-                }
-            }
-
-            return false;
         }
 
         private void UpdateTextMessageAndVisibilityControls(int seconds)

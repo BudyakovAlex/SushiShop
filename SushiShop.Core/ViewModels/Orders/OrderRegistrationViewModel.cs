@@ -9,6 +9,7 @@ using SushiShop.Core.Data.Models.Cities;
 using SushiShop.Core.Data.Models.Orders;
 using SushiShop.Core.Data.Models.Profile;
 using SushiShop.Core.Extensions;
+using SushiShop.Core.Managers.Cities;
 using SushiShop.Core.Managers.Orders;
 using SushiShop.Core.Managers.Profile;
 using SushiShop.Core.Messages;
@@ -23,6 +24,7 @@ using SushiShop.Core.ViewModels.Orders.Sections.Abstract;
 using SushiShop.Core.ViewModels.Payment;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -36,9 +38,9 @@ namespace SushiShop.Core.ViewModels.Orders
         private readonly IUserSession userSession;
         private readonly IDialog dialog;
         private readonly IUserOrderPreferencesProvider userOrderPreferences;
+        private readonly ICitiesManager citiesManager;
 
         private DetailedProfile? profile;
-
         private bool isChanged;
 
         public OrderRegistrationViewModel(
@@ -46,13 +48,15 @@ namespace SushiShop.Core.ViewModels.Orders
             IProfileManager profileManager,
             IUserSession userSession,
             IDialog dialog,
-            IUserOrderPreferencesProvider userOrderPreferences)
+            IUserOrderPreferencesProvider userOrderPreferences,
+            ICitiesManager citiesManager)
         {
             this.ordersManager = ordersManager;
             this.profileManager = profileManager;
             this.userSession = userSession;
             this.dialog = dialog;
             this.userOrderPreferences = userOrderPreferences;
+            this.citiesManager = citiesManager;
 
             ShowPrivacyPolicyCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowPrivacyPolicyAsync);
             ShowUserAgreementCommand = new SafeAsyncCommand(ExecutionStateWrapper, ShowUserAgreementAsync);
@@ -98,7 +102,16 @@ namespace SushiShop.Core.ViewModels.Orders
             var getProfileTask = profileManager.GetProfileAsync();
 
             await Task.WhenAll(getDiscountTask, getProfileTask);
-            
+
+            var addressSuggestion = userOrderPreferences.GetAddressSuggestion();
+            if (addressSuggestion != null)
+            {
+                var getSearchSuggestionAddress = await citiesManager.SearchByLocationAsync(addressSuggestion.Coordinates!, CancellationToken.None);
+                var item = getSearchSuggestionAddress?.Data?.FirstOrDefault(item => item.FiasId == addressSuggestion.FiasId && item.KladrId == addressSuggestion.KladrId);
+                userOrderPreferences.SetAddressSuggestion(item);
+                DeliveryOrderSectionViewModel!.UpdateSuggesstionAddress();
+            }
+
             if (!getDiscountTask.Result.IsSuccessful ||
                 !getProfileTask.Result.IsSuccessful)
             {
@@ -237,7 +250,7 @@ namespace SushiShop.Core.ViewModels.Orders
 
         private void SetAvailableTabs(AvailableReceiveMethods availableReceiveMethods)
         {
-            if (availableReceiveMethods.CanDelivery)
+            if (availableReceiveMethods.CanPickup)
             {
                 PickupOrderSectionViewModel = new PickupOrderSectionViewModel(
                     ordersManager,
@@ -253,7 +266,7 @@ namespace SushiShop.Core.ViewModels.Orders
                 TabsTitles.Add(AppStrings.ReceiveInShop);
             }
 
-            if (availableReceiveMethods.CanPickup)
+            if (availableReceiveMethods.CanDelivery)
             {
                 DeliveryOrderSectionViewModel = new DeliveryOrderSectionViewModel(
                     ordersManager,
@@ -268,6 +281,8 @@ namespace SushiShop.Core.ViewModels.Orders
                 Items.Add(DeliveryOrderSectionViewModel);
                 TabsTitles.Add(AppStrings.СourierDelivery);
             }
+
+            RaiseAllPropertiesChanged();
         }
     }
 }

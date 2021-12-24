@@ -30,6 +30,10 @@ namespace SushiShop.Core.Providers.UserOrderPreferences
 
         void SetShop(Shop? shop);
 
+        void ClearPickupData();
+
+        void ClearDeliveryData();
+
         void ClearAll();
     }
 }

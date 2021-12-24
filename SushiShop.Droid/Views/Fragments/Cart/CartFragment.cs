@@ -19,6 +19,7 @@ using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels;
 using SushiShop.Core.ViewModels.Cart;
 using SushiShop.Core.ViewModels.Cart.Items;
+using SushiShop.Droid.Extensions;
 using SushiShop.Droid.Views.Activities;
 using SushiShop.Droid.Views.Fragments.Abstract;
 using SushiShop.Droid.Views.ViewHolders.Cart;
@@ -95,6 +96,13 @@ namespace SushiShop.Droid.Views.Fragments.Cart
             goToMenuButton.SetRoundedCorners(cornerRadius);
             applyPromocodeButton.SetRoundedCorners(Context.DpToPx(16));
 
+            applyPromocodeButton.SetOnClickListener(new ViewOnClickListener(view =>
+            {
+                ViewModel.ApplyPromocodeCommand.Execute();
+                Context.HideKeyboard(promocodeEditText.WindowToken);
+                return Task.CompletedTask;
+            }));
+
             InitializeProductsRecyclerView();
             InitializeSaucesRecyclerView();
             InitializePackagesRecyclerView();
@@ -141,7 +149,6 @@ namespace SushiShop.Droid.Views.Fragments.Cart
             bindingSet.Bind(emptyCartConstraintLayout).For(v => v.BindVisible()).To(vm => vm.IsEmptyBasket);
             bindingSet.Bind(swipeRefreshLayout).For(v => v.Refreshing).To(vm => vm.IsRefreshing);
             bindingSet.Bind(swipeRefreshLayout).For(v => v.RefreshCommand).To(vm => vm.RefreshDataCommand);
-            bindingSet.Bind(applyPromocodeButton).For(v => v.BindClick()).To(vm => vm.ApplyPromocodeCommand);
             bindingSet.Bind(appliedPromocodeTitleTextView).For(v => v.Text).To(vm => vm.PromocodeDescription);
             bindingSet.Bind(appliedPromocodePriceTextView).For(v => v.Text).To(vm => vm.PromocodePrice);
             bindingSet.Bind(appliedPromocodeLinearLayout).For(v => v.BindVisible()).To(vm => vm.IsPromocodeApplyed);

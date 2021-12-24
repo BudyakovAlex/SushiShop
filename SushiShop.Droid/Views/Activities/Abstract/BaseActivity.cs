@@ -1,6 +1,9 @@
-﻿using Android.Content.PM;
+﻿using Android.App;
+using Android.Content;
+using Android.Content.PM;
 using Android.Views;
 using BuildApps.Core.Mobile.MvvmCross.ViewModels.Abstract;
+using SushiShop.Droid.Plugins;
 
 namespace SushiShop.Droid.Views.Activities.Abstract
 {
@@ -16,6 +19,15 @@ namespace SushiShop.Droid.Views.Activities.Abstract
         {
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (requestCode == Location.LocationActivityResult)
+            {
+                Location.CompletionSource?.TrySetResult(true);
+            }
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

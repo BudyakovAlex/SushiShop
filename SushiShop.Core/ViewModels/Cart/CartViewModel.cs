@@ -17,6 +17,7 @@ using SushiShop.Core.Messages;
 using SushiShop.Core.NavigationParameters;
 using SushiShop.Core.Plugins;
 using SushiShop.Core.Providers;
+using SushiShop.Core.Providers.UserOrderPreferences;
 using SushiShop.Core.Resources;
 using SushiShop.Core.ViewModels.Cart.Items;
 using SushiShop.Core.ViewModels.Orders;
@@ -36,6 +37,7 @@ namespace SushiShop.Core.ViewModels.Cart
         private readonly IDialog dialog;
         private readonly IUserDialogs userDialogs;
         private readonly ICitiesManager citiesManager;
+        private readonly IUserOrderPreferencesProvider userOrderPreferencesProvider;
 
         private Topping[]? sauses;
         private Data.Models.Cart.Cart? cart;
@@ -48,7 +50,8 @@ namespace SushiShop.Core.ViewModels.Cart
             IUserSession userSession,
             ICartItemsViewModelsFactory viewModelsFactory,
             IDialog dialog,
-            ICitiesManager citiesManager)
+            ICitiesManager citiesManager,
+            IUserOrderPreferencesProvider userOrderPreferencesProvider)
         {
             this.cartManager = cartManager;
             this.userSession = userSession;
@@ -56,6 +59,7 @@ namespace SushiShop.Core.ViewModels.Cart
             this.dialog = dialog;
             this.userDialogs = UserDialogs.Instance;
             this.citiesManager = citiesManager;
+            this.userOrderPreferencesProvider = userOrderPreferencesProvider;
 
             Products = new MvxObservableCollection<CartProductItemViewModel>();
             Sauces = new MvxObservableCollection<CartToppingItemViewModel>();
@@ -295,6 +299,7 @@ namespace SushiShop.Core.ViewModels.Cart
             var response = await citiesManager.GetAvailableReceiveMethodsAsync();
             if (response.Data is null)
             {
+                userOrderPreferencesProvider.ClearAll();
                 var error = response.Errors.FirstOrDefault();
                 if (error.IsNullOrEmpty())
                 {
@@ -303,6 +308,16 @@ namespace SushiShop.Core.ViewModels.Cart
 
                 await dialog.ShowToastAsync(error);
                 return;
+            }
+
+            if (!response.Data.CanDelivery)
+            {
+                userOrderPreferencesProvider.ClearDeliveryData();
+            }
+
+            if (!response.Data.CanPickup)
+            {
+                userOrderPreferencesProvider.ClearPickupData();
             }
 
             var parameter = new OrderRegistrationNavigationParameter(cart!, response.Data!);

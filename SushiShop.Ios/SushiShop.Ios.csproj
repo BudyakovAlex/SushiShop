@@ -696,6 +696,7 @@
     <Compile Include="Formatters\PhoneNumberFormatter.cs" />
     <Compile Include="Views\ViewControllers\Abstract\IRefreshableViewController.cs" />
     <Compile Include="Common\Styles\UINavigationBarStyles.cs" />
+    <Compile Include="Plugins\Location.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SushiShop.Core\SushiShop.Core.csproj">

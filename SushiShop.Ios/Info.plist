@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <dict>
-    <key>CFBundleShortVersionString</key>
-    <string>1.5.1</string>
-    <key>LSRequiresIPhoneOS</key>
-    <true />
-    <key>MinimumOSVersion</key>
-    <string>14.4</string>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-      <key>NSAllowsArbitraryLoads</key>
-      <true />
-    </dict>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Для определения того, в какой стране вы находитесть и поиска ближайшего магазина</string>
-    <key>UIAppFonts</key>
-    <array>
-      <string>SF-Pro-Display-Bold.otf</string>
-      <string>SF-Pro-Display-BoldItalic.otf</string>
-      <string>SF-Pro-Display-Regular.otf</string>
-      <string>SF-Pro-Display-RegularItalic.otf</string>
-      <string>SF-Pro-Display-Medium.otf</string>
-      <string>SF-Pro-Display-MediumItalic.otf</string>
-      <string>SF-Pro-Display-Semibold.otf</string>
-      <string>SF-Pro-Display-SemiboldItalic.otf</string>
-    </array>
-    <key>UIDeviceFamily</key>
-    <array>
-      <integer>1</integer>
-    </array>
-    <key>UILaunchStoryboardName</key>
-    <string>LaunchScreen</string>
-    <key>UIRequiredDeviceCapabilities</key>
-    <array>
-      <string>armv7</string>
-    </array>
-    <key>UISupportedInterfaceOrientations</key>
-    <array>
-      <string>UIInterfaceOrientationPortrait</string>
-    </array>
-    <key>UIUserInterfaceStyle</key>
-    <string>Light</string>
-    <key>XSAppIconAssets</key>
-    <string>Assets.xcassets/AppIcon.appiconset</string>
-    <key>CFBundleIdentifier</key>
-    <string>ru.sushishop.app2</string>
-    <key>ITSAppUsesNonExemptEncryption</key>
-    <false />
-    <key>NSCameraUsageDescription</key>
-    <string>Разрешите доступ к камере и фото и сможете прикрепить свою фотографию к профилю Сушишоп и отправлять отзывы с фотографиями заказа</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Разрешите доступ к фото и сможете прикрепить свою фотографию к профилю Сушишоп и  отправлять отзывы с фотографиями заказа</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>Приложению нужен доступ к микрофону</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>Разрешите доступ к галерее фото и сможете прикрепить свою фотографию к профилю Сушишоп и отправлять отзывы с фотографиями заказа</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>mailto</string>
-    </array>
-    <key>CFBundleDisplayName</key>
-    <string>Сушишоп</string>
-    <key>CFBundleVersion</key>
-    <string>85</string>
-  </dict>
+<dict>
+	<key>CFBundleShortVersionString</key>
+	<string>1.6.0</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>MinimumOSVersion</key>
+	<string>14.4</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Для определения того, в какой стране вы находитесть и поиска ближайшего магазина</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SF-Pro-Display-Bold.otf</string>
+		<string>SF-Pro-Display-BoldItalic.otf</string>
+		<string>SF-Pro-Display-Regular.otf</string>
+		<string>SF-Pro-Display-RegularItalic.otf</string>
+		<string>SF-Pro-Display-Medium.otf</string>
+		<string>SF-Pro-Display-MediumItalic.otf</string>
+		<string>SF-Pro-Display-Semibold.otf</string>
+		<string>SF-Pro-Display-SemiboldItalic.otf</string>
+	</array>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleIdentifier</key>
+	<string>ru.sushishop.app2</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Разрешите доступ к камере и фото и сможете прикрепить свою фотографию к профилю Сушишоп и отправлять отзывы с фотографиями заказа</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Разрешите доступ к фото и сможете прикрепить свою фотографию к профилю Сушишоп и  отправлять отзывы с фотографиями заказа</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Приложению нужен доступ к микрофону</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Разрешите доступ к галерее фото и сможете прикрепить свою фотографию к профилю Сушишоп и отправлять отзывы с фотографиями заказа</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>mailto</string>
+	</array>
+	<key>CFBundleDisplayName</key>
+	<string>Сушишоп</string>
+	<key>CFBundleVersion</key>
+	<string>89</string>
+</dict>
 </plist>
-

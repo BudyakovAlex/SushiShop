@@ -33,8 +33,8 @@ namespace SushiShop.Core.ViewModels.Menu
             this.cartManager = cartManager;
             this.userSession = userSession;
 
-            Messenger.Subscribe<CartProductChangedMessage>((msg) => _ = RefreshDataAsync()).DisposeWith(Disposables);
-            Messenger.Subscribe<RefreshProductsMessage>((msg) => _ = RefreshDataAsync()).DisposeWith(Disposables);
+            Messenger.Subscribe<CartProductChangedMessage>(OnCartProductChangedMessage).DisposeWith(Disposables);
+            Messenger.Subscribe<RefreshProductsMessage>(OnRefreshProductsMessage).DisposeWith(Disposables);
         }
 
         public string? Title => category?.PageTitle ?? sticker?.Title;
@@ -73,15 +73,17 @@ namespace SushiShop.Core.ViewModels.Menu
         {
             var city = userSession.GetCity();
             var response = await productsManager.GetProductsByCategoryAsync(category?.Id, city?.Name, sticker?.Type);
-            if (response.IsSuccessful)
+            if (!response.IsSuccessful)
             {
-                var allItems = response.Data.Select(product => new ProductItemViewModel(cartManager, product, city?.Name, RefreshDataAsync) { ExecutionStateWrapper = ExecutionStateWrapper }).ToArray();
-                var filteredItems = Filters.IsEmpty()
-                    ? new FilteredProductsViewModel[] { new FilteredProductsViewModel(allItems, RefreshDataAsync) }
-                    : Filters.Select((_, index) => ProduceItemsByFilter(allItems, index)).ToArray();
-
-                Items.ReplaceWith(filteredItems);
+                return;
             }
+
+            var allItems = response.Data.Select(product => new ProductItemViewModel(cartManager, product, city?.Name, RefreshDataAsync) { ExecutionStateWrapper = ExecutionStateWrapper }).ToArray();
+            var filteredItems = Filters.IsEmpty()
+                ? new FilteredProductsViewModel[] { new FilteredProductsViewModel(allItems, RefreshDataAsync) }
+                : Filters.Select((_, index) => ProduceItemsByFilter(allItems, index)).ToArray();
+
+            Items.SwitchTo(filteredItems);
         }
 
         private FilteredProductsViewModel ProduceItemsByFilter(ProductItemViewModel[] items, int index)
@@ -95,6 +97,21 @@ namespace SushiShop.Core.ViewModels.Menu
             var filteredItems = items.Where(item => item.ParentId == parentId).ToArray();
 
             return new FilteredProductsViewModel(filteredItems, RefreshDataAsync);
+        }
+
+        private void OnRefreshProductsMessage(RefreshProductsMessage message)
+        {
+            if (message.Sender is ProductItemViewModel)
+            {
+                return;
+            }
+
+            _ = RefreshDataAsync();
+        }
+
+        private void OnCartProductChangedMessage(CartProductChangedMessage message)
+        {
+            _ = RefreshDataAsync();
         }
     }
 }

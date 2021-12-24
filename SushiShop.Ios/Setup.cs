@@ -20,6 +20,7 @@ namespace SushiShop.Ios
             var container = CompositionRoot.Container;
 
             container.RegisterSingleton<IDialog, Dialog>();
+            container.RegisterSingleton<ILocation, Location>();
         }
 
         protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)

@@ -84,6 +84,7 @@ namespace SushiShop.Core.ViewModels.Menu.Items
             }
 
             Messenger.Publish(new RefreshCartMessage(this));
+            Messenger.Publish(new RefreshProductsMessage(this));
             product!.Uid = response.Data.Uid;
         }
     }

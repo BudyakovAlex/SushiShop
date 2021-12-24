@@ -66,16 +66,8 @@ namespace SushiShop.Core.Providers.UserOrderPreferences
 
         public void ClearAll()
         {
-            Flat = null;
-            Section = null;
-            Floor = null;
-            Intercom = null;
-            SetAddressSuggestion(null);
-            SetShop(null);
-            SetPhoneNumber(null, OrderTabType.Delivery);
-            SetPhoneNumber(null, OrderTabType.Pickup);
-            SetUserName(null, OrderTabType.Delivery);
-            SetUserName(null, OrderTabType.Pickup);
+            ClearPickupData();
+            ClearDeliveryData();
         }
 
         public void SetPhoneNumber(string? phone, OrderTabType orderTabType)
@@ -96,6 +88,24 @@ namespace SushiShop.Core.Providers.UserOrderPreferences
         public string? GetUserName(OrderTabType orderTabType)
         {
             return Preferences.Get($"{Constants.Preferences.UserNameKey}{orderTabType}", null);
+        }
+
+        public void ClearPickupData()
+        {
+            SetShop(null);
+            SetPhoneNumber(null, OrderTabType.Pickup);
+            SetUserName(null, OrderTabType.Pickup);
+        }
+
+        public void ClearDeliveryData()
+        {
+            Flat = null;
+            Section = null;
+            Floor = null;
+            Intercom = null;
+            SetAddressSuggestion(null);
+            SetPhoneNumber(null, OrderTabType.Delivery);
+            SetUserName(null, OrderTabType.Delivery);
         }
     }
 }

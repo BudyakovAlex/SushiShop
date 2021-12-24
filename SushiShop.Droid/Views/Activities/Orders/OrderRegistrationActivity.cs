@@ -96,6 +96,7 @@ namespace SushiShop.Droid.Views.Activities.Orders
             bindingSet.Bind(tabsLayoutManager).For(v => v.SpanCount).To(vm => vm.TabsTitles.Count);
             bindingSet.Bind(loadingOverlayView).For(v => v.BindVisible()).ByCombining(
                 new MvxOrValueCombiner(),
+                vm => vm.ExecutionStateWrapper.IsBusy,
                 vm => vm.PickupOrderSectionViewModel.ExecutionStateWrapper.IsBusy,
                 vm => vm.DeliveryOrderSectionViewModel.ExecutionStateWrapper.IsBusy);
 

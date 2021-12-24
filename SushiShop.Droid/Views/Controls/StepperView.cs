@@ -114,7 +114,7 @@ namespace SushiShop.Droid.Views.Controls
         private void Initialize()
         {
             imageSize = (int)Context.DpToPx(32);
-            
+
             BindingContext = new MvxBindingContext();
 
             this.SetRoundedCorners(Context.DpToPx(16));
@@ -122,7 +122,7 @@ namespace SushiShop.Droid.Views.Controls
             var layoutTransition = new LayoutTransition();
             layoutTransition.EnableTransitionType(LayoutTransitionType.Changing | LayoutTransitionType.Appearing | LayoutTransitionType.Disappearing);
 
-            LayoutTransition = layoutTransition;
+            // LayoutTransition = layoutTransition;
             SetBackgroundResource(Resource.Drawable.bg_button_gradient);
             Orientation = Orientation.Horizontal;
 

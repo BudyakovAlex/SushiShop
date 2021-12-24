@@ -76,6 +76,11 @@ namespace SushiShop.Core.ViewModels.Promotions
             if (response.IsSuccessful)
             {
                 promotion = response.Data;
+                if (StepperViewModel != null && promotion?.Product != null)
+                {
+                    StepperViewModel.Count = promotion.Product.CountInBasket;
+                }
+
                 _ = RaiseAllPropertiesChanged();
             }
         }
@@ -163,7 +168,7 @@ namespace SushiShop.Core.ViewModels.Promotions
 
         private void OnCartProductChanged(CartProductChangedMessage message)
         {
-            if (message.CartProduct.Id != promotion!.Product!.Id)
+            if (message.CartProduct.Id != promotion?.Product?.Id)
             {
                 return;
             }

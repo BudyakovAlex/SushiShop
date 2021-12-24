@@ -46,19 +46,6 @@ namespace SushiShop.Droid.Plugins
 
         public async Task<DateTime?> ShowDatePickerAsync(DateTime initialDate, DateTime? minDate, DateTime? maxDate, DatePickerMode mode = DatePickerMode.Date)
         {
-            if (mode == DatePickerMode.Date)
-            {
-                var result = await userDialogs.DatePromptAsync(
-                    new DatePromptConfig()
-                    {
-                        SelectedDate = initialDate,
-                        MinimumDate = minDate,
-                        MaximumDate = maxDate,
-                    });
-
-                return result.Value;
-            }
-
             var dateResult = await userDialogs.DatePromptAsync(
                 new DatePromptConfig()
                 {
@@ -66,6 +53,11 @@ namespace SushiShop.Droid.Plugins
                     MinimumDate = minDate,
                     MaximumDate = maxDate,
                 });
+
+            if (mode == DatePickerMode.Date)
+            {
+                return dateResult.Value;
+            }
 
             if (!dateResult.Ok)
             {
@@ -79,7 +71,8 @@ namespace SushiShop.Droid.Plugins
                     SelectedTime = initialDate.TimeOfDay,
                 });
 
-            if (!timeResult.Ok || timeResult.Value.TotalSeconds + 60.0 < minDate?.TimeOfDay.TotalSeconds)
+            var isSameDateSelected = dateResult.SelectedDate.Date == minDate?.Date;
+            if (!timeResult.Ok || (isSameDateSelected && timeResult.Value.TotalSeconds + 60.0 < minDate?.TimeOfDay.TotalSeconds))
             {
                 return null;
             }
