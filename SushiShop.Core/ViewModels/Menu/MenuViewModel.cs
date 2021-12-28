@@ -206,11 +206,10 @@ namespace SushiShop.Core.ViewModels.Menu
                     return;
                 }
 
+                var cityName = firtPlacemark.Locality ?? firtPlacemark.SubAdminArea;
                 var foundCity = cities.FirstOrDefault(city => city.Name.ToLowerInvariant()
-                                                                       .Equals(firtPlacemark.SubAdminArea
-                                                                       .ToLowerInvariant()));
-                if ((foundCity is null && city != null) ||
-                    (foundCity != null && foundCity.Id == city?.Id))
+                                                                       .Equals(cityName.ToLowerInvariant(), StringComparison.InvariantCultureIgnoreCase));
+                if (foundCity != null && foundCity.Id == city?.Id)
                 {
                     return;
                 }

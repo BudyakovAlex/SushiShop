@@ -64,10 +64,9 @@
     <WarningLevel>4</WarningLevel>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>Apple Development: Darya Bogdanova (2FZK8Z8D4M)</CodesignKey>
+    <CodesignKey>iPhone Distribution: SUSHI MARKA, OOO (9FR8W26YKX)</CodesignKey>
     <LangVersion>8.0</LangVersion>
     <MtouchLink>SdkOnly</MtouchLink>
-    <CodesignProvision>Sushishop BuildApps Dev</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -243,24 +242,24 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\App_store_1024_1x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Notifications_20_2x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Notifications_20_3x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Settings_29_2x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Settings_29_3x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Spotlight_40_2x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_Spotlight_40_3x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_App_60_2x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_App_60_3x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Notifications_20_1x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Notifications_20_2x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Settings_29_1x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Settings_29_2x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Spotlight_40_1x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Spotlight_40_2x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_App_76_1x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_App_76_2x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad_Pro_App_83.5_2x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\App_store_1024_1x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
